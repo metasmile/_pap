@@ -165,12 +165,13 @@
 		4F71D9AD0D07B03569A06D55 /* App.PhotoPickerViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */; };
 		4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */; };
 		4F71D9B4E8D299388E1A92B5 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBEC96C298669B35221A /* AppDockViewController.swift */; };
-		4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBC7B1677545F1FDFFBF /* PhoneCalls.swift */; };
+		4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBC7B1677545F1FDFFBF /* PhoneCalls.BApp.swift */; };
 		4F71D9FD9DEE856DF1C6C355 /* apps_collection.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC8E006B7C6A5323B5B8 /* apps_collection.png */; };
+		4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */; };
 		4F71DA179B296DA438DF7F6D /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */; };
 		4F71DA17D09B551E38D1364A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B7895317B10D661C54 /* Object.swift */; };
 		4F71DA1A6FC8FCD009336391 /* Filters.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */; };
-		4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.Purchase.swift */; };
+		4F71DA22B36DA740EDD15DB1 /* Shop.Payables.StoreRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.StoreRoot.swift */; };
 		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
 		4F71DA63CF4EC022E2499107 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC767D0046648A03D16 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
@@ -494,6 +495,7 @@
 		4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
 		4F71D93194BD75FB4B17AAC0 /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Filters.jpg; sourceTree = "<group>"; };
 		4F71D97ED9B2D6302113481F /* ImageIO.HEIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.HEIF.swift; sourceTree = "<group>"; };
+		4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.StoreKit.swift; sourceTree = "<group>"; };
 		4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.CameraView.swift; sourceTree = "<group>"; };
 		4F71D9C63117AE87507DC6A6 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4F71D9D46E3CCE21087D649B /* FirebaseMLVision.VisionTextDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionTextDetector.swift; sourceTree = "<group>"; };
@@ -520,7 +522,7 @@
 		4F71DB9A2D6C0695C47433B7 /* AppDockView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppDockView.xib; sourceTree = "<group>"; };
 		4F71DBB856ABD83409EE9D1F /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		4F71DBB8908DF3CC41DA982B /* CodeKit.Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Math.swift; sourceTree = "<group>"; };
-		4F71DBC7B1677545F1FDFFBF /* PhoneCalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCalls.swift; sourceTree = "<group>"; };
+		4F71DBC7B1677545F1FDFFBF /* PhoneCalls.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCalls.BApp.swift; sourceTree = "<group>"; };
 		4F71DBCD5F4393C1B49479A2 /* CodeKit.CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CoreGraphics.swift; sourceTree = "<group>"; };
 		4F71DBE2FAD161C2D94D9CC6 /* PhotoPickerViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		4F71DBEC96C298669B35221A /* AppDockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
@@ -578,7 +580,7 @@
 		4F71DF0023CBC4BE3200C204 /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 		4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Label.swift; sourceTree = "<group>"; };
 		4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.Tests.swift; sourceTree = "<group>"; };
-		4F71DF49F0FF6089248DE131 /* Shop.Payables.Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.Purchase.swift; sourceTree = "<group>"; };
+		4F71DF49F0FF6089248DE131 /* Shop.Payables.StoreRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.StoreRoot.swift; sourceTree = "<group>"; };
 		4F71DF5929BB7A3D62EEA59F /* gifmaker_preview_frame_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_0.png; sourceTree = "<group>"; };
 		4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Macro.AutoSelection.swift; sourceTree = "<group>"; };
 		4F71DF928C2BD1911803D81E /* AppTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskManager.swift; sourceTree = "<group>"; };
@@ -960,9 +962,10 @@
 			children = (
 				4F71D4884D683710D4B95189 /* Shop.SApp.swift */,
 				4F71DCA57D6D9B5EE813EDD6 /* Shop.Payables.FreeCharge.swift */,
-				4F71DF49F0FF6089248DE131 /* Shop.Payables.Purchase.swift */,
+				4F71DF49F0FF6089248DE131 /* Shop.Payables.StoreRoot.swift */,
 				4F71DFE9DE932092B856F772 /* Shop.Payables.Promotion.swift */,
 				4F71DDAD172A2A3E9F252E29 /* Shop.UI.swift */,
+				4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -1314,7 +1317,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71D1DDBB0D44BFD85DA860 /* PhoneCalls.BApp.Assets.xcassets */,
-				4F71DBC7B1677545F1FDFFBF /* PhoneCalls.swift */,
+				4F71DBC7B1677545F1FDFFBF /* PhoneCalls.BApp.swift */,
 			);
 			path = PhoneCalls;
 			sourceTree = "<group>";
@@ -2467,7 +2470,7 @@
 				4F71D00EDD845A754DE1A3F0 /* Transform.BApp.swift in Sources */,
 				4F71D41A81D16C12BB590B69 /* Transform.BApp.Contents.swift in Sources */,
 				4F71D237E0C62A1E6915D4BD /* Transform.BApp.Public.Contents.swift in Sources */,
-				4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.swift in Sources */,
+				4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.BApp.swift in Sources */,
 				4F71DF970A25BD69A64B2854 /* Finder.BApp.swift in Sources */,
 				4F71DAFB85C473BC71266EDB /* Camera.BApp.swift in Sources */,
 				4F71D297B39DB140B876FDC4 /* BApp.Macro.AutoSelection.swift in Sources */,
@@ -2475,10 +2478,11 @@
 				4F71DB8751248946212A908C /* SApp.swift in Sources */,
 				4F71D406A172F105246FCB03 /* Shop.Payables.FreeCharge.swift in Sources */,
 				4F71D42D37917B52DB68D096 /* MemoCam.BApp.swift in Sources */,
-				4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Purchase.swift in Sources */,
+				4F71DA22B36DA740EDD15DB1 /* Shop.Payables.StoreRoot.swift in Sources */,
 				4F71D89737C20E00DEE351B7 /* Shop.Payables.Promotion.swift in Sources */,
 				4F71DD13AFA84A20F0CF0050 /* Shop.UI.swift in Sources */,
 				4F71DB405D8C9B7D90DE4C20 /* App.ManagerConfigurable.swift in Sources */,
+				4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

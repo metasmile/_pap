@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "Μια εφαρμογή φωτογραφιών, αλλά περιέχει πολλές υποεπιλογές από τη δική της.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Ενέργειες";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Ενεργοποίηση τωρινών ορατών στοιχείων ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Προσθήκη νέας επαφής";
@@ -178,7 +178,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Επιλέξτε έναν αριθμό τηλεφώνου για κλήση";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Επιλέξτε μια ενέργεια";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Περίοδος παράτασης της δωρεάν χρήσης";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Φίλτρα";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Εύρημα";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Το Finder επιτρέπει την εξαγωγή κάθε σημαντικής πληροφορίας, όπως αριθμούς τηλεφώνου, διευθύνσεις, ημερομηνίες ή διευθύνσεις URL από τις φωτογραφίες σας, και στη συνέχεια να καλέσετε, να ανοίξετε τους χάρτες ή να περιηγηθείτε σε ιστότοπους, ακόμη και να αναζητήσετε πτήσεις. Μπορείτε επίσης να τα αποθηκεύσετε ως ακατέργαστο κείμενο.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Εύρεση επαφών ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Φακός";
@@ -298,7 +298,7 @@
 "New Contact" = "Νέα επαφή";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Νέο γεγονός";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "Νέος αριθμός τηλεφώνου";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
@@ -306,7 +306,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Τώρα συμβάλλετε και αποκτήστε δωρεάν χρήση.";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Σε αναμονή";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "Προεπιλογή μεγέθους σελίδας";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Σελίδες";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Τηλεφωνικό νούμερο";
@@ -352,7 +352,7 @@
 "Rotate" = "Γυρίζω";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Περιστροφή";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "Αποθήκευση όλων των αριθμών τηλεφώνου";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Αποθήκευση επαφών";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "Επιλέξτε Φωτογραφίες για Διαγραφή.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Επιλέξτε Φωτογραφίες για να βρείτε τα πάντα.";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Επιλέξτε φωτογραφίες που θέλετε να τραβήξετε τηλεφωνικούς αριθμούς!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Επιλεγμένο";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "Βίντεο μικρότερη από 1 δευτερόλεπτο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Αναμονή για επιλογή ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Στημόνι";

@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "แอปรูปภาพ แต่มีแอปย่อยจำนวนมากอยู่ด้วยตัวเอง";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "การปฏิบัติ";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "กำลังเปิดใช้งานรายการที่มองเห็นได้ปัจจุบัน ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "เพิ่มผู้ติดต่อใหม่";
@@ -178,7 +178,7 @@
 "Camera" = "กล้อง";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ไม่สามารถย้อนกลับได้ รายการที่เลือกทั้งหมดยังไม่ได้แก้ไข";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "เลือกหมายเลขโทรศัพท์ที่ต้องการโทร";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "เลือกการกระทำ";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "ขยายระยะเวลาการใช้งานฟรี";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ฟิลเตอร์";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "หา";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder ช่วยให้สามารถดึงข้อมูลที่มีความหมายทุกอย่างเช่นหมายเลขโทรศัพท์ที่อยู่วันที่หรือ URL จากภาพถ่ายของคุณจากนั้นเรียกใช้เปิดแผนที่หรือนำทางเว็บไซต์ได้แม้กระทั่งการค้นหาเที่ยวบิน นอกจากนี้คุณยังสามารถบันทึกข้อมูลทั้งหมดเป็นข้อความดิบ";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "กำลังค้นหาที่อยู่ติดต่อ ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "ไฟฉาย";
@@ -298,7 +298,7 @@
 "New Contact" = "ที่ติดต่อใหม่";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "กิจกรรมใหม่";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "หมายเลขโทรศัพท์ใหม่";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
@@ -306,7 +306,7 @@
 "No loop" = "ไม่มีลูป";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "มีส่วนร่วมและใช้งานฟรี";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "เมื่อสแตนด์บาย";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "เปิดแอปเปิ้ลแผนที่";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "ตั้งค่าขนาดหน้าเว็บ";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "หน้า";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "โทรศัพท์";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "หมายเลขโทรศัพท์";
@@ -352,7 +352,7 @@
 "Rotate" = "หมุน";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "การหมุน";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "บันทึกหมายเลขโทรศัพท์ทั้งหมด";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "บันทึกรายชื่อติดต่อ";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "เลือกรูปภาพเพื่อลบ";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "เลือกรูปภาพเพื่อค้นหาทุกอย่าง";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "เลือกภาพถ่ายที่คุณต้องการหยิบเบอร์โทรศัพท์!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "เลือก";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "วิดีโอสั้นกว่า 1 วินาที";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "กำลังรอให้เลือก ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "วิปริต";

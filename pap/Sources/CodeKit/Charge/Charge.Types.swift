@@ -76,6 +76,14 @@ protocol VerifiablePayable: Payable {
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool?
 }
 
+protocol StorePayable: VerifiablePayable {
+    static var product: StorePayableProduct {get}
+}
+
+protocol StorePayableProduct {
+    var identifier:String {get}
+}
+
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
@@ -105,7 +113,6 @@ extension Equatable where Self:Chargeable{
 // Use "AppCenter.charge.getCharge(for: chargeable)"
 protocol Charge: Chargeable {
     var priceAmount: Amount {get}
-
     var title:String {get}
     var description:String? {get}
 

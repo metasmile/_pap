@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "Ứng dụng ảnh, nhưng lại chứa rất nhiều ứng dụng phụ.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Hành động";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Đang kích hoạt các mục hiển thị hiện tại ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Thêm liên hệ mới";
@@ -178,7 +178,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Chọn số điện thoại để gọi";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Chọn một hành động";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Kéo dài thời gian sử dụng miễn phí";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Trình tìm kiếm cho phép trích xuất mọi thông tin có ý nghĩa như số điện thoại, địa chỉ, ngày hoặc URL từ ảnh của bạn và sau đó gọi, mở bản đồ hoặc điều hướng trang web ngay cả khi tìm kiếm chuyến bay. Bạn cũng có thể lưu tất cả chúng dưới dạng văn bản thô.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Đang tìm Danh bạ ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Đèn pin";
@@ -298,7 +298,7 @@
 "New Contact" = "Địa chỉ liên lạc mới";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Sự kiện mới";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "Số điện thoại mới";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
@@ -306,7 +306,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Bây giờ đóng góp và sử dụng miễn phí.";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "Kích thước trang đặt trước";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Trang";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Số điện thoại";
@@ -352,7 +352,7 @@
 "Rotate" = "Quay";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Vòng xoay";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "Lưu tất cả số điện thoại";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Lưu liên hệ";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "Chọn Ảnh để Xóa.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Chọn ảnh để tìm mọi thứ.";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Đã chọn";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "Video ngắn hơn 1 giây";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video không có âm thanh";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

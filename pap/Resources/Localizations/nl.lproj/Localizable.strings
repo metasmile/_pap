@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "Een foto-app, maar bevat veel eigen sub-apps.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Acties";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Actuele zichtbare items activeren ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Voeg nieuw contact toe";
@@ -178,7 +178,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan niet terugkeren. Alle geselecteerde items zijn niet bewerkt.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Kies een telefoonnummer dat u wilt bellen";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Kies een actie";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Verleng de periode van gratis gebruik";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Vind";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder maakt het mogelijk alle zinvolle informatie zoals telefoonnummers, adressen, datums of URL's uit uw foto's te extraheren en vervolgens te bellen, kaarten te openen of websites te doorzoeken, zelfs bij het zoeken van vluchten. Je kunt ze ook allemaal opslaan als onbewerkte tekst.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Vinder";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Contactpersonen zoeken ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Zaklamp";
@@ -298,7 +298,7 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Nieuw evenement";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "Nieuw telefoonnummer";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "Geen gewas";
@@ -306,7 +306,7 @@
 "No loop" = "Geen lus";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Draag nu bij en krijg gratis gebruik.";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Op standby";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "Voorinstelling paginagrootte";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoonnummer";
@@ -352,7 +352,7 @@
 "Rotate" = "Draaien";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "omwenteling";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "Bewaar alle telefoonnummers";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Sla contacten op";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "Selecteer Foto's om te verwijderen.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Selecteer Foto's om alles te vinden.";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selecteer Foto's die u wilt gebruiken Telefoonnummers!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Gekozen";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "Video's korter dan 1 seconde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video's zonder geluid";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

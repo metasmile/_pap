@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "O aplicație pentru fotografii, dar conține o mulțime de sub-aplicații în propria sa aplicație.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "acţiuni";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Activarea elementelor vizibile actuale ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Adăugați un contact nou";
@@ -178,7 +178,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nu se poate reveni. Toate elementele selectate nu au fost editate.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Alegeți un număr de telefon pentru a apela";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Alegeți o acțiune";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Extindeți perioada de utilizare gratuită";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtre";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Găsi";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder vă permite să extrageți din fotografii toate informațiile relevante, cum ar fi numere de telefon, adrese, date sau adrese URL, apoi să apelați, să deschideți hărți sau să navigați pe site-uri chiar să căutați zboruri. De asemenea, le puteți salva pe toate ca text brut.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "căutător";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Găsirea contactelor ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Lanternă";
@@ -298,7 +298,7 @@
 "New Contact" = "Contact nou";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Eveniment nou";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "Numărul de telefon nou";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
@@ -306,7 +306,7 @@
 "No loop" = "Nicio buclă";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Acum contribuiți și obțineți utilizarea gratuită.";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "În așteptare";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Deschideți Apple Maps";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pagini";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numar de telefon";
@@ -352,7 +352,7 @@
 "Rotate" = "Roti";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Rotație";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "Salvați toate numerele de telefon";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Salvați Contacte";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "Selectați fotografii pentru a șterge.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Selectați fotografiile pentru a găsi totul.";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selectați fotografiile pe care doriți să le luați numerelor de telefon!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Selectat";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "Videoclipuri mai scurte decât 1 secundă";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videoclipuri fără sunet";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Așteptare pentru a selecta ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Urzeală";

@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "一個照片應用程序，但它自己包含很多子應用程序。";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "操作";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "激活當前可見項目......";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "添加新聯繫人";
@@ -178,7 +178,7 @@
 "Camera" = "相機";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "無法恢復。所有選擇的項目都沒有編輯。";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "選擇要撥打的電話號碼";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "選擇一個動作";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "延長免費使用期限";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "過濾器";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "找";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder可以從您的照片中提取每個有意義的信息，如電話號碼，地址，日期或URL，然後撥打電話，打開地圖或瀏覽網站甚至搜索航班。您也可以將它們全部保存為原始文本。";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "發現者";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "查找聯繫人... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "手電筒";
@@ -298,7 +298,7 @@
 "New Contact" = "新聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "新事件";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "新電話號碼";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "沒有作物";
@@ -306,7 +306,7 @@
 "No loop" = "沒有循環";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "現在貢獻並獲得免費使用。";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "隨時待命";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "打開Apple Maps";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "頁面大小預設";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "網頁";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "電話";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "電話號碼";
@@ -352,7 +352,7 @@
 "Rotate" = "旋轉";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "迴轉";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "保存所有電話號碼";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "保存聯繫人";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "選擇要刪除的照片。";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "選擇照片查找所有內容。";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "選擇您想要獲取電話號碼的照片！";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "選";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "短於1秒的視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "沒有聲音的視頻";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "等待選擇...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";

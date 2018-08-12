@@ -134,7 +134,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "Aplikace pro fotografie, ale obsahuje spoustu dílčích aplikací.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akce";
-/* Generated from genl10n: PhoneCalls.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Aktivace aktuálně viditelných položek ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
 "Add New Contact" = "Přidat nový kontakt";
@@ -178,7 +178,7 @@
 "Camera" = "Fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Zvolte telefonní číslo, které chcete zavolat";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Zvolte akci";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Prodloužení doby volného použití";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtry";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Nalézt";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Vyhledávač umožňuje vyjímat z vašich fotografií veškeré smysluplné informace, jako jsou telefonní čísla, adresy, data nebo adresy URL, a poté volat, otevřít mapy nebo navigovat na webové stránky, a dokonce i vyhledat lety. Můžete je také uložit jako surový text.";
 /* Generated from genl10n: Finder.BApp.swift#40 */
 "Finder" = "Nálezce";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Hledání kontaktů ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Svítilna";
@@ -298,7 +298,7 @@
 "New Contact" = "Nový kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Nová událost";
-/* Generated from genl10n: PhoneCalls.swift#142, PhoneCalls.swift#145, PhoneCalls.swift#180, PhoneCalls.swift#182 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
 "New Phone Number" = "Nové telefonní číslo";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
@@ -306,7 +306,7 @@
 "No loop" = "Žádná smyčka";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
 "Now Contribute And Get Free Use." = "Nyní přispějte a získejte bezplatné použití.";
-/* Generated from genl10n: PhoneCalls.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostním režimu";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otevřete Apple Maps";
@@ -324,7 +324,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Stránky";
-/* Generated from genl10n: PhoneCalls.swift#57 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Telefonní hovory";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonní číslo";
@@ -352,7 +352,7 @@
 "Rotate" = "Točit se";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Otáčení";
-/* Generated from genl10n: PhoneCalls.swift#137 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
 "Save All Phone Numbers" = "Uložit všechna telefonní čísla";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Uložit kontakty";
@@ -376,7 +376,7 @@
 "Select Photos To Delete." = "Vyberte fotky k odstranění.";
 /* Generated from genl10n: Finder.BApp.swift#1345 */
 "Select Photos To Find Everything." = "Vyberte fotky, chcete-li najít vše.";
-/* Generated from genl10n: PhoneCalls.swift */
+/* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, které chcete chytit telefonní čísla!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Vybraný";
@@ -442,7 +442,7 @@
 "Videos Shorter Than 1 Second" = "Videa kratší než 1 sekunda";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videa bez zvuku";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.swift */
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čekání na výběr ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
