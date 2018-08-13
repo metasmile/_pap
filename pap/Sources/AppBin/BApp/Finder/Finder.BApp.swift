@@ -1301,7 +1301,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
         cell_b.label = "Take A Photo".localized
-        cell_b.buttonImageName = R.image.systemIconCamera.name
+        cell_b.buttonImage = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
             var option = AppLaunchOptions()
             option.identifierToReturn = FinderApp.info.identifier
@@ -1503,7 +1503,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
             cell.textLabel?.text = item.label
 
-            if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+            if let buttonAsImage = cellDescriber.buttonImage?.asUIImage{
                 cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
             }else if let buttonAsText = cellDescriber.buttonTitleLabel {

@@ -383,7 +383,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = PhoneCallsAppCells.takePhoto.hashValue
         cell_b.label = "Take A Photo".localized
-        cell_b.buttonImageName = R.image.systemIconCamera.name
+        cell_b.buttonImage = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
             var option = AppLaunchOptions()
             option.identifierToReturn = PhoneCallsApp.info.identifier
@@ -468,7 +468,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
             cell.textLabel?.text = item.label
 
-            if let buttonAsImage = cellDescriber.buttonImageName?.asUIImage{
+            if let buttonAsImage = cellDescriber.buttonImage?.asUIImage{
                 cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
 

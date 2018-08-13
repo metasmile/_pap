@@ -16,7 +16,7 @@ private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.san
 private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.production
 #endif
 
-struct StorePayableConfigurator{
+struct StorePayableConfigurator {
     static func configure(){
 
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
@@ -50,6 +50,35 @@ struct StorePayableConfigurator{
             }
         }
     }
+
+    static func restore(_ signal: AsyncWaitSignalable) -> [String]?{
+        var purchases:[Purchase]?
+
+        signal.begin()
+
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+
+            purchases = [Purchase]()
+
+            for purchase in results.restoredPurchases {
+                let downloads = purchase.transaction.downloads
+                if !downloads.isEmpty {
+                    SwiftyStoreKit.start(downloads)
+                } else if purchase.needsFinishTransaction {
+                    // Deliver content from server, then:
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+                purchases?.append(purchase)
+            }
+            signal.end()
+        }
+
+        signal.waitUntilEnd()
+
+        return purchases?.map { purchase -> String in
+            return purchase.productId
+        }
+    }
 }
 
 extension StorePayable{
@@ -66,6 +95,7 @@ extension StorePayable{
         return false
     }
 }
+
 
 protocol NonConsumablePurchasingPayable:StorePayable{}
 extension NonConsumablePurchasingPayable{
@@ -160,35 +190,6 @@ private extension StorePayableProduct {
 
         signal.waitUntilEnd()
         return paid
-    }
-
-    static func restore(_ signal: AsyncWaitSignalable) -> [String]?{
-        var purchases:[Purchase]?
-
-        signal.begin()
-
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-
-            purchases = [Purchase]()
-
-            for purchase in results.restoredPurchases {
-                let downloads = purchase.transaction.downloads
-                if !downloads.isEmpty {
-                    SwiftyStoreKit.start(downloads)
-                } else if purchase.needsFinishTransaction {
-                    // Deliver content from server, then:
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                }
-                purchases?.append(purchase)
-            }
-            signal.end()
-        }
-
-        signal.waitUntilEnd()
-
-        return purchases?.map { purchase -> String in
-            return purchase.productId
-        }
     }
 
     func verifyReceipt(completion: @escaping (VerifyReceiptResult) -> Void) {

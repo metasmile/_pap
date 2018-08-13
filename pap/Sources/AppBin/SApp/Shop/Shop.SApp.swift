@@ -114,6 +114,13 @@ private struct PayDictionary:Hashable {
     }
 }
 
+private extension ChargeableImage{
+    static func create(for charge:Charge?, tintColor:UIColor, appearance:ChargeableButtonAppearance) -> UIImage{
+        let image = ChargeableImage(balance: charge?.priceAmount.value ?? 0, fillMode: .fill, tintColor: tintColor, appearanceDelegate: appearance)
+        return image.withAlignmentRectInsets(UIEdgeInsets(top: -6, left: -6, bottom: -6, right: -6))
+    }
+}
+
 private struct PayItemImageStyle {
     fileprivate var useTintColor: Bool = true
     fileprivate var beRound: Bool = false
@@ -138,7 +145,7 @@ private struct PayItem: Hashable, Equatable {
             }
 
             let iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
-                    ?? ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge)).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
+                    ?? ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeableDefaultImageAppearance(charge:charge))
 
 //            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
 
@@ -256,29 +263,8 @@ extension Defaults: ShopAppDefaults {
     }
 }
 
-private struct ShopAppChargeableAssets : ChargeableButtonAppearance{
+private struct ChargeableDefaultImageAppearance: ChargeableButtonAppearance{
     let charge:Charge
-
-//    fileprivate lazy var chargeableButton = makeChargeableBarButtonItem()
-//
-//    func makeChargeableBarButtonItem() -> ChargeableBarButtonItem{
-//        let chargeableButton = ChargeableButton(type: .system, appearance: self)
-//        chargeableButton.imageView?.contentMode = .scaleAspectFit
-//        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
-//
-//        chargeableButton.fillMode = [.fill]
-//
-//        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
-//        chargeableButton.showsColorLevel = false
-//        chargeableButton.showsAnimation = false
-//        chargeableButton.showsPercentage = false
-//
-//        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-//        chargeableButton.titleEdgeInsets.left = 2
-//        chargeableButton.titleEdgeInsets.right = -2
-//
-//        return ChargeableBarButtonItem(button:chargeableButton)
-//    }
 
     var emptyImage: UIImage? {
         switch charge.reward{
@@ -287,6 +273,16 @@ private struct ShopAppChargeableAssets : ChargeableButtonAppearance{
             default:
                 return R.image.systemIconFavoriteLine()
         }
+    }
+    var filledImage: UIImage? {
+        return R.image.systemIconFavoriteFill()
+    }
+}
+
+private struct ChargeableRestoreImageAppearance: ChargeableButtonAppearance{
+
+    var emptyImage: UIImage? {
+        return R.image.systemIconFavoriteLineRestore()
     }
     var filledImage: UIImage? {
         return R.image.systemIconFavoriteFill()
@@ -308,6 +304,7 @@ private enum DeletingTarget:Int{
 }
 
 private enum ShopAppSettingCells {
+    case restore
     case deletingTarget
     case autoSelect
     case saveContactWithoutEdit
@@ -360,40 +357,21 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return celld
     }
 
-    private func createCellDescriber_SelectionPreset_action_quickActionsOnly() -> UITableViewSwitchCellDescriber{
-        let celld = UITableViewSwitchCellDescriber()
-        celld.itemIdentifier = ShopAppSettingCells.quickActionOnly.hashValue
-        celld.label = "Enable Quick Actions".localized
-        celld.valueGetter = { ShopApp.privateDefaults.quickActionOnly }
-        celld.valueHandler = {
-            var defaults = ShopApp.privateDefaults
-            defaults.quickActionOnly = $0 as! Bool
-        }
-        return celld
-    }
-
-//    private var isActivatedAtLeastOne:Bool{
-//        return self.defaultCollections.compactMap { dictionary -> PayDictionary? in
-//            return dictionary.items.compactMap { $0.enabled ? $0 : nil }.count > 0 ? dictionary : nil
-//        }.count > 0
-//    }
-
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if settingCellDescribers.count>0{
             return
         }
 
-        let cell1 = UITableViewSwitchSubtitleCellDescriber()
-        cell1.itemIdentifier = ShopAppSettingCells.autoSelect.hashValue
-        cell1.label = "Auto Selection Bot".localized
-        cell1.iconImage = R.image.commonIconRobot.name
-        cell1.valueGetter = { ShopApp.privateDefaults.autoSelect }
-        cell1.valueHandler = { val in
-
+        let cell_b = UITableViewButtonCellDescriber()
+        cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
+        cell_b.label = "Restore All Purchases".localized
+        cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
+        cell_b.buttonTitleLabel = "Restore".localized
+        cell_b.valueHandler = { _ in
 
         }
-//        settingCellDescribers.append(cell1)
+        settingCellDescribers.append(cell_b)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = ShopAppSettingCells.deletingTarget.hashValue
@@ -554,6 +532,20 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             return cell
         }
 
+        else if let cellDescriber = item as? UITableViewButtonCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
+
+            cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = cellDescriber.detailedLabel
+            cell.imageView?.image = item.iconImage?.asUIImage
+            cell.button.setTitle(cellDescriber.buttonTitleLabel, for: .normal)
+            cell.button.setTitleColor(self.view.tintColor, for: .normal)
+            cell.didTap = {
+                cellDescriber.valueHandler?("tapped")
+            }
+            return cell
+        }
+
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
         , let value = item.valueGetter() as? Int
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
@@ -573,6 +565,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
             return cell
         }
+
+
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
@@ -615,6 +609,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         // Cell.ImageView: Reward
         cell.imageView?.tintColor = self.view.tintColor
+
         if dataItem.rewardIconImageStyle.useTintColor {
             cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         }else{
@@ -627,20 +622,25 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         // Cell.AssessoryView: Charge
         cell.button.tintColor = self.view.tintColor
-        if dataItem.chargeIconImageStyle.useTintColor {
-            cell.button.setImage(dataItem.chargeIconImage?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+
+        //1st Image
+        if let payingImage = dataItem.chargeIconImage?.asUIImage{
+            if dataItem.chargeIconImageStyle.useTintColor {
+                cell.button.setImage(payingImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+            }else{
+                cell.button.setImage(payingImage.withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: .normal)
+            }
+            if dataItem.chargeIconImageStyle.beRound, let image = cell.button.image(for: .normal){
+                cell.imageView?.image = image.rounded(radius: image.size.height)
+            }
         }else{
-            cell.button.setImage(dataItem.chargeIconImage?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: .normal)
-        }
-        if dataItem.chargeIconImageStyle.beRound, let image = cell.button.image(for: .normal){
-            cell.imageView?.image = image.rounded(radius: image.size.height)
+            // 2nd - label
+            cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
+            cell.button.setTitleColor(self.view.tintColor, for: .normal)
         }
 
         //TODO: display already paid
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
-//        cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
-//        cell.button.setTitleColor(self.view.tintColor, for: .normal)
-
         cell.didTap = {
             self.didTapPayButton(item: dataItem)
             tableView.reloadRows(at: [indexPath], with: .fade)
