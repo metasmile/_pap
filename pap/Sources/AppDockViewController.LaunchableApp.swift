@@ -38,17 +38,19 @@ extension AppCenter{
     func openApp(identifier:String, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         if identifier.trimmed.nilEmpty != nil
         , let matchedApp = AppCenter.default.apps().first(where:{ $0.info.identifier==identifier }){
-            var mutableOption = options
 
-            var defaultLaunchingOptions = mutableOption?.options ?? [AppLaunchOptionsKey:Any]()
+            var passingOption:AppLaunchOptions? = options
 
             //set basically current app to source app if it didn't defined.
-            if defaultLaunchingOptions[.SourceAppType] == nil{
+            if options?.options?[.SourceAppType] == nil{
+                var mutableOption = options ?? AppLaunchOptions()
+                var defaultLaunchingOptions = mutableOption.options ?? [AppLaunchOptionsKey:Any]()
                 defaultLaunchingOptions[.SourceAppType] = self.current
-                mutableOption?.options = defaultLaunchingOptions
+                mutableOption.options = defaultLaunchingOptions
+                passingOption = mutableOption
             }
 
-            return self.selectApp(matchedApp, options:options, animation: animation)
+            return self.selectApp(matchedApp, options:passingOption, animation: animation)
         }
         return false
     }

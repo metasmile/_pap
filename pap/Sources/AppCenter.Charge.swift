@@ -68,14 +68,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .renewableMonthlySubscription
                     , reward: .owned, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .owned
                     , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , describable: AppChargeDescription(title:"Annual Pass".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"Annual Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -83,13 +83,13 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .owned
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , describable: AppChargeDescription(title:"1-Month Pass".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"1-Month Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "A Month Use of Apps Including All New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .owned, payment: OneYearAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , describable: AppChargeDescription(title:"1-Year Pass".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"1-Year Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "A Year Use of Apps Including All New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
             )
         ]
@@ -133,7 +133,6 @@ class AppCharge: Charge {
         self.payment = payment
         self.priceAmount = priceAmount
         self.describable = describable
-
         //if custom defined
         if rewardDescribable != nil{
             self.rewardDescribable = rewardDescribable
@@ -190,7 +189,7 @@ class AppCharge: Charge {
 }
 
 extension AppCharge{
-    static func createLocalCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
+    static func createLocalAppCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
         var payable:StorePayable.Type?
         switch chargeType{
             case .nonConsumablePurchase:

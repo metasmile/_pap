@@ -66,7 +66,7 @@ public class ShopApp: NSObject
 
 
 private struct PayDictionary:Hashable {
-    static let Default: [PayDictionary] = [
+    static let DefaultCollection: [PayDictionary] = [
         PayDictionary(
                 key: .Charge
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
@@ -114,29 +114,33 @@ private struct PayDictionary:Hashable {
     }
 }
 
+private struct PayItemImageStyle {
+    fileprivate var useTintColor: Bool = true
+    fileprivate var beRound: Bool = false
+}
 
 private struct PayItem: Hashable, Equatable {
+    private let charge:Charge?
+
     fileprivate let payable:Payable.Type
+
+    fileprivate var chargeIconImage: ImageSourceable? {
+        return charge?.describable.iconImage
+    }
 
     fileprivate func getRewardIconImage(tintColor:UIColor) -> ImageSourceable? {
 
         let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
 
-        if let charge = AppCenter.charge.getCharge(for: payable){
+        if let charge = self.charge{
             if let image = iconImageCache?.object(forKey: charge.identifier as NSString){
                 return image
             }
 
-            var iconImage: UIImage?
+            let iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
+                    ?? ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge)).withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
 
-            if let chargeableAppType = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type{
-                iconImage = chargeableAppType.info.iconBundleName?.asUIImage
-
-            }else{
-                iconImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge))
-                        .withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
 //            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
-            }
 
             if let iconImage = iconImage{
                 iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
@@ -147,16 +151,18 @@ private struct PayItem: Hashable, Equatable {
         return nil
     }
 
-    fileprivate var iconImageShouldUseTintColor: Bool
+    fileprivate var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
+    fileprivate var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
+
     fileprivate var enabled: Bool = true
     fileprivate let label:String
     fileprivate let rewardLabel:String
 
     init(payable: Payable.Type) {
         self.payable = payable
-        self.label = AppCenter.charge.getCharge(for: payable)?.describable.title ?? "Undefined Charge"
-        self.rewardLabel = AppCenter.charge.getCharge(for: payable)?.rewardDescribable?.title ?? "Undefined Reward"
-        self.iconImageShouldUseTintColor = true
+        self.charge = AppCenter.charge.getCharge(for: payable)
+        self.label = charge?.describable.title ?? "Undefined Charge"
+        self.rewardLabel = charge?.rewardDescribable?.title ?? "Undefined Reward"
     }
 
     var hashValue: Int {
@@ -324,21 +330,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private var defaultCollections:[PayDictionary] {
-        var defaultCollection = PayDictionary.Default
-
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
-        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
-            defaultCollection.append(PayDictionary(
-                    key: .LocalCharge
-                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                    , items: localCharges.map { PayItem(payable: $0.payment) }
-            ))
-            defaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue > dictionary2.key.rawValue }
-        }
-
-        return defaultCollection
-    }
+    private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
 
     required public override init() {
         super.init()
@@ -458,6 +450,26 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         else if ShopApp.privateDefaults.deletingTarget == DeletingTarget.selected.rawValue{
 //            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
+
+        /*
+        Set Payment Collection
+        */
+        var mutableDefaultCollection = PayDictionary.DefaultCollection
+        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
+        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
+            mutableDefaultCollection.append(PayDictionary(
+                    key: .LocalCharge
+                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                    , items: localCharges.map ({
+                        var pay = PayItem(payable: $0.payment)
+                        pay.rewardIconImageStyle.useTintColor = false
+                        return pay
+                    })
+            ))
+            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+        }
+        self.defaultCollections = mutableDefaultCollection
+
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
@@ -601,20 +613,34 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell.detailTextLabel?.text = dataItem.rewardLabel
         cell.detailTextLabel?.textColor = UIColor.gray
 
+        // Cell.ImageView: Reward
         cell.imageView?.tintColor = self.view.tintColor
-        let image = dataItem.getRewardIconImage(tintColor:view.tintColor)
-
-        if dataItem.iconImageShouldUseTintColor{
-            cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        if dataItem.rewardIconImageStyle.useTintColor {
+            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         }else{
-            cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        }
+        if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
+            cell.imageView?.image = image.rounded(radius: image.size.height)
+        }
+
+
+        // Cell.AssessoryView: Charge
+        cell.button.tintColor = self.view.tintColor
+        if dataItem.chargeIconImageStyle.useTintColor {
+            cell.button.setImage(dataItem.chargeIconImage?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+        }else{
+            cell.button.setImage(dataItem.chargeIconImage?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: .normal)
+        }
+        if dataItem.chargeIconImageStyle.beRound, let image = cell.button.image(for: .normal){
+            cell.imageView?.image = image.rounded(radius: image.size.height)
         }
 
         //TODO: display already paid
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
-        cell.button.setImage(cell.imageView?.image, for: .normal)
 //        cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
 //        cell.button.setTitleColor(self.view.tintColor, for: .normal)
+
         cell.didTap = {
             self.didTapPayButton(item: dataItem)
             tableView.reloadRows(at: [indexPath], with: .fade)

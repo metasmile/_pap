@@ -55,7 +55,7 @@ public class ConverterApp: BApp,
 
     static var localCharges: [Charge]? {
         return [
-            AppCharge.createLocalCharge(of: self, as: .nonConsumablePurchase)
+            AppCharge.createLocalAppCharge(of: self, as: .nonConsumablePurchase)
         ].compactMap { $0 }.nilEmpty
     }
 
