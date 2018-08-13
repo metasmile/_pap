@@ -25,7 +25,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment:PayOfInitialTutorial.self
                     , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
-                    , title:"Welcome Free Trial Pack".localized
+                    , describable: AppChargeDescription(title:"Welcome Free Trial Pack".localized, description: nil, iconImage: nil) 
             )
 
             // Engagement
@@ -33,49 +33,49 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .nonBlockOfUses
                     , payment:PayOnPromptRating.self
                     , priceAmount: AmountObject(value:0.0)
-                    , title:"Give A Rating".localized
+                    , describable: AppChargeDescription(title:"Give A Rating".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .inStoreRating
                     , reward: .nonBlockOfUses
                     ,  payment:PayInAppStoreRating.self
                     , priceAmount: AmountObject(value:0.0)
-                    , title:"Write A Review".localized
+                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment:PayOnSocialShare.self
                     , priceAmount: AmountObject(value:0.5)
-                    , title:"Share This App".localized
+                    , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
                     , payment:PayOnFeedback.self
                     , priceAmount: AmountObject(value:0.5)
-                    , title:"Send Us Feedback".localized
+                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
             )
 
             // Store Purchase
             , AppCharge(type: .nonConsumablePurchase
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , title:"Purchase All At Once".localized
+                    , describable: AppChargeDescription(title:"Purchase All At Once".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of Apps Including All New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .renewableMonthlySubscription
                     , reward: .owned, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , title:"Monthly Pass".localized
+                    , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .owned
                     , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , title:"Annual Pass".localized
+                    , describable: AppChargeDescription(title:"Annual Pass".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -83,19 +83,25 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .owned
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , title:"1-Month Pass".localized
+                    , describable: AppChargeDescription(title:"1-Month Pass".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "A Month Use of Apps Including All New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .owned, payment: OneYearAllAppsPayment.self
                     , priceAmount: AmountObject.max
-                    , title:"1-Year Pass".localized
+                    , describable: AppChargeDescription(title:"1-Year Pass".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "A Year Use of Apps Including All New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
             )
         ]
 
         return AppChargeManager(charges:rootCharges + (localChargesOfEachApps ?? []), banker: AppChargeBanker.self)
     }
+}
+
+struct AppChargeDescription:ChargeDescribable{
+    let title: String
+    var description: String? = nil
+    var iconImage: ImageSourceable? = nil
 }
 
 struct AppRewardDescription:RewardDescribable{
@@ -110,27 +116,23 @@ class AppCharge: Charge {
     let type: ChargeType
     let reward: RewardType
     let payment:Payable.Type
-
     let priceAmount:Amount
-    let title: String
 
-    var description: String?
+    let describable: ChargeDescribable
     lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
 
     init(type: ChargeType,
          reward: RewardType,
          payment:Payable.Type,
          priceAmount:Amount,
-         title: String,
-         description: String?=nil,
+         describable:ChargeDescribable,
          rewardDescribable:RewardDescribable?=nil){
 
         self.type = type
         self.reward = reward
         self.payment = payment
         self.priceAmount = priceAmount
-        self.title = title
-        self.description = description
+        self.describable = describable
 
         //if custom defined
         if rewardDescribable != nil{
@@ -224,7 +226,7 @@ extension AppCharge{
                 , reward: .owned
                 , payment: chargingPayable
                 , priceAmount: AmountObject.max
-                , title:"Purchase %@".localizedFormatted(app.info.displayName)
+                , describable: AppChargeDescription(title:"Purchase %@".localizedFormatted(app.info.displayName), description: nil, iconImage: nil) 
                 , rewardDescribable: rewardDescribable
         )
     }

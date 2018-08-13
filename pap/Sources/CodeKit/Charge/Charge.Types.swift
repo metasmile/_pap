@@ -53,6 +53,12 @@ enum RewardType:Int {
     }
 }
 
+protocol ChargeDescribable{
+    var title:String {get}
+    var description:String? {get}
+    var iconImage:ImageSourceable? {get}
+}
+
 protocol RewardDescribable{
     var title:String? {get}
     var shortTitle:String? {get}
@@ -118,9 +124,7 @@ extension Equatable where Self:Chargeable{
 // Use "AppCenter.charge.getCharge(for: chargeable)"
 protocol Charge: Chargeable {
     var priceAmount: Amount {get}
-    var title:String {get}
-    var description:String? {get}
-
+    var describable:ChargeDescribable {get}
     var rewardDescribable:RewardDescribable? {get}
 }
 

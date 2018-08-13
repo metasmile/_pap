@@ -154,7 +154,7 @@ private struct PayItem: Hashable, Equatable {
 
     init(payable: Payable.Type) {
         self.payable = payable
-        self.label = AppCenter.charge.getCharge(for: payable)?.title ?? "Untitled"
+        self.label = AppCenter.charge.getCharge(for: payable)?.describable.title ?? "Undefined Charge"
         self.rewardLabel = AppCenter.charge.getCharge(for: payable)?.rewardDescribable?.title ?? "Undefined Reward"
         self.iconImageShouldUseTintColor = true
     }
