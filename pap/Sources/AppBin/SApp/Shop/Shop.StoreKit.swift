@@ -87,6 +87,61 @@ struct StorePayableCenter {
     }
 }
 
+
+private extension StorePayableProduct {
+    func purchase(_ signal: AsyncWaitSignalable) -> Bool {
+
+        var paid = false
+
+        signal.begin()
+
+        SwiftyStoreKit.purchaseProduct(self.identifier, atomically: true) { result in
+
+
+            if case .success(let purchase) = result {
+                let downloads = purchase.transaction.downloads
+                if !downloads.isEmpty {
+                    SwiftyStoreKit.start(downloads)
+                }
+                // Deliver content from server, then:
+                if purchase.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+
+                paid = true
+            }
+            signal.end()
+        }
+
+        signal.waitUntilEnd()
+        return paid
+    }
+
+    func verifyReceipt(completion: @escaping (VerifyReceiptResult) -> Void) {
+        let appleValidator = AppleReceiptValidator(service: papVerificationType, sharedSecret: papReceiptSecretKey)
+        SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> (product: StorePayableProduct, receipt:ReceiptInfo)? {
+        var r:(product: StorePayableProduct, receipt:ReceiptInfo)?
+
+        signal.begin()
+        verifyReceipt { result in
+            switch result {
+            case .success(let receipt):
+                r = (product:self, receipt:receipt)
+
+            case .error:
+                print("[!] WARNING: verifyReceipt error:", result)
+                r = nil
+            }
+            signal.end()
+        }
+        signal.waitUntilEnd()
+        return r
+    }
+}
+
 extension StorePayable{
     static var payingLabel:String {
         return "Purchase".localized
@@ -167,58 +222,5 @@ extension NonRenewingSubscribingPayable {
             }
         }
         return nil
-    }
-}
-
-private extension StorePayableProduct {
-    func purchase(_ signal: AsyncWaitSignalable) -> Bool {
-
-        var paid = false
-
-        signal.begin()
-
-        SwiftyStoreKit.purchaseProduct(self.identifier, atomically: true) { result in
-
-            if case .success(let purchase) = result {
-                let downloads = purchase.transaction.downloads
-                if !downloads.isEmpty {
-                    SwiftyStoreKit.start(downloads)
-                }
-                // Deliver content from server, then:
-                if purchase.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                }
-
-                paid = true
-                signal.end()
-            }
-        }
-
-        signal.waitUntilEnd()
-        return paid
-    }
-
-    func verifyReceipt(completion: @escaping (VerifyReceiptResult) -> Void) {
-        let appleValidator = AppleReceiptValidator(service: papVerificationType, sharedSecret: papReceiptSecretKey)
-        SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> (product: StorePayableProduct, receipt:ReceiptInfo)? {
-        var r:(product: StorePayableProduct, receipt:ReceiptInfo)?
-
-        signal.begin()
-        verifyReceipt { result in
-            switch result {
-            case .success(let receipt):
-                r = (product:self, receipt:receipt)
-
-            case .error:
-                print("[!] WARNING: verifyReceipt error:", result)
-                r = nil
-            }
-            signal.end()
-        }
-        signal.waitUntilEnd()
-        return r
     }
 }

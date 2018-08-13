@@ -656,17 +656,23 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.button.setTitleColor(self.view.tintColor, for: .normal)
         }
 
-        //TODO: display already paid
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
+
         cell.didTap = {
-            self.didTapPayButton(item: dataItem)
-            tableView.reloadRows(at: [indexPath], with: .fade)
+            self.didTapPayButton(tableView:tableView,item: dataItem, cell:cell, indexPath:indexPath)
         }
         return cell
     }
 
-    func didTapPayButton(item:PayItem){
+    func didTapPayButton(tableView:UITableView, item:PayItem, cell:UITableViewButtonCell, indexPath:IndexPath){
+        cell.startIndicating()
+        cell.isUserInteractionEnabled = false
+        tableView.reloadRows(at: [indexPath], with: .fade)
+
         AppCenter.charge.pay(for: item.payable) { succeed in
+            cell.stopIndicating()
+            cell.isUserInteractionEnabled = true
+            tableView.reloadRows(at: [indexPath], with: .fade)
 
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                 DispatchQueue.main.async{

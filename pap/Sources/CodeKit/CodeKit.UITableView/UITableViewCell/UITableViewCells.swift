@@ -7,6 +7,9 @@ import Foundation
 import UIKit
 //TODO: integrate all.
 
+/*
+    Abstract Cells
+*/
 class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
     private let TagForExcludingHitTest = Int(arc4random_uniform(2))
 
@@ -22,6 +25,39 @@ class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
     }
 }
 
+class UITableViewIndicatorCell: UITableViewCell {
+    private var accessoryViewBeforeStartIndicating:UIView?
+
+    func startIndicating(){
+        accessoryViewBeforeStartIndicating = self.accessoryView
+
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        self.accessoryView = loadingIndicator
+        self.layoutIfNeeded()
+
+        loadingIndicator.startAnimating()
+    }
+
+    func stopIndicating(){
+        (self.accessoryView as? UIActivityIndicatorView)?.stopAnimating()
+
+        self.accessoryView = accessoryViewBeforeStartIndicating
+        self.layoutIfNeeded()
+    }
+}
+
+/*
+    UIControl Cells
+*/
+class UITableViewSwitchSubtitleCell: UITableViewSwitchCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
 
@@ -52,16 +88,6 @@ class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTe
 
     @objc func cellSwitchDidChange(sender: UISwitch) {
         switchDidChange?(sender.isOn)
-    }
-}
-
-class UITableViewSwitchSubtitleCell: UITableViewSwitchCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -183,7 +209,7 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
     }
 }
 
-class UITableViewButtonCell: UITableViewCell {
+class UITableViewButtonCell: UITableViewIndicatorCell {
     private(set) lazy var button: UIButton = UIButton()
 
     var touchAreaOnlyButton:Bool = false
