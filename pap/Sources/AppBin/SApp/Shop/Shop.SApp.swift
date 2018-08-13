@@ -134,7 +134,7 @@ private struct PayItem: Hashable, Equatable {
             }else{
                 iconImage = ChargeableImage(balance: charge.priceAmount.value, fillMode: .fill, tintColor: tintColor, appearanceDelegate: ShopAppChargeableAssets(charge:charge))
                         .withAlignmentRectInsets(UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4))
-//            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.rewardShortTitle ?? "                         ")", tintColor: tintColor)
+//            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
             }
 
             if let iconImage = iconImage{
@@ -154,7 +154,7 @@ private struct PayItem: Hashable, Equatable {
     init(payable: Payable.Type) {
         self.payable = payable
         self.label = AppCenter.charge.getCharge(for: payable)?.title ?? "Untitled"
-        self.rewardLabel = AppCenter.charge.getCharge(for: payable)?.rewardDescribable?.rewardTitle ?? "Undefined Reward"
+        self.rewardLabel = AppCenter.charge.getCharge(for: payable)?.rewardDescribable?.title ?? "Undefined Reward"
         self.iconImageShouldUseTintColor = true
     }
 

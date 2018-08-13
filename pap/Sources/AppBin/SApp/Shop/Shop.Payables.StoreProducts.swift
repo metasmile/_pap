@@ -6,7 +6,7 @@
 import Foundation
 /*
 INFO: Rules of Product IDs
-WARNING: MUST use string literal, Avoid using Swift code literal to prevent changes from refactoring.
+WARNING: MUST use string literal-permanent, Avoid using Swift code literal to prevent changes from refactoring.
 
 - Format:  pap
            -{bundle id | app class}
@@ -79,7 +79,7 @@ struct OneMonthAppPayment<T:App>: NonRenewingSubscribingPayable{
 
 struct OneYearAppPayment<T:App>: NonRenewingSubscribingPayable{
     static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap-\(T.info.identifier)-OneYearApp-NR-Y-owned")
+        return StoreProduct(identifier: "pap-\(T.info.identifier)-NR-Y-owned")
     }
 }
 

@@ -54,10 +54,11 @@ enum RewardType:Int {
 }
 
 protocol RewardDescribable{
-    var rewardTitle:String? {get}
-    var rewardShortTitle:String? {get}
-    var rewardDescription:String? {get}
-    var rewardUnit:String? {get}
+    var title:String? {get}
+    var shortTitle:String? {get}
+    var description:String? {get}
+    var unit:String? {get}
+    var iconImage:ImageSourceable? {get}
 }
 
 protocol Payable {

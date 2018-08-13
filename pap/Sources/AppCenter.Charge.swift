@@ -62,21 +62,21 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Purchase All At Once".localized
-                    , rewardDescribable:AppRewardDescription(rewardTitle: "Permanent Use of Apps Including All New.", rewardShortTitle: "Permanent Apps License", rewardDescription: nil, rewardUnit: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Permanent Use of Apps Including All New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .renewableMonthlySubscription
                     , reward: .owned, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Monthly Pass".localized
-                    , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .owned
                     , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"Annual Pass".localized
-                    , rewardDescribable:AppRewardDescription(rewardTitle: "Constant Use of Apps Including All New", rewardShortTitle: "Yearly Apps License", rewardDescription: nil, rewardUnit: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Constant Use of Apps Including All New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .nonRenewingMonthlySubscription
@@ -84,13 +84,13 @@ private final class AppChargeManager: ChargeManager{
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"1-Month Pass".localized
-                    , rewardDescribable:AppRewardDescription(rewardTitle: "A Month Use of Apps Including All New", rewardShortTitle: "1-Month Apps License", rewardDescription: nil, rewardUnit: nil)
+                    , rewardDescribable:AppRewardDescription(title: "A Month Use of Apps Including All New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .owned, payment: OneYearAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , title:"1-Year Pass".localized
-                    , rewardDescribable:AppRewardDescription(rewardTitle: "A Year Use of Apps Including All New", rewardShortTitle: "1-Year Apps License", rewardDescription: nil, rewardUnit: nil)
+                    , rewardDescribable:AppRewardDescription(title: "A Year Use of Apps Including All New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
             )
         ]
 
@@ -99,10 +99,11 @@ private final class AppChargeManager: ChargeManager{
 }
 
 struct AppRewardDescription:RewardDescribable{
-    private(set) var rewardTitle: String? = nil
-    private(set) var rewardShortTitle: String? = nil
-    private(set) var rewardDescription: String? = nil
-    private(set) var rewardUnit: String? = nil
+    private(set) var title: String? = nil
+    private(set) var shortTitle: String? = nil
+    private(set) var description: String? = nil
+    private(set) var unit: String? = nil
+    private(set) var iconImage: ImageSourceable? = nil
 }
 
 class AppCharge: Charge {
@@ -114,7 +115,7 @@ class AppCharge: Charge {
     let title: String
 
     var description: String?
-    lazy var rewardDescribable:RewardDescribable? = self //Auto Default
+    lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
 
     init(type: ChargeType,
          reward: RewardType,
@@ -136,10 +137,58 @@ class AppCharge: Charge {
             self.rewardDescribable = rewardDescribable
         }
     }
+
+    private struct DefaultRewardDescribable:RewardDescribable {
+        let charge:Charge
+        init(charge:Charge){
+            self.charge = charge
+        }
+
+        var title:String? {
+            switch (charge.reward) {
+            case .timeOfUses:
+                if let unit = unit {
+                    return "%@ Day License".localizedFormatted(unit)
+                }
+            default:
+                break
+            }
+            return nil
+        }
+
+        var shortTitle:String? {
+            switch (charge.reward) {
+            case .timeOfUses:
+                if let unit = unit {
+                    return "%@ Day".localizedFormatted(unit)
+                }
+            default:
+                break
+            }
+
+            return nil
+        }
+
+        var description: String? {
+            return nil
+        }
+        var iconImage: ImageSourceable? {
+            return nil
+        }
+
+        var unit:String?{
+            switch (charge.reward){
+            case .timeOfUses:
+                return (charge.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
+            default:
+                return nil
+            }
+        }
+    }
 }
 
 extension AppCharge{
-    static func createCharge<A:App>(of app:A.Type, as chargeType:ChargeType, rewardDescription:AppRewardDescription?=nil) -> Charge?{
+    static func createCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:AppRewardDescription?=nil) -> Charge?{
         var payable:StorePayable.Type?
         switch chargeType{
             case .nonConsumablePurchase:
@@ -166,50 +215,11 @@ extension AppCharge{
                 , payment: chargingPayable
                 , priceAmount: AmountObject.max
                 , title:"Purchase %@".localizedFormatted(app.info.displayName)
-                , rewardDescribable: rewardDescription ?? AppRewardDescription(rewardTitle: "Permanent Use of Including All Updates".localized, rewardShortTitle: "Permanent Single App License", rewardDescription: nil, rewardUnit: nil)
+                , rewardDescribable: description ?? AppRewardDescription(title: "Permanent Use of Including All Updates".localized, shortTitle: "Permanent Single App License", description: nil, unit: nil, iconImage: nil)
         )
     }
 }
 
-extension AppCharge: RewardDescribable{
-    var rewardTitle:String? {
-        switch (self.reward) {
-        case .timeOfUses:
-            if let unit = rewardUnit {
-                return "%@ Day License".localizedFormatted(unit)
-            }
-        default:
-            break
-        }
-        return nil
-    }
-
-    var rewardShortTitle:String? {
-        switch (self.reward) {
-        case .timeOfUses:
-            if let unit = rewardUnit {
-                return "%@ Day".localizedFormatted(unit)
-            }
-        default:
-            break
-        }
-
-        return nil
-    }
-
-    var rewardDescription: String? {
-        return nil
-    }
-
-    var rewardUnit:String?{
-        switch (self.reward){
-        case .timeOfUses:
-            return (priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
-        default:
-            return nil
-        }
-    }
-}
 
 
 /*
@@ -358,7 +368,9 @@ private final class AppChargeBanker: ChargeBanker {
                     }else{
                         print("[!] WARNING: Receipt Verification FAILED for \(String(describing: vPayable))." +
                                 "\n1. Check network status or Validator's URL whether is for production (https://buy.itunes.apple.com/verifyReceipt) or sandbox (https://sandbox.itunes.apple.com/verifyReceipt). " +
-                                "\n2. Check 'NSAppTransportSecurity' in Info.plist for 'apple.com' \n ")
+                                "\n2. Check 'NSAppTransportSecurity' in Info.plist for 'apple.com' \n " +
+                                "\n3. Check Product Id(Not Registered or Deprecated)/Type(Mismatched) on AppStore connect \n "
+                        )
                     }
                 }
 
