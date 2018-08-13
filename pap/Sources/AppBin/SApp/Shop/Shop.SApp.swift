@@ -45,7 +45,7 @@ public class ShopApp: NSObject
     }
 
     static func didConfigure(with manager: AppManager) {
-        StorePayableConfigurator.configure()
+        StorePayableCenter.configure()
     }
 
     func didResign(current: App.Type?) {
@@ -369,6 +369,23 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
         cell_b.buttonTitleLabel = "Restore".localized
         cell_b.valueHandler = { _ in
+
+            let productIdByCharges = AppCenter.charge.getChargesByStorePayableProductIdentifier()
+
+            DispatchQueue.global().async{
+                let singal = AsyncSignal()
+                for productId in StorePayableCenter.restore(singal) ?? []{
+                    if let storePayableCharge = productIdByCharges[productId]{
+                        AppCenter.charge.pay(for: storePayableCharge.payment, skipTransaction:true)
+                    }
+                }
+
+                DispatchQueue.main.async{
+                    (view as? UITableView)?.reloadData()
+                }
+            }
+
+            papLog.app.shop.restoredStorePayables()
 
         }
         settingCellDescribers.append(cell_b)

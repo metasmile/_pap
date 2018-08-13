@@ -51,13 +51,32 @@ class ChargeManager{
     /*
         Payment
     */
-    func pay(for payable: Payable.Type, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
+    func isPaid(payable:Payable.Type) -> Bool{
+        if let charge = charges.first(where: { $0.payment == payable })
+        , let receipt = bank.getReceipt(for: charge){
+            return receipt.amountValue > 0
+        }
+        return false
+    }
+
+    func pay(for payable: Payable.Type, skipTransaction:Bool=false /* //TODO: find alternative way. */, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.payment == payable }) else {
             return
         }
 
+        if isPaid(payable: payable){
+            assert(false, "Payable \(String(describing: payable)) was already paid.")
+            return
+        }
+
+        #if DEBUG
+        if skipTransaction{
+            print("[i] INFO: Skipping Payment Transaction: \(String(describing: payable))")
+        }
+        #endif
+
         payingQueue.async{
-            if payable.init().pay(asyncSignal){
+            if skipTransaction || payable.init().pay(asyncSignal){
                 DispatchQueue.main.async{
                     let result = self.bank.save(for: charge)
                     completion?(result)

@@ -6,12 +6,14 @@
 import Foundation
 
 extension ChargeManager{
-    func isPaid(payable:Payable.Type) -> Bool{
-        if let charge = charges.first(where: { $0.payment == payable })
-        , let receipt = bank.getReceipt(for: charge){
-            return receipt.amountValue > 0
+    func getChargesByStorePayableProductIdentifier(excludingTypes:Set<ChargeType>?=nil) -> [String:Charge]{
+        var storePayableCharges = [String:Charge]()
+        for charge in charges where excludingTypes?.contains(charge.type) ?? false == false{
+            if let storePayableProductId = (charge.payment as? StorePayable.Type)?.product.identifier{
+                storePayableCharges[storePayableProductId] = charge
+            }
         }
-        return false
+        return storePayableCharges
     }
 
     func getChargesHasPricingInBalance(cheapFirst:Bool=false) -> [Charge]{

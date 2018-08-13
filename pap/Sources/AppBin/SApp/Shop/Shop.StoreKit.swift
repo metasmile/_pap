@@ -16,7 +16,7 @@ private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.san
 private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.production
 #endif
 
-struct StorePayableConfigurator {
+struct StorePayableCenter {
     static func configure(){
 
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
@@ -51,7 +51,10 @@ struct StorePayableConfigurator {
         }
     }
 
-    static func restore(_ signal: AsyncWaitSignalable) -> [String]?{
+    //INFO: RestoredProductId will be filled only after calling restore()
+    static private(set) var restoredProductIDs:Set<String>?
+
+    static func restore(_ signal: AsyncWaitSignalable) -> Set<String>?{
         var purchases:[Purchase]?
 
         signal.begin()
@@ -75,9 +78,12 @@ struct StorePayableConfigurator {
 
         signal.waitUntilEnd()
 
-        return purchases?.map { purchase -> String in
-            return purchase.productId
+        guard let ids = purchases?.map ({ $0.productId }) else {
+            return nil
         }
+
+        restoredProductIDs = Set(ids)
+        return restoredProductIDs
     }
 }
 

@@ -47,6 +47,10 @@ struct papLog: Loggable {
         static func maximizeAppDockDrawer(){ log() }
 
         struct defaults: Loggable {}
+
+        struct shop: Loggable {
+            static func restoredStorePayables(){ log() }
+        }
     }
 
     struct error {
