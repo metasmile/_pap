@@ -82,6 +82,8 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
+/* Generated from genl10n: Shop.SApp.swift#334 */
+"%@ App Passes" = "%@ App Passes";
 /* Generated from genl10n: AppCenter.Charge.swift#151 */
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#163 */
@@ -302,7 +304,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#218 */
+/* Generated from genl10n: AppCenter.Charge.swift#216 */
 "Permanent Use of Including All Updates" = "Permanent Use of Including All Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
@@ -316,7 +318,7 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppCenter.Charge.swift#217 */
+/* Generated from genl10n: AppCenter.Charge.swift#228 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: AppCenter.Charge.swift#64 */
 "Purchase All At Once" = "Purchase All At Once";

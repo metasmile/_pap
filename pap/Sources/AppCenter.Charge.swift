@@ -99,11 +99,11 @@ private final class AppChargeManager: ChargeManager{
 }
 
 struct AppRewardDescription:RewardDescribable{
-    private(set) var title: String? = nil
-    private(set) var shortTitle: String? = nil
-    private(set) var description: String? = nil
-    private(set) var unit: String? = nil
-    private(set) var iconImage: ImageSourceable? = nil
+    var title: String? = nil
+    var shortTitle: String? = nil
+    var description: String? = nil
+    var unit: String? = nil
+    var iconImage: ImageSourceable? = nil
 }
 
 class AppCharge: Charge {
@@ -188,7 +188,7 @@ class AppCharge: Charge {
 }
 
 extension AppCharge{
-    static func createCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:AppRewardDescription?=nil) -> Charge?{
+    static func createLocalCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
         var payable:StorePayable.Type?
         switch chargeType{
             case .nonConsumablePurchase:
@@ -210,12 +210,22 @@ extension AppCharge{
             return nil
         }
 
+        let rewardDescribable:RewardDescribable? = description ?? [
+            ChargeType.nonConsumablePurchase: AppRewardDescription(
+                    title: "Permanent Use of Including All Updates".localized,
+                    shortTitle: "Permanent Single App License",
+                    description: nil,
+                    unit: nil,
+                    iconImage: app.info.iconBundleName
+            )
+        ][chargeType]
+
         return AppCharge(type: chargeType
                 , reward: .owned
                 , payment: chargingPayable
                 , priceAmount: AmountObject.max
                 , title:"Purchase %@".localizedFormatted(app.info.displayName)
-                , rewardDescribable: description ?? AppRewardDescription(title: "Permanent Use of Including All Updates".localized, shortTitle: "Permanent Single App License", description: nil, unit: nil, iconImage: nil)
+                , rewardDescribable: rewardDescribable
         )
     }
 }

@@ -68,7 +68,7 @@ public class ShopApp: NSObject
 private struct PayDictionary:Hashable {
     static let Default: [PayDictionary] = [
         PayDictionary(
-                key: .Purchase
+                key: .Charge
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
                     AllTimeAllAppsPayment.self
@@ -99,7 +99,8 @@ private struct PayDictionary:Hashable {
     ]
 
     enum Key: Int, Codable {
-        case Purchase
+        case Charge
+        case LocalCharge
         case FreeCharge
         case Promotion
     }
@@ -117,7 +118,7 @@ private struct PayDictionary:Hashable {
 private struct PayItem: Hashable, Equatable {
     fileprivate let payable:Payable.Type
 
-    fileprivate func getIconImage(tintColor:UIColor) -> ImageSourceable? {
+    fileprivate func getRewardIconImage(tintColor:UIColor) -> ImageSourceable? {
 
         let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
 
@@ -326,17 +327,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private var defaultCollections:[PayDictionary] {
         var defaultCollection = PayDictionary.Default
 
-        if let appType = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type{
-            for c in appType.localCharges ?? []{
-                 if let purchaseDir = defaultCollection.first (where:{ dictionary in
-                    return dictionary.key == .Purchase
-                }){
-                    var _purchaseDir = purchaseDir
-                    _purchaseDir.items.insert(PayItem(payable: c.payment), at: 0)
-                    defaultCollection[0] = _purchaseDir
-                }
-            }
+        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
+        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
+            defaultCollection.append(PayDictionary(
+                    key: .LocalCharge
+                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                    , items: localCharges.map { PayItem(payable: $0.payment) }
+            ))
+            defaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue > dictionary2.key.rawValue }
         }
+
         return defaultCollection
     }
 
@@ -602,7 +602,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell.detailTextLabel?.textColor = UIColor.gray
 
         cell.imageView?.tintColor = self.view.tintColor
-        let image = dataItem.getIconImage(tintColor:view.tintColor)
+        let image = dataItem.getRewardIconImage(tintColor:view.tintColor)
 
         if dataItem.iconImageShouldUseTintColor{
             cell.imageView?.image = image?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
