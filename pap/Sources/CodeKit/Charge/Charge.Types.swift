@@ -92,7 +92,7 @@ struct StoreProduct:StorePayableProduct {
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
-    var payment:Payable.Type {get}
+    var payment:Payable.Type {get} //INFO: Chargeable : Payment = 1 : 1 currently.
     var identifier:String {get}
 }
 

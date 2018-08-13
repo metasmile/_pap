@@ -18,11 +18,14 @@ class ChargeManager{
     init(charges:[Charge], banker: ChargeBanker.Type){
         //Validation
         var initializingCharges = [Charge]()
-        var initializingChargeIdSet = Set<String>()
-        for c in charges where initializingChargeIdSet.contains(c.identifier) == false{
-            initializingChargeIdSet.insert(c.identifier)
+        var validatingChargeIdSet = Set<String>()
+        var validatingPaymentSet = Set<String>()
+        for c in charges where validatingChargeIdSet.contains(c.identifier) == false{
+            validatingChargeIdSet.insert(c.identifier)
+            validatingPaymentSet.insert(String(describing: c.payment))
             initializingCharges.append(c)
         }
+        assert(initializingCharges.count == validatingPaymentSet.count, "Duplicated charges have same payment type. \(Set(charges.map{ String(describing: $0.payment) }).symmetricDifference(Set(validatingPaymentSet.map{ $0 })))")
         assert(charges.count == initializingCharges.count, "Duplicated charges have same identifiers. \(Set(charges.map{ $0.identifier }).symmetricDifference(Set(initializingCharges.map{ $0.identifier })))")
 
         self.charges = initializingCharges
