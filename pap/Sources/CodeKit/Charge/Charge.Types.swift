@@ -41,10 +41,11 @@ enum RewardType:Int {
 
     //e.g. paid or VIP code
     case owned = 300
+    case rented = 301
 
     var isNonConsumable:Bool{
         switch self{
-            case .owned, .nonBlockOfUses:
+            case .owned, .rented, .nonBlockOfUses:
                  return true
             default:
                 break
@@ -68,7 +69,7 @@ protocol RewardDescribable{
 }
 
 protocol Payable {
-    static var payingLabel:String {get}
+    static var label:String {get}
 
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 

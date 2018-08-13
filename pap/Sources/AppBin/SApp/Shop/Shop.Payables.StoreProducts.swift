@@ -37,19 +37,19 @@ struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable {
 }
 
 struct OneMonthAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-NR-M-owned")
+    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-NR-M-rented")
 }
 
 struct OneYearAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-NR-Y-owned")
+    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-NR-Y-rented")
 }
 
 struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-RN-M-owned")
+    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-RN-M-rented")
 }
 
 struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-RN-Y-owned")
+    static let product: StorePayableProduct = StoreProduct(identifier: "pap-xapp-RN-Y-rented")
 }
 
 // 1-App
@@ -61,25 +61,25 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable{
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap-\(T.info.identifier)-RN-M-owned")
+        return StoreProduct(identifier: "pap-\(T.info.identifier)-RN-M-rented")
     }
 }
 
 struct YearlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap-\(T.info.identifier)-RN-Y-owned")
+        return StoreProduct(identifier: "pap-\(T.info.identifier)-RN-Y-rented")
     }
 }
 
 struct OneMonthAppPayment<T:App>: NonRenewingSubscribingPayable{
     static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap-\(T.info.identifier)-NR-M-owned")
+        return StoreProduct(identifier: "pap-\(T.info.identifier)-NR-M-rented")
     }
 }
 
 struct OneYearAppPayment<T:App>: NonRenewingSubscribingPayable{
     static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap-\(T.info.identifier)-NR-Y-owned")
+        return StoreProduct(identifier: "pap-\(T.info.identifier)-NR-Y-rented")
     }
 }
 

@@ -10,7 +10,7 @@ import MessageUI
 
 struct PayInAppStoreRating:Payable{
 
-    static var payingLabel:String{
+    static var label:String{
         return "Rate It".localized
     }
 
@@ -33,7 +33,7 @@ struct PayInAppStoreRating:Payable{
 
 struct PayOnPromptRating:Payable{
 
-    static var payingLabel:String{
+    static var label:String{
         return "Rate It".localized
     }
 
@@ -55,7 +55,7 @@ struct PayOnPromptRating:Payable{
 
 struct PayOnSocialShare:Payable{
 
-    static var payingLabel:String{
+    static var label:String{
         return "Share".localized
     }
 
@@ -88,7 +88,7 @@ extension UIActivityType {
 
 class PayOnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
 
-    static var payingLabel:String{
+    static var label:String{
         return "Write".localized
     }
 

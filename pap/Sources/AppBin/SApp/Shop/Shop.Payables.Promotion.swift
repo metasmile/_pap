@@ -8,7 +8,7 @@ import DefaultsKit
 
 struct PayOfInitialTutorial:Payable{
     //Actually will not be used.
-    private(set) static var payingLabel: String = "Get Welcome Period of Free Use"
+    private(set) static var label: String = "Get Welcome Period of Free Use"
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         return Defaults.shared.shortVersionDescription == .first

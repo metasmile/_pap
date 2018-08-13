@@ -143,7 +143,7 @@ private extension StorePayableProduct {
 }
 
 extension StorePayable{
-    static var payingLabel:String {
+    static var label:String {
         return "Purchase".localized
     }
 
@@ -179,7 +179,7 @@ extension NonConsumablePurchasingPayable{
 
 protocol AutoRenewableSubscribingPayable:StorePayable{}
 extension AutoRenewableSubscribingPayable {
-    static var payingLabel: String{
+    static var label: String{
         return "Subscribe".localized
     }
 
@@ -204,7 +204,7 @@ extension AutoRenewableSubscribingPayable {
 
 protocol NonRenewingSubscribingPayable:StorePayable{}
 extension NonRenewingSubscribingPayable {
-    static var payingLabel: String{
+    static var label: String{
         return "Subscribe".localized
     }
 

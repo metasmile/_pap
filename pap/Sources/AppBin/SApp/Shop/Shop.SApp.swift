@@ -68,16 +68,24 @@ public class ShopApp: NSObject
 private struct PayDictionary:Hashable {
     static let DefaultCollection: [PayDictionary] = [
         PayDictionary(
-                key: .Charge
-                , label: "%@ Passes".localizedFormatted(papStrings.name)
+                key: .GlobalPermanentOwnedCharge
+                , label: "%@ Permanent Passes".localizedFormatted(papStrings.name)
                 , items: [
                     AllTimeAllAppsPayment.self
+                    //VIP code
 
+                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+                    return false
+                }).map { PayItem(payable:$0) }
+        ),
+        PayDictionary(
+                key: .GlobalRentalOwnedCharge
+                , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
+                , items: [
+                    MonthlyAllAppsPayment.self
+                    , YearlyAllAppsPayment.self
                     , OneMonthAllAppsPayment.self
                     , OneYearAllAppsPayment.self
-
-                    , MonthlyAllAppsPayment.self
-                    , YearlyAllAppsPayment.self
 
                 ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
                     return false
@@ -85,7 +93,7 @@ private struct PayDictionary:Hashable {
         )
         , PayDictionary(
                 key: .FreeCharge
-                , label: "FreeCharge Methods".localized
+                , label: "FreeCharge Passes".localized
                 , items: [
                     PayOnFeedback.self
                     , PayOnPromptRating.self
@@ -99,8 +107,11 @@ private struct PayDictionary:Hashable {
     ]
 
     enum Key: Int, Codable {
-        case Charge
-        case LocalCharge
+        case GlobalSystemCharge
+        case GlobalPermanentOwnedCharge
+        case LocalPermanentOwnedCharge
+        case GlobalRentalOwnedCharge
+        case LocalRentalOwnedCharge
         case FreeCharge
         case Promotion
     }
@@ -269,6 +280,8 @@ private struct ChargeableDefaultImageAppearance: ChargeableButtonAppearance{
     var emptyImage: UIImage? {
         switch charge.reward{
             case .owned:
+                return R.image.systemIconFavoriteLineOwned()
+            case .rented:
                 return R.image.systemIconFavoriteLineCharging()
             default:
                 return R.image.systemIconFavoriteLine()
@@ -453,7 +466,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
         , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
             mutableDefaultCollection.append(PayDictionary(
-                    key: .LocalCharge
+                    key: .LocalPermanentOwnedCharge
                     , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                     , items: localCharges.map ({
                         var pay = PayItem(payable: $0.payment)
@@ -652,7 +665,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
         }else{
             // 2nd - label
-            cell.button.setTitle(dataItem.payable.payingLabel, for: .normal)
+            cell.button.setTitle(dataItem.payable.label, for: .normal)
             cell.button.setTitleColor(self.view.tintColor, for: .normal)
         }
 
