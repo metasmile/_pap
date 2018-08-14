@@ -104,50 +104,67 @@ struct StorePayableCenter {
     }
 
     @discardableResult
-    static func fetch(for eachPayables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
-        var productsInfoSet:StorePayableProductInfo?
+    static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
+        var resultProductInfo:StorePayableProductInfo?
 
-        signal.begin()
+        let requestedPayablesProductIdSet = payables.map{ $0.product.identifier }
 
-        let productIdSet = Set(eachPayables.map { $0.product.identifier  })
+        //INFO: set already fetched info
+        let fetchedPayables = payables.filter { $0.storeProduct != nil }
+        var fetchedProductsSet = Set(fetchedPayables.compactMap{ $0.storeProduct })
 
-        SwiftyStoreKit.retrieveProductsInfo(productIdSet) { (v: RetrieveResults) in
-            if let err = v.error{
-                print("[!] ERROR \(#function): \(err.localizedDescription)")
+        let unfetchedPayables = payables.filter { $0.storeProduct == nil }
 
-            }else{
-                let storeProducts = v.retrievedProducts
+        //not required fetch, return.
+        if unfetchedPayables.count == 0{
+            resultProductInfo = (products: fetchedProductsSet, invalidProductIDs: Set<String>())
 
-                productsInfoSet = (products: storeProducts, invalidProductIDs:v.invalidProductIDs)
+        }else{
+            let unfetchedPayablesProductIdSet = Set(unfetchedPayables.map { $0.product.identifier  })
 
-                for p in storeProducts {
-                    if productIdSet.contains(p.productIdentifier){
-                        storeProductsFetchQueue.async(flags:.barrier){
-                            StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
+            signal.begin()
+            SwiftyStoreKit.retrieveProductsInfo(unfetchedPayablesProductIdSet) { (v: RetrieveResults) in
+                if let err = v.error{
+                    print("[!] ERROR \(#function): \(err.localizedDescription)")
+
+                }else{
+                    fetchedProductsSet = fetchedProductsSet.union(v.retrievedProducts)
+
+                    resultProductInfo = (products: fetchedProductsSet, invalidProductIDs: v.invalidProductIDs)
+
+                    for p in fetchedProductsSet {
+                        if requestedPayablesProductIdSet.contains(p.productIdentifier){
+                            storeProductsFetchQueue.async(flags:.barrier){
+                                StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
+                            }
+                        }else{
+                            assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
                         }
-
-                    }else{
-                        assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
                     }
-                }
 
+                }
+                signal.end()
             }
-            signal.end()
+            signal.waitUntilEnd()
         }
-        signal.waitUntilEnd()
 
 #if DEBUG
-        if let productsInfoSet = productsInfoSet{
+        if let resultProductInfo = resultProductInfo {
             //Validation
-            assert(productsInfoSet.invalidProductIDs.count == 0, "[!] WARNING: Following product ids: \(String(describing: productsInfoSet.invalidProductIDs)) is invalid products.")
-            assert(productsInfoSet.products.count == eachPayables.count, "[!] WARNING: It is different with fetched products <-> requested products.")
-
-            let differentIds = Set(productsInfoSet.products.map({ $0.productIdentifier })).symmetricDifference(Set(eachPayables.map({ $0.product.identifier })))
-            assert(differentIds.count == 0, "[!] WARNING: Following product ids: \(differentIds) is different with In Store productIdentifers.")
+            if resultProductInfo.invalidProductIDs.count > 0{
+                print("[!] WARNING: Following product ids: \(String(describing: resultProductInfo.invalidProductIDs)) is invalid products.")
+            }
+            if resultProductInfo.products.count != payables.count{
+                print("[!] WARNING: It is different with fetched products <-> requested products.")
+            }
+            let differentIds = Set(resultProductInfo.products.map({ $0.productIdentifier })).symmetricDifference(requestedPayablesProductIdSet)
+            if differentIds.count > 0{
+                print("[!] WARNING: Following product ids: \(differentIds) is different with In Store productIdentifers.")
+            }
         }
 #endif
 
-        return productsInfoSet
+        return resultProductInfo
     }
 }
 

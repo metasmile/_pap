@@ -335,12 +335,57 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
+extension ShopAppDockContent{
+    private func loadDefaultCollectionIncludingLocalAppCharges() -> [PayDictionary] {
+        var mutableDefaultCollection = PayDictionary.DefaultCollection
+        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
+        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
+            mutableDefaultCollection.append(PayDictionary(
+                    key: .LocalPermanentOwnedCharge
+                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                    , items: localCharges.map ({
+                var pay = PayItem(payable: $0.payment)
+                pay.rewardIconImageStyle.beRound = true
+                pay.rewardIconImageStyle.useTintColor = false
+                return pay
+            })
+            ))
+            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+        }
+        return mutableDefaultCollection
+    }
+
+    private func loadStoreProductsInfo() {
+        //TODO: Date local storage cache?
+        let storePayables = self.defaultCollections.compactMap { dictionary -> [StorePayable.Type]? in
+            return dictionary.items.compactMap({
+                //Only for payable didn't fetch storeProduct
+                if let storePayable = $0.payable as? StorePayable.Type{
+                    return storePayable.storeProduct == nil ? storePayable : nil
+                }
+                return nil
+            })
+        }.reduce([],+)
+
+        if storePayables.count > 0{
+            DispatchQueue.global().async{
+                if let _ = StorePayableCenter.fetch(for: storePayables, AsyncSignal()){
+                    (self.view as? UITableView)?.reloadData()
+                }else{
+                    print("[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
+                }
+            }
+        }
+    }
+}
+
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
     private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
+
 
     required public override init() {
         super.init()
@@ -462,23 +507,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         /*
         Set Payment Collection
         */
-        var mutableDefaultCollection = PayDictionary.DefaultCollection
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
-        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
-            mutableDefaultCollection.append(PayDictionary(
-                    key: .LocalPermanentOwnedCharge
-                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                    , items: localCharges.map ({
-                        var pay = PayItem(payable: $0.payment)
-                        pay.rewardIconImageStyle.beRound = true
-                        pay.rewardIconImageStyle.useTintColor = false
-                        return pay
-                    })
-            ))
-            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
-        }
-        self.defaultCollections = mutableDefaultCollection
-
+        self.defaultCollections = self.loadDefaultCollectionIncludingLocalAppCharges()
 
         if let tableView = view as? UITableView{
             tableView.dataSource = self
@@ -498,20 +527,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         (view as? UITableView)?.reloadData()
 
-        let storePayables = self.defaultCollections.compactMap { dictionary -> [StorePayable.Type]? in
-            return dictionary.items.compactMap({ $0.payable as? StorePayable.Type }).nilEmpty
-        }.reduce([],+)
-
-        DispatchQueue.global().async{
-//            if let _ = StorePayableCenter.fetch(for: storePayables, AsyncSignal()){
-//                (view as? UITableView)?.reloadData()
-//
-//            }else{
-//                assert(false,"[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
-//            }
-        }
-
+        loadStoreProductsInfo()
     }
+
+
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     }
