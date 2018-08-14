@@ -568,7 +568,6 @@ extension AppDockView: UICollectionViewDataSource {
 extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
-//        delegate?.appDockView(self, needsScrollToBottom: true)
 
         UISelectionFeedbackGenerator().selectionChanged()
         
@@ -578,7 +577,13 @@ extension AppDockView: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !collectionView.isDecelerating && !collectionView.isBouncing
+        if !collectionView.isDecelerating && !collectionView.isBouncing {
+            delegate?.appDockView(self, needsScrollToBottom: collectionView.indexPathsForSelectedItems?.contains(indexPath) == true)
+            return true
+        }
+        else {
+            return false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {

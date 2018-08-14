@@ -915,7 +915,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
 extension PhotoPickerViewController: AppDockViewDelegate{
     func appDockView(_ view: AppDockView, needsScrollToBottom: Bool) {
-//        self.needsScrollToBottom = needsScrollToBottom
+        self.needsScrollToBottom = needsScrollToBottom
     }
 
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem) {
@@ -935,7 +935,6 @@ extension PhotoPickerViewController: AppDockViewDelegate{
                 }
             }
             else {
-                setNeedsScrollToBottom()
                 scrollToBottomIfNeeded(animated: true)
             }
         }
