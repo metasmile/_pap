@@ -7,17 +7,26 @@ import Foundation
 import StoreKit
 
 protocol StorePayable: VerifiablePayable {
-    static var product: StorePayableProduct {get}
+    static var product: StoreProduct {get}
 
     static var storeProduct:SKProduct? {get}
 
     static func fetchStoreProduct(_ signal:AsyncWaitSignalable) -> Bool
 }
 
-protocol StorePayableProduct {
-    var identifier:String {get}
-}
+struct StoreProduct {
+    struct SubscriptionPeriod {
+        var numberOfUnits: Int
+        var unit: PeriodUnit
+    }
 
-struct StoreProduct:StorePayableProduct {
+    enum PeriodUnit : UInt {
+        case day
+        case week
+        case month
+        case year
+    }
+
     let identifier:String
+    let subscriptionPeriod:SubscriptionPeriod?
 }

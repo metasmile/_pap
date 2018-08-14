@@ -38,62 +38,62 @@ WARNING: MUST use string literal-permanent, Avoid using Swift code literal to pr
 
 // All Apps
 struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_NC_P_owned")
+    static let product = StoreProduct(identifier: "pap_xapp_NC_P_owned", subscriptionPeriod: nil)
 }
 
 struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_RN_M_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
 }
 
 struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_RN_Y_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
 }
 
 struct OneMonthAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_NR_1M_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_NR_1M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
 }
 
 struct ThreeMonthsAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_NR_3M_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_NR_3M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 3, unit: .month))
 }
 
 struct SixMonthsAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_NR_6M_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_NR_6M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 6, unit: .month))
 }
 
 struct OneYearAllAppsPayment: NonRenewingSubscribingPayable {
-    static let product: StorePayableProduct = StoreProduct(identifier: "pap_xapp_NR_1Y_rented")
+    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
 }
 
 
 // 1_App
 struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable{
-    static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned")
+    static var product: StoreProduct{
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil)
     }
 }
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
-    static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented")
+    static var product: StoreProduct{
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
     }
 }
 
 struct YearlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
-    static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented")
+    static var product: StoreProduct{
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
     }
 }
 
 struct OneMonthAppPayment<T:App>: NonRenewingSubscribingPayable{
-    static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_M_rented")
+    static var product: StoreProduct{
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
     }
 }
 
 struct OneYearAppPayment<T:App>: NonRenewingSubscribingPayable{
-    static var product: StorePayableProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_Y_rented")
+    static var product: StoreProduct{
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
     }
 }
 

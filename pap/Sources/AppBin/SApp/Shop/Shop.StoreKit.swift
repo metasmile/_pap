@@ -95,7 +95,7 @@ struct StorePayableCenter {
 
 
     //INFO: nil is Error
-    typealias StorePayableProductInfo = (products:Set<SKProduct>, invalidProductIDs:Set<String>)
+    typealias StoreProductFetchResult = (products:Set<SKProduct>, invalidProductIDs:Set<String>)
 
     //INFO: dont' directly access this without storeProductsFetchQueue
     fileprivate static var fetchedStoreProducts = [String:SKProduct]()
@@ -104,8 +104,8 @@ struct StorePayableCenter {
     }
 
     @discardableResult
-    static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
-        var resultProductInfo:StorePayableProductInfo?
+    static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StoreProductFetchResult?{
+        var resultProductInfo:StoreProductFetchResult?
 
         let requestedPayablesProductIdSet = Set(payables.map{ $0.product.identifier })
 
@@ -181,7 +181,18 @@ extension StorePayable{
 
     static var storeProduct: SKProduct? {
         return StorePayableCenter.storeProductsFetchQueue.sync{
-            return StorePayableCenter.fetchedStoreProducts[product.identifier]
+            let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
+#if DEBUG
+            if #available(iOS 11.2, *) {
+                if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
+                    assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
+                    if let localSubscriptionPeriod = product.subscriptionPeriod{
+                        assert(localSubscriptionPeriod.numberOfUnits==storeSubscriptionPeriod.numberOfUnits && localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue,"Not matched between Store Subscription Period and Local.")
+                    }
+                }
+            }
+#endif
+            return storeProduct
         }
     }
 
@@ -199,7 +210,7 @@ extension StorePayable{
     }
 }
 
-private extension StorePayableProduct {
+private extension StoreProduct {
     func purchase(_ signal: AsyncWaitSignalable) -> Bool {
 
         var paid = false
@@ -232,8 +243,8 @@ private extension StorePayableProduct {
         SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
     }
 
-    func verify(_ signal: AsyncWaitSignalable) -> (product: StorePayableProduct, receipt:ReceiptInfo)? {
-        var r:(product: StorePayableProduct, receipt:ReceiptInfo)?
+    func verify(_ signal: AsyncWaitSignalable) -> (product: StoreProduct, receipt:ReceiptInfo)? {
+        var r:(product: StoreProduct, receipt:ReceiptInfo)?
 
         signal.begin()
         verifyReceipt { result in

@@ -113,7 +113,7 @@ extension ShopApp{
         return Set(self.getStorePayables().compactMap({ $0.storeProduct }))
     }
 
-    fileprivate func loadStoreProductsInfo(completion:((StorePayableCenter.StorePayableProductInfo) -> ())?=nil) {
+    fileprivate func loadStoreProductsInfo(completion:((StorePayableCenter.StoreProductFetchResult) -> ())?=nil) {
         //TODO: Date local storage cache?
         //TODO: retry if fetched product is not 100%
         let payablesNeedToFetch = self.getStorePayablesNotFetched()
@@ -742,6 +742,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             // 2nd - label
             if let storePayable = dataItem.payable as? StorePayable.Type
             , let storeProduct = storePayable.storeProduct {
+
                 cell.button.setTitle(storeProduct.localizedPrice ?? String(describing: storeProduct.price), for: .normal)
 
             }else{
