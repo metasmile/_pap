@@ -861,7 +861,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
             (controller?.view as? AppDockContentView)?.reloadContent()
         }
         
-        delegate?.appDockView(self, didOpenDrawer: false)
+        let dimmedWithGreatestHeight = self.controller?.preferences?.preferredHeight == AppDockContentPreferences.GreatestHeight
+        delegate?.appDockView(self, didOpenDrawer: dimmedWithGreatestHeight)
     }
     
     private func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
