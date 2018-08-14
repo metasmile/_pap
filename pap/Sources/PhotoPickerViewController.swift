@@ -248,11 +248,11 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         redisplayVisibleCellsEnabled()
-        showAndRevertTitleByCurrentAppIfNeeded()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
 
         updateUIDisplays()
+        showAndRevertTitleByCurrentAppIfNeeded() //INFO: show app name after update title
 
         cancelPreheatingIfNeeded()
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
