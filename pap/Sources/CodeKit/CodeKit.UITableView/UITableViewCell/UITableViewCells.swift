@@ -231,9 +231,22 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
 
         self.detailTextLabel?.textColor = UIColor.gray
     }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        return hitView == button ? self : hitView
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        setHighlighted(true, animated: false)
+    }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        
+        setHighlighted(false, animated: true)
 
         if !touchAreaOnlyButton{
             for touch in touches{
@@ -244,6 +257,12 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
                 }
             }
         }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        
+        setHighlighted(false, animated: true)
     }
 
     override open func layoutSubviews() {

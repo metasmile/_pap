@@ -680,12 +680,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     func didTapPayButton(tableView:UITableView, item:PayItem, cell:UITableViewButtonCell, indexPath:IndexPath){
         cell.startIndicating()
         cell.isUserInteractionEnabled = false
-        tableView.reloadRows(at: [indexPath], with: .fade)
 
         AppCenter.charge.pay(for: item.payable) { succeed in
             cell.stopIndicating()
             cell.isUserInteractionEnabled = true
-            tableView.reloadRows(at: [indexPath], with: .fade)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
 
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                 DispatchQueue.main.async{
