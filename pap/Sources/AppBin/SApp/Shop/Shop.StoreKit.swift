@@ -103,6 +103,7 @@ struct StorePayableCenter {
         return DispatchQueue(label: String(reflecting: self)+#function)
     }
 
+    @discardableResult
     static func fetch(for eachPayables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
         var productsInfoSet:StorePayableProductInfo?
 
@@ -134,6 +135,17 @@ struct StorePayableCenter {
             signal.end()
         }
         signal.waitUntilEnd()
+
+#if DEBUG
+        if let productsInfoSet = productsInfoSet{
+            //Validation
+            assert(productsInfoSet.invalidProductIDs.count == 0, "[!] WARNING: Following product ids: \(String(describing: productsInfoSet.invalidProductIDs)) is invalid products.")
+            assert(productsInfoSet.products.count == eachPayables.count, "[!] WARNING: It is different with fetched products <-> requested products.")
+
+            let differentIds = Set(productsInfoSet.products.map({ $0.productIdentifier })).symmetricDifference(Set(eachPayables.map({ $0.product.identifier })))
+            assert(differentIds.count == 0, "[!] WARNING: Following product ids: \(differentIds) is different with In Store productIdentifers.")
+        }
+#endif
 
         return productsInfoSet
     }

@@ -498,7 +498,18 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         (view as? UITableView)?.reloadData()
 
-//        StorePayableCenter.retrieve(for: <#T##[StorePayable.Type]##[pap.StorePayable.Type]#>, <#T##signal: AsyncWaitSignalable##pap.AsyncWaitSignalable#>)
+        let storePayables = self.defaultCollections.compactMap { dictionary -> [StorePayable.Type]? in
+            return dictionary.items.compactMap({ $0.payable as? StorePayable.Type }).nilEmpty
+        }.reduce([],+)
+
+        DispatchQueue.global().async{
+//            if let _ = StorePayableCenter.fetch(for: storePayables, AsyncSignal()){
+//                (view as? UITableView)?.reloadData()
+//
+//            }else{
+//                assert(false,"[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
+//            }
+        }
 
     }
 
@@ -668,7 +679,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
         }else{
             // 2nd - label
-            cell.button.setTitle(dataItem.payable.label, for: .normal)
+            if let storePayable = dataItem.payable as? StorePayable.Type
+            , let storeProduct = storePayable.storeProduct {
+                cell.button.setTitle(storeProduct.localizedPrice ?? String(describing: storeProduct.price), for: .normal)
+
+            }else{
+                cell.button.setTitle(dataItem.payable.label, for: .normal)
+            }
+
             cell.button.setTitleColor(self.view.tintColor, for: .normal)
         }
 
