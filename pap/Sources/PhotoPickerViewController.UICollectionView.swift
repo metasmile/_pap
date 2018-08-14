@@ -159,7 +159,7 @@ extension PhotoPickerViewController: UIScrollViewDelegate {
     // MARK: - UIScrollViewDelegate
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        return appDockView?.isContentLayoutMaximized == false
+        return !isViewDisabled
     }
 
     //TODO: consider but performace improvement is needed

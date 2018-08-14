@@ -253,4 +253,8 @@ extension AppDockViewController {
             dimmedView.isHidden = !disabled
         }, completion: nil)
     }
+    
+    var isViewDisabled: Bool {
+        return (appDockNavigationController?.dimmedView.isHidden ?? true) == false
+    }
 }
