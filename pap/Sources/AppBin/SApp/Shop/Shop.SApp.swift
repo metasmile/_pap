@@ -498,6 +498,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         (view as? UITableView)?.reloadData()
 
+//        StorePayableCenter.retrieve(for: <#T##[StorePayable.Type]##[pap.StorePayable.Type]#>, <#T##signal: AsyncWaitSignalable##pap.AsyncWaitSignalable#>)
+
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -647,7 +649,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         }
         if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
-            cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight / 2, height: tableView.rowHeight))
+            cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight*image.size.height/image.size.width, height: tableView.rowHeight))
         }
 
 

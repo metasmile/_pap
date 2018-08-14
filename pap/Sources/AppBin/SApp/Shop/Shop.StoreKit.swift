@@ -6,6 +6,7 @@
 import Foundation
 //INFO: SwiftyStoreKit's dependency is ONLY LOCATED in this file.
 import SwiftyStoreKit
+import StoreKit
 
 //INFO: pap specific Aug 10, 2018
 private let papReceiptSecretKey = "791f81382c464b78803b22eba4fb2cde"
@@ -16,8 +17,11 @@ private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.san
 private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.production
 #endif
 
+
+//INFO: StorePayableCenter: Not recommended to use in Charge-ChargeBank-ChargeBanker family directly.
+// Use in only in an ShopApp. When add Directory-Scoped access permission in swift?? huh.
 struct StorePayableCenter {
-    static func configure(){
+    static func configure() {
 
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
 /**/
@@ -43,7 +47,9 @@ struct StorePayableCenter {
         SwiftyStoreKit.updatedDownloadsHandler = { downloads in
 
             // contentURL is not nil if downloadState == .finished
-            let contentURLs = downloads.compactMap { $0.contentURL }
+            let contentURLs = downloads.compactMap {
+                $0.contentURL
+            }
             if contentURLs.count == downloads.count {
                 print("Saving: \(contentURLs)")
                 SwiftyStoreKit.finishTransaction(downloads[0].transaction)
@@ -52,10 +58,11 @@ struct StorePayableCenter {
     }
 
     //INFO: RestoredProductId will be filled only after calling restore()
-    static private(set) var restoredProductIDs:Set<String>?
+    static private(set) var restoredProductIDs: Set<String>?
 
-    static func restore(_ signal: AsyncWaitSignalable) -> Set<String>?{
-        var purchases:[Purchase]?
+    //INFO: return Product IDs
+    static func restore(_ signal: AsyncWaitSignalable) -> Set<String>? {
+        var purchases: [Purchase]?
 
         signal.begin()
 
@@ -78,15 +85,38 @@ struct StorePayableCenter {
 
         signal.waitUntilEnd()
 
-        guard let ids = purchases?.map ({ $0.productId }) else {
+        guard let ids = purchases?.map({ $0.productId }) else {
             return nil
         }
 
         restoredProductIDs = Set(ids)
         return restoredProductIDs
     }
-}
 
+
+    //INFO: nil is Error
+    typealias StorePayableProductInfo = (products:Set<SKProduct>, invalidProductIDs:Set<String>)
+
+    static func retrieve(for eachPayables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
+        var productInfos:StorePayableProductInfo?
+
+        signal.begin()
+
+        SwiftyStoreKit.retrieveProductsInfo(Set(eachPayables.map { $0.product.identifier  })) { (v: RetrieveResults) in
+            if let err = v.error{
+                print("[!] ERROR \(#function): \(err.localizedDescription)")
+
+            }else{
+                productInfos = (products: v.retrievedProducts, invalidProductIDs:v.invalidProductIDs)
+            }
+            signal.end()
+        }
+        signal.waitUntilEnd()
+
+        return productInfos
+    }
+
+}
 
 private extension StorePayableProduct {
     func purchase(_ signal: AsyncWaitSignalable) -> Bool {
@@ -96,7 +126,6 @@ private extension StorePayableProduct {
         signal.begin()
 
         SwiftyStoreKit.purchaseProduct(self.identifier, atomically: true) { result in
-
 
             if case .success(let purchase) = result {
                 let downloads = purchase.transaction.downloads
