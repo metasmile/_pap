@@ -254,14 +254,24 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
 
         let wholeText = "\(title)\n\(_detailTitle)"
 
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.titleLabel?.textAlignment = .right
+
         let titleFont = button.titleLabel?.font ?? UIFont.systemFont(ofSize: UIFont.buttonFontSize)
+        let titleFontColor = button.titleColor(for: state) ?? self.tintColor
+
         let detailTitleFont = detailTextLabel?.font ?? UIFont.systemFont(ofSize: titleFont.pointSize/0.5)
         let detailTitleFontColor = detailTextLabel?.textColor ?? UIColor.gray
 
         let attributedString = NSMutableAttributedString(string: wholeText, attributes: nil)
+
+        let titleRange = (attributedString.string as NSString).range(of: title)
         let detailTitleRange = (attributedString.string as NSString).range(of: _detailTitle)
-        
+
+        attributedString.setAttributes([NSAttributedStringKey.font: titleFont, NSAttributedStringKey.foregroundColor: titleFontColor], range: titleRange)
         attributedString.setAttributes([NSAttributedStringKey.font: detailTitleFont, NSAttributedStringKey.foregroundColor: detailTitleFontColor], range: detailTitleRange)
+
         button.setAttributedTitle(attributedString, for: state)
     }
 

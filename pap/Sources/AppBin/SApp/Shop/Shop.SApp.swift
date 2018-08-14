@@ -744,12 +744,37 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             if dataItem.chargeIconImageStyle.beRound, let image = cell.button.image(for: .normal){
                 cell.imageView?.image = image.rounded(radius: image.size.height)
             }
+
         }else{
             // 2nd - label
             if let storePayable = dataItem.payable as? StorePayable.Type
             , let storeProduct = storePayable.storeProduct {
 
-                cell.button.setTitle(storeProduct.localizedPrice ?? String(describing: storeProduct.price), for: .normal)
+                let priceString = storeProduct.localizedPrice ?? String(describing: storeProduct.price)
+
+                //INFO: Per Day Display
+                if let subscriptionPeriod = storePayable.product.subscriptionPeriod{
+                    let price = storeProduct.price
+                    let unitAmount = Double(subscriptionPeriod.numberOfUnits)
+                    let perDayPriceValue:Double
+                    switch subscriptionPeriod.unit {
+                        case .day:
+                            perDayPriceValue = price.doubleValue/unitAmount
+                        case .week:
+                            perDayPriceValue = price.doubleValue/(7*unitAmount)
+                        case .month:
+                            perDayPriceValue = price.doubleValue/(30.436875*unitAmount)
+                        case .year:
+                            perDayPriceValue = price.doubleValue/(365*unitAmount)
+                    }
+
+                    if let pricePerDayString = SKProduct.localizePrice(price: NSDecimalNumber(value: perDayPriceValue.round(toPlaces: 2)), locale: storeProduct.priceLocale){
+                        cell.setButtonTitle(title: priceString, detailTitle: "%@ / Day".localizedFormatted(pricePerDayString), for: .normal)
+                    }
+
+                }else{
+                    cell.button.setTitle(priceString, for: .normal)
+                }
 
             }else{
                 cell.button.setTitle(dataItem.payable.label, for: .normal)

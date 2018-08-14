@@ -99,9 +99,9 @@ struct StorePayableCenter {
 
     //INFO: dont' directly access this without storeProductsFetchQueue
     fileprivate static var fetchedStoreProducts = [String:SKProduct]()
-    fileprivate static var storeProductsFetchQueue: DispatchQueue {
-        return DispatchQueue(label: String(reflecting: self)+#function)
-    }
+//    fileprivate static var storeProductsFetchQueue: DispatchQueue {
+//        return DispatchQueue(label: String(reflecting: self)+#function)
+//    }
 
     @discardableResult
     static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StoreProductFetchResult?{
@@ -134,9 +134,9 @@ struct StorePayableCenter {
 
                     for p in fetchedProductsSet {
                         if requestedPayablesProductIdSet.contains(p.productIdentifier){
-                            storeProductsFetchQueue.async(flags:.barrier){
+//                            storeProductsFetchQueue.async(flags:.barrier){
                                 StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
-                            }
+//                            }
                         }else{
                             assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
                         }
@@ -180,7 +180,7 @@ extension StorePayable{
     }
 
     static var storeProduct: SKProduct? {
-        return StorePayableCenter.storeProductsFetchQueue.sync{
+//        return StorePayableCenter.storeProductsFetchQueue.sync{
             let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
 #if DEBUG
             if #available(iOS 11.2, *) {
@@ -193,7 +193,7 @@ extension StorePayable{
             }
 #endif
             return storeProduct
-        }
+//        }
     }
 
     static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
