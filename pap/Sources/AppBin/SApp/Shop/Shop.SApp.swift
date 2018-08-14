@@ -547,27 +547,33 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
     }
 
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        reloadData()
+        loadStoreProductsData(retryCount:3)
+    }
+
     private func reloadData(){
         (view as? UITableView)?.reloadData()
     }
 
-    func didSetContentView(_ view:UIView, dock:AppDock) {
-        self.reloadData()
-
+    private func loadStoreProductsData(retryCount:Int=0){
         weak var shopApp = AppCenter.default.currentInstanceAs(ShopApp.self)
         shopApp?.loadStoreProductsInfo() { [weak self] _ in
-            guard let weakSelf = self else{
+            guard let wself = self else{
                 return
             }
 
             //Retry
-            if let shopApp = shopApp, shopApp.getStorePayablesNotFetched().count > 0{
-                print("[!] WARNING: Retried - loadStoreProductsInfo()")
-                shopApp.loadStoreProductsInfo() { _ in
-                    DispatchQueue.main.async { weakSelf.reloadData() }
+            if let shopApp = shopApp{
+                if shopApp.getStorePayablesNotFetched().count > 0{
+                    print("[!] WARNING: Retried - loadStoreProductsInfo()")
+
+                    if retryCount > 0{
+                        wself.loadStoreProductsData(retryCount:retryCount-1)
+                    }
+                }else{
+                    DispatchQueue.main.async { wself.reloadData() }
                 }
-            }else{
-                DispatchQueue.main.async { weakSelf.reloadData() }
             }
         }
     }
