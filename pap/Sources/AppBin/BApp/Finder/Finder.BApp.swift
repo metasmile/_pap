@@ -1506,7 +1506,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             if let buttonAsImage = cellDescriber.buttonImage?.asUIImage{
                 cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
-            }else if let buttonAsText = cellDescriber.buttonTitleLabel {
+            }else if let buttonAsText = cellDescriber.buttonTitle {
                 cell.button.setTitle(buttonAsText, for: .normal)
                 cell.button.setTitleColor(self.view.tintColor, for: .selected)
                 cell.button.setTitleColor(self.view.tintColor, for: .highlighted)

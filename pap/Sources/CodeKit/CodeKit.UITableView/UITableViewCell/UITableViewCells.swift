@@ -246,6 +246,25 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
         }
     }
 
+    func setButtonTitle(title: String, detailTitle: String?=nil, for state: UIControl.State) {
+        guard let _detailTitle = detailTitle else {
+            button.setTitle(title, for: .normal)
+            return
+        }
+
+        let wholeText = "\(title)\n\(_detailTitle)"
+
+        let titleFont = button.titleLabel?.font ?? UIFont.systemFont(ofSize: UIFont.buttonFontSize)
+        let detailTitleFont = detailTextLabel?.font ?? UIFont.systemFont(ofSize: titleFont.pointSize/0.5)
+        let detailTitleFontColor = detailTextLabel?.textColor ?? UIColor.gray
+
+        let attributedString = NSMutableAttributedString(string: wholeText, attributes: nil)
+        let detailTitleRange = (attributedString.string as NSString).range(of: _detailTitle)
+        
+        attributedString.setAttributes([NSAttributedStringKey.font: detailTitleFont, NSAttributedStringKey.foregroundColor: detailTitleFontColor], range: detailTitleRange)
+        button.setAttributedTitle(attributedString, for: state)
+    }
+
     override open func layoutSubviews() {
         button.sizeToFit()
         if let inset = self.buttonFrameInset {

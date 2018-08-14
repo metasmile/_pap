@@ -454,7 +454,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
         cell_b.label = "Restore All Purchases".localized
         cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
-        cell_b.buttonTitleLabel = "Restore".localized
+        cell_b.buttonTitle = "Restore".localized
         cell_b.valueHandler = { _ in
 
             let productIdByCharges = AppCenter.charge.getChargesByStorePayableProductIdentifier()
@@ -641,8 +641,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = cellDescriber.detailedLabel
             cell.imageView?.image = item.iconImage?.asUIImage
-            cell.button.setTitle(cellDescriber.buttonTitleLabel, for: .normal)
-            cell.button.setTitleColor(self.view.tintColor, for: .normal)
+            if let buttonTitle = cellDescriber.buttonTitle{
+                cell.setButtonTitle(title: buttonTitle, detailTitle: cellDescriber.buttonDetailTitle, for: .normal)
+                cell.button.setTitleColor(self.view.tintColor, for: .normal)
+            }
             cell.didTap = {
                 cellDescriber.valueHandler?("tapped")
             }
