@@ -129,6 +129,7 @@ class AppDockView: CustomView {
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
         appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
+        drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
 
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
@@ -164,6 +165,7 @@ class AppDockView: CustomView {
         set(newValue){
             _contentLayoutState = newValue
             drawerView.isHandleOpened = newValue == .maximized
+            drawerView.showsTitle = drawerView.isHandleOpened || usingGreatestHeight
 
             var committingLayoutState:AppDockContentLayoutState? = newValue
 
@@ -209,6 +211,7 @@ class AppDockView: CustomView {
 
             //render
             drawerView.isHandleOpened = _contentLayoutState == .maximized
+            drawerView.showsTitle = drawerView.isHandleOpened || usingGreatestHeight
             return _contentLayoutState
         }
     }
@@ -282,6 +285,8 @@ class AppDockView: CustomView {
     var isNeedingFixedContentLayout:Bool{
         return (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false
     }
+    
+    var usingGreatestHeight: Bool { return self.controller?.preferences?.preferredHeight == AppDockContentPreferences.GreatestHeight }
 
     private func hasControlView(_ view: UIView?) -> Bool {
         guard let view = view else { return false }
@@ -418,7 +423,12 @@ extension AppDockView {
 
     fileprivate var preferredDrawerViewHeight: CGFloat {
         if hasAppControllerAsLayout{
-            return shouldDrawerBarEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
+            if usingGreatestHeight {
+                return DefaultPreferences.DrawerView.prominentHeight
+            }
+            else {
+                return shouldDrawerBarEnable ? DefaultPreferences.DrawerView.compactHeight : DefaultPreferences.DrawerView.compactDisabledHeight
+            }
         }
         return AppDockView.VoidLayoutValue
     }
@@ -440,10 +450,10 @@ extension AppDockView {
 
             if preferredHeight == AppDockContentPreferences.GreatestHeight{
                 if isNeedingFixedContentLayout {
-                    return min(preferredHeight, preferredAppContentViewMaximumHeight + DefaultPreferences.DrawerView.compactDisabledTopMargin)
+                    return min(preferredHeight, preferredAppContentViewMaximumHeight)
                 }else{
 
-                    return min(preferredHeight, preferredAppContentViewMaximumHeight - DefaultPreferences.DrawerView.topMargin*2)
+                    return min(preferredHeight, preferredAppContentViewMaximumHeight)
                 }
             }else{
                 return min(preferredHeight,DefaultPreferences.ControlMaxPreferredHeight)
@@ -526,6 +536,7 @@ extension AppDockView {
         zoomOutAppCollectionView(delay: 0)
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath) {
+            drawerView.setApp(item.app)
             delegate?.appDockView(self, didSelectItemWith: item)
         }
     }
@@ -572,6 +583,7 @@ extension AppDockView: UICollectionViewDelegate {
         UISelectionFeedbackGenerator().selectionChanged()
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath) {
+            drawerView.setApp(item.app)
             delegate?.appDockView(self, didSelectItemWith: item)
         }
     }
@@ -833,7 +845,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
     private func neutralizeDrawer(reloadDockContentViews: Bool? = nil) {
         let reloadDockContentViews = reloadDockContentViews ?? (contentLayoutState != .neutralized)
-
+        
         UIView.animateAsSpring(animations: {
             self.topAccessoryView.transform = .identity
         })
@@ -861,8 +873,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             (controller?.view as? AppDockContentView)?.reloadContent()
         }
         
-        let dimmedWithGreatestHeight = self.controller?.preferences?.preferredHeight == AppDockContentPreferences.GreatestHeight
-        delegate?.appDockView(self, didOpenDrawer: dimmedWithGreatestHeight)
+        delegate?.appDockView(self, didOpenDrawer: usingGreatestHeight)
     }
     
     private func minimizeDrawer(reloadDockContentViews: Bool? = nil) {
