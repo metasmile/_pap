@@ -26,23 +26,44 @@ class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
 }
 
 class UITableViewIndicatorCell: UITableViewCell {
-    private var accessoryViewBeforeStartIndicating:UIView?
+    private var loadingIndicatorTag:Int {
+        return UIActivityIndicatorView.self.hash()
+    }
+
+    override open func prepareForReuse() {
+        super.prepareForReuse()
+
+        stopIndicating()
+    }
 
     func startIndicating(){
-        accessoryViewBeforeStartIndicating = self.accessoryView
+        if let accessoryView = self.accessoryView
+        , accessoryView.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
+            isUserInteractionEnabled = false
 
-        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        self.accessoryView = loadingIndicator
-        self.layoutIfNeeded()
+            let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            loadingIndicator.hidesWhenStopped = false
+            loadingIndicator.tag = loadingIndicatorTag
+            accessoryView.superview?.addSubview(loadingIndicator)
+            accessoryView.isHidden = true
 
-        loadingIndicator.startAnimating()
+            self.layoutIfNeeded()
+
+            loadingIndicator.centerY = accessoryView.centerY
+            loadingIndicator.right = accessoryView.right
+            loadingIndicator.startAnimating()
+        }
     }
 
     func stopIndicating(){
-        (self.accessoryView as? UIActivityIndicatorView)?.stopAnimating()
+        isUserInteractionEnabled = true
+        accessoryView?.isHidden = false
 
-        self.accessoryView = accessoryViewBeforeStartIndicating
-        self.layoutIfNeeded()
+        if let indicatorView = accessoryView?.superview?.viewWithTag(loadingIndicatorTag) as? UIActivityIndicatorView{
+            indicatorView.stopAnimating()
+            indicatorView.removeFromSuperview()
+            self.layoutIfNeeded()
+        }
     }
 }
 

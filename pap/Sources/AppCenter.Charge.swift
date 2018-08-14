@@ -73,7 +73,7 @@ private final class AppChargeManager: ChargeManager{
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .rented
-                    , payment: YearlyAllAppsPayment.self
+                    , payment: AnnualAllAppsPayment.self
                     , priceAmount: AmountObject.max
                     , describable: AppChargeDescription(title:"Annual Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)

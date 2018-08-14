@@ -13,6 +13,7 @@ WARNING: MUST use string literal-permanent, Avoid using Swift code literal to pr
                    _{PURCHASE CODE}
                    _{PERIOD CODE}
                    _{reward type}
+                   _{version (Int)}? (Optional)
 
         - PURCHASE CODE
             NC - NonConsumable
@@ -45,8 +46,8 @@ struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable {
     static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
 }
 
-struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
+struct AnnualAllAppsPayment: AutoRenewableSubscribingPayable {
+    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
 }
 
 struct OneMonthAllAppsPayment: NonRenewingSubscribingPayable {

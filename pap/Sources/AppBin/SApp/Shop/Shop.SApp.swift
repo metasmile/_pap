@@ -134,7 +134,7 @@ extension ShopApp{
     }
 }
 
-private struct PayDictionary:Hashable {
+private class PayDictionary:Hashable, Equatable {
     static let DefaultCollection: [PayDictionary] = [
         PayDictionary(
                 key: .GlobalPermanentOwnedCharge
@@ -152,7 +152,7 @@ private struct PayDictionary:Hashable {
                 , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
                 , items: [
                     MonthlyAllAppsPayment.self
-                    , YearlyAllAppsPayment.self
+                    , AnnualAllAppsPayment.self
                     , OneMonthAllAppsPayment.self
                     , OneYearAllAppsPayment.self
 
@@ -189,8 +189,18 @@ private struct PayDictionary:Hashable {
     fileprivate var label:String
     fileprivate var items:[PayItem]
 
+    init(key:Key, label:String, items:[PayItem]){
+        self.key = key
+        self.label = label
+        self.items = items
+    }
+
     var hashValue: Int{
         return key.rawValue
+    }
+
+    static func == (lhs: PayDictionary, rhs: PayDictionary) -> Bool{
+        return lhs.hashValue == rhs.hashValue
     }
 }
 
@@ -206,7 +216,7 @@ private struct PayItemImageStyle {
     fileprivate var beRound: Bool = false
 }
 
-private struct PayItem: Hashable, Equatable {
+private class PayItem: Hashable, Equatable {
     private let charge:Charge?
 
     fileprivate let payable:Payable.Type
@@ -241,6 +251,7 @@ private struct PayItem: Hashable, Equatable {
     fileprivate var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
     fileprivate var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
 
+    fileprivate var isIndicating: Bool = false
     fileprivate var enabled: Bool = true
     fileprivate let label:String
     fileprivate let rewardLabel:String
@@ -549,7 +560,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         reloadData()
-        loadStoreProductsData(retryCount:3)
+        loadStoreProductsData(retryCount:5)
     }
 
     private func reloadData(){
@@ -566,14 +577,12 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             //Retry
             if let shopApp = shopApp{
                 if shopApp.getStorePayablesNotFetched().count > 0{
-                    print("[!] WARNING: Retried - loadStoreProductsInfo()")
-
                     if retryCount > 0{
                         wself.loadStoreProductsData(retryCount:retryCount-1)
+                        print("[!] WARNING: Retried - loadStoreProductsInfo()")
                     }
-                }else{
-                    DispatchQueue.main.async { wself.reloadData() }
                 }
+                DispatchQueue.main.async { wself.reloadData() }
             }
         }
     }
@@ -708,7 +717,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let dictIndex = indexPath.section
         let dict = defaultCollections[dictIndex]
-
         let dataItem = dict.items[indexPath.item]
 //        let selected = dataItem.enabled
 
@@ -785,20 +793,26 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
 
+        if dataItem.isIndicating{
+            cell.startIndicating()
+        }else{
+            cell.stopIndicating()
+        }
+
         cell.didTap = {
-            self.didTapPayButton(tableView:tableView,item: dataItem, cell:cell, indexPath:indexPath)
+            self.didTapPayButton(item: dataItem, indexPath:indexPath)
         }
         return cell
     }
 
-    func didTapPayButton(tableView:UITableView, item:PayItem, cell:UITableViewButtonCell, indexPath:IndexPath){
-        cell.startIndicating()
-        cell.isUserInteractionEnabled = false
+    func didTapPayButton(item:PayItem, indexPath:IndexPath){
+        let tableView = self.view as! UITableView
+
+        item.isIndicating = true
         tableView.reloadRows(at: [indexPath], with: .fade)
 
         AppCenter.charge.pay(for: item.payable) { succeed in
-            cell.stopIndicating()
-            cell.isUserInteractionEnabled = true
+            item.isIndicating = false
             tableView.reloadRows(at: [indexPath], with: .fade)
 
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
