@@ -232,6 +232,7 @@
 		4F71DE3457812690D3C52766 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7F57559839F5372E741 /* PreviewCollectionViewCell.swift */; };
 		4F71DE3C3763C0DAF5EC9707 /* gifmaker_preview_frame_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D86FB9BF4682C854417F /* gifmaker_preview_frame_1.png */; };
 		4F71DE4601387AC191A52227 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDA8A017FB240BD27C24 /* CodeKit.AVAsset.swift */; };
+		4F71DE646AD030DA9F28BE7E /* Charge.Types.StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7FDED13971376BDD3F4 /* Charge.Types.StoreKit.swift */; };
 		4F71DE695A164DF95980274B /* App.Preheatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEF14527034010D8943D /* App.Preheatable.swift */; };
 		4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */; };
 		4F71DE701D89D3576571839C /* AppCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D720E8D148915253E277 /* AppCenter.swift */; };
@@ -471,6 +472,7 @@
 		4F71D7E95CB7CF5A53BA9B46 /* FirebaseMLVision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.swift; sourceTree = "<group>"; };
 		4F71D7F57559839F5372E741 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F71D7FDE29513C1EFD5A18B /* Sourceable.Vision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.Vision.swift; sourceTree = "<group>"; };
+		4F71D7FDED13971376BDD3F4 /* Charge.Types.StoreKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Types.StoreKit.swift; sourceTree = "<group>"; };
 		4F71D7FFE56BE7607EBC21B6 /* Processor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Processor.swift; sourceTree = "<group>"; };
 		4F71D8033E59EAB278D35495 /* CodeKit.UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertController.swift; sourceTree = "<group>"; };
 		4F71D82693811867D6242765 /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
@@ -1261,6 +1263,7 @@
 				4F71D850917CA806926DC874 /* Charge.Objects.Receipt.swift */,
 				4F71D44E8D1A6220328D048F /* Charge.Banker.swift */,
 				4F71DC77DAF9F8765140EF23 /* Charge.Manager.Utils.swift */,
+				4F71D7FDED13971376BDD3F4 /* Charge.Types.StoreKit.swift */,
 			);
 			path = Charge;
 			sourceTree = "<group>";
@@ -2483,6 +2486,7 @@
 				4F71DD13AFA84A20F0CF0050 /* Shop.UI.swift in Sources */,
 				4F71DB405D8C9B7D90DE4C20 /* App.ManagerConfigurable.swift in Sources */,
 				4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */,
+				4F71DE646AD030DA9F28BE7E /* Charge.Types.StoreKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

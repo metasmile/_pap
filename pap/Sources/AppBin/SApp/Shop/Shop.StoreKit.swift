@@ -97,25 +97,80 @@ struct StorePayableCenter {
     //INFO: nil is Error
     typealias StorePayableProductInfo = (products:Set<SKProduct>, invalidProductIDs:Set<String>)
 
-    static func retrieve(for eachPayables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
-        var productInfos:StorePayableProductInfo?
+    //INFO: dont' directly access this without storeProductsFetchQueue
+    fileprivate static var fetchedStoreProducts = [String:SKProduct]()
+    fileprivate static var storeProductsFetchQueue: DispatchQueue {
+        return DispatchQueue(label: String(reflecting: self)+#function)
+    }
+
+    static func fetch(for eachPayables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
+        var productsInfoSet:StorePayableProductInfo?
 
         signal.begin()
 
-        SwiftyStoreKit.retrieveProductsInfo(Set(eachPayables.map { $0.product.identifier  })) { (v: RetrieveResults) in
+        let productIdSet = Set(eachPayables.map { $0.product.identifier  })
+
+        SwiftyStoreKit.retrieveProductsInfo(productIdSet) { (v: RetrieveResults) in
             if let err = v.error{
                 print("[!] ERROR \(#function): \(err.localizedDescription)")
 
             }else{
-                productInfos = (products: v.retrievedProducts, invalidProductIDs:v.invalidProductIDs)
+                let storeProducts = v.retrievedProducts
+
+                productsInfoSet = (products: storeProducts, invalidProductIDs:v.invalidProductIDs)
+
+                for p in storeProducts {
+                    if productIdSet.contains(p.productIdentifier){
+                        storeProductsFetchQueue.async(flags:.barrier){
+                            StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
+                        }
+
+                    }else{
+                        assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
+                    }
+                }
+
             }
             signal.end()
         }
         signal.waitUntilEnd()
 
-        return productInfos
+        return productsInfoSet
+    }
+}
+
+extension StorePayable{
+    static var label:String {
+        return "Purchase".localized
     }
 
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).product.purchase(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        assert(false, "Use specific Payable Type.")
+        return false
+    }
+
+    static var storeProduct: SKProduct? {
+        return StorePayableCenter.storeProductsFetchQueue.sync{
+            return StorePayableCenter.fetchedStoreProducts[product.identifier]
+        }
+    }
+
+    static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
+        if storeProduct != nil{
+            return true
+        }
+
+        if let fetchedInfo = StorePayableCenter.fetch(for: [self], signal){
+            for p in fetchedInfo.products where product.identifier == p.productIdentifier{
+                return true
+            }
+        }
+        return false
+    }
 }
 
 private extension StorePayableProduct {
@@ -170,22 +225,6 @@ private extension StorePayableProduct {
         return r
     }
 }
-
-extension StorePayable{
-    static var label:String {
-        return "Purchase".localized
-    }
-
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).product.purchase(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        assert(false, "Use specific Payable Type.")
-        return false
-    }
-}
-
 
 protocol NonConsumablePurchasingPayable:StorePayable{}
 extension NonConsumablePurchasingPayable{

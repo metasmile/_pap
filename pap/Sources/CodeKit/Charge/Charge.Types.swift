@@ -84,18 +84,6 @@ protocol VerifiablePayable: Payable {
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool?
 }
 
-protocol StorePayable: VerifiablePayable {
-    static var product: StorePayableProduct {get}
-}
-
-protocol StorePayableProduct {
-    var identifier:String {get}
-}
-
-struct StoreProduct:StorePayableProduct {
-    let identifier:String
-}
-
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}
