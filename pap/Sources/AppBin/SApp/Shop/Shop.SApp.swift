@@ -13,6 +13,7 @@ import EventKit
 import EventKitUI
 import UIKit
 import SafariServices
+import StoreKit
 
 public class ShopApp: NSObject
         , KeyPathWatchable
@@ -55,6 +56,7 @@ public class ShopApp: NSObject
     fileprivate var launchedOption: AppLaunchOptions?
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         launchedOption = withOption
+//        loadStoreProductsInfo()
     }
 
     var sourceAppType:App.Type?{
@@ -64,6 +66,73 @@ public class ShopApp: NSObject
     public private(set) static var fixedContentLayout: Bool = true
 }
 
+/*
+    Utilities
+*/
+extension ShopApp{
+    /*
+        LocalCharge
+    */
+    fileprivate func getPayableCollectionIncludingCurrentAvailableLocalAppCharges() -> [PayDictionary] {
+        var mutableDefaultCollection = PayDictionary.DefaultCollection
+        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
+        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
+            mutableDefaultCollection.append(PayDictionary(
+                    key: .LocalPermanentOwnedCharge
+                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                    , items: localCharges.map ({
+                var pay = PayItem(payable: $0.payment)
+                pay.rewardIconImageStyle.beRound = true
+                pay.rewardIconImageStyle.useTintColor = false
+                return pay
+            })
+            ))
+            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+        }
+        return mutableDefaultCollection
+    }
+
+    /*
+        SKProduct Info fetch
+    */
+    fileprivate func getStorePayablesNotFetched() -> [StorePayable.Type]{
+        return getStorePayables().filter { $0.storeProduct == nil }
+    }
+
+    fileprivate func getStorePayables() -> [StorePayable.Type]{
+        let targetCollection = getPayableCollectionIncludingCurrentAvailableLocalAppCharges()
+
+        return targetCollection.compactMap { dictionary -> [StorePayable.Type]? in
+            return dictionary.items.compactMap({
+                return $0.payable as? StorePayable.Type
+            })
+        }.reduce([],+)
+    }
+
+    fileprivate var currentFetchedProducts:Set<SKProduct> {
+        return Set(self.getStorePayables().compactMap({ $0.storeProduct }))
+    }
+
+    fileprivate func loadStoreProductsInfo(completion:((StorePayableCenter.StorePayableProductInfo) -> ())?=nil) {
+        //TODO: Date local storage cache?
+        //TODO: retry if fetched product is not 100%
+        let payablesNeedToFetch = self.getStorePayablesNotFetched()
+
+        guard payablesNeedToFetch.count > 0 else {
+            //INFO: Already all products are fetched
+            completion?((products: currentFetchedProducts, invalidProductIDs:Set<String>()))
+            return
+        }
+
+        DispatchQueue.global().async{
+            if let result = StorePayableCenter.fetch(for: payablesNeedToFetch, AsyncSignal()){
+                completion?(result)
+            }else{
+                print("[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
+            }
+        }
+    }
+}
 
 private struct PayDictionary:Hashable {
     static let DefaultCollection: [PayDictionary] = [
@@ -335,57 +404,12 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
-extension ShopAppDockContent{
-    private func loadDefaultCollectionIncludingLocalAppCharges() -> [PayDictionary] {
-        var mutableDefaultCollection = PayDictionary.DefaultCollection
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
-        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
-            mutableDefaultCollection.append(PayDictionary(
-                    key: .LocalPermanentOwnedCharge
-                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                    , items: localCharges.map ({
-                var pay = PayItem(payable: $0.payment)
-                pay.rewardIconImageStyle.beRound = true
-                pay.rewardIconImageStyle.useTintColor = false
-                return pay
-            })
-            ))
-            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
-        }
-        return mutableDefaultCollection
-    }
-
-    private func loadStoreProductsInfo() {
-        //TODO: Date local storage cache?
-        let storePayables = self.defaultCollections.compactMap { dictionary -> [StorePayable.Type]? in
-            return dictionary.items.compactMap({
-                //Only for payable didn't fetch storeProduct
-                if let storePayable = $0.payable as? StorePayable.Type{
-                    return storePayable.storeProduct == nil ? storePayable : nil
-                }
-                return nil
-            })
-        }.reduce([],+)
-
-        if storePayables.count > 0{
-            DispatchQueue.global().async{
-                if let _ = StorePayableCenter.fetch(for: storePayables, AsyncSignal()){
-                    (self.view as? UITableView)?.reloadData()
-                }else{
-                    print("[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
-                }
-            }
-        }
-    }
-}
-
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
     private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
-
 
     required public override init() {
         super.init()
@@ -421,6 +445,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             return
         }
 
+        //INFO: join local charges onto defaultCollection.
+        if let currentAvailableCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getPayableCollectionIncludingCurrentAvailableLocalAppCharges(){
+            self.defaultCollections = currentAvailableCollections
+        }
+
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
         cell_b.label = "Restore All Purchases".localized
@@ -439,7 +468,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 }
 
                 DispatchQueue.main.async{
-                    (view as? UITableView)?.reloadData()
+                    self.reloadData()
                 }
             }
 
@@ -464,7 +493,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             defaults.deletingTarget = preset
 
             // selectionPreset changed -> other self.parserCollection getter will be returned.
-            (view as? UITableView)?.reloadData()
+            self.reloadData()
 
 
 //            [
@@ -488,7 +517,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 //                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
 //            }
 
-            (view as? UITableView)?.reloadData()
+//            self.reloadData()
 
             // autoSelect turn off and restore
 //            cell1.valueHandler?(false)
@@ -504,11 +533,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 //            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
-        /*
-        Set Payment Collection
-        */
-        self.defaultCollections = self.loadDefaultCollectionIncludingLocalAppCharges()
-
         if let tableView = view as? UITableView{
             tableView.dataSource = self
             tableView.delegate = self
@@ -523,14 +547,30 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
     }
 
-    func didSetContentView(_ view:UIView, dock:AppDock) {
-
+    private func reloadData(){
         (view as? UITableView)?.reloadData()
-
-        loadStoreProductsInfo()
     }
 
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        self.reloadData()
 
+        weak var shopApp = AppCenter.default.currentInstanceAs(ShopApp.self)
+        shopApp?.loadStoreProductsInfo() { [weak self] _ in
+            guard let weakSelf = self else{
+                return
+            }
+
+            //Retry
+            if let shopApp = shopApp, shopApp.getStorePayablesNotFetched().count > 0{
+                print("[!] WARNING: Retried - loadStoreProductsInfo()")
+                shopApp.loadStoreProductsInfo() { _ in
+                    DispatchQueue.main.async { weakSelf.reloadData() }
+                }
+            }else{
+                DispatchQueue.main.async { weakSelf.reloadData() }
+            }
+        }
+    }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     }

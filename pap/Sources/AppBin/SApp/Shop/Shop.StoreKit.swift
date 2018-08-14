@@ -107,7 +107,7 @@ struct StorePayableCenter {
     static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StorePayableProductInfo?{
         var resultProductInfo:StorePayableProductInfo?
 
-        let requestedPayablesProductIdSet = payables.map{ $0.product.identifier }
+        let requestedPayablesProductIdSet = Set(payables.map{ $0.product.identifier })
 
         //INFO: set already fetched info
         let fetchedPayables = payables.filter { $0.storeProduct != nil }
@@ -154,16 +154,13 @@ struct StorePayableCenter {
             if resultProductInfo.invalidProductIDs.count > 0{
                 print("[!] WARNING: Following product ids: \(String(describing: resultProductInfo.invalidProductIDs)) is invalid products.")
             }
-            if resultProductInfo.products.count != payables.count{
-                print("[!] WARNING: It is different with fetched products <-> requested products.")
-            }
-            let differentIds = Set(resultProductInfo.products.map({ $0.productIdentifier })).symmetricDifference(requestedPayablesProductIdSet)
-            if differentIds.count > 0{
-                print("[!] WARNING: Following product ids: \(differentIds) is different with In Store productIdentifers.")
+
+            let remainigProductIDs = requestedPayablesProductIdSet.subtracting(Set(resultProductInfo.products.map({ $0.productIdentifier })))
+            if remainigProductIDs.count > 0{
+                print("[!] WARNING: Following product ids: \(remainigProductIDs) was not fetched with In Store productIdentifers.")
             }
         }
 #endif
-
         return resultProductInfo
     }
 }
@@ -277,7 +274,7 @@ extension NonConsumablePurchasingPayable{
 protocol AutoRenewableSubscribingPayable:StorePayable{}
 extension AutoRenewableSubscribingPayable {
     static var label: String{
-        return "Subscribe".localized
+        return "Purchase".localized
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
@@ -302,7 +299,7 @@ extension AutoRenewableSubscribingPayable {
 protocol NonRenewingSubscribingPayable:StorePayable{}
 extension NonRenewingSubscribingPayable {
     static var label: String{
-        return "Subscribe".localized
+        return "Purchase".localized
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
