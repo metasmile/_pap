@@ -470,6 +470,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                     , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                     , items: localCharges.map ({
                         var pay = PayItem(payable: $0.payment)
+                        pay.rewardIconImageStyle.beRound = true
                         pay.rewardIconImageStyle.useTintColor = false
                         return pay
                     })
@@ -646,7 +647,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         }
         if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
-            cell.imageView?.image = image.rounded(radius: image.size.height)
+            cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight / 2, height: tableView.rowHeight))
         }
 
 
