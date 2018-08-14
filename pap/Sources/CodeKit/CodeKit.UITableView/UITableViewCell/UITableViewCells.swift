@@ -262,7 +262,7 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         
-        setHighlighted(false, animated: true)
+        setHighlighted(false, animated: false)
     }
 
     override open func layoutSubviews() {
