@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 8/8/18.
+// Crea?ted by BLACKGENE on 8/8/18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -78,7 +78,7 @@ extension ShopApp{
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
                 mutableDefaultCollection.append(PayDictionary(
-                        key: .LocalPermanentOwnedCharge
+                        key: .LocalOwned
                         , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                         , items: localCharges.map ({
                     let pay = PayItem(payable: $0.payment)
@@ -135,10 +135,30 @@ extension ShopApp{
     }
 }
 
+
+private extension Array where Element:PayDictionary{
+    func getDictionary(by key:PayDictionary.Key) -> PayDictionary?{
+        return self.first { $0.key == key }
+    }
+}
+
 private class PayDictionary:Hashable, Equatable {
+
+    //INFO: if PayDictionary.Key did not find any key, it means it has no dependency and Root as itself.
+    static let DefaultSuperDictionary:[PayDictionary.Key:PayDictionary.Key] = [
+        .Rental: .Owned
+        , .LocalOwned: .Owned
+        , .LocalRental: .Owned
+    ]
+
+    var isPaid:Bool{
+        let payables = self.items.map{ $0.payable }
+        return payables.count == payables.filter { AppCenter.charge.isPaid(payable: $0) }.count
+    }
+
     static let DefaultCollection: [PayDictionary] = [
         PayDictionary(
-                key: .GlobalPermanentOwnedCharge
+                key: .Owned
                 , label: "%@ Permanent Passes".localizedFormatted(papStrings.name)
                 , items: [
                     AllTimeAllAppsPayment.self
@@ -149,7 +169,7 @@ private class PayDictionary:Hashable, Equatable {
                 }).map { PayItem(payable:$0) }
         ),
         PayDictionary(
-                key: .GlobalRentalOwnedCharge
+                key: .Rental
                 , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
                 , items: [
                     MonthlyAllAppsPayment.self
@@ -177,18 +197,21 @@ private class PayDictionary:Hashable, Equatable {
     ]
 
     enum Key: Int, Codable {
-        case GlobalSystemCharge
-        case GlobalPermanentOwnedCharge
-        case LocalPermanentOwnedCharge
-        case GlobalRentalOwnedCharge
-        case LocalRentalOwnedCharge
+        case SystemCharge
+
+        case Owned
+        case LocalOwned
+        case Rental
+        case LocalRental
+
         case FreeCharge
         case Promotion
     }
 
-    fileprivate var key:Key
-    fileprivate var label:String
-    fileprivate var items:[PayItem]
+    var key:Key
+    var superKey:PayDictionary.Key?{ return type(of: self).DefaultSuperDictionary[key] }
+    var label:String
+    var items:[PayItem]
 
     init(key:Key, label:String, items:[PayItem]){
         self.key = key
@@ -422,16 +445,29 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return celld
     }
 
+    func loadDefaultCollection(){
+        //INFO: join local charges onto defaultCollection.
+        if let currentAvailableCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getPayableCollectionIncludingCurrentAvailableLocalAppCharges(){
+            self.defaultCollections = currentAvailableCollections
+        }
+
+        //INFO: Apply dictionary deps
+        var defaultCollectionsApplyingSuperPaid = self.defaultCollections
+        for (i, payDict) in self.defaultCollections.enumerated() {
+            if let superKey = payDict.superKey, self.defaultCollections.getDictionary(by: superKey)?.isPaid == true{
+                defaultCollectionsApplyingSuperPaid.remove(at: i)
+            }
+        }
+        self.defaultCollections = defaultCollectionsApplyingSuperPaid
+    }
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if settingCellDescribers.count>0{
             return
         }
 
-        //INFO: join local charges onto defaultCollection.
-        if let currentAvailableCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getPayableCollectionIncludingCurrentAvailableLocalAppCharges(){
-            self.defaultCollections = currentAvailableCollections
-        }
+        loadDefaultCollection()
 
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
@@ -801,6 +837,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                 DispatchQueue.main.async{
                     AppCenter.default.openApp(identifier: rid)
+                }
+            }else{
+                DispatchQueue.main.async{
+                    self.reloadData()
                 }
             }
         }
