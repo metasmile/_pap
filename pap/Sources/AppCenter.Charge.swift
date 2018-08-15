@@ -60,21 +60,21 @@ private final class AppChargeManager: ChargeManager{
             // Store Purchase
             , AppCharge(type: .nonConsumablePurchase
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
-                    , priceAmount: AmountObject.max
+                    , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Purchase All At Once".localized, description: nil, iconImage: nil) 
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .renewableMonthlySubscription
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
-                    , priceAmount: AmountObject.max
+                    , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .rented
                     , payment: AnnualAllAppsPayment.self
-                    , priceAmount: AmountObject.max
+                    , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Annual Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
@@ -82,13 +82,13 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .nonRenewingMonthlySubscription
                     , reward: .rented
                     , payment: OneMonthAllAppsPayment.self
-                    , priceAmount: AmountObject.max
+                    , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"1-Month Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "A Month Use of All Apps And New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .rented, payment: OneYearAllAppsPayment.self
-                    , priceAmount: AmountObject.max
+                    , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"1-Year Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "A Year Use of All Apps And New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
             )
@@ -113,13 +113,12 @@ struct AppRewardDescription:RewardDescribable{
 }
 
 class AppCharge: Charge {
-    let type: ChargeType
-    let reward: RewardType
-    let payment:Payable.Type
-    let priceAmount:Amount
-
-    let describable: ChargeDescribable
-    lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
+    private(set) var type: ChargeType
+    private(set) var reward: RewardType
+    private(set) var payment:Payable.Type
+    private(set) var priceAmount:Amount
+    private(set) var describable: ChargeDescribable
+    private(set) lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
 
     init(type: ChargeType,
          reward: RewardType,
@@ -137,6 +136,51 @@ class AppCharge: Charge {
         if rewardDescribable != nil{
             self.rewardDescribable = rewardDescribable
         }
+        validate()
+    }
+
+    private func validate(){
+        guard self.reward.isNonConsumable && self.priceAmount.isEqual(to: AmountObject.min) else{
+            assert(false, "Reward isNonConsumable priceAmount is not required")
+            self.priceAmount = AmountObject.min
+        }
+    }
+
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        var vResult = false
+
+        /*
+            Verify Payment
+        */
+        if let payable = payment as? VerifiablePayable.Type {
+
+            if let result = payable.init().verify(asyncSignal){
+                // Detected InValid Receipt
+#if DEBUG
+                if result == false{
+                    print("[i] INFO: Receipt Verification SUCCEED -> InValid Receipt: \(String(describing: payable))")
+                }else{
+                    print("[i] INFO: Receipt Verification SUCCEED -> Valid Receipt: \(String(describing: payable))")
+                }
+#endif
+                vResult = result
+
+            } else{
+#if DEBUG
+                print("[!] WARNING: Receipt Verification FAILED for \(String(describing: payable)).")
+
+                if payment is StorePayable{
+                    print("[!] WARNING: 1. Check network status or Validator's URL whether is for production (https://buy.itunes.apple.com/verifyReceipt) or sandbox (https://sandbox.itunes.apple.com/verifyReceipt). " +
+                            "\n2. Check 'NSAppTransportSecurity' in Info.plist for 'apple.com' \n " +
+                            "\n3. Check Product Id(Not Registered or Deprecated)/Type(Mismatched) on AppStore connect \n "
+                    )
+                }
+#endif
+                vResult = true
+            }
+        }
+
+        return vResult
     }
 
     private struct DefaultRewardDescribable:RewardDescribable {
@@ -213,7 +257,7 @@ extension AppCharge{
 
         let rewardDescribable:RewardDescribable? = description ?? [
             ChargeType.nonConsumablePurchase: AppRewardDescription(
-                    title: "Permanent Use of Including All Updates".localized,
+                    title: "Permanent Use And All New Updates".localized,
                     shortTitle: "Permanent Single App License",
                     description: nil,
                     unit: nil,
@@ -224,7 +268,7 @@ extension AppCharge{
         return AppCharge(type: chargeType
                 , reward: .owned
                 , payment: chargingPayable
-                , priceAmount: AmountObject.max
+                , priceAmount: AmountObject.min
                 , describable: AppChargeDescription(title:"Purchase %@".localizedFormatted(app.info.displayName), description: nil, iconImage: nil) 
                 , rewardDescribable: rewardDescribable
         )
@@ -329,10 +373,10 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(balance: Amount) {
-        validateReceipts()
+        verifyReceipts()
     }
 
-    private func validateReceipts(){
+    private func verifyReceipts(){
         let currentQueue = DispatchQueue.current
 
         DispatchQueue.global(qos: .background).async{
@@ -342,49 +386,20 @@ private final class AppChargeBanker: ChargeBanker {
                 guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
                     continue
                 }
-                /*
-                   Incorrect Receipt
-                */
 
-                // - amountValue is incorrect
-                if vReceipt.amountValue < 0{
+                guard vReceipt.verify(asyncSignal) else {
                     currentQueue.async(flags:.barrier){
                         self.receiptStorage.removeReceipt(vReceipt.uuid)
                     }
+                    continue
                 }
 
-                // NonConsumable must be higher than 0 of its amountValue
-                if vReceipt.reward.isNonConsumable && vReceipt.amountValue == 0{
+                guard c.verify(asyncSignal) else {
                     currentQueue.async(flags:.barrier){
                         self.receiptStorage.removeReceipt(vReceipt.uuid)
                     }
+                    continue
                 }
-
-                /*
-                    Verify Payment
-                */
-                if let vPayable = c.payment as? VerifiablePayable.Type {
-
-                    if let vResult = vPayable.init().verify(asyncSignal){
-
-                        // Detected InValid Receipt
-                        if vResult == false{
-                            currentQueue.async(flags:.barrier){
-                                self.receiptStorage.removeReceipt(vReceipt.uuid)
-                            }
-                            print("[i] INFO: Receipt Verification SUCCEED -> InValid Receipt: \(String(describing: vPayable))")
-                        }else{
-                            print("[i] INFO: Receipt Verification SUCCEED -> Valid Receipt: \(String(describing: vPayable))")
-                        }
-                    }else{
-                        print("[!] WARNING: Receipt Verification FAILED for \(String(describing: vPayable))." +
-                                "\n1. Check network status or Validator's URL whether is for production (https://buy.itunes.apple.com/verifyReceipt) or sandbox (https://sandbox.itunes.apple.com/verifyReceipt). " +
-                                "\n2. Check 'NSAppTransportSecurity' in Info.plist for 'apple.com' \n " +
-                                "\n3. Check Product Id(Not Registered or Deprecated)/Type(Mismatched) on AppStore connect \n "
-                        )
-                    }
-                }
-
             }
         }
     }

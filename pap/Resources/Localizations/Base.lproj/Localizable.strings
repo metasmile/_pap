@@ -86,9 +86,9 @@
 "%@ / Day" = "%@ / Day";
 /* Generated from genl10n: Shop.SApp.swift#82 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#152 */
+/* Generated from genl10n: AppCenter.Charge.swift#196 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#164 */
+/* Generated from genl10n: AppCenter.Charge.swift#208 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
@@ -110,7 +110,7 @@
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
-/* Generated from genl10n: Shop.SApp.swift#840, PhoneCalls.BApp.swift#591, Finder.BApp.swift#1660, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: Shop.SApp.swift#837, PhoneCalls.BApp.swift#591, Finder.BApp.swift#1660, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
@@ -290,7 +290,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#97 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
-/* Generated from genl10n: Shop.SApp.swift#845, PhoneCalls.BApp.swift#597, Finder.BApp.swift#1666, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: Shop.SApp.swift#842, PhoneCalls.BApp.swift#597, Finder.BApp.swift#1666, Cleaner.BApp.swift#876 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -308,8 +308,8 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#216 */
-"Permanent Use of Including All Updates" = "Permanent Use of Including All Updates";
+/* Generated from genl10n: AppCenter.Charge.swift#260 */
+"Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, Finder.BApp.swift#345, Finder.BApp.swift#1224 */
@@ -322,7 +322,7 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppCenter.Charge.swift#228 */
+/* Generated from genl10n: AppCenter.Charge.swift#272 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: AppCenter.Charge.swift#64 */
 "Purchase All At Once" = "Purchase All At Once";

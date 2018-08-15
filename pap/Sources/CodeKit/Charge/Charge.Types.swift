@@ -115,6 +115,8 @@ protocol Charge: Chargeable {
     var priceAmount: Amount {get}
     var describable:ChargeDescribable {get}
     var rewardDescribable:RewardDescribable? {get}
+
+    func verify(_ signal:AsyncWaitSignalable) -> Bool
 }
 
 protocol Amount: Codable{
@@ -127,16 +129,26 @@ protocol Amount: Codable{
     init(value:Double)
 
     static func validate(value:Double) -> Double
+
+    func isEqual(to other:Amount) -> Bool
 }
 
 //Default Amount
 extension Amount{
+    static var min:Amount{
+        return self.init(value: minValue)
+    }
     static var minValue: Double {
         return 0
+    }
+
+    static var max:Amount{
+        return self.init(value: maxValue)
     }
     static var maxValue: Double {
         return 1
     }
+
     static var invalidatedValue: Double {
         return Double.nan
     }
@@ -149,6 +161,15 @@ extension Amount{
         let validated = value >= minValue && value <= maxValue
         assert(validated,"The value of amount is in validate. \(value). Valid range of value is [\(minValue)...\(maxValue)]")
         return validated ? value : invalidatedValue
+    }
+
+    func isEqual(to other: Amount) -> Bool {
+        var eq = true
+        eq = eq && type(of: self).minValue == type(of: other).minValue
+        eq = eq && type(of: self).maxValue == type(of: other).maxValue
+        eq = eq && type(of: self).invalidatedValue == type(of: other).invalidatedValue
+        eq = eq && value == other.value
+        return eq
     }
 }
 

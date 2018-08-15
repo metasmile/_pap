@@ -102,6 +102,20 @@ struct ChargeableReceipt: Codable, Hashable{
     func isFrom(charge:Chargeable) -> Bool{
         return charge.identifier == chargeableIdentifier
     }
+
+    func verify(_ signal:AsyncWaitSignalable) -> Bool{
+        // - amountValue is incorrect
+        if amountValue < 0{
+            return false
+        }
+
+        // Consumable must be higher than 0 of its amountValue
+        if reward.isNonConsumable == false && amountValue == 0{
+            return false
+        }
+
+        return true
+    }
 }
 
 
