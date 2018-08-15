@@ -473,7 +473,6 @@ private final class AppChargeBanker: ChargeBanker {
     //                false: does not remain any consumable amount
     private func tryConsume(for receipt:ChargeableReceipt, of charge: Charge) -> Bool{
         if receipt.reward.isNonConsumable {
-            assert(false, "[!] ERROR: Given receipt \(receipt) is issued by NonConsumable charge \(charge)")
             return false
         }
 

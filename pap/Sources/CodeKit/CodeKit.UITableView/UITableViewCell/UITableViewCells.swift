@@ -39,8 +39,6 @@ class UITableViewIndicatorCell: UITableViewCell {
     func startIndicating(){
         if let accessoryView = self.accessoryView
         , accessoryView.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
-            isUserInteractionEnabled = false
-
             let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             loadingIndicator.hidesWhenStopped = false
             loadingIndicator.tag = loadingIndicatorTag
@@ -56,10 +54,9 @@ class UITableViewIndicatorCell: UITableViewCell {
     }
 
     func stopIndicating(){
-        isUserInteractionEnabled = true
-        accessoryView?.isHidden = false
-
         if let indicatorView = accessoryView?.superview?.viewWithTag(loadingIndicatorTag) as? UIActivityIndicatorView{
+            accessoryView?.isHidden = false
+
             indicatorView.stopAnimating()
             indicatorView.removeFromSuperview()
             self.layoutIfNeeded()

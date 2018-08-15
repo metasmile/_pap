@@ -792,17 +792,28 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.button.setTitleColor(self.view.tintColor, for: .normal)
         }
 
-        cell.enable(!AppCenter.charge.isPaid(payable: dataItem.payable))
+        let unpaid = AppCenter.charge.isPaid(payable: dataItem.payable) == false
 
         if dataItem.isIndicating{
+            cell.isUserInteractionEnabled = false
             cell.startIndicating()
         }else{
+            cell.isUserInteractionEnabled = true
             cell.stopIndicating()
         }
 
-        cell.didTap = {
-            self.didTapPayButton(item: dataItem, indexPath:indexPath)
+        if unpaid{
+            cell.didTap = { self.didTapPayButton(item: dataItem, indexPath:indexPath) }
+            cell.accessoryType = .none
+            cell.accessoryView = cell.button
+            cell.enable(true)
+        }else{
+            cell.didTap = nil
+            cell.accessoryView = nil
+            cell.accessoryType = .checkmark
+            cell.enable(false)
         }
+
         return cell
     }
 
