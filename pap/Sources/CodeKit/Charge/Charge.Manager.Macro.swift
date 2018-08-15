@@ -6,6 +6,10 @@
 import Foundation
 
 extension ChargeManager{
+    func getChargesHasPaidOwned(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
+        return getChargesHasPaid(excluding: types).filter { $0.reward.isOwned }
+    }
+
     func getChargesHasReceipt(excluding types:Set<ChargeType>?=nil) -> [Charge]{
         return getCharges(excluding: types).filter { bank.getReceipt(for: $0) != nil }
     }

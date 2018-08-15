@@ -1,5 +1,5 @@
 //
-// Created by BLACKGE?NE ??on 24.07.18.
+// Created by BLACKGE?NE ???on 24?.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -17,10 +17,17 @@ extension AppCenter{
             return true
         }
 
+        if charge.getChargesHasPaidOwned().count > 0{
+            return true
+        }
+
         let paidChargesIDs = charge.getChargesHasPaid().map{ $0.identifier }
 
         //If current app is ChargeableApp, localCharges must be paid.
         if let chargeableCurrent = self.default.current as? ChargeableApp.Type{
+            print(chargeableCurrent.localCharges.map{ $0.identifier })
+            print(Set(chargeableCurrent.localCharges.map{ $0.identifier }).subtracting(Set(paidChargesIDs)))
+
             return Set(chargeableCurrent.localCharges.map{ $0.identifier }).subtracting(Set(paidChargesIDs)).count == 0
         }
 
@@ -438,6 +445,8 @@ private final class AppChargeBanker: ChargeBanker {
 
     @discardableResult
     private func synchronizeReceipts(balance: Amount) -> Amount{
+        let hasOwned = receiptStorage.receipts.values.contains { receipt in receipt.reward.isOwned }
+
         var removingReceipts = Set<ChargeableReceipt>()
 
         for (_, receipt) in receiptStorage.receipts {
@@ -452,8 +461,10 @@ private final class AppChargeBanker: ChargeBanker {
             }
 
             // try consumed and then, this receipt was empty if it currently not owned.
-            if receipt.reward.isOwned == false, tryConsume(for: receipt, of: charge) == false{
-                removingReceipts.insert(receipt)
+            if hasOwned == false && receipt.reward.isOwned == false{
+                if !tryConsume(for: receipt, of: charge){
+                    removingReceipts.insert(receipt)
+                }
                 continue
             }
         }

@@ -49,7 +49,7 @@ class ChargeManager{
     }
 
     func getCharges(excluding types:Set<ChargeType>?=nil) -> [Charge]{
-        return charges.filter { types?.contains($0.type) == true }
+        return charges.filter { !(types?.contains($0.type) == true) }
     }
 
     func getChargesHasPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
