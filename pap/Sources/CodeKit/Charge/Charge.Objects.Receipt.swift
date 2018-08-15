@@ -171,7 +171,7 @@ final class ChargeReceiptStorage {
         assert(!hasReceipt(by: receipt.uuid),"Given receipt, \(receipt) does already exist")
         if !hasReceipt(by: receipt.uuid){
             receipts[receipt.uuid] = receipt
-            print("[i] Receipt Added: ", receipt, receipt.uuid)
+            print("[i] INFO: Receipt Added: ", receipt, receipt.uuid)
         }
     }
 

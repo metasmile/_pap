@@ -69,8 +69,8 @@ extension PhotoPickerViewController{
 //            setViewControllerDisabled(true)
 //        }
 
-        print("Paid Charges:", AppCenter.charge.getChargesHasReceipt() )
-        print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt() )
+        print("Paid Charges:", AppCenter.charge.getChargesHasReceipt().map{ $0.identifier } )
+        print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt().map{ $0.identifier } )
 
         //selected
 //        let selected = self.estimatedAvailableSelectedItems > 0

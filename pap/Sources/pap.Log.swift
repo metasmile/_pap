@@ -22,15 +22,23 @@ struct papLog: Loggable {
     static func allTasksAreFinished(){ log() }
 
     struct charge: Loggable {
-        private static var kChargeType:String{ return #function }
+        private static var kChargeIdentifier:String{ return #function }
 
         static func opened(){ log() }
         static func cancelled(){ log() }
         static func openedInWelcomeTutorial(){ log() }
         static func openedInAllPaid(){ log() }
         static func openedInNeedToPay(){ log() }
-        static func paid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
-        static func unpaid(type:ChargeType){ log(parameters: [kChargeType:String(describing: type)]) }
+        static func paid(charge:Charge){
+            log(parameters: [
+                kChargeIdentifier:String(describing: charge.identifier)
+            ])
+        }
+        static func unpaid(charge:Charge){
+            log(parameters: [
+                kChargeIdentifier:String(describing: charge.identifier)
+            ])
+        }
     }
 
     struct app: Loggable {

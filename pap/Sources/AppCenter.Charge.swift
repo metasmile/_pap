@@ -11,28 +11,23 @@ import DefaultsKit
 extension AppCenter{
     static let charge:ChargeManager = AppChargeManager.initialize()
 
+    //INFO: Priority is critical.
     static func isPaidInCurrentContext() -> Bool{
-        //Check remaining balanceValue
-        if charge.bank.balanceValue > 0{
-            return true
-        }
-
+        // Priority 1 - Owned - paid
         if charge.getChargesHasPaidOwned().count > 0{
             return true
         }
 
-        let paidChargesIDs = charge.getChargesHasPaid().map{ $0.identifier }
-
-        //If current app is ChargeableApp, localCharges must be paid.
+        // Priority 2 - localCharge - paid
         if let chargeableCurrent = self.default.current as? ChargeableApp.Type{
-            print(chargeableCurrent.localCharges.map{ $0.identifier })
-            print(Set(chargeableCurrent.localCharges.map{ $0.identifier }).subtracting(Set(paidChargesIDs)))
+            let paidChargesIDs = charge.getChargesHasPaid().map{ $0.identifier }
+            let localChargeIdSet = Set(chargeableCurrent.localCharges.map{ $0.identifier })
 
-            return Set(chargeableCurrent.localCharges.map{ $0.identifier }).subtracting(Set(paidChargesIDs)).count == 0
+            return localChargeIdSet.intersection(paidChargesIDs).count > 0
         }
 
-        //else, paidChargesIDs has exist, user paid.
-        return paidChargesIDs.count > 0
+        // Priority 3 - remaining balance - for free apps.
+        return charge.bank.balanceValue > 0
     }
 }
 
@@ -260,8 +255,10 @@ class AppCharge: Charge {
 
 extension AppCharge{
     static func createLocalAppCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
-        var payable:StorePayable.Type?
+        var payable:Payable.Type?
         switch chargeType{
+            case .none:
+                payable = FreeAppPayment<A>.self
             case .nonConsumablePurchase:
                 payable = AllTimeAppPayment<A>.self
             case .nonRenewingMonthlySubscription:
@@ -284,6 +281,13 @@ extension AppCharge{
         let rewardDescribable:RewardDescribable? = description ?? [
             ChargeType.nonConsumablePurchase: AppRewardDescription(
                     title: "Permanent Use And All New Updates".localized,
+                    shortTitle: "Permanent Single App License",
+                    description: nil,
+                    unit: nil,
+                    iconImage: app.info.iconBundleName
+            )
+            , ChargeType.none: AppRewardDescription(
+                    title: "Free Use For All".localized,
                     shortTitle: "Permanent Single App License",
                     description: nil,
                     unit: nil,
@@ -461,7 +465,7 @@ private final class AppChargeBanker: ChargeBanker {
             }
 
             // try consumed and then, this receipt was empty if it currently not owned.
-            if hasOwned == false && receipt.reward.isOwned == false{
+            if hasOwned == false && receipt.reward.isNonConsumable == false{
                 if !tryConsume(for: receipt, of: charge){
                     removingReceipts.insert(receipt)
                 }
@@ -484,6 +488,7 @@ private final class AppChargeBanker: ChargeBanker {
     //                false: does not remain any consumable amount
     private func tryConsume(for receipt:ChargeableReceipt, of charge: Charge) -> Bool{
         if receipt.reward.isNonConsumable {
+            assert(false, "[!] ERROR: 'tryConsume' has called, but receipt \(receipt) is nonConsumable.")
             return false
         }
 
@@ -529,10 +534,10 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didSaveDeposit(for charge: Charge, balance: Amount) {
-        papLog.charge.paid(type: charge.type)
+        papLog.charge.paid(charge: charge)
     }
 
     func didDeclineDeposit(for charge: Charge) {
-        papLog.charge.unpaid(type: charge.type)
+        papLog.charge.unpaid(charge: charge)
     }
 }

@@ -82,7 +82,7 @@ class ChargeManager{
         return false
     }
 
-    func pay(for payable: Payable.Type, skipTransaction:Bool=false /* //TODO: find alternative way. */, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
+    func pay(for payable: Payable.Type, skipTransaction:Bool=false, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.payment == payable }) else {
             return
         }

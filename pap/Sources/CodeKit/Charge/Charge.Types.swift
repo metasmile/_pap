@@ -9,6 +9,8 @@ import Foundation
 enum ChargeType:Int {
     case deprecated = -1
 
+    case none = 0
+
     //promotional
     case welcomeFreeTrial = 100
     case inStoreRating = 101
@@ -49,7 +51,7 @@ enum RewardType:Int {
 
     var isNonConsumable:Bool{
         switch self{
-            case .owned, .rented, .localOwned, .localRented, .nonBlockOfUses:
+        case .nonBlockOfUses, .owned, .rented, .localOwned, .localRented:
                  return true
             default:
                 break

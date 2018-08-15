@@ -8,6 +8,18 @@ import Armchair
 import UIKit
 import MessageUI
 
+struct FreeAppPayment<T:App>: VerifiablePayable{
+    static var label: String{
+        return "Get Free Use".localized
+    }
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        return true
+    }
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return true
+    }
+}
+
 struct PayInAppStoreRating:Payable{
 
     static var label:String{

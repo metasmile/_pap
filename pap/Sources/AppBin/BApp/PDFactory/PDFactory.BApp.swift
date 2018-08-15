@@ -17,7 +17,7 @@ private struct PDFactoryAppPHAssetResult: AppTaskResultable {
 }
 
 public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp , AppDockApp {
+        PhotoPickerCollectionViewDisplayableApp , AppDockApp, ChargeableApp {
 
     public static let taskType: AppTaskable.Type = _PDFactoryAppTask.self
 
@@ -37,6 +37,12 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
     )
 
     public required init() {}
+
+    static var localCharges: [Charge] {
+        return [
+            AppCharge.createLocalAppCharge(of: self, as: .none)
+        ].compactMap { $0 }
+    }
 
     public var doneButtonTitle: String?{
         return "Create %@".localizedFormatted("PDF")
