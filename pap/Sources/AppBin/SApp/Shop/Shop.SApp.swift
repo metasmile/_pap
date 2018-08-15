@@ -75,19 +75,20 @@ extension ShopApp{
     */
     fileprivate func getPayableCollectionIncludingCurrentAvailableLocalAppCharges() -> [PayDictionary] {
         var mutableDefaultCollection = PayDictionary.DefaultCollection
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type
-        , let localCharges = sourceChargeableApp.localCharges?.nilEmpty {
-            mutableDefaultCollection.append(PayDictionary(
-                    key: .LocalPermanentOwnedCharge
-                    , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                    , items: localCharges.map ({
-                var pay = PayItem(payable: $0.payment)
-                pay.rewardIconImageStyle.beRound = true
-                pay.rewardIconImageStyle.useTintColor = false
-                return pay
-            })
-            ))
-            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
+            if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
+                mutableDefaultCollection.append(PayDictionary(
+                        key: .LocalPermanentOwnedCharge
+                        , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                        , items: localCharges.map ({
+                    let pay = PayItem(payable: $0.payment)
+                    pay.rewardIconImageStyle.beRound = true
+                    pay.rewardIconImageStyle.useTintColor = false
+                    return pay
+                })
+                ))
+                mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+            }
         }
         return mutableDefaultCollection
     }

@@ -39,14 +39,28 @@ enum RewardType:Int {
     case timeOfUses = 200
     case countOfUses = 201
 
-    //e.g. paid or VIP code
+    //e.g. paid whole pricing range
     case owned = 300
     case rented = 301
 
+    //e.g. paid single app
+    case localOwned = 350
+    case localRented = 351
+
     var isNonConsumable:Bool{
         switch self{
-            case .owned, .rented, .nonBlockOfUses:
+            case .owned, .rented, .localOwned, .localRented, .nonBlockOfUses:
                  return true
+            default:
+                break
+        }
+        return false
+    }
+
+    var isOwned:Bool{
+        switch self{
+            case .owned, .rented:
+                return true
             default:
                 break
         }
@@ -167,7 +181,7 @@ extension Amount{
         var eq = true
         eq = eq && type(of: self).minValue == type(of: other).minValue
         eq = eq && type(of: self).maxValue == type(of: other).maxValue
-        eq = eq && type(of: self).invalidatedValue == type(of: other).invalidatedValue
+        eq = eq && (value == type(of: self).invalidatedValue) == (other.value == type(of: other).invalidatedValue)
         eq = eq && value == other.value
         return eq
     }

@@ -104,6 +104,7 @@
 		4F71D5BEB80E3F3F2DD975C5 /* gifmaker_preview_frame_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D690F11CC993F3459F2A /* gifmaker_preview_frame_6.png */; };
 		4F71D5DC10EAC011D158E6FE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D402604D22D60E92ECB2 /* CustomView.swift */; };
 		4F71D5DF1F5B52FDC8E79376 /* PhotoPickerViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBE2FAD161C2D94D9CC6 /* PhotoPickerViewController.UICollectionView.swift */; };
+		4F71D5DFBDF1442EE4CA2363 /* Charge.Manager.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF066D29AD2D6EABE9A6 /* Charge.Manager.Macro.swift */; };
 		4F71D5EEC984FAED85297905 /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB9A2D6C0695C47433B7 /* AppDockView.xib */; };
 		4F71D5F0A0E3A9E4B322FCBA /* CodeKit.Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDADBA3628FE8356C6EB /* CodeKit.Array.swift */; };
 		4F71D5F161048964DB4E1A65 /* Cleaner.GarbageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE632C5E5EA24ECFF6E6 /* Cleaner.GarbageDetector.swift */; };
@@ -129,7 +130,6 @@
 		4F71D7260F2A027807AA1A3B /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19E3BDD7D8E7927412E /* PhotoPickerDetailViewController.swift */; };
 		4F71D7286F59E2AFB9DE4425 /* AutoEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFE6F7AD720DACF7CAEB /* AutoEditor.BApp.swift */; };
 		4F71D74081724BE45AA4A767 /* gifmaker_preview_frame_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA8CB1A1375BFBCDC477 /* gifmaker_preview_frame_2.png */; };
-		4F71D742B9098EB6B9337844 /* Charge.Manager.Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC77DAF9F8765140EF23 /* Charge.Manager.Utils.swift */; };
 		4F71D74CD448F4473D613D55 /* ImageIO.Metadata.Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0149B2F38B0BCC4A992 /* ImageIO.Metadata.Util.swift */; };
 		4F71D74DB4EF14DAA98571D0 /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB79973751F3580CA941 /* BApp.swift */; };
 		4F71D753FAC4D11F3FAA85C1 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D17919E12758958F0951 /* PreviewView.swift */; };
@@ -534,7 +534,6 @@
 		4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DC58EF662B297E81FB44 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		4F71DC59EDF3C2434748D74B /* ExifGhost.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExifGhost.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		4F71DC77DAF9F8765140EF23 /* Charge.Manager.Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Manager.Utils.swift; sourceTree = "<group>"; };
 		4F71DC82553239CE9C10FA36 /* ExifGhost.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71DC86D21CEF245CBF82A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		4F71DC8E006B7C6A5323B5B8 /* apps_collection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apps_collection.png; sourceTree = "<group>"; };
@@ -582,6 +581,7 @@
 		4F71DECC1D4250520B24DDE3 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
 		4F71DEF14527034010D8943D /* App.Preheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Preheatable.swift; sourceTree = "<group>"; };
 		4F71DF0023CBC4BE3200C204 /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
+		4F71DF066D29AD2D6EABE9A6 /* Charge.Manager.Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Manager.Macro.swift; sourceTree = "<group>"; };
 		4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Label.swift; sourceTree = "<group>"; };
 		4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.Tests.swift; sourceTree = "<group>"; };
 		4F71DF49F0FF6089248DE131 /* Shop.Payables.StoreProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.StoreProducts.swift; sourceTree = "<group>"; };
@@ -1265,8 +1265,8 @@
 				4F71DE8F4B1CDC7E1A15BC63 /* Charge.Objects.Amount.swift */,
 				4F71D850917CA806926DC874 /* Charge.Objects.Receipt.swift */,
 				4F71D44E8D1A6220328D048F /* Charge.Banker.swift */,
-				4F71DC77DAF9F8765140EF23 /* Charge.Manager.Utils.swift */,
 				4F71D7FDED13971376BDD3F4 /* Charge.Types.StoreKit.swift */,
+				4F71DF066D29AD2D6EABE9A6 /* Charge.Manager.Macro.swift */,
 			);
 			path = Charge;
 			sourceTree = "<group>";
@@ -2449,7 +2449,6 @@
 				4F71D89BD0DF08370F62CC4E /* Charge.Objects.Amount.swift in Sources */,
 				4F71DD39B9674E8C48EAB1BA /* Charge.Objects.Receipt.swift in Sources */,
 				4F71DFC7BA7C1674174CBF95 /* Charge.Banker.swift in Sources */,
-				4F71D742B9098EB6B9337844 /* Charge.Manager.Utils.swift in Sources */,
 				4F71DF60E96F066B0AFAB3AC /* ChargeableButton.swift in Sources */,
 				4F71D9195CE73CB8133DDD7B /* CodeKit.UITableView.swift in Sources */,
 				4F71D82971EF66AB0D8A0FBC /* pap.Strings.swift in Sources */,
@@ -2491,6 +2490,7 @@
 				4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */,
 				4F71DE646AD030DA9F28BE7E /* Charge.Types.StoreKit.swift in Sources */,
 				4F71DFC97A4B85CB0C7D686A /* CodeKit.SKProduct.swift in Sources */,
+				4F71D5DFBDF1442EE4CA2363 /* Charge.Manager.Macro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

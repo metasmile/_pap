@@ -10,6 +10,23 @@ import DefaultsKit
 
 extension AppCenter{
     static let charge:ChargeManager = AppChargeManager.initialize()
+
+    static func isPaidInCurrentContext() -> Bool{
+        //Check remaining balanceValue
+        if charge.bank.balanceValue > 0{
+            return true
+        }
+
+        let paidChargesIDs = charge.getChargesHasPaid().map{ $0.identifier }
+
+        //If current app is ChargeableApp, localCharges must be paid.
+        if let chargeableCurrent = self.default.current as? ChargeableApp.Type{
+            return Set(chargeableCurrent.localCharges.map{ $0.identifier }).subtracting(Set(paidChargesIDs)).count == 0
+        }
+
+        //else, paidChargesIDs has exist, user paid.
+        return paidChargesIDs.count > 0
+    }
 }
 
 private final class AppChargeManager: ChargeManager{
@@ -140,9 +157,11 @@ class AppCharge: Charge {
     }
 
     private func validate(){
-        guard self.reward.isNonConsumable && self.priceAmount.isEqual(to: AmountObject.min) else{
-            assert(false, "Reward isNonConsumable priceAmount is not required")
-            self.priceAmount = AmountObject.min
+        if self.reward.isNonConsumable{
+            if false == self.priceAmount.isEqual(to: AmountObject.min){
+                assert(false, "Reward isNonConsumable priceAmount is not required")
+                self.priceAmount = AmountObject.min
+            }
         }
     }
 
@@ -266,7 +285,7 @@ extension AppCharge{
         ][chargeType]
 
         return AppCharge(type: chargeType
-                , reward: .owned
+                , reward: .localOwned
                 , payment: chargingPayable
                 , priceAmount: AmountObject.min
                 , describable: AppChargeDescription(title:"Purchase %@".localizedFormatted(app.info.displayName), description: nil, iconImage: nil) 
@@ -317,10 +336,12 @@ private final class AppChargeBanker: ChargeBanker {
 
     fileprivate static let Abs_CountOfUses_Count = 50
 
+    private let registeredChargesIdentifierSet:[String:Charge]
     private let registeredCharges:[Charge]
 
     init(registeredCharges: [Charge]) {
         self.registeredCharges = registeredCharges
+        self.registeredChargesIdentifierSet = self.registeredCharges.dictionary { $0.identifier }
 
         #if DEBUG
         for c in self.registeredCharges{
@@ -369,39 +390,11 @@ private final class AppChargeBanker: ChargeBanker {
 
         print("[i] \(String(describing: type(of: self))) Initializd. Balance: ", initialBalance.value)
 
-        return self.synchronizeBalance(balance:initialBalance)
+        return self.synchronizeReceipts(balance:initialBalance)
     }
 
     func didInitializeBank(balance: Amount) {
-        verifyReceipts()
-    }
-
-    private func verifyReceipts(){
-        let currentQueue = DispatchQueue.current
-
-        DispatchQueue.global(qos: .background).async{
-            let asyncSignal = AsyncSignal()
-
-            for c in self.registeredCharges{
-                guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
-                    continue
-                }
-
-                guard vReceipt.verify(asyncSignal) else {
-                    currentQueue.async(flags:.barrier){
-                        self.receiptStorage.removeReceipt(vReceipt.uuid)
-                    }
-                    continue
-                }
-
-                guard c.verify(asyncSignal) else {
-                    currentQueue.async(flags:.barrier){
-                        self.receiptStorage.removeReceipt(vReceipt.uuid)
-                    }
-                    continue
-                }
-            }
-        }
+        synchronizeReceiptsAsyncByCharges()
     }
 
     private func createOrReplaceReceipt(for charge: Charge){
@@ -419,51 +412,49 @@ private final class AppChargeBanker: ChargeBanker {
         }
 
         assert(receiptStorage.receipts.filter({ key, value in value.isFrom(charge: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
-
     }
 
+    private func synchronizeReceiptsAsyncByCharges(){
+        let currentQueue = DispatchQueue.current
+
+        DispatchQueue.global(qos: .background).async{
+            let asyncSignal = AsyncSignal()
+
+            for c in self.registeredCharges{
+                guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
+                    continue
+                }
+
+                guard c.verify(asyncSignal) else {
+                    currentQueue.async(flags:.barrier){
+                        self.receiptStorage.removeReceipt(vReceipt.uuid)
+                    }
+                    continue
+                }
+            }
+        }
+    }
+
+
     @discardableResult
-    private func synchronizeBalance(balance: Amount) -> Amount{
+    private func synchronizeReceipts(balance: Amount) -> Amount{
         var removingReceipts = Set<ChargeableReceipt>()
-        let syncDate = Date()
 
-        for (_, receipt) in receiptStorage.receipts { //TODO: improve performance - o.n -> o.1 avg.
-
-            guard let charge = registeredCharges.first(where:{ charge in charge.identifier == receipt.chargeableIdentifier }) else {
+        for (_, receipt) in receiptStorage.receipts {
+            guard let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier] else {
                 continue
             }
 
-            //deprecated
-            if receipt.type == .deprecated || receipt.reward == .deprecated{
+            // Invalid or already consumed receipt
+            if receipt.verify() == false{
                 removingReceipts.insert(receipt)
                 continue
             }
 
-            if receipt.reward.isNonConsumable{
+            // try consumed and then, this receipt was empty if it currently not owned.
+            if receipt.reward.isOwned == false, tryConsume(for: receipt, of: charge) == false{
+                removingReceipts.insert(receipt)
                 continue
-            }
-
-            switch receipt.reward{
-                case .timeOfUses:
-                    if let date = receipt.dateData{
-                        let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value
-                        let offset = syncDate.timeIntervalSince(date)
-                        let amountValueOffsetRatio = offset/totalOffset
-
-                        let newAmountValue = receipt.amountValue - (charge.priceAmount.value * amountValueOffsetRatio)
-                        if newAmountValue > 0{
-                            var updatingReceipt = receipt
-                            updatingReceipt.amountValue = newAmountValue
-                            updatingReceipt.dateData = syncDate
-                            receiptStorage.updateReceipt(updatingReceipt)
-
-
-                        }else{
-                            removingReceipts.insert(receipt)
-                        }
-                    }
-                default:
-                    assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
             }
         }
 
@@ -478,17 +469,51 @@ private final class AppChargeBanker: ChargeBanker {
         return balance
     }
 
+    //INFO: return -> true: Remained, so consumed successfully.
+    //                false: does not remain any consumable amount
+    private func tryConsume(for receipt:ChargeableReceipt, of charge: Charge) -> Bool{
+        if receipt.reward.isNonConsumable {
+            assert(false, "[!] ERROR: Given receipt \(receipt) is issued by NonConsumable charge \(charge)")
+            return false
+        }
+
+        let syncDate = Date()
+
+        switch receipt.reward{
+            case .timeOfUses:
+                if let date = receipt.dateData{
+                    let totalOffset = type(of: self).Abs_TimeOfUses_Time * charge.priceAmount.value
+                    let offset = syncDate.timeIntervalSince(date)
+                    let amountValueOffsetRatio = offset/totalOffset
+
+                    let newAmountValue = receipt.amountValue - (charge.priceAmount.value * amountValueOffsetRatio)
+                    if newAmountValue > 0{
+                        var updatingReceipt = receipt
+                        updatingReceipt.amountValue = newAmountValue
+                        updatingReceipt.dateData = syncDate
+                        receiptStorage.updateReceipt(updatingReceipt)
+
+                        return true
+                    }
+                }
+            default:
+                assert(false, "[!] WARNING: \(receipt.reward) handling is not implemented yet.")
+        }
+
+        return false
+    }
+
     func getReceipt(for chargeable: Chargeable) -> ChargeableReceipt? {
         return receiptStorage.getReceipt(for: chargeable)
     }
 
     func synchronizeBalanceValue(balance: Amount) -> Amount {
-        return synchronizeBalance(balance:balance)
+        return synchronizeReceipts(balance:balance)
     }
 
     func willSaveDeposit(forPriceAmountOf charge: Charge, balance: Amount) -> Amount? {
         createOrReplaceReceipt(for: charge)
-        synchronizeBalance(balance:balance)
+        synchronizeReceipts(balance:balance)
 
         return charge.priceAmount
     }

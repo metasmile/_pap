@@ -52,7 +52,9 @@ struct ChargeableReceipt: Codable, Hashable{
         )
     }
 
-    var amountValue:Double // remaining amountValue
+    //remaining amountValue, Will not be used with NonConsumable Rewards
+    var amountValue:Double
+
     var dateData:Date?
     var stringData:String?
     var intData:Int?
@@ -103,7 +105,7 @@ struct ChargeableReceipt: Codable, Hashable{
         return charge.identifier == chargeableIdentifier
     }
 
-    func verify(_ signal:AsyncWaitSignalable) -> Bool{
+    func verify() -> Bool{
         // - amountValue is incorrect
         if amountValue < 0{
             return false
@@ -111,6 +113,14 @@ struct ChargeableReceipt: Codable, Hashable{
 
         // Consumable must be higher than 0 of its amountValue
         if reward.isNonConsumable == false && amountValue == 0{
+            return false
+        }
+
+        if type == .deprecated{
+            return false
+        }
+
+        if reward == .deprecated{
             return false
         }
 

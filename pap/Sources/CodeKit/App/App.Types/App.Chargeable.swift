@@ -9,5 +9,5 @@ protocol ChargeableApp :App{
 
     //INFO:
     // nil -> free
-    static var localCharges:[Charge]? {get}
+    static var localCharges:[Charge] {get}
 }

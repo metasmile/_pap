@@ -53,10 +53,10 @@ public class ConverterApp: BApp,
         content = ConverterAppDockContent(app:self)
     }
 
-    static var localCharges: [Charge]? {
+    static var localCharges: [Charge] {
         return [
             AppCharge.createLocalAppCharge(of: self, as: .nonConsumablePurchase)
-        ].compactMap { $0 }.nilEmpty
+        ].compactMap { $0 }
     }
 
     public var doneButtonTitle: String? {

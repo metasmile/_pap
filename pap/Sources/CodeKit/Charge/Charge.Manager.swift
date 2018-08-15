@@ -11,7 +11,7 @@ class ChargeManager{
 
     private let payingQueue:DispatchQueue = DispatchQueue(label: String(describing: ChargeManager.self))
 
-    let charges:[Charge]
+    private let charges:[Charge]
 
     private(set) var bank: ChargeBank
 
@@ -48,13 +48,36 @@ class ChargeManager{
         return charge
     }
 
-    /*
-        Payment
-    */
-    func isPaid(payable:Payable.Type) -> Bool{
+    func getCharges(excluding types:Set<ChargeType>?=nil) -> [Charge]{
+        return charges.filter { types?.contains($0.type) == true }
+    }
+
+    func getChargesHasPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
+        if synchronize{
+            bank.synchronizeBalanceValue()
+        }
+        return getCharges(excluding: types).filter { isPaid(charge: $0) }
+    }
+
+    func areAllChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> Bool{
+        if synchronize{
+            bank.synchronizeBalanceValue()
+        }
+        return getCharges(excluding: types).count == getChargesHasPaid(excluding:types).count
+    }
+
+    func isPaid(charge chargeable:Chargeable, synchronize:Bool=false) -> Bool {
+        return isPaid(payable:chargeable.payment)
+    }
+
+    func isPaid(payable:Payable.Type, synchronize:Bool=false) -> Bool{
+        if synchronize{
+            bank.synchronizeBalanceValue()
+        }
+
         if let charge = charges.first(where: { $0.payment == payable })
         , let receipt = bank.getReceipt(for: charge){
-            return receipt.amountValue > 0
+            return receipt.verify()
         }
         return false
     }
@@ -95,7 +118,7 @@ class ChargeManager{
 final class ChargeBank: NSObject, KeyPathWatchable {
     private var synchronizedBalance:Amount
 
-    private func synchronizeBalanceValue() {
+    fileprivate func synchronizeBalanceValue() {
         synchronizedBalance = banker.synchronizeBalanceValue(balance: synchronizedBalance)
     }
 

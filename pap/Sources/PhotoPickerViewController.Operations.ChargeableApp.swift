@@ -35,21 +35,15 @@ extension PhotoPickerViewController{
     func updateDoneButtonChargeableState() -> Bool {
 
         let selected = self.estimatedAvailableSelectedItems > 0
-        let balanceValue = AppCenter.charge.bank.balanceValue
-
 
         if selected{
-            let currentSyncedBalanceValue = balanceValue
-
-            assert(currentSyncedBalanceValue>=0, "current balance value synced with < 0")
-
-            if currentSyncedBalanceValue > 0 {
+            if AppCenter.isPaidInCurrentContext() {
                 navigationItem.setRightBarButton(self.doneButton, animated: true)
 
-            } else if currentSyncedBalanceValue == 0 {
+            } else {
                 let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.normalizedValue = balanceValue
+                rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -60,7 +54,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
-        rightButtonItem.normalizedValue = balanceValue
+        rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
@@ -75,7 +69,6 @@ extension PhotoPickerViewController{
 //            setViewControllerDisabled(true)
 //        }
 
-        print("Payable Charges In Balance:", AppCenter.charge.getChargesHasPricingInBalance().map { $0.type })
         print("Paid Charges:", AppCenter.charge.getChargesHasReceipt() )
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt() )
 
@@ -87,9 +80,9 @@ extension PhotoPickerViewController{
         let subtitle:String
         var titleImage:UIImage?
 
-        let allPaidCharges = AppCenter.charge.getChargesHasReceiptAlsoHasPriceAmount()
+        let allPaidCharges = AppCenter.charge.getChargesHasPaid()
 
-        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesHasPriceAmountPaid(excludingTypes: Set([ChargeType.welcomeFreeTrial]))
+        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesPaid(excluding: Set([ChargeType.welcomeFreeTrial]))
         let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }
 
         if onlyWelcomeTutorialHasPaid{
@@ -170,7 +163,7 @@ private class PhotoPickerViewControllerChargeableAssets{
     fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
 
     fileprivate var chargeableButton:ChargeableBarButtonItem{
-        for c in AppCenter.charge.getChargesHasReceiptAlsoHasPriceAmount() where c.reward.isNonConsumable{
+        for c in AppCenter.charge.getChargesHasPaid() where c.reward.isNonConsumable{
             return chargeableButtonCharging
         }
         return chargeableButtonNormal
