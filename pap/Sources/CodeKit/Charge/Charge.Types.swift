@@ -100,9 +100,12 @@ protocol VerifiablePayable: Payable {
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool?
 }
 
-protocol Chargeable {
+protocol ChargeableKey {
     var type: ChargeType {get}
     var reward: RewardType {get}
+}
+
+protocol Chargeable: ChargeableKey {
     var payment:Payable.Type {get} //INFO: Chargeable : Payment = 1 : 1 currently.
     var identifier:String {get}
 }

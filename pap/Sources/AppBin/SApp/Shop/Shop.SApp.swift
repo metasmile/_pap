@@ -236,7 +236,7 @@ private class PayItem: Hashable, Equatable {
             }
 
             let iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
-                    ?? ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeableDefaultImageAppearance(charge:charge))
+                    ?? ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeButtonAppearance(charge:charge))
 
 //            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
 
@@ -354,35 +354,6 @@ extension Defaults: ShopAppDefaults {
         get{ return get(or: false ) }
     }
 }
-
-private struct ChargeableDefaultImageAppearance: ChargeableButtonAppearance{
-    let charge:Charge
-
-    var emptyImage: UIImage? {
-        switch charge.reward{
-            case .owned:
-                return R.image.systemIconFavoriteLineOwned()
-            case .rented:
-                return R.image.systemIconFavoriteLineCharging()
-            default:
-                return R.image.systemIconFavoriteLine()
-        }
-    }
-    var filledImage: UIImage? {
-        return R.image.systemIconFavoriteFill()
-    }
-}
-
-private struct ChargeableRestoreImageAppearance: ChargeableButtonAppearance{
-
-    var emptyImage: UIImage? {
-        return R.image.systemIconFavoriteLineRestore()
-    }
-    var filledImage: UIImage? {
-        return R.image.systemIconFavoriteFill()
-    }
-}
-
 
 
 

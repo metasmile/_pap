@@ -36,12 +36,16 @@ extension PhotoPickerViewController{
 
         let selected = self.estimatedAvailableSelectedItems > 0
 
+        let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
+        let paidInContext = chargeInCurrentContext != nil
+
+        let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
+
         if selected{
-            if AppCenter.isPaidInCurrentContext() {
+            if paidInContext {
                 navigationItem.setRightBarButton(self.doneButton, animated: true)
 
             } else {
-                let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
@@ -52,7 +56,6 @@ extension PhotoPickerViewController{
             return true
         }
 
-        let rightButtonItem = PhotoPickerViewControllerChargeableAssets.shared.chargeableButton
         rightButtonItem.title = nil
         rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
@@ -151,62 +154,3 @@ extension PhotoPickerViewController: PricingViewControllerDelegate {
     }
 }
 
-private class PhotoPickerViewControllerChargeableAssets{
-    static let shared: PhotoPickerViewControllerChargeableAssets = PhotoPickerViewControllerChargeableAssets()
-
-    fileprivate lazy var inStoreRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
-
-    fileprivate lazy var onPromptRatingButton = UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: nil)
-
-    fileprivate lazy var socialShareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
-
-    fileprivate lazy var feedbackButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-
-    fileprivate var chargeableButton:ChargeableBarButtonItem{
-        for c in AppCenter.charge.getChargesHasPaid() where c.reward.isNonConsumable{
-            return chargeableButtonCharging
-        }
-        return chargeableButtonNormal
-    }
-
-    fileprivate lazy var chargeableButtonNormal = makeChargeableBarButtonItem(appearance:normal())
-
-    fileprivate lazy var chargeableButtonCharging = makeChargeableBarButtonItem(appearance:charging())
-
-    private struct normal: ChargeableButtonAppearance{
-        var emptyImage: UIImage? {
-            return R.image.systemIconFavoriteLine()
-        }
-        var filledImage: UIImage? {
-            return R.image.systemIconFavoriteFill()
-        }
-    }
-
-    private struct charging: ChargeableButtonAppearance{
-        var emptyImage: UIImage? {
-            return R.image.systemIconFavoriteLineCharging()
-        }
-        var filledImage: UIImage? {
-            return R.image.systemIconFavoriteFill()
-        }
-    }
-
-    func makeChargeableBarButtonItem(appearance:ChargeableButtonAppearance) -> ChargeableBarButtonItem{
-        let chargeableButton = ChargeableButton(type: .system, appearance: appearance)
-        chargeableButton.imageView?.contentMode = .scaleAspectFit
-        chargeableButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
-
-        chargeableButton.fillMode = [.fill]
-
-        //TODO: apply true when some restrictful conditions (e.g. finished trial days) to induce for paying
-        chargeableButton.showsColorLevel = false
-        chargeableButton.showsAnimation = false
-        chargeableButton.showsPercentage = false
-
-        chargeableButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        chargeableButton.titleEdgeInsets.left = 2
-        chargeableButton.titleEdgeInsets.right = -2
-
-        return ChargeableBarButtonItem(button:chargeableButton)
-    }
-}

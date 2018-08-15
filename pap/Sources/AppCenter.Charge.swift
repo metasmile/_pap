@@ -12,22 +12,33 @@ extension AppCenter{
     static let charge:ChargeManager = AppChargeManager.initialize()
 
     //INFO: Priority is critical.
-    static func isPaidInCurrentContext() -> Bool{
+    static var isPaidInCurrentContext:Bool{
+        return paidChargeableTypeInCurrentContext != nil
+    }
+
+    //INFO: Priority is critical.
+    static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
-        if charge.getChargesHasPaidOwned().count > 0{
-            return true
+        if let charge = charge.getChargesHasPaidOwned().nilEmpty?.first{
+            return charge
         }
+
+        let paidCharges = charge.getChargesHasPaid()
 
         // Priority 2 - localCharge - paid
         if let chargeableCurrent = self.default.current as? ChargeableApp.Type{
-            let paidChargesIDs = charge.getChargesHasPaid().map{ $0.identifier }
+            let paidChargesIDs = Set(paidCharges.map{ $0.identifier })
             let localChargeIdSet = Set(chargeableCurrent.localCharges.map{ $0.identifier })
 
             return localChargeIdSet.intersection(paidChargesIDs).count > 0
+                    ? chargeableCurrent.localCharges.first
+                    : nil
         }
 
         // Priority 3 - remaining balance - for free apps.
         return charge.bank.balanceValue > 0
+                ? paidCharges.first
+                : nil
     }
 }
 
