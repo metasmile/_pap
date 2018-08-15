@@ -825,14 +825,12 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func didTapPayButton(item:PayItem, indexPath:IndexPath){
-        let tableView = self.view as! UITableView
-
         item.isIndicating = true
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        updateIndicatorCellIfNeeded(at: indexPath, with: item)
 
         AppCenter.charge.pay(for: item.payable) { succeed in
             item.isIndicating = false
-            tableView.reloadRows(at: [indexPath], with: .fade)
+            self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
 
             if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                 DispatchQueue.main.async{
@@ -842,6 +840,19 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 DispatchQueue.main.async{
                     self.reloadData()
                 }
+            }
+        }
+    }
+    
+    private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
+        if let cell = (self.view as? UITableView)?.cellForRow(at: indexPath) as? UITableViewIndicatorCell {
+            if item.isIndicating {
+                cell.isUserInteractionEnabled = false
+                cell.startIndicating()
+            }
+            else {
+                cell.isUserInteractionEnabled = true
+                cell.stopIndicating()
             }
         }
     }
