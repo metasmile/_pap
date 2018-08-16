@@ -110,18 +110,12 @@ class PhotoPickerViewController: AppDockViewController {
 
             papLog.allTasksAreFinished()
         }
-
-        //check photo library permission and load
-        PhotosManager.default.authorizeIfNeeded { authorized in
-            guard authorized else { return }
-
-            DispatchQueue.main.async{ // if not call from DispatchQueue.main.async, scroll will not work.
-                self.loadPhotoLibraryInCurrentCollection()
-            }
-        }
-
+        
         navigationItem.setLeftBarButton(nil, animated: false)
         navigationItem.setRightBarButton(nil, animated: false)
+
+        //check photo library permission and load
+        loadPhotoLibraryIfNeeded()
 
         //navigation bar progress
         if let navigationVC = self.navigationController {
@@ -147,6 +141,20 @@ class PhotoPickerViewController: AppDockViewController {
 
         //INFO: maintain last
         updateUIDisplays()
+    }
+    
+    @objc private func loadPhotoLibraryIfNeeded() {
+        PhotosManager.default.authorizeIfNeeded { authorized in
+            DispatchQueue.main.async{ // if not call from DispatchQueue.main.async, scroll will not work.
+                if authorized {
+                    self.loadPhotoLibraryInCurrentCollection()
+                }
+                else {
+                    self.navigationItem.hidesBackButton = true
+                    self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "⚠️", style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
+                }
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
