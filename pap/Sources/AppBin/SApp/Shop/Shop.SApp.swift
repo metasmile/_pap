@@ -494,38 +494,12 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         view.addSubview(tableView)
         tableView.fitConstraints(to: view)
         
-        view.addSubview(transactionProcessingView)
-        transactionProcessingView.fitConstraints(to: view)
-        
         return view
     }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
-    }()
-    
-    private lazy var transactionProcessingView: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-        view.isHidden = true
-        
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        view.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        let label = UILabel(frame: .zero)
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: indicator.centerXAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: indicator.bottomAnchor, constant: 10).isActive = true
-        
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title3)
-        label.textColor = .white
-        
-        return view
     }()
 
     var preferences: AppDockContentPreferable? {
@@ -560,8 +534,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell_b.valueHandler = { _ in
 
             let productIdByCharges = AppCenter.charge.getChargesHasStorePayable()
-            
-            self.startTransactionProcessing(with: "Restoring ...")
 
             DispatchQueue.global().async{
                 let singal = AsyncSignal()
@@ -573,8 +545,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
                 DispatchQueue.main.async{
                     self.reloadData()
-                    
-                    self.stopTransactionProcessing()
                 }
             }
 
@@ -907,37 +877,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         return cell
     }
-    
-    private func startTransactionProcessing(with title: String? = nil) {
-        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.transactionProcessingView.isHidden = false
-        }, completion: nil)
-        
-        transactionProcessingView.subviews.compactMap { $0 as? UIActivityIndicatorView }.first?.startAnimating()
-        transactionProcessingView.subviews.compactMap { $0 as? UILabel }.first?.text = (title ?? "Preparing ...").localized
-    }
-    
-    private func stopTransactionProcessing() {
-        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.transactionProcessingView.isHidden = true
-        }, completion: nil)
-        
-        transactionProcessingView.subviews.compactMap { $0 as? UIActivityIndicatorView }.first?.startAnimating()
-    }
 
     func didTapPayButton(item:PayItem, indexPath:IndexPath){
         item.isIndicating = true
         updateIndicatorCellIfNeeded(at: indexPath, with: item)
         
-        startTransactionProcessing()
-
         AppCenter.charge.pay(for: item.payable) { succeed in
             item.isIndicating = false
             
             DispatchQueue.main.async {
                 self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
-                
-                self.stopTransactionProcessing()
                 
                 if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
                     AppCenter.default.openApp(identifier: rid)
