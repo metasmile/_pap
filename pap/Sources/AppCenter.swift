@@ -49,22 +49,37 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , GIFMakerApp.self
             , RevertApp.self
             , PDFactoryApp.self
+            , CameraApp.self
+            , ShopApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
             , Stabilizer.self
 
-            //SApp
-            , CameraApp.self
-            , ShopApp.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 
-            return appType1.info.phase.rawValue > appType2.info.phase.rawValue
-                    || papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2)
-                    || appType1 is BApp && appType2 is SApp
+            if appType1.info.phase.rawValue > appType2.info.phase.rawValue{
+                return true
+            }
+
+            if papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2){
+                return true
+            }
+
+            if appType1 is BApp.Type && appType2 is SApp.Type{
+                return true
+            }
+
+            if appType1 is AVCaptureDeviceApp.Type == false && appType2 is AVCaptureDeviceApp.Type{
+                return true
+            }
+
+            return false
         }
 
         config.appCollection = defaultAppCollection
+
+        print("[i] App Internal Collection: ",defaultAppCollection)
 
         #if DEBUG
         for app in defaultAppCollection{

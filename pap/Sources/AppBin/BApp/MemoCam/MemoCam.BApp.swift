@@ -31,7 +31,7 @@ class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, P
     public static let info = AppInfo(
         identifier: "com.stells.pap.memocam"
         , version: "1.0"
-        , phase: .develop
+        , phase: .release
         , appType: MemoCamApp.self
         , displayName: "Memo Cam".localized, description:nil, keywords:nil
         , iconBundleName: nil
