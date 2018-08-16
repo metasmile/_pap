@@ -19,11 +19,11 @@ extension AppCenter{
     //INFO: Priority is critical.
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
-        if let charge = charge.getChargesHasPaidOwned().nilEmpty?.first{
+        if let charge = charge.getChargesPaidOwned().nilEmpty?.first{
             return charge
         }
 
-        let paidCharges = charge.getChargesHasPaid()
+        let paidCharges = charge.getChargesPaid()
 
         // Priority 2 - localCharge - paid
         if let chargeableCurrent = self.default.current as? ChargeableApp.Type{

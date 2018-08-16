@@ -52,7 +52,7 @@ class ChargeManager{
         return charges.filter { !(types?.contains($0.type) == true) }
     }
 
-    func getChargesHasPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
+    func getChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
         if synchronize{
             bank.synchronizeBalanceValue()
         }
@@ -63,7 +63,7 @@ class ChargeManager{
         if synchronize{
             bank.synchronizeBalanceValue()
         }
-        return getCharges(excluding: types).count == getChargesHasPaid(excluding:types).count
+        return getCharges(excluding: types).count == getChargesPaid(excluding:types).count
     }
 
     func isPaid(charge chargeable:Chargeable, synchronize:Bool=false) -> Bool {
@@ -82,7 +82,7 @@ class ChargeManager{
         return false
     }
 
-    func pay(for payable: Payable.Type, skipTransaction:Bool=false, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
+    func pay(for payable: Payable.Type, skipTransaction:Bool=false, completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.payment == payable }) else {
             assert(false, "All Payables must be registerd.")
             return
@@ -100,7 +100,7 @@ class ChargeManager{
         #endif
 
         payingQueue.async{
-            if skipTransaction || payable.init().pay(asyncSignal){
+            if skipTransaction || payable.init().pay(AsyncSignal()){
                 DispatchQueue.main.async{
                     let result = self.bank.save(for: charge)
                     completion?(result)

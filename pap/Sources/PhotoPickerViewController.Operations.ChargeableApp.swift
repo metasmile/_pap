@@ -83,7 +83,7 @@ extension PhotoPickerViewController{
         let subtitle:String
         var titleImage:UIImage?
 
-        let allPaidCharges = AppCenter.charge.getChargesHasPaid()
+        let allPaidCharges = AppCenter.charge.getChargesPaid()
 
         let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesPaid(excluding: Set([ChargeType.welcomeFreeTrial]))
         let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }

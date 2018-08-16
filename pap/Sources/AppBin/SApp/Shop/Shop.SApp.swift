@@ -213,6 +213,15 @@ private class PayDictionary:Hashable, Equatable {
                     , PayItem(payable:OneYearAllAppsPayment.self)
                 ]
         )
+
+        , PayDictionary(
+                key: .Promotion
+                , label: "Event Passes".localized
+                , items: [
+                PayItem(payable:PayOfInitialTutorial.self, availability: [.paid])
+            ]
+        )
+
         , PayDictionary(
                 key: .FreeCharge
                 , label: "FreeCharge Passes".localized
@@ -222,14 +231,6 @@ private class PayDictionary:Hashable, Equatable {
                     , PayItem(payable:PayOnSocialShare.self)
                     , PayItem(payable:PayInAppStoreRating.self)
 
-                ]
-        )
-
-        , PayDictionary(
-                key: .Promotion
-                , label: "Event Passes".localized
-                , items: [
-                    PayItem(payable:PayOfInitialTutorial.self, availability: [.paid])
                 ]
         )
     ]
@@ -545,7 +546,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         cell_b.buttonTitle = "Restore".localized
         cell_b.valueHandler = { _ in
 
-            let productIdByCharges = AppCenter.charge.getChargesByStorePayableProductIdentifier()
+            let productIdByCharges = AppCenter.charge.getChargesHasStorePayable()
             
             self.startTransactionProcessing(with: "Restoring ...")
 

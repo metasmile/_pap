@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DefaultsKit
 
 struct RestorePurchasesSystemPayment:VerifiablePayable{
     static var label: String {
@@ -12,21 +13,50 @@ struct RestorePurchasesSystemPayment:VerifiablePayable{
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
-        let productIdByCharges = AppCenter.charge.getChargesByStorePayableProductIdentifier()
+        let chargesByProductID = AppCenter.charge.getChargesHasStorePayable()
+        let productIDs = Set(chargesByProductID.keys)
+        let paidProductIDs = Set(AppCenter.charge.getStorePayablesPaid().map { $0.product.identifier })
+        let unpaidProductIDs = productIDs.subtracting(paidProductIDs)
 
-        if let restoredProductIds = StorePayableCenter.restore(asyncSignal){
-            for productId in restoredProductIds {
-                if let storePayableCharge = productIdByCharges[productId]{
-                    AppCenter.charge.pay(for: storePayableCharge.payment, skipTransaction:true)
+        if let restoredProductIds = StorePayableCenter.restore(asyncSignal), restoredProductIds.count > 0{
+
+            let restoredDeprecatedIDs = restoredProductIds.subtracting(productIDs)
+            let restoredLiveIDs = restoredProductIds.subtracting(restoredDeprecatedIDs)
+            let restoredUnpaidIDs = restoredLiveIDs.intersection(unpaidProductIDs)
+
+            print("[i] Found deprecated restored IDs: \(restoredDeprecatedIDs)")
+            assert(restoredLiveIDs.subtracting(productIDs).count == 0, "restoredLiveIDs must contain all in productIDs")
+
+#if DEBUG
+            // IDs does not only contain in restoredProductIds but also unpaid. Invalid case.
+            var unRestoredAndUnpaidIDs = Set<String>()
+            for unRestoredId in Set(chargesByProductID.keys).subtracting(restoredLiveIDs){
+                if let charge = chargesByProductID[unRestoredId], AppCenter.charge.isPaid(charge: charge) == false{
+                    unRestoredAndUnpaidIDs.insert(unRestoredId)
                 }
             }
-            return true
+            print("[i] Found unrestored, but also unpaid products: \(unRestoredAndUnpaidIDs)")
+
+#endif
+
+            var paidCount = 0
+            for productId in restoredUnpaidIDs {
+                if let storePayableCharge = chargesByProductID[productId]{
+                    AppCenter.charge.pay(for: storePayableCharge.payment, skipTransaction:true)
+                    paidCount += 1
+                }else{
+                    assert(false, "[!] ERROR: product ID: \(productId) is not in chargesByProductID: \(chargesByProductID)")
+                }
+            }
+
+            assert(paidCount==restoredUnpaidIDs.count, "[!] ERROR: Some payment of restored but unpaidIDs are failed.")
+            return restoredUnpaidIDs.count==paidCount
         }
 
         return false
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        return nil
+        return AppCenter.charge.getChargesPaidByStorePayable().count > 0
     }
 }

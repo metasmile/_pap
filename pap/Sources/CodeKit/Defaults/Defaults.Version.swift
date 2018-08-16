@@ -44,7 +44,7 @@ extension Defaults: VersionDefaults {
     }
 
     //INFO: It is recommended to use for only init-time procedure. shortVersionDescription will be maintained in current runtime.
-    var shortVersionDescription: ShortVersionDescription{
+    var shortVersionDescription: ShortVersionDescription {
         if let distance = shortVersionDistance{
             if distance==0{
                 return .normal

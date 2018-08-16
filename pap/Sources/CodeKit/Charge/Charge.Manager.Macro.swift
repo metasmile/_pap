@@ -6,8 +6,8 @@
 import Foundation
 
 extension ChargeManager{
-    func getChargesHasPaidOwned(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
-        return getChargesHasPaid(excluding: types).filter { $0.reward.isOwned }
+    func getChargesPaidOwned(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
+        return getChargesPaid(excluding: types).filter { $0.reward.isOwned }
     }
 
     func getChargesHasReceipt(excluding types:Set<ChargeType>?=nil) -> [Charge]{
@@ -18,7 +18,15 @@ extension ChargeManager{
         return getCharges(excluding: types).filter { bank.getReceipt(for: $0) == nil }
     }
 
-    func getChargesByStorePayableProductIdentifier(excluding types:Set<ChargeType>?=nil) -> [String:Charge]{
+    func getChargesPaidByStorePayable(excluding types:Set<ChargeType>?=nil) -> [Charge]{
+        return getChargesPaid(excluding:types).filter({ $0.payment is StorePayable })
+    }
+
+    func getStorePayablesPaid(excluding types:Set<ChargeType>?=nil) -> [StorePayable.Type]{
+        return getChargesPaidByStorePayable(excluding:types).compactMap({ $0.payment as? StorePayable.Type })
+    }
+
+    func getChargesHasStorePayable(excluding types:Set<ChargeType>?=nil) -> [String:Charge]{
         var storePayableCharges = [String:Charge]()
         for charge in self.getCharges(excluding: types){
             if let storePayableProductId = (charge.payment as? StorePayable.Type)?.product.identifier{
