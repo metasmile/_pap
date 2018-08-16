@@ -411,8 +411,6 @@ private struct SettingsItem {
 }
 
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
-    private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
-
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
@@ -435,7 +433,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = tintColor
         return tableView
     }()
     
@@ -507,7 +504,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
         cell_b.label = "Restore All Purchases".localized
-        cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
+        cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: self.view.tintColor, appearance: ChargeableRestoreImageAppearance())
         cell_b.buttonTitle = "Restore".localized
         cell_b.valueHandler = { _ in
 

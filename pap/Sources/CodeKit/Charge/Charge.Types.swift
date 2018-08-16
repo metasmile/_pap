@@ -135,7 +135,11 @@ protocol Charge: Chargeable {
     var describable:ChargeDescribable {get}
     var rewardDescribable:RewardDescribable? {get}
 
-    func verify(_ signal:AsyncWaitSignalable) -> Bool
+    //INFO:
+    // true - verified - valid.
+    // false - verified - invalid
+    // nil - unable to verify - unknown
+    func verify(_ signal:AsyncWaitSignalable) -> Bool?
 }
 
 protocol Amount: Codable{

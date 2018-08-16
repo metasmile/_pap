@@ -106,6 +106,14 @@ struct ChargeableReceipt: Codable, Hashable{
     }
 
     func verify() -> Bool{
+        if type == .deprecated{
+            return false
+        }
+
+        if reward == .deprecated{
+            return false
+        }
+
         // - amountValue is incorrect
         if amountValue < 0{
             return false
@@ -113,14 +121,6 @@ struct ChargeableReceipt: Codable, Hashable{
 
         // Consumable must be higher than 0 of its amountValue
         if reward.isNonConsumable == false && amountValue == 0{
-            return false
-        }
-
-        if type == .deprecated{
-            return false
-        }
-
-        if reward == .deprecated{
             return false
         }
 

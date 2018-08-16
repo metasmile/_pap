@@ -178,9 +178,7 @@ class AppCharge: Charge {
         }
     }
 
-    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var vResult = false
-
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
         /*
             Verify Payment
         */
@@ -195,7 +193,7 @@ class AppCharge: Charge {
                     print("[i] INFO: Receipt Verification SUCCEED -> Valid Receipt: \(String(describing: payable))")
                 }
 #endif
-                vResult = result
+                return result
 
             } else{
 #if DEBUG
@@ -208,11 +206,10 @@ class AppCharge: Charge {
                     )
                 }
 #endif
-                vResult = true
             }
         }
 
-        return vResult
+        return nil
     }
 
     private struct DefaultRewardDescribable:RewardDescribable {
@@ -447,7 +444,7 @@ private final class AppChargeBanker: ChargeBanker {
                     continue
                 }
 
-                guard c.verify(asyncSignal) else {
+                if let verifiedResult = c.verify(asyncSignal), verifiedResult == false{
                     currentQueue.async(flags:.barrier){
                         self.receiptStorage.removeReceipt(vReceipt.uuid)
                     }
