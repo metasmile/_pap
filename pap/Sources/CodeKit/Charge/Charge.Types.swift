@@ -164,7 +164,7 @@ extension Amount{
     static var min:Amount{
         return self.init(value: minValue)
     }
-    
+
     static var minValue: Double {
         return 0
     }

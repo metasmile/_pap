@@ -70,11 +70,12 @@ public class ShopApp: NSObject
     Utilities
 */
 extension ShopApp{
-    /*
-        LocalCharge
-    */
-    fileprivate func getPayableCollectionIncludingCurrentAvailableLocalAppCharges() -> [PayDictionary] {
+
+    //INFO: Important section - Creating final list for gloabal use.
+    fileprivate func getDefaultPayDictionaries() -> [PayDictionary] {
         var mutableDefaultCollection = PayDictionary.DefaultCollection
+
+        //INFO: get source app info
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
                 mutableDefaultCollection.append(PayDictionary(
@@ -90,7 +91,38 @@ extension ShopApp{
                 mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
             }
         }
-        return mutableDefaultCollection
+
+        //INFO: Apply dictionary deps
+        var removingIndexes = [Int]()
+        for (i, payDict) in mutableDefaultCollection.enumerated() {
+
+            //Check invisibility
+            for item in payDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
+                payDict.items = payDict.items.filter({
+                    let paid = AppCenter.charge.isPaid(payable: $0.payable)
+                    return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
+                })
+            }
+
+            //Check super key
+            if let superKey = payDict.superKey, mutableDefaultCollection.getDictionary(by: superKey)?.isPaid == true{
+                removingIndexes.append(i)
+                continue
+            }
+
+            //LAST: Check number of items
+            if payDict.items.count == 0{
+                removingIndexes.append(i)
+                continue
+            }
+        }
+        
+        return mutableDefaultCollection.filter {
+            if let index = mutableDefaultCollection.firstIndex(of: $0), let _ = removingIndexes.firstIndex(of: index) {
+                return false
+            }
+            return true
+        }
     }
 
     /*
@@ -101,7 +133,7 @@ extension ShopApp{
     }
 
     fileprivate func getStorePayables() -> [StorePayable.Type]{
-        let targetCollection = getPayableCollectionIncludingCurrentAvailableLocalAppCharges()
+        let targetCollection = getDefaultPayDictionaries()
 
         return targetCollection.compactMap { dictionary -> [StorePayable.Type]? in
             return dictionary.items.compactMap({
@@ -161,7 +193,7 @@ private class PayDictionary:Hashable, Equatable {
             key: .SystemOwned
             , label: "Settings".localized
             , items: [
-                PayItem(payable:RestorePurchasesSystemPayment.self)
+                PayItem(payable:RestorePurchasesSystemPayment.self, availability: [.unpaid])
             ]
         ),
         PayDictionary(
@@ -433,6 +465,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
 
+    private func loadDefaultCollection(){
+        //INFO: join local charges onto defaultCollection.
+        self.defaultCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getDefaultPayDictionaries() ?? PayDictionary.DefaultCollection
+    }
+
     required public override init() {
         super.init()
     }
@@ -493,41 +530,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             defaults.saveContactWithoutEdit = $0 as! Bool
         }
         return celld
-    }
-
-    private func loadDefaultCollection(){
-        //INFO: join local charges onto defaultCollection.
-        if let currentAvailableCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getPayableCollectionIncludingCurrentAvailableLocalAppCharges(){
-            self.defaultCollections = currentAvailableCollections
-        }
-
-        //INFO: Apply dictionary deps
-        var defaultCollectionsApplyingSuperPaid = self.defaultCollections
-        for (i, payDict) in self.defaultCollections.enumerated() {
-
-            //Check invisibility
-            for item in payDict.items where item.availability.contains(.paid) && item.availability.contains(.unpaid) == false{
-                payDict.items = payDict.items.filter({
-                    let paid = AppCenter.charge.isPaid(payable: $0.payable)
-                    return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
-                })
-            }
-            
-            //Check super key
-            if let superKey = payDict.superKey, self.defaultCollections.getDictionary(by: superKey)?.isPaid == true{
-                defaultCollectionsApplyingSuperPaid.remove(at: i)
-                continue
-            }
-
-            //LAST: Check number of items
-            if payDict.items.count == 0{
-                defaultCollectionsApplyingSuperPaid.remove(at: i)
-                continue
-            }
-        }
-        self.defaultCollections = defaultCollectionsApplyingSuperPaid
-
-        //INFO: Add Invisible PayDictionary
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
