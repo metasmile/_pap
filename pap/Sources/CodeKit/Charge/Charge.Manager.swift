@@ -59,14 +59,14 @@ class ChargeManager{
 
     func getChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
         if synchronize{
-            bank.synchronizeBalanceValue()
+            bank.synchronize()
         }
         return getCharges(excluding: types).filter { isPaid(charge: $0) }
     }
 
     func areAllChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> Bool{
         if synchronize{
-            bank.synchronizeBalanceValue()
+            bank.synchronize()
         }
         return getCharges(excluding: types).count == getChargesPaid(excluding:types).count
     }
@@ -77,7 +77,7 @@ class ChargeManager{
 
     func isPaid(payable:Payable.Type, synchronize:Bool=false) -> Bool{
         if synchronize{
-            bank.synchronizeBalanceValue()
+            bank.synchronize()
         }
 
         if let charge = charges.first(where: { $0.payment == payable })
@@ -124,15 +124,15 @@ class ChargeManager{
 final class ChargeBank: NSObject, KeyPathWatchable {
     private var synchronizedBalance:Amount
 
-    fileprivate func synchronizeBalanceValue() {
-        synchronizedBalance = banker.synchronizeBalanceValue(balance: synchronizedBalance)
+    fileprivate func synchronize() {
+        synchronizedBalance = banker.synchronize(balance: synchronizedBalance)
     }
 
     @objc dynamic
     private(set) var balanceValue:Double{
         set{ } //only for broadcasting
         get{
-            synchronizeBalanceValue()
+            synchronize()
             return synchronizedBalance.value
         }
     }
@@ -152,7 +152,7 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     @discardableResult
     fileprivate func save(for charge:Charge) -> Bool{
         if let _ = banker.willSaveDeposit(forPriceAmountOf: charge, balance: synchronizedBalance){
-            synchronizeBalanceValue()
+            synchronize()
             balanceValue = synchronizedBalance.value
             banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
             return true

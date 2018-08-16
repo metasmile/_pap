@@ -90,9 +90,17 @@ protocol RewardDescribable{
 protocol Payable {
     static var label:String {get}
 
+    static var identifier:String {get}
+
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 
     init()
+}
+
+extension Payable{
+    static var identifier: String {
+        return String(describing: self)
+    }
 }
 
 protocol VerifiablePayable: Payable {
@@ -121,7 +129,7 @@ extension Chargeable{
         return String(describing: Chargeable.self) +
                 "-type_\(type)" +
                 "-reward_\(reward)" +
-                "-payment_\(String(describing: self.payment))"
+                "-payment_\(payment.identifier)"
     }
 }
 

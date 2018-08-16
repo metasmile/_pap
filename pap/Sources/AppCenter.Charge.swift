@@ -537,7 +537,7 @@ private final class AppChargeBanker: ChargeBanker {
         return receiptStorage.getReceipt(for: chargeable)
     }
 
-    func synchronizeBalanceValue(balance: Amount) -> Amount {
+    func synchronize(balance: Amount) -> Amount {
         return synchronizeReceipts(balance:balance)
     }
 

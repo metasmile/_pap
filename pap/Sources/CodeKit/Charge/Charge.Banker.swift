@@ -19,7 +19,7 @@ protocol ChargeBanker {
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
-    func synchronizeBalanceValue(balance:Amount) -> Amount
+    func synchronize(balance:Amount) -> Amount
 
     //INFO: return charged price amount or nil.
     func willSaveDeposit(forPriceAmountOf charge:Charge, balance:Amount) -> Amount?

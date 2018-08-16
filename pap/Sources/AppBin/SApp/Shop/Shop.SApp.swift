@@ -72,7 +72,7 @@ public class ShopApp: NSObject
 extension ShopApp{
 
     //INFO: Important section - Creating final list for gloabal use.
-    fileprivate func getDefaultPayDictionaries() -> [PayDictionary] {
+    fileprivate func loadDefaultPayDictionaries() -> [PayDictionary] {
         var mutableDefaultCollection = PayDictionary.DefaultCollection
 
         //INFO: get source app info
@@ -94,12 +94,13 @@ extension ShopApp{
 
         //INFO: Apply dictionary deps
         var removingIndexes = [Int]()
+        let paidPayableIDs = Set(AppCenter.charge.getChargesPaid(synchronize: true).map({ $0.payment.identifier }))
         for (i, payDict) in mutableDefaultCollection.enumerated() {
 
             //Check invisibility
             for item in payDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
                 payDict.items = payDict.items.filter({
-                    let paid = AppCenter.charge.isPaid(payable: $0.payable)
+                    let paid = paidPayableIDs.contains($0.payable.identifier)
                     return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
                 })
             }
@@ -133,7 +134,7 @@ extension ShopApp{
     }
 
     fileprivate func getStorePayables() -> [StorePayable.Type]{
-        let targetCollection = getDefaultPayDictionaries()
+        let targetCollection = loadDefaultPayDictionaries()
 
         return targetCollection.compactMap { dictionary -> [StorePayable.Type]? in
             return dictionary.items.compactMap({
@@ -468,7 +469,15 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     private func loadDefaultCollection(){
         //INFO: join local charges onto defaultCollection.
-        self.defaultCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getDefaultPayDictionaries() ?? PayDictionary.DefaultCollection
+
+        if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayDictionaries(){
+            self.defaultCollections = loadedCollections
+
+        }else{
+            assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
+            self.defaultCollections = PayDictionary.DefaultCollection
+        }
+
     }
 
     required public override init() {
