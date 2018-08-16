@@ -34,6 +34,9 @@ enum ChargeType:Int {
 enum RewardType:Int {
     case deprecated = -1
 
+    //get a system action
+    case systemOwned = 1
+
     //will be engaged only nonSelected
     case nonBlockOfUses = 100
 
@@ -51,7 +54,7 @@ enum RewardType:Int {
 
     var isNonConsumable:Bool{
         switch self{
-        case .nonBlockOfUses, .owned, .rented, .localOwned, .localRented:
+            case .systemOwned, .nonBlockOfUses, .owned, .rented, .localOwned, .localRented:
                  return true
             default:
                 break
@@ -161,6 +164,7 @@ extension Amount{
     static var min:Amount{
         return self.init(value: minValue)
     }
+    
     static var minValue: Double {
         return 0
     }
@@ -168,12 +172,13 @@ extension Amount{
     static var max:Amount{
         return self.init(value: maxValue)
     }
+
     static var maxValue: Double {
         return 1
     }
 
     static var invalidatedValue: Double {
-        return Double.nan
+        return -maxValue
     }
 
     func getValueOfShares(inContainer amount:Amount) -> Double{

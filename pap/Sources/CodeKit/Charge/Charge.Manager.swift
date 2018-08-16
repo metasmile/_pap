@@ -84,6 +84,7 @@ class ChargeManager{
 
     func pay(for payable: Payable.Type, skipTransaction:Bool=false, _ asyncSignal:AsyncWaitSignalable=AsyncSignal(), completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.payment == payable }) else {
+            assert(false, "All Payables must be registerd.")
             return
         }
 

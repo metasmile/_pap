@@ -50,8 +50,15 @@ private final class AppChargeManager: ChargeManager{
         }.reduce([], +).nilEmpty
         
         let rootCharges = [
+            // System - Restore
+            AppCharge(type: .none
+                    , reward: .systemOwned
+                    , payment: RestorePurchasesSystemPayment.self
+                    , priceAmount: AmountObject.min
+                    , describable: AppChargeDescription(title:"Restore All Purchases".localized, description: nil, iconImage: nil)
+            )
             // Initial
-            AppCharge(type: .welcomeFreeTrial
+            , AppCharge(type: .welcomeFreeTrial
                     , reward: .timeOfUses
                     , payment:PayOfInitialTutorial.self
                     , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)

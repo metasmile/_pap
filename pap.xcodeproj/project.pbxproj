@@ -261,6 +261,7 @@
 		4F71DFA0E117DDBF5090CA08 /* AppCenter.Charge.Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B3CE8EE7B285F6028E /* AppCenter.Charge.Appearance.swift */; };
 		4F71DFC7BA7C1674174CBF95 /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D44E8D1A6220328D048F /* Charge.Banker.swift */; };
 		4F71DFC97A4B85CB0C7D686A /* CodeKit.SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D01EF7502A9D743D888D /* CodeKit.SKProduct.swift */; };
+		4F71DFD47203D2BB95918C34 /* Shop.Payables.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCDF9029D4F588CE0C02 /* Shop.Payables.System.swift */; };
 		4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA25079F23C2E3097538 /* Defaults.Version.swift */; };
 		4F71DFE5074AF3A8EACED3B2 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D500774A9E14C8E4F76F /* PHAssets.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
@@ -544,6 +545,7 @@
 		4F71DCA57D6D9B5EE813EDD6 /* Shop.Payables.FreeCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.FreeCharge.swift; sourceTree = "<group>"; };
 		4F71DCC6064610129707F675 /* Converter.Jpeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Jpeg.swift; sourceTree = "<group>"; };
 		4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
+		4F71DCDF9029D4F588CE0C02 /* Shop.Payables.System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.System.swift; sourceTree = "<group>"; };
 		4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Launchable.swift; sourceTree = "<group>"; };
 		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
 		4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.swift; sourceTree = "<group>"; };
@@ -983,6 +985,7 @@
 				4F71DFE9DE932092B856F772 /* Shop.Payables.Promotion.swift */,
 				4F71DDAD172A2A3E9F252E29 /* Shop.UI.swift */,
 				4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */,
+				4F71DCDF9029D4F588CE0C02 /* Shop.Payables.System.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2499,6 +2502,7 @@
 				4F71DFA0E117DDBF5090CA08 /* AppCenter.Charge.Appearance.swift in Sources */,
 				4F71D99E05AE096DDF492BFB /* Camera.SApp.swift in Sources */,
 				4F71DB290F5341308FA26963 /* App.AVCaptureDevice.swift in Sources */,
+				4F71DFD47203D2BB95918C34 /* Shop.Payables.System.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

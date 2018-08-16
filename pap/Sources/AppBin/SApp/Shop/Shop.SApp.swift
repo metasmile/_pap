@@ -158,6 +158,13 @@ private class PayDictionary:Hashable, Equatable {
 
     static let DefaultCollection: [PayDictionary] = [
         PayDictionary(
+            key: .SystemOwned
+            , label: "Settings".localized
+            , items: [
+                PayItem(payable:RestorePurchasesSystemPayment.self)
+            ]
+        ),
+        PayDictionary(
                 key: .Owned
                 , label: "%@ Permanent Passes".localizedFormatted(papStrings.name)
                 , items: [
@@ -196,7 +203,7 @@ private class PayDictionary:Hashable, Equatable {
     ]
 
     enum Key: Int, Codable {
-        case System
+        case SystemOwned
 
         case Owned
         case LocalOwned
@@ -288,14 +295,14 @@ private class PayItem: Hashable, Equatable {
     fileprivate var isIndicating: Bool = false
     fileprivate var enabled: Bool = true
     fileprivate let label:String
-    fileprivate let rewardLabel:String
+    fileprivate let rewardLabel:String?
 
     init(payable: Payable.Type, availability: PayItemAvailability=[.paid, .unpaid]) {
         self.payable = payable
         self.availability = availability
         self.charge = AppCenter.charge.getCharge(for: payable)
         self.label = charge?.describable.title ?? "Undefined Charge"
-        self.rewardLabel = charge?.rewardDescribable?.title ?? "Undefined Reward"
+        self.rewardLabel = charge?.rewardDescribable?.title
     }
 
     var hashValue: Int {
@@ -558,7 +565,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             papLog.app.shop.restoredStorePayables()
 
         }
-        settingCellDescribers.append(cell_b)
+//        settingCellDescribers.append(cell_b)
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = ShopAppSettingCells.deletingTarget.hashValue
@@ -666,7 +673,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + defaultCollections.count
+        return defaultCollections.count + (settingCellDescribers.count > 0 ? 1 : 0)
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -678,9 +685,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-        let label_section0 = "Settings".localized
-        return section < defaultCollections.count ? defaultCollections[section].label : label_section0
+        return section < defaultCollections.count ? defaultCollections[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -936,25 +941,5 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 cell.stopIndicating()
             }
         }
-    }
-}
-
-
-extension ShopAppDockContent: PreheatableAppSubscribable{
-    func prepareStatusDisplaying(label:String?){
-        var desc = self.settingCellDescribers.first { describable in
-            describable.itemIdentifier == ShopAppSettingCells.autoSelect.hashValue
-        }
-        desc?.detailedLabel = label
-    }
-
-    func didStartPreheating() {
-        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
-        self.startSelectionBotIconAnimation(self.settingCellDescribers, ShopAppSettingCells.autoSelect.hashValue)
-    }
-
-    func didStopPreheating() {
-        prepareStatusDisplaying(label: ShopApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
-        self.stopSelectionBotIconAnimation(self.settingCellDescribers, ShopAppSettingCells.autoSelect.hashValue)
     }
 }

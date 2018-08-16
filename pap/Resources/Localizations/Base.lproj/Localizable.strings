@@ -82,19 +82,19 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* Generated from genl10n: Shop.SApp.swift#851 */
+/* Generated from genl10n: Shop.SApp.swift#856 */
 "%@ / Day" = "%@ / Day";
 /* Generated from genl10n: Shop.SApp.swift#82 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#225 */
+/* Generated from genl10n: AppCenter.Charge.swift#232 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#237 */
+/* Generated from genl10n: AppCenter.Charge.swift#244 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Shop.SApp.swift#162 */
-"%@ Permanent Passes" = "%@ Permanent Passes";
 /* Generated from genl10n: Shop.SApp.swift#169 */
+"%@ Permanent Passes" = "%@ Permanent Passes";
+/* Generated from genl10n: Shop.SApp.swift#176 */
 "%@ Rental Passes" = "%@ Rental Passes";
 /* Generated from genl10n: Finder.BApp.swift#1586, Cleaner.BApp.swift#754 */
 "%@ might be found" = "%@ might be found";
@@ -102,15 +102,15 @@
 "%@ will be hidden" = "%@ will be hidden";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
 "%d times" = "%d times";
-/* Generated from genl10n: AppCenter.Charge.swift#116 */
+/* Generated from genl10n: AppCenter.Charge.swift#123 */
 "1-Month Pass" = "1-Month Pass";
-/* Generated from genl10n: AppCenter.Charge.swift#122 */
+/* Generated from genl10n: AppCenter.Charge.swift#129 */
 "1-Year Pass" = "1-Year Pass";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
-/* Generated from genl10n: Shop.SApp.swift#952, PhoneCalls.BApp.swift#591, Finder.BApp.swift#1660, Cleaner.BApp.swift#871 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#591, Finder.BApp.swift#1660, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#369, Finder.BApp.swift#436, Finder.BApp.swift#650, Finder.BApp.swift#768 */
 "Add New Contact" = "Add New Contact";
@@ -130,7 +130,7 @@
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#598 */
 "Animation" = "Animation";
-/* Generated from genl10n: AppCenter.Charge.swift#108 */
+/* Generated from genl10n: AppCenter.Charge.swift#115 */
 "Annual Pass" = "Annual Pass";
 /* Generated from genl10n: Filters.BApp.swift#81 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
@@ -188,7 +188,7 @@
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#343, Finder.BApp.swift#443, Finder.BApp.swift#658, Finder.BApp.swift#776, Finder.BApp.swift#1227 */
 "Date" = "Date";
-/* Generated from genl10n: Shop.SApp.swift#565, Cleaner.BApp.swift#547 */
+/* Generated from genl10n: Shop.SApp.swift#572, Cleaner.BApp.swift#547 */
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#168 */
 "Detecting ... %@ " = "Detecting ... %@ ";
@@ -206,7 +206,7 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
 /* Generated from genl10n: Finder.BApp.swift#1275, Cleaner.BApp.swift#483 */
 "Enable Quick Actions" = "Enable Quick Actions";
-/* Generated from genl10n: Shop.SApp.swift#191 */
+/* Generated from genl10n: Shop.SApp.swift#198 */
 "Event Passes" = "Event Passes";
 /* Generated from genl10n: Converter.AppDockContent.swift#154 */
 "Export Options" = "Export Options";
@@ -234,9 +234,9 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#516 */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: AppCenter.Charge.swift#298 */
+/* Generated from genl10n: AppCenter.Charge.swift#305 */
 "Free Use For All" = "Free Use For All";
-/* Generated from genl10n: Shop.SApp.swift#179 */
+/* Generated from genl10n: Shop.SApp.swift#186 */
 "FreeCharge Passes" = "FreeCharge Passes";
 /* Generated from genl10n: GIFMaker.BApp.swift#271 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
@@ -244,7 +244,7 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#13 */
 "Get Free Use" = "Get Free Use";
-/* Generated from genl10n: AppCenter.Charge.swift#66 */
+/* Generated from genl10n: AppCenter.Charge.swift#73 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: ExifGhost.BApp.swift#81 */
 "Hide" = "Hide";
@@ -278,7 +278,7 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#101 */
+/* Generated from genl10n: AppCenter.Charge.swift#108 */
 "Monthly Pass" = "Monthly Pass";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
@@ -296,7 +296,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#93 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
-/* Generated from genl10n: Shop.SApp.swift#957, PhoneCalls.BApp.swift#597, Finder.BApp.swift#1666, Cleaner.BApp.swift#876 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#597, Finder.BApp.swift#1666, Cleaner.BApp.swift#876 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#731 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -314,7 +314,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#291 */
+/* Generated from genl10n: AppCenter.Charge.swift#298 */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
@@ -328,9 +328,9 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppCenter.Charge.swift#310 */
+/* Generated from genl10n: AppCenter.Charge.swift#317 */
 "Purchase %@" = "Purchase %@";
-/* Generated from genl10n: AppCenter.Charge.swift#94 */
+/* Generated from genl10n: AppCenter.Charge.swift#101 */
 "Purchase All At Once" = "Purchase All At Once";
 /* Generated from genl10n: Shop.StoreKit.swift#170, Shop.StoreKit.swift#288, Shop.StoreKit.swift#313 */
 "Purchase" = "Purchase";
@@ -342,9 +342,9 @@
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: GIFMaker.BApp.swift#566 */
 "Repeat" = "Repeat";
-/* Generated from genl10n: Shop.SApp.swift#534 */
+/* Generated from genl10n: AppCenter.Charge.swift#58, Shop.SApp.swift#541 */
 "Restore All Purchases" = "Restore All Purchases";
-/* Generated from genl10n: Shop.SApp.swift#536 */
+/* Generated from genl10n: Shop.Payables.System.swift#10, Shop.SApp.swift#543 */
 "Restore" = "Restore";
 /* Generated from genl10n: GIFMaker.BApp.swift#209 */
 "Reverse" = "Reverse";
@@ -358,7 +358,7 @@
 "Rotation" = "Rotation";
 /* Generated from genl10n: PhoneCalls.BApp.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
-/* Generated from genl10n: Shop.SApp.swift#482, Finder.BApp.swift#1263, Cleaner.BApp.swift#471 */
+/* Generated from genl10n: Shop.SApp.swift#489, Finder.BApp.swift#1263, Cleaner.BApp.swift#471 */
 "Save Contacts" = "Save Contacts";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
 "Save and Share" = "Save and Share";
@@ -382,15 +382,15 @@
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#433 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
-/* Generated from genl10n: Shop.SApp.swift#569, Cleaner.BApp.swift#551 */
+/* Generated from genl10n: Shop.SApp.swift#576, Cleaner.BApp.swift#551 */
 "Selected" = "Selected";
-/* Generated from genl10n: AppCenter.Charge.swift#87 */
+/* Generated from genl10n: AppCenter.Charge.swift#94 */
 "Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#606, Finder.BApp.swift#617, Finder.BApp.swift#627 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: Shop.SApp.swift#682 */
+/* Generated from genl10n: Shop.SApp.swift#162, Shop.SApp.swift#688 */
 "Settings" = "Settings";
-/* Generated from genl10n: AppCenter.Charge.swift#80 */
+/* Generated from genl10n: AppCenter.Charge.swift#87 */
 "Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.swift#71, Finder.BApp.swift#375, Finder.BApp.swift#460, Finder.BApp.swift#545, Finder.BApp.swift#642, Finder.BApp.swift#760, Finder.BApp.swift#857 */
 "Share" = "Share";
@@ -424,7 +424,7 @@
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#385, Finder.BApp.swift#1303 */
 "Take A Photo" = "Take A Photo";
-/* Generated from genl10n: Shop.SApp.swift#570, Cleaner.BApp.swift#552 */
+/* Generated from genl10n: Shop.SApp.swift#577, Cleaner.BApp.swift#552 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#392 */
 "Targets" = "Targets";
@@ -454,11 +454,11 @@
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#331 */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#58 */
+/* Generated from genl10n: AppCenter.Charge.swift#65 */
 "Welcome Free Trial Pack" = "Welcome Free Trial Pack";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#92 */
 "Welcome on %@" = "Welcome on %@";
-/* Generated from genl10n: AppCenter.Charge.swift#73 */
+/* Generated from genl10n: AppCenter.Charge.swift#80 */
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104 */
 "Write" = "Write";
