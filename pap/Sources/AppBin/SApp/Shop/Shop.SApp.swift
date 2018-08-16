@@ -106,25 +106,21 @@ extension ShopApp{
             }
 
             //Check super payable
-            var removingItemIndexes = [Int]()
-            for (i, item) in payDict.items.enumerated() {
+            var removingItemIndexes = [PayItem]()
+            for (_, item) in payDict.items.enumerated() {
                 if let superPayables = item.superPayables{
                     if Set(superPayables.map({ $0.identifier })).intersection(paidPayableIDs).count > 0{
-                        removingItemIndexes.append(i)
+                        removingItemIndexes.append(item)
                     }
                 }
             }
-            //FIXME:
-//            for i in removingItemIndexes{
-//                payDict.items.remove(at: i)
-//            }
-
-            //Check super key
-            if let superKey = payDict.superKey, mutableDefaultCollection.getDictionary(by: superKey)?.isPaid == true{
-                removingIndexes.append(i)
-                continue
+            payDict.items = payDict.items.filter {
+                if let _ = removingItemIndexes.firstIndex(of: $0) {
+                    return false
+                }
+                return true
             }
-
+            
             //LAST: Check number of items
             if payDict.items.count == 0{
                 removingIndexes.append(i)
@@ -191,14 +187,7 @@ private extension Array where Element:PayDictionary{
 
 private class PayDictionary:Hashable, Equatable {
 
-    //INFO: if PayDictionary.Key did not find any key, it means it has no dependency and Root as itself.
-    static let DefaultSuperDictionary:[PayDictionary.Key:PayDictionary.Key] = [
-        .Rental: .Owned
-        , .LocalOwned: .Owned
-        , .LocalRental: .Owned
-    ]
-
-    var isPaid:Bool{
+    var isPaidAll:Bool{
         let payables = self.items.map{ $0.payable }
         return payables.count == payables.filter { AppCenter.charge.isPaid(payable: $0) }.count
     }
@@ -263,7 +252,6 @@ private class PayDictionary:Hashable, Equatable {
     }
 
     let key:Key
-    var superKey:PayDictionary.Key?{ return type(of: self).DefaultSuperDictionary[key] }
     let label:String
     var items:[PayItem]
 
