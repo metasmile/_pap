@@ -307,7 +307,8 @@ class AppUICameraView: UIView {
     @objc func toggleLivePhotoEnabled(sender: Any) {
         guard cameraView.isLivePhotoSupported else { return }
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
-
+        cameraView.configurationDidUpdate?()
+        
         UISelectionFeedbackGenerator().selectionChanged()
     }
 
