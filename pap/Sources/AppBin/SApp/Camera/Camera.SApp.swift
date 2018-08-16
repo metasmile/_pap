@@ -1,5 +1,5 @@
 //
-//  Camera.BApp.swift
+//  Camera.SApp.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 7. 10..
@@ -34,7 +34,7 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
+class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -49,7 +49,7 @@ class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, Ph
         , displayName: "Camera".localized
         , description: "Robust Standard Built-In Camera for Capturing Live Photos."
         , keywords:["Camera", "Capture","Take a photo", "Video", "Record"]
-        , iconBundleName: R.image.cameraBAppIcon.name
+        , iconBundleName: R.image.cameraSAppIcon.name
         , policy: AppPolicy.default
         , minOSVersion: nil
     )

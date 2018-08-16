@@ -18,7 +18,7 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp {
+class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
     class var isSupported: Bool {
         return ARConfiguration.isSupported
     }

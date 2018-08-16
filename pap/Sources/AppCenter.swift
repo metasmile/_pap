@@ -43,7 +43,6 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , FinderApp.self
             , TransformApp.self
             , FiltersApp.self
-            , CameraApp.self
             , PhoneCallsApp.self
             , ConverterApp.self
             , CleanerApp.self
@@ -55,6 +54,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchab
             , Stabilizer.self
 
             //SApp
+            , CameraApp.self
             , ShopApp.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
