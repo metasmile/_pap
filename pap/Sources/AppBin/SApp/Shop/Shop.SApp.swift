@@ -161,52 +161,37 @@ private class PayDictionary:Hashable, Equatable {
                 key: .Owned
                 , label: "%@ Permanent Passes".localizedFormatted(papStrings.name)
                 , items: [
-                    AllTimeAllAppsPayment.self
-                    //VIP code
-
-                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-                    return false
-                }).map { PayItem(payable:$0) }
+                    PayItem(payable:AllTimeAllAppsPayment.self)
+            ]
         ),
         PayDictionary(
                 key: .Rental
                 , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
                 , items: [
-                    MonthlyAllAppsPayment.self
-                    , AnnualAllAppsPayment.self
-                    , OneMonthAllAppsPayment.self
-                    , OneYearAllAppsPayment.self
-
-                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-                    return false
-                }).map { PayItem(payable:$0) }
+                    PayItem(payable:MonthlyAllAppsPayment.self)
+                    , PayItem(payable:AnnualAllAppsPayment.self)
+                    , PayItem(payable:OneMonthAllAppsPayment.self)
+                    , PayItem(payable:OneYearAllAppsPayment.self)
+                ]
         )
         , PayDictionary(
                 key: .FreeCharge
                 , label: "FreeCharge Passes".localized
                 , items: [
-                    PayOnFeedback.self
-                    , PayOnPromptRating.self
-                    , PayOnSocialShare.self
-                    , PayInAppStoreRating.self
+                    PayItem(payable:PayOnFeedback.self)
+                    , PayItem(payable:PayOnPromptRating.self)
+                    , PayItem(payable:PayOnSocialShare.self)
+                    , PayItem(payable:PayInAppStoreRating.self)
 
-                ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-                    return false
-                }).map { PayItem(payable:$0) }
+                ]
         )
 
         , PayDictionary(
                 key: .Promotion
                 , label: "Event Passes".localized
-                , invisibleItemsIfUnpaid:true
                 , items: [
-
-            PayOfInitialTutorial.self
-
-            ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
-                return false
-            }).map { PayItem(payable:$0) }
-
+                    PayItem(payable:PayOfInitialTutorial.self, availability: [.paid])
+                ]
         )
     ]
 
@@ -227,13 +212,9 @@ private class PayDictionary:Hashable, Equatable {
     let label:String
     var items:[PayItem]
 
-    //Options Macro
-    let invisibleItemsIfUnpaid:Bool
-
-    init(key:Key, label:String, invisibleItemsIfUnpaid:Bool=false, items:[PayItem]){
+    init(key:Key, label:String, items:[PayItem]){
         self.key = key
         self.label = label
-        self.invisibleItemsIfUnpaid = invisibleItemsIfUnpaid
         self.items = items
     }
 
@@ -253,12 +234,23 @@ private extension ChargeableImage{
     }
 }
 
-private struct PayItemImageStyle {
-    fileprivate var useTintColor: Bool = true
-    fileprivate var beRound: Bool = false
-}
-
 private class PayItem: Hashable, Equatable {
+    fileprivate struct PayItemImageStyle {
+        var useTintColor: Bool = true
+        var beRound: Bool = false
+    }
+
+    fileprivate struct PayItemAvailability: SequenceOptionSet {
+        static let paid = PayItemAvailability(rawValue: 1 << 0)
+        static let unpaid = PayItemAvailability(rawValue: 1 << 1)
+
+        public let rawValue: Int
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+    }
+    fileprivate let availability: PayItemAvailability
+
     private let charge:Charge?
 
     fileprivate let payable:Payable.Type
@@ -298,8 +290,9 @@ private class PayItem: Hashable, Equatable {
     fileprivate let label:String
     fileprivate let rewardLabel:String
 
-    init(payable: Payable.Type) {
+    init(payable: Payable.Type, availability: PayItemAvailability=[.paid, .unpaid]) {
         self.payable = payable
+        self.availability = availability
         self.charge = AppCenter.charge.getCharge(for: payable)
         self.label = charge?.describable.title ?? "Undefined Charge"
         self.rewardLabel = charge?.rewardDescribable?.title ?? "Undefined Reward"
@@ -506,10 +499,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         for (i, payDict) in self.defaultCollections.enumerated() {
 
             //Check invisibility
-            if payDict.invisibleItemsIfUnpaid {
-                payDict.items = payDict.items.filter({ AppCenter.charge.isPaid(payable: $0.payable) })
+            for item in payDict.items where item.availability.contains(.paid) && item.availability.contains(.unpaid) == false{
+                payDict.items = payDict.items.filter({
+                    let paid = AppCenter.charge.isPaid(payable: $0.payable)
+                    return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
+                })
             }
-
+            
             //Check super key
             if let superKey = payDict.superKey, self.defaultCollections.getDictionary(by: superKey)?.isPaid == true{
                 defaultCollectionsApplyingSuperPaid.remove(at: i)
@@ -532,8 +528,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if settingCellDescribers.count>0{
             return
         }
-
-        loadDefaultCollection()
 
         let cell_b = UITableViewButtonCellDescriber()
         cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
@@ -640,6 +634,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
+        loadDefaultCollection()
         tableView.reloadData()
     }
 
