@@ -1,5 +1,5 @@
 //
-// Crea?ted by BLACKGENE on 8/8/18.
+// Crea?ted by B?LACKGENE on 8/8/18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -194,10 +194,24 @@ private class PayDictionary:Hashable, Equatable {
                     return false
                 }).map { PayItem(payable:$0) }
         )
+
+        , PayDictionary(
+                key: .Promotion
+                , label: "Event Passes".localized
+                , invisibleItemsIfUnpaid:true
+                , items: [
+
+            PayOfInitialTutorial.self
+
+            ].sorted(by:{ (payType1: Payable.Type, payType2: Payable.Type) -> Bool in
+                return false
+            }).map { PayItem(payable:$0) }
+
+        )
     ]
 
     enum Key: Int, Codable {
-        case SystemCharge
+        case System
 
         case Owned
         case LocalOwned
@@ -208,14 +222,18 @@ private class PayDictionary:Hashable, Equatable {
         case Promotion
     }
 
-    var key:Key
+    let key:Key
     var superKey:PayDictionary.Key?{ return type(of: self).DefaultSuperDictionary[key] }
-    var label:String
+    let label:String
     var items:[PayItem]
 
-    init(key:Key, label:String, items:[PayItem]){
+    //Options Macro
+    let invisibleItemsIfUnpaid:Bool
+
+    init(key:Key, label:String, invisibleItemsIfUnpaid:Bool=false, items:[PayItem]){
         self.key = key
         self.label = label
+        self.invisibleItemsIfUnpaid = invisibleItemsIfUnpaid
         self.items = items
     }
 
@@ -477,7 +495,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return celld
     }
 
-    func loadDefaultCollection(){
+    private func loadDefaultCollection(){
         //INFO: join local charges onto defaultCollection.
         if let currentAvailableCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.getPayableCollectionIncludingCurrentAvailableLocalAppCharges(){
             self.defaultCollections = currentAvailableCollections
@@ -486,11 +504,27 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         //INFO: Apply dictionary deps
         var defaultCollectionsApplyingSuperPaid = self.defaultCollections
         for (i, payDict) in self.defaultCollections.enumerated() {
+
+            //Check invisibility
+            if payDict.invisibleItemsIfUnpaid {
+                payDict.items = payDict.items.filter({ AppCenter.charge.isPaid(payable: $0.payable) })
+            }
+
+            //Check super key
             if let superKey = payDict.superKey, self.defaultCollections.getDictionary(by: superKey)?.isPaid == true{
                 defaultCollectionsApplyingSuperPaid.remove(at: i)
+                continue
+            }
+
+            //LAST: Check number of items
+            if payDict.items.count == 0{
+                defaultCollectionsApplyingSuperPaid.remove(at: i)
+                continue
             }
         }
         self.defaultCollections = defaultCollectionsApplyingSuperPaid
+
+        //INFO: Add Invisible PayDictionary
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
