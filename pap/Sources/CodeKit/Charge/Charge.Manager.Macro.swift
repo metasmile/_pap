@@ -19,11 +19,15 @@ extension ChargeManager{
     }
 
     func getChargesPaidByStorePayable(excluding types:Set<ChargeType>?=nil) -> [Charge]{
-        return getChargesPaid(excluding:types).filter({ $0.payment is StorePayable })
+        return getChargesPaid(excluding:types).filter({ $0.payment is StorePayable.Type })
     }
 
     func getStorePayablesPaid(excluding types:Set<ChargeType>?=nil) -> [StorePayable.Type]{
         return getChargesPaidByStorePayable(excluding:types).compactMap({ $0.payment as? StorePayable.Type })
+    }
+
+    func getStorePayables(excluding types:Set<ChargeType>?=nil) -> [StorePayable.Type]{
+        return getCharges(excluding:types).compactMap{ $0.payment as? StorePayable.Type }
     }
 
     func getChargesHasStorePayable(excluding types:Set<ChargeType>?=nil) -> [String:Charge]{

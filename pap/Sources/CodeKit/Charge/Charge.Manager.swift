@@ -30,6 +30,11 @@ class ChargeManager{
 
         self.charges = initializingCharges
         self.bank = ChargeBank(banker: banker, registeredCharges: self.charges)
+
+#if DEBUG
+        let storePayables = getCharges().compactMap{ $0.payment as? StorePayable.Type }
+        assert(storePayables.count == Set(storePayables.map({ $0.product.identifier })).count, "[!!] FATAL ERROR: Duplicated StorePayable product identifer found.")
+#endif
     }
 
     func getCharge(for chargeable: Chargeable) -> Charge?{

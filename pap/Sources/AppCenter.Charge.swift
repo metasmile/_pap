@@ -106,7 +106,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Monthly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscription
                     , reward: .rented

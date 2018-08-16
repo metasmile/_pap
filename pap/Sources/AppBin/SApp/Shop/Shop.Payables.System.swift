@@ -24,7 +24,7 @@ struct RestorePurchasesSystemPayment:VerifiablePayable{
             let restoredLiveIDs = restoredProductIds.subtracting(restoredDeprecatedIDs)
             let restoredUnpaidIDs = restoredLiveIDs.intersection(unpaidProductIDs)
 
-            print("[i] Found deprecated restored IDs: \(restoredDeprecatedIDs)")
+            print("[!] WARNING: Found deprecated restored IDs: \(restoredDeprecatedIDs)")
             assert(restoredLiveIDs.subtracting(productIDs).count == 0, "restoredLiveIDs must contain all in productIDs")
 
 #if DEBUG
