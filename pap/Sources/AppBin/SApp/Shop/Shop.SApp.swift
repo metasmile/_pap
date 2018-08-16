@@ -105,6 +105,20 @@ extension ShopApp{
                 })
             }
 
+            //Check super payable
+            var removingItemIndexes = [Int]()
+            for (i, item) in payDict.items.enumerated() {
+                if let superPayables = item.superPayables{
+                    if Set(superPayables.map({ $0.identifier })).intersection(paidPayableIDs).count > 0{
+                        removingItemIndexes.append(i)
+                    }
+                }
+            }
+            //FIXME:
+//            for i in removingItemIndexes{
+//                payDict.items.remove(at: i)
+//            }
+
             //Check super key
             if let superKey = payDict.superKey, mutableDefaultCollection.getDictionary(by: superKey)?.isPaid == true{
                 removingIndexes.append(i)
@@ -208,10 +222,10 @@ private class PayDictionary:Hashable, Equatable {
                 key: .Rental
                 , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
                 , items: [
-                    PayItem(payable:MonthlyAllAppsPayment.self)
-                    , PayItem(payable:AnnualAllAppsPayment.self)
-                    , PayItem(payable:OneMonthAllAppsPayment.self)
-                    , PayItem(payable:OneYearAllAppsPayment.self)
+                    PayItem(payable:MonthlyAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
+                    , PayItem(payable:AnnualAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
+                    , PayItem(payable:OneMonthAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
+                    , PayItem(payable:OneYearAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
                 ]
         )
 
@@ -295,6 +309,7 @@ private class PayItem: Hashable, Equatable {
     private let charge:Charge?
 
     fileprivate let payable:Payable.Type
+    fileprivate let superPayables:[Payable.Type]?
 
     fileprivate var chargeIconImage: ImageSourceable? {
         return charge?.describable.iconImage
@@ -331,8 +346,9 @@ private class PayItem: Hashable, Equatable {
     fileprivate let label:String
     fileprivate let rewardLabel:String?
 
-    init(payable: Payable.Type, availability: PayItemAvailability=[.paid, .unpaid]) {
+    init(payable: Payable.Type, superPayables:[Payable.Type]?=nil, availability: PayItemAvailability=[.paid, .unpaid]) {
         self.payable = payable
+        self.superPayables = superPayables
         self.availability = availability
         self.charge = AppCenter.charge.getCharge(for: payable)
         self.label = charge?.describable.title ?? "Undefined Charge"
