@@ -21,6 +21,8 @@ protocol ChargeBanker {
     // handle carefully for maintaining high performance.
     func synchronize(balance:Amount) -> Amount
 
+    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable) -> (valid:Set<String>, invalid:Set<String>)
+
     //INFO: return charged price amount or nil.
     func willSaveDeposit(forPriceAmountOf charge:Charge, balance:Amount) -> Amount?
     func didSaveDeposit(for charge:Charge, balance:Amount)

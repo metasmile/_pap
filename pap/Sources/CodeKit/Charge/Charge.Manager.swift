@@ -150,6 +150,11 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     }
 
     @discardableResult
+    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable = AsyncSignal()) -> (valid:Set<String>, invalid:Set<String>) {
+        return banker.verifyReceipts(asyncSignal)
+    }
+
+    @discardableResult
     fileprivate func save(for charge:Charge) -> Bool{
         if let _ = banker.willSaveDeposit(forPriceAmountOf: charge, balance: synchronizedBalance){
             synchronize()

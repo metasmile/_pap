@@ -420,7 +420,10 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(balance: Amount) {
-        synchronizeReceiptsAsyncByCharges()
+        let sig = AsyncSignal()
+        DispatchQueue.global().async{
+            self.verifyReceipts(sig)
+        }
     }
 
     private func createOrReplaceReceipt(for charge: Charge){
@@ -440,27 +443,30 @@ private final class AppChargeBanker: ChargeBanker {
         assert(receiptStorage.receipts.filter({ key, value in value.isFrom(charge: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
     }
 
-    private func synchronizeReceiptsAsyncByCharges(){
-        let currentQueue = DispatchQueue.current
+    @discardableResult
+    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable = AsyncSignal()) -> (valid:Set<String>, invalid:Set<String>) {
+        var valid = Set<String>()
+        var invalid = Set<String>()
 
-        DispatchQueue.global(qos: .background).async{
-            let asyncSignal = AsyncSignal()
+        for c in self.registeredCharges{
+            guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
+                continue
+            }
 
-            for c in self.registeredCharges{
-                guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
-                    continue
-                }
-
-                if let verifiedResult = c.verify(asyncSignal), verifiedResult == false{
-                    currentQueue.async(flags:.barrier){
-                        self.receiptStorage.removeReceipt(vReceipt.uuid)
+            if let verifiedResult = c.verify(asyncSignal){
+                if verifiedResult{
+                    valid.insert(c.identifier)
+                }else{
+                    invalid.insert(c.identifier)
+                    if receiptStorage.hasReceipt(by: vReceipt.uuid){
+                        receiptStorage.removeReceipt(vReceipt.uuid)
                     }
-                    continue
                 }
             }
         }
-    }
 
+        return (valid:valid, invalid:invalid)
+    }
 
     @discardableResult
     private func synchronizeReceipts(balance: Amount) -> Amount{

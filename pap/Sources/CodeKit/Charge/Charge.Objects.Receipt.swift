@@ -141,56 +141,77 @@ extension Defaults: ChargeReceiptAccessorStorage {
 }
 
 final class ChargeReceiptStorage {
+    private let syncQueue = DispatchQueue(label: String(describing: ChargeReceiptStorage.self), qos: .userInteractive)
+
     private let receiptsStorage: ChargeReceiptAccessorStorage
-    private(set) var receipts:[String: ChargeableReceipt]
+
+    var receipts:[String: ChargeableReceipt]{
+        return syncQueue.sync{
+            return _receipts
+        }
+    }
+
+    private var _receipts:[String: ChargeableReceipt]
 
     init(banker: ChargeBanker){
         receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: banker.receiptStorageIdentifier+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
-        receipts = receiptsStorage.receipts.dictionary { $0.uuid }
+        _receipts = receiptsStorage.receipts.dictionary { $0.uuid }
     }
 
     var balanceAmountValue:Double{
         var v = 0.0
-        for r in receipts{
+        for r in _receipts {
             v += r.value.amountValue
         }
         return clamp(v, AmountObject.minValue, AmountObject.maxValue)
     }
 
     func hasReceipt(by receiptUUID:String) -> Bool{
-        return receipts[receiptUUID] != nil
+        return syncQueue.sync {
+            return _receipts[receiptUUID] != nil
+        }
     }
 
     func getReceipt(for chargeable:Chargeable) -> ChargeableReceipt?{
-        return receipts.values.first { receipt in
-            return receipt.chargeableIdentifier == chargeable.identifier
+        return syncQueue.sync {
+            return _receipts.values.first { receipt in
+                return receipt.chargeableIdentifier == chargeable.identifier
+            }
         }
     }
 
     func addReceipt(_ receipt: ChargeableReceipt){
         assert(!hasReceipt(by: receipt.uuid),"Given receipt, \(receipt) does already exist")
         if !hasReceipt(by: receipt.uuid){
-            receipts[receipt.uuid] = receipt
-            print("[i] INFO: Receipt Added: ", receipt, receipt.uuid)
+            syncQueue.async(flags:.barrier) {
+                self._receipts[receipt.uuid] = receipt
+                print("[i] INFO: Receipt Added: ", receipt, receipt.uuid)
+            }
         }
     }
 
     func removeReceipt(_ receiptId:String){
         assert(hasReceipt(by: receiptId), "Given id of receipt, already \(receiptId) does not exist")
-        print("[i] INFO: Receipt Removed:", receipts[receiptId] ?? "", receiptId)
-        receipts[receiptId] = nil
+        syncQueue.async(flags:.barrier) {
+            print("[i] INFO: Receipt Removed:", self._receipts[receiptId] ?? "", receiptId)
+            self._receipts[receiptId] = nil
+        }
     }
 
     func updateReceipt(_ receipt:ChargeableReceipt){
         assert(hasReceipt(by: receipt.uuid), "Given receipt, \(receipt) does not exist")
         if hasReceipt(by: receipt.uuid){
-            receipts[receipt.uuid] = receipt
-            print("[i] Receipt Updated: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
+            syncQueue.async(flags:.barrier) {
+                self._receipts[receipt.uuid] = receipt
+                print("[i] Receipt Updated: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
+            }
         }
     }
 
     func commit(){
-        var mutableReceiptsStorage = self.receiptsStorage
-        mutableReceiptsStorage.receipts = Array(self.receipts.values)
+        syncQueue.async(flags:.barrier) {
+            var mutableReceiptsStorage = self.receiptsStorage
+            mutableReceiptsStorage.receipts = Array(self._receipts.values)
+        }
     }
 }
