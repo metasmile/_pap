@@ -15,7 +15,7 @@ struct HashElement<T> : Hashable {
     }
 
     var hashValue: Int {
-        return (String(describing: self)+String(describing: type)).hashValue
+        return String(describing: self).hashValue //== "HashElement<Payable.Type>(type: {Type Name})"
     }
 
     static func == (lhs: HashElement, rhs: HashElement) -> Bool {

@@ -103,6 +103,10 @@ extension Payable{
     }
 }
 
+protocol RelativePayable: Payable {
+    static var superPayables:HashSet<Payable.Type> {get}
+}
+
 protocol VerifiablePayable: Payable {
     //INFO:
     // nil: error or it can not handle currently. usually should handle later.
