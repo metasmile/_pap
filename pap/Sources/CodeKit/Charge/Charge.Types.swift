@@ -71,6 +71,16 @@ enum RewardType:Int {
         }
         return false
     }
+
+    var isLocalOwned:Bool{
+        switch self{
+            case .localOwned, .localRented:
+                return true
+            default:
+                break
+        }
+        return false
+    }
 }
 
 protocol ChargeDescribable{
