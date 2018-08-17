@@ -15,6 +15,11 @@ import UIKit
 import SafariServices
 import StoreKit
 
+private protocol ShopAppDefaults: AppDefaults{}
+
+extension Defaults: ShopAppDefaults {}
+
+
 public class ShopApp: NSObject
         , KeyPathWatchable
         , SApp
@@ -56,7 +61,6 @@ public class ShopApp: NSObject
     fileprivate var launchedOption: AppLaunchOptions?
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         launchedOption = withOption
-//        loadStoreProductsInfo()
     }
 
     var sourceAppType:App.Type?{
@@ -73,7 +77,7 @@ extension ShopApp{
 
     //INFO: Important section - Creating final list for gloabal use.
     fileprivate func loadDefaultPayDictionaries() -> [PayDictionary] {
-        var mutableDefaultCollection = PayDictionary.DefaultCollection
+        var mutableDefaultCollection = PayDictionary.Default
 
         //INFO: get source app info
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
@@ -173,7 +177,7 @@ extension ShopApp{
         return Set(self.getStorePayables().compactMap({ $0.storeProduct }))
     }
 
-    fileprivate func loadStoreProductsInfo(completion:((StorePayableCenter.StoreProductFetchResult) -> ())?=nil) {
+    fileprivate func fetchStoreProductsInfo(completion:((StorePayableCenter.StoreProductFetchResult) -> ())?=nil) {
         let payablesNeedToFetch = self.getStorePayablesNotFetched()
 
         guard payablesNeedToFetch.count > 0 else {
@@ -202,13 +206,20 @@ private extension Array where Element==PayDictionary{
 }
 
 private struct PayDictionary:Hashable, Equatable {
+    enum Key: Int, Codable {
+        case SystemOwned
+        case PaidCharge
+        case LocalPaidCharge
+        case FreeCharge
+        case Promotion
+    }
 
     var isPaidAll:Bool{
         let payables = self.items.map{ $0.payable }
         return payables.count == payables.filter { AppCenter.charge.isPaid(payable: $0) }.count
     }
 
-    static let DefaultCollection: [PayDictionary] = [
+    static let Default: [PayDictionary] = [
         PayDictionary(
             key: .SystemOwned
             , label: "Settings".localized
@@ -248,15 +259,6 @@ private struct PayDictionary:Hashable, Equatable {
                 ]
         )
     ]
-
-    enum Key: Int, Codable {
-        case SystemOwned
-
-        case PaidCharge
-        case LocalPaidCharge
-        case FreeCharge
-        case Promotion
-    }
 
     let key:Key
     let label:String
@@ -318,11 +320,13 @@ private class PayItem: Hashable, Equatable {
                 return image
             }
 
-            let iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
-                    ?? ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeButtonAppearance(charge:charge))
-
-//            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
-
+            var iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
+            if iconImage == iconImage{
+                iconImage = ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeButtonAppearance(charge:charge))
+            }
+            /*
+            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
+            */
             if let iconImage = iconImage{
                 iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
             }
@@ -364,101 +368,8 @@ AppContent
 
 */
 
-private protocol ShopAppDefaults: AppDefaults{
-//    var selectedCollection: [PayDictionary] {get set}
-    var deletingTarget: Int {get set}
-    var saveContactWithoutEdit:Bool {get set}
-    var quickActionOnly:Bool {get set}
-    var autoSelect:Bool {get set}
-}
-
-extension Defaults: ShopAppDefaults {
-//    fileprivate var selectedCollection: [PayDictionary] {
-//        set{ set(newValue) }
-//        get{
-//            let defaultCollection = PayDictionary.DefaultCollection
-//            let collection = get(or: defaultCollection )
-//
-//            //diff == 0 return
-//            if defaultCollection == collection{
-//                return collection
-//            }
-//
-//            //if not -> migrate
-//            var migratedCollection = [PayDictionary]()
-//            let keyedCollection = collection.dictionary { $0.key }
-//
-//            var modCount = 0
-//            for ddict in defaultCollection {
-//                guard let ndict = keyedCollection[ddict.key] else {
-//                    migratedCollection.append(ddict)
-//                    continue
-//                }
-//
-//                var m_dict = ddict
-//                let oPayIds = ddict.itemsChargeIdentifiers
-//                let nPayIds = ndict.itemsChargeIdentifiers
-//
-//                for nPayId in nPayIds{
-//                    if let oindex = oPayIds.index(of: nPayId)
-//                    , let nindex = nPayIds.index(of: nPayId){
-//                        m_dict.items[oindex] = ndict.items[nindex]
-//                        modCount += 1
-//                    }
-//                }
-//                migratedCollection.append(m_dict)
-//            }
-//
-//            if modCount > 0{
-//                let mSelf = self
-//                mSelf.selectedCollection = migratedCollection
-//            }
-//
-//            return migratedCollection
-//        }
-//    }
-
-    fileprivate var deletingTarget: Int {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: DeletingTarget.selected.rawValue ) }
-    }
-
-    fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var quickActionOnly: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: false ) }
-    }
-
-    fileprivate var autoSelect: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: false ) }
-    }
-}
-
-
-
-/*
-
-AppContent
-
-*/
-
-private enum DeletingTarget:Int{
-    case selected
-    case targeted
-}
-
 private enum ShopAppSettingCells {
-    case restore
-    case deletingTarget
-    case autoSelect
-    case saveContactWithoutEdit
-    case quickActionOnly
-//    case delete
+
 }
 
 private struct SettingsItem {
@@ -474,17 +385,17 @@ private struct SettingsItem {
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private lazy var defaultCollections:[PayDictionary] = PayDictionary.DefaultCollection
+    private lazy var payDictionaries:[PayDictionary] = PayDictionary.Default
 
-    private func loadDefaultCollection(){
+    private func loadPayDictionaries(){
         //INFO: join local charges onto defaultCollection.
 
         if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayDictionaries(){
-            self.defaultCollections = loadedCollections
+            self.payDictionaries = loadedCollections
 
         }else{
             assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
-            self.defaultCollections = PayDictionary.DefaultCollection
+            self.payDictionaries = PayDictionary.Default
         }
 
     }
@@ -495,10 +406,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
-        
         view.addSubview(tableView)
         tableView.fitConstraints(to: view)
-        
         return view
     }()
     
@@ -513,105 +422,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return preferences
     }
 
-    private func createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit() -> UITableViewSwitchCellDescriber{
-        let celld = UITableViewSwitchCellDescriber()
-        celld.itemIdentifier = ShopAppSettingCells.saveContactWithoutEdit.hashValue
-        celld.label = "Save Contacts".localized
-        celld.valueGetter = { ShopApp.privateDefaults.saveContactWithoutEdit }
-        celld.valueHandler = {
-            var defaults = ShopApp.privateDefaults
-            defaults.saveContactWithoutEdit = $0 as! Bool
-        }
-        return celld
-    }
-
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
         if settingCellDescribers.count>0{
             return
-        }
-
-        let cell_b = UITableViewButtonCellDescriber()
-        cell_b.itemIdentifier = ShopAppSettingCells.restore.hashValue
-        cell_b.label = "Restore All Purchases".localized
-        cell_b.iconImage = ChargeableImage.create(for: nil, tintColor: self.view.tintColor, appearance: ChargeableRestoreImageAppearance())
-        cell_b.buttonTitle = "Restore".localized
-        cell_b.valueHandler = { _ in
-
-            let productIdByCharges = AppCenter.charge.getChargesHasStorePayable()
-
-            DispatchQueue.global().async{
-                let singal = AsyncSignal()
-                for productId in StorePayableCenter.restore(singal) ?? []{
-                    if let storePayableCharge = productIdByCharges[productId]{
-                        AppCenter.charge.pay(for: storePayableCharge.payment, skipTransaction:true)
-                    }
-                }
-
-                DispatchQueue.main.async{
-                    self.reloadData()
-                }
-            }
-
-            papLog.app.shop.restoredStorePayables()
-
-        }
-//        settingCellDescribers.append(cell_b)
-
-        let cell0 = UITableViewSegmentControlCellDescriber()
-        cell0.itemIdentifier = ShopAppSettingCells.deletingTarget.hashValue
-        cell0.label = "Deleting Targets".localized
-        cell0.valueGetter = { ShopApp.privateDefaults.deletingTarget
-        }
-        cell0.valueCollection = [
-            (label:"Selected".localized,value: DeletingTarget.selected.rawValue),
-            (label:"Targeted".localized,value: DeletingTarget.targeted.rawValue)
-        ]
-        cell0.valueHandler = {
-            let preset = $0 as! Int
-
-            var defaults = ShopApp.privateDefaults
-            defaults.deletingTarget = preset
-
-            // selectionPreset changed -> other self.parserCollection getter will be returned.
-            self.reloadData()
-
-
-//            [
-//                ShopAppSettingCells.saveContactWithoutEdit.hashValue
-//                , ShopAppSettingCells.quickActionOnly.hashValue
-//            ].forEach { hashValue in
-//
-//                if let index = self.settingCellDescribers.index(where:{ describable in
-//                    return describable.itemIdentifier == hashValue
-//                }){
-//                    self.settingCellDescribers.remove(at: index)
-//                }
-//            }
-
-            //saveContactWithoutEdit
-//            if preset == DeletingTarget.matched.rawValue{
-//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
-//            }
-//
-//            if preset == DeletingTarget.selected.rawValue{
-//                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
-//            }
-
-//            self.reloadData()
-
-            // autoSelect turn off and restore
-//            cell1.valueHandler?(false)
-
-        }
-//        settingCellDescribers.append(cell0)
-
-        //auto save
-        if ShopApp.privateDefaults.deletingTarget == DeletingTarget.targeted.rawValue{
-//            settingCellDescribers.append(createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
-        }
-        else if ShopApp.privateDefaults.deletingTarget == DeletingTarget.selected.rawValue{
-//            settingCellDescribers.append(createCellDescriber_SelectionPreset_action_quickActionsOnly())
         }
 
         tableView.dataSource = self
@@ -632,13 +446,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
-        loadDefaultCollection()
+        loadPayDictionaries()
         tableView.reloadData()
     }
 
     private func loadStoreProductsData(retryCount:Int=0){
         weak var shopApp = AppCenter.default.currentInstanceAs(ShopApp.self)
-        shopApp?.loadStoreProductsInfo() { [weak self] _ in
+        shopApp?.fetchStoreProductsInfo() { [weak self] _ in
             guard let wself = self else{
                 return
             }
@@ -656,15 +470,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
     }
 
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    }
-
-    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-
-    }
-
     func numberOfSections(in tableView: UITableView) -> Int {
-        return defaultCollections.count + (settingCellDescribers.count > 0 ? 1 : 0)
+        return payDictionaries.count + (settingCellDescribers.count > 0 ? 1 : 0)
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -676,7 +483,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section < defaultCollections.count ? defaultCollections[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
+        return section < payDictionaries.count ? payDictionaries[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -684,7 +491,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < defaultCollections.count ? defaultCollections[section].items.count : settingCellDescribers.count
+        return section < payDictionaries.count ? payDictionaries[section].items.count : settingCellDescribers.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -692,13 +499,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section < defaultCollections.count
-                ? itemCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
-                : settings_tableView(tableView, cellForRowAt: indexPath)
+        let cell = indexPath.section < payDictionaries.count
+                ? cellPayableDictionary(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+                : cellSettingCellDescribers(tableView, cellForRowAt: indexPath)
         return cell
     }
 
-    func settings_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func cellSettingCellDescribers(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settingCellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewSwitchCellDescriber
@@ -780,10 +587,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return cell
     }
 
-    func itemCollection_tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func cellPayableDictionary(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section
-        let dict = defaultCollections[dictIndex]
+        let dict = payDictionaries[dictIndex]
         let dataItem = dict.items[indexPath.item]
 //        let selected = dataItem.enabled
 
@@ -889,15 +696,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         
         AppCenter.charge.pay(for: item.payable) { succeed in
             item.isIndicating = false
-            
-            DispatchQueue.main.async {
-                self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
-                
-                if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
-                    AppCenter.default.openApp(identifier: rid)
-                }else{
-                    self.reloadData()
-                }
+
+            self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
+
+            if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
+                AppCenter.default.openApp(identifier: rid)
+            }else{
+                self.reloadData()
             }
         }
     }
