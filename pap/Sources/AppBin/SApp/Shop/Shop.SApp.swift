@@ -332,20 +332,26 @@ private class PayItem: Hashable, Equatable {
                 return image
             }
 
-            //default Image/*/*/
+            //defined image first
             var iconImage: UIImage? = charge.rewardDescribable?.iconImage?.asUIImage
 
-            if charge.payment is RestorePurchasesSystemPayment.Type{
-                ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
+            //default image
+            if iconImage == nil{
+
+                if charge.payment is RestorePurchasesSystemPayment.Type{
+                    //restore
+                    iconImage = ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeableRestoreImageAppearance())
+
+                }else{
+
+                    //default
+                    iconImage = ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeButtonAppearance(charge:charge))
+                    /*
+                    iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
+                    */
+                }
             }
 
-
-            if iconImage == iconImage{
-                iconImage = ChargeableImage.create(for: charge, tintColor: tintColor, appearance: ChargeButtonAppearance(charge:charge))
-            }
-            /*
-            iconImage = ChargeableBadgeIcon.portraitBadgeIcon(badgeImage, title: "\(charge.rewardDescribable?.shortTitle ?? "                         ")", tintColor: tintColor)
-            */
             if let iconImage = iconImage{
                 iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
             }
