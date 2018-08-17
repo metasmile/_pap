@@ -93,43 +93,39 @@ extension ShopApp{
         }
 
         //INFO: Apply dictionary deps
-        var removingIndexes = [Int]()
         let paidPayableIDs = Set(AppCenter.charge.getChargesPaid(synchronize: true).map({ $0.payment.identifier }))
-        for (i, payDict) in mutableDefaultCollection.enumerated() {
 
-            var mutablePayDict = payDict
+        return mutableDefaultCollection.compactMap { dictionary -> PayDictionary? in
+            var mutablePayDict = dictionary
 
             //Check invisibility
-            for item in mutablePayDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
-                mutablePayDict.items = mutablePayDict.items.filter({
-                    let paid = paidPayableIDs.contains($0.payable.identifier)
-                    return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
-                })
-            }
-
-            //Check super payable
             mutablePayDict.items = mutablePayDict.items.filter { item -> Bool in
-                if let superPayables = (item.payable as? RelativePayable.Type)?.superPayables{
 
-                    print(item.payable, superPayables.count, Set(superPayables.map({ $0.type.identifier })).intersection(paidPayableIDs))
-                    return Set(superPayables.map({ $0.type.identifier })).intersection(paidPayableIDs).count == 0
+                var exclude:Bool = false
+
+                //Check availability
+                if (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
+
+                    let paid = paidPayableIDs.contains(item.payable.identifier)
+                    exclude = false == (item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid)
                 }
-                return true
+
+                //Check super payable
+                if let superPayables = (item.payable as? RelativePayable.Type)?.superPayables{
+                    exclude = Set(superPayables.map({ $0.type.identifier })).intersection(paidPayableIDs).count > 0
+                }
+
+                return !exclude
             }
-            print(mutablePayDict.items)
-            
-            //LAST: Check number of items
+
+
             if mutablePayDict.items.count == 0{
-                removingIndexes.append(i)
-                continue
+                //remove if not
+                return nil
+            }else{
+                //apply result
+                return mutablePayDict
             }
-        }
-        
-        return mutableDefaultCollection.filter {
-            if let index = mutableDefaultCollection.firstIndex(of: $0), let _ = removingIndexes.firstIndex(of: index) {
-                return false
-            }
-            return true
         }
     }
 
@@ -471,7 +467,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayDictionaries(){
             self.defaultCollections = loadedCollections
-            print(self.defaultCollections)
 
         }else{
             assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
