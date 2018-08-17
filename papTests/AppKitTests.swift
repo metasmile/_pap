@@ -73,7 +73,6 @@ class AppTaskTests: XCTestCase {
         }
 
         let performed = taskMan.perform { dictionary, respondables in
-            print(respondables.count,rqs.count-removalRqs.count)
             if respondables.count == rqs.count-removalRqs.count{
                 e.fulfill()
             }else{

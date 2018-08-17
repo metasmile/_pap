@@ -71,6 +71,16 @@ enum RewardType:Int {
         }
         return false
     }
+
+    var isLocalOwned:Bool{
+        switch self{
+            case .localOwned, .localRented:
+                return true
+            default:
+                break
+        }
+        return false
+    }
 }
 
 protocol ChargeDescribable{
@@ -101,6 +111,10 @@ extension Payable{
     static var identifier: String {
         return String(describing: self)
     }
+}
+
+protocol RelativePayable: Payable {
+    static var superPayables:HashSet<Payable.Type> {get}
 }
 
 protocol VerifiablePayable: Payable {

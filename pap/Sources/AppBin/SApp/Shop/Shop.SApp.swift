@@ -78,15 +78,15 @@ extension ShopApp{
         //INFO: get source app info
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
-                mutableDefaultCollection.append(PayDictionary(
-                        key: .LocalOwned
-                        , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                        , items: localCharges.map ({
-                    let pay = PayItem(payable: $0.payment)
-                    pay.rewardIconImageStyle.beRound = true
-                    pay.rewardIconImageStyle.useTintColor = false
-                    return pay
-                })
+                    mutableDefaultCollection.append(PayDictionary(
+                            key: .LocalPaidCharge
+                            , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
+                            , items: localCharges.map ({
+                        let pay = PayItem(payable: $0.payment)
+                        pay.rewardIconImageStyle.beRound = true
+                        pay.rewardIconImageStyle.useTintColor = false
+                        return pay
+                    })
                 ))
                 mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
             }
@@ -94,37 +94,53 @@ extension ShopApp{
 
         //INFO: Apply dictionary deps
         var removingIndexes = [Int]()
-        let paidPayableIDs = Set(AppCenter.charge.getChargesPaid(synchronize: true).map({ $0.payment.identifier }))
+        let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid(synchronize: true).dictionary { $0.payment.identifier }
+        let paidPayableIDs = Set(paidChargesByPaymentIDs.keys)
+
+        let paidStorePayableHasExisted = AppCenter.charge.getChargesPaidByStorePayable().count > 0
+        let paidOwnedHasExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
+        
         for (i, payDict) in mutableDefaultCollection.enumerated() {
 
-            //Check invisibility
-            for item in payDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
-                payDict.items = payDict.items.filter({
-                    let paid = paidPayableIDs.contains($0.payable.identifier)
-                    return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
-                })
-            }
+            var mutablePayDict = payDict
 
-            //Check super payable
-            var removingItemIndexes = [PayItem]()
-            for (_, item) in payDict.items.enumerated() {
-                if let superPayables = item.superPayables{
-                    if Set(superPayables.map({ $0.identifier })).intersection(paidPayableIDs).count > 0{
-                        removingItemIndexes.append(item)
-                    }
-                }
-            }
-            payDict.items = payDict.items.filter {
-                if let _ = removingItemIndexes.firstIndex(of: $0) {
+            //Check invisibility
+            mutablePayDict.items = mutablePayDict.items.filter { item -> Bool in
+
+                //Check Restore Visibility
+                if item.payable is RestorePurchasesSystemPayment.Type && paidStorePayableHasExisted{
                     return false
                 }
+
+                //Check if isOwned has existed, isLocalOwned will be hidden.
+                if let charge = item.charge, charge.reward.isLocalOwned, paidOwnedHasExisted {
+                    return false
+                }
+                
+                //Check availability
+                if (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
+                    let paid = paidPayableIDs.contains(item.payable.identifier)
+                    if false == (item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid){
+                        return false
+                    }
+                }
+
+                //Check super payable
+                if let superPayables = (item.payable as? RelativePayable.Type)?.superPayables{
+                    if Set(superPayables.map({ $0.type.identifier })).intersection(paidPayableIDs).count > 0{
+                        return false
+                    }
+                }
+                
                 return true
             }
-            
-            //LAST: Check number of items
-            if payDict.items.count == 0{
+
+            if mutablePayDict.items.count == 0{
+                //remove if not
                 removingIndexes.append(i)
-                continue
+            }else{
+                //apply result
+                mutableDefaultCollection[i] = mutablePayDict
             }
         }
         
@@ -179,13 +195,13 @@ extension ShopApp{
 }
 
 
-private extension Array where Element:PayDictionary{
+private extension Array where Element==PayDictionary{
     func getDictionary(by key:PayDictionary.Key) -> PayDictionary?{
         return self.first { $0.key == key }
     }
 }
 
-private class PayDictionary:Hashable, Equatable {
+private struct PayDictionary:Hashable, Equatable {
 
     var isPaidAll:Bool{
         let payables = self.items.map{ $0.payable }
@@ -201,20 +217,14 @@ private class PayDictionary:Hashable, Equatable {
             ]
         ),
         PayDictionary(
-                key: .Owned
-                , label: "%@ Permanent Passes".localizedFormatted(papStrings.name)
+                key: .PaidCharge
+                , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
-            ]
-        ),
-        PayDictionary(
-                key: .Rental
-                , label: "%@ Rental Passes".localizedFormatted(papStrings.name)
-                , items: [
-                    PayItem(payable:MonthlyAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
-                    , PayItem(payable:AnnualAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
-                    , PayItem(payable:OneMonthAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
-                    , PayItem(payable:OneYearAllAppsPayment.self, superPayables: [AllTimeAllAppsPayment.self])
+                    , PayItem(payable:MonthlyAllAppsPayment.self)
+                    , PayItem(payable:AnnualAllAppsPayment.self)
+                    , PayItem(payable:OneMonthAllAppsPayment.self)
+                    , PayItem(payable:OneYearAllAppsPayment.self)
                 ]
         )
 
@@ -242,11 +252,8 @@ private class PayDictionary:Hashable, Equatable {
     enum Key: Int, Codable {
         case SystemOwned
 
-        case Owned
-        case LocalOwned
-        case Rental
-        case LocalRental
-
+        case PaidCharge
+        case LocalPaidCharge
         case FreeCharge
         case Promotion
     }
@@ -278,7 +285,7 @@ private extension ChargeableImage{
 }
 
 private class PayItem: Hashable, Equatable {
-    fileprivate struct PayItemImageStyle {
+    struct PayItemImageStyle {
         var useTintColor: Bool = true
         var beRound: Bool = false
     }
@@ -292,18 +299,17 @@ private class PayItem: Hashable, Equatable {
             self.rawValue = rawValue
         }
     }
-    fileprivate let availability: PayItemAvailability
+    let availability: PayItemAvailability
 
-    private let charge:Charge?
+    let charge:Charge?
 
-    fileprivate let payable:Payable.Type
-    fileprivate let superPayables:[Payable.Type]?
+    let payable:Payable.Type
 
-    fileprivate var chargeIconImage: ImageSourceable? {
+    var chargeIconImage: ImageSourceable? {
         return charge?.describable.iconImage
     }
 
-    fileprivate func getRewardIconImage(tintColor:UIColor) -> ImageSourceable? {
+    func getRewardIconImage(tintColor:UIColor) -> ImageSourceable? {
 
         let iconImageCache = AppCenter.default.currentInstanceAs(ShopApp.self)?.contentImageCache
 
@@ -326,17 +332,16 @@ private class PayItem: Hashable, Equatable {
         return nil
     }
 
-    fileprivate var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
-    fileprivate var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
+    var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
+    var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
 
-    fileprivate var isIndicating: Bool = false
-    fileprivate var enabled: Bool = true
-    fileprivate let label:String
-    fileprivate let rewardLabel:String?
+    var isIndicating: Bool = false
+    let enabled: Bool = true
+    let label:String
+    let rewardLabel:String?
 
-    init(payable: Payable.Type, superPayables:[Payable.Type]?=nil, availability: PayItemAvailability=[.paid, .unpaid]) {
+    init(payable: Payable.Type, availability: PayItemAvailability=[.paid, .unpaid]) {
         self.payable = payable
-        self.superPayables = superPayables
         self.availability = availability
         self.charge = AppCenter.charge.getCharge(for: payable)
         self.label = charge?.describable.title ?? "Undefined Charge"
