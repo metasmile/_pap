@@ -158,8 +158,6 @@ extension ShopApp{
     }
 
     fileprivate func loadStoreProductsInfo(completion:((StorePayableCenter.StoreProductFetchResult) -> ())?=nil) {
-        //TODO: Date local storage cache?
-        //TODO: retry if fetched product is not 100%
         let payablesNeedToFetch = self.getStorePayablesNotFetched()
 
         guard payablesNeedToFetch.count > 0 else {
@@ -169,7 +167,9 @@ extension ShopApp{
         }
 
         DispatchQueue.global().async{
-            if let result = StorePayableCenter.fetch(for: payablesNeedToFetch, AsyncSignal()){
+            let signal = AsyncSignal()
+
+            if let result = StorePayableCenter.fetch(for: payablesNeedToFetch, signal){
                 completion?(result)
             }else{
                 print("[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
