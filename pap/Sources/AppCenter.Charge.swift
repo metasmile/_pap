@@ -420,9 +420,8 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(balance: Amount) {
-        let sig = AsyncSignal()
         DispatchQueue.global().async{
-            self.verifyReceipts(sig)
+            self.verifyReceipts()
         }
     }
 

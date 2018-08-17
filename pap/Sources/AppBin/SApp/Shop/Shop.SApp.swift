@@ -159,9 +159,6 @@ extension ShopApp{
         DispatchQueue.global().async{
             let signal = AsyncSignal()
 
-            //INFO: verify before fetch
-            AppCenter.charge.bank.verifyReceipts(signal)
-
             if let result = StorePayableCenter.fetch(for: payablesNeedToFetch, signal){
                 completion?(result)
             }else{
