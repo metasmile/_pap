@@ -97,9 +97,11 @@ extension ShopApp{
         let paidPayableIDs = Set(AppCenter.charge.getChargesPaid(synchronize: true).map({ $0.payment.identifier }))
         for (i, payDict) in mutableDefaultCollection.enumerated() {
 
+            var mutablePayDict = payDict
+
             //Check invisibility
-            for item in payDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
-                payDict.items = payDict.items.filter({
+            for item in mutablePayDict.items where (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
+                mutablePayDict.items = mutablePayDict.items.filter({
                     let paid = paidPayableIDs.contains($0.payable.identifier)
                     return item.availability.contains(.paid) && paid || item.availability.contains(.unpaid) && !paid
                 })
@@ -107,14 +109,14 @@ extension ShopApp{
 
             //Check super payable
             var removingItemIndexes = [PayItem]()
-            for (_, item) in payDict.items.enumerated() {
+            for (_, item) in mutablePayDict.items.enumerated() {
                 if let superPayables = item.superPayables{
                     if Set(superPayables.map({ $0.identifier })).intersection(paidPayableIDs).count > 0{
                         removingItemIndexes.append(item)
                     }
                 }
             }
-            payDict.items = payDict.items.filter {
+            mutablePayDict.items = mutablePayDict.items.filter {
                 if let _ = removingItemIndexes.firstIndex(of: $0) {
                     return false
                 }
@@ -122,7 +124,7 @@ extension ShopApp{
             }
             
             //LAST: Check number of items
-            if payDict.items.count == 0{
+            if mutablePayDict.items.count == 0{
                 removingIndexes.append(i)
                 continue
             }
@@ -179,13 +181,13 @@ extension ShopApp{
 }
 
 
-private extension Array where Element:PayDictionary{
+private extension Array where Element==PayDictionary{
     func getDictionary(by key:PayDictionary.Key) -> PayDictionary?{
         return self.first { $0.key == key }
     }
 }
 
-private class PayDictionary:Hashable, Equatable {
+private struct PayDictionary:Hashable, Equatable {
 
     var isPaidAll:Bool{
         let payables = self.items.map{ $0.payable }
@@ -330,7 +332,7 @@ private class PayItem: Hashable, Equatable {
     fileprivate var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
 
     fileprivate var isIndicating: Bool = false
-    fileprivate var enabled: Bool = true
+    fileprivate let enabled: Bool = true
     fileprivate let label:String
     fileprivate let rewardLabel:String?
 
