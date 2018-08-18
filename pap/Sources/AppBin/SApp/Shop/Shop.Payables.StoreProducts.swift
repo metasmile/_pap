@@ -108,10 +108,6 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable{
     static var product: StoreProduct{
         return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil)
     }
-
-    static var superPayables: HashSet<Payable.Type> {
-        return [AllTimeAllAppsPayment.self, OneMonthAllAppsPayment.self, ThreeMonthsAllAppsPayment.self, OneYearAllAppsPayment.self].hashSet
-    }
 }
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{

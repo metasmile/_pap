@@ -6,7 +6,7 @@
 import Foundation
 import DefaultsKit
 
-struct RestorePurchasesSystemPayment:Payable{
+struct RestorePurchasesSystemPayment:VerifiablePayable{
     static var label: String {
         return "Restore".localized
     }
@@ -54,5 +54,9 @@ struct RestorePurchasesSystemPayment:Payable{
         }
 
         return false
+    }
+
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return AppCenter.charge.getChargesPaidByStorePayable().count > 0
     }
 }

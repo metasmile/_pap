@@ -236,7 +236,7 @@ private struct PayDictionary:Hashable, Equatable {
             key: .SystemOwned
             , label: "Settings".localized
             , items: [
-                PayItem(payable:RestorePurchasesSystemPayment.self, availability: [.unpaid])
+                PayItem(payable:RestorePurchasesSystemPayment.self)
             ]
         ),
         PayDictionary(
