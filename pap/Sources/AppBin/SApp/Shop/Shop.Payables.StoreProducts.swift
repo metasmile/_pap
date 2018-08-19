@@ -46,6 +46,8 @@ struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable {
 private var SuperPayableSet_AllApps_AutoRenewable:HashSet<Payable.Type> {
     return [
         AllTimeAllAppsPayment.self,
+        SecretCodeInPermanentPayment.self,
+
         MonthlyAllAppsPayment.self,
         AnnualAllAppsPayment.self
     ].hashSet

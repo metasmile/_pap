@@ -19,37 +19,39 @@ private struct UIAlertControllerPool{
 }
 
 public extension UIAlertController{
-    public static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+    public func setDefaultPopoverPresentationController(sourceView:UIView?=nil){
 
-        if let popoverPresentationController = alert.popoverPresentationController {
+        if let popoverPresentationController = self.popoverPresentationController {
             popoverPresentationController.sourceView = sourceView ?? UIViewController.root?.view
             if let view = sourceView{
                 popoverPresentationController.sourceRect = view.bounds
             }
         }
+    }
 
+    public static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
         return alert
     }
     
     public static func alert(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        if let popoverPresentationController = alert.popoverPresentationController {
-            popoverPresentationController.sourceView = sourceView ?? UIViewController.root?.view
-            if let view = sourceView{
-                popoverPresentationController.sourceRect = view.bounds
-            }
-        }
-        
+        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
         return alert
+    }
+    
+    public static var presenting:UIAlertController?{
+        return UIAlertControllerPool.shared.presentingAlertViewController
     }
 
     @discardableResult
     public static func alert(_ message:String
             , title:String?=nil
-            , buttonTitle:String=NSLocalizedString("OK", comment:"")
+            , buttonTitle:String="OK".localized
             , actions:[UIAlertAction]?=nil
+            , textField:((UITextField) -> ())?=nil
+            , sourceView:UIView?=nil
             , autoDismiss:TimeInterval?=nil
             , willDismiss:(() -> Void)?=nil
             , completion:((UIAlertAction) -> Swift.Void)? = nil) -> Bool{
@@ -74,6 +76,11 @@ public extension UIAlertController{
 
         UIAlertControllerPool.shared.presentingAlertViewController = alert
 
+        if textField != nil{
+            alert.addTextField(configurationHandler: textField)
+        }
+
+        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
 
         UIViewController.root?.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{

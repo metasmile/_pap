@@ -60,7 +60,7 @@ private final class AppChargeManager: ChargeManager{
             // Initial
             , AppCharge(type: .welcomeFreeTrial
                     , reward: .timeOfUses
-                    , payment:PayOfInitialTutorial.self
+                    , payment: WelcomeTutorialPayment.self
                     , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
                     , describable: AppChargeDescription(title:"Welcome Free Trial Pack".localized, description: nil, iconImage: nil) 
             )
@@ -98,7 +98,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .secretCode
                     , reward: .owned, payment: SecretCodeInPermanentPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"VIP Permanent Pass".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Ultimate VIP Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -138,18 +138,14 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"1-Month Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "A Month Use of All Apps And New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
-//            , AppCharge(type: .nonRenewingYearlySubscription
-//                    , reward: .rented, payment: OneYearAllAppsPayment.self
-//                    , priceAmount: AmountObject.min
-//                    , describable: AppChargeDescription(title:"1-Year Pass".localized, description: nil, iconImage: nil)
-//                    , rewardDescribable:AppRewardDescription(title: "A Year Use of All Apps And New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
-//            )
+
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"3-Months Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "3 Months Use of All Apps And New", shortTitle: "1-Year Apps License", description: nil, unit: nil, iconImage: nil)
             )
+
             , AppCharge(type: .nonRenewingYearlySubscription
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min

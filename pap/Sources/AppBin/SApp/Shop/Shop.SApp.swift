@@ -238,6 +238,7 @@ private struct PayDictionary:Hashable, Equatable {
                 PayItem(payable:RestorePurchasesSystemPayment.self)
             ]
         ),
+
         PayDictionary(
                 key: .PaidCharge
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
@@ -253,9 +254,10 @@ private struct PayDictionary:Hashable, Equatable {
 
         , PayDictionary(
                 key: .Promotion
-                , label: "Event Passes".localized
+                , label: "Special Passes".localized
                 , items: [
-                PayItem(payable:PayOfInitialTutorial.self, availability: [.paid])
+                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid])
+                    , PayItem(payable:SecretCodeInPermanentPayment.self)
             ]
         )
 
