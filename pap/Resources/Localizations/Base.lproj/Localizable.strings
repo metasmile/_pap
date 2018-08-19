@@ -332,8 +332,6 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppCenter.Charge.swift#329 */
 "Purchase %@" = "Purchase %@";
-/* Generated from genl10n: AppCenter.Charge.swift#101 */
-"Purchase All At Once" = "Purchase All At Once";
 /* Generated from genl10n: Shop.StoreKit.swift#170, Shop.StoreKit.swift#288, Shop.StoreKit.swift#313 */
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#597 */
@@ -444,6 +442,8 @@
 "Translate" = "Translate";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#100 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
+/* Generated from genl10n: AppCenter.Charge.swift#101 */
+"Ultimate Pass" = "Ultimate Pass";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

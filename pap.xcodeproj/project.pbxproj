@@ -269,6 +269,7 @@
 		515AB1632106C029005E1997 /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* PricingViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
+		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
 		A0885A7120AC71BE00A469C1 /* Transform.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */; };
@@ -611,6 +612,7 @@
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* pap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pap.entitlements; sourceTree = "<group>"; };
+		A020941A2129AC2A00D0F84C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956A962095004700E680B9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956AA52095004700E680B9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1C58886C33D17972C85E5C /* Pods_pap.framework in Frameworks */,
+				A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1775,6 +1778,7 @@
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A020941A2129AC2A00D0F84C /* CloudKit.framework */,
 				514CEBFA20E1A31D00098DFA /* Vision.framework */,
 				6089B37E3E1620CEDA68858B /* Pods_pap.framework */,
 				5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */,
@@ -1847,7 +1851,13 @@
 							com.apple.BackgroundModes = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -2986,7 +2996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "96e8605a-024a-42ad-9b74-71f76ded6b0e";
-				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap Development 1530104209";
+				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap Development";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -3013,7 +3023,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "9feb2654-45ae-49f0-a275-9e905554b9e0";
-				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap AppStore 1530104143";
+				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
