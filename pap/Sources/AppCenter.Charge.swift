@@ -65,7 +65,7 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Welcome Free Trial Pack".localized, description: nil, iconImage: nil) 
             )
 
-            // Engagement
+            // Freecharge
             , AppCharge(type: .onPromptRating
                     , reward: .nonBlockOfUses
                     , payment:PayOnPromptRating.self
@@ -92,6 +92,21 @@ private final class AppChargeManager: ChargeManager{
                     , payment:PayOnFeedback.self
                     , priceAmount: AmountObject(value:0.5)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
+            )
+
+            // Promotional
+            , AppCharge(type: .secretCode
+                    , reward: .owned, payment: SecretCodeInPermanentPayment.self
+                    , priceAmount: AmountObject.min
+                    , describable: AppChargeDescription(title:"VIP Permanent Pass".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .secretCode
+                    , reward: .owned, payment: SecretCodeInVersionPayment.self
+                    , priceAmount: AmountObject.min
+                    , describable: AppChargeDescription(title:"Promotional Single Version Pass".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Single Version Use of All Apps.", shortTitle: "Single Version Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             // Store Purchase
@@ -429,9 +444,15 @@ private final class AppChargeBanker: ChargeBanker {
         return self.synchronizeReceipts(balance:initialBalance)
     }
 
-    func didInitializeBank(balance: Amount) {
-        DispatchQueue.global().async{
-            self.verifyReceipts()
+    func willInitializeBank(balance: Amount) {
+
+    }
+
+    func didInitializeBank(verifiedResults: ChargeableReceiptVerificationResult, balance: Amount) {
+        for invalidReceipt in verifiedResults.invalid{
+            if receiptStorage.hasReceipt(by: invalidReceipt.uuid){
+                receiptStorage.removeReceipt(invalidReceipt.uuid)
+            }
         }
     }
 
@@ -450,31 +471,6 @@ private final class AppChargeBanker: ChargeBanker {
         }
 
         assert(receiptStorage.receipts.filter({ key, value in value.isFrom(charge: charge) }).count==1, "only one receipt is allowed for: createOrReplaceReceipt")
-    }
-
-    @discardableResult
-    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable = AsyncSignal()) -> (valid:Set<String>, invalid:Set<String>) {
-        var valid = Set<String>()
-        var invalid = Set<String>()
-
-        for c in self.registeredCharges{
-            guard let vReceipt = self.receiptStorage.getReceipt(for: c) else {
-                continue
-            }
-
-            if let verifiedResult = c.verify(asyncSignal){
-                if verifiedResult{
-                    valid.insert(c.identifier)
-                }else{
-                    invalid.insert(c.identifier)
-                    if receiptStorage.hasReceipt(by: vReceipt.uuid){
-                        receiptStorage.removeReceipt(vReceipt.uuid)
-                    }
-                }
-            }
-        }
-
-        return (valid:valid, invalid:invalid)
     }
 
     @discardableResult

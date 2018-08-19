@@ -15,13 +15,13 @@ protocol ChargeBanker {
 
     //INFO: init balance.
     func initializeBank() -> Amount
-    func didInitializeBank(balance:Amount)
+
+    func willInitializeBank(balance:Amount)
+    func didInitializeBank(verifiedResults:ChargeableReceiptVerificationResult, balance:Amount)
 
     //INFO: return ChargeBank. balanceValue - this method may call significantly.
     // handle carefully for maintaining high performance.
     func synchronize(balance:Amount) -> Amount
-
-    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable) -> (valid:Set<String>, invalid:Set<String>)
 
     //INFO: return charged price amount or nil.
     func willSaveDeposit(forPriceAmountOf charge:Charge, balance:Amount) -> Amount?

@@ -84,9 +84,9 @@
 
 /* Generated from genl10n: Shop.SApp.swift#82 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#244 */
+/* Generated from genl10n: AppCenter.Charge.swift#259 */
 "%@ Day License" = "%@ Day License";
-/* Generated from genl10n: AppCenter.Charge.swift#256 */
+/* Generated from genl10n: AppCenter.Charge.swift#271 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
@@ -100,13 +100,13 @@
 "%@/Day" = "%@/Day";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
 "%d times" = "%d times";
-/* Generated from genl10n: AppCenter.Charge.swift#123 */
+/* Generated from genl10n: AppCenter.Charge.swift#138 */
 "1-Month Pass" = "1-Month Pass";
-/* Generated from genl10n: AppCenter.Charge.swift#129 */
+/* Generated from genl10n: AppCenter.Charge.swift#144 */
 "1-Year Pass" = "1-Year Pass";
-/* Generated from genl10n: AppCenter.Charge.swift#135 */
+/* Generated from genl10n: AppCenter.Charge.swift#150 */
 "3-Months Pass" = "3-Months Pass";
-/* Generated from genl10n: AppCenter.Charge.swift#141 */
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
 "6-Month Pass" = "6-Month Pass";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
@@ -132,7 +132,7 @@
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#598 */
 "Animation" = "Animation";
-/* Generated from genl10n: AppCenter.Charge.swift#115 */
+/* Generated from genl10n: AppCenter.Charge.swift#130 */
 "Annual Pass" = "Annual Pass";
 /* Generated from genl10n: Filters.BApp.swift#81 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
@@ -236,7 +236,7 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#516 */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: AppCenter.Charge.swift#317 */
+/* Generated from genl10n: AppCenter.Charge.swift#332 */
 "Free Use For All" = "Free Use For All";
 /* Generated from genl10n: Shop.SApp.swift#265 */
 "FreeCharge Passes" = "FreeCharge Passes";
@@ -280,7 +280,7 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#108 */
+/* Generated from genl10n: AppCenter.Charge.swift#123 */
 "Monthly Pass" = "Monthly Pass";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "My Albums";
@@ -316,7 +316,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#310 */
+/* Generated from genl10n: AppCenter.Charge.swift#325 */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
@@ -330,7 +330,9 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppCenter.Charge.swift#329 */
+/* Generated from genl10n: AppCenter.Charge.swift#108 */
+"Promotional Single Version Pass" = "Promotional Single Version Pass";
+/* Generated from genl10n: AppCenter.Charge.swift#344 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: Shop.StoreKit.swift#170, Shop.StoreKit.swift#288, Shop.StoreKit.swift#313 */
 "Purchase" = "Purchase";
@@ -442,8 +444,10 @@
 "Translate" = "Translate";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#100 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
-/* Generated from genl10n: AppCenter.Charge.swift#101 */
+/* Generated from genl10n: AppCenter.Charge.swift#116 */
 "Ultimate Pass" = "Ultimate Pass";
+/* Generated from genl10n: AppCenter.Charge.swift#101 */
+"VIP Permanent Pass" = "VIP Permanent Pass";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

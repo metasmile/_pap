@@ -138,20 +138,71 @@ final class ChargeBank: NSObject, KeyPathWatchable {
     }
 
     private let banker: ChargeBanker
+    private let registeredCharges:[Charge]
 
     required init(banker: ChargeBanker.Type, registeredCharges:[Charge]){
+        self.registeredCharges = registeredCharges
         self.banker = banker.init(registeredCharges:registeredCharges)
         self.synchronizedBalance = self.banker.initializeBank()
-        self.banker.didInitializeBank(balance: self.synchronizedBalance)
+
+        super.init()
+        self.didInitializeBanker()
+    }
+
+    private func didInitializeBanker(){
+        let balance = self.synchronizedBalance
+
+        self.banker.willInitializeBank(balance: balance)
+
+        DispatchQueue(label: UUID().uuidString).async{ //Non-accessible queue
+            let signal = AsyncSignal()
+
+            //1. Prepare if needed
+            self.preparePayments(signal)
+
+            //2. Start to Verify
+            let verifiedResults = self.verifyReceipts(signal)
+
+            //3. did init
+            DispatchQueue.main.async{
+                self.banker.didInitializeBank(verifiedResults: verifiedResults, balance: balance)
+            }
+        }
+    }
+
+    private func preparePayments(_ asyncSignal: AsyncWaitSignalable){
+        for c in self.registeredCharges{
+            (c.payment as? PreparablePayable.Type)?.prepare(asyncSignal)
+        }
+    }
+
+    @discardableResult
+    private func verifyReceipts(_ asyncSignal: AsyncWaitSignalable) -> ChargeableReceiptVerificationResult {
+        var valid = Set<ChargeableReceipt>()
+        var invalid = Set<ChargeableReceipt>()
+        var failed =  Set<ChargeableReceipt>()
+
+        for c in self.registeredCharges{
+            guard let r = getReceipt(for: c) else {
+                continue
+            }
+
+            if let verifiedResult = c.verify(asyncSignal){
+                if verifiedResult{
+                    valid.insert(r)
+                }else{
+                    invalid.insert(r)
+                }
+            }else{
+                failed.insert(r)
+            }
+        }
+
+        return ChargeableReceiptVerificationResult(valid: valid, invalid: invalid, failed: failed)
     }
 
     func getReceipt(for charge:Chargeable) -> ChargeableReceipt?{
         return self.banker.getReceipt(for: charge)
-    }
-
-    @discardableResult
-    func verifyReceipts(_ asyncSignal: AsyncWaitSignalable = AsyncSignal()) -> (valid:Set<String>, invalid:Set<String>) {
-        return banker.verifyReceipts(asyncSignal)
     }
 
     @discardableResult

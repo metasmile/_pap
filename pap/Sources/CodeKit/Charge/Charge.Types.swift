@@ -20,7 +20,8 @@ enum ChargeType:Int {
     case ads = 105
 
     //very special promotional
-    case vipCode = 200 //it will match with new hash value for each new version
+    case secretCode = 200 //it will match with new hash value for each new version
+    case secretCodeInSingleVersion = 201 //it will match with new hash value for each new version
 
     //paid
     case nonConsumablePurchase = 300
@@ -54,7 +55,10 @@ enum RewardType:Int {
 
     var isNonConsumable:Bool{
         switch self{
-            case .systemOwned, .nonBlockOfUses, .owned, .rented, .localOwned, .localRented:
+            case .systemOwned,
+                 .nonBlockOfUses,
+                 .owned, .rented,
+                 .localOwned, .localRented:
                  return true
             default:
                 break
@@ -115,6 +119,12 @@ extension Payable{
 
 protocol RelativePayable: Payable {
     static var superPayables:HashSet<Payable.Type> {get}
+}
+
+protocol PreparablePayable: Payable {
+    //INFO:
+    // if return false, skip
+    static func prepare(_ asyncSignal: AsyncWaitSignalable)
 }
 
 protocol VerifiablePayable: Payable {

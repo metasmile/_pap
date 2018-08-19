@@ -6,6 +6,12 @@
 import Foundation
 import DefaultsKit
 
+struct ChargeableReceiptVerificationResult{
+    let valid:Set<ChargeableReceipt>
+    let invalid:Set<ChargeableReceipt>
+    let failed:Set<ChargeableReceipt>
+}
+
 struct ChargeableReceipt: Codable, Hashable{
 
     let uuid:String
