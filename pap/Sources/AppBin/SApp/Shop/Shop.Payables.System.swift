@@ -7,12 +7,16 @@ import Foundation
 import DefaultsKit
 
 struct RestorePurchasesSystemPayment:VerifiablePayable{
+
     static var label: String {
         return "Restore".localized
     }
 
     static var isEnable: Bool {
-        return AppCenter.charge.getChargesPaidByStorePayable().count == 0
+        let inVipMode = AppCenter.charge.getChargesPaid().contains { charge in
+            charge.payment.identifier == SecretCodeInPermanentPayment.identifier
+        }
+        return inVipMode == false && AppCenter.charge.getChargesPaidByStorePayable().count == 0
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {

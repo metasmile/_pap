@@ -38,8 +38,12 @@ WARNING: MUST use string literal-permanent, Avoid using Swift code literal to pr
 */
 
 // All Apps
-struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable {
+struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable, RelativePayable {
     static let product = StoreProduct(identifier: "pap_xapp_NC_P_owned", subscriptionPeriod: nil)
+
+    static var superPayables: HashSet<Payable.Type> {
+        return [SecretCodeInPermanentPayment.self].hashSet
+    }
 }
 
 // Policy

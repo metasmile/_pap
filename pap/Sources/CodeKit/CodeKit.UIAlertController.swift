@@ -69,6 +69,10 @@ public extension UIAlertController{
 
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
 
+        for action in actions ?? []{
+            alert.addAction(action)
+        }
+
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { action in
             completion?(action)
             UIAlertControllerPool.shared.clear()
