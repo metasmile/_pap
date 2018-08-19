@@ -82,13 +82,11 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* Generated from genl10n: Shop.SApp.swift#725 */
-"%@ / Day" = "%@ / Day";
 /* Generated from genl10n: Shop.SApp.swift#82 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#232 */
-"%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#244 */
+"%@ Day License" = "%@ Day License";
+/* Generated from genl10n: AppCenter.Charge.swift#256 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
@@ -98,12 +96,18 @@
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
+/* Generated from genl10n: Shop.SApp.swift#726 */
+"%@/Day" = "%@/Day";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift#123 */
 "1-Month Pass" = "1-Month Pass";
 /* Generated from genl10n: AppCenter.Charge.swift#129 */
 "1-Year Pass" = "1-Year Pass";
+/* Generated from genl10n: AppCenter.Charge.swift#135 */
+"3-Months Pass" = "3-Months Pass";
+/* Generated from genl10n: AppCenter.Charge.swift#141 */
+"6-Month Pass" = "6-Month Pass";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
@@ -204,7 +208,7 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
 /* Generated from genl10n: Finder.BApp.swift#1275, Cleaner.BApp.swift#483 */
 "Enable Quick Actions" = "Enable Quick Actions";
-/* Generated from genl10n: Shop.SApp.swift#256 */
+/* Generated from genl10n: Shop.SApp.swift#257 */
 "Event Passes" = "Event Passes";
 /* Generated from genl10n: Converter.AppDockContent.swift#154 */
 "Export Options" = "Export Options";
@@ -232,9 +236,9 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#516 */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: AppCenter.Charge.swift#305 */
+/* Generated from genl10n: AppCenter.Charge.swift#317 */
 "Free Use For All" = "Free Use For All";
-/* Generated from genl10n: Shop.SApp.swift#264 */
+/* Generated from genl10n: Shop.SApp.swift#265 */
 "FreeCharge Passes" = "FreeCharge Passes";
 /* Generated from genl10n: GIFMaker.BApp.swift#271 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
@@ -312,7 +316,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#298 */
+/* Generated from genl10n: AppCenter.Charge.swift#310 */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
@@ -326,7 +330,7 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppCenter.Charge.swift#317 */
+/* Generated from genl10n: AppCenter.Charge.swift#329 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: AppCenter.Charge.swift#101 */
 "Purchase All At Once" = "Purchase All At Once";
@@ -386,7 +390,7 @@
 "Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#606, Finder.BApp.swift#617, Finder.BApp.swift#627 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: Shop.SApp.swift#237, Shop.SApp.swift#511 */
+/* Generated from genl10n: Shop.SApp.swift#237, Shop.SApp.swift#512 */
 "Settings" = "Settings";
 /* Generated from genl10n: AppCenter.Charge.swift#87 */
 "Share This App" = "Share This App";

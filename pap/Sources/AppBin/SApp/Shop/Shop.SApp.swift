@@ -244,10 +244,11 @@ private struct PayDictionary:Hashable, Equatable {
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
-                    , PayItem(payable:MonthlyAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
+                    , PayItem(payable:MonthlyAllAppsPayment.self)
                     , PayItem(payable:OneMonthAllAppsPayment.self)
-                    , PayItem(payable:OneYearAllAppsPayment.self)
+                    , PayItem(payable:ThreeMonthsAllAppsPayment.self)
+                    , PayItem(payable:SixMonthsAllAppsPayment.self)
                 ]
         )
 
@@ -722,7 +723,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 }
 
                 if let pricePerDayString = SKProduct.localizePrice(price: NSDecimalNumber(value: perDayPriceValue.round(toPlaces: 2)), locale: storeProduct.priceLocale){
-                    str = PriceString(title: priceString, detailedTitle: "%@ / Day".localizedFormatted(pricePerDayString))
+                    str = PriceString(title: priceString, detailedTitle: "%@/Day".localizedFormatted(pricePerDayString))
                 }
 
             }else{
