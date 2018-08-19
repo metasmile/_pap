@@ -120,7 +120,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         var verifiedEntry: SecretCodeEntry?
 
         let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
-        CkContainer.privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+        CkContainer.publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             if error == nil{
                 let result = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
                     if let code = record[SecretCodeEntry.kCode] as? String
@@ -136,7 +136,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
                 if let result = result{
                     let savingRecord = result.record
                     savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
-                    self.CkContainer.privateCloudDatabase.save(savingRecord, completionHandler: { (_, e) in
+                    self.CkContainer.publicCloudDatabase.save(savingRecord, completionHandler: { (_, e) in
                         if e == nil {
                             verifiedEntry = result.entry
                         }
