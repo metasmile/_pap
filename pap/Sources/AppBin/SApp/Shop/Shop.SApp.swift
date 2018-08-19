@@ -96,7 +96,6 @@ extension ShopApp{
         let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid(synchronize: true).dictionary { $0.payment.identifier }
         let paidPayableIDs = Set(paidChargesByPaymentIDs.keys)
 
-        let paidStorePayableHasExisted = AppCenter.charge.getChargesPaidByStorePayable().count > 0
         let paidOwnedHasExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
         
         for (i, payDict) in mutableDefaultCollection.enumerated() {
@@ -107,7 +106,7 @@ extension ShopApp{
             mutablePayDict.items = mutablePayDict.items.filter { item -> Bool in
 
                 //Check Restore Visibility
-                if item.payable is RestorePurchasesSystemPayment.Type && paidStorePayableHasExisted{
+                if !item.payable.isEnable{
                     return false
                 }
 

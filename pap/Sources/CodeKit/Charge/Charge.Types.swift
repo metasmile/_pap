@@ -106,6 +106,8 @@ protocol Payable {
 
     static var identifier:String {get}
 
+    static var isEnable:Bool {get}
+
     func pay(_ asyncSignal:AsyncWaitSignalable) -> Bool
 
     init()
@@ -114,6 +116,10 @@ protocol Payable {
 extension Payable{
     static var identifier: String {
         return String(describing: self)
+    }
+    
+    static var isEnable: Bool {
+        return true
     }
 }
 

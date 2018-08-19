@@ -11,6 +11,10 @@ struct RestorePurchasesSystemPayment:VerifiablePayable{
         return "Restore".localized
     }
 
+    static var isEnable: Bool {
+        return AppCenter.charge.getChargesPaidByStorePayable().count == 0
+    }
+
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
         let chargesByProductID = AppCenter.charge.getChargesHasStorePayable()
