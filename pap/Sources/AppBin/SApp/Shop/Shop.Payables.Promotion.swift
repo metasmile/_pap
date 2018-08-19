@@ -49,7 +49,7 @@ private struct SecretCodeEntry: Codable {
 struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
 
-    private(set) static var label: String = "Code Input"
+    private(set) static var label: String = "Input"
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
@@ -61,23 +61,49 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         
         DispatchQueue.main.async{
             UIAlertController.alert(
-                "Welcome to the VIP license program.".localized
-                , title: "Please Input Your Code".localized
-                , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) ]
+                    "Please Input Your Secret Code".localized
+                , title: "VIP License Program".localized
+                , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+                     asyncSignal.end()
+                 }]
                 , textField: { f in f.placeholder = "Input Here".localized }
             ) { a in
                 if let inputCode = UIAlertController.presenting?.textFields?.first?.text?.trimmed.nilEmpty{
                     currentQueue.async{
-                        if let entry = self.verify(with: inputCode, toCreate:true, AsyncSignal())
-                            , entry.id != SecretCodeEntry.invalid.id{
-                            //Save
-                            Defaults.shared.secetCodeEntry = entry
-                            paid = true
+                        if let entry = self.verify(with: inputCode, toCreate:true, AsyncSignal()){
+
+                            if entry.id == SecretCodeEntry.invalid.id{
+                                DispatchQueue.main.async{
+                                    UIAlertController.alert("It looks invalid code. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
+                                        asyncSignal.end()
+                                    })
+                                }
+
+                            }else{
+                                //Save
+                                Defaults.shared.secetCodeEntry = entry
+                                paid = true
+
+                                let userName = entry.ownerName ?? "User".localized
+                                DispatchQueue.main.async{
+                                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + "Welcome to our VIP license program.".localized, title:"Access Granted.".localized, completion:{ action in
+                                        asyncSignal.end()
+                                    })
+                                }
+                            }
+
+                        }else{
+                            DispatchQueue.main.async{
+                                UIAlertController.alert("Unable to verify the code currently. Please try it later".localized, title:"Verification Failed.".localized, completion:{ action in
+                                    asyncSignal.end()
+                                })
+                            }
                         }
-                        asyncSignal.end()
                     }
                 }else{
-                    asyncSignal.end()
+                    UIAlertController.alert("It looks invalid code. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
+                        asyncSignal.end()
+                    })
                 }
 
             }
@@ -132,7 +158,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
             , let verifiedEntry = verify(with: code, toCreate:false, asyncSignal){
             return verifiedEntry.id != SecretCodeEntry.invalid.id
         }
-        return false
+        return nil
     }
 
     private static var WatcherId:String {
