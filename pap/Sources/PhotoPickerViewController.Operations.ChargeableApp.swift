@@ -63,15 +63,32 @@ extension PhotoPickerViewController{
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
         return false
     }
+    
+    @objc fileprivate func pricingViewOpenButtonDidTap(sender: Any) {
+        guard let vc = R.storyboard.appStoryboard.pricingViewController() else { return }
+        class pricingDataSource: PricingViewControllerDataSource {
+            func titleForAction(in controller: PricingViewController) -> String? {
+                return "Purchase"
+            }
+            
+            func imageForAction(in controller: PricingViewController) -> UIImage? {
+                return R.image.systemIconFavoriteLineCharging()
+            }
+        }
+        
+        vc.delegate = self
+        vc.dataSource = pricingDataSource()
+        vc.setPricingViewItems([
+            PricingViewItem(image: R.image.converterBAppIcon()?.rounded(), description: ConverterApp.info.displayName),
+            PricingViewItem(title: nil, description: ConverterApp.info.description),
+            PricingViewItem(title: "keyword", description: ConverterApp.info.keywords?.joined(separator: ", "))
+            ])
+        self.present(vc, animated: true, completion: nil)
+        
+        setNavigationControllerDisabled(true)
+    }
 
     @objc fileprivate func chargeableButtonDidTap(sender: Any) {
-//        if let vc = R.storyboard.appStoryboard.pricingViewController() {
-//            vc.delegate = self
-//            self.present(vc, animated: true, completion: nil)
-//
-//            setViewControllerDisabled(true)
-//        }
-
         print("Paid Charges:", AppCenter.charge.getChargesHasReceipt().map{ $0.identifier } )
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt().map{ $0.identifier } )
 
@@ -152,5 +169,10 @@ extension PhotoPickerViewController: PricingViewControllerDelegate {
     func pricingViewControllerDidCancel(_ controller: PricingViewController) {
         setViewControllerDisabled(false)
     }
+    
+    func pricingViewControllerDidRequestTransaction(_ controller: PricingViewController) {
+        controller.dismiss(animated: true, completion: nil)
+        
+        setViewControllerDisabled(false)
+    }
 }
-
