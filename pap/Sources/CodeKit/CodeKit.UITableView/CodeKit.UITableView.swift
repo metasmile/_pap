@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 extension UITableView{
 
-    class func createHeaderFooterTextView(text:String, fontSize:CGFloat, fontColor:UIColor, inset:UIEdgeInsets) -> UITextView{
+    class func createHeaderFooterTextView(text:String, fontSize:CGFloat=UIFont.systemFontSize, fontColor:UIColor=UIColor.gray, inset:UIEdgeInsets=UIEdgeInsetsMake(10, 10, 10, 10)) -> UITextView{
         let label = UITextView()
         label.autoresizingMask = [.flexibleWidth]
         label.backgroundColor = UIColor.clear

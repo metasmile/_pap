@@ -96,7 +96,7 @@ private final class AppChargeManager: ChargeManager{
 
             // Promotional
             , AppCharge(type: .secretCode
-                    , reward: .owned, payment: SecretCodeInPermanentPayment.self
+                    , reward: .owned, payment: SecretCodeInPermanentVIPProgramPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Ultimate VIP Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)

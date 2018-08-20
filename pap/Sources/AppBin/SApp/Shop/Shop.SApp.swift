@@ -257,13 +257,13 @@ private struct PayDictionary:Hashable, Equatable {
                 , label: "Special Passes".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid])
-                    , PayItem(payable:SecretCodeInPermanentPayment.self)
+                    , PayItem(payable: SecretCodeInPermanentVIPProgramPayment.self)
             ]
         )
 
         , PayDictionary(
                 key: .FreeCharge
-                , label: "FreeCharge Passes".localized
+                , label: "Free App Passes".localized
                 , items: [
                     PayItem(payable:PayOnFeedback.self)
                     , PayItem(payable:PayOnPromptRating.self)

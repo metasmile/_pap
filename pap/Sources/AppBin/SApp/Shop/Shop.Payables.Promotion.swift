@@ -108,7 +108,7 @@ private extension CKDatabase{
     }
 }
 
-struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
+struct SecretCodeInPermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
     /*
         Verification Pseudo
 
@@ -134,7 +134,11 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     */
     private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
 
-    private(set) static var label: String = "Input"
+    private(set) static var label: String = "Input".localized
+
+    static var grantedOwnerName:String?{
+        return Defaults.shared.secetCodeEntry?.ownerName
+    }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         let result = _pay(asyncSignal)
@@ -329,7 +333,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     }
     
     private static var WatcherId:String {
-        return #function+String(describing: SecretCodeInPermanentPayment.self)
+        return #function+String(describing: SecretCodeInPermanentVIPProgramPayment.self)
     }
 
     private(set) static var isEnable: Bool = false
