@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="956" y="188"/>
         </scene>
-        <!--Pricing View Controller-->
+        <!--AppUI Action Finalization View Controller-->
         <scene sceneID="vI5-Su-m2X">
             <objects>
-                <viewController storyboardIdentifier="PricingViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Q5-z5-Jl1" customClass="PricingViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PricingViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Q5-z5-Jl1" customClass="AppUIActionFinalizationViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vPc-D4-B4U"/>
                         <viewControllerLayoutGuide type="bottom" id="S7o-kf-hc3"/>
@@ -168,7 +168,7 @@
                                             <constraint firstAttribute="trailing" secondItem="eB5-Hy-g7z" secondAttribute="trailing" constant="14" id="u8T-AD-jWN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="90" translatesAutoresizingMaskIntoConstraints="NO" id="oyg-Nz-atK" customClass="PricingContentView" customModule="pap" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="90" translatesAutoresizingMaskIntoConstraints="NO" id="oyg-Nz-atK" customClass="ActionFinalizationContentView" customModule="pap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44" width="375" height="90"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emg-VV-Dwn" userLabel="Action View">
@@ -246,7 +246,7 @@
                         <outlet property="actionTitleLabel" destination="J2n-UF-PKQ" id="WxG-CB-ll0"/>
                         <outlet property="backgroundView" destination="jFQ-ou-Wyr" id="6fw-qc-hVX"/>
                         <outlet property="cancelButton" destination="eB5-Hy-g7z" id="E8u-KU-AUy"/>
-                        <outlet property="pricingContentView" destination="oyg-Nz-atK" id="DVp-pV-1bx"/>
+                        <outlet property="contentView" destination="oyg-Nz-atK" id="Dmi-C0-IBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ll-kG-UNK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -266,7 +266,7 @@
 		4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA25079F23C2E3097538 /* Defaults.Version.swift */; };
 		4F71DFE5074AF3A8EACED3B2 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D500774A9E14C8E4F76F /* PHAssets.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
-		515AB1632106C029005E1997 /* PricingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* PricingViewController.swift */; };
+		515AB1632106C029005E1997 /* AppUIActionFinalizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* AppUIActionFinalizationViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
@@ -605,7 +605,7 @@
 		4F71DFEDA5A22CEADE72D78D /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.ShortcutItem.swift; sourceTree = "<group>"; };
-		515AB1622106C029005E1997 /* PricingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingViewController.swift; sourceTree = "<group>"; };
+		515AB1622106C029005E1997 /* AppUIActionFinalizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIActionFinalizationViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CGGeometry.swift; sourceTree = "<group>"; };
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1255,7 +1255,7 @@
 				4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.LaunchableApp.swift */,
 				4F71D5309805B6CC484619E3 /* PhotoPickerViewController.Operations.ChargeableApp.swift */,
 				4F71D8D0CD35711021E28E23 /* PhotoPickerViewController.UICollectionView.CachingImage.swift */,
-				515AB1622106C029005E1997 /* PricingViewController.swift */,
+				515AB1622106C029005E1997 /* AppUIActionFinalizationViewController.swift */,
 				4F71D2B33CCE4070AC95E760 /* AppCenter.Charge.swift */,
 				4F71D77BB57852D30405A8B0 /* pap.Strings.swift */,
 				4F71D4A251F6E0A3A9B2803D /* AppBin */,
@@ -2404,7 +2404,7 @@
 				4F71D668912265DF36A9783F /* pap.Log.swift in Sources */,
 				4F71D7DB4174E4D0E7BB4687 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71DF97F15BDFC02D838757 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
-				515AB1632106C029005E1997 /* PricingViewController.swift in Sources */,
+				515AB1632106C029005E1997 /* AppUIActionFinalizationViewController.swift in Sources */,
 				4F71DF7293BD071AEF5A1B93 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */,
 				4F71D4003B4748D3C122CD8A /* PhotoPickerViewController.UICollectionView.Selection.swift in Sources */,
 				4F71D257D6717C0AA0B5EEFA /* FirebaseMLVision.VisionTextDetector.swift in Sources */,
