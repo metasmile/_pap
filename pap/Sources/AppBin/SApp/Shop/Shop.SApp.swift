@@ -265,10 +265,10 @@ private struct PayDictionary:Hashable, Equatable {
                 key: .FreeCharge
                 , label: "Free App Passes".localized
                 , items: [
-                    PayItem(payable:PayOnFeedback.self)
-                    , PayItem(payable:PayOnSocialShare.self)
+                    PayItem(payable: FeedbackPayment.self)
+                    , PayItem(payable: SocialSharePayment.self)
                 ]
-                , description: "Now Contribute And Get Free Use.".localized
+                , description: "Contribute And Get Free Use.".localized
         )
     ]
 

@@ -65,17 +65,31 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Welcome Free Trial Pack".localized, description: nil, iconImage: nil) 
             )
 
+            , AppCharge(type: .onPromptRating
+                    , reward: .nonBlockOfUses
+                    , payment:InAppPromptRatingPayment.self
+                    , priceAmount: AmountObject(value:0.0)
+                    , describable: AppChargeDescription(title:"Give A Rating".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .inStoreRating
+                    , reward: .nonBlockOfUses
+                    ,  payment:InAppStoreRatingPayment.self
+                    , priceAmount: AmountObject(value:0.0)
+                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil)
+            )
+
             // Freecharge
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
-                    , payment:PayOnSocialShare.self
+                    , payment: SocialSharePayment.self
                     , priceAmount: AmountObject(value:0.5)
                     , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
-                    , payment:PayOnFeedback.self
+                    , payment: FeedbackPayment.self
                     , priceAmount: AmountObject(value:0.5)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
             )
@@ -357,11 +371,6 @@ private final class AppChargeBanker: ChargeBanker {
     fileprivate static let Abs_TimeOfUses_Day:TimeInterval = 30
     fileprivate static let Abs_TimeOfUses_Time:TimeInterval = Abs_TimeOfUses_Day * Abs_TimeOfUses_DayTimeUnit
 
-    private static let ChargeTypesAvailableOnlyCurrentVersion = Set([
-        ChargeType.inStoreRating
-        , ChargeType.onPromptRating
-    ])
-
     fileprivate static let Abs_CountOfUses_Count = 50
 
     private let registeredChargesIdentifierSet:[String:Charge]
@@ -395,10 +404,8 @@ private final class AppChargeBanker: ChargeBanker {
                 }
 
             case .new, .skippedNew:
-                //INFO: expired on new version
-                for r in receiptStorage.receipts where type(of: self).ChargeTypesAvailableOnlyCurrentVersion.contains(r.value.type){
-                    receiptStorage.removeReceipt(r.key)
-                }
+                //Not thing
+                break
 
             case .reversed, .unhandled:
                 //INFO: wrong binary protection

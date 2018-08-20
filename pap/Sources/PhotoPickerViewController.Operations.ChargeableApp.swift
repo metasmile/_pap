@@ -100,6 +100,25 @@ extension PhotoPickerViewController{
         print("Paid Charges:", AppCenter.charge.getChargesHasReceipt().map{ $0.identifier } )
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt().map{ $0.identifier } )
 
+        let rated = AppCenter.charge.getChargesPaid().contains { charge in
+            return charge.payment.identifier == InAppPromptRatingPayment.identifier
+        }
+
+        if rated{
+            var option = AppLaunchOptions()
+            option.identifierToReturn = AppCenter.default.current?.info.identifier
+
+            if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
+                papLog.charge.opened()
+            }
+        }
+        else{
+            AppCenter.charge.pay(for: InAppPromptRatingPayment.self)
+        }
+    }
+
+    private func alertWhenChargeableButtonDidTap(){
+
         //selected
 //        let selected = self.estimatedAvailableSelectedItems > 0
         let alert = UIAlertController.actionSheet(title: nil, message: nil)
@@ -162,14 +181,6 @@ extension PhotoPickerViewController{
         if let popover =  alert.popoverPresentationController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
         }
-
-        var launchOption = AppLaunchOptions()
-        launchOption.identifierToReturn = AppCenter.default.current?.info.identifier
-
-        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: launchOption){
-            papLog.charge.opened()
-        }
-
     }
 }
 

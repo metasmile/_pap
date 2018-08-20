@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import Armchair
 import UIKit
 import MessageUI
 
@@ -20,52 +19,7 @@ struct FreeAppPayment<T:App>: VerifiablePayable{
     }
 }
 
-struct InAppStoreRatingPayment:Payable{
-
-    static var label:String{
-        return "Rate It".localized
-    }
-
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
-        Armchair.onDidDismissModalView { b in
-            paid = true
-            asyncSignal.end()
-            Armchair.onDidDismissModalView(nil)
-        }
-        DispatchQueue.main.async{
-            Armchair.rateApp()
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-}
-
-struct InAppPromptRatingPayment:Payable{
-
-    static var label:String{
-        return "Rate It".localized
-    }
-
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
-        DispatchQueue.main.async{
-            Armchair.showPrompt { info in
-                paid = true
-                asyncSignal.end()
-                return true
-            }
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
-    }
-}
-
-struct PayOnSocialShare:Payable{
+struct SocialSharePayment:Payable{
 
     static var label:String{
         return "Share".localized
@@ -98,7 +52,7 @@ extension UIActivityType {
 }
 
 
-class PayOnFeedback: NSObject, Payable, MFMailComposeViewControllerDelegate {
+class FeedbackPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
 
     static var label:String{
         return "Write".localized
