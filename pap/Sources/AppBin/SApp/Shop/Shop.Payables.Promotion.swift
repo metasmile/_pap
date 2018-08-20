@@ -46,6 +46,17 @@ private struct SecretCodeEntry: Codable {
     let ownerName:String?
 }
 
+private extension CKDatabase{
+    func set(records:[CKRecord], completion:((CKRecord, Error?) -> Void)?=nil){
+        let saveRecordsOperation = CKModifyRecordsOperation()
+        saveRecordsOperation.recordsToSave = records
+        saveRecordsOperation.savePolicy = .changedKeys
+        saveRecordsOperation.perRecordCompletionBlock = completion
+
+        self.add(saveRecordsOperation)
+    }
+}
+
 struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
 
@@ -58,7 +69,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         var paid = false
 
         asyncSignal.begin()
-        
+
         DispatchQueue.main.async{
             UIAlertController.alert(
                     "Please Input Your Secret Code".localized
@@ -68,13 +79,14 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
                  }]
                 , textField: { f in f.placeholder = "Input Here".localized }
             ) { a in
+
                 if let inputCode = UIAlertController.presenting?.textFields?.first?.text?.trimmed.nilEmpty{
                     currentQueue.async{
                         if let entry = self.verify(with: inputCode, toCreate:true, AsyncSignal()){
 
                             if entry.id == SecretCodeEntry.invalid.id{
                                 DispatchQueue.main.async{
-                                    UIAlertController.alert("It looks invalid code. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
+                                    UIAlertController.alert("Your code is not registered or invalid. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
                                         asyncSignal.end()
                                     })
                                 }
@@ -110,10 +122,33 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         }
 
         asyncSignal.waitUntilEnd()
-        
+
         return paid
     }
 
+    /*
+        Verification Pseudo
+
+    -1. read from local (record id)
+        if != nil
+            -> granted
+
+    if not found ->
+        0. read from private database
+        1. found SAC record not yet used
+        2. SAC.ID == public database
+        if found
+            -> granted
+
+    if not found ->
+        1. The user is first VIP
+        2. Ask password (must input within 10secs)
+        3. Granted
+        4. joinedAt -> public -> this SAC record was LOCKED permanently
+        5. add/joinedAt -> private
+            -> granted
+
+    */
     private func verify(with inputCode:String, toCreate:Bool, _ asyncSignal:AsyncWaitSignalable) -> SecretCodeEntry?{
         asyncSignal.begin()
         
@@ -122,13 +157,20 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
         CkContainer.publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             if error == nil{
+
                 let result = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
                     if let code = record[SecretCodeEntry.kCode] as? String
                         , (toCreate == (record[SecretCodeEntry.kJoinedAt] == nil)) // Code anyone not used yet/ or registerd.
                         , code == inputCode // and matched.
                     {
-                        let entry = SecretCodeEntry(id: record.recordID.recordName, code: code, codeCreationDate: record.creationDate, joinedDate: Date(), ownerName: record[SecretCodeEntry.kOwnerName] as? String)
-                        return (record:record, entry:entry)
+                        let publicEntry = SecretCodeEntry(
+                                id: record.recordID.recordName
+                                , code: code
+                                , codeCreationDate: record.creationDate
+                                , joinedDate: Date()
+                                , ownerName: record[SecretCodeEntry.kOwnerName] as? String)
+
+                        return (record:record, entry: publicEntry)
                     }
                     return nil
                 }.first
@@ -136,18 +178,22 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
                 if let result = result{
                     let savingRecord = result.record
                     savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
-                    
-                    let saveRecordsOperation = CKModifyRecordsOperation()
-                    saveRecordsOperation.recordsToSave = [savingRecord]
-                    saveRecordsOperation.savePolicy = .changedKeys
-                    saveRecordsOperation.perRecordCompletionBlock = { (_, e) -> Void in
-                        if e == nil {
-                            verifiedEntry = result.entry
+
+                    //1. touch public
+                    self.CkContainer.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
+
+                        //2. add to private
+                        self.CkContainer.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in
+                            assert(result.record.recordID == r.recordID, "Record ID was unmatched")
+                            assert(e == nil, "Error \(String(describing: e)) was occurred.")
+
+                            if result.record.recordID == r.recordID && e == nil{
+                                verifiedEntry = result.entry
+                            }
+
+                            asyncSignal.end()
                         }
-                        asyncSignal.end()
                     }
-                    
-                    self.CkContainer.privateCloudDatabase.add(saveRecordsOperation)
                 }else{
                     //not found means invalid
                     verifiedEntry = SecretCodeEntry.invalid
@@ -185,6 +231,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         AppCenter.default.watch(\.currentIdentifier, id:WatcherId){
             if AppCenter.default.previous?.info.identifier == ShopApp.info.identifier{
+                //Exit from Shop
                 currentAppIDStack = nil
                 isEnable = false
 
