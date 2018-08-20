@@ -26,7 +26,15 @@ extension Defaults: SecretCodeStore {
     }
 }
 
-private struct SecretCodeEntry: Codable {
+private typealias SecretCodeResult = (state:SecretCodeEntry.AccessState, entry:SecretCodeEntry?)
+
+private struct SecretCodeEntry: Codable, Equatable {
+    enum AccessState {
+        case error
+        case denied
+        case granted
+    }
+
     private static var nullId:String { return "null" }
     private static var nullCode:String { return "null" }
     private static var nullDate:Date { return Date.init(timeIntervalSinceReferenceDate: 0) }
@@ -44,13 +52,29 @@ private struct SecretCodeEntry: Codable {
     let codeCreationDate:Date?
     let joinedDate:Date
     let ownerName:String?
+
+    static func create(from record:CKRecord) -> SecretCodeEntry?{
+        if let code = record[SecretCodeEntry.kCode] as? String{
+            return SecretCodeEntry(
+                    id: record.recordID.recordName
+                    , code: code
+                    , codeCreationDate: record.creationDate
+                    , joinedDate: Date()
+                    , ownerName: record[SecretCodeEntry.kOwnerName] as? String)
+        }
+        return nil
+    }
+
+    static func == (lhs: SecretCodeEntry, rhs: SecretCodeEntry) -> Bool{
+        return lhs.id == rhs.id && lhs.code == rhs.code
+    }
 }
 
 private extension CKDatabase{
-    func set(records:[CKRecord], completion:((CKRecord, Error?) -> Void)?=nil){
+    func set(records:[CKRecord], policy:CKModifyRecordsOperation.RecordSavePolicy=CKModifyRecordsOperation.RecordSavePolicy.allKeys, completion:((CKRecord, Error?) -> Void)?=nil){
         let saveRecordsOperation = CKModifyRecordsOperation()
         saveRecordsOperation.recordsToSave = records
-        saveRecordsOperation.savePolicy = .changedKeys
+        saveRecordsOperation.savePolicy = policy
         saveRecordsOperation.perRecordCompletionBlock = completion
 
         self.add(saveRecordsOperation)
@@ -58,74 +82,6 @@ private extension CKDatabase{
 }
 
 struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
-    private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
-
-    private(set) static var label: String = "Input"
-
-    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-
-        let currentQueue = DispatchQueue.current
-
-        var paid = false
-
-        asyncSignal.begin()
-
-        DispatchQueue.main.async{
-            UIAlertController.alert(
-                    "Please Input Your Secret Code".localized
-                , title: "VIP License Program".localized
-                , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
-                     asyncSignal.end()
-                 }]
-                , textField: { f in f.placeholder = "Input Here".localized }
-            ) { a in
-
-                if let inputCode = UIAlertController.presenting?.textFields?.first?.text?.trimmed.nilEmpty{
-                    currentQueue.async{
-                        if let entry = self.verify(with: inputCode, toCreate:true, AsyncSignal()){
-
-                            if entry.id == SecretCodeEntry.invalid.id{
-                                DispatchQueue.main.async{
-                                    UIAlertController.alert("Your code is not registered or invalid. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
-                                        asyncSignal.end()
-                                    })
-                                }
-
-                            }else{
-                                //Save
-                                Defaults.shared.secetCodeEntry = entry
-                                paid = true
-
-                                let userName = entry.ownerName ?? "User".localized
-                                DispatchQueue.main.async{
-                                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + "Welcome to our VIP license program.".localized, title:"Access Granted.".localized, completion:{ action in
-                                        asyncSignal.end()
-                                    })
-                                }
-                            }
-
-                        }else{
-                            DispatchQueue.main.async{
-                                UIAlertController.alert("Unable to verify the code currently. Please try it later".localized, title:"Verification Failed.".localized, completion:{ action in
-                                    asyncSignal.end()
-                                })
-                            }
-                        }
-                    }
-                }else{
-                    UIAlertController.alert("It looks invalid code. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
-                        asyncSignal.end()
-                    })
-                }
-
-            }
-        }
-
-        asyncSignal.waitUntilEnd()
-
-        return paid
-    }
-
     /*
         Verification Pseudo
 
@@ -136,7 +92,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
     if not found ->
         0. read from private database
         1. found SAC record not yet used
-        2. SAC.ID == public database
+        2. SAC.ID/Code == public database.ID/Code
         if found
             -> granted
 
@@ -149,70 +105,198 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
             -> granted
 
     */
-    private func verify(with inputCode:String, toCreate:Bool, _ asyncSignal:AsyncWaitSignalable) -> SecretCodeEntry?{
+    private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
+
+    private(set) static var label: String = "Input"
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        let result = _pay(asyncSignal)
+        if result.state == .granted{
+            Defaults.shared.secetCodeEntry = result.entry
+            assert(Defaults.shared.secetCodeEntry != nil, "Access granted but entry is nil.")
+            return result.entry != nil
+        }
+
+        Defaults.shared.secetCodeEntry = nil
+        return false
+    }
+
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        if let code = Defaults.shared.secetCodeEntry?.code.nilEmpty{
+            let isValid = verify(code: code, shouldRegister: false, asyncSignal).state == .granted
+            if isValid == false{
+                Defaults.shared.secetCodeEntry = nil
+            }
+            return isValid
+        }
+        return nil
+    }
+
+    private func _pay(_ asyncSignal: AsyncWaitSignalable) -> SecretCodeResult {
+        let payingQueue = DispatchQueue.current
+
+        var result:SecretCodeResult = (state:.error, entry:nil)
+
+        //if found local entry, granted
+        if let localEntry = Defaults.shared.secetCodeEntry{
+            result = verify(code: localEntry.code, shouldRegister: false, asyncSignal)
+        }
+
+        // if not found -> fetch from private
+        else if let privateEntries = self.fetchPrivateEntries(asyncSignal){
+            for entry in privateEntries{
+                let r = verify(code: entry.code, shouldRegister: false, asyncSignal)
+                if r.state == .granted {
+                    result = r
+                    break
+                }
+            }
+            // privateEntries has existed but not found granted entry -> .denied (no error)
+            if result.state != .granted{
+                result = (state:.denied, entry:nil)
+            }
+        }
+
+        // if not found -> input process
+        else {
+            asyncSignal.begin()
+
+            DispatchQueue.main.async{
+
+                UIAlertController.alert(
+                        "Please Input Your Secret Code".localized
+                        , title: "VIP License Program".localized
+                        , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+                    asyncSignal.end()
+                }]
+                        , textField: { f in f.placeholder = "Input Here".localized }
+                ) { a in
+
+                    if let inputCode = UIAlertController.presenting?.textFields?.first?.text?.trimmed.nilEmpty{
+                        payingQueue.async{
+                            result = self.verify(code: inputCode, shouldRegister:true, AsyncSignal())
+                            asyncSignal.end()
+                        }
+                    }else{
+                        UIAlertController.alert("It looks invalid code. Please Try again.".localized, title:"Access Failed.".localized, completion:{ action in
+                            asyncSignal.end()
+                        })
+                    }
+                }
+            }
+
+            asyncSignal.waitUntilEnd()
+        }
+
+
         asyncSignal.begin()
-        
+
+        DispatchQueue.main.async{
+            switch result.state{
+                case .error:
+                    UIAlertController.alert("Unable to verify the code currently. Please try it later.".localized, title:"Verification Failed.".localized, completion:{ action in
+                        asyncSignal.end()
+                    })
+                case .denied:
+                    UIAlertController.alert("Your code is invalid. Please Try again.".localized, title:"Access Denied.".localized, completion:{ action in
+                        asyncSignal.end()
+                    })
+                case .granted:
+                    let userName = result.entry?.ownerName ?? "User".localized
+                    DispatchQueue.main.async{
+                        UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + "Welcome to our VIP license program.".localized, title:"Access Granted.".localized, completion:{ action in
+                            asyncSignal.end()
+                        })
+                    }
+            }
+        }
+
+        asyncSignal.waitUntilEnd()
+
+        return result
+    }
+
+    private func fetchPrivateEntries(_ asyncSignal:AsyncWaitSignalable) -> [SecretCodeEntry]?{
+        asyncSignal.begin()
+        var entries:[SecretCodeEntry]?
+        let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
+        CkContainer.privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+            if error == nil{
+                entries = records?.compactMap { record -> SecretCodeEntry? in
+                    return SecretCodeEntry.create(from: record)
+                }
+            }
+            asyncSignal.end()
+        }
+        asyncSignal.waitUntilEnd()
+        return entries?.nilEmpty
+    }
+
+     private func verify(code inputCode:String, shouldRegister:Bool, _ asyncSignal:AsyncWaitSignalable) -> SecretCodeResult{
+         assert(asyncSignal.began == false, "Use new signal or remove calling begin().")
+        asyncSignal.begin()
+
+        var state:SecretCodeEntry.AccessState = .error
         var verifiedEntry: SecretCodeEntry?
 
         let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
         CkContainer.publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             if error == nil{
 
-                let result = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
+                let resultMatchedCode = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
                     if let code = record[SecretCodeEntry.kCode] as? String
-                        , (toCreate == (record[SecretCodeEntry.kJoinedAt] == nil)) // Code anyone not used yet/ or registerd.
+                        , (shouldRegister == (record[SecretCodeEntry.kJoinedAt] == nil)) // [i] Code anyone not used yet/ or registerd.
                         , code == inputCode // and matched.
+                        , let entry = SecretCodeEntry.create(from: record)
                     {
-                        let publicEntry = SecretCodeEntry(
-                                id: record.recordID.recordName
-                                , code: code
-                                , codeCreationDate: record.creationDate
-                                , joinedDate: Date()
-                                , ownerName: record[SecretCodeEntry.kOwnerName] as? String)
-
-                        return (record:record, entry: publicEntry)
+                        return (record:record, entry: entry)
                     }
                     return nil
                 }.first
 
-                if let result = result{
-                    let savingRecord = result.record
-                    savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
+                if let result = resultMatchedCode {
 
-                    //1. touch public
-                    self.CkContainer.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
+                    if shouldRegister{ // if shouldRegister
 
-                        //2. add to private
-                        self.CkContainer.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in
-                            assert(result.record.recordID == r.recordID, "Record ID was unmatched")
-                            assert(e == nil, "Error \(String(describing: e)) was occurred.")
+                        let savingRecord = result.record
+                        savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
 
-                            if result.record.recordID == r.recordID && e == nil{
-                                verifiedEntry = result.entry
+                        //1. touch public
+                        self.CkContainer.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
+
+                            //2. add to private
+                            self.CkContainer.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in
+                                assert(result.record.recordID == r.recordID, "Record ID was unmatched")
+                                assert(e == nil, "Error \(String(describing: e)) was occurred.")
+
+                                if result.record.recordID == r.recordID && e == nil{
+                                    state = .granted
+                                    verifiedEntry = result.entry
+                                }
+
+                                asyncSignal.end()
                             }
-
-                            asyncSignal.end()
                         }
+
+                    }else{ // only confirm
+                        state = .granted
+                        verifiedEntry = result.entry
+                        asyncSignal.end()
                     }
+
                 }else{
                     //not found means invalid
                     verifiedEntry = SecretCodeEntry.invalid
+                    state = .denied
                     asyncSignal.end()
                 }
             }
         }
+
         asyncSignal.waitUntilEnd()
-        return verifiedEntry
+        return (state:state, entry:verifiedEntry)
     }
     
-    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        if let code = Defaults.shared.secetCodeEntry?.code.nilEmpty
-            , let verifiedEntry = verify(with: code, toCreate:false, asyncSignal){
-            return verifiedEntry.id != SecretCodeEntry.invalid.id
-        }
-        return nil
-    }
-
     private static var WatcherId:String {
         return #function+String(describing: SecretCodeInPermanentPayment.self)
     }
