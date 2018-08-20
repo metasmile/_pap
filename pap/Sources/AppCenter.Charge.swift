@@ -66,20 +66,6 @@ private final class AppChargeManager: ChargeManager{
             )
 
             // Freecharge
-            , AppCharge(type: .onPromptRating
-                    , reward: .nonBlockOfUses
-                    , payment:PayOnPromptRating.self
-                    , priceAmount: AmountObject(value:0.0)
-                    , describable: AppChargeDescription(title:"Give A Rating".localized, description: nil, iconImage: nil) 
-            )
-
-            , AppCharge(type: .inStoreRating
-                    , reward: .nonBlockOfUses
-                    ,  payment:PayInAppStoreRating.self
-                    , priceAmount: AmountObject(value:0.0)
-                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil) 
-            )
-
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment:PayOnSocialShare.self
@@ -96,17 +82,10 @@ private final class AppChargeManager: ChargeManager{
 
             // Promotional
             , AppCharge(type: .secretCode
-                    , reward: .owned, payment: SecretCodeInPermanentVIPProgramPayment.self
+                    , reward: .owned, payment: PermanentVIPProgramPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Ultimate VIP Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
-            )
-
-            , AppCharge(type: .secretCode
-                    , reward: .owned, payment: SecretCodeInVersionPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Promotional Single Version Pass".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Single Version Use of All Apps.", shortTitle: "Single Version Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             // Store Purchase

@@ -20,7 +20,7 @@ struct FreeAppPayment<T:App>: VerifiablePayable{
     }
 }
 
-struct PayInAppStoreRating:Payable{
+struct InAppStoreRatingPayment:Payable{
 
     static var label:String{
         return "Rate It".localized
@@ -43,7 +43,7 @@ struct PayInAppStoreRating:Payable{
     }
 }
 
-struct PayOnPromptRating:Payable{
+struct InAppPromptRatingPayment:Payable{
 
     static var label:String{
         return "Rate It".localized

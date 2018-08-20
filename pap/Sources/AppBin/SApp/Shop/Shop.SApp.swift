@@ -257,7 +257,7 @@ private struct PayDictionary:Hashable, Equatable {
                 , label: "Special Passes".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid])
-                    , PayItem(payable: SecretCodeInPermanentVIPProgramPayment.self)
+                    , PayItem(payable: PermanentVIPProgramPayment.self)
             ]
         )
 
@@ -266,22 +266,22 @@ private struct PayDictionary:Hashable, Equatable {
                 , label: "Free App Passes".localized
                 , items: [
                     PayItem(payable:PayOnFeedback.self)
-                    , PayItem(payable:PayOnPromptRating.self)
                     , PayItem(payable:PayOnSocialShare.self)
-                    , PayItem(payable:PayInAppStoreRating.self)
-
                 ]
+                , description: "Now Contribute And Get Free Use.".localized
         )
     ]
 
     let key:Key
     let label:String
     var items:[PayItem]
+    var description:String?
 
-    init(key:Key, label:String, items:[PayItem]){
+    init(key:Key, label:String, items:[PayItem], description:String?=nil){
         self.key = key
         self.label = label
         self.items = items
+        self.description = description
     }
 
     var hashValue: Int{
@@ -505,20 +505,34 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return 50
     }
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
-    }
-
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section < payDictionaries.count ? payDictionaries[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
     }
 
+    private lazy var footerViewsByPayDictionary = [PayDictionary.Key:UIView]()
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section < payDictionaries.count{
+            let d = payDictionaries[section]
+            if let descriptionText = d.description{
+                if footerViewsByPayDictionary[d.key] == nil{
+                    footerViewsByPayDictionary[d.key] = UITableView.createHeaderFooterViewForSmallMessage(text: descriptionText)
+                }
+                return footerViewsByPayDictionary[d.key]
+            }
+        }
+
         return nil
     }
 
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return self.tableView(tableView, viewForFooterInSection: section)?.height ?? 0
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < payDictionaries.count ? payDictionaries[section].items.count : settingCellDescribers.count
+        return section < payDictionaries.count
+                ? payDictionaries[section].items.count
+                : settingCellDescribers.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
