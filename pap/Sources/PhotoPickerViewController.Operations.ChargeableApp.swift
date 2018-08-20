@@ -38,6 +38,8 @@ extension PhotoPickerViewController{
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let paidInContext = chargeInCurrentContext != nil
+        
+        let isOwnedUser = chargeInCurrentContext?.reward.isOwned == true
 
         let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
         rightButtonItem.chargeableButton?.showsPercentage = selected == false && Defaults.shared.showChargeButtonPercentageInNavigationBar
@@ -50,7 +52,7 @@ extension PhotoPickerViewController{
 
             } else {
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
+                rightButtonItem.normalizedValue = isOwnedUser ? 1 : AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -60,7 +62,7 @@ extension PhotoPickerViewController{
         }
 
         rightButtonItem.title = nil
-        rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
+        rightButtonItem.normalizedValue = isOwnedUser ? 1 : AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)

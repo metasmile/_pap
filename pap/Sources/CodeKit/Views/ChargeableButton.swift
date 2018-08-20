@@ -61,7 +61,7 @@ enum ChargeLevel: CGFloat {
         case .warning:
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = 1
-            animation.toValue = 0.5
+            animation.toValue = 0.25
             animation.duration = 0.75
             animation.repeatCount = Float.infinity
             animation.autoreverses = true
@@ -69,7 +69,7 @@ enum ChargeLevel: CGFloat {
         case .low:
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = 1
-            animation.toValue = 0.5
+            animation.toValue = 0.4
             animation.duration = 1.5
             animation.repeatCount = Float.infinity
             animation.autoreverses = true
@@ -222,7 +222,7 @@ class ChargeableButton: UIButton {
                     buttonImage = iconImage
                 }
 
-                setImage(buttonImage?.withRenderingMode(.automatic), for: .normal)
+                setImage(buttonImage?.withRenderingMode(showsColorLevel ? .alwaysOriginal : .automatic), for: .normal)
             }
 
             if showsAnimation {
