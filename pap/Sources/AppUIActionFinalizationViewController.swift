@@ -8,14 +8,48 @@
 
 import UIKit
 
+extension AppUIActionFinalizationViewController {
+    enum ProcessingRepresentationType {
+        case loading
+        case progress
+    }
+}
+
 protocol AppUIActionFinalizationViewControllerDataSource {
+    func title(in controller: AppUIActionFinalizationViewController) -> String?
+    func image(in controller: AppUIActionFinalizationViewController) -> UIImage?
+    
     func titleForAction(in controller: AppUIActionFinalizationViewController) -> String?
     func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage?
+    
+    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String?
+    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String?
+    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String?
+    
+    func processingType(in controller: AppUIActionFinalizationViewController) -> AppUIActionFinalizationViewController.ProcessingRepresentationType?
+}
+
+extension AppUIActionFinalizationViewControllerDataSource {
+    func title(in controller: AppUIActionFinalizationViewController) -> String? {
+        return Bundle.main.displayName
+    }
+    
+    func image(in controller: AppUIActionFinalizationViewController) -> UIImage? { return nil }
+    
+    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String? { return "Preparing".localized }
+    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String? { return "Processing".localized }
+    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String? { return "Done".localized }
+    
+    func processingType(in controller: AppUIActionFinalizationViewController) -> AppUIActionFinalizationViewController.ProcessingRepresentationType? { return .loading }
 }
 
 protocol AppUIActionFinalizationViewControllerDelegate {
     func actionFinalizationViewControllerDidCancel(_ controller: AppUIActionFinalizationViewController)
     func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController)
+    
+    func actionFinalizationViewControllerWillBeginProcessing(_ controller: AppUIActionFinalizationViewController)
+    func actionFinalizationViewControllerDidUpdateProcessing(_ controller: AppUIActionFinalizationViewController, with progress: Progress)
+    func actionFinalizationViewControllerDidFinishProcessing(_ controller: AppUIActionFinalizationViewController)
 }
 
 internal class ActionFinalizationContentView: UIView {
@@ -156,6 +190,9 @@ internal class SelfSizedTableView: UITableView {
 // inspired by PKPaymentAuthorizationViewController
 
 class AppUIActionFinalizationViewController: UIViewController {
+    @IBOutlet weak var titleImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak private var backgroundView: UIView!
     @IBOutlet weak private var cancelButton: UIButton!
     
@@ -190,6 +227,10 @@ class AppUIActionFinalizationViewController: UIViewController {
         backgroundView.addGestureRecognizer(tapToCloseGesture)
         
         contentView.contentView = tableView
+        
+        titleLabel.text = dataSource?.title(in: self)
+        titleImageView.image = dataSource?.image(in: self)
+        titleImageView.sizeToFit()
         
         actionButton.setImage(dataSource?.imageForAction(in: self), for: .normal)
         actionTitleLabel.text = dataSource?.titleForAction(in: self)

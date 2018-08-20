@@ -133,8 +133,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uiB-CN-Vwl" userLabel="Title View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="r3c-Ti-4C4">
+                                                <rect key="frame" x="10" y="4" width="36" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="r3c-Ti-4C4" secondAttribute="height" multiplier="1:1" id="hBO-Co-UAb"/>
+                                                </constraints>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Apps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
-                                                <rect key="frame" x="14" y="0.0" width="100.5" height="44"/>
+                                                <rect key="frame" x="50" y="0.0" width="100.5" height="44"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -162,8 +168,11 @@
                                             <constraint firstItem="kvl-Kw-7bP" firstAttribute="leading" secondItem="uiB-CN-Vwl" secondAttribute="leading" id="Njw-MO-Myi"/>
                                             <constraint firstAttribute="bottom" secondItem="kvl-Kw-7bP" secondAttribute="bottom" id="SgY-cY-wsm"/>
                                             <constraint firstItem="eB5-Hy-g7z" firstAttribute="top" secondItem="uiB-CN-Vwl" secondAttribute="top" id="Vqe-t6-waq"/>
+                                            <constraint firstItem="0QC-6Q-hxt" firstAttribute="leading" secondItem="r3c-Ti-4C4" secondAttribute="trailing" constant="4" id="ZU0-l4-Iq7"/>
                                             <constraint firstAttribute="height" constant="44" id="Zjy-p9-ETO"/>
-                                            <constraint firstItem="0QC-6Q-hxt" firstAttribute="leading" secondItem="uiB-CN-Vwl" secondAttribute="leading" constant="14" id="gl7-ra-Z82"/>
+                                            <constraint firstAttribute="bottom" secondItem="r3c-Ti-4C4" secondAttribute="bottom" constant="4" id="l5c-C0-4nx"/>
+                                            <constraint firstItem="r3c-Ti-4C4" firstAttribute="top" secondItem="uiB-CN-Vwl" secondAttribute="top" constant="4" id="tQf-b2-wbN"/>
+                                            <constraint firstItem="r3c-Ti-4C4" firstAttribute="leading" secondItem="uiB-CN-Vwl" secondAttribute="leading" constant="10" id="tl7-gV-BWN"/>
                                             <constraint firstAttribute="trailing" secondItem="kvl-Kw-7bP" secondAttribute="trailing" id="tlt-yh-TPU"/>
                                             <constraint firstAttribute="trailing" secondItem="eB5-Hy-g7z" secondAttribute="trailing" constant="14" id="u8T-AD-jWN"/>
                                         </constraints>
@@ -247,6 +256,8 @@
                         <outlet property="backgroundView" destination="jFQ-ou-Wyr" id="6fw-qc-hVX"/>
                         <outlet property="cancelButton" destination="eB5-Hy-g7z" id="E8u-KU-AUy"/>
                         <outlet property="contentView" destination="oyg-Nz-atK" id="Dmi-C0-IBX"/>
+                        <outlet property="titleImageView" destination="r3c-Ti-4C4" id="9Wm-mk-F83"/>
+                        <outlet property="titleLabel" destination="0QC-6Q-hxt" id="SES-Dx-Mxe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ll-kG-UNK" userLabel="First Responder" sceneMemberID="firstResponder"/>

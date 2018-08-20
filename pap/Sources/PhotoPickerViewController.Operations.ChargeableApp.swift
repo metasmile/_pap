@@ -49,7 +49,7 @@ extension PhotoPickerViewController{
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
-                rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+                rightButtonItem.action = #selector(self.pricingViewOpenButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
             }
             
@@ -59,9 +59,41 @@ extension PhotoPickerViewController{
         rightButtonItem.title = nil
         rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        rightButtonItem.action = #selector(self.pricingViewOpenButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
         return false
+    }
+    
+    @objc fileprivate func pricingViewOpenButtonDidTap(sender: Any) {
+        guard let vc = R.storyboard.appStoryboard.pricingViewController() else { return }
+        class pricingDataSource: AppUIActionFinalizationViewControllerDataSource {
+            func title(in controller: AppUIActionFinalizationViewController) -> String? {
+                return ConverterApp.info.displayName
+            }
+            
+            func image(in controller: AppUIActionFinalizationViewController) -> UIImage? {
+                return R.image.converterBAppIcon()?.rounded()
+            }
+            
+            func titleForAction(in controller: AppUIActionFinalizationViewController) -> String? {
+                return "Purchase"
+            }
+            
+            func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage? {
+                return R.image.systemIconFavoriteLineCharging()
+            }
+        }
+        
+        vc.delegate = self
+        vc.dataSource = pricingDataSource()
+        vc.setActionFinalizationItems([
+            ActionFinalizationItem(image: R.image.converterBAppIcon()?.rounded(), description: ConverterApp.info.displayName),
+            ActionFinalizationItem(title: nil, description: ConverterApp.info.description),
+            ActionFinalizationItem(title: "keyword", description: ConverterApp.info.keywords?.joined(separator: ", "))
+            ])
+        self.present(vc, animated: true, completion: nil)
+        
+        setNavigationControllerDisabled(true)
     }
 
     @objc fileprivate func chargeableButtonDidTap(sender: Any) {
@@ -151,4 +183,8 @@ extension PhotoPickerViewController: AppUIActionFinalizationViewControllerDelega
         
         setViewControllerDisabled(false)
     }
+    
+    func actionFinalizationViewControllerWillBeginProcessing(_ controller: AppUIActionFinalizationViewController) {}
+    func actionFinalizationViewControllerDidUpdateProcessing(_ controller: AppUIActionFinalizationViewController, with progress: Progress) {}
+    func actionFinalizationViewControllerDidFinishProcessing(_ controller: AppUIActionFinalizationViewController) {}
 }
