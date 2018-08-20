@@ -50,7 +50,7 @@ enum ChargeLevel: CGFloat {
     var representativeColor: UIColor? {
         switch self {
         case .warning: return UIColor(red: 0.92, green: 0.3, blue: 0.25, alpha: 1)
-        case .low: return UIColor(red: 0.97, green: 0.8, blue: 0.27, alpha: 1)
+        case .low: return UIColor(red: 1, green: 0.68, blue: 0.26, alpha: 1)
         case .full: return UIColor(red: 0.46, green: 0.97, blue: 0.36, alpha: 1)
         default: return nil
         }
@@ -61,7 +61,7 @@ enum ChargeLevel: CGFloat {
         case .warning:
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = 1
-            animation.toValue = 0.25
+            animation.toValue = 0.5
             animation.duration = 0.75
             animation.repeatCount = Float.infinity
             animation.autoreverses = true
@@ -69,7 +69,7 @@ enum ChargeLevel: CGFloat {
         case .low:
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = 1
-            animation.toValue = 0.4
+            animation.toValue = 0.75
             animation.duration = 1.5
             animation.repeatCount = Float.infinity
             animation.autoreverses = true
