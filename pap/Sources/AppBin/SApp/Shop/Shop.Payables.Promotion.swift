@@ -136,12 +136,18 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
                 if let result = result{
                     let savingRecord = result.record
                     savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
-                    self.CkContainer.publicCloudDatabase.save(savingRecord, completionHandler: { (_, e) in
+                    
+                    let saveRecordsOperation = CKModifyRecordsOperation()
+                    saveRecordsOperation.recordsToSave = [savingRecord]
+                    saveRecordsOperation.savePolicy = .changedKeys
+                    saveRecordsOperation.perRecordCompletionBlock = { (_, e) -> Void in
                         if e == nil {
                             verifiedEntry = result.entry
                         }
                         asyncSignal.end()
-                    })
+                    }
+                    
+                    self.CkContainer.privateCloudDatabase.add(saveRecordsOperation)
                 }else{
                     //not found means invalid
                     verifiedEntry = SecretCodeEntry.invalid
