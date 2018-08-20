@@ -707,6 +707,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
         cell.textLabel?.text = item.label
+        cell.detailTextLabel?.textColor = UIColor.gray
+
         return cell
     }
 

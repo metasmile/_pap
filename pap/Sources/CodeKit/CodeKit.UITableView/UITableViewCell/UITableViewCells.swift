@@ -98,6 +98,7 @@ class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTe
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         accessoryView = switcher
+        detailTextLabel?.textColor = UIColor.gray
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -128,6 +129,7 @@ class UITableViewSimpleValueCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         accessoryView = valueLabel
+        detailTextLabel?.textColor = UIColor.gray
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -147,6 +149,8 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
         let g = UITapGestureRecognizer(target: self, action: #selector(tapped))
         g.cancelsTouchesInView = true
         self.addGestureRecognizer(g)
+
+        detailTextLabel?.textColor = UIColor.gray
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -208,6 +212,8 @@ class UITableViewStepperCell: UITableViewCellWithInclusiveHitTestSubview {
 
         accessoryView = stepper
 
+        detailTextLabel?.textColor = UIColor.gray
+
         self.setSubviewInclusiveHitTestTarget(stepper)
 
         self.detailTextLabel?.textColor = UIColor.gray
@@ -247,7 +253,7 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
 
         accessoryView = button
 
-        self.detailTextLabel?.textColor = UIColor.gray
+        detailTextLabel?.textColor = UIColor.gray
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -345,6 +351,8 @@ class UITableViewSegmentedControlCell: UITableViewCellWithInclusiveHitTestSubvie
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         accessoryView = segmentedControl
+
+        detailTextLabel?.textColor = UIColor.gray
 
         self.setSubviewInclusiveHitTestTarget(segmentedControl)
 
