@@ -7,6 +7,27 @@ import Foundation
 import UIKit
 
 internal class AppDockDrawerView: DesignableView {
+    private lazy var appIconView: AppIconRoundedView = {
+        let view = AppIconRoundedView(frame: .zero)
+        view.layer.borderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1).cgColor
+        view.layer.borderWidth = 1 / UIScreen.main.scale
+        return view
+    }()
+    
+    private lazy var appIconImageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private var appIconViewWidthLayout: NSLayoutConstraint?
+    
+    private lazy var appTitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+        label.textColor = .black
+        return label
+    }()
 
     var topMargin: CGFloat = 6
     override var tintColor: UIColor! {
@@ -37,6 +58,13 @@ internal class AppDockDrawerView: DesignableView {
             CATransaction.setDisableActions(disableActionsToRestore)
         }
     }
+    
+    var showsTitle = false {
+        didSet {
+            appIconView.isHidden = !showsTitle
+            appTitleLabel.isHidden = !showsTitle
+        }
+    }
 
     var isHandleOpened = false {
         didSet{
@@ -44,32 +72,51 @@ internal class AppDockDrawerView: DesignableView {
             handleOpeningProgress = isHandleOpened ? 1 : 0
         }
     }
-
+    
     var handleOpeningProgress:CGFloat = 0 {
         didSet {
             drawerShapePath.removeAllPoints()
-            drawerShapePath.move(to: CGPoint(x: 0, y: topMargin))
+            drawerShapePath.move(to: CGPoint(x: 0, y: 0))
+            drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: 0))
 
-            if handleOpeningProgress == 0{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
-            }else{
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: topMargin + (drawerShapeLayerSize.height * handleOpeningProgress)))
-                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: topMargin))
-            }
+//            if handleOpeningProgress == 0{
+//                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: centerOffsetY))
+//            }else{
+//                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width / 2, y: centerOffsetY + (drawerShapeLayerSize.height * handleOpeningProgress)))
+//                drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: centerOffsetY))
+//            }
             drawerShapeLayer.path = drawerShapePath.cgPath
         }
     }
 
     override func initialize() {
         super.initialize()
-
+        
+        addSubview(appIconView)
+        appIconView.translatesAutoresizingMaskIntoConstraints = false
+        appIconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        appIconView.topAnchor.constraint(equalTo: topAnchor, constant: topMargin + 8).isActive = true
+        appIconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: topMargin - 16).isActive = true
+        appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalTo: appIconView.heightAnchor, multiplier: 1.333)
+        appIconViewWidthLayout?.isActive = true
+        appIconView.isHidden = true
+        
+        appIconView.addSubview(appIconImageView)
+        appIconImageView.fitConstraints(to: appIconView)
+        
+        addSubview(appTitleLabel)
+        appTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        appTitleLabel.leadingAnchor.constraint(equalTo: appIconView.trailingAnchor, constant: 8).isActive = true
+        appTitleLabel.centerYAnchor.constraint(equalTo: appIconView.centerYAnchor).isActive = true
+        appTitleLabel.isHidden = true
+        
         drawerShapeLayer.frame.size = drawerShapeLayerSize
         drawerShapeLayer.strokeColor = drawerStrokeColor.cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
         drawerShapeLayer.lineWidth = 4.6
         drawerShapeLayer.lineCap = kCALineCapRound
         layer.addSublayer(drawerShapeLayer)
-
+        
         contentMode = .redraw
     }
 
@@ -99,17 +146,41 @@ internal class AppDockDrawerView: DesignableView {
         ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
         ctx?.move(to: CGPoint(x: 0, y: rect.height))
         // TEST: no bottom line
-//        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        if showsTitle {
+            ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+        }
         ctx?.strokePath()
     }
+    
+    var compactHeight: CGFloat = 11
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
         let disableActionsToRestore = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
-        drawerShapeLayer.position = center
+        drawerShapeLayer.frame.origin = CGPoint(x: (bounds.width - drawerShapePath.bounds.width) / 2, y: topMargin + (compactHeight - drawerShapeLayer.lineWidth) / 2)
         CATransaction.setDisableActions(disableActionsToRestore)
+    }
+    
+    func setApp(_ app: App.Type) {
+        appTitleLabel.text = app.info.displayName
+        appIconImageView.image = app.info.iconBundleName?.asUIImage
+        
+        setNeedsLayout()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        appIconViewWidthLayout?.isActive = false
+        if let _ = appIconImageView.image {
+            appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalTo: appIconView.heightAnchor, multiplier: 1.333)
+        }
+        else {
+            appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalToConstant: 0)
+        }
+        appIconViewWidthLayout?.isActive = true
     }
 }
 
