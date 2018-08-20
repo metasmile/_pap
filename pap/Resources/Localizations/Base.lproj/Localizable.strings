@@ -108,11 +108,11 @@
 "6-Month Pass" = "6-Month Pass";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#201 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#230 */
 "Access Denied." = "Access Denied.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#181 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#210 */
 "Access Failed." = "Access Failed.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#207 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#236 */
 "Access Granted." = "Access Granted.";
 /* Generated from genl10n: Finder.BApp.swift#1320 */
 "Actions" = "Actions";
@@ -250,7 +250,7 @@
 "Get Free Use" = "Get Free Use";
 /* Generated from genl10n: AppCenter.Charge.swift#73 */
 "Give A Rating" = "Give A Rating";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#207 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#236 */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: ExifGhost.BApp.swift#81 */
 "Hide" = "Hide";
@@ -262,11 +262,11 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift#451 */
 "Import" = "Import";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#172 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#201 */
 "Input Here" = "Input Here";
 /* Generated from genl10n: AppStrings.swift#25 */
 "It could not be stored." = "It could not be stored.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#181 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#210 */
 "It looks invalid code. Please Try again." = "It looks invalid code. Please Try again.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
@@ -332,7 +332,7 @@
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#167 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#196 */
 "Please Input Your Secret Code" = "Please Input Your Secret Code";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Portrait" = "Portrait";
@@ -464,13 +464,13 @@
 "Ultimate Pass" = "Ultimate Pass";
 /* Generated from genl10n: AppCenter.Charge.swift#101 */
 "Ultimate VIP Pass" = "Ultimate VIP Pass";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#197 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#226 */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#205 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#234 */
 "User" = "User";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#168 */
-"VIP License Program" = "VIP License Program";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#197 */
+"VIP License Program" = "VIP License Program";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#226 */
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
@@ -488,7 +488,7 @@
 "Welcome Free Trial Pack" = "Welcome Free Trial Pack";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#117 */
 "Welcome on %@" = "Welcome on %@";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#207 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#236 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
 /* Generated from genl10n: AppCenter.Charge.swift#80 */
 "Write A Review" = "Write A Review";
@@ -498,5 +498,5 @@
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "You can select only items that matched with starting format.";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#201 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#230 */
 "Your code is invalid. Please Try again." = "Your code is invalid. Please Try again.";

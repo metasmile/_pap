@@ -35,11 +35,31 @@ private struct SecretCodeEntry: Codable, Equatable {
         case granted
     }
 
+    struct ID:Codable, Equatable{
+        let recordName:String
+        let zoneName:String
+        let ownerName:String
+
+        func makeCKRecordID() -> CKRecord.ID{
+            return CKRecord.ID(recordName: recordName, zoneID: CKRecordZone.ID(zoneName: zoneName, ownerName: ownerName))
+        }
+
+        static var null:ID{
+            return ID(recordName:"null", zoneName:"null", ownerName:"null")
+        }
+
+        static func == (lhs: ID, rhs: ID) -> Bool{
+            return lhs.recordName == rhs.recordName
+                    && lhs.zoneName == rhs.zoneName
+                    && lhs.ownerName == rhs.ownerName
+        }
+    }
+
     private static var nullId:String { return "null" }
     private static var nullCode:String { return "null" }
     private static var nullDate:Date { return Date.init(timeIntervalSinceReferenceDate: 0) }
     static var invalid:SecretCodeEntry{
-        return SecretCodeEntry(id:nullId, code:nullCode, codeCreationDate:nil, joinedDate:nullDate, ownerName:nil)
+        return SecretCodeEntry(id:ID.null, code:nullCode, codeCreationDate:nil, joinedDate:nullDate, ownerName:nil)
     }
 
     static var recordType:CKRecord.RecordType { return "SAC" }
@@ -47,7 +67,7 @@ private struct SecretCodeEntry: Codable, Equatable {
     static var kOwnerName:String {return "ownerName"}
     static var kJoinedAt:String {return "joinedAt"}
 
-    let id:String //.recordID.recordName
+    let id:ID //.recordID.recordName
     let code:String
     let codeCreationDate:Date?
     let joinedDate:Date
@@ -56,7 +76,7 @@ private struct SecretCodeEntry: Codable, Equatable {
     static func create(from record:CKRecord) -> SecretCodeEntry?{
         if let code = record[SecretCodeEntry.kCode] as? String{
             return SecretCodeEntry(
-                    id: record.recordID.recordName
+                    id: SecretCodeEntry.ID(recordName: record.recordID.recordName, zoneName: record.recordID.zoneID.zoneName, ownerName: record.recordID.zoneID.ownerName)
                     , code: code
                     , codeCreationDate: record.creationDate
                     , joinedDate: Date()
@@ -72,12 +92,19 @@ private struct SecretCodeEntry: Codable, Equatable {
 
 private extension CKDatabase{
     func set(records:[CKRecord], policy:CKModifyRecordsOperation.RecordSavePolicy=CKModifyRecordsOperation.RecordSavePolicy.allKeys, completion:((CKRecord, Error?) -> Void)?=nil){
-        let saveRecordsOperation = CKModifyRecordsOperation()
-        saveRecordsOperation.recordsToSave = records
-        saveRecordsOperation.savePolicy = policy
-        saveRecordsOperation.perRecordCompletionBlock = completion
+        let o = CKModifyRecordsOperation()
+        o.recordsToSave = records
+        o.savePolicy = policy
+        o.perRecordCompletionBlock = completion
 
-        self.add(saveRecordsOperation)
+        self.add(o)
+    }
+
+    func remove(recordIDs:[CKRecord.ID], completion:((CKRecord, Error?) -> Void)?=nil){
+        let o = CKModifyRecordsOperation()
+        o.recordIDsToDelete = recordIDs
+        o.perRecordCompletionBlock = completion
+        self.add(o)
     }
 }
 
@@ -146,7 +173,7 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
         else if let privateEntries = self.fetchPrivateEntries(asyncSignal){
             for entry in privateEntries{
                 let r = verify(code: entry.code, shouldRegister: false, asyncSignal)
-                if r.state == .granted {
+                if let _ = r.entry, r.state == .granted {
                     result = r
                     break
                 }
@@ -154,6 +181,8 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
             // privateEntries has existed but not found granted entry -> .denied (no error)
             if result.state != .granted{
                 result = (state:.denied, entry:nil)
+                //remove invalid SAC data
+                CkContainer.privateCloudDatabase.remove(recordIDs: privateEntries.map { $0.id.makeCKRecordID() })
             }
         }
 
@@ -167,7 +196,9 @@ struct SecretCodeInPermanentPayment:VerifiablePayable, PreparablePayable {
                         "Please Input Your Secret Code".localized
                         , title: "VIP License Program".localized
                         , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
+
                     asyncSignal.end()
+
                 }]
                         , textField: { f in f.placeholder = "Input Here".localized }
                 ) { a in
