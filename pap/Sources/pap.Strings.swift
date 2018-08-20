@@ -62,6 +62,12 @@ struct papStrings {
             }
         }
 
+        struct vip{
+            static var email: String{
+                return "vip@apps.photo"
+            }
+        }
+
         struct community {
             static var url: String{
                 return "https://apps.photo"

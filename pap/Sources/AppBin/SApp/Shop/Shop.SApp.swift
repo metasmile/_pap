@@ -1,5 +1,5 @@
 //
-// Crea?ted by B?LACKGENE on 8/8/18.
+// Crea?ted by B?LACKGEN?E on 8/8/18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -464,6 +464,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
 
         loadSettingCellDescribers()
+
         for desc in settingCellDescribers {
             tableView.register(describer: desc)
         }
@@ -533,11 +534,31 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c2)
     }
 
+    func loadVIPSettingCellDescribers(){
+        let vipOwnedPaid = AppCenter.charge.getChargesPaid().contains { $0.reward == .owned }
+        let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == ShopAppSettingCells.vipHotline.hashValue }
+        if vipOwnedPaid && vipHotlineCellNotExisted {
+            let c6 = UITableViewButtonCellDescriber()
+            c6.itemIdentifier = ShopAppSettingCells.vipHotline.hashValue
+            c6.label = "VIP Hotline".localized
+            c6.buttonTitle = "Contact".localized
+            c6.iconImage = R.image.commonIconRobot.name
+            c6.valueHandler = { _ in
+                //TODO: add realtime messenger or in-app messaging.
+                DispatchQueue.global().async{
+                    MailContactPayment.init().send(to: [papStrings.contact.vip.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] VIP realtime help request.", AsyncSignal())
+                }
+            }
+            settingCellDescribers.append(c6)
+        }
+    }
+
     func didSetContentView(_ view:UIView, dock:AppDock) {
         loadStoreProductsData(retryCount:5)
     }
 
     private func reloadData(){
+        loadVIPSettingCellDescribers()
         loadPayDictionaries()
         tableView.reloadData()
     }
