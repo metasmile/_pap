@@ -25,8 +25,6 @@ protocol AppUIActionFinalizationViewControllerDataSource {
     func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String?
     func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String?
     func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String?
-    
-    func processingType(in controller: AppUIActionFinalizationViewController) -> AppUIActionFinalizationViewController.ProcessingRepresentationType?
 }
 
 extension AppUIActionFinalizationViewControllerDataSource {
@@ -39,8 +37,6 @@ extension AppUIActionFinalizationViewControllerDataSource {
     func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String? { return "Preparing".localized }
     func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String? { return "Processing".localized }
     func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String? { return "Done".localized }
-    
-    func processingType(in controller: AppUIActionFinalizationViewController) -> AppUIActionFinalizationViewController.ProcessingRepresentationType? { return .loading }
 }
 
 protocol AppUIActionFinalizationViewControllerDelegate {

@@ -724,6 +724,19 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.assetView, placeholderView: placeholderView)
                 photoEditorTransitionContext?.sourceView.isHidden = true
             }
+            else if let indexPath = photoEditViewController.indexPathInPicker, let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell {
+                let snapshot = editItem.asset.requestThumbnailImage(targetSize: cell.imageView.frame.size)
+                photoEditViewController.placeholderImage = snapshot
+                
+                let placeholderView = UIImageView(frame: cell.imageView.frame)
+                placeholderView.image = snapshot
+                placeholderView.contentMode = .scaleAspectFill
+                placeholderView.hero.id = "TransitionToPhotoEditViewController"
+                cell.imageView.superview?.addSubview(placeholderView)
+                
+                photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.imageView, placeholderView: placeholderView)
+                photoEditorTransitionContext?.sourceView.isHidden = true
+            }
             
             appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
 
