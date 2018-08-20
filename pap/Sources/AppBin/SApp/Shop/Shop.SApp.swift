@@ -233,7 +233,7 @@ private struct PayDictionary:Hashable, Equatable {
     static let Default: [PayDictionary] = [
         PayDictionary(
             key: .SystemOwned
-            , label: "Settings".localized
+            , label: "Purchase Management".localized
             , items: [
                 PayItem(payable:RestorePurchasesSystemPayment.self)
             ]
@@ -265,10 +265,10 @@ private struct PayDictionary:Hashable, Equatable {
                 key: .FreeCharge
                 , label: "Free App Passes".localized
                 , items: [
-                    PayItem(payable: FeedbackPayment.self)
+                    PayItem(payable: MailContactPayment.self)
                     , PayItem(payable: SocialSharePayment.self)
                 ]
-                , description: "Contribute And Get Free Use.".localized
+                , description: "Engage Now And Recharge Free Use.".localized
         )
     ]
 
@@ -395,8 +395,14 @@ AppContent
 
 */
 
-private enum ShopAppSettingCells {
-
+private enum ShopAppSettingCells:Int {
+    case vipHotline
+    case displayRemainingLevel
+    case displayRemainingPercentage
+    case support
+    case displayChargeState
+    case reviewRatingInApp
+    case reviewRatingInAppStore
 }
 
 private struct SettingsItem {
@@ -450,22 +456,81 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
-
-        if settingCellDescribers.count>0{
-            return
-        }
-
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 44
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
-        
+
+        loadSettingCellDescribers()
         for desc in settingCellDescribers {
             tableView.register(describer: desc)
         }
+
         reloadData()
+    }
+
+    func loadSettingCellDescribers(){
+        settingCellDescribers.removeAll()
+
+        let c3 = UITableViewSwitchSubtitleCellDescriber()
+        c3.itemIdentifier = ShopAppSettingCells.displayRemainingLevel.hashValue
+        c3.label = "Display Remaining Level".localized
+        c3.detailedLabel = "Color And Reminder for Each Phases".localized
+        c3.iconImageTintColor = ChargeLevel(rawValue: ChargeLevel.low.rawValue)?.representativeColor
+        c3.iconImage = ChargeableImage(balance:Double(0.35), tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil))
+        c3.valueGetter = { return Defaults.shared.showChargeButtonLevelColorInNavigationBar }
+        c3.valueHandler = { b in
+            Defaults.shared.showChargeButtonLevelColorInNavigationBar = (b as? Bool) ?? false
+        }
+        settingCellDescribers.append(c3)
+
+        let c4 = UITableViewSwitchSubtitleCellDescriber()
+        c4.itemIdentifier = ShopAppSettingCells.displayRemainingPercentage.hashValue
+        c4.label = "Display Percentage".localized
+        c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
+        c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
+        c4.valueHandler = { b in
+            Defaults.shared.showChargeButtonPercentageInNavigationBar = (b as? Bool) ?? false
+        }
+        settingCellDescribers.append(c4)
+
+        let c0 = UITableViewButtonCellDescriber()
+        c0.itemIdentifier = ShopAppSettingCells.reviewRatingInApp.hashValue
+        c0.label = "Give A Rating".localized
+        c0.buttonTitle = "Rate Now".localized
+        c0.iconImage = R.image.commonIconRobot.name
+        c0.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+            }
+        }
+        settingCellDescribers.append(c0)
+
+        let c1 = UITableViewButtonCellDescriber()
+        c1.itemIdentifier = ShopAppSettingCells.reviewRatingInAppStore.hashValue
+        c1.label = "Write A Review".localized
+        c1.buttonTitle = "Write".localized
+        c1.iconImage = R.image.commonIconRobot.name
+        c1.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
+            }
+        }
+        settingCellDescribers.append(c1)
+
+        let c2 = UITableViewButtonCellDescriber()
+        c2.itemIdentifier = ShopAppSettingCells.support.hashValue
+        c2.label = "Contact Us / Support".localized
+        c2.buttonTitle = "Send".localized
+        c2.iconImage = R.image.commonIconRobot.name
+        c2.valueHandler = { _ in
+            DispatchQueue.global().async{
+                MailContactPayment.init().send(to: [papStrings.contact.support.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] I need some help while using this app.", AsyncSignal())
+            }
+        }
+        settingCellDescribers.append(c2)
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
@@ -509,17 +574,27 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return section < payDictionaries.count ? payDictionaries[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
     }
 
-    private lazy var footerViewsByPayDictionary = [PayDictionary.Key:UIView]()
+    private lazy var footerViews = [String:UIView]()
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+
         if section < payDictionaries.count{
             let d = payDictionaries[section]
             if let descriptionText = d.description{
-                if footerViewsByPayDictionary[d.key] == nil{
-                    footerViewsByPayDictionary[d.key] = UITableView.createHeaderFooterViewForSmallMessage(text: descriptionText)
+                let k = String(describing:d.key)
+                if footerViews[k] == nil{
+                    footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: descriptionText)
                 }
-                return footerViewsByPayDictionary[d.key]
+                return footerViews[k]
             }
+
+        }else if settingCellDescribers.count > 0{
+            //settings
+            let k = "settings"
+            if footerViews[k] == nil{
+                footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: "Version \(Defaults.shared.latestShortVersion ?? "0")")
+            }
+            return footerViews[k]
         }
 
         return nil
@@ -557,9 +632,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
+
             if let image = item.iconImage?.asUIImage{
                 cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
-                cell.imageView?.tintColor = self.view.tintColor
+
+                if let iconTintColor = cellDescriber.iconImageTintColor{
+                    cell.imageView?.tintColor = iconTintColor
+                }else{
+                    cell.imageView?.tintColor = self.view.tintColor
+                }
+
             }
             cell.switchDidChange = item.valueHandler
             return cell

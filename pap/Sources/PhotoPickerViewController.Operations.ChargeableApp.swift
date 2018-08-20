@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Armchair
+import DefaultsKit
 
 extension PhotoPickerViewController{
 
@@ -40,6 +40,9 @@ extension PhotoPickerViewController{
         let paidInContext = chargeInCurrentContext != nil
 
         let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
+        rightButtonItem.chargeableButton?.showsPercentage = selected == false && Defaults.shared.showChargeButtonPercentageInNavigationBar
+        rightButtonItem.chargeableButton?.showsColorLevel = Defaults.shared.showChargeButtonLevelColorInNavigationBar
+        rightButtonItem.chargeableButton?.showsAnimation = Defaults.shared.showChargeButtonLevelColorInNavigationBar
 
         if selected{
             if paidInContext {

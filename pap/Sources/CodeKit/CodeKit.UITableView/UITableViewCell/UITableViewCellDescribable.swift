@@ -74,6 +74,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public var label: String = "Untitled"
     public var detailedLabel:String?
     public var iconImage: ImageSourceable?
+    public var iconImageTintColor: UIColor?
 
     public var valueGetter: () -> Any? = { nil }
     public var valueHandler: ((Any) -> ())?

@@ -52,7 +52,7 @@ extension UIActivityType {
 }
 
 
-class FeedbackPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
+class MailContactPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
 
     static var label:String{
         return "Write".localized
@@ -63,6 +63,11 @@ class FeedbackPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
     required override init() {}
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        return self.send(to: [papStrings.contact.feedback.email], subject: "👋 " + "My Feedback on %@".localizedFormatted(papStrings.name), asyncSignal)
+    }
+
+    @discardableResult
+    func send(to recipients: [String], subject:String, _ asyncSignal: AsyncWaitSignalable) -> Bool {
         guard MFMailComposeViewController.canSendMail() else { return false }
 
         var paid = false
@@ -71,8 +76,8 @@ class FeedbackPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
         DispatchQueue.main.async {
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
-            mailComposer.setToRecipients([papStrings.feedback.email])
-            mailComposer.setSubject("👋 " + "My Feedback on %@".localizedFormatted(papStrings.name))
+            mailComposer.setToRecipients(recipients)
+            mailComposer.setSubject(subject)
             mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
 
             self.mailComposerCompletionBlock = { sent in

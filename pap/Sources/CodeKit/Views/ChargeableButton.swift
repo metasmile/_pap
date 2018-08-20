@@ -250,7 +250,7 @@ class ChargeableButton: UIButton {
 
 class ChargeableBarButtonItem: UIBarButtonItem {
 
-    private lazy var chargeableButton:ChargeableButton? = customView as? ChargeableButton
+    private(set) lazy var chargeableButton:ChargeableButton? = customView as? ChargeableButton
 
     public convenience init(button: ChargeableButton){
         self.init()

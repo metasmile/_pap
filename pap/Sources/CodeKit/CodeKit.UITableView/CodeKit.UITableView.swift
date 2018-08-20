@@ -29,7 +29,7 @@ extension UITableView{
         return self.createHeaderFooterTextView(
                 text: text
                 , fontSize: UIFont.smallSystemFontSize
-                , fontColor: UIColor.lightGray
+                , fontColor: UIColor.gray
                 , inset: UIEdgeInsetsMake(10, 10, 15, 10)
         )
     }

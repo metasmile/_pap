@@ -89,7 +89,7 @@ private final class AppChargeManager: ChargeManager{
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
-                    , payment: FeedbackPayment.self
+                    , payment: MailContactPayment.self
                     , priceAmount: AmountObject(value:0.5)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
             )
@@ -409,7 +409,7 @@ private final class AppChargeBanker: ChargeBanker {
 
             case .reversed, .unhandled:
                 //INFO: wrong binary protection
-                assert(false, "Wrong version direction. Install new one.")
+                print("[!] WARNING: Wrong version direction. Install new one. All receipts will be disposed.")
                 for r in receiptStorage.receipts{
                     receiptStorage.removeReceipt(r.key)
                 }

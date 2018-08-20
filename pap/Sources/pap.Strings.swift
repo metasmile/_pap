@@ -46,9 +46,26 @@ struct papStrings {
         }
     }
 
-    struct feedback {
-        static var email: String{
-            return "feedback@apps.photo"
+    struct contact{
+        struct feedback {
+            static var email: String{
+                return "feedback@apps.photo"
+            }
+        }
+
+        struct support {
+            static var email: String{
+                return "support@apps.photo"
+            }
+            static var url: String{
+                return "https://apps.photo"
+            }
+        }
+
+        struct community {
+            static var url: String{
+                return "https://apps.photo"
+            }
         }
     }
 

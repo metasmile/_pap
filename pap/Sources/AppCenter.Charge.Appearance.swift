@@ -5,6 +5,22 @@
 
 import Foundation
 import UIKit
+import DefaultsKit
+
+protocol ChargeButtonAppearanceDefaults:DefaultsProperty{
+    var showChargeButtonPercentageInNavigationBar:Bool {set get}
+    var showChargeButtonLevelColorInNavigationBar:Bool {set get}
+}
+
+extension Defaults: ChargeButtonAppearanceDefaults {
+    var showChargeButtonPercentageInNavigationBar: Bool {
+        set{ set(newValue) } get{ return get(or:false) }
+    }
+
+    var showChargeButtonLevelColorInNavigationBar: Bool {
+        set{ set(newValue) } get{ return get(or:false) }
+    }
+}
 
 extension ChargeableBarButtonItem{
     private static let ButtonObjectCache = NSCache<NSString,ChargeableBarButtonItem>()
@@ -44,6 +60,7 @@ extension ChargeableBarButtonItem{
         return ChargeableBarButtonItem(button:chargeableButton)
     }
 }
+
 
 struct ChargeButtonAppearance: ChargeableButtonAppearance{
     let charge: ChargeableKey?
