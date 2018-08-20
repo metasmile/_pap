@@ -357,7 +357,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
 
         var preferences = AppDockContentPreferences()
         let view = tableView
-        preferences.preferredHeight = CGFloat(view.numberOfRows(inSection: 0))*view.rowHeight + 48
+        preferences.preferredHeight = CGFloat(view.numberOfRows(inSection: 0))*view.rowHeight + 50
         return preferences
     }
 
@@ -453,6 +453,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
 
             cell.textLabel?.text = item.label
+            cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
             if let image = item.iconImage?.asUIImage{
