@@ -63,6 +63,7 @@ internal class AppDockDrawerView: DesignableView {
         didSet {
             appIconView.isHidden = !showsTitle
             appTitleLabel.isHidden = !showsTitle
+            setNeedsDisplay()
         }
     }
 
