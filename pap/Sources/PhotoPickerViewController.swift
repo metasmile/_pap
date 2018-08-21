@@ -392,6 +392,8 @@ class PhotoPickerViewController: AppDockViewController {
         cancelAllInCurrentContext()
     }
     
+    private var finalizingViewController: AppUIActionFinalizationViewController?
+    
     override func doneButtonDidTap(sender: Any) {
         super.doneButtonDidTap(sender: sender)
         
@@ -400,6 +402,36 @@ class PhotoPickerViewController: AppDockViewController {
         updateVisibleCellsEnabled()
 
         cancelPreheatingIfNeeded()
+        
+        guard let app = AppCenter.default.current else { return }
+        
+        guard let vc = R.storyboard.appStoryboard.pricingViewController() else { return }
+        finalizingViewController = vc
+        
+        class ActionFinalizingDataSource: AppUIActionFinalizationViewControllerDataSource {
+            private var app: App.Type?
+            convenience init(app: App.Type?) {
+                self.init()
+                self.app = app
+            }
+            
+            func titleForAction(in controller: AppUIActionFinalizationViewController) -> String? {
+                return "Processing".localized
+            }
+            
+            func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage? {
+                return nil
+            }
+        }
+        
+        vc.delegate = self
+        vc.dataSource = ActionFinalizingDataSource(app: app)
+        vc.setActionFinalizationItems([
+            ActionFinalizationItem(image: UIImage(named: app.info.iconBundleName ?? "")?.rounded(), description: app.info.displayName)
+        ])
+        self.present(vc, animated: true, completion: nil)
+        
+        setNavigationControllerDisabled(true)
     }
 
     private func showAndRevertTitleByCurrentAppIfNeeded(){
@@ -738,7 +770,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 photoEditorTransitionContext?.sourceView.isHidden = true
             }
             
-            appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
+//            appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.hero.isEnabled = true
@@ -772,7 +804,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: tintColorToRestore))
 
-        appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
+//        appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
         if let transitionContext = photoEditorTransitionContext {
             transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin
@@ -818,20 +850,21 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
+//        titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
         navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
 
-        progressBar.isHidden = false
-        progressBar.progress = 0
-        UIView.animate(withDuration: 0.2) {
-            self.progressBar.alpha = 1
-        }
-        
-        updateAppDockViewProcessingStart()
+//        progressBar.isHidden = false
+//        progressBar.progress = 0
+//        UIView.animate(withDuration: 0.2) {
+//            self.progressBar.alpha = 1
+//        }
+//
+//        updateAppDockViewProcessingStart()
+        finalizingViewController?.actionProgressDidBegin(actionTitle: currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized)
     }
     
     private func updateProgress(_ progress: Float, title: String, animated: Bool = true) {
@@ -839,14 +872,16 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         let progressText = currentDisplayableApp?.titleDidUpdate(progress: progress)
             ?? title + " \(Int(progress * 100))%"
         
-        if animated {
-            titleFade = progressText
-        }
-        else {
-            self.title = progressText
-        }
+//        if animated {
+//            titleFade = progressText
+//        }
+//        else {
+//            self.title = progressText
+//        }
+
+//        progressBar.setProgress(progress, animated: animated)
         
-        progressBar.setProgress(progress, animated: animated)
+        finalizingViewController?.actionProgressDidUpdate(actionTitle: progressText, progress: progress)
     }
     
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
@@ -876,19 +911,21 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized
-
-        UIView.animate(withDuration: 0.6) {
-            self.progressBar.alpha = 0
-        }
+//        titleFade = currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized
+//
+//        UIView.animate(withDuration: 0.6) {
+//            self.progressBar.alpha = 0
+//        }
+        finalizingViewController?.actionProgressDidBegin(actionTitle: currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized)
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
-
-        UIView.animate(withDuration: 0.6) {
-            self.progressBar.alpha = 0
-        }
+//        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
+//
+//        UIView.animate(withDuration: 0.6) {
+//            self.progressBar.alpha = 0
+//        }
+        finalizingViewController?.actionProgressDidFinish(actionTitle: currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized)
     }
     
     func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
@@ -898,7 +935,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         updateUIDisplays()
         updateVisibleCellsEnabled()
         
-        updateAppDockViewProcessingEnd()
+//        updateAppDockViewProcessingEnd()
+        finalizingViewController?.close()
     }
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
@@ -911,7 +949,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         updateUIDisplays()
         updateVisibleCellsEnabled()
 
-        updateAppDockViewProcessingEnd()
+//        updateAppDockViewProcessingEnd()
+        finalizingViewController?.close()
         
         //POLICY: add recently used shortcut item
         ShortcutItemAppDelegate.appendShortcutItem(by: AppCenter.default.current)
@@ -931,6 +970,24 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         }
         
         appDockView?.disabled = false
+    }
+}
+
+extension PhotoPickerViewController: AppUIActionFinalizationViewControllerDelegate {
+    func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController) {
+//
+    }
+    
+    func close(_ controller: AppUIActionFinalizationViewController) {
+        if AppCenter.default.task.isRunning {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.prepare()
+            generator.impactOccurred()
+            
+            cancelAllInCurrentContext()
+        }
+        
+        setNavigationControllerDisabled(false)
     }
 }
 
