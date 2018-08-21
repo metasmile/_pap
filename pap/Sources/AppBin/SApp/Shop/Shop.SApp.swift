@@ -689,9 +689,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewIndicatorCell {
             if item.isIndicating {
+                cell.isUserInteractionEnabled = false
                 cell.startIndicating()
             }
             else {
+                cell.isUserInteractionEnabled = true
                 cell.stopIndicating()
             }
         }

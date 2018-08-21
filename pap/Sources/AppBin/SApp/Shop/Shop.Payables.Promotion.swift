@@ -54,7 +54,18 @@ struct InAppStoreRatingPayment:VerifiablePayable{
     }
 }
 
-struct InAppPromptRatingPayment:VerifiablePayable{
+struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {
+
+        DispatchQueue.main.async{
+            Armchair.appID(papStrings.appStoreId)
+            Armchair.useStoreKitReviewPrompt( true)
+            Armchair.resetAllCounters()
+            Armchair.shouldIncrementUseCountClosure { () -> Bool in
+                return false
+            }
+        }
+    }
 
     static var label:String{
         return "Rate It".localized

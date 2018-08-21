@@ -2,6 +2,9 @@ PODS:
   - Armchair (0.3.5)
   - CocoaImageHashing (1.6.1)
   - DefaultsKit (0.0.9)
+  - Firebase/AdMob (5.2.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.31.0)
   - Firebase/Core (5.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
@@ -16,10 +19,10 @@ PODS:
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseCore (5.0.3):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
   - FirebaseMLCommon (0.10.0):
@@ -40,7 +43,7 @@ PODS:
     - GTMSessionFetcher (>= 1.1.7)
   - GoogleMobileVision/Detector (1.3.2):
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.1)
   - GoogleMobileVision/TextDetector (1.3.2):
@@ -48,7 +51,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/Logger (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher (1.2.0):
     - GTMSessionFetcher/Full (= 1.2.0)
@@ -81,16 +84,41 @@ DEPENDENCIES:
   - Armchair (from `https://github.com/UrbanApps/Armchair`)
   - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
+  - Firebase/AdMob
   - Firebase/Core (= 5.2.0)
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
-  - Google-Mobile-Ads-SDK
   - Hero
   - PhoneNumberKit (~> 2.1)
   - R.swift (= 4.0.0)
   - SwiftyGif
   - SwiftyStoreKit
   - TPPDF
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMLCommon
+    - FirebaseMLVision
+    - FirebaseMLVisionTextModel
+    - Google-Mobile-Ads-SDK
+    - GoogleAPIClientForREST
+    - GoogleMobileVision
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - Hero
+    - nanopb
+    - PhoneNumberKit
+    - Protobuf
+    - R.swift
+    - R.swift.Library
+    - SwiftLint
+    - SwiftyGif
+    - SwiftyStoreKit
+    - TPPDF
 
 EXTERNAL SOURCES:
   Armchair:
@@ -138,6 +166,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: 604a6f6eaa6d3cda2f294234213036e4d349d77b
+PODFILE CHECKSUM: 49b772e261177359b00dcb54a2d9922f6a8688e0
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

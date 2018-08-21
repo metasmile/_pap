@@ -88,7 +88,7 @@
 "%@ Day License" = "%@ Day License";
 /* Generated from genl10n: AppCenter.Charge.swift#273 */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: pap.Strings.swift#45 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
 /* Generated from genl10n: Shop.SApp.swift#251 */
 "%@ Passes" = "%@ Passes";
@@ -96,7 +96,7 @@
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
-/* Generated from genl10n: Shop.SApp.swift#908 */
+/* Generated from genl10n: Shop.SApp.swift#910 */
 "%@/Day" = "%@/Day";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
 "%d times" = "%d times";
@@ -106,7 +106,7 @@
 "3-Months Pass" = "3-Months Pass";
 /* Generated from genl10n: AppCenter.Charge.swift#158 */
 "6-Month Pass" = "6-Month Pass";
-/* Generated from genl10n: pap.Strings.swift#32 */
+/* Generated from genl10n: pap.Strings.swift#36 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#227 */
 "Access Denied." = "Access Denied.";
@@ -212,7 +212,7 @@
 "Display Percentage" = "Display Percentage";
 /* Generated from genl10n: Shop.SApp.swift#503 */
 "Display Remaining Level" = "Display Remaining Level";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: pap.Strings.swift#49 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: PhotoPickerViewController.swift#864 */
 "Downloading..." = "Downloading...";
@@ -366,7 +366,7 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#597 */
 "Quality" = "Quality";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#33, Shop.Payables.Promotion.swift#60 */
+/* Generated from genl10n: Shop.Payables.Promotion.swift#33, Shop.Payables.Promotion.swift#71 */
 "Rate It" = "Rate It";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Rate Now" = "Rate Now";
@@ -502,7 +502,7 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: AppCenter.Charge.swift#107 */
 "View Fullscreen Ads" = "View Fullscreen Ads";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#33 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#44 */
 "View" = "View";
 /* Generated from genl10n: PhoneCalls.BApp.swift#240, Finder.BApp.swift#164 */
 "Waiting To Select ..." = "Waiting To Select ...";

@@ -9,10 +9,24 @@ import UIKit
 
 private let AdMobAppID = "ca-app-pub-3029312734389414~7736928915"
 
+#if DEBUG
+private let Test_Banner = "ca-app-pub-3940256099942544/2934735716"
+private let Test_Interstitial = "ca-app-pub-3940256099942544/4411468910"
+private let Test_InterstitialVideo = "ca-app-pub-3940256099942544/5135589807"
+private let Test_RewardedVideo = "ca-app-pub-3940256099942544/1712485313"
+private let Test_NativeAdvanced = "ca-app-pub-3940256099942544/3986624511"
+private let Test_NativeAdvancedVideo = "ca-app-pub-3940256099942544/2521693316"
+#endif
+
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
 struct FullscreenAdsViewingPayment:PreparablePayable{
     private let RewardAdsUnitId = "ca-app-pub-3029312734389414/9160007015"
+
+#if DEBUG
+    private let InterstitialAdsUnitId = Test_Interstitial
+#else
     private let InterstitialAdsUnitId = "ca-app-pub-3029312734389414/2463570879"
+#endif
 
     static var isEnable: Bool{
         //TODO: detect whether possible to show ads / e.g. internet connection etc
@@ -20,13 +34,10 @@ struct FullscreenAdsViewingPayment:PreparablePayable{
     }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-        asyncSignal.begin()
         DispatchQueue.main.async{
             //Use mainqueue only.
             GADMobileAds.configure(withApplicationID: AdMobAppID)
-            asyncSignal.end()
         }
-        asyncSignal.waitUntilEnd()
     }
 
     static var label: String {
@@ -41,12 +52,21 @@ struct FullscreenAdsViewingPayment:PreparablePayable{
         DispatchQueue.main.async{
             let v = GADInterstitialViewController()
             v.adsUnitID = self.InterstitialAdsUnitId
-            v.watch(\.isShown) {
-                paid = v.isShown
-                asyncSignal.end()
-            }
+            v.watch(\.isReady) {
 
-            UIViewController.root?.present(v, animated: true)
+                if v.isReady{
+                    v.watch(\.wasAdShown) {
+                        paid = v.wasAdShown
+                        asyncSignal.end()
+                    }
+                    UIViewController.root?.present(v, animated: true)
+
+                }else{
+                    //failed to load ads, -> payment failed. -> exit
+                    paid = false
+                    asyncSignal.end()
+                }
+            }
         }
 
         asyncSignal.waitUntilEnd()
@@ -58,9 +78,10 @@ struct FullscreenAdsViewingPayment:PreparablePayable{
 private final class GADInterstitialViewController: UIViewController, KeyPathWatchable, GADInterstitialDelegate {
 
     @objc dynamic
-    var isShown:Bool = false
+    var isReady:Bool = false
 
-    private var receivedAd = false
+    @objc dynamic
+    var wasAdShown:Bool = false
 
     var adsUnitID:String? {
         didSet {
@@ -75,6 +96,9 @@ private final class GADInterstitialViewController: UIViewController, KeyPathWatc
     private var interstitial: GADInterstitial?{
         didSet {
             let request = GADRequest()
+#if DEBUG
+            request.testDevices = ["670ee35cbfb960f94a7803d6e0e11f6e"]
+#endif
             interstitial?.delegate = self
             interstitial?.load(request)
         }
@@ -83,33 +107,43 @@ private final class GADInterstitialViewController: UIViewController, KeyPathWatc
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        assert(interstitial?.isReady == true, "interstitial ads not ready")
         if interstitial?.isReady == true{
             interstitial?.present(fromRootViewController: self)
         }
-
     }
 
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        receivedAd = true
+        assert(DispatchQueue.currentIsMain)
+        isReady = true
+        print(#function)
     }
 
     func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print(#function, error)
+        isReady = false
     }
 
     func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+        print(#function)
     }
 
     func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print(#function)
+        wasAdShown = false
     }
 
     func interstitialWillDismissScreen(_ ad: GADInterstitial) {
-
+        print(#function)
     }
 
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        isShown = receivedAd
+        print(#function)
+        wasAdShown = isReady
     }
 
     func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        print(#function)
+        wasAdShown = isReady
     }
 }
