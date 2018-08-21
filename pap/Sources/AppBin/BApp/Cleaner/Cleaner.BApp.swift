@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -81,6 +81,10 @@ public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAsse
 
     public var doneButtonTitle: String? {
         return "Delete".localized
+    }
+    
+    func shouldSelect(item: AppAsset) -> Bool {
+        return true
     }
 
     @objc dynamic

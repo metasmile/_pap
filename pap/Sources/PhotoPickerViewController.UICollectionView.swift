@@ -82,8 +82,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
                         return selectedItems.contains(indexPath)
                     }
                 }
+                return true
             }
-            return true
         }
 
         return false
