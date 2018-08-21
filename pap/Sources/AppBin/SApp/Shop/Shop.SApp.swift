@@ -210,13 +210,21 @@ extension Defaults: ShopAppDefaults {
 }
 
 
+
+private protocol Section{
+    var label:String{get}
+    var detailedLabel:String?{get}
+
+    var itemCount:Int{get}
+}
+
 private extension Array where Element== PayGroup {
     func getDictionary(by key: PayGroup.Key) -> PayGroup?{
         return self.first { $0.key == key }
     }
 }
 
-private struct PayGroup:Hashable, Equatable {
+private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
@@ -276,6 +284,10 @@ private struct PayGroup:Hashable, Equatable {
     let label:String
     var items:[PayItem]
     var detailedLabel:String?
+
+    var itemCount: Int{
+        return items.count
+    }
 
     init(key:Key, label:String, detailedLabel:String?=nil, items:[PayItem]){
         self.key = key
@@ -389,24 +401,29 @@ private class PayItem: Hashable, Equatable {
 
 }
 
-/*
 
-AppContent
+private struct CellDescriberGroup: Section{
+    fileprivate let label:String
+    fileprivate let detailedLabel:String?
+    fileprivate var describers:[UITableViewCellDefaultDescribable]
 
-*/
-
-private enum ShopAppSettingCells:Int {
-    case vipHotline
-    case displayRemainingLevel
-    case displayRemainingPercentage
-    case support
-    case displayChargeState
-    case reviewRatingInApp
-    case reviewRatingInAppStore
+    var itemCount: Int {
+        return describers.count
+    }
 }
 
-private struct SettingsItem {
-    fileprivate var key: ShopAppSettingCells
+private struct CellDescriber {
+    fileprivate enum Key:Int {
+        case vipHotline
+        case displayRemainingLevel
+        case displayRemainingPercentage
+        case support
+        case displayChargeState
+        case reviewRatingInApp
+        case reviewRatingInAppStore
+    }
+
+    fileprivate var key: Key
     fileprivate var label:String
     fileprivate var valueGetter:() -> Any
     fileprivate var valueCollection:Any?
@@ -415,12 +432,18 @@ private struct SettingsItem {
     fileprivate var iconImageName:String?
 }
 
+
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
 
     // Sections
-
-    private var settingCellDescribers = [UITableViewCellDefaultDescribable]()
     private lazy var payGroups:[PayGroup] = PayGroup.Default
+    private var settingCellDescribers = [UITableViewCellDefaultDescribable]()
+
+    private var sections:[Section] {
+        return payGroups + [
+            CellDescriberGroup(label: "Settings", detailedLabel: nil, describers: settingCellDescribers)
+        ]
+    }
 
     private func loadPayGroups(){
         //INFO: join local charges onto defaultCollection.
@@ -478,7 +501,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.removeAll()
 
         let c3 = UITableViewSwitchSubtitleCellDescriber()
-        c3.itemIdentifier = ShopAppSettingCells.displayRemainingLevel.hashValue
+        c3.itemIdentifier = CellDescriber.Key.displayRemainingLevel.hashValue
         c3.label = "Display Remaining Level".localized
         c3.detailedLabel = "Color And Reminder for Each Phases".localized
         c3.iconImageTintColor = ChargeLevel(rawValue: ChargeLevel.low.rawValue)?.representativeColor
@@ -490,7 +513,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c3)
 
         let c4 = UITableViewSwitchSubtitleCellDescriber()
-        c4.itemIdentifier = ShopAppSettingCells.displayRemainingPercentage.hashValue
+        c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
         c4.label = "Display Percentage".localized
         c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
         c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
@@ -500,7 +523,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c4)
 
         let c0 = UITableViewButtonCellDescriber()
-        c0.itemIdentifier = ShopAppSettingCells.reviewRatingInApp.hashValue
+        c0.itemIdentifier = CellDescriber.Key.reviewRatingInApp.hashValue
         c0.label = "Give A Rating".localized
         c0.buttonTitle = "Rate Now".localized
         c0.iconImage = R.image.commonIconRobot.name
@@ -512,7 +535,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
-        c1.itemIdentifier = ShopAppSettingCells.reviewRatingInAppStore.hashValue
+        c1.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
         c1.label = "Write A Review".localized
         c1.buttonTitle = "Write".localized
         c1.iconImage = R.image.commonIconRobot.name
@@ -524,7 +547,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c1)
 
         let c2 = UITableViewButtonCellDescriber()
-        c2.itemIdentifier = ShopAppSettingCells.support.hashValue
+        c2.itemIdentifier = CellDescriber.Key.support.hashValue
         c2.label = "Contact Us / Support".localized
         c2.buttonTitle = "Send".localized
         c2.iconImage = R.image.commonIconRobot.name
@@ -537,14 +560,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func loadContextualSettingCellDescribersIfNeeded(){
-        let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == ShopAppSettingCells.vipHotline.hashValue }
+        let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == CellDescriber.Key.vipHotline.hashValue }
 
         let paidAsVIP = AppCenter.isPaidAsVIPInCurrentContext
 
          if paidAsVIP && vipHotlineCellNotExisted {
 
             let c6 = UITableViewButtonCellDescriber()
-            c6.itemIdentifier = ShopAppSettingCells.vipHotline.hashValue
+            c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
             c6.buttonTitle = "Contact".localized
             c6.iconImage = R.image.commonIconRobot.name
@@ -589,7 +612,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return payGroups.count + (settingCellDescribers.count > 0 ? 1 : 0)
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -597,33 +620,21 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section < payGroups.count ? payGroups[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
+        return sections[safe: section]?.label
     }
 
     private lazy var footerViews = [String:UIView]()
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-
-        if section < payGroups.count{
-            let d = payGroups[section]
-            if let descriptionText = d.detailedLabel {
-                let k = String(describing:d.key)
-                if footerViews[k] == nil{
-                    footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: descriptionText)
-                }
-                return footerViews[k]
-            }
-
-        }else if settingCellDescribers.count > 0{
-            //settings
-            let k = "settings"
-            if footerViews[k] == nil{
-                footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: "Version \(Defaults.shared.latestShortVersion ?? "0")")
-            }
-            return footerViews[k]
+        guard let detailedLabel = sections[safe: section]?.detailedLabel else{
+            return nil
         }
 
-        return nil
+        let k = detailedLabel
+        if footerViews[k] == nil{
+            footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: detailedLabel)
+        }
+        return footerViews[k]
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -631,9 +642,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < payGroups.count
-                ? payGroups[section].items.count
-                : settingCellDescribers.count
+        return sections[safe: section]?.itemCount ?? 0
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -641,13 +650,53 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section < payGroups.count
-                ? cellPayableDictionary(tableView, cellForRowAt: indexPath)
-                : cellSettingCellDescribers(tableView, cellForRowAt: indexPath)
-        return cell
+        if let section = sections[safe: indexPath.section] {
+
+            if section is PayGroup{
+                return cellForRow_PayGroup(tableView, cellForRowAt: indexPath)
+            }
+
+            else if section is CellDescriberGroup{
+                return cellForRow_CellDescriberGroup(tableView, cellForRowAt: indexPath)
+            }
+        }
+
+        assert(false, "Section Index \(indexPath.section) was overflowed or undefined section type.")
+        return UITableViewCell()
     }
 
-    func cellSettingCellDescribers(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func didTapPayButton(item:PayItem, indexPath:IndexPath){
+        item.isIndicating = true
+        updateIndicatorCellIfNeeded(at: indexPath, with: item)
+        
+        AppCenter.charge.pay(for: item.payable) { succeed in
+            item.isIndicating = false
+
+            self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
+
+            if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
+                AppCenter.default.openApp(identifier: rid)
+            }else{
+                self.reloadData()
+            }
+        }
+    }
+    
+    private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
+        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewIndicatorCell {
+            if item.isIndicating {
+                cell.startIndicating()
+            }
+            else {
+                cell.stopIndicating()
+            }
+        }
+    }
+}
+
+
+extension ShopAppDockContent{
+    func cellForRow_CellDescriberGroup(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.settingCellDescribers[indexPath.item]
 
         if let cellDescriber = item as? UITableViewSwitchCellDescriber
@@ -738,7 +787,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return cell
     }
 
-    func cellPayableDictionary(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func cellForRow_PayGroup(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section
         let dict = payGroups[dictIndex]
@@ -861,33 +910,5 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         return str ?? ShopApp.privateDefaults.storablePayablePriceInfo[storePayable.product.identifier]
-    }
-
-    func didTapPayButton(item:PayItem, indexPath:IndexPath){
-        item.isIndicating = true
-        updateIndicatorCellIfNeeded(at: indexPath, with: item)
-        
-        AppCenter.charge.pay(for: item.payable) { succeed in
-            item.isIndicating = false
-
-            self.updateIndicatorCellIfNeeded(at: indexPath, with: item)
-
-            if succeed, let rid = AppCenter.default.currentInstanceAs(ShopApp.self)?.launchedOption?.identifierToReturn{
-                AppCenter.default.openApp(identifier: rid)
-            }else{
-                self.reloadData()
-            }
-        }
-    }
-    
-    private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
-        if let cell = tableView.cellForRow(at: indexPath) as? UITableViewIndicatorCell {
-            if item.isIndicating {
-                cell.startIndicating()
-            }
-            else {
-                cell.stopIndicating()
-            }
-        }
     }
 }
