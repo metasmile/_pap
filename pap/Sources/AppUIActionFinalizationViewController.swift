@@ -21,10 +21,6 @@ protocol AppUIActionFinalizationViewControllerDataSource {
     
     func titleForAction(in controller: AppUIActionFinalizationViewController) -> String?
     func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage?
-    
-    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String?
-    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String?
-    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String?
 }
 
 extension AppUIActionFinalizationViewControllerDataSource {
@@ -33,15 +29,13 @@ extension AppUIActionFinalizationViewControllerDataSource {
     }
     
     func image(in controller: AppUIActionFinalizationViewController) -> UIImage? { return nil }
-    
-    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String? { return "Preparing".localized }
-    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String? { return "Processing".localized }
-    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String? { return "Done".localized }
 }
 
 protocol AppUIActionFinalizationViewControllerDelegate {
-    func close(_ controller: AppUIActionFinalizationViewController)
+    func actionFinalizationViewControllerDidClose(_ controller: AppUIActionFinalizationViewController)
     func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController)
+    
+    func actionFinalizationViewControllerDidCancel(_ controller: AppUIActionFinalizationViewController)
 }
 
 internal class ActionFinalizationContentView: UIView {
@@ -183,7 +177,7 @@ class AppUICircleProgressView: DesignableView {
     lazy var trackLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = UIColor.lightGray.cgColor
-        layer.lineWidth = 6
+        layer.lineWidth = 4
         layer.fillColor = nil
         return layer
     }()
@@ -191,7 +185,7 @@ class AppUICircleProgressView: DesignableView {
     lazy var progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = tintColor.cgColor
-        layer.lineWidth = 6
+        layer.lineWidth = 4
         layer.fillColor = nil
         return layer
     }()
@@ -281,7 +275,7 @@ class AppUIActionFinalizationViewController: UIViewController {
     }
     
     @IBAction private func closeButtonDidTap(_ sender: Any) {
-        close()
+        delegate?.actionFinalizationViewControllerDidCancel(self)
     }
     
     @IBAction func actionButtonDidTap(_ sender: Any) {
@@ -290,7 +284,7 @@ class AppUIActionFinalizationViewController: UIViewController {
     
     func close() {
         dismiss(animated: true, completion: nil)
-        delegate?.close(self)
+        delegate?.actionFinalizationViewControllerDidClose(self)
     }
 }
 

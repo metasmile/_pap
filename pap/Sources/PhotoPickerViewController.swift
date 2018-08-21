@@ -947,16 +947,22 @@ extension PhotoPickerViewController: AppUIActionFinalizationViewControllerDelega
         
     }
     
-    func close(_ controller: AppUIActionFinalizationViewController) {
+    func actionFinalizationViewControllerDidClose(_ controller: AppUIActionFinalizationViewController) {
+        setNavigationControllerDisabled(false)
+    }
+    
+    func actionFinalizationViewControllerDidCancel(_ controller: AppUIActionFinalizationViewController) {
         if AppCenter.default.task.isRunning {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.prepare()
             generator.impactOccurred()
             
-            cancelAllInCurrentContext()
+            cancelPreheatingIfNeeded()
+            
+            cancelProcessing()
         }
         
-        setNavigationControllerDisabled(false)
+        controller.close()
     }
 }
 

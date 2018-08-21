@@ -8,14 +8,17 @@ import UIKit
 import Photos
 
 extension PhotoPickerViewController{
+    func cancelProcessing() {
+        batchPreviewView.cancelBatchProcessing()
+        
+        papLog.cancelWhilePerforming()
+    }
 
     func cancelAllInCurrentContext(){
         cancelPreheatingIfNeeded()
 
         if AppCenter.default.task.isRunning {
-            batchPreviewView.cancelBatchProcessing()
-
-            papLog.cancelWhilePerforming()
+            cancelProcessing()
         }
         else {
             if AppAssets.selected.hasChanges {
