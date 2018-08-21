@@ -71,7 +71,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { $0.result as? PDFactoryAppPHAssetResult }
 
-        guard let rootViewController = UIViewController.root else{
+        guard let rootViewController = UIViewController.presentable else{
             return result
         }
 

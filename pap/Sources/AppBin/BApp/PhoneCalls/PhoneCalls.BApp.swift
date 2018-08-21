@@ -212,7 +212,7 @@ public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
             asyncSignal.begin()
 
             DispatchQueue.main.async{
-                UIViewController.root?.present(alert, animated: true)
+                UIViewController.present(alert, animated: true)
             }
 
             asyncSignal.waitUntilEnd()

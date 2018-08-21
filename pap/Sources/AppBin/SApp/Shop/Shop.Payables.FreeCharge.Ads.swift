@@ -100,7 +100,7 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
                 // Present
                 assert(DispatchQueue.currentIsMain)
 
-                if let vc = UIViewController.root{
+                if let vc = UIViewController.presentable{
                     _ = self.adManager.showInterestial(vc)
                 }
             }

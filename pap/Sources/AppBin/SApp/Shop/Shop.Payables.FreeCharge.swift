@@ -43,8 +43,8 @@ struct SocialSharePayment:Payable{
                 paid = completed
                 asyncSignal.end()
             }
-            shareActivity.popoverPresentationController?.sourceView = UIViewController.root?.view
-            UIViewController.root?.present(shareActivity, animated: true, completion: nil)
+            shareActivity.popoverPresentationController?.sourceView = UIViewController.presentable?.view
+            UIViewController.present(shareActivity, animated: true, completion: nil)
         }
         asyncSignal.waitUntilEnd()
         return paid
@@ -77,13 +77,13 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
             mailComposer.mailComposeDelegate = self
             mailComposer.setToRecipients(recipients)
             mailComposer.setSubject(subject)
-            mailComposer.popoverPresentationController?.sourceView = UIViewController.root?.view
+            mailComposer.popoverPresentationController?.sourceView = UIViewController.presentable?.view
 
             self.mailComposerCompletionBlock = { sent in
                 paid = sent
                 asyncSignal.end()
             }
-            UIViewController.root?.present(mailComposer, animated: true, completion: nil)
+            UIViewController.present(mailComposer, animated: true, completion: nil)
         }
 
         asyncSignal.waitUntilEnd()

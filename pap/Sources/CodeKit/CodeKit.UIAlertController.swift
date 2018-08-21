@@ -22,7 +22,7 @@ public extension UIAlertController{
     public func setDefaultPopoverPresentationController(sourceView:UIView?=nil){
 
         if let popoverPresentationController = self.popoverPresentationController {
-            popoverPresentationController.sourceView = sourceView ?? UIViewController.root?.view
+            popoverPresentationController.sourceView = sourceView ?? UIViewController.presentable?.view
             if let view = sourceView{
                 popoverPresentationController.sourceRect = view.bounds
             }
@@ -86,7 +86,7 @@ public extension UIAlertController{
 
         alert.setDefaultPopoverPresentationController(sourceView:sourceView)
 
-        UIViewController.root?.present(alert, animated: true) {
+        UIViewController.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{
                 UIAlertControllerPool.shared.dismissingTimer = Timer.scheduledTimer(withTimeInterval: dismissInterval, repeats: false) { timer in
 

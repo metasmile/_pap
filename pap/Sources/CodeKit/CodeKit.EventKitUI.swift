@@ -52,7 +52,7 @@ extension EKEventEditViewController{
 
         presetingViewController.editViewDelegate = delegator
 
-        (onViewController ?? UIViewController.root)?.present(presetingViewController, animated: true) {
+        (onViewController ?? UIViewController.presentable)?.present(presetingViewController, animated: true) {
             didPresent?()
         }
     }

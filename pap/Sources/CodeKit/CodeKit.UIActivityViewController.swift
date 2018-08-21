@@ -15,7 +15,7 @@ extension UIActivityViewController{
         activityViewController.completionWithItemsHandler = completionHandler
 
         DispatchQueue.main.async {
-            UIViewController.root?.present(activityViewController, animated: true, completion: nil)
+            UIViewController.present(activityViewController, animated: true, completion: nil)
         }
     }
 }

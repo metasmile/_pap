@@ -76,7 +76,7 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdMana
             nVC.preferredLeftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
             nVC.preferredRightBarButtonItem = UIBarButtonItem(title: "Submit".localized, style: .done, target: self, action: #selector(self.submitButtonDidTap))
             nVC.preferredTitle = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
-            UIViewController.root?.present(nVC, animated: true)
+            UIViewController.present(nVC, animated: true)
         }
         asyncSignal.waitUntilEnd()
 

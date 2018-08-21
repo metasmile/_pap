@@ -386,7 +386,7 @@ extension FinderApp{
                     action =  UIAlertAction(title: phoneNumber, style: .default, handler: { action in
                         DispatchQueue.main.async{
                             TableViewController.present(with: [UITableViewCellDescriber(label: "test")])
-//                            UIViewController.root?.present(_alert, animated: true)
+//                            UIViewController.present(_alert, animated: true)
                         }
 
                     })
@@ -469,7 +469,7 @@ extension FinderApp{
 
                     action = UIAlertAction(title: url.absoluteString, style: . default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
                     })
                 }
@@ -555,7 +555,7 @@ extension FinderApp{
 
                     action = UIAlertAction(title: dateString, style: .default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
 
                     })
@@ -674,7 +674,7 @@ extension FinderApp{
 
                     action = UIAlertAction(title: email, style: .default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
                     })
                 }
@@ -794,7 +794,7 @@ extension FinderApp{
                     action = UIAlertAction(title: addressString, style: . default, handler: { action in
 
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
                     })
 
@@ -868,7 +868,7 @@ extension FinderApp{
                     //root action
                     action = UIAlertAction(title: flightString, style: . default, handler: { action in
                         DispatchQueue.main.async{
-                            UIViewController.root?.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
                     })
                 }
@@ -895,7 +895,7 @@ extension FinderApp{
             asyncSignal.begin()
 
             DispatchQueue.main.async{
-                UIViewController.root?.present(alert, animated: true)
+                UIViewController.present(alert, animated: true)
             }
 
             asyncSignal.waitUntilEnd()

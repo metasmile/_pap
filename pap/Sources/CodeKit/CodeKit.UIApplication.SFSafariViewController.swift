@@ -95,7 +95,7 @@ extension UIApplication{
             safari.delegate = delegator
 
             DispatchQueue.main.async {
-                UIViewController.root?.present(safari, animated: true, completion: didPresent)
+                UIViewController.present(safari, animated: true, completion: didPresent)
             }
             return true
         }

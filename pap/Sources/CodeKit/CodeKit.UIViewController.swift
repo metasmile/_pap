@@ -32,7 +32,7 @@ extension UIViewController{
         return UIApplication.shared.keyWindow?.rootViewController
     }
 
-    public class var presented:UIViewController?{
+    public class var presentable:UIViewController?{
         var vc = root
         while let pvc = vc?.presentedViewController{
             vc = pvc
@@ -50,5 +50,9 @@ extension UIViewController{
         contentViewController.willMove(toParentViewController: nil)
         contentViewController.view.removeFromSuperview()
         contentViewController.removeFromParentViewController()
+    }
+    
+    public class func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
+        self.presentable?.present(viewController, animated: animated, completion: completion)
     }
 }

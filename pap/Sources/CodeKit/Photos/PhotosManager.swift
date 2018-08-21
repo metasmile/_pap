@@ -59,7 +59,7 @@ final class PhotosManager: NSObject, KeyPathWatchable, PHPhotoLibraryChangeObser
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
-        UIViewController.root?.present(alert, animated: true, completion: nil)
+        UIViewController.present(alert, animated: true, completion: nil)
     }
 
 /*
