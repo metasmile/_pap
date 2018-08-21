@@ -89,22 +89,29 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: SocialSharePayment.self
-                    , priceAmount: AmountObject(value:0.5)
+                    , priceAmount: AmountObject(value:0.3)
                     , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
-                    , payment: MailContactPayment.self
-                    , priceAmount: AmountObject(value:0.5)
+                    , payment: MailContactPayment<MailContactFeedbackType>.self
+                    , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .fullscreenAdsViewing
                     , reward: .timeOfUses
                     , payment: FullscreenAdsViewingPayment.self
-                    , priceAmount: AmountObject(value:0.5)
+                    , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .urlVisiting
+                    , reward: .timeOfUses
+                    , payment: URLVisitingPayment<URLVisitingTypeFacebook>.self
+                    , priceAmount: AmountObject(value:0.1)
+                    , describable: AppChargeDescription(title:"Visit Facebook".localized, description: nil, iconImage: nil)
             )
 
             // Promotional
@@ -427,7 +434,7 @@ private final class AppChargeBanker: ChargeBanker {
             default:
                 //INFO: If it needs to reset all
 #if DEBUG
-//            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
+            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
 #endif
                 break
         }

@@ -9,6 +9,8 @@ import SafariServices
 
 private final class SFSafariViewControllerDelegator: Object, KeyPathWatchable, SFSafariViewControllerDelegate{
     fileprivate var didFinish:(() -> ())?
+    fileprivate var didCompleteInitialLoad:((Bool) -> ())?
+    fileprivate var initialLoadDidRedirectTo:(() -> ())?
 
     /*! @abstract Called when the view controller is about to show UIActivityViewController after the user taps the action button.
         @param URL the URL of the web page.
@@ -41,14 +43,18 @@ private final class SFSafariViewControllerDelegator: Object, KeyPathWatchable, S
         @discussion This method is invoked when SFSafariViewController completes the loading of the URL that you pass
         to its initializer. It is not invoked for any subsequent page loads in the same SFSafariViewController instance.
      */
-    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool){}
+    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool){
+        didCompleteInitialLoad?(didLoadSuccessfully)
+    }
 
 
     /*! @abstract Called when the browser is redirected to another URL before the first page load finishes.
         @param URL The new URL to which the browser was redirected.
      */
     @available(iOS 11.0, *)
-    func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL){}
+    func safariViewController(_ controller: SFSafariViewController, initialLoadDidRedirectTo URL: URL){
+        initialLoadDidRedirectTo?()
+    }
 }
 
 extension UIApplication{
@@ -59,6 +65,7 @@ extension UIApplication{
     public static func openSafari(with url:URL
             , willPresent:((SFSafariViewController) -> ())?=nil
             , didPresent:(() -> ())?=nil
+            , didLoad:((Bool) -> ())?=nil
             , didDismiss:(() -> ())?=nil
     ) -> Bool{
 
@@ -69,6 +76,11 @@ extension UIApplication{
             if delegator == nil{
                 delegator = SFSafariViewControllerDelegator()
             }
+
+            delegator?.didCompleteInitialLoad = { succeed in
+                didLoad?(succeed)
+            }
+
             delegator?.didFinish = {
                 didDismiss?()
 

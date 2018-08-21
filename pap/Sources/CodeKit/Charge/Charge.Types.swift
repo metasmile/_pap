@@ -19,7 +19,7 @@ enum ChargeType:Int {
     case feedback = 104
     case fullscreenAdsViewing = 105
     case youApp = 106
-    case socialVisiting = 107
+    case urlVisiting = 107
 
     //very special promotional
     case secretCode = 200 //it will match with new hash value for each new version

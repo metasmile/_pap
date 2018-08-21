@@ -274,8 +274,9 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , detailedLabel: "Engage Now And Recharge Free Use.".localized
                 , items: [
                     PayItem(payable: FullscreenAdsViewingPayment.self)
-                    , PayItem(payable: MailContactPayment.self)
+                    , PayItem(payable: MailContactPayment<MailContactFeedbackType>.self)
                     , PayItem(payable: SocialSharePayment.self)
+                    , PayItem(payable: URLVisitingPayment<URLVisitingTypeFacebook>.self)
                 ]
         )
     ]
@@ -556,7 +557,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c2.iconImage = R.image.commonIconRobot.name
         c2.valueHandler = { _ in
             DispatchQueue.global().async{
-                MailContactPayment.init().send(to: [papStrings.contact.support.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] I need some help while using this app.", AsyncSignal())
+                AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
             }
         }
         contactCellDescribers.append(c2)
@@ -570,7 +571,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c6.valueHandler = { _ in
                 //TODO: add realtime messenger or in-app messaging.
                 DispatchQueue.global().async{
-                    MailContactPayment.init().send(to: [papStrings.contact.vip.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] VIP realtime help request.", AsyncSignal())
+                    AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
                 }
             }
             contactCellDescribers.append(c6)
