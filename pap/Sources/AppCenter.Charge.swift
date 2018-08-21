@@ -103,7 +103,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .fullscreenAdsViewing
                     , reward: .timeOfUses
                     , payment: FullscreenAdsViewingPayment.self
-                    , priceAmount: AmountObject(value:0.2)
+                    , priceAmount: AmountObject(value:0.3)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
             )
 
@@ -112,6 +112,14 @@ private final class AppChargeManager: ChargeManager{
                     , payment: URLVisitingPayment<URLVisitingTypeFacebook>.self
                     , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Visit Facebook".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .youApp
+                    , reward: .timeOfUses
+                    , payment: URLVisitingPayment<URLVisitingTypeProductHuntSurvey>.self
+                    , priceAmount: AmountObject(value:0.6)
+                    , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "%@ Day of Free Use + Owning Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program License", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
             )
 
             // Promotional
@@ -191,7 +199,7 @@ class AppCharge: Charge {
     private(set) var payment:Payable.Type
     private(set) var priceAmount:Amount
     private(set) var describable: ChargeDescribable
-    private(set) lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
+    private(set) var rewardDescribable:RewardDescribable?
 
     init(type: ChargeType,
          reward: RewardType,
@@ -206,9 +214,7 @@ class AppCharge: Charge {
         self.priceAmount = priceAmount
         self.describable = describable
         //if custom defined
-        if rewardDescribable != nil{
-            self.rewardDescribable = rewardDescribable
-        }
+        self.rewardDescribable = rewardDescribable ?? DefaultRewardDescribable(charge:self)
         validate()
     }
 
@@ -265,7 +271,7 @@ class AppCharge: Charge {
             switch (charge.reward) {
             case .timeOfUses:
                 if let unit = unit {
-                    return "%@ Day License".localizedFormatted(unit)
+                    return "%@ Day of Free Uses".localizedFormatted(unit)
                 }
             default:
                 break
@@ -294,12 +300,18 @@ class AppCharge: Charge {
         }
 
         var unit:String?{
-            switch (charge.reward){
-            case .timeOfUses:
-                return (charge.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
-            default:
-                return nil
-            }
+            return charge.priceAmount.getDefaultUnit(for: charge.reward)?.asString(roundTo: 1)
+        }
+    }
+}
+
+extension Amount{
+    func getDefaultUnit(for reward:RewardType) -> Period?{
+        switch (reward){
+        case .timeOfUses:
+            return Period(numberOfUnits: value * AppChargeBanker.Abs_TimeOfUses_Day, unit: .day)
+        default:
+            return nil
         }
     }
 }

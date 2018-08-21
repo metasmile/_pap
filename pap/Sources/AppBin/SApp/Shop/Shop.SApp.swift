@@ -273,10 +273,11 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , label: "Free App Passes".localized
                 , detailedLabel: "Engage Now And Recharge Free Use.".localized
                 , items: [
-                    PayItem(payable: FullscreenAdsViewingPayment.self)
-                    , PayItem(payable: MailContactPayment<MailContactFeedbackType>.self)
-                    , PayItem(payable: SocialSharePayment.self)
-                    , PayItem(payable: URLVisitingPayment<URLVisitingTypeFacebook>.self)
+                    PayItem(payable: URLVisitingPayment<URLVisitingTypeProductHuntSurvey>.self),
+                    PayItem(payable: FullscreenAdsViewingPayment.self),
+                    PayItem(payable: SocialSharePayment.self),
+                    PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
+                    PayItem(payable: URLVisitingPayment<URLVisitingTypeFacebook>.self)
                 ]
         )
     ]
@@ -894,17 +895,19 @@ extension ShopAppDockContent{
             //INFO: Per Day Display
             if let subscriptionPeriod = storePayable.product.subscriptionPeriod{
                 let priceValue = storeProduct.price.doubleValue
-                let unitAmount = Double(subscriptionPeriod.numberOfUnits)
+                let unitAmount = subscriptionPeriod.numberOfUnits
                 let perDayPriceValue:Double
                 switch subscriptionPeriod.unit {
-                case .day:
-                    perDayPriceValue = priceValue/unitAmount
-                case .week:
-                    perDayPriceValue = priceValue/(7*unitAmount)
-                case .month:
-                    perDayPriceValue = priceValue/(30.436875*unitAmount)
-                case .year:
-                    perDayPriceValue = priceValue/(365*unitAmount)
+                    case .day:
+                        perDayPriceValue = priceValue/unitAmount
+                    case .week:
+                        perDayPriceValue = priceValue/(7*unitAmount)
+                    case .month:
+                        perDayPriceValue = priceValue/(30.436875*unitAmount)
+                    case .year:
+                        perDayPriceValue = priceValue/(365*unitAmount)
+                    default:
+                        perDayPriceValue = 0
                 }
 
                 if let pricePerDayString = SKProduct.localizePrice(price: NSDecimalNumber(value: perDayPriceValue.round(toPlaces: 2)), locale: storeProduct.priceLocale){

@@ -101,7 +101,7 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
 struct URLVisitingPayment<Type: URLVisitingType>: Payable {
 
     static var label:String{
-        return "Visit".localized
+        return Type.label ?? "Visit".localized
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {

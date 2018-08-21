@@ -58,14 +58,14 @@ private var SuperPayableSet_AllApps_AutoRenewable:HashSet<Payable.Type> {
 }
 
 struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
+    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_AutoRenewable.subtracting([self].hashSet)
     }
 }
 
 struct AnnualAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
+    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_AutoRenewable.subtracting([self].hashSet)
     }
@@ -81,28 +81,28 @@ private var SuperPayableSet_AllApps_NonRenewing:HashSet<Payable.Type> {
 }
 
 struct OneMonthAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_1M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
+    static let product = StoreProduct(identifier: "pap_xapp_NR_1M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_NonRenewing.subtracting([self].hashSet)
     }
 }
 
 struct ThreeMonthsAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_3M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 3, unit: .month))
+    static let product = StoreProduct(identifier: "pap_xapp_NR_3M_rented", subscriptionPeriod: Period(numberOfUnits: 3, unit: .month))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_NonRenewing.subtracting([self].hashSet)
     }
 }
 
 struct SixMonthsAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_6M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 6, unit: .month))
+    static let product = StoreProduct(identifier: "pap_xapp_NR_6M_rented", subscriptionPeriod: Period(numberOfUnits: 6, unit: .month))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_NonRenewing.subtracting([self].hashSet)
     }
 }
 
 struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
+    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
     static var superPayables: HashSet<Payable.Type> {
         return SuperPayableSet_AllApps_NonRenewing.subtracting([self].hashSet)
     }
@@ -118,25 +118,25 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable{
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
     }
 }
 
 struct YearlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
     }
 }
 
 struct OneMonthAppPayment<T:App>: NonRenewingSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_M_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .month))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
     }
 }
 
 struct OneYearAppPayment<T:App>: NonRenewingSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_Y_rented", subscriptionPeriod: StoreProduct.SubscriptionPeriod(numberOfUnits: 1, unit: .year))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
     }
 }
 

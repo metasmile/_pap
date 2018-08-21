@@ -180,20 +180,19 @@ extension StorePayable{
     }
 
     static var storeProduct: SKProduct? {
-//        return StorePayableCenter.storeProductsFetchQueue.sync{
-            let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
+        let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
 #if DEBUG
-            if #available(iOS 11.2, *) {
-                if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
-                    assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
-                    if let localSubscriptionPeriod = product.subscriptionPeriod{
-                        assert(localSubscriptionPeriod.numberOfUnits==storeSubscriptionPeriod.numberOfUnits && localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue,"Not matched between Store Subscription Period and Local.")
-                    }
+        if #available(iOS 11.2, *) {
+            if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
+                assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
+                if let localSubscriptionPeriod = product.subscriptionPeriod{
+                    assert(Int(localSubscriptionPeriod.numberOfUnits)==storeSubscriptionPeriod.numberOfUnits,"Not matched between Store Subscription Period Number.")
+                    assert(localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue+Period.Unit.day.rawValue,"Not matched between Store Subscription Period Unit.")
                 }
             }
+        }
 #endif
-            return storeProduct
-//        }
+        return storeProduct
     }
 
     static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
