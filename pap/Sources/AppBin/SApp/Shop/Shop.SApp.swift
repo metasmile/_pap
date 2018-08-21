@@ -214,8 +214,7 @@ extension Defaults: ShopAppDefaults {
 private protocol Section{
     var label:String{get}
     var detailedLabel:String?{get}
-
-    var itemCount:Int{get}
+    var itemsOfSection:[Any]{get}
 }
 
 private extension Array where Element== PayGroup {
@@ -285,8 +284,8 @@ private struct PayGroup:Hashable, Equatable, Section {
     var items:[PayItem]
     var detailedLabel:String?
 
-    var itemCount: Int{
-        return items.count
+    var itemsOfSection: [Any] {
+        return items
     }
 
     init(key:Key, label:String, detailedLabel:String?=nil, items:[PayItem]){
@@ -407,8 +406,8 @@ private struct CellDescriberGroup: Section{
     fileprivate let detailedLabel:String?
     fileprivate var describers:[UITableViewCellDefaultDescribable]
 
-    var itemCount: Int {
-        return describers.count
+    var itemsOfSection: [Any] {
+        return describers
     }
 }
 
@@ -437,25 +436,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     // Sections
     private lazy var payGroups:[PayGroup] = PayGroup.Default
-    private var settingCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var shopSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         return payGroups + [
-            CellDescriberGroup(label: "Settings", detailedLabel: nil, describers: settingCellDescribers)
-        ]
-    }
-
-    private func loadPayGroups(){
-        //INFO: join local charges onto defaultCollection.
-
-        if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayGroups(){
-            self.payGroups = loadedCollections
-
-        }else{
-            assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
-            self.payGroups = PayGroup.Default
-        }
-
+            CellDescriberGroup(label: "Shop Settings".localized, detailedLabel: nil, describers: shopSettingsCellDescribers)
+            , CellDescriberGroup(label: "Contact".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers)
+        ].filter{ $0.itemsOfSection.count>0 }
     }
 
     required public override init() {
@@ -488,39 +476,53 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.allowsMultipleSelection = false
         tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
 
-        loadAppSettingCellDescribers()
-
-        for desc in settingCellDescribers {
-            tableView.register(describer: desc)
-        }
-
         reloadData()
     }
 
-    func loadAppSettingCellDescribers(){
-        settingCellDescribers.removeAll()
+    private func loadPayGroups(){
+        //INFO: join local charges onto defaultCollection.
 
-        let c3 = UITableViewSwitchSubtitleCellDescriber()
-        c3.itemIdentifier = CellDescriber.Key.displayRemainingLevel.hashValue
-        c3.label = "Display Remaining Level".localized
-        c3.detailedLabel = "Color And Reminder for Each Phases".localized
-        c3.iconImageTintColor = ChargeLevel(rawValue: ChargeLevel.low.rawValue)?.representativeColor
-        c3.iconImage = ChargeableImage(balance:Double(0.35), tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil))
-        c3.valueGetter = { return Defaults.shared.showChargeButtonLevelColorInNavigationBar }
-        c3.valueHandler = { b in
-            Defaults.shared.showChargeButtonLevelColorInNavigationBar = (b as? Bool) ?? false
-        }
-        settingCellDescribers.append(c3)
+        if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayGroups(){
+            self.payGroups = loadedCollections
 
-        let c4 = UITableViewSwitchSubtitleCellDescriber()
-        c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
-        c4.label = "Display Percentage".localized
-        c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
-        c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
-        c4.valueHandler = { b in
-            Defaults.shared.showChargeButtonPercentageInNavigationBar = (b as? Bool) ?? false
+        }else{
+            assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
+            self.payGroups = PayGroup.Default
         }
-        settingCellDescribers.append(c4)
+
+    }
+
+    private func loadShopSettingsCellDescribers(){
+        shopSettingsCellDescribers.removeAll()
+
+        if !AppCenter.isPaidAsVIPInCurrentContext{
+
+            let c3 = UITableViewSwitchSubtitleCellDescriber()
+            c3.itemIdentifier = CellDescriber.Key.displayRemainingLevel.hashValue
+            c3.label = "Display Remaining Level".localized
+            c3.detailedLabel = "Color And Reminder for Each Phases".localized
+            c3.iconImageTintColor = ChargeLevel(rawValue: ChargeLevel.low.rawValue)?.representativeColor
+            c3.iconImage = ChargeableImage(balance:Double(0.35), tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil))
+            c3.valueGetter = { return Defaults.shared.showChargeButtonLevelColorInNavigationBar }
+            c3.valueHandler = { b in
+                Defaults.shared.showChargeButtonLevelColorInNavigationBar = (b as? Bool) ?? false
+            }
+            shopSettingsCellDescribers.append(c3)
+
+            let c4 = UITableViewSwitchSubtitleCellDescriber()
+            c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
+            c4.label = "Display Percentage".localized
+            c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
+            c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
+            c4.valueHandler = { b in
+                Defaults.shared.showChargeButtonPercentageInNavigationBar = (b as? Bool) ?? false
+            }
+            shopSettingsCellDescribers.append(c4)
+        }
+    }
+
+    private func loadContactCellDescribers(){
+        contactCellDescribers.removeAll()
 
         let c0 = UITableViewButtonCellDescriber()
         c0.itemIdentifier = CellDescriber.Key.reviewRatingInApp.hashValue
@@ -532,7 +534,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
             }
         }
-        settingCellDescribers.append(c0)
+        contactCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
         c1.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
@@ -544,7 +546,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
             }
         }
-        settingCellDescribers.append(c1)
+        contactCellDescribers.append(c1)
 
         let c2 = UITableViewButtonCellDescriber()
         c2.itemIdentifier = CellDescriber.Key.support.hashValue
@@ -556,16 +558,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 MailContactPayment.init().send(to: [papStrings.contact.support.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] I need some help while using this app.", AsyncSignal())
             }
         }
-        settingCellDescribers.append(c2)
-    }
+        contactCellDescribers.append(c2)
 
-    func loadContextualSettingCellDescribersIfNeeded(){
-        let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == CellDescriber.Key.vipHotline.hashValue }
-
-        let paidAsVIP = AppCenter.isPaidAsVIPInCurrentContext
-
-         if paidAsVIP && vipHotlineCellNotExisted {
-
+        if AppCenter.isPaidAsVIPInCurrentContext {
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
@@ -577,7 +572,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                     MailContactPayment.init().send(to: [papStrings.contact.vip.email], subject: "[\(UUID().uuidString.split(separator: "-")[0])] VIP realtime help request.", AsyncSignal())
                 }
             }
-            settingCellDescribers.append(c6)
+            contactCellDescribers.append(c6)
         }
     }
 
@@ -586,8 +581,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
-        loadContextualSettingCellDescribersIfNeeded()
+        loadShopSettingsCellDescribers()
+        loadContactCellDescribers()
         loadPayGroups()
+
+        for s in self.sections{
+            if let cellGroup = s as? CellDescriberGroup{
+                for desc in cellGroup.describers {
+                    tableView.register(describer: desc)
+                }
+            }
+        }
         tableView.reloadData()
     }
 
@@ -642,7 +646,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[safe: section]?.itemCount ?? 0
+        return sections[safe: section]?.itemsOfSection.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -652,12 +656,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let section = sections[safe: indexPath.section] {
 
-            if section is PayGroup{
-                return cellForRow_PayGroup(tableView, cellForRowAt: indexPath)
+            if section is PayGroup, let item = section.itemsOfSection[indexPath.item] as? PayItem{
+                return cellForRow(tableView, cellForRowAt: indexPath, forItem: item)
             }
-
-            else if section is CellDescriberGroup{
-                return cellForRow_CellDescriberGroup(tableView, cellForRowAt: indexPath)
+            else if section is CellDescriberGroup, let item = section.itemsOfSection[indexPath.item] as? UITableViewCellDefaultDescribable{
+                return cellForRow(tableView, cellForRowAt: indexPath, forItem:item)
             }
         }
 
@@ -694,10 +697,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 }
 
+/*
+    Cell Loaders by Group Type
+*/
+extension ShopAppDockContent {
 
-extension ShopAppDockContent{
-    func cellForRow_CellDescriberGroup(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.settingCellDescribers[indexPath.item]
+    func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, forItem:UITableViewCellDefaultDescribable) -> UITableViewCell{
+        let item = forItem
 
         if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
@@ -786,12 +792,13 @@ extension ShopAppDockContent{
 
         return cell
     }
+}
 
-    func cellForRow_PayGroup(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+extension ShopAppDockContent{
 
-        let dictIndex = indexPath.section
-        let dict = payGroups[dictIndex]
-        let dataItem = dict.items[indexPath.item]
+    func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, forItem:PayItem) -> UITableViewCell{
+
+        let dataItem = forItem
 //        let selected = dataItem.enabled
 
         let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! UITableViewButtonCell
