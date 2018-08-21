@@ -2,6 +2,9 @@ PODS:
   - Armchair (0.3.5)
   - CocoaImageHashing (1.6.1)
   - DefaultsKit (0.0.9)
+  - Firebase/AdMob (5.2.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.31.0)
   - Firebase/Core (5.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
@@ -32,6 +35,7 @@ PODS:
     - GoogleMobileVision/Detector (~> 1.3.0)
   - FirebaseMLVisionTextModel (0.9.0):
     - GoogleMobileVision/TextDetector (~> 1.3.0)
+  - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleAPIClientForREST/Core (1.3.5):
     - GTMSessionFetcher (>= 1.1.7)
   - GoogleAPIClientForREST/Vision (1.3.5):
@@ -80,6 +84,7 @@ DEPENDENCIES:
   - Armchair (from `https://github.com/UrbanApps/Armchair`)
   - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
+  - Firebase/AdMob
   - Firebase/Core (= 5.2.0)
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
@@ -99,6 +104,7 @@ SPEC REPOS:
     - FirebaseMLCommon
     - FirebaseMLVision
     - FirebaseMLVisionTextModel
+    - Google-Mobile-Ads-SDK
     - GoogleAPIClientForREST
     - GoogleMobileVision
     - GoogleToolboxForMac
@@ -144,6 +150,7 @@ SPEC CHECKSUMS:
   FirebaseMLCommon: 88ffed2dbb54ecb7dbcf8080a7654b6ea938e15b
   FirebaseMLVision: f9756d8376dd150fb17629eaa7bdc6baa8965677
   FirebaseMLVisionTextModel: 8a9cb61296d4d15d60eb0c7c66a2a88790b34376
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleAPIClientForREST: b4c23f6ec9b8c29419d0377168007963d0e25551
   GoogleMobileVision: 6b0a3a2dae1974ec35d80fdeeacc3a03193642e0
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
@@ -159,6 +166,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: fab907203d151e3aba7df491692e79f91b5ba92e
+PODFILE CHECKSUM: 49b772e261177359b00dcb54a2d9922f6a8688e0
 
 COCOAPODS: 1.5.3

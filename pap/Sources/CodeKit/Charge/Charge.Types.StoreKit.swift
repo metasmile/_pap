@@ -15,18 +15,6 @@ protocol StorePayable: VerifiablePayable {
 }
 
 struct StoreProduct {
-    struct SubscriptionPeriod {
-        var numberOfUnits: Int
-        var unit: PeriodUnit
-    }
-
-    enum PeriodUnit : UInt {
-        case day
-        case week
-        case month
-        case year
-    }
-
     let identifier:String
-    let subscriptionPeriod:SubscriptionPeriod?
+    let subscriptionPeriod: Period?
 }

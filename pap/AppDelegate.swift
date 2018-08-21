@@ -37,13 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-        Armchair.appID("1309539102")
-        Armchair.useStoreKitReviewPrompt( true)
-        Armchair.resetAllCounters()
-        Armchair.shouldIncrementUseCountClosure { () -> Bool in
-            return false
-        }
-
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)

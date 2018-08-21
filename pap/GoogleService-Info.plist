@@ -36,5 +36,7 @@
 	<string>1:1050525772906:ios:813ef82f3b35d83a</string>
 	<key>DATABASE_URL</key>
 	<string>https://photo-apps-e7b88.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3029312734389414~7736928915</string>
 </dict>
 </plist>

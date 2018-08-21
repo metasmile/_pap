@@ -13,6 +13,10 @@ import Foundation
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
 struct papStrings {
+    static var appStoreId:String{
+        return "1309539102"
+    }
+
     static var name:String{
         return Bundle.main.displayName ?? "Photo Apps"
     }

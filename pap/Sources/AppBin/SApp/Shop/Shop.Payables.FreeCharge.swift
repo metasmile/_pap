@@ -19,6 +19,12 @@ struct FreeAppPayment<T:App>: VerifiablePayable{
     }
 }
 
+extension UIActivityType {
+    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
+    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
+    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
+}
+
 struct SocialSharePayment:Payable{
 
     static var label:String{
@@ -45,14 +51,7 @@ struct SocialSharePayment:Payable{
     }
 }
 
-extension UIActivityType {
-    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
-    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
-    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
-}
-
-
-class MailContactPayment: NSObject, Payable, MFMailComposeViewControllerDelegate {
+class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailComposeViewControllerDelegate {
 
     static var label:String{
         return "Write".localized
@@ -63,11 +62,11 @@ class MailContactPayment: NSObject, Payable, MFMailComposeViewControllerDelegate
     required override init() {}
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        return self.send(to: [papStrings.contact.feedback.email], subject: "👋 " + "My Feedback on %@".localizedFormatted(papStrings.name), asyncSignal)
+        return self.send(to: Type.attributes.addresses, subject: Type.attributes.subject, asyncSignal)
     }
 
     @discardableResult
-    func send(to recipients: [String], subject:String, _ asyncSignal: AsyncWaitSignalable) -> Bool {
+    private func send(to recipients: [String], subject:String, _ asyncSignal: AsyncWaitSignalable) -> Bool {
         guard MFMailComposeViewController.canSendMail() else { return false }
 
         var paid = false
@@ -96,6 +95,38 @@ class MailContactPayment: NSObject, Payable, MFMailComposeViewControllerDelegate
         mailComposerCompletionBlock = nil
 
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+struct URLVisitingPayment<Type: URLVisitingType>: Payable {
+
+    static var label:String{
+        return Type.label ?? "Visit".localized
+    }
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        guard let url = Type.url else{
+            return false
+        }
+
+        var paid = false
+
+        asyncSignal.begin()
+
+        var presented = false
+
+        UIApplication.openSafari(with: url, didPresent: {
+            presented = true
+
+        }, didLoad:{ loaded in
+            paid = presented && loaded
+
+        }, didDismiss: {
+            asyncSignal.end()
+        })
+
+        asyncSignal.waitUntilEnd()
+        return paid
     }
 }
 

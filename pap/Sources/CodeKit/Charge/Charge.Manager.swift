@@ -98,24 +98,39 @@ class ChargeManager{
             return
         }
 
-        #if DEBUG
         if skipTransaction{
             print("[i] INFO: Skipping Payment Transaction: \(String(describing: payable))")
-        }
-        #endif
 
+            DispatchQueue.main.async{
+                completion?(self.bank.save(for: charge))
+            }
+            return
+        }
+
+        self.try(for: payable) { succeed in
+            if succeed{
+                let result = self.bank.save(for: charge)
+                completion?(result)
+            }else{
+                self.bank.cancelToSave(for: charge)
+                completion?(false)
+                print("[i] INFO: payment failed \(String(describing: payable))")
+            }
+        }
+    }
+
+    func `try`(for payable: Payable.Type, completion:((_ succeed:Bool) -> ())?=nil){
         payingQueue.async{
-            if skipTransaction || payable.init().pay(AsyncSignal()){
-                DispatchQueue.main.async{
-                    let result = self.bank.save(for: charge)
-                    completion?(result)
+            let dispatchQueue = DispatchQueue.main
+
+            if payable.init().pay(AsyncSignal()){
+                dispatchQueue.async{
+                    completion?(true)
                 }
             }else{
-                DispatchQueue.main.async{
-                    self.bank.cancelToSave(for: charge)
+                dispatchQueue.async{
                     completion?(false)
                 }
-                print("[i] INFO: payment failed \(String(describing: payable))")
             }
         }
     }

@@ -17,7 +17,9 @@ enum ChargeType:Int {
     case onPromptRating = 102
     case socialShare = 103
     case feedback = 104
-    case ads = 105
+    case fullscreenAdsViewing = 105
+    case youApp = 106
+    case urlVisiting = 107
 
     //very special promotional
     case secretCode = 200 //it will match with new hash value for each new version
@@ -30,6 +32,7 @@ enum ChargeType:Int {
     case nonRenewingYearlySubscription = 303
     case renewableMonthlySubscription = 304
     case renewableYearlySubscription = 305
+    case adsAllowance = 306
 }
 
 enum RewardType:Int {

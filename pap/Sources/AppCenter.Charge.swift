@@ -16,6 +16,12 @@ extension AppCenter{
         return paidChargeableTypeInCurrentContext != nil
     }
 
+    //POLICY: VIP == '.owned' (permanently)
+    static var isPaidAsVIPInCurrentContext:Bool{
+        return charge.getChargesPaid().contains { $0.reward == .owned }
+        //this is '.owned' specific. different from 'isOwned'
+    }
+
     //INFO: Priority is critical.
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
@@ -83,22 +89,44 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: SocialSharePayment.self
-                    , priceAmount: AmountObject(value:0.5)
+                    , priceAmount: AmountObject(value:0.3)
                     , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
-                    , payment: MailContactPayment.self
-                    , priceAmount: AmountObject(value:0.5)
-                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
+                    , payment: MailContactPayment<MailContactFeedbackType>.self
+                    , priceAmount: AmountObject(value:0.2)
+                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .fullscreenAdsViewing
+                    , reward: .timeOfUses
+                    , payment: FullscreenAdsViewingPayment.self
+                    , priceAmount: AmountObject(value:0.3)
+                    , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .urlVisiting
+                    , reward: .timeOfUses
+                    , payment: URLVisitingPayment<URLVisitingTypeFacebook>.self
+                    , priceAmount: AmountObject(value:0.1)
+                    , describable: AppChargeDescription(title:"Visit Facebook".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .youApp
+                    , reward: .timeOfUses
+                    , payment: URLVisitingPayment<URLVisitingTypeProductHuntSurvey>.self
+                    , priceAmount: AmountObject(value:0.6)
+                    , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "%@ Day of Free Use + Owning Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program License", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
             )
 
             // Promotional
             , AppCharge(type: .secretCode
                     , reward: .owned, payment: PermanentVIPProgramPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Ultimate VIP Pass".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"VIP Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -171,7 +199,7 @@ class AppCharge: Charge {
     private(set) var payment:Payable.Type
     private(set) var priceAmount:Amount
     private(set) var describable: ChargeDescribable
-    private(set) lazy var rewardDescribable:RewardDescribable? = DefaultRewardDescribable(charge:self)
+    private(set) var rewardDescribable:RewardDescribable?
 
     init(type: ChargeType,
          reward: RewardType,
@@ -186,9 +214,7 @@ class AppCharge: Charge {
         self.priceAmount = priceAmount
         self.describable = describable
         //if custom defined
-        if rewardDescribable != nil{
-            self.rewardDescribable = rewardDescribable
-        }
+        self.rewardDescribable = rewardDescribable ?? DefaultRewardDescribable(charge:self)
         validate()
     }
 
@@ -245,7 +271,7 @@ class AppCharge: Charge {
             switch (charge.reward) {
             case .timeOfUses:
                 if let unit = unit {
-                    return "%@ Day License".localizedFormatted(unit)
+                    return "%@ Day of Free Uses".localizedFormatted(unit)
                 }
             default:
                 break
@@ -274,12 +300,18 @@ class AppCharge: Charge {
         }
 
         var unit:String?{
-            switch (charge.reward){
-            case .timeOfUses:
-                return (charge.priceAmount.value * AppChargeBanker.Abs_TimeOfUses_Day).roundedString(toPlaces: 1, trimTrailingZeros: true)
-            default:
-                return nil
-            }
+            return charge.priceAmount.getDefaultUnit(for: charge.reward)?.asString(roundTo: 1)
+        }
+    }
+}
+
+extension Amount{
+    func getDefaultUnit(for reward:RewardType) -> Period?{
+        switch (reward){
+        case .timeOfUses:
+            return Period(numberOfUnits: value * AppChargeBanker.Abs_TimeOfUses_Day, unit: .day)
+        default:
+            return nil
         }
     }
 }
@@ -363,7 +395,6 @@ private final class AppChargeBanker: ChargeBanker {
 
     private(set) var receiptStorageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
 
-    private let appShortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(banker:self)
 
     fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = 8//60*60*24
@@ -391,9 +422,7 @@ private final class AppChargeBanker: ChargeBanker {
 
         let initialBalance = AmountObject(value: clamp(receiptStorage.balanceAmountValue, AmountObject.minValue, AmountObject.maxValue))
 
-        print("initializeBank:appShortVersionDescription: ",appShortVersionDescription)
-
-        switch appShortVersionDescription{
+        switch Defaults.shared.shortVersionDescription{
             case .first:
                 //INFO: give tutorial balance 3 days
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
@@ -415,8 +444,9 @@ private final class AppChargeBanker: ChargeBanker {
                 }
 
             default:
+                //INFO: If it needs to reset all
 #if DEBUG
-//            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
+            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
 #endif
                 break
         }
