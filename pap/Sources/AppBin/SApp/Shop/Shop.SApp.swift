@@ -71,13 +71,13 @@ public class ShopApp: NSObject
 extension ShopApp{
 
     //INFO: Important section - Creating final list for gloabal use.
-    fileprivate func loadDefaultPayDictionaries() -> [PayDictionary] {
-        var mutableDefaultCollection = PayDictionary.Default
+    fileprivate func loadDefaultPayGroups() -> [PayGroup] {
+        var mutableDefaultCollection = PayGroup.Default
 
         //INFO: get source app info
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
-                    mutableDefaultCollection.append(PayDictionary(
+                    mutableDefaultCollection.append(PayGroup(
                             key: .LocalPaidCharge
                             , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                             , items: localCharges.map ({
@@ -98,9 +98,9 @@ extension ShopApp{
 
         let paidOwnedHasExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
         
-        for (i, payDict) in mutableDefaultCollection.enumerated() {
+        for (i, payGroup) in mutableDefaultCollection.enumerated() {
 
-            var mutablePayDict = payDict
+            var mutablePayDict = payGroup
 
             //Check invisibility
             mutablePayDict.items = mutablePayDict.items.filter { item -> Bool in
@@ -158,7 +158,7 @@ extension ShopApp{
     }
 
     fileprivate func getStorePayables() -> [StorePayable.Type]{
-        let targetCollection = loadDefaultPayDictionaries()
+        let targetCollection = loadDefaultPayGroups()
 
         return targetCollection.compactMap { dictionary -> [StorePayable.Type]? in
             return dictionary.items.compactMap({
@@ -210,13 +210,13 @@ extension Defaults: ShopAppDefaults {
 }
 
 
-private extension Array where Element==PayDictionary{
-    func getDictionary(by key:PayDictionary.Key) -> PayDictionary?{
+private extension Array where Element== PayGroup {
+    func getDictionary(by key: PayGroup.Key) -> PayGroup?{
         return self.first { $0.key == key }
     }
 }
 
-private struct PayDictionary:Hashable, Equatable {
+private struct PayGroup:Hashable, Equatable {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
@@ -230,8 +230,8 @@ private struct PayDictionary:Hashable, Equatable {
         return payables.count == payables.filter { AppCenter.charge.isPaid(payable: $0) }.count
     }
 
-    static let Default: [PayDictionary] = [
-        PayDictionary(
+    static let Default: [PayGroup] = [
+        PayGroup(
             key: .SystemOwned
             , label: "Purchase Management".localized
             , items: [
@@ -239,7 +239,7 @@ private struct PayDictionary:Hashable, Equatable {
             ]
         ),
 
-        PayDictionary(
+        PayGroup(
                 key: .PaidCharge
                 , label: "%@ Passes".localizedFormatted(papStrings.name)
                 , items: [
@@ -252,7 +252,7 @@ private struct PayDictionary:Hashable, Equatable {
                 ]
         )
 
-        , PayDictionary(
+        , PayGroup(
                 key: .Promotion
                 , label: "Special Passes".localized
                 , items: [
@@ -261,34 +261,34 @@ private struct PayDictionary:Hashable, Equatable {
             ]
         )
 
-        , PayDictionary(
+        , PayGroup(
                 key: .FreeCharge
                 , label: "Free App Passes".localized
+                , detailedLabel: "Engage Now And Recharge Free Use.".localized
                 , items: [
                     PayItem(payable: MailContactPayment.self)
                     , PayItem(payable: SocialSharePayment.self)
                 ]
-                , description: "Engage Now And Recharge Free Use.".localized
         )
     ]
 
     let key:Key
     let label:String
     var items:[PayItem]
-    var description:String?
+    var detailedLabel:String?
 
-    init(key:Key, label:String, items:[PayItem], description:String?=nil){
+    init(key:Key, label:String, detailedLabel:String?=nil, items:[PayItem]){
         self.key = key
         self.label = label
         self.items = items
-        self.description = description
+        self.detailedLabel = detailedLabel
     }
 
     var hashValue: Int{
         return key.rawValue
     }
 
-    static func == (lhs: PayDictionary, rhs: PayDictionary) -> Bool{
+    static func == (lhs: PayGroup, rhs: PayGroup) -> Bool{
         return lhs.hashValue == rhs.hashValue
     }
 }
@@ -416,19 +416,21 @@ private struct SettingsItem {
 }
 
 fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, AppLifecycleManagerAllowingInstanceAccessor{
-    fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
-    private lazy var payDictionaries:[PayDictionary] = PayDictionary.Default
+    // Sections
 
-    private func loadPayDictionaries(){
+    private var settingCellDescribers = [UITableViewCellDefaultDescribable]()
+    private lazy var payGroups:[PayGroup] = PayGroup.Default
+
+    private func loadPayGroups(){
         //INFO: join local charges onto defaultCollection.
 
-        if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayDictionaries(){
-            self.payDictionaries = loadedCollections
+        if let loadedCollections = AppCenter.default.currentInstanceAs(ShopApp.self)?.loadDefaultPayGroups(){
+            self.payGroups = loadedCollections
 
         }else{
             assert(false, "[!] ERROR: getDefaultPayDictionaries has not been loaded.")
-            self.payDictionaries = PayDictionary.Default
+            self.payGroups = PayGroup.Default
         }
 
     }
@@ -463,7 +465,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.allowsMultipleSelection = false
         tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
 
-        loadSettingCellDescribers()
+        loadAppSettingCellDescribers()
 
         for desc in settingCellDescribers {
             tableView.register(describer: desc)
@@ -472,7 +474,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         reloadData()
     }
 
-    func loadSettingCellDescribers(){
+    func loadAppSettingCellDescribers(){
         settingCellDescribers.removeAll()
 
         let c3 = UITableViewSwitchSubtitleCellDescriber()
@@ -534,10 +536,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c2)
     }
 
-    func loadAdditionalSettingCellDescribersIfNeeded(){
-        let vipOwnedPaid = AppCenter.charge.getChargesPaid().contains { $0.reward == .owned }
+    func loadContextualSettingCellDescribersIfNeeded(){
         let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == ShopAppSettingCells.vipHotline.hashValue }
-        if vipOwnedPaid && vipHotlineCellNotExisted {
+
+        let paidAsVIP = AppCenter.isPaidAsVIPInCurrentContext
+
+         if paidAsVIP && vipHotlineCellNotExisted {
+
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = ShopAppSettingCells.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
@@ -558,8 +563,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
-        loadAdditionalSettingCellDescribersIfNeeded()
-        loadPayDictionaries()
+        loadContextualSettingCellDescribersIfNeeded()
+        loadPayGroups()
         tableView.reloadData()
     }
 
@@ -584,7 +589,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return payDictionaries.count + (settingCellDescribers.count > 0 ? 1 : 0)
+        return payGroups.count + (settingCellDescribers.count > 0 ? 1 : 0)
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -592,16 +597,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section < payDictionaries.count ? payDictionaries[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
+        return section < payGroups.count ? payGroups[section].label : (settingCellDescribers.count > 0 ? "Settings".localized : nil)
     }
 
     private lazy var footerViews = [String:UIView]()
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 
-        if section < payDictionaries.count{
-            let d = payDictionaries[section]
-            if let descriptionText = d.description{
+        if section < payGroups.count{
+            let d = payGroups[section]
+            if let descriptionText = d.detailedLabel {
                 let k = String(describing:d.key)
                 if footerViews[k] == nil{
                     footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: descriptionText)
@@ -626,8 +631,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < payDictionaries.count
-                ? payDictionaries[section].items.count
+        return section < payGroups.count
+                ? payGroups[section].items.count
                 : settingCellDescribers.count
     }
 
@@ -636,7 +641,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section < payDictionaries.count
+        let cell = indexPath.section < payGroups.count
                 ? cellPayableDictionary(tableView, cellForRowAt: indexPath)
                 : cellSettingCellDescribers(tableView, cellForRowAt: indexPath)
         return cell
@@ -736,7 +741,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     func cellPayableDictionary(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let dictIndex = indexPath.section
-        let dict = payDictionaries[dictIndex]
+        let dict = payGroups[dictIndex]
         let dataItem = dict.items[indexPath.item]
 //        let selected = dataItem.enabled
 

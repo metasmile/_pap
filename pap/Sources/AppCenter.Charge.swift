@@ -16,6 +16,12 @@ extension AppCenter{
         return paidChargeableTypeInCurrentContext != nil
     }
 
+    //POLICY: VIP == '.owned' (permanently)
+    static var isPaidAsVIPInCurrentContext:Bool{
+        return charge.getChargesPaid().contains { $0.reward == .owned }
+        //this is '.owned' specific. different from 'isOwned'
+    }
+
     //INFO: Priority is critical.
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
