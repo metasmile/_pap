@@ -9,6 +9,8 @@ target 'pap' do
   pod 'Firebase/MLVisionTextModel'
   pod 'SwiftyStoreKit' #TODO: Life is short. SwiftyStoreKit has broad test coverage. Try and import internally.
 
+  # com.stells.pap.shop
+  pod 'Google-Mobile-Ads-SDK'
 
   # com.stells.pap.*
 #  pod 'Fabric'

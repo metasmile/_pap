@@ -273,7 +273,8 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , label: "Free App Passes".localized
                 , detailedLabel: "Engage Now And Recharge Free Use.".localized
                 , items: [
-                    PayItem(payable: MailContactPayment.self)
+                    PayItem(payable: FullscreenAdsViewingPayment.self)
+                    , PayItem(payable: MailContactPayment.self)
                     , PayItem(payable: SocialSharePayment.self)
                 ]
         )
@@ -437,11 +438,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     // Sections
     private lazy var payGroups:[PayGroup] = PayGroup.Default
     private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
-    private var shopSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var settingsCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         return payGroups + [
-            CellDescriberGroup(label: "Shop Settings".localized, detailedLabel: nil, describers: shopSettingsCellDescribers)
+            CellDescriberGroup(label: "Settings".localized, detailedLabel: nil, describers: settingsCellDescribers)
             , CellDescriberGroup(label: "Contact".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers)
         ].filter{ $0.itemsOfSection.count>0 }
     }
@@ -493,7 +494,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func loadShopSettingsCellDescribers(){
-        shopSettingsCellDescribers.removeAll()
+        settingsCellDescribers.removeAll()
 
         if !AppCenter.isPaidAsVIPInCurrentContext{
 
@@ -507,7 +508,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c3.valueHandler = { b in
                 Defaults.shared.showChargeButtonLevelColorInNavigationBar = (b as? Bool) ?? false
             }
-            shopSettingsCellDescribers.append(c3)
+            settingsCellDescribers.append(c3)
 
             let c4 = UITableViewSwitchSubtitleCellDescriber()
             c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
@@ -517,7 +518,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c4.valueHandler = { b in
                 Defaults.shared.showChargeButtonPercentageInNavigationBar = (b as? Bool) ?? false
             }
-            shopSettingsCellDescribers.append(c4)
+            settingsCellDescribers.append(c4)
         }
     }
 

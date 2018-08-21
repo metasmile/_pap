@@ -97,14 +97,21 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: MailContactPayment.self
                     , priceAmount: AmountObject(value:0.5)
-                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .fullscreenAdsViewing
+                    , reward: .timeOfUses
+                    , payment: FullscreenAdsViewingPayment.self
+                    , priceAmount: AmountObject(value:0.5)
+                    , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
             )
 
             // Promotional
             , AppCharge(type: .secretCode
                     , reward: .owned, payment: PermanentVIPProgramPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Ultimate VIP Pass".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"VIP Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And New.", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -369,7 +376,6 @@ private final class AppChargeBanker: ChargeBanker {
 
     private(set) var receiptStorageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
 
-    private let appShortVersionDescription = Defaults.shared.shortVersionDescription
     private lazy var receiptStorage = ChargeReceiptStorage(banker:self)
 
     fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = 8//60*60*24
@@ -397,9 +403,7 @@ private final class AppChargeBanker: ChargeBanker {
 
         let initialBalance = AmountObject(value: clamp(receiptStorage.balanceAmountValue, AmountObject.minValue, AmountObject.maxValue))
 
-        print("initializeBank:appShortVersionDescription: ",appShortVersionDescription)
-
-        switch appShortVersionDescription{
+        switch Defaults.shared.shortVersionDescription{
             case .first:
                 //INFO: give tutorial balance 3 days
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
