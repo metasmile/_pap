@@ -144,7 +144,7 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         container.addSubview(titleImageView)
         titleImageView.translatesAutoresizingMaskIntoConstraints = false
         titleImageView.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        titleImageView.heightAnchor.constraint(greaterThanOrEqualTo: titleImageView.widthAnchor, multiplier: 1).isActive = true
+        titleImageView.heightAnchor.constraint(lessThanOrEqualTo: titleImageView.widthAnchor, multiplier: 1).isActive = true
         titleImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
         titleImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0).isActive = true
         titleImageView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
