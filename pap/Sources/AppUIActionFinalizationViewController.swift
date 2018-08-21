@@ -40,12 +40,8 @@ extension AppUIActionFinalizationViewControllerDataSource {
 }
 
 protocol AppUIActionFinalizationViewControllerDelegate {
-    func actionFinalizationViewControllerDidCancel(_ controller: AppUIActionFinalizationViewController)
+    func close(_ controller: AppUIActionFinalizationViewController)
     func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController)
-    
-    func actionFinalizationViewControllerWillBeginProcessing(_ controller: AppUIActionFinalizationViewController)
-    func actionFinalizationViewControllerDidUpdateProcessing(_ controller: AppUIActionFinalizationViewController, with progress: Progress)
-    func actionFinalizationViewControllerDidFinishProcessing(_ controller: AppUIActionFinalizationViewController)
 }
 
 internal class ActionFinalizationContentView: UIView {
@@ -183,6 +179,48 @@ internal class SelfSizedTableView: UITableView {
     }
 }
 
+class AppUICircleProgressView: DesignableView {
+    lazy var trackLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.strokeColor = UIColor.lightGray.cgColor
+        layer.lineWidth = 6
+        layer.fillColor = nil
+        return layer
+    }()
+    
+    lazy var progressLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.strokeColor = tintColor.cgColor
+        layer.lineWidth = 6
+        layer.fillColor = nil
+        return layer
+    }()
+    
+    override func initialize() {
+        super.initialize()
+        
+        layer.addSublayer(trackLayer)
+        layer.addSublayer(progressLayer)
+        
+        progress = 0
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let path = UIBezierPath(arcCenter: CGPoint(x: bounds.width / 2, y: bounds.height / 2), radius: bounds.width / 2, startAngle:  -CGFloat.pi / 2, endAngle: CGFloat.pi * 2 - CGFloat.pi / 2, clockwise: true)
+        
+        trackLayer.path = path.cgPath
+        progressLayer.path = path.cgPath
+    }
+    
+    var progress: CGFloat = 0.0 {
+        willSet {
+            progressLayer.strokeEnd = newValue
+        }
+    }
+}
+
 // inspired by PKPaymentAuthorizationViewController
 
 class AppUIActionFinalizationViewController: UIViewController {
@@ -196,6 +234,8 @@ class AppUIActionFinalizationViewController: UIViewController {
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var actionTitleLabel: UILabel!
+    
+    @IBOutlet weak var actionProgressView: AppUICircleProgressView!
     
     private var items: [ActionFinalizationItem]?
     var dataSource: AppUIActionFinalizationViewControllerDataSource?
@@ -219,7 +259,7 @@ class AppUIActionFinalizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapToCloseGesture = UITapGestureRecognizer(target: self, action: #selector(self.close))
+        let tapToCloseGesture = UITapGestureRecognizer(target: self, action: #selector(self.closeButtonDidTap))
         backgroundView.addGestureRecognizer(tapToCloseGesture)
         
         contentView.contentView = tableView
@@ -240,14 +280,17 @@ class AppUIActionFinalizationViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    @IBAction private func close(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        
-        delegate?.actionFinalizationViewControllerDidCancel(self)
+    @IBAction private func closeButtonDidTap(_ sender: Any) {
+        close()
     }
     
     @IBAction func actionButtonDidTap(_ sender: Any) {
         delegate?.actionFinalizationViewControllerDidAction(self)
+    }
+    
+    func close() {
+        dismiss(animated: true, completion: nil)
+        delegate?.close(self)
     }
 }
 
@@ -285,3 +328,23 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
 }
 
 extension AppUIActionFinalizationViewController: UITableViewDelegate {}
+
+extension AppUIActionFinalizationViewController {
+    func actionProgressDidBegin(actionTitle: String?) {
+        actionTitleLabel.text = actionTitle
+        
+        actionProgressView.isHidden = false
+        actionProgressView.progress = 0
+    }
+    
+    func actionProgressDidUpdate(actionTitle: String?, progress: Float) {
+        actionTitleLabel.text = actionTitle
+        
+        actionProgressView.isHidden = false
+        actionProgressView.progress = CGFloat(progress)
+    }
+    
+    func actionProgressDidFinish(actionTitle: String?) {
+        actionTitleLabel.text = actionTitle
+    }
+}
