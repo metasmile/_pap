@@ -534,7 +534,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         settingCellDescribers.append(c2)
     }
 
-    func loadVIPSettingCellDescribers(){
+    func loadAdditionalSettingCellDescribersIfNeeded(){
         let vipOwnedPaid = AppCenter.charge.getChargesPaid().contains { $0.reward == .owned }
         let vipHotlineCellNotExisted = false == settingCellDescribers.contains { $0.itemIdentifier == ShopAppSettingCells.vipHotline.hashValue }
         if vipOwnedPaid && vipHotlineCellNotExisted {
@@ -558,7 +558,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
-        loadVIPSettingCellDescribers()
+        loadAdditionalSettingCellDescribersIfNeeded()
         loadPayDictionaries()
         tableView.reloadData()
     }

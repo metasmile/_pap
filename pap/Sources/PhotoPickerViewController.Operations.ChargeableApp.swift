@@ -38,11 +38,19 @@ extension PhotoPickerViewController{
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let paidInContext = chargeInCurrentContext != nil
+        let paidAsAnOwner = chargeInCurrentContext?.reward.isOwned == true
 
         let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
-        rightButtonItem.chargeableButton?.showsPercentage = selected == false && Defaults.shared.showChargeButtonPercentageInNavigationBar
-        rightButtonItem.chargeableButton?.showsColorLevel = Defaults.shared.showChargeButtonLevelColorInNavigationBar
-        rightButtonItem.chargeableButton?.showsAnimation = Defaults.shared.showChargeButtonLevelColorInNavigationBar
+
+        if paidAsAnOwner{
+            rightButtonItem.chargeableButton?.showsPercentage = false
+            rightButtonItem.chargeableButton?.showsColorLevel = false
+            rightButtonItem.chargeableButton?.showsAnimation = false
+        }else{
+            rightButtonItem.chargeableButton?.showsPercentage = selected == false && Defaults.shared.showChargeButtonPercentageInNavigationBar
+            rightButtonItem.chargeableButton?.showsColorLevel = Defaults.shared.showChargeButtonLevelColorInNavigationBar
+            rightButtonItem.chargeableButton?.showsAnimation = Defaults.shared.showChargeButtonLevelColorInNavigationBar
+        }
 
         if selected{
             if paidInContext {
