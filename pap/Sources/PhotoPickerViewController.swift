@@ -20,9 +20,7 @@ class PhotoPickerViewController: AppDockViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var batchPreviewView: PreviewView!
-    private var appDockContentLayoutStateRestoringAfterProcessing: AppDockContentLayoutState?
     
-    var progressBar: UIProgressView!
     private var taskProgress: Float = 0
 
     var dragSelectionGesture: DragSelectionGestureRecognizer!
@@ -116,21 +114,6 @@ class PhotoPickerViewController: AppDockViewController {
 
         //check photo library permission and load
         loadPhotoLibraryIfNeeded()
-
-        //navigation bar progress
-        if let navigationVC = self.navigationController {
-            progressBar = UIProgressView(progressViewStyle: .bar)
-            progressBar.isHidden = false
-
-            navigationVC.navigationBar.addSubview(progressBar)
-
-            let bottomConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .bottom, relatedBy: .equal, toItem: progressBar, attribute: .bottom, multiplier: 1, constant: 1)
-            let leftConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .leading, relatedBy: .equal, toItem: progressBar, attribute: .leading, multiplier: 1, constant: 0)
-            let rightConstraint = NSLayoutConstraint(item: navigationVC.navigationBar, attribute: .trailing, relatedBy: .equal, toItem: progressBar, attribute: .trailing, multiplier: 1, constant: 0)
-
-            progressBar.translatesAutoresizingMaskIntoConstraints = false
-            navigationVC.view.addConstraints([bottomConstraint, leftConstraint, rightConstraint])
-        }
         
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
@@ -427,7 +410,8 @@ class PhotoPickerViewController: AppDockViewController {
         vc.delegate = self
         vc.dataSource = ActionFinalizingDataSource(app: app)
         vc.setActionFinalizationItems([
-            ActionFinalizationItem(image: UIImage(named: app.info.iconBundleName ?? "")?.rounded(), description: app.info.displayName)
+            ActionFinalizationItem(image: UIImage(named: app.info.iconBundleName ?? "")?.rounded(), description: app.info.displayName),
+            ActionFinalizationItem(title: nil, description: formattedStringForSelectedPhotos)
         ])
         self.present(vc, animated: true, completion: nil)
         
@@ -468,26 +452,30 @@ class PhotoPickerViewController: AppDockViewController {
 
     //TODO: mod for all media types - numberOfPhotos + numberOfVideos
     private func updateSelectedItemsTitle() {
+        title = formattedStringForNumberOfSelectedItems ?? (self.collection?.localizedTitle ?? Bundle.main.displayName)
+    }
+    
+    private var formattedStringForNumberOfSelectedItems: String? {
         let selectedAssets = self.selectedAssetsInCollectionView
         let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
         let numberOfPhotos = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
         let numberOfItems = numberOfPhotos + numberOfVideos
-
+        
         if numberOfItems == 0 {
-            title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            return nil
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
                 let pluralizedString = "Photo" + (numberOfPhotos == 1 ? "" : "s")
-                title = "%d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
+                return "%d \(pluralizedString)".localizedFormatted(numberOfPhotos.decimalStyleString)
             }
             else if numberOfVideos > 0 && numberOfPhotos == 0 {
                 let pluralizedString = "Video" + (numberOfVideos == 1 ? "" : "s")
-                title = "%d \(pluralizedString)".localizedFormatted(numberOfVideos.decimalStyleString)
+                return "%d \(pluralizedString)".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
                 let pluralizedString = "Item" + (numberOfItems == 1 ? "" : "s")
-                title = "%d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
+                return "%d \(pluralizedString)".localizedFormatted(numberOfItems.decimalStyleString)
             }
         }
     }
@@ -565,6 +553,40 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         return footerText
+    }
+    
+    private var formattedStringForSelectedPhotos: String? {
+        let selectedAssets = self.selectedAssetsInCollectionView
+        let numberOfVideos = selectedAssets?.filter({ $0.mediaType == .video }).count ?? 0
+        let numberOfImages = selectedAssets?.filter({ $0.mediaType == .image }).count ?? 0
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        var text = ""
+        if numberOfImages > 0 {
+            if numberOfImages == 1 {
+                text += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+            else {
+                text += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+        }
+        
+        if numberOfVideos > 0 {
+            if numberOfImages > 0 {
+                text += ", "
+            }
+            
+            if numberOfVideos == 1 {
+                text += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+            else {
+                text += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+        }
+        
+        return text.isEmpty ? nil : text
     }
     
     private func updateAllPhotosTitle() {
@@ -769,8 +791,6 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.imageView, placeholderView: placeholderView)
                 photoEditorTransitionContext?.sourceView.isHidden = true
             }
-            
-//            appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.hero.isEnabled = true
@@ -803,8 +823,6 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         let tintColorToRestore = ((AppCenter.default.current as? ConfigurableApp.Type)?.defaultConfigValue as? AppConfigUIAttributeValuable)?.tintColor
 
         AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: tintColorToRestore))
-
-//        appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
         if let transitionContext = photoEditorTransitionContext {
             transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin
@@ -850,20 +868,12 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
     
     func batchPreviewViewWillBeginEdit(_ view: PreviewView) {
-//        titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         loadingIndicator.startAnimating()
         navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
-
-//        progressBar.isHidden = false
-//        progressBar.progress = 0
-//        UIView.animate(withDuration: 0.2) {
-//            self.progressBar.alpha = 1
-//        }
-//
-//        updateAppDockViewProcessingStart()
+        
         finalizingViewController?.actionProgressDidBegin(actionTitle: currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized)
     }
     
@@ -872,20 +882,11 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         let progressText = currentDisplayableApp?.titleDidUpdate(progress: progress)
             ?? title + " \(Int(progress * 100))%"
         
-//        if animated {
-//            titleFade = progressText
-//        }
-//        else {
-//            self.title = progressText
-//        }
-
-//        progressBar.setProgress(progress, animated: animated)
-        
         finalizingViewController?.actionProgressDidUpdate(actionTitle: progressText, progress: progress)
     }
     
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
-        if progressBar.progress < progress {
+        if let progressView = finalizingViewController?.actionProgressView, progressView.progress < progress {
             taskProgress = progress
             updateProgress(progress, title: "Processing...".localized)
         }
@@ -895,7 +896,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         guard AppAssets.selected.count > 0 else { return }
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
-        if progressBar.progress < currentProgress {
+        if let progressView = finalizingViewController?.actionProgressView, progressView.progress < currentProgress {
             updateProgress(currentProgress, title: "Downloading...".localized)
         }
     }
@@ -905,77 +906,45 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         
         let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
-        if progressBar.progress < currentProgress {
+        if let progressView = finalizingViewController?.actionProgressView, progressView.progress < currentProgress {
             updateProgress(currentProgress, title: "Processing...".localized)
         }
     }
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView) {
-//        titleFade = currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized
-//
-//        UIView.animate(withDuration: 0.6) {
-//            self.progressBar.alpha = 0
-//        }
         finalizingViewController?.actionProgressDidBegin(actionTitle: currentDisplayableApp?.titleWillCancel ?? "Cancelling...".localized)
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-//        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
-//
-//        UIView.animate(withDuration: 0.6) {
-//            self.progressBar.alpha = 0
-//        }
         finalizingViewController?.actionProgressDidFinish(actionTitle: currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized)
     }
     
     func batchPreviewViewDidCancelEdit(_ view: PreviewView) {
-        progressBar.isHidden = true
-        
         updateAllPhotosTitle()
         updateUIDisplays()
         updateVisibleCellsEnabled()
         
-//        updateAppDockViewProcessingEnd()
         finalizingViewController?.close()
     }
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
-        progressBar.isHidden = true
-        
         //POLICY: no keeps selected items
         deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
         updateUIDisplays()
         updateVisibleCellsEnabled()
-
-//        updateAppDockViewProcessingEnd()
+        
         finalizingViewController?.close()
         
         //POLICY: add recently used shortcut item
         ShortcutItemAppDelegate.appendShortcutItem(by: AppCenter.default.current)
     }
-    
-    private func updateAppDockViewProcessingStart() {
-        appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
-        appDockView?.setDrawerDisplay(forState: .minimized, reloadDockContentViews: true)
-        
-        appDockView?.disabled = true
-    }
-    
-    private func updateAppDockViewProcessingEnd() {
-        if let state = appDockContentLayoutStateRestoringAfterProcessing {
-            appDockView?.setDrawerDisplay(forState:state, reloadDockContentViews: true)
-            appDockContentLayoutStateRestoringAfterProcessing = nil
-        }
-        
-        appDockView?.disabled = false
-    }
 }
 
 extension PhotoPickerViewController: AppUIActionFinalizationViewControllerDelegate {
     func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController) {
-//
+        
     }
     
     func close(_ controller: AppUIActionFinalizationViewController) {

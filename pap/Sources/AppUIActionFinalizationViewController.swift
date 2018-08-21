@@ -214,9 +214,9 @@ class AppUICircleProgressView: DesignableView {
         progressLayer.path = path.cgPath
     }
     
-    var progress: CGFloat = 0.0 {
+    var progress: Float = 0.0 {
         willSet {
-            progressLayer.strokeEnd = newValue
+            progressLayer.strokeEnd = CGFloat(newValue)
         }
     }
 }
@@ -341,7 +341,7 @@ extension AppUIActionFinalizationViewController {
         actionTitleLabel.text = actionTitle
         
         actionProgressView.isHidden = false
-        actionProgressView.progress = CGFloat(progress)
+        actionProgressView.progress = progress
     }
     
     func actionProgressDidFinish(actionTitle: String?) {

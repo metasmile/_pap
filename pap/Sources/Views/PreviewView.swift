@@ -312,8 +312,7 @@ extension PreviewView {
 
         reaction.when(progress:{ response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
-
-            let requestedParam = response.request.param as? AppAsset
+            
             let totalCount = remained.count+completed.count
 
             assert(totalCount>0, "totalCount == 0 but progress has started")
@@ -328,24 +327,6 @@ extension PreviewView {
 
             //completed
             self.delegate?.batchPreviewView(self, didUpdateProgress: progress)
-
-            guard let param = requestedParam
-                , let index = param.indexPath else {
-                return
-            }
-
-            let numberOfItems = self.collectionView.numberOfItems(inSection: index.section)
-            if numberOfItems == 0{
-                return
-            }
-
-            // it is possible totalCount != numberOfItems (e.g. if an item was runtime-removed while progress as batch tasks)
-            let destItem = Int(Float(totalCount-1)*progress).clamped(to: 0...numberOfItems-1)
-
-            //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.pap/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
-            self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
-
-
         }).will(finish: { resultsByApps, respondables in
 
             self.delegate?.batchPreviewViewWillFinalize(self)
@@ -400,7 +381,6 @@ extension PreviewView {
         AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
             UIApplication.shared.endIgnoringInteractionEvents()
         }.did{
-//            self.delegate?.batchPreviewViewDidEndEdit(self)
             self.delegate?.batchPreviewViewDidCancelEdit(self)
         })
     }
