@@ -27,7 +27,7 @@ extension PHAssetUIAlertControllerSynchronizablePresenter {
         guard let items = items else {
             return
         }
-        guard let rootViewController = UIViewController.root else {
+        guard let rootViewController = UIViewController.presentable else {
             return
         }
 

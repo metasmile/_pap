@@ -37,7 +37,7 @@ extension TableViewController{
         let vc = UINavigationController(rootViewController: tvc)
 
         willPresent?()
-        UIViewController.root?.present(vc, animated: true, completion: didPresent)
+        UIViewController.present(vc, animated: true, completion: didPresent)
 
         self.navigationVC = vc
     }

@@ -62,7 +62,7 @@ extension CNContactViewController{
         assert(contactViewController.delegate==nil, "Do not define delegate object at \(String(describing: willPresent))")
 
         contactViewController.delegate = delegator
-        (onViewController ?? UIViewController.root)?.present(navigationController, animated: true) {
+        (onViewController ?? UIViewController.presentable)?.present(navigationController, animated: true) {
             didPresent?()
         }
     }

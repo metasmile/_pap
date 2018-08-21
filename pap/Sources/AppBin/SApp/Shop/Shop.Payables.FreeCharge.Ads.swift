@@ -59,7 +59,7 @@ struct FullscreenAdsViewingPayment:PreparablePayable{
                         paid = v.wasAdShown
                         asyncSignal.end()
                     }
-                    UIViewController.root?.present(v, animated: true)
+                    UIViewController.present(v, animated: true)
 
                 }else{
                     //failed to load ads, -> payment failed. -> exit

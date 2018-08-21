@@ -182,7 +182,7 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
 
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: cancelled))
 
-        UIViewController.root?.present(alert, animated: true) {
+        UIViewController.present(alert, animated: true) {
             self.actionSheetPresented?(alert)
         }
     }

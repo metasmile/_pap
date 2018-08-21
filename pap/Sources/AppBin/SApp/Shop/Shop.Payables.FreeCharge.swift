@@ -44,7 +44,7 @@ struct SocialSharePayment:Payable{
                 asyncSignal.end()
             }
             shareActivity.popoverPresentationController?.sourceView = UIViewController.root?.view
-            UIViewController.root?.present(shareActivity, animated: true, completion: nil)
+            UIViewController.present(shareActivity, animated: true, completion: nil)
         }
         asyncSignal.waitUntilEnd()
         return paid
@@ -83,7 +83,7 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
                 paid = sent
                 asyncSignal.end()
             }
-            UIViewController.root?.present(mailComposer, animated: true, completion: nil)
+            UIViewController.present(mailComposer, animated: true, completion: nil)
         }
 
         asyncSignal.waitUntilEnd()
