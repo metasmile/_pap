@@ -65,7 +65,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
         // Scope that able to handle Asset if not -> Selection will be disabled.
         if let asset = PHAssets.fetched.asset(at: indexPath)
-        , let item = AppAssets.selected.at(unsafeIndex:indexPath.item) ?? AppAsset.create(for:asset){
+        , let item = AppAssets.selected.by(asset) ?? AppAsset.create(for:asset){
 
             // Scope that able to customize for controlling collection view.
             if let collectableApp = collectionViewDisplayableApp {
