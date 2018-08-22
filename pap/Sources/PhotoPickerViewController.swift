@@ -418,7 +418,7 @@ class PhotoPickerViewController: AppDockViewController {
         vc.setActionFinalizationItems([
             ActionFinalizationItem(image: UIImage(named: app.info.iconBundleName ?? "")?.rounded(), description: app.info.displayName),
             ActionFinalizationItem(title: nil, description: formattedStringForSelectedPhotos),
-//            ActionFinalizationItem(customView: bannerView)
+//            ActionFinalizationItem(title: "Ads", customDescriptionView: bannerView)
         ])
         self.present(vc, animated: true, completion: nil)
         

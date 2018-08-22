@@ -67,6 +67,7 @@ struct ActionFinalizationItem {
     var description: String?
     var image: UIImage?
     var customView: UIView? // e.g. banner
+    var customDescriptionView: UIView?
     
     init(title: String? = nil, description: String? = nil) {
         self.title = title
@@ -80,6 +81,11 @@ struct ActionFinalizationItem {
     
     init(customView: UIView?) {
         self.customView = customView
+    }
+    
+    init(title: String? = nil, customDescriptionView: UIView?) {
+        self.title = title
+        self.customDescriptionView = customDescriptionView
     }
 }
 
@@ -118,8 +124,25 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         }
         didSet {
             if let view = customView {
-                contentView.addSubview(view)
-                view.fitConstraints(to: contentView)
+                container.addSubview(view)
+                view.fitConstraints(to: container)
+            }
+        }
+    }
+    
+    var customDescriptionView: UIView? {
+        willSet {
+            customDescriptionView?.removeFromSuperview()
+        }
+        didSet {
+            if let view = customDescriptionView {
+                container.addSubview(view)
+                
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+                view.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+                view.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor).isActive = true
+                view.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
             }
         }
     }
@@ -134,10 +157,11 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         initialize()
     }
     
+    private lazy var container: UIView = UIView(frame: .zero)
+    
     private func initialize() {
         backgroundColor = nil
         
-        let container = UIView(frame: .zero)
         contentView.addSubview(container)
         
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -176,7 +200,8 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         titleLabel.text = nil
         descriptionLabel.text = nil
         titleImageView.image = nil
-        customView?.removeFromSuperview()
+        customView = nil
+        customDescriptionView = nil
     }
 }
 
@@ -378,6 +403,7 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
         cell.descriptionLabel.text = item.description?.localized.localizedUppercase
         cell.titleImageView.image = item.image
         cell.customView = item.customView
+        cell.customDescriptionView = item.customDescriptionView
     }
     
     private func updateCellForItem(at indexPath: IndexPath) {
