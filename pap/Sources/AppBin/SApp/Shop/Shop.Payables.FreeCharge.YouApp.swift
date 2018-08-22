@@ -54,9 +54,6 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdMana
         return "Join".localized
     }
 
-    private lazy var cancelButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
-    private lazy var submitButton:UIBarButtonItem = UIBarButtonItem(title: "Submit".localized, style: .done, target: self, action: #selector(self.submitButtonDidTap))
-
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
         var paid = false
@@ -72,23 +69,13 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdMana
                 asyncSignal.end()
             }
 
-            let nVC = PreferredUINavigationController(rootViewController: formVC)
-            nVC.preferredLeftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
-            nVC.preferredRightBarButtonItem = UIBarButtonItem(title: "Submit".localized, style: .done, target: self, action: #selector(self.submitButtonDidTap))
-            nVC.preferredTitle = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
+            let nVC = UINavigationController(rootViewController: formVC)
+            formVC.navigationItem.title = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
             UIViewController.present(nVC, animated: true)
         }
         asyncSignal.waitUntilEnd()
 
         return paid
-    }
-
-    @objc func cancelButtonDidTap(sender: Any) {
-        while signal?.end().began ?? false {}
-    }
-
-    @objc func submitButtonDidTap(sender: Any) {
-        while signal?.end().began ?? false {}
     }
 }
 
@@ -128,6 +115,9 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit".localized, style: .done, target: self, action: #selector(self.submitButtonDidTap))
 
         LabelRow.defaultCellUpdate = { cell, row in
             cell.contentView.backgroundColor = .red
@@ -393,7 +383,7 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
                 .onCellSelection { cell, row in
                     
                     if row.section?.form?.validate().count == 0{
-                        (self.navigationController ?? self).dismiss(animated: true, completion: {
+                        self.dismiss(animated: true, completion: {
                             self.wasDone = true
                         })
                     }
@@ -401,5 +391,15 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
                 }
 
 
+    }
+    
+    @objc func cancelButtonDidTap(sender: Any) {
+        dismiss(animated: true, completion: {
+            self.wasDone = false
+        })
+    }
+    
+    @objc func submitButtonDidTap(sender: Any) {
+        
     }
 }
