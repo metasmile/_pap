@@ -179,9 +179,7 @@ class AppDockViewController: UIViewController {
     }
 
     @objc func doneButtonDidTap(sender: Any) {
-        if appDockView?.isContentLayoutMaximized == true {
-            appDockView?.closeDrawer()
-        }
+        
     }
     
     var appDockInsets: UIEdgeInsets {

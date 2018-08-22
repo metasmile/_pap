@@ -31,13 +31,15 @@ internal class AppDockDrawerView: DesignableView {
     
     private lazy var rightBarButton: UIButton = {
         let button = UIButton(type: .system)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
         button.setTitleColor(tintColor, for: .normal)
         return button
     }()
     
     func setRightBarButtonTitle(_ title: String?) {
         rightBarButton.setTitle(title, for: .normal)
+        
+        rightBarButton.isEnabled = title?.isEmpty == false
     }
     
     func addRightBarButtonTap(target: Any?, action: Selector) {
@@ -133,7 +135,7 @@ internal class AppDockDrawerView: DesignableView {
         
         addSubview(rightBarButton)
         rightBarButton.translatesAutoresizingMaskIntoConstraints = false
-        rightBarButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        rightBarButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         rightBarButton.centerYAnchor.constraint(equalTo: appIconView.centerYAnchor).isActive = true
         rightBarButton.isHidden = true
         
