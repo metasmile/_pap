@@ -28,7 +28,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     lazy var dimmedView: UIView = {
         let view = UIView(frame: self.view.bounds)
         view.backgroundColor = .black
-        view.alpha = 0.5
+        view.alpha = 0.7
         view.isHidden = true
         return view
     }()
