@@ -2,6 +2,7 @@ PODS:
   - Armchair (0.3.5)
   - CocoaImageHashing (1.6.1)
   - DefaultsKit (0.0.9)
+  - Eureka (4.2.0)
   - Firebase/AdMob (5.2.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.31.0)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - Armchair (from `https://github.com/UrbanApps/Armchair`)
   - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
   - DefaultsKit (from `https://github.com/metasmile/DefaultsKit`)
+  - Eureka
   - Firebase/AdMob
   - Firebase/Core (= 5.2.0)
   - Firebase/MLVision
@@ -97,6 +99,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -143,6 +146,7 @@ SPEC CHECKSUMS:
   Armchair: 962c54518594a940022e0327b1570f8e61ab7bed
   CocoaImageHashing: d7d3813c5aeb6ddcf4e57219dc63c741b8a16e0a
   DefaultsKit: e47d11c54a53c66f9e5c65a1992dead90bc7144f
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
@@ -166,6 +170,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: b0a950fb3a73dae40a1f67aefe1298b99bf855c1
+PODFILE CHECKSUM: b575c6d30c320766056638de856c9d7b5086e1f8
 
 COCOAPODS: 1.5.3

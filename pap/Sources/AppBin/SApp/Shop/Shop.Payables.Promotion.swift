@@ -9,7 +9,7 @@ import Armchair
 
 struct WelcomeTutorialPayment:Payable{
     //Actually will not be used.
-    private(set) static var label: String = "Welcome Free Use Pass"
+    private(set) static var label: String = "Use"
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         return Defaults.shared.shortVersionDescription == .first

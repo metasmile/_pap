@@ -84,10 +84,6 @@
 
 /* Generated from genl10n: Shop.SApp.swift#82 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#122 */
-"%@ Day of Free Use + Owning Opportunity" = "%@ Day of Free Use + Owning Opportunity";
-/* Generated from genl10n: AppCenter.Charge.swift#274 */
-"%@ Day of Free Uses" = "%@ Day of Free Uses";
 /* Generated from genl10n: AppCenter.Charge.swift#286 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -225,7 +221,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1275, Cleaner.BApp.swift#487 */
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Free Use." = "Engage Now And Recharge Free Use.";
+"Engage Now And Recharge Free Period Repeatedly." = "Engage Now And Recharge Free Period Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#154 */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#465 */
@@ -254,6 +250,10 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Free App Passes" = "Free App Passes";
+/* Generated from genl10n: AppCenter.Charge.swift#122 */
+"Free Use %@ Day + Owning Opportunity" = "Free Use %@ Day + Owning Opportunity";
+/* Generated from genl10n: AppCenter.Charge.swift#274 */
+"Free Use %@ Days" = "Free Use %@ Days";
 /* Generated from genl10n: AppCenter.Charge.swift#353 */
 "Free Use For All" = "Free Use For All";
 /* Generated from genl10n: GIFMaker.BApp.swift#271 */
@@ -290,7 +290,7 @@
 "Items" = "Items";
 /* Generated from genl10n: AppCenter.Charge.swift#121 */
 "Join %@ Program" = "Join %@ Program";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#30 */
 "Join" = "Join";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Landscape" = "Landscape";
@@ -462,6 +462,8 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#109 */
 "Starting to check edited photos..." = "Starting to check edited photos...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#336 */
+"Submit" = "Submit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#385, Finder.BApp.swift#1303 */
@@ -511,7 +513,7 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#57 */
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#114 */
-"Visit Facebook" = "Visit Facebook";
+"Visit our SNS Pages" = "Visit our SNS Pages";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#240, Finder.BApp.swift#164 */
@@ -519,7 +521,7 @@
 /* Generated from genl10n: Stabilizer.swift#331 */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#71 */
-"Welcome Free Trial Pack" = "Welcome Free Trial Pack";
+"Welcome Free Period" = "Welcome Free Period";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#115 */
 "Welcome on %@" = "Welcome on %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */

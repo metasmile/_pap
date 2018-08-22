@@ -302,7 +302,7 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
         button.titleLabel?.textAlignment = .right
 
         let titleFont = button.titleLabel?.font ?? UIFont.systemFont(ofSize: UIFont.buttonFontSize)
-        let titleFontColor = button.titleColor(for: state) ?? self.tintColor
+        let titleFontColor:UIColor = button.titleColor(for: state) ?? self.tintColor
 
         let detailTitleFont = detailTextLabel?.font ?? UIFont.systemFont(ofSize: titleFont.pointSize/0.5)
         let detailTitleFontColor = detailTextLabel?.textColor ?? UIColor.gray

@@ -7,29 +7,29 @@ target 'pap' do
   pod 'Firebase/Core', '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
-  pod 'SwiftyStoreKit' #TODO: Life is short. SwiftyStoreKit has broad test coverage. Try and import internally.
+ # pod 'Fabric'
+ # pod 'Crashlytics'
 
-  # com.stells.pap.shop
-  pod 'Firebase/AdMob'
-
-  # com.stells.pap.*
-#  pod 'Fabric'
-#  pod 'Crashlytics'
+  # Core Wrappers
   pod 'R.swift', '4.0.0' #INFO: R.swift will major update soon : 5.0.0
   pod 'DefaultsKit', :git => "https://github.com/metasmile/DefaultsKit" #TODO: consider to get into CodeKit with Subfile
-  pod 'SwiftyGif'
-  pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
-  pod 'Hero'
-  # pod 'SwipeCellKit'
 
+  # Common Solutions
+  pod 'Hero'
+  pod 'SwiftyGif'
+
+  # com.stells.pap.shop
+  pod 'Eureka'
+  pod 'Firebase/AdMob'
+  pod 'SwiftyStoreKit'
+  pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
   # com.stells.pap.pdfactory
   pod 'TPPDF'
-
-  # using: FirebaseMLVision.VisionText.Parser.Contacts.swift
-  pod 'PhoneNumberKit', '~> 2.1'
-  
   # com.stells.pap.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
+
+  # com.stells.pap.finder,phonecall - FirebaseMLVision.VisionText.Parser.Contacts.swift
+  pod 'PhoneNumberKit', '~> 2.1'
 
   target 'papTests' do
     inherit! :complete

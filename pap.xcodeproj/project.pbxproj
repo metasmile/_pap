@@ -204,6 +204,7 @@
 		4F71DBC795D261C726708C90 /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */; };
 		4F71DBC8D36C8DA15A02C033 /* PhotoPickerViewController.UICollectionView.CachingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8D0CD35711021E28E23 /* PhotoPickerViewController.UICollectionView.CachingImage.swift */; };
 		4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */; };
+		4F71DBD0999E4DBD935C78B0 /* Shop.Payables.FreeCharge.YouApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */; };
 		4F71DBF919091EE6E4126CF3 /* auto_crop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D5B3D16631A023BE8643 /* auto_crop.png */; };
 		4F71DC000A1FD35E151226BB /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
 		4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */; };
@@ -459,6 +460,7 @@
 		4F71D5FFD5845C0C6055464D /* AppDock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDock.swift; sourceTree = "<group>"; };
 		4F71D605DE80A5FB8CD97923 /* Converter.Mp4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mp4.swift; sourceTree = "<group>"; };
 		4F71D61975F96BAE2FA0BC93 /* CodeKit.CIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CIImage.swift; sourceTree = "<group>"; };
+		4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.FreeCharge.YouApp.swift; sourceTree = "<group>"; };
 		4F71D623E81A421C6B35DECB /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.MobileCoreSerivices.UTCoreTypes.swift; sourceTree = "<group>"; };
 		4F71D6262EC75C4CC6E4BDB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
 		4F71D6463130DBC1725704C0 /* gifmaker_preview_frame_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_7.png; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 				4F71D3C0548D8733197A38CB /* Shop.Payables.FreeCharge.MailContactTypes.swift */,
 				4F71D2554588E3B8582A1C6E /* Shop.Payables.FreeCharge.URLVisitingTypes.swift */,
 				4F71D15765FA3497835D1B26 /* Shop.GoogleMobileAds */,
+				4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2249,6 +2252,7 @@
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -2266,6 +2270,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -2293,6 +2298,7 @@
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -2310,6 +2316,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -2561,6 +2568,7 @@
 				4F71DCEF4FC63F6AB21C5CFD /* KeyPathWatchable.swift in Sources */,
 				4F71D99239049D993D9FC972 /* KeyPathWatchable.UIViewController.swift in Sources */,
 				4F71D0CA5A875929714F0240 /* NetworkReachabilityManager.swift in Sources */,
+				4F71DBD0999E4DBD935C78B0 /* Shop.Payables.FreeCharge.YouApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

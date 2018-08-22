@@ -39,4 +39,16 @@ extension UIViewController{
         }
         return vc
     }
+
+    func addContentViewController(_ contentViewController: UIViewController) {
+        self.addChildViewController(contentViewController)
+        self.view.addSubview(contentViewController.view)
+        contentViewController.didMove(toParentViewController: self)
+    }
+
+    func removeContentViewController(_ contentViewController: UIViewController) {
+        contentViewController.willMove(toParentViewController: nil)
+        contentViewController.view.removeFromSuperview()
+        contentViewController.removeFromParentViewController()
+    }
 }

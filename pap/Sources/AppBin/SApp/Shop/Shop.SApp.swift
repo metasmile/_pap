@@ -271,9 +271,9 @@ private struct PayGroup:Hashable, Equatable, Section {
         , PayGroup(
                 key: .FreeCharge
                 , label: "Free App Passes".localized
-                , detailedLabel: "Engage Now And Recharge Free Use.".localized
+                , detailedLabel: "Engage Now And Recharge Free Period Repeatedly.".localized
                 , items: [
-                    PayItem(payable: URLVisitingPayment<URLVisitingTypeProductHuntSurvey>.self),
+                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: FullscreenAdsViewingPayment.self),
                     PayItem(payable: SocialSharePayment.self),
                     PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),

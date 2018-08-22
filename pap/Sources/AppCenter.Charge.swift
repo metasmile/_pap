@@ -68,7 +68,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: WelcomeTutorialPayment.self
                     , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
-                    , describable: AppChargeDescription(title:"Welcome Free Trial Pack".localized, description: nil, iconImage: nil) 
+                    , describable: AppChargeDescription(title:"Welcome Free Period".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .onPromptRating
@@ -111,15 +111,15 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: URLVisitingPayment<URLVisitingTypeFacebook>.self
                     , priceAmount: AmountObject(value:0.1)
-                    , describable: AppChargeDescription(title:"Visit Facebook".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Visit our SNS Pages".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .youApp
                     , reward: .timeOfUses
-                    , payment: URLVisitingPayment<URLVisitingTypeProductHuntSurvey>.self
+                    , payment: YouAppProgramPayment.self
                     , priceAmount: AmountObject(value:0.6)
                     , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "%@ Day of Free Use + Owning Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program License", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Free Use %@ Day + Owning Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program License", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
             )
 
             // Promotional
@@ -271,7 +271,7 @@ class AppCharge: Charge {
             switch (charge.reward) {
             case .timeOfUses:
                 if let unit = unit {
-                    return "%@ Day of Free Uses".localizedFormatted(unit)
+                    return "Free Use %@ Days".localizedFormatted(unit)
                 }
             default:
                 break
