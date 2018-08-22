@@ -176,10 +176,16 @@ internal class SelfSizedTableView: UITableView {
 }
 
 class AppUICircleProgressView: DesignableView {
+    enum ProgressType {
+        case progress
+        case indicator
+    }
+    
     lazy var trackLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = UIColor.lightGray.cgColor
-        layer.lineWidth = 4
+        layer.opacity = 0.5
+        layer.lineWidth = 1.5
         layer.fillColor = nil
         return layer
     }()
@@ -187,10 +193,26 @@ class AppUICircleProgressView: DesignableView {
     lazy var progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = tintColor.cgColor
-        layer.lineWidth = 4
+        layer.lineWidth = 1.5
         layer.fillColor = nil
         return layer
     }()
+    
+    var progressType: ProgressType = .progress {
+        didSet {
+            switch progressType {
+            case .progress:
+                progressLayer.removeAnimation(forKey: "indicator")
+            case .indicator:
+                let anim = CABasicAnimation(keyPath: "transform.rotation")
+                anim.repeatCount = Float.infinity
+                anim.byValue = CGFloat.pi * 2
+                anim.duration = 1
+                progressLayer.add(anim, forKey: "indicator")
+            }
+            setNeedsLayout()
+        }
+    }
     
     override func initialize() {
         super.initialize()
@@ -204,15 +226,30 @@ class AppUICircleProgressView: DesignableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let path = UIBezierPath(arcCenter: CGPoint(x: bounds.width / 2, y: bounds.height / 2), radius: bounds.width / 2, startAngle:  -CGFloat.pi / 2, endAngle: CGFloat.pi * 2 - CGFloat.pi / 2, clockwise: true)
+        let path = UIBezierPath(arcCenter: .zero, radius: bounds.width / 2, startAngle:  -CGFloat.pi / 2, endAngle: CGFloat.pi * 2 - CGFloat.pi / 2, clockwise: true)
         
-        trackLayer.path = path.cgPath
-        progressLayer.path = path.cgPath
+        switch progressType {
+        case .progress:
+            trackLayer.path = path.cgPath
+            progressLayer.path = path.cgPath
+        case .indicator:
+            trackLayer.path = nil
+            progressLayer.path = path.cgPath
+            progressLayer.strokeEnd = 0.95
+        }
+        
+        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        trackLayer.position = center
+        progressLayer.position = center
     }
     
     var progress: Float = 0.0 {
         willSet {
             progressLayer.strokeEnd = CGFloat(newValue)
+            
+            if progressType != .progress {
+                progressType = .progress
+            }
         }
     }
 }
@@ -220,18 +257,27 @@ class AppUICircleProgressView: DesignableView {
 // inspired by PKPaymentAuthorizationViewController
 
 class AppUIActionFinalizationViewController: UIViewController {
-    @IBOutlet weak var titleImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak private var titleImageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
     
     @IBOutlet weak private var backgroundView: UIView!
     @IBOutlet weak private var cancelButton: UIButton!
     
-    @IBOutlet weak var contentView: ActionFinalizationContentView!
+    @IBOutlet weak private var contentView: ActionFinalizationContentView!
     
-    @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var actionTitleLabel: UILabel!
+    @IBOutlet weak private var actionButton: UIButton!
+    @IBOutlet weak private var actionTitleLabel: UILabel!
     
-    @IBOutlet weak var actionProgressView: AppUICircleProgressView!
+    @IBOutlet weak private var actionProgressView: AppUICircleProgressView!
+    var progress: Float {
+        get {
+            return actionProgressView.progress
+        }
+        
+        set {
+            return actionProgressView.progress = newValue
+        }
+    }
     
     private var items: [ActionFinalizationItem]?
     var dataSource: AppUIActionFinalizationViewControllerDataSource?
@@ -342,5 +388,8 @@ extension AppUIActionFinalizationViewController {
     
     func actionProgressDidFinish(actionTitle: String?) {
         actionTitleLabel.text = actionTitle
+        
+        actionProgressView.isHidden = false
+        actionProgressView.progressType = .indicator
     }
 }
