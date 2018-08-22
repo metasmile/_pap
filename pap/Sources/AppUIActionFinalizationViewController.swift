@@ -66,6 +66,7 @@ struct ActionFinalizationItem {
     var title: String?
     var description: String?
     var image: UIImage?
+    var customView: UIView? // e.g. banner
     
     init(title: String? = nil, description: String? = nil) {
         self.title = title
@@ -75,6 +76,10 @@ struct ActionFinalizationItem {
     init(image: UIImage? = nil, description: String? = nil) {
         self.image = image
         self.description = description
+    }
+    
+    init(customView: UIView?) {
+        self.customView = customView
     }
 }
 
@@ -106,6 +111,18 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
+    
+    var customView: UIView? {
+        willSet {
+            customView?.removeFromSuperview()
+        }
+        didSet {
+            if let view = customView {
+                contentView.addSubview(view)
+                view.fitConstraints(to: contentView)
+            }
+        }
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -159,6 +176,7 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         titleLabel.text = nil
         descriptionLabel.text = nil
         titleImageView.image = nil
+        customView?.removeFromSuperview()
     }
 }
 
@@ -359,6 +377,7 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
         cell.titleLabel.text = item.title?.localized.localizedUppercase
         cell.descriptionLabel.text = item.description?.localized.localizedUppercase
         cell.titleImageView.image = item.image
+        cell.customView = item.customView
     }
     
     private func updateCellForItem(at indexPath: IndexPath) {

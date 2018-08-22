@@ -72,6 +72,8 @@ extension PhotoPickerViewController{
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
+        
+        appDockView?.setDrawerRightBarButtonTitle(navigationItem.rightBarButtonItem?.title)
         return false
     }
 

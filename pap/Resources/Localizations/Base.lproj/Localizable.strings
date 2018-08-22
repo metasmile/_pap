@@ -216,7 +216,7 @@
 "Display Remaining Level" = "Display Remaining Level";
 /* Generated from genl10n: pap.Strings.swift#49 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
-/* Generated from genl10n: PhotoPickerViewController.swift#902 */
+/* Generated from genl10n: PhotoPickerViewController.swift#909 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#659, Finder.BApp.swift#1225 */
 "E-mail Address" = "E-mail Address";
@@ -230,7 +230,7 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#465 */
 "Export" = "Export";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#129 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#131 */
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#80 */
 "Filters" = "Filters";
@@ -324,7 +324,7 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#584 */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#116 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#118 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#598, Finder.BApp.swift#1666, Cleaner.BApp.swift#880 */
 "On Standby" = "On Standby";
@@ -360,7 +360,7 @@
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: PhotoPickerViewController.swift#402 */
+/* Generated from genl10n: PhotoPickerViewController.swift#403 */
 "Processing" = "Processing";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Purchase %@" = "Purchase %@";
@@ -402,7 +402,7 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
-/* Generated from genl10n: PhotoPickerViewController.swift#921 */
+/* Generated from genl10n: PhotoPickerViewController.swift#928 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Stabilizer.swift#419, PDFactory.AppDockContent.swift#141 */
 "Scale To Fit" = "Scale To Fit";
@@ -452,11 +452,11 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#100 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
-/* Generated from genl10n: PhotoPickerViewController.swift#493 */
+/* Generated from genl10n: PhotoPickerViewController.swift#500 */
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#160 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#879 */
+/* Generated from genl10n: PhotoPickerViewController.swift#886 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#109 */
 "Starting to check edited photos..." = "Starting to check edited photos...";
@@ -470,7 +470,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1322 */
 "Text" = "Text";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#122 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#124 */
 "This App Is Yours." = "This App Is Yours.";
 /* Generated from genl10n: Transform.BApp.swift#58 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
@@ -480,7 +480,7 @@
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Translate" = "Translate";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#123 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#125 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
 /* Generated from genl10n: AppCenter.Charge.swift#137 */
 "Ultimate Pass" = "Ultimate Pass";
@@ -518,7 +518,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#71 */
 "Welcome Free Trial Pack" = "Welcome Free Trial Pack";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#115 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#117 */
 "Welcome on %@" = "Welcome on %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
@@ -526,7 +526,7 @@
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#545 */
 "Write" = "Write";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#130 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#132 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "You can select only items that matched with starting format.";

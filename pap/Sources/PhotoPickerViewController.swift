@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import PhotosUI
 import Hero
+import GoogleMobileAds
 
 fileprivate struct PhotoEditorTransitionContext {
     var sourceView: UIView
@@ -407,11 +408,17 @@ class PhotoPickerViewController: AppDockViewController {
             }
         }
         
+        let bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         vc.delegate = self
         vc.dataSource = ActionFinalizingDataSource(app: app)
         vc.setActionFinalizationItems([
             ActionFinalizationItem(image: UIImage(named: app.info.iconBundleName ?? "")?.rounded(), description: app.info.displayName),
-            ActionFinalizationItem(title: nil, description: formattedStringForSelectedPhotos)
+            ActionFinalizationItem(title: nil, description: formattedStringForSelectedPhotos),
+//            ActionFinalizationItem(customView: bannerView)
         ])
         self.present(vc, animated: true, completion: nil)
         
