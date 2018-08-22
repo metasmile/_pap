@@ -58,7 +58,7 @@ extension PhotoPickerViewController{
 
             } else {
                 rightButtonItem.title = doneButton?.title
-                rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
+                rightButtonItem.normalizedValue = paidAsAnOwner ? 0 : AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTap)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
@@ -68,7 +68,7 @@ extension PhotoPickerViewController{
         }
 
         rightButtonItem.title = nil
-        rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
+        rightButtonItem.normalizedValue = paidAsAnOwner ? 0 : AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTap)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
