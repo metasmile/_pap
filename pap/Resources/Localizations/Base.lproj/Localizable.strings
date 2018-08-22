@@ -290,12 +290,12 @@
 "Items" = "Items";
 /* Generated from genl10n: AppCenter.Charge.swift#121 */
 "Join %@ Program" = "Join %@ Program";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32 */
+"Join" = "Join";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#107 */
 "Layout" = "Layout";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32 */
-"Learn More" = "Learn More";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
@@ -508,7 +508,7 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: AppCenter.Charge.swift#107 */
 "View Fullscreen Ads" = "View Fullscreen Ads";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#44 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#61 */
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#114 */
 "Visit Facebook" = "Visit Facebook";
