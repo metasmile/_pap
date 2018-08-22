@@ -492,7 +492,7 @@ class PhotoPickerViewController: AppDockViewController {
             let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
             doneButton?.title = definedTitle ?? "Start".localized
         }
-
+        
         //update done execution state
         if updateDoneButtonChargeableState() {
             navigationItem.setLeftBarButton(self.cancelButton, animated: true)
@@ -508,6 +508,8 @@ class PhotoPickerViewController: AppDockViewController {
                 batchPreviewView.reloadContent()
             }
         }
+        
+        appDockView?.setDrawerRightBarButtonTitle(navigationItem.rightBarButtonItem?.title)
     }
 
     var estimatedAvailableSelectedItems:Int{
@@ -995,6 +997,12 @@ extension PhotoPickerViewController: AppDockViewDelegate{
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
         setViewControllerDisabled(isOpened)
+    }
+    
+    func appDockViewDidSelectRightBarButton(in view: AppDockView) {
+        if let doneButton = self.doneButton {
+            doneButtonDidTap(sender: doneButton)
+        }
     }
 }
 

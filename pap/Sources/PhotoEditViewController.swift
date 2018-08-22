@@ -284,6 +284,8 @@ extension PhotoEditViewController: AppDockViewDelegate{
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
         setViewControllerDisabled(isOpened)
     }
+    
+    func appDockViewDidSelectRightBarButton(in view: AppDockView) {}
 }
 
 // MARK: - Photos

@@ -216,7 +216,7 @@
 "Display Remaining Level" = "Display Remaining Level";
 /* Generated from genl10n: pap.Strings.swift#49 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
-/* Generated from genl10n: PhotoPickerViewController.swift#900 */
+/* Generated from genl10n: PhotoPickerViewController.swift#902 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#659, Finder.BApp.swift#1225 */
 "E-mail Address" = "E-mail Address";
@@ -402,7 +402,7 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
-/* Generated from genl10n: PhotoPickerViewController.swift#919 */
+/* Generated from genl10n: PhotoPickerViewController.swift#921 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Stabilizer.swift#419, PDFactory.AppDockContent.swift#141 */
 "Scale To Fit" = "Scale To Fit";
@@ -456,7 +456,7 @@
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#160 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#877 */
+/* Generated from genl10n: PhotoPickerViewController.swift#879 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#109 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

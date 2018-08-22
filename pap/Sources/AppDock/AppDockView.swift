@@ -30,6 +30,7 @@ protocol AppDockViewDelegate {
     func appDockView(_ view: AppDockView, didSelectItemWith item: AppDockItem)
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool)
     func appDockView(_ view: AppDockView, needsScrollToBottom: Bool)
+    func appDockViewDidSelectRightBarButton(in view: AppDockView)
 }
 
 class AppDockGestureRecognizer: UIPanGestureRecognizer {
@@ -131,6 +132,7 @@ class AppDockView: CustomView {
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
+        drawerView.addRightBarButtonTap(target: self, action: #selector(self.drawerRightBarButtonDidTap))
 
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
@@ -230,6 +232,14 @@ class AppDockView: CustomView {
         }else{
             return hasAppControllerAsLayout
         }
+    }
+    
+    func setDrawerRightBarButtonTitle(_ title: String?) {
+        drawerView.setRightBarButtonTitle(title)
+    }
+    
+    @objc private func drawerRightBarButtonDidTap(sender: Any) {
+        delegate?.appDockViewDidSelectRightBarButton(in: self)
     }
 
     @IBOutlet private weak var dimmedView: UIView!

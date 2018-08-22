@@ -28,6 +28,21 @@ internal class AppDockDrawerView: DesignableView {
         label.textColor = .black
         return label
     }()
+    
+    private lazy var rightBarButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
+        button.setTitleColor(tintColor, for: .normal)
+        return button
+    }()
+    
+    func setRightBarButtonTitle(_ title: String?) {
+        rightBarButton.setTitle(title, for: .normal)
+    }
+    
+    func addRightBarButtonTap(target: Any?, action: Selector) {
+        rightBarButton.addTarget(target, action: action, for: .touchUpInside)
+    }
 
     var topMargin: CGFloat = 6
     override var tintColor: UIColor! {
@@ -63,6 +78,7 @@ internal class AppDockDrawerView: DesignableView {
         didSet {
             appIconView.isHidden = !showsTitle
             appTitleLabel.isHidden = !showsTitle
+            rightBarButton.isHidden = !showsTitle
             setNeedsDisplay()
         }
     }
@@ -114,6 +130,12 @@ internal class AppDockDrawerView: DesignableView {
         appTitleLabel.leadingAnchor.constraint(equalTo: appIconView.trailingAnchor, constant: 8).isActive = true
         appTitleLabel.centerYAnchor.constraint(equalTo: appIconView.centerYAnchor).isActive = true
         appTitleLabel.isHidden = true
+        
+        addSubview(rightBarButton)
+        rightBarButton.translatesAutoresizingMaskIntoConstraints = false
+        rightBarButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        rightBarButton.centerYAnchor.constraint(equalTo: appIconView.centerYAnchor).isActive = true
+        rightBarButton.isHidden = true
         
         drawerShapeLayer.frame.size = drawerShapeLayerSize
         drawerShapeLayer.strokeColor = drawerStrokeColor.cgColor
