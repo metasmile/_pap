@@ -20,7 +20,7 @@ internal class AppDockDrawerView: DesignableView {
         return imageView
     }()
     
-    private var appIconViewWidthLayout: NSLayoutConstraint?
+    private var appIconViewHeightLayout: NSLayoutConstraint?
     
     private lazy var appTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -96,10 +96,14 @@ internal class AppDockDrawerView: DesignableView {
         addSubview(appIconView)
         appIconView.translatesAutoresizingMaskIntoConstraints = false
         appIconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        appIconView.topAnchor.constraint(equalTo: topAnchor, constant: topMargin + 8).isActive = true
-        appIconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: topMargin - 16).isActive = true
-        appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalTo: appIconView.heightAnchor, multiplier: 1.333)
-        appIconViewWidthLayout?.isActive = true
+        
+        appIconView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -topMargin + 8).isActive = true
+        
+        appIconViewHeightLayout = appIconView.heightAnchor.constraint(equalToConstant: 0)
+        appIconViewHeightLayout?.isActive = true
+        
+        appIconView.widthAnchor.constraint(equalTo: appIconView.heightAnchor, multiplier: 1.333).isActive = true
+        
         appIconView.isHidden = true
         
         appIconView.addSubview(appIconImageView)
@@ -174,14 +178,13 @@ internal class AppDockDrawerView: DesignableView {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        appIconViewWidthLayout?.isActive = false
         if let _ = appIconImageView.image {
-            appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalTo: appIconView.heightAnchor, multiplier: 1.333)
+            appIconViewHeightLayout?.constant = max(0, bounds.height - topMargin - 16)
         }
         else {
-            appIconViewWidthLayout = appIconView.widthAnchor.constraint(equalToConstant: 0)
+            appIconViewHeightLayout?.constant = 0
         }
-        appIconViewWidthLayout?.isActive = true
+        
     }
 }
 
