@@ -29,6 +29,7 @@
 		4F71D09C4038E6D07CE506BC /* PHAsset.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8A08A0046F3E6F3DCA2 /* PHAsset.Items.swift */; };
 		4F71D09F4B8DAECA51DBBE94 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9C63117AE87507DC6A6 /* RoundedButton.swift */; };
 		4F71D0A75A503CDEC4540DCD /* AppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF928C2BD1911803D81E /* AppTaskManager.swift */; };
+		4F71D0CA5A875929714F0240 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */; };
 		4F71D0DD99556116A344D7E6 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D581C84B309D065C34B8 /* CodeKit.UIGraphicsImageRenderer.swift */; };
 		4F71D0DDBDE1464AF55CCCA9 /* PhoneCalls.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1DDBB0D44BFD85DA860 /* PhoneCalls.BApp.Assets.xcassets */; };
 		4F71D0EB9055327E97727DB5 /* gifmaker_preview_frame_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6463130DBC1725704C0 /* gifmaker_preview_frame_7.png */; };
@@ -597,6 +598,7 @@
 		4F71DE95525B05018BADF27D /* AppUICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUICollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DE9D04DED27BEE2E8E60 /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DEA308D9B38286F2EC8F /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
+		4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DECC1D4250520B24DDE3 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
 		4F71DEF14527034010D8943D /* App.Preheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Preheatable.swift; sourceTree = "<group>"; };
@@ -901,6 +903,7 @@
 				4F71DD16B2C03570CA5164E4 /* HashSet.swift */,
 				4F71D9CF1BA37E2581B00326 /* Period.swift */,
 				4F71DB883EE4EE7848A0DF61 /* KeyPathWatchable */,
+				4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -2557,6 +2560,7 @@
 				4F71D33BBAD23E5407CA228D /* GAdsManager.swift in Sources */,
 				4F71DCEF4FC63F6AB21C5CFD /* KeyPathWatchable.swift in Sources */,
 				4F71D99239049D993D9FC972 /* KeyPathWatchable.UIViewController.swift in Sources */,
+				4F71D0CA5A875929714F0240 /* NetworkReachabilityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

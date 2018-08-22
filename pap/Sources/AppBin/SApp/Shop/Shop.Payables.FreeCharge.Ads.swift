@@ -43,14 +43,10 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
     }
 
     static var isEnable: Bool{
-//        if AppCenter.charge.isPaid(payable: self){
-//            return true
-//        }else{
-//
-//        }
-    // check Reachability
-
-        return true
+        if AppCenter.charge.isPaid(payable: self){
+            return true
+        }
+        return NetworkReachabilityManager(host: "www.google.com")?.isReachable == true
     }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
@@ -76,6 +72,10 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
 
     func interestialDidDismissScreen() {
         assert(DispatchQueue.currentIsMain)
+    }
+
+    func interestialWillLeaveApplication() {
+        didUserShowAd = didAdPresented
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
