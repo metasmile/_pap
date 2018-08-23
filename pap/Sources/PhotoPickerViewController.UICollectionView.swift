@@ -166,6 +166,13 @@ extension PhotoPickerViewController: UIScrollViewDelegate {
 //    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        enqueuePreheatingIfNeeded()
 //    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        // INFO: cancel scroll to bottom
+        if scrollView.isTracking, scrollView.isDragging {
+            needsScrollToBottom = false
+        }
+    }
 
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         enqueuePreheatingIfNeeded()

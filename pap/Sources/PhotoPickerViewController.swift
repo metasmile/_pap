@@ -40,7 +40,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     private var animatesUpdatingPhotoCollectionContentInset = false
     
-    private var needsScrollToBottom = false
+    internal var needsScrollToBottom = false
     
     func setNeedsScrollToBottom() {
         needsScrollToBottom = true
