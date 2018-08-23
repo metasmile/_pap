@@ -107,14 +107,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
                     , payment: MailContactPayment<MailContactFeedbackType>.self
-                    , priceAmount: AmountObject(value:0.2)
+                    , priceAmount: AmountObject(value:0.3)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .instantAdsViewingOnDemand
                     , reward: .timeOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
-                    , priceAmount: AmountObject(value:0.2)
+                    , priceAmount: AmountObject(value:0.15)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
             )
 
@@ -123,7 +123,7 @@ private final class AppChargeManager: ChargeManager{
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Fullscreen Ads".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "View Fullscreen Ads Once a Day".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Continuous Free Use".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting
@@ -161,14 +161,14 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Monthly Apps License", description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Continuous Use of All Apps And New", shortTitle: "Monthly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscriptionInAppStore
                     , reward: .rented
                     , payment: AnnualAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Yearly Pass".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Continuous Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .nonRenewingMonthlySubscriptionInAppStore

@@ -6,6 +6,7 @@
 import Foundation
 import GoogleMobileAds
 import UIKit
+import DefaultsKit
 
 private enum _AdsSystemInfo: String {
     /** REPLACE THE VALUES BY YOUR APP AND AD IDS **/
@@ -25,19 +26,32 @@ private extension _AdsSystemInfo {
     }
 }
 
+private protocol AdsDefaultsInfo:DefaultsProperty{
+    var latestAdsShownDate: [String:Date]{get set} //ad unitId : Date
+}
+
+extension Defaults: AdsDefaultsInfo {
+    var latestAdsShownDate: [String:Date] {
+        set{ set(newValue) } get{ return get(or:[String:Date]()) }
+    }
+}
+
 protocol GADInterestialType {
     static var appId: String {get}
     static var unitId: String {get}
+    static var interval: Double? {get}
 }
 
 struct GADInterestialTypeTimeOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
+    private(set) static var interval: Double?
 }
 
 struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
+    private(set) static var interval: Double? = 30//60*60*24
 }
 
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
@@ -52,7 +66,16 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
     @objc dynamic
     private var didUserShowAd = false
 
-    required override init() {}
+    required override init() {
+        super.init()
+
+        self.watch(\.didUserShowAd, id:Type.unitId){
+            if self.didUserShowAd{
+                print(Type.unitId)
+                Defaults.shared.latestAdsShownDate[Type.unitId] = Date()
+            }
+        }
+    }
 
     static var isEnable: Bool{
         if AppCenter.charge.isPaid(payable: self){
@@ -96,6 +119,13 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+
+        if let interval = Type.interval, let latestShowenDate = Defaults.shared.latestAdsShownDate[Type.unitId]{
+            if interval > Date().timeIntervalSince(latestShowenDate){
+                return true
+            }
+        }
+
         if NetworkReachabilityManager(host: "www.google.com")?.isReachable == false{
             return false
         }

@@ -180,6 +180,8 @@
 "Contact" = "Contact";
 /* Generated from genl10n: Finder.BApp.swift#1321 */
 "Contacts" = "Contacts";
+/* Generated from genl10n: AppCenter.Charge.swift#126 */
+"Continuous Free Use" = "Continuous Free Use";
 /* Generated from genl10n: Converter.BApp.swift#45 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
 /* Generated from genl10n: Converter.BApp.swift#44 */
@@ -512,11 +514,9 @@
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videos Without Sound";
-/* Generated from genl10n: AppCenter.Charge.swift#126 */
-"View Fullscreen Ads Once a Day" = "View Fullscreen Ads Once a Day";
 /* Generated from genl10n: AppCenter.Charge.swift#118 */
 "View Fullscreen Ads" = "View Fullscreen Ads";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#69 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#92 */
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#133 */
 "Visit our SNS Pages" = "Visit our SNS Pages";

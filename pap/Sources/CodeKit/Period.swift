@@ -5,8 +5,8 @@
 
 import Foundation
 
-struct Period:Equatable, Hashable {
-    enum Unit : UInt {
+struct Period:Equatable, Hashable, Codable {
+    enum Unit : UInt, Codable {
         case second
         case minute
         case hour
