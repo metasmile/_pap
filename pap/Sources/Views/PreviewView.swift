@@ -222,7 +222,11 @@ extension PreviewView {
 
         if appAssetsSelected.count>prevCount{
             self.collectionView.insertItems(at: [insertedIndexPath])
-            self.collectionView.scrollToItem(at: insertedIndexPath, at: .centeredHorizontally, animated: true)
+            
+            collectionView.performBatchUpdates({}) { _ in
+                self.collectionView.collectionViewLayout.invalidateLayout()
+                self.scrollToNeareastItem(at: insertedIndexPath)
+            }
         }
         
         return insertedIndexPath
@@ -264,16 +268,14 @@ extension PreviewView {
     
     func scrollToNeareastItem(at indexPath: IndexPath) {
         if appAssetsSelected.count > 0 {
-            let nearestItem = indexPath.item < appAssetsSelected.count ? indexPath.item : max(min(indexPath.item - 1, appAssetsSelected.count - 1), 0)
+            let nearestItem = indexPath.item < appAssetsSelected.count ? indexPath.item : max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
             collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
 
     func removeAllCollectionViewItems() {
-        let indexPaths = (0..<appAssetsSelected.count).map({ IndexPath(item: $0, section: 0) })
-
         appAssetsSelected.removeAll()
-        collectionView.deleteItems(at: indexPaths)
+        collectionView.reloadData()
     }
 
     func reloadCollectionViewItems(animated: Bool = true) {
