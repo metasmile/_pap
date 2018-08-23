@@ -95,7 +95,7 @@ class ChargeManager{
         }
 
         if isPaid(payable: payable){
-//            assert(false, "Payable \(String(describing: payable)) was already paid.")
+            assert(false, "Payable \(String(describing: payable)) was already paid.")
             completion?(true)
             return
         }

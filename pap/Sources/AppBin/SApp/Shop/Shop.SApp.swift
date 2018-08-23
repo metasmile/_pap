@@ -273,7 +273,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , label: "Free App Passes".localized
                 , detailedLabel: "Engage Now And Recharge Free Period Repeatedly.".localized
                 , items: [
-                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self),
+                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: SocialSharePayment.self),
@@ -316,6 +316,20 @@ private extension ChargeableImage{
 }
 
 private class PayItem: Hashable, Equatable {
+    enum CellType {
+        case button
+        case switcher
+
+        var info:(cellClass:UITableViewCell.Type, id:String){
+            switch self{
+                case .button:
+                    return (cellClass:UITableViewButtonCell.self, id:String(describing:UITableViewButtonCell.self))
+                case .switcher:
+                    return (cellClass:UITableViewSwitchSubtitleCell.self, id:String(describing:UITableViewSwitchSubtitleCell.self))
+            }
+        }
+    }
+
     struct PayItemImageStyle {
         var useTintColor: Bool = true
         var beRound: Bool = false
@@ -383,12 +397,14 @@ private class PayItem: Hashable, Equatable {
 
     var isIndicating: Bool = false
     let enabled: Bool = true
+    let cellType:CellType
     let label:String
     let rewardLabel:String?
 
-    init(payable: Payable.Type, availability: PayItemAvailability=[.paid, .unpaid]) {
+    init(payable: Payable.Type, cellType:CellType=CellType.button, availability: PayItemAvailability=[.paid, .unpaid]) {
         self.payable = payable
         self.availability = availability
+        self.cellType = cellType
         self.charge = AppCenter.charge.getCharge(for: payable)
         self.label = charge?.describable.title ?? "Undefined Charge"
         self.rewardLabel = charge?.rewardDescribable?.title
@@ -477,8 +493,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.delegate = self
         tableView.rowHeight = 44
         tableView.allowsSelection = false
-        tableView.allowsMultipleSelection = false
-        tableView.register(UITableViewButtonCell.self, forCellReuseIdentifier: ShopApp.info.identifier)
+        tableView.allowsMultipleSelection = false        
 
         reloadData()
     }
@@ -594,8 +609,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 for desc in cellGroup.describers {
                     tableView.register(describer: desc)
                 }
+            }            
+            else if let cellGroup = s as? PayGroup{
+                for item in cellGroup.items {
+                    tableView.register(item.cellType.info.cellClass, forCellReuseIdentifier: item.cellType.info.id)
+                }
             }
         }
+        
         tableView.reloadData()
     }
 
@@ -672,10 +693,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         return UITableViewCell()
     }
 
-    func didTapPayButton(item:PayItem, indexPath:IndexPath){
+    func pay(item:PayItem, indexPath:IndexPath){
         item.isIndicating = true
         updateIndicatorCellIfNeeded(at: indexPath, with: item)
-        
+
         AppCenter.charge.pay(for: item.payable) { succeed in
             item.isIndicating = false
 
@@ -688,7 +709,13 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
         }
     }
-    
+
+    func unpay(item:PayItem, indexPath:IndexPath){
+
+//        it letitem.charge
+//        AppCenter.charge.bank.getReceipt(for: <#T##Chargeable##pap.Chargeable#>)
+    }
+
     private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewIndicatorCell {
             if item.isIndicating {
@@ -804,13 +831,13 @@ extension ShopAppDockContent{
 
     func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, forItem:PayItem) -> UITableViewCell{
 
+        /*
+            Common
+        */
         let dataItem = forItem
-//        let selected = dataItem.enabled
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ShopApp.info.identifier) as! UITableViewButtonCell
-        cell.buttonFrameInset = nil
-        cell.button.tintColor = self.view.tintColor
-        cell.button.setTitleColor(self.view.tintColor, for: .normal)
+        let cell = tableView.dequeueReusableCell(withIdentifier: forItem.cellType.info.id) as! UITableViewIndicatorCell
+
         cell.textLabel?.text = dataItem.label
         cell.textLabel?.text = dataItem.label
         cell.detailTextLabel?.text = dataItem.rewardLabel
@@ -828,8 +855,49 @@ extension ShopAppDockContent{
             cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight*image.size.height/image.size.width, height: tableView.rowHeight))
         }
 
+        if dataItem.isIndicating{
+            cell.isUserInteractionEnabled = false
+            cell.startIndicating()
+        }else{
+            cell.isUserInteractionEnabled = true
+            cell.stopIndicating()
+        }
+
+        /*
+           Cell Type Specific
+        */
+        switch forItem.cellType{
+            case .button:
+                return buttonCellForRow(tableView, cell as! UITableViewButtonCell, cellForRowAt: indexPath, forItem: forItem)
+            case .switcher:
+                return switcherCellForRow(tableView, cell as! UITableViewSwitchSubtitleCell, cellForRowAt: indexPath, forItem: forItem)
+        }
+    }
+
+    func switcherCellForRow(_ tableView: UITableView, _ cell:UITableViewSwitchSubtitleCell, cellForRowAt indexPath: IndexPath, forItem:PayItem) -> UITableViewCell{
+
+        cell.switcher.onTintColor = self.view.tintColor
+
+        cell.switcher.isOn = AppCenter.charge.isPaid(payable: forItem.payable)
+        cell.switchDidChange = { on in
+            if on {
+                self.pay(item: forItem, indexPath: indexPath)
+            }else{
+                self.unpay(item: forItem, indexPath: indexPath)
+            }
+        }
+
+        return cell
+    }
+
+    func buttonCellForRow(_ tableView: UITableView, _ cell:UITableViewButtonCell, cellForRowAt indexPath: IndexPath, forItem:PayItem) -> UITableViewCell{
+
+        let dataItem = forItem
 
         // Cell.AssessoryView: Charge
+        cell.buttonFrameInset = nil
+        cell.button.tintColor = self.view.tintColor
+        cell.button.setTitleColor(self.view.tintColor, for: .normal)
         cell.button.tintColor = self.view.tintColor
 
         //1st Image
@@ -863,16 +931,8 @@ extension ShopAppDockContent{
 
         let unpaid = AppCenter.charge.isPaid(payable: dataItem.payable) == false
 
-        if dataItem.isIndicating{
-            cell.isUserInteractionEnabled = false
-            cell.startIndicating()
-        }else{
-            cell.isUserInteractionEnabled = true
-            cell.stopIndicating()
-        }
-
         if unpaid{
-            cell.didTap = { self.didTapPayButton(item: dataItem, indexPath:indexPath) }
+            cell.didTap = { self.pay(item: dataItem, indexPath:indexPath) }
             cell.accessoryType = .none
             cell.accessoryView = cell.button
             cell.enable(true)

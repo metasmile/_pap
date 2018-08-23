@@ -77,7 +77,7 @@ class UITableViewSwitchSubtitleCell: UITableViewSwitchCell /*UITableViewCellWith
     }
 }
 
-class UITableViewSwitchCell: UITableViewCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
+class UITableViewSwitchCell: UITableViewIndicatorCell /*UITableViewCellWithInclusiveHitTestSubview*/ {
 
     private(set) lazy var switcher: UISwitch = {
         let view = UISwitch()
