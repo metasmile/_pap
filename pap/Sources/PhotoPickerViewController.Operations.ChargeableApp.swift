@@ -62,7 +62,7 @@ extension PhotoPickerViewController{
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
-                rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+                rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenSelected)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
             }
             
@@ -72,31 +72,36 @@ extension PhotoPickerViewController{
         rightButtonItem.title = nil
         rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenUnselected)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
         return false
     }
 
-    @objc fileprivate func chargeableButtonDidTap(sender: Any) {
-        print("Paid Charges:", AppCenter.charge.getChargesHasReceipt().map{ $0.identifier } )
-        print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt().map{ $0.identifier } )
+    @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
+        openShopApp()
+    }
 
+    @objc fileprivate func chargeableButtonDidTapWhenUnselected(sender: Any) {
 //        doneButton?.target?.perform(doneButton?.action!, with: nil)
 
-        let rated = AppCenter.charge.getChargesPaid().contains { charge in
-            return charge.payment.identifier == InAppPromptRatingPayment.identifier
-        }
+        // check rated once a version
+        //TODO: Do not specify. exe ordered NonBlock reward payments
+        let rated = AppCenter.charge.getChargesPaid().contains(where:{ $0.payment.identifier == InAppPromptRatingPayment.identifier })
 
         if rated{
-            var option = AppLaunchOptions()
-            option.identifierToReturn = AppCenter.default.current?.info.identifier
-
-            if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
-                papLog.charge.opened()
-            }
+            openShopApp()
+            return
         }
-        else{
-            AppCenter.charge.pay(for: InAppPromptRatingPayment.self)
+
+        AppCenter.charge.pay(for: InAppPromptRatingPayment.self)
+    }
+
+    private func openShopApp(){
+        var option = AppLaunchOptions()
+        option.identifierToReturn = AppCenter.default.current?.info.identifier
+
+        if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
+            papLog.charge.opened()
         }
     }
 

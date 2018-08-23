@@ -35,7 +35,7 @@ struct GADInterestialTypeTimeOfUses: GADInterestialType{
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
 }
 
-struct GADInterestialTypeNonBlockOfUses: GADInterestialType{
+struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
 }

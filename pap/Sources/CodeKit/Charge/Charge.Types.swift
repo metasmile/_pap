@@ -44,9 +44,12 @@ enum RewardType:Int {
     //will be engaged only nonSelected
     case nonBlockOfUses = 100
 
-    //e.g. promotional
+    //e.g. free charge - Consumable
     case timeOfUses = 200
     case countOfUses = 201
+
+    //e.g. free charge - nonConsumable
+    case blockOfUses = 250
 
     //e.g. paid whole pricing range
     case owned = 300
@@ -60,6 +63,7 @@ enum RewardType:Int {
         switch self{
             case .systemOwned,
                  .nonBlockOfUses,
+                 .blockOfUses,
                  .owned, .rented,
                  .localOwned, .localRented:
                  return true

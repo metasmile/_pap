@@ -72,7 +72,7 @@ private final class AppChargeManager: ChargeManager{
             )
 
             , AppCharge(type: .onPromptRating
-                    , reward: .nonBlockOfUses
+                    , reward: .blockOfUses
                     , payment:InAppPromptRatingPayment.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Give A Rating".localized, description: nil, iconImage: nil)
@@ -108,8 +108,8 @@ private final class AppChargeManager: ChargeManager{
             )
 
             , AppCharge(type: .fullscreenAdsViewing
-                    , reward: .nonBlockOfUses
-                    , payment: GADInterestialAdsViewingPayment<GADInterestialTypeNonBlockOfUses>.self
+                    , reward: .blockOfUses
+                    , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Fullscreen Ads".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "View Fullscreen Ads Once a Day".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
