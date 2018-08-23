@@ -273,8 +273,9 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , label: "Free App Passes".localized
                 , detailedLabel: "Engage Now And Recharge Free Period Repeatedly.".localized
                 , items: [
-                    PayItem(payable: YouAppProgramPayment.self),
-                    PayItem(payable: FullscreenAdsViewingPayment.self),
+                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeNonBlockOfUses>.self),
+//                    PayItem(payable: YouAppProgramPayment.self),
+                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: SocialSharePayment.self),
                     PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
                     PayItem(payable: URLVisitingPayment<URLVisitingTypeFacebook>.self)

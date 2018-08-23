@@ -102,9 +102,17 @@ private final class AppChargeManager: ChargeManager{
 
             , AppCharge(type: .fullscreenAdsViewing
                     , reward: .timeOfUses
-                    , payment: FullscreenAdsViewingPayment.self
+                    , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
                     , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .fullscreenAdsViewing
+                    , reward: .nonBlockOfUses
+                    , payment: GADInterestialAdsViewingPayment<GADInterestialTypeNonBlockOfUses>.self
+                    , priceAmount: AmountObject(value:0.0)
+                    , describable: AppChargeDescription(title:"Activate Fullscreen Ads".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "View Fullscreen Ads Once a Day".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting

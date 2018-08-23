@@ -7,8 +7,7 @@ import Foundation
 import GoogleMobileAds
 import UIKit
 
-
-enum ShopAds: String {
+private enum _AdsSystemInfo: String {
     /** REPLACE THE VALUES BY YOUR APP AND AD IDS **/
     case appId       = "ca-app-pub-3029312734389414~7736928915"
 
@@ -17,7 +16,7 @@ enum ShopAds: String {
     case rewarded    = "ca-app-pub-3029312734389414/9160007015"
 }
 
-private extension ShopAds {
+private extension _AdsSystemInfo {
     static var testDevices:[String] {
         return [
             //INFO: add here
@@ -26,8 +25,23 @@ private extension ShopAds {
     }
 }
 
+protocol GADInterestialType {
+    static var appId: String {get}
+    static var unitId: String {get}
+}
+
+struct GADInterestialTypeTimeOfUses: GADInterestialType{
+    private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
+    private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
+}
+
+struct GADInterestialTypeNonBlockOfUses: GADInterestialType{
+    private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
+    private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
+}
+
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
-class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
+final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     private let adManager: GADManager = GADManager()
 
@@ -38,9 +52,7 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
     @objc dynamic
     private var didUserShowAd = false
 
-    required override init() {
-
-    }
+    required override init() {}
 
     static var isEnable: Bool{
         if AppCenter.charge.isPaid(payable: self){
@@ -91,7 +103,7 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
         asyncSignal.begin()
 
         DispatchQueue.main.async{
-            self.adManager.configureWithApp(ShopAds.appId.rawValue)
+            self.adManager.configureWithApp(Type.appId)
 //            self.adManager.setTestDevics(testDevices: AdIds.testDevices)
 
             //INFO: Banner
@@ -122,7 +134,7 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
             }
 
             self.adManager.delegateInterestial = self
-            self.adManager.createAndLoadInterstitial(ShopAds.interestial.rawValue)
+            self.adManager.createAndLoadInterstitial(Type.unitId)
         }
 
         asyncSignal.waitUntilEnd()
