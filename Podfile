@@ -7,8 +7,8 @@ target 'pap' do
   pod 'Firebase/Core', '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
- # pod 'Fabric'
- # pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # Core Wrappers
   pod 'R.swift', '4.0.0' #INFO: R.swift will major update soon : 5.0.0
