@@ -61,7 +61,7 @@ extension PhotoPickerViewController{
     func updateCollectionViewSelection(by asset: PHAsset, animated:Bool = false) {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
 
-        if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
+        if photoCollectionView.delegate?.collectionView?(photoCollectionView, shouldSelectItemAt: indexPath) == false {
             deselectCollectionViewItems([indexPath])
         }
         else {

@@ -148,6 +148,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
         options.isNetworkAccessAllowed = true
         options.deliveryMode = .highQualityFormat
         options.resizeMode = .exact
+        options.version = .current
         options.progressHandler = { progress, error, stop, info in
             let userInfo: [String: Any] = [
                 RemoteSourceFetchNotification.UserInfo.Key.progress: Float(progress),
