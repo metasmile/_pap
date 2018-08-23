@@ -37,6 +37,10 @@ class ChargeManager{
 #endif
     }
 
+    final func synchronize(){
+        bank.synchronize()
+    }
+
     func getCharge(for chargeable: Chargeable) -> Charge?{
         let charge = charges.first { item in
             return (item as Chargeable).isEqualTo(other: chargeable)
@@ -57,29 +61,19 @@ class ChargeManager{
         return charges.filter { !(types?.contains($0.type) == true) }
     }
 
-    func getChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> [Charge]{
-        if synchronize{
-            bank.synchronize()
-        }
+    func getChargesPaid(excluding types:Set<ChargeType>?=nil) -> [Charge]{
         return getCharges(excluding: types).filter { isPaid(charge: $0) }
     }
 
-    func areAllChargesPaid(excluding types:Set<ChargeType>?=nil, synchronize:Bool=false) -> Bool{
-        if synchronize{
-            bank.synchronize()
-        }
+    func areAllChargesPaid(excluding types:Set<ChargeType>?=nil) -> Bool{
         return getCharges(excluding: types).count == getChargesPaid(excluding:types).count
     }
 
-    func isPaid(charge chargeable:Chargeable, synchronize:Bool=false) -> Bool {
+    func isPaid(charge chargeable:Chargeable) -> Bool {
         return isPaid(payable:chargeable.payment)
     }
 
-    func isPaid(payable:Payable.Type, synchronize:Bool=false) -> Bool{
-        if synchronize{
-            bank.synchronize()
-        }
-
+    func isPaid(payable:Payable.Type) -> Bool{
         if let charge = charges.first(where: { $0.payment == payable })
         , let receipt = bank.getReceipt(for: charge){
             return receipt.verify()

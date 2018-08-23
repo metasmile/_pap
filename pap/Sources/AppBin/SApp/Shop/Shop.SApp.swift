@@ -92,8 +92,10 @@ extension ShopApp{
         }
 
         //INFO: Apply dictionary deps
+        AppCenter.charge.synchronize()
+
         var removingIndexes = [Int]()
-        let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid(synchronize: true).dictionary { $0.payment.identifier }
+        let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid().dictionary { $0.payment.identifier }
         let paidPayableIDs = Set(paidChargesByPaymentIDs.keys)
 
         let paidOwnedHasExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
