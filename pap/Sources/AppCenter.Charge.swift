@@ -1,5 +1,5 @@
 //
-// Created by BLACKGE?NE ???on 24?.07.18.
+// Created by ?BLACKGE?NE ???on 24?.07.18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -42,9 +42,20 @@ extension AppCenter{
         }
 
         // Priority 3 - remaining balance - for free apps.
-        return charge.bank.balanceValue > 0
-                ? paidCharges.first
-                : nil
+        if charge.bank.balanceValue > 0{
+            return paidCharges.filter({ $0.reward.isNonConsumable == false }).first
+        }
+
+        // Priority 4 - nonConsumable charges
+        if let chargeWithPredefinedPriorReward = paidCharges.first(where:{
+            // Priority 4 - 1: blockOfUses
+            $0.reward == .blockOfUses
+
+        }) {
+            return chargeWithPredefinedPriorReward
+        }
+
+        return nil
     }
 }
 

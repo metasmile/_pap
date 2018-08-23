@@ -39,12 +39,36 @@ extension PhotoPickerViewController{
         guard !AppCenter.default.task.isRunning else { return selected }
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
-        let paidInContext = chargeInCurrentContext != nil
-        let paidAsAnOwner = chargeInCurrentContext?.reward.isOwned == true
+        let balanceValue = AppCenter.charge.bank.balanceValue
+
+        if selected{
+
+            if let chargeInCurrentContext = chargeInCurrentContext {
+
+                switch chargeInCurrentContext.reward{
+                    case .blockOfUses:
+                        self.doneButton?.action = #selector(self.doneButtonDidTapWhereRewardIsBlockOfUses)
+                    default:
+                        self.doneButton?.action = #selector(self.doneButtonDidTap)
+                }
+
+                navigationItem.setRightBarButton(self.doneButton, animated: true)
+
+            } else {
+                let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
+                rightButtonItem.title = doneButton?.title
+                rightButtonItem.normalizedValue = balanceValue
+                rightButtonItem.target = self
+                rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+                navigationItem.setRightBarButton(rightButtonItem, animated: false)
+            }
+            
+            return true
+        }
 
         let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
-
-        if paidAsAnOwner{
+        let paidAsAnOwnerReward = chargeInCurrentContext?.reward.isOwned == true
+        if paidAsAnOwnerReward {
             rightButtonItem.chargeableButton?.showsPercentage = false
             rightButtonItem.chargeableButton?.showsColorLevel = false
             rightButtonItem.chargeableButton?.showsAnimation = false
@@ -54,26 +78,11 @@ extension PhotoPickerViewController{
             rightButtonItem.chargeableButton?.showsAnimation = Defaults.shared.showChargeButtonLevelColorInNavigationBar
         }
 
-        if selected{
-            if paidInContext {
-                navigationItem.setRightBarButton(self.doneButton, animated: true)
-
-            } else {
-                rightButtonItem.title = doneButton?.title
-                rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
-                rightButtonItem.target = self
-                rightButtonItem.action = #selector(self.chargeableButtonDidTapSelected)
-                navigationItem.setRightBarButton(rightButtonItem, animated: false)
-            }
-            
-            return true
-        }
-
         rightButtonItem.title = nil
-        rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
+        rightButtonItem.normalizedValue = balanceValue
         rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTapUnselected)
-        navigationItem.setRightBarButton(rightButtonItem, animated: true)
+        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        navigationItem.setRightBarButton(rightButtonItem, animated: false)
         return false
     }
 
@@ -82,12 +91,11 @@ extension PhotoPickerViewController{
     // -> Press Heart
     // -> Call each "Pay" unpaid 1-charge with reward nonBlockOfUses
     // -> if all nonBlockOfUses pay was charged, -> go to Shop
-    @objc fileprivate func chargeableButtonDidTapUnselected(sender: Any) {
+    @objc fileprivate func chargeableButtonDidTap(sender: Any) {
         // check rated once a version
         let unpaidChagesInNonBlockingReward = AppCenter.charge.getCharges().filter({
             return $0.reward == .nonBlockOfUses && AppCenter.charge.isPaid(payable: $0.payment) == false
         })
-
 
         if unpaidChagesInNonBlockingReward.count == 0{
             openShopApp()
@@ -122,13 +130,12 @@ extension PhotoPickerViewController{
     // -> Press Heart
     // -> Call each "Try" already paid 1-charge with reward blockOfUses
     // -> if found, execute else go to ShopApp
-    @objc fileprivate func chargeableButtonDidTapSelected(sender: Any) {
-        let paidChagesInBlockingReward = AppCenter.charge.getCharges().filter({
-            return $0.reward == .blockOfUses && AppCenter.charge.isPaid(payable: $0.payment)
+    @objc fileprivate func doneButtonDidTapWhereRewardIsBlockOfUses(sender: Any) {
+        let paidChagesInBlockingReward = AppCenter.charge.getChargesPaid().filter({
+            return $0.reward == .blockOfUses
         })
 
         DispatchQueue.global(qos: .userInteractive).async{
-
             let signal = AsyncSignal()
 
             var succeedAfterTriedAtOnce = false
@@ -152,19 +159,13 @@ extension PhotoPickerViewController{
                 }
             }
 
-            DispatchQueue.main.async{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
                 if succeedAfterTriedAtOnce {
-                    self.executeDone()
+                    self.doneButtonDidTap(sender: "")
                 }else{
                     self.openShopApp()
                 }
             }
-        }
-    }
-
-    private func executeDone(){
-        if let action = doneButton?.action{
-            _ = doneButton?.target?.perform(action, with: nil)
         }
     }
 

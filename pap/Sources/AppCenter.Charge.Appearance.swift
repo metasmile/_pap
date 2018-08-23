@@ -75,6 +75,8 @@ struct ChargeButtonAppearance: ChargeableButtonAppearance{
                 return R.image.systemIconFavoriteLineOwned()
             case .rented:
                 return R.image.systemIconFavoriteLineCharging()
+            case .blockOfUses where charge.type == .instantAdsShowingAllowance:
+                return R.image.systemIconFavoriteAd()
             default:
                 return R.image.systemIconFavoriteLine()
         }
