@@ -12,27 +12,31 @@ enum ChargeType:Int {
     case none = 0
 
     //promotional
-    case welcomeFreeTrial = 100
+    case freeTrial = 100
     case inStoreRating = 101
     case onPromptRating = 102
     case socialShare = 103
     case feedback = 104
-    case fullscreenAdsViewing = 105
-    case youApp = 106
-    case urlVisiting = 107
+    case dataSubmission = 105
+    case urlVisiting = 106
 
     //very special promotional
     case secretCode = 200 //it will match with new hash value for each new version
     case secretCodeInSingleVersion = 201 //it will match with new hash value for each new version
 
-    //paid
-    case nonConsumablePurchase = 300
-    case consumablePurchase = 301
-    case nonRenewingMonthlySubscription = 302
-    case nonRenewingYearlySubscription = 303
-    case renewableMonthlySubscription = 304
-    case renewableYearlySubscription = 305
-    case adsAllowance = 306
+    //paid - IAP
+    case nonConsumablePurchaseInAppStore = 300
+    case consumablePurchaseInAppStore = 301
+    case nonRenewingMonthlySubscriptionInAppStore = 302
+    case nonRenewingYearlySubscriptionInAppStore = 303
+    case renewableMonthlySubscriptionInAppStore = 304
+    case renewableYearlySubscriptionInAppStore = 305
+
+    //ads
+    case continuousAdsShowingAllowance = 400
+    case instantAdsViewingOnDemand = 401
+    case instantAdsShowingAllowance = 402
+
 }
 
 enum RewardType:Int {

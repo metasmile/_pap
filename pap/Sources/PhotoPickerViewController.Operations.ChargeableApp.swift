@@ -117,8 +117,8 @@ extension PhotoPickerViewController{
 
         let allPaidCharges = AppCenter.charge.getChargesPaid()
 
-        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesPaid(excluding: Set([ChargeType.welcomeFreeTrial]))
-        let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .welcomeFreeTrial }
+        let areAllChargesHasPriceAmountPaid = AppCenter.charge.areAllChargesPaid(excluding: Set([ChargeType.freeTrial]))
+        let onlyWelcomeTutorialHasPaid = allPaidCharges.count==1 && allPaidCharges.contains { $0.type == .freeTrial }
 
         if onlyWelcomeTutorialHasPaid{
             title = "Welcome on %@".localizedFormatted(papStrings.name)

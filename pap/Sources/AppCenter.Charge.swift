@@ -64,7 +64,7 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Restore All Purchases".localized, description: nil, iconImage: nil)
             )
             // Initial
-            , AppCharge(type: .welcomeFreeTrial
+            , AppCharge(type: .freeTrial
                     , reward: .timeOfUses
                     , payment: WelcomeTutorialPayment.self
                     , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
@@ -100,14 +100,14 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .fullscreenAdsViewing
+            , AppCharge(type: .instantAdsViewingOnDemand
                     , reward: .timeOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
                     , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .fullscreenAdsViewing
+            , AppCharge(type: .instantAdsShowingAllowance
                     , reward: .blockOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
@@ -122,7 +122,7 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Visit our SNS Pages".localized, description: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .youApp
+            , AppCharge(type: .dataSubmission
                     , reward: .timeOfUses
                     , payment: YouAppProgramPayment.self
                     , priceAmount: AmountObject(value:0.6)
@@ -139,20 +139,20 @@ private final class AppChargeManager: ChargeManager{
             )
 
             // Store Purchase
-            , AppCharge(type: .nonConsumablePurchase
+            , AppCharge(type: .nonConsumablePurchaseInAppStore
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Owner's Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps And All New", shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .renewableMonthlySubscription
+            , AppCharge(type: .renewableMonthlySubscriptionInAppStore
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Monthly Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Monthly Apps License", description: nil, unit: nil, iconImage: nil)
             )
-            , AppCharge(type: .renewableYearlySubscription
+            , AppCharge(type: .renewableYearlySubscriptionInAppStore
                     , reward: .rented
                     , payment: AnnualAllAppsPayment.self
                     , priceAmount: AmountObject.min
@@ -160,7 +160,7 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "Constant Use of All Apps And New", shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .nonRenewingMonthlySubscription
+            , AppCharge(type: .nonRenewingMonthlySubscriptionInAppStore
                     , reward: .rented
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.min
@@ -168,14 +168,14 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps And All New", shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .nonRenewingYearlySubscription
+            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"3-Month Pass".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps And All New", shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .nonRenewingYearlySubscription
+            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"6-Month Pass".localized, description: nil, iconImage: nil)
@@ -330,15 +330,15 @@ extension AppCharge{
         switch chargeType{
             case .none:
                 payable = FreeAppPayment<A>.self
-            case .nonConsumablePurchase:
+            case .nonConsumablePurchaseInAppStore:
                 payable = AllTimeAppPayment<A>.self
-            case .nonRenewingMonthlySubscription:
+            case .nonRenewingMonthlySubscriptionInAppStore:
                 payable = OneMonthAppPayment<A>.self
-            case .nonRenewingYearlySubscription:
+            case .nonRenewingYearlySubscriptionInAppStore:
                 payable = OneYearAppPayment<A>.self
-            case .renewableMonthlySubscription:
+            case .renewableMonthlySubscriptionInAppStore:
                 payable = MonthlyAppPayment<A>.self
-            case .renewableYearlySubscription:
+            case .renewableYearlySubscriptionInAppStore:
                 payable = YearlyAppPayment<A>.self
             default:
                 break
@@ -350,7 +350,7 @@ extension AppCharge{
         }
 
         let rewardDescribable:RewardDescribable? = description ?? [
-            ChargeType.nonConsumablePurchase: AppRewardDescription(
+            ChargeType.nonConsumablePurchaseInAppStore: AppRewardDescription(
                     title: "Permanent Use And All New Updates".localized,
                     shortTitle: "Permanent Single App License",
                     description: nil,
@@ -434,7 +434,7 @@ private final class AppChargeBanker: ChargeBanker {
             case .first:
                 //INFO: give tutorial balance 3 days
                 if let welcomeCharge = self.registeredCharges.first(where:{ charge in
-                    return charge.type == .welcomeFreeTrial
+                    return charge.type == .freeTrial
                 }){
                     assert(initialBalance.value == 0, "User installs the app firstly but why balance is not 0?")
                     createOrReplaceReceipt(for:welcomeCharge)
