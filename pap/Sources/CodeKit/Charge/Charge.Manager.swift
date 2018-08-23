@@ -90,11 +90,13 @@ class ChargeManager{
     func pay(for payable: Payable.Type, skipTransaction:Bool=false, completion:((_ succeed:Bool) -> ())?=nil){
         guard let charge = charges.first(where:{ $0.payment == payable }) else {
             assert(false, "All Payables must be registerd.")
+            completion?(false)
             return
         }
 
         if isPaid(payable: payable){
             assert(false, "Payable \(String(describing: payable)) was already paid.")
+            completion?(true)
             return
         }
 
