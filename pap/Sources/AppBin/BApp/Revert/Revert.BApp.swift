@@ -126,7 +126,7 @@ private class _RevertAppTask: AppTaskPrototype, AppTaskable {
     }
     
     private func _perform(_ revertParam: RevertAppParam, _ async: AsyncWaitSignalable) throws -> RevertAppResult?  {
-        guard revertParam.asset.isAdjusted else { return nil }
+        guard revertParam.asset.isAdjusted else { return RevertAppResult(asset: revertParam.asset, isAdjusted: revertParam.asset.isAdjusted) }
         
         async.begin()
         
