@@ -600,6 +600,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         var indexPathToScroll: IndexPath?
         var needsToRestoreSelection = false
+        var selectedIndexPathsToRestore = self.photoCollectionView.indexPathsForSelectedItems
         var insertedIndexes = [IndexPath]()
 
         //perform batch update
@@ -642,6 +643,7 @@ class PhotoPickerViewController: AppDockViewController {
                     self.photoCollectionView.insertItems(at: indexPaths)
                 }
                 if let changed = changes.changedIndexes, changed.count > 0 {
+                    needsToRestoreSelection = true
                     let indexPaths = changed.map { IndexPath(item: $0, section:section) }
                     self.photoCollectionView.reloadItems(at: indexPaths.filter { removedIndexPaths?.contains($0) != true })
                 }
@@ -665,7 +667,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
             
             if needsToRestoreSelection {
-                let selectedAssetIdentifiers = self.photoCollectionView.indexPathsForSelectedItems?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
+                let selectedAssetIdentifiers = selectedIndexPathsToRestore?.compactMap({ PHAssets.fetched.asset(at: $0)?.localIdentifier })
                 self.restoreSelectionByUser(selectedAssetIdentifiers)
             }
             
