@@ -233,10 +233,13 @@ extension PreviewView {
         guard let _asset = asset, let indexPath = appAssetsSelected.remove(for:_asset) else {
             return nil
         }
-
-        collectionView.deleteItems(at: [indexPath])
         
-        scrollToNeareastItem(at: indexPath)
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: [indexPath])
+        }) { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            self.scrollToNeareastItem(at: indexPath)
+        }
         
         return indexPath
     }
@@ -246,12 +249,16 @@ extension PreviewView {
             return
         }
         
-        let indexPaths = _assets.compactMap({ appAssetsSelected.remove(for:$0) })
+        let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
+        _assets.forEach { appAssetsSelected.remove(for: $0) }
         
-        collectionView.reloadData() //INFO: for better performance and safety
-        
-        if let indexPath = indexPaths.first {
-            self.scrollToNeareastItem(at: indexPath)
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: indexPaths)
+        }) { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            if let indexPath = indexPaths.first {
+                self.scrollToNeareastItem(at: indexPath)
+            }
         }
     }
     
