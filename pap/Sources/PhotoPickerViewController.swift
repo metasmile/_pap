@@ -600,7 +600,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         var indexPathToScroll: IndexPath?
         var needsToRestoreSelection = false
-        var selectedIndexPathsToRestore = self.photoCollectionView.indexPathsForSelectedItems
+        let selectedIndexPathsToRestore = self.photoCollectionView.indexPathsForSelectedItems
         var insertedIndexes = [IndexPath]()
 
         //perform batch update

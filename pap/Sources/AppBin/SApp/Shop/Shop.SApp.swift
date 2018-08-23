@@ -553,8 +553,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let c2 = UITableViewButtonCellDescriber()
         c2.itemIdentifier = CellDescriber.Key.support.hashValue
-        c2.label = "Contact Us / Support".localized
-        c2.buttonTitle = "Send".localized
+        c2.label = "Contact Us Now".localized
+        c2.buttonTitle = "Get in touch".localized
         c2.iconImage = R.image.commonIconRobot.name
         c2.valueHandler = { _ in
             DispatchQueue.global().async{

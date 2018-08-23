@@ -63,12 +63,18 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdMana
 
         DispatchQueue.main.async{
             let formVC = YouAppFormController()
-            formVC.watch(\.wasDone){
-                //TODO: Register to Cloud
-                print(formVC.form.values())
-                asyncSignal.end()
+            formVC.watch(\.wasDone) { k,v in
+                if v.newValue == true{
+                    //TODO: Register to Cloud
+                    // paid = true
+                    print(formVC.form.values())
+                    asyncSignal.end()
+                }else{
+                    paid = false
+                    asyncSignal.end()
+                }
             }
-
+            
             let nVC = UINavigationController(rootViewController: formVC)
             formVC.navigationItem.title = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
             UIViewController.present(nVC, animated: true)
@@ -78,35 +84,6 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdMana
         return paid
     }
 }
-
-private class PreferredUINavigationController: UINavigationController{
-    var preferredLeftBarButtonItem:UIBarButtonItem?
-    var preferredRightBarButtonItem:UIBarButtonItem?
-    var preferredTitle:String?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        //TODO why not working??
-
-        self.navigationItem.title = AppCenter.charge.getCharge(for: YouAppProgramPayment.self)?.describable.title
-        self.title = AppCenter.charge.getCharge(for: YouAppProgramPayment.self)?.describable.title
-
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit".localized, style: .done, target: self, action: #selector(self.submitButtonDidTap))
-
-        self.navigationBar.topItem?.setLeftBarButton(preferredLeftBarButtonItem, animated: true)
-        self.navigationBar.topItem?.setRightBarButton(preferredRightBarButtonItem, animated: true)
-        self.navigationBar.topItem?.title = preferredTitle
-    }
-
-    @objc func cancelButtonDidTap(sender: Any) {
-     }
-
-    @objc func submitButtonDidTap(sender: Any) {
-     }
-}
-
 
 private class YouAppFormController: FormViewController, KeyPathWatchable {
 
@@ -400,6 +377,6 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
     }
     
     @objc func submitButtonDidTap(sender: Any) {
-        
+
     }
 }

@@ -9,7 +9,7 @@ import MessageUI
 
 struct FreeAppPayment<T:App>: VerifiablePayable{
     static var label: String{
-        return "Get Free Use".localized
+        return "Free Use".localized
     }
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         return true
