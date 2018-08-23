@@ -119,12 +119,27 @@ private class _RevertAppTask: AppTaskPrototype, AppTaskable {
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is RevertAppParam, "TaskParamable type of this app is \(RevertAppParam.self)")
-
         guard let _param = param as? RevertAppParam else{
             throw AppTaskError.invalidParam
         }
-
-        return RevertAppResult(asset: _param.asset, isAdjusted: _param.asset.isAdjusted)
+        return try self._perform(_param, async)
+    }
+    
+    private func _perform(_ revertParam: RevertAppParam, _ async: AsyncWaitSignalable) throws -> RevertAppResult?  {
+        guard revertParam.asset.isAdjusted else { return nil }
+        
+        async.begin()
+        
+        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+            //INFO: prepare original version of asset
+            // it may get original version from icloud to local
+            PHImageManager.default().touchOriginalVersion(for: revertParam.asset, completion: {
+                async.end()
+            })
+        }
+        
+        async.waitUntilEnd()
+        return RevertAppResult(asset: revertParam.asset, isAdjusted: revertParam.asset.isAdjusted)
     }
 }
 

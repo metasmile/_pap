@@ -24,3 +24,38 @@ public extension PHCachingImageManager{
     }
 }
 
+public extension PHImageManager {
+    func touchOriginalVersion(for asset: PHAsset, completion: (() -> Void)?) {
+        switch asset.mediaType {
+        case .image:
+            switch asset.imageType {
+            case .livePhoto:
+                let livePhotoRequestOptions = PHLivePhotoRequestOptions()
+                livePhotoRequestOptions.isNetworkAccessAllowed = true
+                livePhotoRequestOptions.version = .original
+                
+                requestLivePhoto(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: livePhotoRequestOptions) { (livePhoto, info) in
+                    completion?()
+                }
+            default:
+                let imageRequestOptions = PHImageRequestOptions()
+                imageRequestOptions.isNetworkAccessAllowed = true
+                imageRequestOptions.isSynchronous = false
+                imageRequestOptions.version = .original
+                
+                requestImageData(for: asset, options: imageRequestOptions) { (data, uti, imageOrientation, info) in
+                    completion?()
+                }
+            }
+        case .video:
+            let videoRequestOptions = PHVideoRequestOptions()
+            videoRequestOptions.isNetworkAccessAllowed = true
+            videoRequestOptions.version = .original
+            
+            requestAVAsset(forVideo: asset, options: videoRequestOptions) { (video, audioMix, info) in
+                completion?()
+            }
+        default: completion?()
+        }
+    }
+}
