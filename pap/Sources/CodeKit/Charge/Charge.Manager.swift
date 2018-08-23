@@ -199,7 +199,7 @@ final class ChargeBank: NSObject, KeyPathWatchable {
             }
 
             if let verifiedResult = c.verify(asyncSignal){
-                if verifiedResult{
+                if verifiedResult && r.verify(){
                     valid.insert(r)
                 }else{
                     invalid.insert(r)

@@ -111,6 +111,13 @@ struct ChargeableReceipt: Codable, Hashable{
         return charge.identifier == chargeableIdentifier
     }
 
+    //INFO: insert uuid via this method, matched receipt will fail to verify
+    //INFO: This is Only way to delete receipt
+    private static var shouldFailVerificationUUIDs = Set<String>()
+    static func reserveShouldFailVerification(uuid:String){
+        shouldFailVerificationUUIDs.insert(uuid)
+    }
+
     func verify() -> Bool{
         if type == .deprecated{
             return false
@@ -127,6 +134,11 @@ struct ChargeableReceipt: Codable, Hashable{
 
         // Consumable must be higher than 0 of its amountValue
         if reward.isNonConsumable == false && amountValue == 0{
+            return false
+        }
+
+        if ChargeableReceipt.shouldFailVerificationUUIDs.contains(self.uuid){
+            ChargeableReceipt.shouldFailVerificationUUIDs.remove(self.uuid)
             return false
         }
 

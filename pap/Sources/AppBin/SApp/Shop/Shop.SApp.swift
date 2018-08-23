@@ -714,8 +714,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     func unpay(item:PayItem, indexPath:IndexPath){
 
-//        it letitem.charge
-//        AppCenter.charge.bank.getReceipt(for: <#T##Chargeable##pap.Chargeable#>)
+        if let charge = item.charge, let r = AppCenter.charge.bank.getReceipt(for: charge){
+            ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
+            AppCenter.charge.synchronize()
+        }
     }
 
     private func updateIndicatorCellIfNeeded(at indexPath: IndexPath, with item: PayItem) {
