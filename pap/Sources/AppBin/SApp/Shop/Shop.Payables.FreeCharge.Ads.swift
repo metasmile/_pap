@@ -8,7 +8,7 @@ import GoogleMobileAds
 import UIKit
 
 
-private enum AdIds : String {
+enum ShopAds: String {
     /** REPLACE THE VALUES BY YOUR APP AND AD IDS **/
     case appId       = "ca-app-pub-3029312734389414~7736928915"
 
@@ -17,7 +17,7 @@ private enum AdIds : String {
     case rewarded    = "ca-app-pub-3029312734389414/9160007015"
 }
 
-private extension AdIds{
+private extension ShopAds {
     static var testDevices:[String] {
         return [
             //INFO: add here
@@ -27,9 +27,9 @@ private extension AdIds{
 }
 
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
-class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable, AdManagerInterestialDelegate{
+class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
-    private let adManager:AdManager = AdManager()
+    private let adManager: GADManager = GADManager()
 
     @objc dynamic
     private var didAdLoad = false
@@ -61,13 +61,17 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
         didAdLoad = true
     }
 
+    func interestialDidFailToReceiveAd() {
+        didAdLoad = false
+    }
+
     func interestialWillPresentScreen() {
         didAdPresented = true
     }
 
     func interestialWillDismissScreen() {
         assert(didAdPresented, "didAdPresented == false, not yet presented")
-        didUserShowAd = didAdPresented
+        didUserShowAd = didAdLoad && didAdPresented
     }
 
     func interestialDidDismissScreen() {
@@ -75,43 +79,50 @@ class FullscreenAdsViewingPayment:NSObject, KeyPathWatchable, PreparablePayable,
     }
 
     func interestialWillLeaveApplication() {
-        didUserShowAd = didAdPresented
+        didUserShowAd = didAdLoad && didAdPresented
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        if NetworkReachabilityManager(host: "www.google.com")?.isReachable == false{
+            return false
+        }
 
         var paid = false
         asyncSignal.begin()
 
         DispatchQueue.main.async{
-            self.adManager.configureWithApp(AdIds.appId.rawValue)
+            self.adManager.configureWithApp(ShopAds.appId.rawValue)
 //            self.adManager.setTestDevics(testDevices: AdIds.testDevices)
 
             //INFO: Banner
-//            AdManager.shared.delegateBanner = self
-//            AdManager.shared.createBannerAdInContainerView(viewController: self, unitId: AdIds.banner.rawValue)
+//            GADManager.shared.delegateBanner = self
+//            GADManager.shared.createBannerAdInContainerView(viewController: self, unitId: AdIds.banner.rawValue)
 
             //INFO: rewarded
-//            AdManager.shared.loadAndShowRewardAd(AdIds.rewarded.rawValue, viewController: self)
-//            AdManager.shared.delegateReward = self
+//            GADManager.shared.loadAndShowRewardAd(AdIds.rewarded.rawValue, viewController: self)
+//            GADManager.shared.delegateReward = self
 
             // Load Ads
             self.watch(\.didAdLoad){
                 // Present
                 assert(DispatchQueue.currentIsMain)
 
-                if let vc = UIViewController.presentable{
-                    _ = self.adManager.showInterestial(vc)
+                if let vc = UIViewController.presentable, self.adManager.showInterestial(vc){
+                    // succeed
+                }else{
+                    // failed
+                    paid = false
+                    asyncSignal.end()
                 }
             }
 
             self.watch(\.didUserShowAd){
-                paid = true
+                paid = self.didUserShowAd
                 asyncSignal.end()
             }
 
             self.adManager.delegateInterestial = self
-            self.adManager.createAndLoadInterstitial(AdIds.interestial.rawValue)
+            self.adManager.createAndLoadInterstitial(ShopAds.interestial.rawValue)
         }
 
         asyncSignal.waitUntilEnd()

@@ -33,7 +33,7 @@ import Foundation
 import Eureka
 import UIKit
 
-class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, AdManagerInterestialDelegate{
+class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     required override init() {}
 

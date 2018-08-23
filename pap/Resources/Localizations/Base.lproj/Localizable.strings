@@ -226,7 +226,7 @@
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#465 */
 "Export" = "Export";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#131 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#133 */
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#80 */
 "Filters" = "Filters";
@@ -328,7 +328,7 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#584 */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#118 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#120 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#598, Finder.BApp.swift#1666, Cleaner.BApp.swift#880 */
 "On Standby" = "On Standby";
@@ -340,6 +340,8 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: App.UI.AssetView.swift#45, Filters.BApp.swift#184 */
 "Original" = "Original";
+/* Generated from genl10n: AppCenter.Charge.swift#137 */
+"Owner's Pass" = "Owner's Pass";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory makes PDF document from multiple images with various page options.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#117 */
@@ -348,8 +350,6 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#137 */
-"Permanent Free Pass" = "Permanent Free Pass";
 /* Generated from genl10n: AppCenter.Charge.swift#346 */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
@@ -478,7 +478,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1322 */
 "Text" = "Text";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#124 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#126 */
 "This App Is Yours." = "This App Is Yours.";
 /* Generated from genl10n: Transform.BApp.swift#58 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
@@ -488,7 +488,7 @@
 "Too Slow Shutter Speed" = "Too Slow Shutter Speed";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Translate" = "Translate";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#125 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#127 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#223 */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
@@ -524,7 +524,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#71 */
 "Welcome Free Pass" = "Welcome Free Pass";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#117 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#119 */
 "Welcome on %@" = "Welcome on %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
@@ -534,7 +534,7 @@
 "Write" = "Write";
 /* Generated from genl10n: AppCenter.Charge.swift#151 */
 "Yearly Pass" = "Yearly Pass";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#132 */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#134 */
 "You Can Renew Them Repeatedly." = "You Can Renew Them Repeatedly.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "You can select only items that matched with starting format.";

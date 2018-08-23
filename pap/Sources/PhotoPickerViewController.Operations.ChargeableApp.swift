@@ -81,6 +81,8 @@ extension PhotoPickerViewController{
         print("Paid Charges:", AppCenter.charge.getChargesHasReceipt().map{ $0.identifier } )
         print("Unpaid Charges:", AppCenter.charge.getChargesHasNotReceipt().map{ $0.identifier } )
 
+//        doneButton?.target?.perform(doneButton?.action!, with: nil)
+
         let rated = AppCenter.charge.getChargesPaid().contains { charge in
             return charge.payment.identifier == InAppPromptRatingPayment.identifier
         }
