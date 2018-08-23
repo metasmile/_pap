@@ -83,11 +83,12 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
 
     func interestialWillDismissScreen() {
         assert(didAdPresented, "didAdPresented == false, not yet presented")
-        didUserShowAd = didAdLoad && didAdPresented
+        
     }
 
     func interestialDidDismissScreen() {
         assert(DispatchQueue.currentIsMain)
+        didUserShowAd = didAdLoad && didAdPresented
     }
 
     func interestialWillLeaveApplication() {

@@ -22,7 +22,7 @@ extension AppCenter{
         //this is '.owned' specific. different from 'isOwned'
     }
 
-    //INFO: Priority is critical.
+    //INFO: Priority ordering is the most critical.
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
         if let charge = charge.getChargesPaidOwned().nilEmpty?.first{
