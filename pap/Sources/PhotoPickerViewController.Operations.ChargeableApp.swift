@@ -33,8 +33,10 @@ extension PhotoPickerViewController{
 
     @discardableResult
     func updateDoneButtonChargeableState() -> Bool {
-
         let selected = self.estimatedAvailableSelectedItems > 0
+        
+        //INFO: keep activity indicator in right bar button
+        guard !AppCenter.default.task.isRunning else { return selected }
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let paidInContext = chargeInCurrentContext != nil
