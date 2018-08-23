@@ -72,18 +72,18 @@ private final class AppChargeManager: ChargeManager{
             )
 
             , AppCharge(type: .onPromptRating
-                    , reward: .blockOfUses
+                    , reward: .nonBlockOfUses
                     , payment:InAppPromptRatingPayment.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Give A Rating".localized, description: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .inStoreRating
-                    , reward: .nonBlockOfUses
-                    ,  payment:InAppStoreRatingPayment.self
-                    , priceAmount: AmountObject(value:0.0)
-                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .inStoreRating
+//                    , reward: .nonBlockOfUses
+//                    ,  payment:InAppStoreRatingPayment.self
+//                    , priceAmount: AmountObject(value:0.0)
+//                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil)
+//            )
 
             // Freecharge
             , AppCharge(type: .socialShare
@@ -122,13 +122,13 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Visit our SNS Pages".localized, description: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .dataSubmission
-                    , reward: .timeOfUses
-                    , payment: YouAppProgramPayment.self
-                    , priceAmount: AmountObject(value:0.6)
-                    , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Free Use %@ Day, VIP License Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program Pass", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .dataSubmission
+//                    , reward: .timeOfUses
+//                    , payment: YouAppProgramPayment.self
+//                    , priceAmount: AmountObject(value:0.6)
+//                    , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "Free Use %@ Day, VIP License Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program Pass", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
+//            )
 
             // Promotional
             , AppCharge(type: .secretCode
@@ -454,7 +454,7 @@ private final class AppChargeBanker: ChargeBanker {
             default:
                 //INFO: If it needs to reset all
 #if DEBUG
-//            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
+            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
 #endif
                 break
         }

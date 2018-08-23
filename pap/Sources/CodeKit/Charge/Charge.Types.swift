@@ -42,24 +42,20 @@ enum ChargeType:Int {
 enum RewardType:Int {
     case deprecated = -1
 
-    //get a system action
+    //System Internal
     case systemOwned = 1
 
-    //will be engaged only nonSelected
+    //nonConsumable
     case nonBlockOfUses = 100
+    case blockOfUses = 101 // Recommended implementation of blockOfUses is 'try' and it should be always updated its own 'paid' state in Payment. Instead of pay immediately at once.
 
-    //e.g. free charge - Consumable
+    //Consumable
     case timeOfUses = 200
     case countOfUses = 201
 
-    //e.g. free charge - nonConsumable
-    case blockOfUses = 250
-
-    //e.g. paid whole pricing range
+    //Paid - nonConsumable
     case owned = 300
     case rented = 301
-
-    //e.g. paid single app
     case localOwned = 350
     case localRented = 351
 

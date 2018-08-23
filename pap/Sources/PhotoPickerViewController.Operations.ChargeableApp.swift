@@ -62,7 +62,7 @@ extension PhotoPickerViewController{
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
                 rightButtonItem.target = self
-                rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenSelected)
+                rightButtonItem.action = #selector(self.chargeableButtonDidTapSelected)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
             }
             
@@ -72,28 +72,100 @@ extension PhotoPickerViewController{
         rightButtonItem.title = nil
         rightButtonItem.normalizedValue = AppCenter.charge.bank.balanceValue
         rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenUnselected)
+        rightButtonItem.action = #selector(self.chargeableButtonDidTapUnselected)
         navigationItem.setRightBarButton(rightButtonItem, animated: true)
         return false
     }
 
-    @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
-        openShopApp()
-    }
-
-    @objc fileprivate func chargeableButtonDidTapWhenUnselected(sender: Any) {
-//        doneButton?.target?.perform(doneButton?.action!, with: nil)
-
+    //WARNING: This action is the most critical for entire business. Careful when modify
+    //INFO: Unselected Chargeable Button Tap
+    // -> Press Heart
+    // -> Call each "Pay" unpaid 1-charge with reward nonBlockOfUses
+    // -> if all nonBlockOfUses pay was charged, -> go to Shop
+    @objc fileprivate func chargeableButtonDidTapUnselected(sender: Any) {
         // check rated once a version
-        //TODO: Do not specify. exe ordered NonBlock reward payments
-        let rated = AppCenter.charge.getChargesPaid().contains(where:{ $0.payment.identifier == InAppPromptRatingPayment.identifier })
+        let unpaidChagesInNonBlockingReward = AppCenter.charge.getCharges().filter({
+            return $0.reward == .nonBlockOfUses && AppCenter.charge.isPaid(payable: $0.payment) == false
+        })
 
-        if rated{
+
+        if unpaidChagesInNonBlockingReward.count == 0{
             openShopApp()
             return
         }
 
-        AppCenter.charge.pay(for: InAppPromptRatingPayment.self)
+        DispatchQueue.global(qos: .userInteractive).async{
+            let signal = AsyncSignal()
+
+            for c in unpaidChagesInNonBlockingReward {
+                var breakLoop = false
+                signal.begin()
+
+                AppCenter.charge.pay(for: c.payment) { r in
+                    if r {
+                        breakLoop = true
+                    }
+                    signal.end()
+                }
+
+                signal.waitUntilEnd()
+
+                if breakLoop{
+                    break
+                }
+            }
+        }
+    }
+
+    //WARNING: This action is the most critical for entire business. Careful when modify
+    //INFO: Selected Chargeable Button Tap
+    // -> Press Heart
+    // -> Call each "Try" already paid 1-charge with reward blockOfUses
+    // -> if found, execute else go to ShopApp
+    @objc fileprivate func chargeableButtonDidTapSelected(sender: Any) {
+        let paidChagesInBlockingReward = AppCenter.charge.getCharges().filter({
+            return $0.reward == .blockOfUses && AppCenter.charge.isPaid(payable: $0.payment)
+        })
+
+        DispatchQueue.global(qos: .userInteractive).async{
+
+            let signal = AsyncSignal()
+
+            var succeedAfterTriedAtOnce = false
+
+            for c in paidChagesInBlockingReward {
+                var breakLoop = false
+                signal.begin()
+
+                AppCenter.charge.try(for: c.payment) { r in
+                    if r {
+                        succeedAfterTriedAtOnce = true
+                        breakLoop = true
+                    }
+                    signal.end()
+                }
+
+                signal.waitUntilEnd()
+
+                if breakLoop{
+                    break
+                }
+            }
+
+            DispatchQueue.main.async{
+                if succeedAfterTriedAtOnce {
+                    self.executeDone()
+                }else{
+                    self.openShopApp()
+                }
+            }
+        }
+    }
+
+    private func executeDone(){
+        if let action = doneButton?.action{
+            _ = doneButton?.target?.perform(action, with: nil)
+        }
     }
 
     private func openShopApp(){
