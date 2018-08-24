@@ -150,7 +150,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#175 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#204, PhoneCalls.BApp.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#532 */
+/* Generated from genl10n: Revert.BApp.swift#209, PhoneCalls.BApp.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1292, Cleaner.BApp.swift#532 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
 "Auto Straighten" = "Auto Straighten";
@@ -160,7 +160,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.SApp.swift#49 */
 "Camera" = "Camera";
-/* Generated from genl10n: Revert.BApp.swift#80 */
+/* Generated from genl10n: Revert.BApp.swift#85 */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#138 */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
@@ -258,8 +258,8 @@
 "Free App Passes" = "Free App Passes";
 /* Generated from genl10n: AppCenter.Charge.swift#141 */
 "Free Use %@ Day, VIP License Opportunity" = "Free Use %@ Day, VIP License Opportunity";
-/* Generated from genl10n: AppCenter.Charge.swift#372 */
-"Free Use For All" = "Free Use For All";
+/* Generated from genl10n: AppCenter.Charge.swift#379 */
+"Free Use And All New Updates" = "Free Use And All New Updates";
 /* Generated from genl10n: AppCenter.Charge.swift#293 */
 "Free Use of %@ Day" = "Free Use of %@ Day";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -358,7 +358,7 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
-/* Generated from genl10n: AppCenter.Charge.swift#365 */
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
@@ -378,7 +378,7 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Processing";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: Shop.SApp.swift#243 */
 "Purchase Management" = "Purchase Management";
@@ -400,13 +400,13 @@
 "Restore" = "Restore";
 /* Generated from genl10n: GIFMaker.BApp.swift#209 */
 "Reverse" = "Reverse";
-/* Generated from genl10n: Revert.BApp.swift#44 */
+/* Generated from genl10n: Revert.BApp.swift#45 */
 "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: Transform.BApp.swift#73 */
+/* Generated from genl10n: Transform.BApp.swift#78 */
 "Rotate" = "Rotate";
-/* Generated from genl10n: Transform.BApp.swift#57 */
+/* Generated from genl10n: Transform.BApp.swift#62 */
 "Rotation" = "Rotation";
 /* Generated from genl10n: PhoneCalls.BApp.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
@@ -472,7 +472,7 @@
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift#823 */
 "Starting the Process..." = "Starting the Process...";
-/* Generated from genl10n: Revert.BApp.swift#109 */
+/* Generated from genl10n: Revert.BApp.swift#114 */
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#97, Shop.Payables.FreeCharge.YouApp.swift#358 */
 "Submit" = "Submit";
@@ -488,7 +488,7 @@
 "Text" = "Text";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#204 */
 "This App Is Yours." = "This App Is Yours.";
-/* Generated from genl10n: Transform.BApp.swift#58 */
+/* Generated from genl10n: Transform.BApp.swift#63 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";

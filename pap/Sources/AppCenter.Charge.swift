@@ -335,6 +335,12 @@ extension Amount{
     }
 }
 
+extension ChargeableApp{
+    static var defaultFreeAppLocalCharges: [Charge] {
+        return [ AppCharge.createLocalAppCharge(of: self, as: .none) ].compactMap { $0 }
+    }
+}
+
 extension AppCharge{
     static func createLocalAppCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
         var payable:Payable.Type?
@@ -352,6 +358,7 @@ extension AppCharge{
             case .renewableYearlySubscriptionInAppStore:
                 payable = YearlyAppPayment<A>.self
             default:
+                assert(false, "Undefined chargeType to create LocalAppCharge \(chargeType)")
                 break
         }
 
@@ -369,7 +376,7 @@ extension AppCharge{
                     iconImage: app.info.iconBundleName
             )
             , ChargeType.none: AppRewardDescription(
-                    title: "Free Use For All".localized,
+                    title: "Free Use And All New Updates".localized,
                     shortTitle: "Permanent Single App License",
                     description: nil,
                     unit: nil,

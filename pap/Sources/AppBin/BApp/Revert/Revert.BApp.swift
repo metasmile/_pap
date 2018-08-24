@@ -30,7 +30,8 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
         , FinalizableApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
-        , PreheatableApp {
+        , PreheatableApp
+        , ChargeableApp {
     public static let taskType: AppTaskable.Type = _RevertAppTask.self
 
     public static let paramType: AppTaskParamable.Type = RevertAppParam.self
@@ -47,6 +48,10 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
+
+    static var localCharges: [Charge] {
+        return self.defaultFreeAppLocalCharges
+    }
 
     public private(set) lazy var content: AppDockContent? = RevertAppDockContent()
 

@@ -31,7 +31,12 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
 public class TransformApp: NSObject, BApp, KeyPathWatchable
         , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
-        , PhotoEditorViewControllerDelegatableApp {
+        , PhotoEditorViewControllerDelegatableApp
+        , ChargeableApp {
+
+    static var localCharges: [Charge] {
+        return self.defaultFreeAppLocalCharges
+    }
 
     public static let taskType: AppTaskable.Type = _TransfromAppTask.self
 
