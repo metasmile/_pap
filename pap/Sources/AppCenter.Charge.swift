@@ -100,14 +100,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: SocialSharePayment.self
-                    , priceAmount: AmountObject(value:0.3)
+                    , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
             , AppCharge(type: .feedback
                     , reward: .timeOfUses
                     , payment: MailContactPayment<MailContactFeedbackType>.self
-                    , priceAmount: AmountObject(value:0.3)
+                    , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
             )
 

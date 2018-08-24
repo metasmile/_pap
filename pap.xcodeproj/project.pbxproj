@@ -209,6 +209,7 @@
 		4F71DC000A1FD35E151226BB /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
 		4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */; };
 		4F71DC0A4869AF2E3C56A65E /* Shop.Payables.FreeCharge.MailContactTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3C0548D8733197A38CB /* Shop.Payables.FreeCharge.MailContactTypes.swift */; };
+		4F71DC12735D96F79EAAEE0A /* Shop.Policy.RelativePayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */; };
 		4F71DC13E83C432C049C5399 /* App.PreviewProcessableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2363FDBBFC0BEE21FBE /* App.PreviewProcessableApp.swift */; };
 		4F71DC2A614FEAEC169E2958 /* gifmaker_preview_frame_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D663609573580EC7FBDB /* gifmaker_preview_frame_5.png */; };
 		4F71DC4C6539C8DFB2D2BC97 /* PDFactory.TPPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180AB8064C98AB2B778 /* PDFactory.TPPDF.swift */; };
@@ -360,6 +361,7 @@
 		4F71D0B5B9C7A1BF5C847D5C /* auto_redeye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_redeye.png; sourceTree = "<group>"; };
 		4F71D0C67CEE48ABB0630457 /* FirebaseMLVision.VisionCloudTextDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionCloudTextDetector.swift; sourceTree = "<group>"; };
 		4F71D0D4A558289AE568C6E7 /* App.ManagerConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.ManagerConfigurable.swift; sourceTree = "<group>"; };
+		4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Policy.RelativePayable.swift; sourceTree = "<group>"; };
 		4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAlignment.swift; sourceTree = "<group>"; };
 		4F71D0F5DA4DCD21C441F0C1 /* UITableViewCellDescribable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.swift; sourceTree = "<group>"; };
 		4F71D0FB3DF043083B213A63 /* PHAsset.UIAlertController.SynchronizablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.UIAlertController.SynchronizablePresenter.swift; sourceTree = "<group>"; };
@@ -1023,6 +1025,7 @@
 				4F71D2554588E3B8582A1C6E /* Shop.Payables.FreeCharge.URLVisitingTypes.swift */,
 				4F71D15765FA3497835D1B26 /* Shop.GoogleMobileAds */,
 				4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */,
+				4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2569,6 +2572,7 @@
 				4F71D99239049D993D9FC972 /* KeyPathWatchable.UIViewController.swift in Sources */,
 				4F71D0CA5A875929714F0240 /* NetworkReachabilityManager.swift in Sources */,
 				4F71DBD0999E4DBD935C78B0 /* Shop.Payables.FreeCharge.YouApp.swift in Sources */,
+				4F71DC12735D96F79EAAEE0A /* Shop.Policy.RelativePayable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

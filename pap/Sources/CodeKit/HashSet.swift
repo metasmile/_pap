@@ -5,6 +5,8 @@
 
 import Foundation
 
+//TODO: Suppert +(insert), -(subtract), ^(xor), &(intersaction), |(union)
+
 typealias HashSet<T> = Set<HashElement<T>>
 
 struct HashElement<T> : Hashable {

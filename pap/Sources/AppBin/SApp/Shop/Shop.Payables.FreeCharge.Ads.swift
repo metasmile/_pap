@@ -51,11 +51,15 @@ struct GADInterestialTypeTimeOfUses: GADInterestialType{
 struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
-    private(set) static var interval: Double? = 30//60*60*24
+    private(set) static var interval: Double? = 30//60*60*6
 }
 
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
-final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
+final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, RelativePayable, GADManagerInterestialDelegate{
+
+    static var superPayables: HashSet<Payable.Type> {
+        return self.defaultSuperPayables
+    }
 
     private let adManager: GADManager = GADManager()
 
