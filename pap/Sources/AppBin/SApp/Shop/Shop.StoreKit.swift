@@ -99,9 +99,6 @@ struct StorePayableCenter {
 
     //INFO: dont' directly access this without storeProductsFetchQueue
     fileprivate static var fetchedStoreProducts = [String:SKProduct]()
-//    fileprivate static var storeProductsFetchQueue: DispatchQueue {
-//        return DispatchQueue(label: String(reflecting: self)+#function)
-//    }
 
     @discardableResult
     static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StoreProductFetchResult?{
@@ -134,9 +131,7 @@ struct StorePayableCenter {
 
                     for p in fetchedProductsSet {
                         if requestedPayablesProductIdSet.contains(p.productIdentifier){
-//                            storeProductsFetchQueue.async(flags:.barrier){
-                                StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
-//                            }
+                            StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
                         }else{
                             assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
                         }
@@ -165,46 +160,9 @@ struct StorePayableCenter {
     }
 }
 
-extension StorePayable{
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).product.purchase(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        assert(false, "Use specific Payable Type.")
-        return false
-    }
-
-    static var storeProduct: SKProduct? {
-        let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
-#if DEBUG
-        if #available(iOS 11.2, *) {
-            if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
-                assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
-                if let localSubscriptionPeriod = product.subscriptionPeriod{
-                    assert(Int(localSubscriptionPeriod.numberOfUnits)==storeSubscriptionPeriod.numberOfUnits,"Not matched between Store Subscription Period Number.")
-                    assert(localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue+Period.Unit.day.rawValue,"Not matched between Store Subscription Period Unit.")
-                }
-            }
-        }
-#endif
-        return storeProduct
-    }
-
-    static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
-        if storeProduct != nil{
-            return true
-        }
-
-        if let fetchedInfo = StorePayableCenter.fetch(for: [self], signal){
-            for p in fetchedInfo.products where product.identifier == p.productIdentifier{
-                return true
-            }
-        }
-        return false
-    }
-}
-
+/*
+    StoreKit Product Common Procedures
+*/
 private extension StoreProduct {
     func purchase(_ signal: AsyncWaitSignalable) -> Bool {
 
@@ -258,9 +216,65 @@ private extension StoreProduct {
     }
 }
 
+extension StorePayable{
+    static var storeProduct: SKProduct? {
+        let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
+#if DEBUG
+        if #available(iOS 11.2, *) {
+            if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
+                assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
+                if let localSubscriptionPeriod = product.subscriptionPeriod{
+                    assert(Int(localSubscriptionPeriod.numberOfUnits)==storeSubscriptionPeriod.numberOfUnits,"Not matched between Store Subscription Period Number.")
+                    assert(localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue+Period.Unit.day.rawValue,"Not matched between Store Subscription Period Unit.")
+                }
+            }
+        }
+#endif
+        return storeProduct
+    }
+
+    static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
+        if storeProduct != nil{
+            return true
+        }
+
+        if let fetchedInfo = StorePayableCenter.fetch(for: [self], signal){
+            for p in fetchedInfo.products where product.identifier == p.productIdentifier{
+                return true
+            }
+        }
+        return false
+    }
+}
+
+
+/*
+    Payment & Verification
+*/
+
+extension StorePayable{
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).product.purchase(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return self.storeVerify(signal)
+    }
+
+    fileprivate func storePay(_ signal: AsyncWaitSignalable) -> Bool{
+        return type(of: self).product.purchase(signal)
+    }
+
+    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool?{
+        assert(false, "Use specific Payable Type.")
+        return nil
+    }
+}
+
 protocol NonConsumablePurchasingPayable:StorePayable{}
 extension NonConsumablePurchasingPayable{
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+
+    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal) {
 
             switch SwiftyStoreKit.verifyPurchase(
@@ -280,7 +294,7 @@ extension NonConsumablePurchasingPayable{
 protocol AutoRenewableSubscribingPayable:StorePayable{}
 extension AutoRenewableSubscribingPayable {
 
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal){
 
             switch SwiftyStoreKit.verifySubscription(
@@ -302,7 +316,7 @@ extension AutoRenewableSubscribingPayable {
 protocol NonRenewingSubscribingPayable:StorePayable{}
 extension NonRenewingSubscribingPayable {
 
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal){
             switch SwiftyStoreKit.verifySubscription(
                     ofType: .nonRenewing(validDuration: papNonRenewingValidDuration),
@@ -318,3 +332,5 @@ extension NonRenewingSubscribingPayable {
         return nil
     }
 }
+
+

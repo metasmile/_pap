@@ -19,7 +19,7 @@ extension TrialablePayable {
     }
 
     static var trialTimeLengthLocalizedDayString:String{
-        return "%@ Day".localizedFormatted((trialTimeLength/24*60*60).roundedString(toPlaces: 1))
+        return "%@ Day".localizedFormatted((trialTimeLength/TimeInterval(60.0*60*24)).roundedString(toPlaces: 1))
     }
 
     static var isAvailableToStartTutorial:Bool {

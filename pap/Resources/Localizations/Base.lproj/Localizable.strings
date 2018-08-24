@@ -466,8 +466,6 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#100 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
-/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
-"Start Tutorial" = "Start Tutorial";
 /* Generated from genl10n: PhotoPickerViewController.swift#473 */
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#165 */
@@ -502,6 +500,8 @@
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#225 */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Use Trial";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Use";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
