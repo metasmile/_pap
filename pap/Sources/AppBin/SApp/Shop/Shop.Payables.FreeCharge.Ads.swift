@@ -55,13 +55,16 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var interval: Double? = 30//60*60*6
 }
 
-extension GADInterestialAdsViewingPayment:RelativePayable where T==GADInterestialTypeBlockOfUses{
+//extension GADInterestialAdsViewingPayment:RelativePayable where T==GADInterestialTypeBlockOfUses{
+//    static var superPayables: HashSet<Payable.Type> {
+//        return self.defaultSuperPayables
+//    }
+//}
+
+class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
-}
-
-class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     private let adManager: GADManager = GADManager()
 
