@@ -266,12 +266,16 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#596 */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Get Access";
 /* Generated from genl10n: Shop.SApp.swift#575 */
 "Get in touch" = "Get in touch";
 /* Generated from genl10n: AppCenter.Charge.swift#89, Shop.SApp.swift#550 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
 "Hello, %@!" = "Hello, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Hi! I'm %@, I need some help.";
 /* Generated from genl10n: ExifGhost.BApp.swift#81 */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift#85 */
@@ -284,8 +288,6 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#198 */
 "Input Here" = "Input Here";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
-"Input" = "Input";
 /* Generated from genl10n: AppStrings.swift#25 */
 "It could not be stored." = "It could not be stored.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#207 */

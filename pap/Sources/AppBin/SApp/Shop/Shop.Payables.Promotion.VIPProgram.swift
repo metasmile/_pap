@@ -8,11 +8,11 @@ import DefaultsKit
 import CloudKit
 
 private protocol SecretCodeStore:DefaultsProperty{
-    var secetCodeEntry:SecretCodeEntry? {set get}
+    var secretCodeEntry:SecretCodeEntry? {set get}
 }
 
 extension Defaults: SecretCodeStore {
-    fileprivate var secetCodeEntry: SecretCodeEntry? {
+    fileprivate var secretCodeEntry: SecretCodeEntry? {
         set{ set(newValue) } get{ return get() }
     }
 }
@@ -125,29 +125,29 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
     */
     private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
 
-    private(set) static var label: String = "Input".localized
+    private(set) static var label: String = "Get Access".localized
 
     static var grantedOwnerName:String?{
-        return Defaults.shared.secetCodeEntry?.ownerName
+        return Defaults.shared.secretCodeEntry?.ownerName
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         let result = _pay(asyncSignal)
         if result.state == .granted{
-            Defaults.shared.secetCodeEntry = result.entry
-            assert(Defaults.shared.secetCodeEntry != nil, "Access granted but entry is nil.")
+            Defaults.shared.secretCodeEntry = result.entry
+            assert(Defaults.shared.secretCodeEntry != nil, "Access granted but entry is nil.")
             return result.entry != nil
         }
 
-        Defaults.shared.secetCodeEntry = nil
+        Defaults.shared.secretCodeEntry = nil
         return false
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        if let code = Defaults.shared.secetCodeEntry?.code.nilEmpty{
+        if let code = Defaults.shared.secretCodeEntry?.code.nilEmpty{
             let isValid = verify(code: code, shouldRegister: false, asyncSignal).state == .granted
             if isValid == false{
-                Defaults.shared.secetCodeEntry = nil
+                Defaults.shared.secretCodeEntry = nil
             }
             return isValid
         }
@@ -160,7 +160,7 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
         var result:SecretCodeResult = (state:.error, entry:nil)
 
         //if found local entry, granted
-        if let localEntry = Defaults.shared.secetCodeEntry{
+        if let localEntry = Defaults.shared.secretCodeEntry{
             result = verify(code: localEntry.code, shouldRegister: false, asyncSignal)
         }
 

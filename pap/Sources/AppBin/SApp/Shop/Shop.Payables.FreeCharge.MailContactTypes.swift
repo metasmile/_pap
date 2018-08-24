@@ -33,7 +33,7 @@ struct MailContactHotlineType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         return (
                 addresses: [papStrings.contact.vip.email]
-                , subject: "[\(UUID().uuidString.split(separator: "-")[0])] VIP realtime help request."
+                , subject: "Hi! I'm %@, I need some help.".localizedFormatted(PermanentVIPProgramPayment.grantedOwnerName ?? "VIP \(UUID().uuidString.split(separator: "-")[0])")
         )
     }
 }
