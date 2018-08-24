@@ -1296,7 +1296,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
-        cell1.iconImage = R.image.commonIconRobot.name
+        cell1.iconImage = R.image.commonCellIconRobot.name
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect

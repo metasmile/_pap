@@ -371,7 +371,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         cell1.itemIdentifier = PhoneCallsAppCells.autoSelect.hashValue
         cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
-        cell1.iconImage = R.image.commonIconRobot.name
+        cell1.iconImage = R.image.commonCellIconRobot.name
         cell1.valueHandler = { on in
             let enable = (on as? Bool) ?? false
             self.autoSelect = enable

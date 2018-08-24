@@ -325,6 +325,7 @@
 		A0956C1A2095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956BAB2095005200E680B9 /* Localizable.strings */; };
 		A0956C1B2095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956BAE2095005200E680B9 /* Localizable.strings */; };
 		A0956C21209501B500E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956C1F209501B500E680B9 /* Localizable.strings */; };
+		A096E7E421307942003C8E70 /* Shop.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */; };
 		A0991D1121022D0600845BC5 /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0991D1021022D0600845BC5 /* App.UI.CameraView.xcassets */; };
 		A0CFD8E92052D9F10007041B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CFD8E82052D9F10007041B /* R.generated.swift */; };
 		A0F086C320AC6C9B00E74025 /* papTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F086C220AC6C9B00E74025 /* papTests.swift */; };
@@ -674,6 +675,7 @@
 		A0956BAC2095005200E680B9 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956BAF2095005200E680B9 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956C20209501B500E680B9 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = Localizable.strings; sourceTree = "<group>"; };
+		A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shop.SApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0991D1021022D0600845BC5 /* App.UI.CameraView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.UI.CameraView.xcassets; sourceTree = "<group>"; };
 		A0CFD8E82052D9F10007041B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0F086C020AC6C9B00E74025 /* papTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = papTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1031,6 +1033,7 @@
 				4F71D15765FA3497835D1B26 /* Shop.GoogleMobileAds */,
 				4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */,
 				4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */,
+				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2049,6 +2052,7 @@
 				0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */,
 				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
 				A0956BC22095005200E680B9 /* Localizable.strings in Resources */,
+				A096E7E421307942003C8E70 /* Shop.SApp.Assets.xcassets in Resources */,
 				A0956C102095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF22095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C072095005200E680B9 /* Localizable.strings in Resources */,

@@ -57,7 +57,7 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, GADMan
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
         var paid = false
-        signal = asyncSignal
+        signal = AsyncSignal()
 
         asyncSignal.begin()
 

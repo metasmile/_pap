@@ -534,7 +534,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c0.itemIdentifier = CellDescriber.Key.reviewRatingInApp.hashValue
         c0.label = "Give A Rating".localized
         c0.buttonTitle = "Rate Now".localized
-        c0.iconImage = R.image.commonIconRobot.name
+        c0.iconImage = R.image.cellIconGiveARating.name
+        c0.iconImageTintColor = self.view.tintColor
         c0.valueHandler = { _ in
             _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
         }
@@ -544,7 +545,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c1.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
         c1.label = "Write A Review".localized
         c1.buttonTitle = "Write".localized
-        c1.iconImage = R.image.commonIconRobot.name
+        c1.iconImage = R.image.cellIconWriteAReview.name
+        c0.iconImageTintColor = self.view.tintColor
         c1.valueHandler = { _ in
             _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
         }
@@ -554,7 +556,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c2.itemIdentifier = CellDescriber.Key.support.hashValue
         c2.label = "Contact Us Now".localized
         c2.buttonTitle = "Get in touch".localized
-        c2.iconImage = R.image.commonIconRobot.name
+        c2.iconImage = R.image.cellIconContactUs.name
         c2.valueHandler = { _ in
             AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
         }
@@ -564,7 +566,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c3.itemIdentifier = CellDescriber.Key.support.hashValue
         c3.label = "%@ User Group".localizedFormatted(papStrings.name)
         c3.buttonTitle = "Visit".localized
-        c3.iconImage = R.image.commonIconRobot.name
+        c3.iconImage = R.image.cellIconUserGroup.name
+        c0.iconImageTintColor = self.view.tintColor
         c3.valueHandler = { _ in
             AppCenter.charge.try(for: URLVisitingPayment<URLVisitingTypeUserCommunity>.self)
         }
@@ -575,7 +578,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
             c6.buttonTitle = "Contact".localized
-            c6.iconImage = R.image.commonIconRobot.name
+            c6.iconImage = R.image.cellIconVIPHotline.name
+            c0.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in
                 //TODO: add realtime messenger or in-app messaging.
                 AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
@@ -728,38 +732,41 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 */
 extension ShopAppDockContent {
 
+    private func defaultSetCellAppearanceForRow(cellForRowAt indexPath: IndexPath, describer:UITableViewCellDescriber, cell:UITableViewCell){
+        let item = describer
+
+        cell.textLabel?.text = item.label
+        cell.detailTextLabel?.text = item.detailedLabel
+
+        if let image = item.iconImage?.asUIImage{
+            cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
+
+            if let iconTintColor = item.iconImageTintColor{
+                cell.imageView?.tintColor = iconTintColor
+            }else{
+                cell.imageView?.tintColor = self.view.tintColor
+            }
+        }
+    }
+
     func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, forItem:UITableViewCellDefaultDescribable) -> UITableViewCell{
         let item = forItem
 
         if let cellDescriber = item as? UITableViewSwitchCellDescriber
         , let value = item.valueGetter() as? Bool
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSwitchCell {
+            defaultSetCellAppearanceForRow(cellForRowAt: indexPath, describer: cellDescriber, cell: cell)
 
-            cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
             cell.switcher.onTintColor = self.view.tintColor
-
-            if let image = item.iconImage?.asUIImage{
-                cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
-
-                if let iconTintColor = cellDescriber.iconImageTintColor{
-                    cell.imageView?.tintColor = iconTintColor
-                }else{
-                    cell.imageView?.tintColor = self.view.tintColor
-                }
-
-            }
             cell.switchDidChange = item.valueHandler
             return cell
         }
 
         else if let cellDescriber = item as? UITableViewButtonCellDescriber
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
+            defaultSetCellAppearanceForRow(cellForRowAt: indexPath, describer: cellDescriber, cell: cell)
 
-            cell.textLabel?.text = item.label
-            cell.detailTextLabel?.text = cellDescriber.detailedLabel
-            cell.imageView?.image = item.iconImage?.asUIImage
             if let buttonTitle = cellDescriber.buttonTitle{
                 cell.setButtonTitle(title: buttonTitle, detailTitle: cellDescriber.buttonDetailTitle, for: .normal)
                 cell.button.setTitleColor(self.view.tintColor, for: .normal)
@@ -773,10 +780,9 @@ extension ShopAppDockContent {
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
         , let value = item.valueGetter() as? Int
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
+            defaultSetCellAppearanceForRow(cellForRowAt: indexPath, describer: cellDescriber, cell: cell)
 
-            cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value) ?? String(value)
-            cell.imageView?.image = item.iconImage?.asUIImage
 
             cell.stepper.stepValue = cellDescriber.stepValue
             cell.stepper.minimumValue = cellDescriber.minimumValue
@@ -794,9 +800,7 @@ extension ShopAppDockContent {
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{
-
-            cell.textLabel?.text = item.label
-            cell.imageView?.image = item.iconImage?.asUIImage
+            defaultSetCellAppearanceForRow(cellForRowAt: indexPath, describer: cellDescriber, cell: cell)
 
             cell.segmentedControl.removeAllSegments()
 
@@ -812,11 +816,11 @@ extension ShopAppDockContent {
             return cell
         }
 
-        let cell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
-        cell.textLabel?.text = item.label
-        cell.detailTextLabel?.textColor = UIColor.gray
+        let defaultCell = tableView.cellForRow(at: indexPath) ?? UITableViewCell()
+        defaultCell.textLabel?.text = item.label
+        defaultCell.detailTextLabel?.textColor = UIColor.gray
 
-        return cell
+        return defaultCell
     }
 }
 

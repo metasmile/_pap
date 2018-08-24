@@ -207,7 +207,7 @@ fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockConte
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = "Auto Selection Bot".localized
-        cell.imageView?.image = R.image.commonIconRobot()?.withRenderingMode(.alwaysTemplate)
+        cell.imageView?.image = R.image.commonCellIconRobot()?.withRenderingMode(.alwaysTemplate)
         cell.imageView?.tintColor = primaryColor
 
         cell.optionSwitch.setOn(defaults.autoSelect, animated: false)

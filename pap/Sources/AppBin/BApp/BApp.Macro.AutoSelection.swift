@@ -11,11 +11,11 @@ import UIKit
 extension AppDockContent {
 
     func startSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
-        self.startTableViewCellIconAnimation(R.image.commonIconRobot.name, R.image.commonIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
+        self.startTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
     }
 
     func stopSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
-        self.stopTableViewCellIconAnimation(R.image.commonIconRobot.name, R.image.commonIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
+        self.stopTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
     }
 
 

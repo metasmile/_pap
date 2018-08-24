@@ -90,7 +90,7 @@
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
 /* Generated from genl10n: Shop.SApp.swift#231 */
 "%@ Passes" = "%@ Passes";
-/* Generated from genl10n: Shop.SApp.swift#565 */
+/* Generated from genl10n: Shop.SApp.swift#567 */
 "%@ User Group" = "%@ User Group";
 /* Generated from genl10n: Finder.BApp.swift#1590, Cleaner.BApp.swift#762 */
 "%@ might be found" = "%@ might be found";
@@ -176,9 +176,9 @@
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Shop.SApp.swift#509 */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
-/* Generated from genl10n: Shop.SApp.swift#555 */
+/* Generated from genl10n: Shop.SApp.swift#557 */
 "Contact Us Now" = "Contact Us Now";
-/* Generated from genl10n: Shop.SApp.swift#450, Shop.SApp.swift#577 */
+/* Generated from genl10n: Shop.SApp.swift#450, Shop.SApp.swift#580 */
 "Contact" = "Contact";
 /* Generated from genl10n: Finder.BApp.swift#1325 */
 "Contacts" = "Contacts";
@@ -270,7 +270,7 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#129 */
 "Get Access" = "Get Access";
-/* Generated from genl10n: Shop.SApp.swift#556 */
+/* Generated from genl10n: Shop.SApp.swift#558 */
 "Get in touch" = "Get in touch";
 /* Generated from genl10n: AppCenter.Charge.swift#89, Shop.SApp.swift#535 */
 "Give A Rating" = "Give A Rating";
@@ -506,7 +506,7 @@
 "Use" = "Use";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
 "User" = "User";
-/* Generated from genl10n: Shop.SApp.swift#576 */
+/* Generated from genl10n: Shop.SApp.swift#579 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#194 */
 "VIP License Program" = "VIP License Program";
@@ -528,7 +528,7 @@
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#133 */
 "Visit our SNS Pages" = "Visit our SNS Pages";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#566 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#568 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#240, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "Waiting To Select ...";
@@ -540,9 +540,9 @@
 "Welcome on %@" = "Welcome on %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#235 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
-/* Generated from genl10n: AppCenter.Charge.swift#96, Shop.SApp.swift#545 */
+/* Generated from genl10n: AppCenter.Charge.swift#96, Shop.SApp.swift#546 */
 "Write A Review" = "Write A Review";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#546 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#547 */
 "Write" = "Write";
 /* Generated from genl10n: AppCenter.Charge.swift#170 */
 "Yearly Pass" = "Yearly Pass";
