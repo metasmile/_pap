@@ -92,8 +92,6 @@ extension ShopApp{
         }
 
         //INFO: Apply dictionary deps
-        AppCenter.charge.synchronize()
-
         var removingIndexes = [Int]()
         let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid().dictionary { $0.payment.identifier }
         let paidPayableIDs = Set(paidChargesByPaymentIDs.keys)
@@ -127,7 +125,7 @@ extension ShopApp{
 
                 //Check super payable
                 if let superPayables = (item.payable as? RelativePayable.Type)?.superPayables{
-                    if Set(superPayables.map({ $0.type.identifier })).intersection(paidPayableIDs).count > 0{
+                    if Set(superPayables.map({ $0.element.identifier })).intersection(paidPayableIDs).count > 0{
                         return false
                     }
                 }
@@ -244,7 +242,7 @@ private struct PayGroup:Hashable, Equatable, Section {
             key: .SystemOwned
             , label: "Purchase Management".localized
             , items: [
-                PayItem(payable:RestorePurchasesSystemPayment.self)
+                PayItem(payable:RestorePurchasesSystemPayment.self, availability: [.unpaid])
             ]
         ),
 
@@ -611,6 +609,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func reloadData(){
+        AppCenter.charge.synchronize()
+
         loadShopSettingsCellDescribers()
         loadContactCellDescribers()
         loadPayGroups()

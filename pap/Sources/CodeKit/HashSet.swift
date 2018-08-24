@@ -10,10 +10,10 @@ import Foundation
 typealias HashSet<T> = Set<HashElement<T>>
 
 struct HashElement<T> : Hashable {
-    let type: T
+    let element: T
 
-    init(_ type: T) {
-        self.type = type
+    init(_ element: T) {
+        self.element = element
     }
 
     var hashValue: Int {

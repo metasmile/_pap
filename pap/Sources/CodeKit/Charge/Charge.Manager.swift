@@ -98,7 +98,8 @@ class ChargeManager{
             print("[i] INFO: Skipping Payment Transaction: \(String(describing: payable))")
 
             DispatchQueue.main.async{
-                completion?(self.bank.save(for: charge))
+                let result = self.bank.save(for: charge)
+                completion?(result)
             }
             return
         }
