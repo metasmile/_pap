@@ -14,50 +14,70 @@ protocol TrialablePayable: Payable{
     Trial Control
 */
 extension TrialablePayable {
-    private static var ExpiredTrialTimeLength:TimeInterval{
-        return -Double.greatestFiniteMagnitude
+    private static var ExpiredTrialDate:Date{
+        return Date(timeIntervalSinceReferenceDate: 0)
     }
 
     static var trialTimeLengthLocalizedDayString:String{
         return "%@ Day".localizedFormatted((trialTimeLength/TimeInterval(60.0*60*24)).roundedString(toPlaces: 1))
     }
 
+    static func tryTrial() -> Bool{
+        if isAvailableToStartTutorial{
+            startTrialIfNeeded()
+            return true
+        }
+
+        if isInTrialPeriod {
+            return true
+        }
+
+        expireTrialIfNeeded()
+        return false
+    }
+
     static var isAvailableToStartTutorial:Bool {
-        let t = Defaults.shared.remainingTrialTimeLength[identifier]
+        let t = Defaults.shared.trialStartedDate[identifier]
         return t == nil
     }
 
-    static func startTrialIfNeeded(){
-        assert(Defaults.shared.remainingTrialTimeLength[identifier] == nil, "Already activated trial")
-        assert(Defaults.shared.remainingTrialTimeLength[identifier] != ExpiredTrialTimeLength, "Expired")
-
-        let t = Defaults.shared.remainingTrialTimeLength[identifier]
-        if t == nil, t != ExpiredTrialTimeLength {
-            Defaults.shared.remainingTrialTimeLength[identifier] = trialTimeLength
-        }
-    }
-
-    static func expireTrialIfNeeded(){
-        assert(remainingTrialTimeLength != nil, "already invalidated")
-        if remainingTrialTimeLength != nil{
-            Defaults.shared.remainingTrialTimeLength[identifier] = ExpiredTrialTimeLength
-        }
-    }
-    
-    static var remainingTrialTimeLength:TimeInterval? {
-        if let t = Defaults.shared.remainingTrialTimeLength[identifier]{
-            return t != ExpiredTrialTimeLength ? t : nil
+    private static var startedTrialTimeLength:Date? {
+        if let t = Defaults.shared.trialStartedDate[identifier]{
+            return t != ExpiredTrialDate ? t : nil
         }
         return nil
+    }
+
+    private static var isInTrialPeriod:Bool{
+        if let tutorialStartedDate = startedTrialTimeLength, Date().timeIntervalSince(tutorialStartedDate) < trialTimeLength{
+            return true
+        }
+        return false
+    }
+
+    private static func startTrialIfNeeded(){
+        assert(Defaults.shared.trialStartedDate[identifier] == nil, "Already activated trial")
+        assert(Defaults.shared.trialStartedDate[identifier] != ExpiredTrialDate, "Expired")
+
+        let t = Defaults.shared.trialStartedDate[identifier]
+        if t == nil, t != ExpiredTrialDate {
+            Defaults.shared.trialStartedDate[identifier] = Date()
+        }
+    }
+
+    private static func expireTrialIfNeeded(){
+        if startedTrialTimeLength != ExpiredTrialDate{
+            Defaults.shared.trialStartedDate[identifier] = ExpiredTrialDate
+        }
     }
 }
 
 private protocol StoreProductInternalDefaults:DefaultsProperty{
-    var remainingTrialTimeLength:[String:TimeInterval] {set get}
+    var trialStartedDate:[String:Date] {set get}
 }
 
 extension Defaults: StoreProductInternalDefaults {
-    var remainingTrialTimeLength: [String:TimeInterval] {
-        set{ set(newValue) } get{ return get(or:[String:TimeInterval]()) }
+    var trialStartedDate: [String:Date] {
+        set{ set(newValue) } get{ return get(or:[String:Date]()) }
     }
 }

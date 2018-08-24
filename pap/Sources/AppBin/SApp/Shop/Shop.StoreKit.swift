@@ -254,11 +254,11 @@ extension StorePayable{
 
 extension StorePayable{
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return type(of: self).product.purchase(signal)
+        return storePay(signal)
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        return self.storeVerify(signal)
+        return storeVerify(signal)
     }
 
     fileprivate func storePay(_ signal: AsyncWaitSignalable) -> Bool{
@@ -268,6 +268,24 @@ extension StorePayable{
     fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool?{
         assert(false, "Use specific Payable Type.")
         return nil
+    }
+}
+
+extension StorePayable where Self:TrialablePayable{
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        if type(of: self).tryTrial(){
+            return true
+        }
+
+        return storePay(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if type(of: self).tryTrial(){
+            return true
+        }
+
+        return storeVerify(signal)
     }
 }
 

@@ -98,7 +98,7 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayabl
     }
 
     static var trialTimeLength: TimeInterval {
-        return 60*60*24*3
+        return 30//60*60*24*3
     }
 }
 
