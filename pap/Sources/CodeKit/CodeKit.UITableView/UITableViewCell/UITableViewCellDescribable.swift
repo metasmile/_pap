@@ -18,7 +18,7 @@ public protocol UITableViewCellDescribable {
 
 extension UITableViewCellDescribable {
     public var cellIdentifier:String{
-        return String(describing: type(of: self.cellClass))
+        return String(describing: self)+String(describing: type(of: self.cellClass))
     }
 }
 

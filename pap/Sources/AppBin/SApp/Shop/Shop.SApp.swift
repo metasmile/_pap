@@ -321,14 +321,14 @@ private class PayItem: Hashable, Equatable {
     enum CellType {
         case button
         case switcher
+    }
 
-        var info:(cellClass:UITableViewCell.Type, id:String){
-            switch self{
-                case .button:
-                    return (cellClass:UITableViewButtonCell.self, id:String(describing:UITableViewButtonCell.self))
-                case .switcher:
-                    return (cellClass:UITableViewSwitchSubtitleCell.self, id:String(describing:UITableViewSwitchSubtitleCell.self))
-            }
+    var cellInfo:(cellClass:UITableViewCell.Type, id:String){
+        switch self.cellType{
+        case .button:
+            return (cellClass:UITableViewButtonCell.self, id:String(describing: self.payable)+String(describing:UITableViewButtonCell.self))
+        case .switcher:
+            return (cellClass:UITableViewSwitchSubtitleCell.self, id:String(describing: self.payable)+String(describing:UITableViewSwitchSubtitleCell.self))
         }
     }
 
@@ -462,10 +462,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private var settingsCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
-        return payGroups + [
-            CellDescriberGroup(label: "Settings".localized, detailedLabel: nil, describers: settingsCellDescribers)
-            , CellDescriberGroup(label: "Contact".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers)
-        ].filter{ $0.itemsOfSection.count>0 }
+        var s:[Section] = payGroups
+
+        if settingsCellDescribers.count > 0{
+            s.append(CellDescriberGroup(label: "Settings".localized, detailedLabel: nil, describers: settingsCellDescribers))
+        }
+
+        if contactCellDescribers.count > 0{
+            s.append(CellDescriberGroup(label: "Contact".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers))
+        }
+
+        return s
     }
 
     required public override init() {
@@ -614,7 +621,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }            
             else if let cellGroup = s as? PayGroup{
                 for item in cellGroup.items {
-                    tableView.register(item.cellType.info.cellClass, forCellReuseIdentifier: item.cellType.info.id)
+                    tableView.register(item.cellInfo.cellClass, forCellReuseIdentifier: item.cellInfo.id)
                 }
             }
         }
@@ -840,7 +847,7 @@ extension ShopAppDockContent{
         */
         let dataItem = forItem
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: forItem.cellType.info.id) as! UITableViewIndicatorCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: forItem.cellInfo.id) as! UITableViewIndicatorCell
 
         cell.textLabel?.text = dataItem.label
         cell.textLabel?.text = dataItem.label
