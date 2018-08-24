@@ -79,6 +79,18 @@ struct papStrings {
         }
     }
 
+    struct social{
+        static var url: String{
+            return "https://apps.photo/social"
+        }
+    }
+
+    struct userCommunity{
+        static var url: String{
+            return "https://apps.photo/users"
+        }
+    }
+
     struct share{
 
         static var urlFirstShort: String{

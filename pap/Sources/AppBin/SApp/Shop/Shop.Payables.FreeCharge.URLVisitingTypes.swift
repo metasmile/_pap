@@ -17,12 +17,12 @@ extension URLVisitingType{
     }
 }
 
-struct URLVisitingTypeTwitter: URLVisitingType {
-    static var url: URL?{ return "https://twitter.com/AppsForPhotos".asURL }
+struct URLVisitingTypeSocialPage: URLVisitingType {
+    static var url: URL?{ return papStrings.social.url.asURL }
 }
 
-struct URLVisitingTypeFacebook: URLVisitingType {
-    static var url: URL?{ return "https://www.facebook.com/apps.photo".asURL }
+struct URLVisitingTypeUserCommunity: URLVisitingType {
+    static var url: URL?{ return papStrings.userCommunity.url.asURL }
 }
 
 //TODO: YOU. app compaign - must check submit state - Typeform? PH Survey? hm

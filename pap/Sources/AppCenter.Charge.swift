@@ -128,7 +128,7 @@ private final class AppChargeManager: ChargeManager{
 
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
-                    , payment: URLVisitingPayment<URLVisitingTypeFacebook>.self
+                    , payment: URLVisitingPayment<URLVisitingTypeSocialPage>.self
                     , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Visit our SNS Pages".localized, description: nil, iconImage: nil)
             )

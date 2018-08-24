@@ -280,7 +280,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: SocialSharePayment.self),
                     PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
-                    PayItem(payable: URLVisitingPayment<URLVisitingTypeFacebook>.self)
+                    PayItem(payable: URLVisitingPayment<URLVisitingTypeSocialPage>.self)
                 ]
         )
     ]
@@ -558,9 +558,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c0.buttonTitle = "Rate Now".localized
         c0.iconImage = R.image.commonIconRobot.name
         c0.valueHandler = { _ in
-            DispatchQueue.global().async{
-                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
-            }
+            _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
         }
         contactCellDescribers.append(c0)
 
@@ -570,9 +568,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c1.buttonTitle = "Write".localized
         c1.iconImage = R.image.commonIconRobot.name
         c1.valueHandler = { _ in
-            DispatchQueue.global().async{
-                _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
-            }
+            _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
         }
         contactCellDescribers.append(c1)
 
@@ -582,11 +578,19 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c2.buttonTitle = "Get in touch".localized
         c2.iconImage = R.image.commonIconRobot.name
         c2.valueHandler = { _ in
-            DispatchQueue.global().async{
-                AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
-            }
+            AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
         }
         contactCellDescribers.append(c2)
+
+        let c3 = UITableViewButtonCellDescriber()
+        c3.itemIdentifier = CellDescriber.Key.support.hashValue
+        c3.label = "%@ User Group".localizedFormatted(papStrings.name)
+        c3.buttonTitle = "Visit".localized
+        c3.iconImage = R.image.commonIconRobot.name
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLVisitingPayment<URLVisitingTypeUserCommunity>.self)
+        }
+        contactCellDescribers.append(c3)
 
         if AppCenter.isPaidAsVIPInCurrentContext {
             let c6 = UITableViewButtonCellDescriber()
@@ -596,9 +600,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c6.iconImage = R.image.commonIconRobot.name
             c6.valueHandler = { _ in
                 //TODO: add realtime messenger or in-app messaging.
-                DispatchQueue.global().async{
-                    AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
-                }
+                AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
             }
             contactCellDescribers.append(c6)
         }
