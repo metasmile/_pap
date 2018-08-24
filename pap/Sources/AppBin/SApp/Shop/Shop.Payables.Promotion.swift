@@ -9,13 +9,14 @@ import Armchair
 
 struct WelcomeTutorialPayment:Payable{
     //Actually will not be used.
-    private(set) static var label: String = "Use"
+    static var action: PayableAction{
+        return PayableAction(title: "Use".localized)
+    }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         return Defaults.shared.shortVersionDescription == .first
     }
 }
-
 
 private extension VerifiablePayable{
     func verifyForAvailableOnlyThisVersion() -> Bool? {
@@ -29,8 +30,8 @@ private extension VerifiablePayable{
 
 struct InAppStoreRatingPayment:VerifiablePayable{
 
-    static var label:String{
-        return "Rate It".localized
+    static var action:PayableAction{
+        return PayableAction(title: "Rate It".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
@@ -67,8 +68,8 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
         }
     }
 
-    static var label:String{
-        return "Rate It".localized
+    static var action:PayableAction{
+        return PayableAction(title: "Rate It".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {

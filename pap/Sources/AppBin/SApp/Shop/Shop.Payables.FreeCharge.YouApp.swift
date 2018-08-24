@@ -50,8 +50,8 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, GADMan
 
     }
 
-    static var label: String {
-        return "Join".localized
+    static var action: PayableAction{
+        return PayableAction(title: "Join".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {

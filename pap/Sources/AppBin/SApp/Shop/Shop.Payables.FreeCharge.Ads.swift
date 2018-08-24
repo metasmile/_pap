@@ -98,8 +98,8 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
 
     }
 
-    static var label: String {
-        return "View".localized
+    static var action: PayableAction{
+        return PayableAction(title: "View".localized)
     }
 
     func interestialDidReceiveAd() {

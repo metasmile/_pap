@@ -8,9 +8,10 @@ import UIKit
 import MessageUI
 
 struct FreeAppPayment<T:App>: VerifiablePayable{
-    static var label: String{
-        return "Free Use".localized
+    static var action: PayableAction {
+        return PayableAction(title: "Free Use".localized)
     }
+
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         return true
     }
@@ -26,9 +27,8 @@ extension UIActivityType {
 }
 
 struct SocialSharePayment:Payable{
-
-    static var label:String{
-        return "Share".localized
+    static var action:PayableAction{
+        return PayableAction(title: "Share".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
@@ -53,8 +53,8 @@ struct SocialSharePayment:Payable{
 
 class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailComposeViewControllerDelegate {
 
-    static var label:String{
-        return "Write".localized
+    static var action:PayableAction{
+        return PayableAction(title: "Write".localized)
     }
 
     private var mailComposerCompletionBlock: ((_ sent: Bool) -> Void)?
@@ -100,8 +100,8 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
 
 struct URLVisitingPayment<Type: URLVisitingType>: Payable {
 
-    static var label:String{
-        return Type.label ?? "Visit".localized
+    static var action:PayableAction{
+        return PayableAction(title: Type.label ?? "Visit".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {

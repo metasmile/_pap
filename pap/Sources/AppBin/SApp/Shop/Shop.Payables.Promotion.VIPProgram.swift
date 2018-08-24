@@ -125,7 +125,9 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
     */
     private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
 
-    private(set) static var label: String = "Get Access".localized
+    static var action: PayableAction {
+        return PayableAction(title: "Get Access".localized)
+    }
 
     static var grantedOwnerName:String?{
         return Defaults.shared.secretCodeEntry?.ownerName

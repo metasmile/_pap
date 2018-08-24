@@ -22,8 +22,6 @@ public class ShopApp: NSObject
         , LaunchableApp
         , ManagerConfigurableApp {
 
-    fileprivate static var privateDefaults = ShopApp.defaults as! ShopAppDefaults
-    
     public private(set) lazy var content: AppDockContent? = ShopAppDockContent()
 
     fileprivate lazy var contentImageCache:NSCache = NSCache<NSString, UIImage>()
@@ -191,24 +189,6 @@ extension ShopApp{
         }
     }
 }
-
-
-private struct PriceString:Codable{
-    let title:String
-    let detailedTitle:String?
-}
-
-private protocol ShopAppDefaults: AppDefaults{
-    var storablePayablePriceInfo:[String: PriceString] {get set}
-}
-
-extension Defaults: ShopAppDefaults {
-    fileprivate var storablePayablePriceInfo: [String: PriceString] {
-        set{ set(newValue) }
-        get{ return get(or:[String: PriceString]()) }
-    }
-}
-
 
 
 private protocol Section{
@@ -925,18 +905,12 @@ extension ShopAppDockContent{
             }
 
         }else{
-            // 2nd - label
-            if let storePayable = dataItem.payable as? StorePayable.Type
-            , let priceString = cellGetPriceString(storePayable: storePayable) {
 
-                if priceString.detailedTitle == nil{
-                    cell.button.setTitle(priceString.title, for: .normal)
-                }else{
-                    cell.setButtonTitle(title: priceString.title, detailTitle: priceString.detailedTitle, for: .normal)
-                }
-
+            let action = dataItem.payable.action
+            if action.detailedTitle == nil{
+                cell.button.setTitle(action.title, for: .normal)
             }else{
-                cell.button.setTitle(dataItem.payable.label, for: .normal)
+                cell.setButtonTitle(title: action.title, detailTitle: action.detailedTitle, for: .normal)
             }
 
             cell.button.setTitleColor(self.view.tintColor, for: .normal)
@@ -958,45 +932,5 @@ extension ShopAppDockContent{
 
         return cell
     }
-
-    private func cellGetPriceString(storePayable:StorePayable.Type) -> PriceString?{
-
-        var str:PriceString?
-
-        if let storeProduct = storePayable.storeProduct {
-            let priceString = storeProduct.localizedPrice ?? String(describing: storeProduct.price)
-
-            //INFO: Per Day Display
-            if let subscriptionPeriod = storePayable.product.subscriptionPeriod{
-                let priceValue = storeProduct.price.doubleValue
-                let unitAmount = subscriptionPeriod.numberOfUnits
-                let perDayPriceValue:Double
-                switch subscriptionPeriod.unit {
-                    case .day:
-                        perDayPriceValue = priceValue/unitAmount
-                    case .week:
-                        perDayPriceValue = priceValue/(7*unitAmount)
-                    case .month:
-                        perDayPriceValue = priceValue/(30.436875*unitAmount)
-                    case .year:
-                        perDayPriceValue = priceValue/(365*unitAmount)
-                    default:
-                        perDayPriceValue = 0
-                }
-
-                if let pricePerDayString = SKProduct.localizePrice(price: NSDecimalNumber(value: perDayPriceValue.round(toPlaces: 2)), locale: storeProduct.priceLocale){
-                    str = PriceString(title: priceString, detailedTitle: "%@/Day".localizedFormatted(pricePerDayString))
-                }
-
-            }else{
-                str = PriceString(title: priceString, detailedTitle: nil)
-            }
-        }
-
-        if let str = str {
-            ShopApp.privateDefaults.storablePayablePriceInfo[storePayable.product.identifier] = str
-        }
-
-        return str ?? ShopApp.privateDefaults.storablePayablePriceInfo[storePayable.product.identifier]
-    }
 }
+

@@ -108,8 +108,18 @@ protocol RewardDescribable{
     var iconImage:ImageSourceable? {get}
 }
 
+struct PayableAction:Codable{
+    let title:String
+    let detailedTitle:String?
+
+    init(title:String, detailedTitle:String?=nil){
+        self.title = title
+        self.detailedTitle = detailedTitle
+    }
+}
+
 protocol Payable {
-    static var label:String {get}
+    static var action:PayableAction {get}
 
     static var identifier:String {get}
 

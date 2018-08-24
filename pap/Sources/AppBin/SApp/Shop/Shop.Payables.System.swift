@@ -7,9 +7,8 @@ import Foundation
 import DefaultsKit
 
 struct RestorePurchasesSystemPayment:VerifiablePayable{
-
-    static var label: String {
-        return "Restore".localized
+    static var action: PayableAction {
+        return PayableAction(title: "Restore".localized)
     }
 
     static var isEnable: Bool {
