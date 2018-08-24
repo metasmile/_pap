@@ -251,48 +251,45 @@ extension StorePayable{
 /*
     Payment & Verification
 */
-
-extension StorePayable{
-    func pay(_ signal: AsyncWaitSignalable) -> Bool {
-        return storePay(signal)
-    }
-
-    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        return storeVerify(signal)
-    }
-
-    fileprivate func storePay(_ signal: AsyncWaitSignalable) -> Bool{
-        return type(of: self).product.purchase(signal)
-    }
-
-    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool?{
-        assert(false, "Use specific Payable Type.")
-        return nil
-    }
-}
-
 extension StorePayable where Self:TrialablePayable{
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
         if type(of: self).tryTrial(){
             return true
         }
+        return _pay(signal)
+    }
+}
 
-        return storePay(signal)
+extension StorePayable{
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return _pay(signal)
+    }
+
+    fileprivate func _pay(_ signal: AsyncWaitSignalable) -> Bool{
+        return type(of: self).product.purchase(signal)
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if type(of: self).verifyTrial(){
-            return true
-        }
-
-        return storeVerify(signal)
+        assert(false, "Use specific Payable Type.")
+        return nil
     }
 }
 
 protocol NonConsumablePurchasingPayable:StorePayable{}
+extension NonConsumablePurchasingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if type(of: self).verifyTrial(){
+            return true
+        }
+        return _verify(signal)
+    }
+}
 extension NonConsumablePurchasingPayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return _verify(signal)
+    }
 
-    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
+    private func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal) {
 
             switch SwiftyStoreKit.verifyPurchase(
@@ -309,10 +306,22 @@ extension NonConsumablePurchasingPayable{
     }
 }
 
-protocol AutoRenewableSubscribingPayable:StorePayable{}
-extension AutoRenewableSubscribingPayable {
 
-    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
+protocol AutoRenewableSubscribingPayable:StorePayable{}
+extension AutoRenewableSubscribingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if type(of: self).verifyTrial(){
+            return true
+        }
+        return _verify(signal)
+    }
+}
+extension AutoRenewableSubscribingPayable {
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return _verify(signal)
+    }
+
+    private func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal){
 
             switch SwiftyStoreKit.verifySubscription(
@@ -331,10 +340,18 @@ extension AutoRenewableSubscribingPayable {
     }
 }
 
-protocol NonRenewingSubscribingPayable:StorePayable{}
-extension NonRenewingSubscribingPayable {
 
-    fileprivate func storeVerify(_ signal: AsyncWaitSignalable) -> Bool? {
+protocol NonRenewingSubscribingPayable:StorePayable{}
+extension NonRenewingSubscribingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if type(of: self).verifyTrial(){
+            return true
+        }
+        return _verify(signal)
+    }
+}
+extension NonRenewingSubscribingPayable {
+    fileprivate func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
         if let r = type(of: self).product.verify(signal){
             switch SwiftyStoreKit.verifySubscription(
                     ofType: .nonRenewing(validDuration: papNonRenewingValidDuration),
