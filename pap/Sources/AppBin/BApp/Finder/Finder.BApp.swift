@@ -1310,8 +1310,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell_b.valueHandler = { _ in
             var option = AppLaunchOptions()
             option.identifierToReturn = FinderApp.info.identifier
-
-            AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
+            AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
         }
         settingCellDescribers.append(cell_b)

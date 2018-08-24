@@ -387,8 +387,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
         cell_b.valueHandler = { _ in
             var option = AppLaunchOptions()
             option.identifierToReturn = PhoneCallsApp.info.identifier
-
-            AppCenter.default.openApp(identifier:"com.stells.pap.camera", options:option)
+            AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
         }
         settingCellDescribers.append(cell_b)

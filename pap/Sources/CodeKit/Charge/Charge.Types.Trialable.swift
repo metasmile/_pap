@@ -28,10 +28,17 @@ extension TrialablePayable {
             return true
         }
 
-        if isInTrialPeriod {
+        if verifyTrial() {
             return true
         }
 
+        return false
+    }
+
+    static func verifyTrial() -> Bool{
+        if let tutorialStartedDate = startedTrialTimeLength, Date().timeIntervalSince(tutorialStartedDate) < trialTimeLength{
+            return true
+        }
         expireTrialIfNeeded()
         return false
     }
@@ -46,13 +53,6 @@ extension TrialablePayable {
             return t != ExpiredTrialDate ? t : nil
         }
         return nil
-    }
-
-    private static var isInTrialPeriod:Bool{
-        if let tutorialStartedDate = startedTrialTimeLength, Date().timeIntervalSince(tutorialStartedDate) < trialTimeLength{
-            return true
-        }
-        return false
     }
 
     private static func startTrialIfNeeded(){

@@ -281,7 +281,7 @@ extension StorePayable where Self:TrialablePayable{
     }
 
     func verify(_ signal: AsyncWaitSignalable) -> Bool? {
-        if type(of: self).tryTrial(){
+        if type(of: self).verifyTrial(){
             return true
         }
 
