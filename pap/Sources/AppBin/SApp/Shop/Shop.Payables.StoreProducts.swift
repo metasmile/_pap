@@ -91,9 +91,14 @@ struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
 
 
 // 1_App
-struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable{
+
+struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayable{
     static var product: StoreProduct{
         return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil)
+    }
+
+    static var trialTimeLength: TimeInterval {
+        return 60*60*24*3
     }
 }
 

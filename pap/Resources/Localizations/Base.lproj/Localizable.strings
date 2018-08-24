@@ -84,7 +84,7 @@
 
 /* Generated from genl10n: Shop.SApp.swift#80 */
 "%@ App Passes" = "%@ App Passes";
-/* Generated from genl10n: AppCenter.Charge.swift#305 */
+/* Generated from genl10n: AppCenter.Charge.swift#305, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
@@ -96,7 +96,7 @@
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
-/* Generated from genl10n: Charge.Types.StoreKit.swift#56 */
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@/Day";
 /* Generated from genl10n: GIFMaker.BApp.swift#587 */
 "%d times" = "%d times";
@@ -382,7 +382,7 @@
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: Shop.SApp.swift#223 */
 "Purchase Management" = "Purchase Management";
-/* Generated from genl10n: Charge.Types.StoreKit.swift#28 */
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.AppDockContent.swift#138, GIFMaker.BApp.swift#597 */
 "Quality" = "Quality";
@@ -466,6 +466,8 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#100 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Start Tutorial" = "Start Tutorial";
 /* Generated from genl10n: PhotoPickerViewController.swift#473 */
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#165 */

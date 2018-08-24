@@ -15,7 +15,7 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 
-    public func roundedString(toPlaces places:Int, trimTrailingZeros:Bool=false) -> String{
+    public func roundedString(toPlaces places:Int, trimTrailingZeros:Bool=true) -> String{
         let dayStr = String(round(toPlaces: 1))
         if trimTrailingZeros{
             let repeatingZero = "."+String(repeating: "0", count: places)

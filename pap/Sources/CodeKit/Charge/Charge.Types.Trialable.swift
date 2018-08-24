@@ -18,25 +18,34 @@ extension TrialablePayable {
         return -Double.greatestFiniteMagnitude
     }
 
-    static func activateTrialIfNeeded(){
-        assert(Defaults.shared.remainingTrialPeriod[identifier] == nil, "Already activated trial")
-        assert(Defaults.shared.remainingTrialPeriod[identifier] != ExpiredTrialTimeLength, "Expired")
+    static var trialTimeLengthLocalizedDayString:String{
+        return "%@ Day".localizedFormatted((trialTimeLength/24*60*60).roundedString(toPlaces: 1))
+    }
 
-        let t = Defaults.shared.remainingTrialPeriod[identifier]
+    static var isAvailableToStartTutorial:Bool {
+        let t = Defaults.shared.remainingTrialTimeLength[identifier]
+        return t == nil
+    }
+
+    static func startTrialIfNeeded(){
+        assert(Defaults.shared.remainingTrialTimeLength[identifier] == nil, "Already activated trial")
+        assert(Defaults.shared.remainingTrialTimeLength[identifier] != ExpiredTrialTimeLength, "Expired")
+
+        let t = Defaults.shared.remainingTrialTimeLength[identifier]
         if t == nil, t != ExpiredTrialTimeLength {
-            Defaults.shared.remainingTrialPeriod[identifier] = trialTimeLength
+            Defaults.shared.remainingTrialTimeLength[identifier] = trialTimeLength
         }
     }
 
     static func expireTrialIfNeeded(){
-        assert(remainingTrialPeriod != nil, "already invalidated")
-        if remainingTrialPeriod != nil{
-            Defaults.shared.remainingTrialPeriod[identifier] = ExpiredTrialTimeLength
+        assert(remainingTrialTimeLength != nil, "already invalidated")
+        if remainingTrialTimeLength != nil{
+            Defaults.shared.remainingTrialTimeLength[identifier] = ExpiredTrialTimeLength
         }
     }
-
-    static var remainingTrialPeriod:TimeInterval? {
-        if let t = Defaults.shared.remainingTrialPeriod[identifier]{
+    
+    static var remainingTrialTimeLength:TimeInterval? {
+        if let t = Defaults.shared.remainingTrialTimeLength[identifier]{
             return t != ExpiredTrialTimeLength ? t : nil
         }
         return nil
@@ -44,11 +53,11 @@ extension TrialablePayable {
 }
 
 private protocol StoreProductInternalDefaults:DefaultsProperty{
-    var remainingTrialPeriod:[String:TimeInterval] {set get}
+    var remainingTrialTimeLength:[String:TimeInterval] {set get}
 }
 
 extension Defaults: StoreProductInternalDefaults {
-    var remainingTrialPeriod: [String:TimeInterval] {
+    var remainingTrialTimeLength: [String:TimeInterval] {
         set{ set(newValue) } get{ return get(or:[String:TimeInterval]()) }
     }
 }

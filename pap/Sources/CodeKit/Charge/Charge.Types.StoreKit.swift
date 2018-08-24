@@ -23,12 +23,25 @@ struct StoreProduct {
 /*
     Action
 */
+extension StorePayable where Self:TrialablePayable{
+    static var action:PayableAction {
+        if self.isAvailableToStartTutorial {
+            return PayableAction(title:"Start Tutorial".localized, detailedTitle: trialTimeLengthLocalizedDayString)
+        }
+        return defaultStoreAction
+    }
+}
+
 extension StorePayable {
     static var action:PayableAction {
-        return cachedAction ?? PayableAction(title: "Purchase".localized)
+        return defaultStoreAction
     }
 
-    private static var cachedAction:PayableAction?{
+    static var defaultStoreAction:PayableAction{
+        return cachedStorePricingAction ?? PayableAction(title: "Purchase".localized)
+    }
+    
+    fileprivate static var cachedStorePricingAction:PayableAction?{
         var str:PayableAction?
 
         if let storeProduct = storeProduct {
