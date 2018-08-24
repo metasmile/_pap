@@ -8,6 +8,7 @@ import GoogleMobileAds
 import UIKit
 import DefaultsKit
 
+//https://developers.google.com/admob/ios/interstitial?hl=en-GB
 private enum _AdsSystemInfo: String {
     /** REPLACE THE VALUES BY YOUR APP AND AD IDS **/
     case appId       = "ca-app-pub-3029312734389414~7736928915"
@@ -54,12 +55,13 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var interval: Double? = 30//60*60*6
 }
 
-//https://developers.google.com/admob/ios/interstitial?hl=en-GB
-final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, RelativePayable, GADManagerInterestialDelegate{
-
+extension GADInterestialAdsViewingPayment:RelativePayable where T==GADInterestialTypeBlockOfUses{
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
+}
+
+class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     private let adManager: GADManager = GADManager()
 
@@ -70,13 +72,14 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
     @objc dynamic
     private var didUserShowAd = false
 
+    private lazy var dateKey = String(describing: type(of:self))
+    
     required override init() {
         super.init()
 
-        self.watch(\.didUserShowAd, id:Type.unitId){
+        self.watch(\.didUserShowAd, id: T.unitId){
             if self.didUserShowAd{
-                print(Type.unitId)
-                Defaults.shared.latestAdsShownDate[Type.unitId] = Date()
+                Defaults.shared.latestAdsShownDate[self.dateKey] = Date()
             }
         }
     }
@@ -124,7 +127,7 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
-        if let interval = Type.interval, let latestShowenDate = Defaults.shared.latestAdsShownDate[Type.unitId]{
+        if let interval = T.interval, let latestShowenDate = Defaults.shared.latestAdsShownDate[dateKey]{
             if interval > Date().timeIntervalSince(latestShowenDate){
                 return true
             }
@@ -138,7 +141,7 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
         asyncSignal.begin()
 
         DispatchQueue.main.async{
-            self.adManager.configureWithApp(Type.appId)
+            self.adManager.configureWithApp(T.appId)
 //            self.adManager.setTestDevics(testDevices: AdIds.testDevices)
 
             //INFO: Banner
@@ -169,7 +172,7 @@ final class GADInterestialAdsViewingPayment<Type: GADInterestialType>:NSObject, 
             }
 
             self.adManager.delegateInterestial = self
-            self.adManager.createAndLoadInterstitial(Type.unitId)
+            self.adManager.createAndLoadInterstitial(T.unitId)
         }
 
         asyncSignal.waitUntilEnd()
