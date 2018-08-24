@@ -335,12 +335,6 @@ extension Amount{
     }
 }
 
-extension ChargeableApp{
-    static var defaultFreeAppLocalCharges: [Charge] {
-        return [ AppCharge.createLocalAppCharge(of: self, as: .none) ].compactMap { $0 }
-    }
-}
-
 extension AppCharge{
     static func createLocalAppCharge<A:App>(of app:A.Type, as chargeType:ChargeType, description:RewardDescribable?=nil) -> Charge?{
         var payable:Payable.Type?

@@ -20,7 +20,8 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
         , PhotoPickerViewControllerDelegatableApp
         , PhotoPickerCollectionViewDisplayableApp
         , PreheatableApp
-        , LaunchableApp {
+        , LaunchableApp
+        , ChargeableApp {
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
@@ -50,6 +51,10 @@ public class FinderApp: NSObject, KeyPathWatchable, BApp
 
     public required override init() {
         
+    }
+
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     class func didConfigure(with manager: AppManager) {

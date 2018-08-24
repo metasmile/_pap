@@ -39,7 +39,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelega
     public required init() {}
 
     static var localCharges: [Charge] {
-        return self.defaultFreeAppLocalCharges
+        return self.defaultFreeBAppLocalCharges
     }
 
     public var doneButtonTitle: String?{

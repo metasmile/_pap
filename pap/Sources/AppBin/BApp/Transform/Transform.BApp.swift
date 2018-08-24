@@ -35,7 +35,7 @@ public class TransformApp: NSObject, BApp, KeyPathWatchable
         , ChargeableApp {
 
     static var localCharges: [Charge] {
-        return self.defaultFreeAppLocalCharges
+        return self.defaultFreeBAppLocalCharges
     }
 
     public static let taskType: AppTaskable.Type = _TransfromAppTask.self

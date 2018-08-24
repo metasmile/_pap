@@ -54,9 +54,7 @@ public class ConverterApp: BApp,
     }
 
     static var localCharges: [Charge] {
-        return [
-            AppCharge.createLocalAppCharge(of: self, as: .nonConsumablePurchaseInAppStore)
-        ].compactMap { $0 }
+        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     public var doneButtonTitle: String? {

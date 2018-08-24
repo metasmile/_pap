@@ -50,7 +50,7 @@ public class RevertApp: NSObject, KeyPathWatchable, BApp
     )
 
     static var localCharges: [Charge] {
-        return self.defaultFreeAppLocalCharges
+        return self.defaultFreeBAppLocalCharges
     }
 
     public private(set) lazy var content: AppDockContent? = RevertAppDockContent()
