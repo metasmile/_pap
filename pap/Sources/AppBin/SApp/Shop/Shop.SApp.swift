@@ -68,15 +68,19 @@ public class ShopApp: NSObject
 */
 extension ShopApp{
 
-    //INFO: Important section - Creating final list for gloabal use.
+    //CRITICAL: filtering visibility
     fileprivate func loadDefaultPayGroups() -> [PayGroup] {
         var mutableDefaultCollection = PayGroup.Default
 
         //INFO: get source app info
+        let localOwnedExisted:Bool
         if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
-                    mutableDefaultCollection.append(PayGroup(
-                            key: .LocalPaidCharge
+                
+                localOwnedExisted = localCharges.contains(where:{ $0.reward.isLocalOwned })
+                
+                mutableDefaultCollection.append(PayGroup(
+                            key: .LocalCharge
                             , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                             , items: localCharges.map ({
                         let pay = PayItem(payable: $0.payment)
@@ -85,8 +89,14 @@ extension ShopApp{
                         return pay
                     })
                 ))
+                
                 mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
+            }else{
+                localOwnedExisted = false
             }
+
+        }else{
+            localOwnedExisted = false
         }
 
         //INFO: Apply dictionary deps
@@ -94,25 +104,38 @@ extension ShopApp{
         let paidChargesByPaymentIDs = AppCenter.charge.getChargesPaid().dictionary { $0.payment.identifier }
         let paidPayableIDs = Set(paidChargesByPaymentIDs.keys)
 
-        let paidOwnedHasExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
-        
+        let paidOwnedExisted = paidChargesByPaymentIDs.values.contains(where:{ $0.reward.isOwned })
+
         for (i, payGroup) in mutableDefaultCollection.enumerated() {
 
             var mutablePayDict = payGroup
 
             //Check invisibility
             mutablePayDict.items = mutablePayDict.items.filter { item -> Bool in
+                //Check whether payment has unregistered charge
+                guard let charge = item.charge else {
+                    return false
+                }
 
                 //Check Restore Visibility
                 if !item.payable.isEnable{
                     return false
                 }
 
-                //Check if isOwned has existed, isLocalOwned will be hidden.
-                if let charge = item.charge, charge.reward.isLocalOwned, paidOwnedHasExisted {
-                    return false
+                //POLICY: Check if isOwned has existed, but item is isLocalOwned will be hidden.
+                if charge.reward.isLocalOwned {
+                    if paidOwnedExisted{
+                        return false
+                    }
                 }
-                
+
+                //POLICY: Check if isLocalOwned has existed, but an item is not isLocalOwned(==free charge reward) will be hidden.
+                if charge.reward.isLocalOwned == false && charge.reward.isOwned == false {
+                    if localOwnedExisted{
+                        return false
+                    }
+                }
+
                 //Check availability
                 if (item.availability.contains(.paid) && item.availability.contains(.unpaid)) == false{
                     let paid = paidPayableIDs.contains(item.payable.identifier)
@@ -207,7 +230,7 @@ private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
-        case LocalPaidCharge
+        case LocalCharge
         case FreeCharge
         case Promotion
     }

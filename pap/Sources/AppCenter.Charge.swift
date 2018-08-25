@@ -11,7 +11,6 @@ import DefaultsKit
 extension AppCenter{
     static let charge:ChargeManager = AppChargeManager.initialize()
 
-    //INFO: Priority is critical.
     static var isPaidInCurrentContext:Bool{
         return paidChargeableTypeInCurrentContext != nil
     }
@@ -22,7 +21,7 @@ extension AppCenter{
         //this is '.owned' specific. different from 'isOwned'
     }
 
-    //INFO: Priority ordering is the most critical.
+    //CRITICAL: Priority ordering
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
         if let charge = charge.getChargesPaidOwned().nilEmpty?.first{
@@ -466,7 +465,7 @@ private final class AppChargeBanker: ChargeBanker {
             default:
                 //INFO: If it needs to reset all
 #if DEBUG
-//            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
+            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
 #endif
                 break
         }
