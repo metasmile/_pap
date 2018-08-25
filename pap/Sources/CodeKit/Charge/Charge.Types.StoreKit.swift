@@ -5,7 +5,7 @@
 
 import Foundation
 import StoreKit
-import DefaultsKit
+import PropertyKit
 
 protocol StorePayable: VerifiablePayable {
     static var product: StoreProduct {get}

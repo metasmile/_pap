@@ -5,10 +5,10 @@
 
 import Foundation
 import Photos
-
+import PropertyKit
 //TODO: later change to instance copying style instead of sync+singleton.
 
-public final class PHAssets: NSObject, KeyPathWatchable {
+public final class PHAssets: NSObject, PropertyWatchable {
     public static let fetched = PHAssets()
 
     private let syncQueue = DispatchQueue(label: #file, qos: .userInteractive)

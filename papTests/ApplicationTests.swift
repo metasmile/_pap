@@ -74,7 +74,7 @@ class batchTests: XCTestCase {
 }
 
 
-import DefaultsKit
+import PropertyKit
 
 public protocol TransformAppDefaults: AppDefaults{
     var transform:Int? {set get}

@@ -6,7 +6,7 @@
 import Foundation
 import GoogleMobileAds
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
 private enum _AdsSystemInfo: String {
@@ -27,7 +27,7 @@ private extension _AdsSystemInfo {
     }
 }
 
-private protocol AdsDefaultsInfo:DefaultsProperty{
+private protocol AdsDefaultsInfo:PropertyDefaults{
     var latestAdsShownDate: [String:Date]{get set} //ad unitId : Date
 }
 
@@ -61,7 +61,7 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType{
 //    }
 //}
 
-class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
+class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }

@@ -11,7 +11,7 @@
 //    AppDockItem > AppDockViewCell
 
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 struct AppDockItem {
     var app: App.Type

@@ -30,10 +30,10 @@ Comment (ex->Costomization of rows with text input)
 */
 
 import Foundation
-import Eureka
+//import Eureka
 import UIKit
-
-class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, GADManagerInterestialDelegate{
+import PropertyKit
+class YouAppProgramPayment:NSObject, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     required override init() {}
 
@@ -56,36 +56,39 @@ class YouAppProgramPayment:NSObject, KeyPathWatchable, PreparablePayable, GADMan
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
-        var paid = false
-        signal = AsyncSignal()
+//        var paid = false
 
-        asyncSignal.begin()
+//        signal = AsyncSignal()
+//
+//        asyncSignal.begin()
+//
+//        DispatchQueue.main.async{
+//            let formVC = YouAppFormController()
+//            formVC.watch(\.wasDone) { k,v in
+//                if v.newValue == true{
+//                    //TODO: Register to Cloud
+//                    // paid = true
+//                    print(formVC.form.values())
+//                    asyncSignal.end()
+//                }else{
+//                    paid = false
+//                    asyncSignal.end()
+//                }
+//            }
+//
+//            let nVC = UINavigationController(rootViewController: formVC)
+//            formVC.navigationItem.title = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
+//            UIViewController.present(nVC, animated: true)
+//        }
+//        asyncSignal.waitUntilEnd()
 
-        DispatchQueue.main.async{
-            let formVC = YouAppFormController()
-            formVC.watch(\.wasDone) { k,v in
-                if v.newValue == true{
-                    //TODO: Register to Cloud
-                    // paid = true
-                    print(formVC.form.values())
-                    asyncSignal.end()
-                }else{
-                    paid = false
-                    asyncSignal.end()
-                }
-            }
-            
-            let nVC = UINavigationController(rootViewController: formVC)
-            formVC.navigationItem.title = AppCenter.charge.getCharge(for: type(of: self))?.describable.title
-            UIViewController.present(nVC, animated: true)
-        }
-        asyncSignal.waitUntilEnd()
-
-        return paid
+//        return paid
+        return false
     }
 }
 
-private class YouAppFormController: FormViewController, KeyPathWatchable {
+/*
+private class YouAppFormController: FormViewController, PropertyWatchable {
 
     @objc dynamic
     var wasDone = false
@@ -358,13 +361,13 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
             $0.title = "Submit".localized
         }
                 .onCellSelection { cell, row in
-                    
+
                     if row.section?.form?.validate().count == 0{
                         self.dismiss(animated: true, completion: {
                             self.wasDone = true
                         })
                     }
-                    
+
                 }
 
 
@@ -380,3 +383,4 @@ private class YouAppFormController: FormViewController, KeyPathWatchable {
 
     }
 }
+*/

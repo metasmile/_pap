@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 import FirebaseMLVision
-import DefaultsKit
+import PropertyKit
 import Contacts
 import ContactsUI
 import EventKit
@@ -14,7 +14,7 @@ import EventKitUI
 import UIKit
 import SafariServices
 
-public class FinderApp: NSObject, KeyPathWatchable, BApp
+public class FinderApp: NSObject, PropertyWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp

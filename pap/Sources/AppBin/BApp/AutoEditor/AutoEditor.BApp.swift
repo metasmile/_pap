@@ -10,7 +10,7 @@ import UIKit
 
 class _AutoEditorAppAsset: _FiltersAppAsset {}
 
-public class AutoEditorApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp, PhotoEditorViewControllerDelegatableApp {
 
@@ -250,7 +250,7 @@ private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy,
 /*
 AutoEditorAppDockContent
 */
-import DefaultsKit
+import PropertyKit
 private protocol AutoEditorAppDefaults: AppDefaults{
     var autoAdjustmentOptions: [String:Bool] {get set}
 }
@@ -262,7 +262,7 @@ extension Defaults: AutoEditorAppDefaults {
     }
 }
 
-class AutoEditorAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate static var primaryColor = UIColor(red:0.12, green:0.67, blue:0.98, alpha:1)
     fileprivate var autoAdjustmentOptionKeys = AutoEditorApp.AutoAdjustmentsKeys
 

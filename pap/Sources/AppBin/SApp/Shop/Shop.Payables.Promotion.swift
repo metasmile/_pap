@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 import Armchair
 
 struct WelcomeTutorialPayment:Payable{

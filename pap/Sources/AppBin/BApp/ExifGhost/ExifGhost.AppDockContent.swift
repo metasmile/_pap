@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 private enum SelectionPresets:Int{
     case all

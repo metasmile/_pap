@@ -4,10 +4,10 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 import CloudKit
 
-private protocol SecretCodeStore:DefaultsProperty{
+private protocol SecretCodeStore:PropertyDefaults{
     var secretCodeEntry:SecretCodeEntry? {set get}
 }
 
@@ -87,7 +87,6 @@ private extension CKDatabase{
         o.recordsToSave = records
         o.savePolicy = policy
         o.perRecordCompletionBlock = completion
-
         self.add(o)
     }
 

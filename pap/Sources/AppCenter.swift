@@ -4,9 +4,9 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
-public final class AppCenter: AppManager, AppManagerConfigurable, KeyPathWatchable {
+public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatchable {
     public static let `default` = AppCenter()
 
     override init() {

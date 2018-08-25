@@ -8,7 +8,7 @@
 
 import UIKit
 import Photos
-import DefaultsKit
+import PropertyKit
 import MobileCoreServices
 
 //INFO: feature reference: https://ezgif.com
@@ -224,7 +224,7 @@ struct GIFMakerSettings {
 
 //MARK: -
 
-public class GIFMakerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
+public class GIFMakerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -392,7 +392,7 @@ private enum Cells {
     case loopCount
 }
 
-class GIFMakerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate,
+class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate,
         UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
     private var defaults = GIFMakerApp.defaults as! GIFMakerDefaults

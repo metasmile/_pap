@@ -6,7 +6,7 @@
 import Foundation
 import CoreMotion
 import UIKit
-
+import PropertyKit
 /*
     Usage:
 
@@ -15,7 +15,7 @@ import UIKit
     }
 */
 
-class UIDeviceMotion: NSObject, KeyPathWatchable {
+class UIDeviceMotion: NSObject, PropertyWatchable {
     public static let shared = UIDeviceMotion()
 
     private lazy var motionQueue = OperationQueue()

@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import MobileCoreServices
 import Photos
+import PropertyKit
 
-public class ConverterAppConfigValue: NSObject, KeyPathWatchable, AppConfigValuable {
+public class ConverterAppConfigValue: NSObject, PropertyWatchable, AppConfigValuable {
     @objc dynamic
     public var convertingDirectionIdentifier:String = ConverterApp.defaultConverter.direction.identifier
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DefaultsKit
+import PropertyKit
 import Vision
 
 private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
@@ -18,7 +18,7 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class MemoCamApp: NSObject, KeyPathWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
+class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
     class var isSupported: Bool {
         return ARConfiguration.isSupported
     }
@@ -116,7 +116,7 @@ fileprivate class PolygonLayer: CAShapeLayer {
     }
 }
 
-fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
+fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         let arView = AppUIARView(frame: .zero)
         
@@ -226,13 +226,13 @@ fileprivate class MemoCamAppDockContent: NSObject, KeyPathWatchable, AppDockCont
         let topLeft = CGPoint(x: rect.minX, y: rect.minY)
         let topRight = CGPoint(x: rect.maxX, y: rect.minY)
         let bottomLeft = CGPoint(x: rect.minX, y: rect.maxY)
-        let bottomRight = CGPoint(x: rect.maxX, y: rect.maxY)
+//        let bottomRight = CGPoint(x: rect.maxX, y: rect.maxY)
         
         guard
             let hitTestTopLeft = arView.hitTest(at: topLeft, types: .featurePoint),
             let hitTestTopRight = arView.hitTest(at: topRight, types: .featurePoint),
             let hitTestBottomLeft = arView.hitTest(at: bottomLeft, types: .featurePoint),
-            let hitTestBottomRight = arView.hitTest(at: bottomRight, types: .featurePoint),
+//            let hitTestBottomRight = arView.hitTest(at: bottomRight, types: .featurePoint),
             let hitTestCenter = arView.hitTest(at: center, types: .featurePoint)
         else { return }
         

@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import DefaultsKit
+import PropertyKit
 
 class _StabilizerAppAsset: AppAsset {
     fileprivate var exportSession: AVAssetExportSession?
@@ -40,7 +40,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class StabilizerAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
+public class StabilizerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -345,7 +345,7 @@ private enum Cells {
     case crop
 }
 
-class StabilizerAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
+class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
     private var defaults = Stabilizer.defaults as! StabilizerAppDefaults
     
     lazy var view: UIView = {

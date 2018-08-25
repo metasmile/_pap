@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import DefaultsKit
+import PropertyKit
 import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit

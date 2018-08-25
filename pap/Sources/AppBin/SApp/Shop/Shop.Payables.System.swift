@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
 struct RestorePurchasesSystemPayment:VerifiablePayable{
     static var action: PayableAction {

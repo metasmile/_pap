@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
 protocol ConverterAppDefaults: AppDefaults{
     var convertingDirection: ConvertingDirection {get set}
@@ -18,7 +18,7 @@ extension Defaults: ConverterAppDefaults {
     }
     
     var convertingQuality: ConvertingQuality {
-        set { set(newValue, for: Key("convertingQualityFor_\(newValue.convertingDirection.identifier)")) }
-        get { return get(for: Key("convertingQualityFor_\(convertingDirection.identifier)")) ?? ConvertingQuality(convertingDirection: convertingDirection, qualityType: .high) }
+        set { set(newValue, key:"convertingQualityFor_\(newValue.convertingDirection.identifier)") }
+        get { return get(key:"convertingQualityFor_\(convertingDirection.identifier)") ?? ConvertingQuality(convertingDirection: convertingDirection, qualityType: .high) }
     }
 }

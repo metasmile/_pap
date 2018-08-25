@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
 struct ChargeableReceiptVerificationResult{
     let valid:Set<ChargeableReceipt>
@@ -147,7 +147,7 @@ struct ChargeableReceipt: Codable, Hashable{
 }
 
 
-private protocol ChargeReceiptAccessorStorage:DefaultsProperty{
+private protocol ChargeReceiptAccessorStorage:PropertyDefaults{
     var receipts:[ChargeableReceipt] {set get} // receipt ID : object
 }
 
@@ -172,7 +172,7 @@ final class ChargeReceiptStorage {
     private var _receipts:[String: ChargeableReceipt]
 
     init(banker: ChargeBanker){
-        receiptsStorage = Defaults(userDefaults: UserDefaults(suiteName: banker.receiptStorageIdentifier+String(describing: ChargeReceiptStorage.self)) ?? UserDefaults.standard)
+        receiptsStorage = Defaults(suiteName: banker.receiptStorageIdentifier+String(describing: ChargeReceiptStorage.self))
         _receipts = receiptsStorage.receipts.dictionary { $0.uuid }
     }
 

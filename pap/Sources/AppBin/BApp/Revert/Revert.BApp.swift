@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import DefaultsKit
+import PropertyKit
 
 private typealias RevertAppParam = AppAsset
 private struct RevertAppResult: AppTaskResultable {
@@ -25,7 +25,7 @@ extension Defaults: RevertAppDefaults {
     }
 }
 
-public class RevertApp: NSObject, KeyPathWatchable, BApp
+public class RevertApp: NSObject, PropertyWatchable, BApp
         , AppDockApp
         , FinalizableApp
         , PhotoPickerViewControllerDelegatableApp
@@ -153,7 +153,7 @@ private class _RevertAppTask: AppTaskPrototype, AppTaskable {
 RevertAppDockContent
 */
 
-fileprivate class RevertAppDockContent: NSObject, KeyPathWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+fileprivate class RevertAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = RevertApp.defaults as! RevertAppDefaults
 
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)

@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 
 extension AppCenter{
@@ -103,17 +103,17 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Share This App".localized, description: nil, iconImage: nil) 
             )
 
-            , AppCharge(type: .feedback
-                    , reward: .timeOfUses
-                    , payment: MailContactPayment<MailContactFeedbackType>.self
-                    , priceAmount: AmountObject(value:0.1)
-                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .feedback
+//                    , reward: .timeOfUses
+//                    , payment: MailContactPayment<MailContactFeedbackType>.self
+//                    , priceAmount: AmountObject(value:0.1)
+//                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
+//            )
 
             , AppCharge(type: .instantAdsViewingOnDemand
                     , reward: .timeOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
-                    , priceAmount: AmountObject(value:0.15)
+                    , priceAmount: AmountObject(value:0.066)
                     , describable: AppChargeDescription(title:"View Fullscreen Ads".localized, description: nil, iconImage: nil)
             )
 
@@ -128,8 +128,8 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
                     , payment: URLVisitingPayment<URLVisitingTypeSocialPage>.self
-                    , priceAmount: AmountObject(value:0.1)
-                    , describable: AppChargeDescription(title:"Visit our SNS Pages".localized, description: nil, iconImage: nil)
+                    , priceAmount: AmountObject(value:0.066)
+                    , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 
 //            , AppCharge(type: .dataSubmission

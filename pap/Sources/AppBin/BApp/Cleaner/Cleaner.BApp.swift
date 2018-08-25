@@ -5,7 +5,7 @@
 
 import Foundation
 import Photos
-import DefaultsKit
+import PropertyKit
 import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, KeyPathWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PreheatableApp, ChargeableApp {
+public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PreheatableApp, ChargeableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self

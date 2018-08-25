@@ -8,9 +8,9 @@ import QuartzCore
 import Photos
 import UIKit
 import MobileCoreServices
-import DefaultsKit
+import PropertyKit
 
-public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
+public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
 
@@ -28,7 +28,7 @@ public class TransformAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAtt
     }
 }
 
-public class TransformApp: NSObject, BApp, KeyPathWatchable
+public class TransformApp: NSObject, BApp, PropertyWatchable
         , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
         , PhotoEditorViewControllerDelegatableApp

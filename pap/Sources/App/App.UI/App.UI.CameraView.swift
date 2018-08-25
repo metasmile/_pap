@@ -8,7 +8,7 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
-import DefaultsKit
+import PropertyKit
 
 protocol AppUICameraViewOptions {
     var isLivePhotoEnabled: Bool { get set }

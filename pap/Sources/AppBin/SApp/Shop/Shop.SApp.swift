@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 import FirebaseMLVision
-import DefaultsKit
+import PropertyKit
 import Contacts
 import ContactsUI
 import EventKit
@@ -16,7 +16,7 @@ import SafariServices
 import StoreKit
 
 public class ShopApp: NSObject
-        , KeyPathWatchable
+        , PropertyWatchable
         , SApp
         , AppDockApp
         , LaunchableApp
@@ -280,7 +280,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: SocialSharePayment.self),
-                    PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
+//                    PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
                     PayItem(payable: URLVisitingPayment<URLVisitingTypeSocialPage>.self)
                 ]
         )

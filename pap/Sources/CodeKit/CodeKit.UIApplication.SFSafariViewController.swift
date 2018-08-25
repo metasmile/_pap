@@ -6,8 +6,9 @@
 import Foundation
 import UIKit
 import SafariServices
+import PropertyKit
 
-private final class SFSafariViewControllerDelegator: Object, KeyPathWatchable, SFSafariViewControllerDelegate{
+private final class SFSafariViewControllerDelegator: Object, PropertyWatchable, SFSafariViewControllerDelegate{
     fileprivate var didFinish:(() -> ())?
     fileprivate var didCompleteInitialLoad:((Bool) -> ())?
     fileprivate var initialLoadDidRedirectTo:(() -> ())?

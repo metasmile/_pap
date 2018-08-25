@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Fabric
 import Crashlytics
-import DefaultsKit
+import PropertyKit
 import Armchair
 
 @UIApplicationMain

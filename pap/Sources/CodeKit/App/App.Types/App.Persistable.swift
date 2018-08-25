@@ -4,9 +4,9 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
-public protocol AppDefaults: DefaultsProperty{
+public protocol AppDefaults: PropertyDefaults{
     var touchedVersion:String? {set get}
 }
 
@@ -60,10 +60,7 @@ extension PersistableApp{
             return defaults
         }
 
-        let userDefaults = UserDefaults(suiteName: defaultsId)
-        assert(userDefaults != nil,"userDefaults suiteName:\(defaultsId) didn't create at \(String(describing: self))")
-
-        let defaults = Defaults(userDefaults: userDefaults ?? UserDefaults())
+        let defaults = Defaults(suiteName: defaultsId)
         _AppDefaultsCollection.defaults.collection[defaultsId] = defaults
         return defaults
     }

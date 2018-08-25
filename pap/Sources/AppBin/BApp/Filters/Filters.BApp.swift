@@ -8,7 +8,7 @@
 
 import UIKit
 import Photos
-import DefaultsKit
+import PropertyKit
 
 public class CIFilterItem: ImageEditStateValue {
     override var ciFilter: CIFilter? {
@@ -30,7 +30,7 @@ public extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
-public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
+public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -48,7 +48,7 @@ public class FiltersAppConfigValue: NSObject, KeyPathWatchable, AppConfigUIAttri
     }
 }
 
-public class FiltersApp: NSObject, BApp, KeyPathWatchable, ConfigurableApp, _ConfigurableApp,
+public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
 PhotoEditorViewControllerDelegatableApp {
@@ -140,7 +140,7 @@ private extension FiltersApp {
     }
 }
 
-fileprivate class FiltersAppDockContent: NSObject, KeyPathWatchable, AppDockContent {
+fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     fileprivate struct PhotosFilterNames {
         static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
         static let CIPhotoEffectFade = "CIPhotoEffectFade"

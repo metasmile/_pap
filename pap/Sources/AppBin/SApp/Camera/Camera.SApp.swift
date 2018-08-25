@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
-import DefaultsKit
+import PropertyKit
 
 protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
     //INFO: extend app-specific properties if needed,
@@ -34,7 +34,7 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
+class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -75,7 +75,7 @@ class CameraApp: NSObject, KeyPathWatchable, SApp, LaunchableApp, AppDockApp, Ph
 
 class CameraAppView: AppUICameraView {}
 
-fileprivate class CameraAppDockContent: NSObject, KeyPathWatchable, AppDockContent, AppDockDelegate {
+fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         return CameraAppView(frame: .zero, options:CameraApp.defaults as! CameraAppDefaults)
     }()

@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 class ChargeManager{
 
@@ -133,7 +133,7 @@ class ChargeManager{
     }
 }
 
-final class ChargeBank: NSObject, KeyPathWatchable {
+final class ChargeBank: NSObject, PropertyWatchable {
     private var synchronizedBalance:Amount
 
     fileprivate func synchronize() {

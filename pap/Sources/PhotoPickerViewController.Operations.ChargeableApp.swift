@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import DefaultsKit
+import PropertyKit
 
 extension PhotoPickerViewController{
 

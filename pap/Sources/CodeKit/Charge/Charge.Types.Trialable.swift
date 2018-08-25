@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
 protocol TrialablePayable: Payable{
     static var trialTimeLength:TimeInterval {get}
@@ -72,7 +72,7 @@ extension TrialablePayable {
     }
 }
 
-private protocol StoreProductInternalDefaults:DefaultsProperty{
+private protocol StoreProductInternalDefaults:PropertyDefaults{
     var trialStartedDate:[String:Date] {set get}
 }
 

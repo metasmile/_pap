@@ -108,11 +108,11 @@
 "6-Month Pass" = "6-Month Pass";
 /* Generated from genl10n: pap.Strings.swift#36 */
 "A photos app, but contains a lot of sub-apps in its own." = "A photos app, but contains a lot of sub-apps in its own.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#229 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Access Denied.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#209 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
 "Access Failed." = "Access Failed.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#235 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Access Granted." = "Access Granted.";
 /* Generated from genl10n: Finder.BApp.swift#1324 */
 "Actions" = "Actions";
@@ -184,9 +184,9 @@
 "Contacts" = "Contacts";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
 "Continuous Free Use" = "Continuous Free Use";
-/* Generated from genl10n: Converter.BApp.swift#45 */
+/* Generated from genl10n: Converter.BApp.swift#46 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
-/* Generated from genl10n: Converter.BApp.swift#44 */
+/* Generated from genl10n: Converter.BApp.swift#45 */
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#376, Finder.BApp.swift#461, Finder.BApp.swift#543, Finder.BApp.swift#640, Finder.BApp.swift#758, Finder.BApp.swift#855 */
 "Copy" = "Copy";
@@ -222,7 +222,7 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#124 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
 "Email Address" = "Email Address";
 /* Generated from genl10n: Finder.BApp.swift#1280, Cleaner.BApp.swift#491 */
 "Enable Quick Actions" = "Enable Quick Actions";
@@ -268,13 +268,13 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#596 */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#129 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Get Access";
 /* Generated from genl10n: Shop.SApp.swift#585 */
 "Get in touch" = "Get in touch";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#558 */
 "Give A Rating" = "Give A Rating";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#235 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Hi! I'm %@, I need some help.";
@@ -288,11 +288,11 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift#451 */
 "Import" = "Import";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#200 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Input Here";
 /* Generated from genl10n: AppStrings.swift#25 */
 "It could not be stored." = "It could not be stored.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#209 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
 "It looks invalid code. Please Try again." = "It looks invalid code. Please Try again.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
@@ -324,7 +324,7 @@
 "My Albums" = "My Albums";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#18 */
 "My Feedback on %@" = "My Feedback on %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#117 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
 "Name" = "Name";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
@@ -366,7 +366,7 @@
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Please Input Your Secret Code";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#109 */
 "Portrait" = "Portrait";
@@ -474,7 +474,7 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#114 */
 "Starting to check edited photos..." = "Starting to check edited photos...";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#97, Shop.Payables.FreeCharge.YouApp.swift#358 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Submit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
@@ -498,21 +498,21 @@
 "Translate" = "Translate";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#208 */
 "Turn Your Opinion Into New Things." = "Turn Your Opinion Into New Things.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#225 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Use Trial";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Use";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#233 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "User";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#194 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP License Program";
 /* Generated from genl10n: AppCenter.Charge.swift#147 */
 "VIP Pass" = "VIP Pass";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#225 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "Video";
@@ -527,7 +527,7 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Visit our SNS Pages" = "Visit our SNS Pages";
+"Visit Social Pages" = "Visit Social Pages";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#240, Finder.BApp.swift#169 */
@@ -538,7 +538,7 @@
 "Welcome Free Pass" = "Welcome Free Pass";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#200 */
 "Welcome on %@" = "Welcome on %@";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#235 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
 /* Generated from genl10n: AppCenter.Charge.swift#95, Shop.SApp.swift#571 */
 "Write A Review" = "Write A Review";
@@ -552,5 +552,5 @@
 "You can select only items that matched with starting format." = "You can select only items that matched with starting format.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Your Idea, Your App";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#229 */
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Your code is invalid. Please Try again.";

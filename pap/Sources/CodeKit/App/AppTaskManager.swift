@@ -5,8 +5,9 @@
 
 import Foundation
 import Dispatch
+import PropertyKit
 
-public class AppTaskManager: NSObject, KeyPathWatchable, AppTaskOperationQueueDelegate {
+public class AppTaskManager: NSObject, PropertyWatchable, AppTaskOperationQueueDelegate {
 
     private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.pap__internal_AppTaskManager"+UUID().uuidString)
     private var queuePool = [String: AppTaskOperationQueue]()

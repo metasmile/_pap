@@ -6,10 +6,10 @@
 import Foundation
 import Photos
 import ImageIO
-
+import PropertyKit
 private typealias ParamType = AppAsset
 
-public class ExifGhostApp: NSObject, KeyPathWatchable,BApp,
+public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
         PHAssetFinalizableApp,
         PhotoPickerViewControllerDelegatableApp,
         PhotoPickerCollectionViewDisplayableApp,

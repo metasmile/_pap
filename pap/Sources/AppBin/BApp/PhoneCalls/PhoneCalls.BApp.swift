@@ -6,7 +6,7 @@
 import Foundation
 import Photos
 import FirebaseMLVision
-import DefaultsKit
+import PropertyKit
 import Contacts
 import ContactsUI
 
@@ -32,7 +32,7 @@ extension Defaults: PhoneCallsAppDefaults {
 
 }
 
-public class PhoneCallsApp: NSObject, KeyPathWatchable, BApp
+public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
         , FinalizableApp
         , AppDockApp
         , PhotoPickerViewControllerDelegatableApp
@@ -333,7 +333,7 @@ enum PhoneCallsAppCells{
     case takePhoto
 }
 
-fileprivate class PhoneCallsAppDockContent: NSObject, KeyPathWatchable,
+fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         AppDockContent, UITableViewDelegate, UITableViewDataSource{
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()

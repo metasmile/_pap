@@ -6,8 +6,9 @@
 import Foundation
 import Contacts
 import ContactsUI
+import PropertyKit
 
-public final class CNContactViewControllerDelegator : NSObject, KeyPathWatchable, CNContactViewControllerDelegate{
+public final class CNContactViewControllerDelegator : NSObject, PropertyWatchable, CNContactViewControllerDelegate{
     @objc dynamic
     var contact:CNContact?
 

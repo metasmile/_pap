@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
 //INFO: if shortVersionDistance == nil, user using first version or newly installed again.
 //INFO: if shortVersionDistance == 0, user is using latest version
@@ -20,7 +20,7 @@ enum ShortVersionDescription:Int, Codable{
     case unhandled
 }
 
-protocol VersionDefaults:DefaultsProperty{
+protocol VersionDefaults:PropertyDefaults{
     func initVersionInfo()
     var shortVersionDistance:Int? {get}
     var latestVersion:String? {get}

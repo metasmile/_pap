@@ -7,6 +7,7 @@ import Foundation
 
 import EventKit
 import EventKitUI
+import PropertyKit
 
 extension EKEventEditViewController{
 
@@ -68,7 +69,7 @@ private class EKEventEditViewActionObject:Object{
     }
 }
 
-private final class EKEventEditViewDelegator: Object, KeyPathWatchable, EKEventEditViewDelegate{
+private final class EKEventEditViewDelegator: Object, PropertyWatchable, EKEventEditViewDelegate{
 
     @objc dynamic
     var completedEKEventEditViewAction = EKEventEditViewActionObject(action: EKEventEditViewAction.canceled)

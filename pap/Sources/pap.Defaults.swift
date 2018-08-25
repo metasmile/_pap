@@ -4,9 +4,9 @@
 //
 
 import Foundation
-import DefaultsKit
+import PropertyKit
 
-protocol papDefaultsPublic:DefaultsProperty{
+protocol papDefaultsPublic:PropertyDefaults{
     var appIdentifier: String?{set get}
     var appDockContentLayoutState: Int{set get}
 }
@@ -21,14 +21,16 @@ extension Defaults: papDefaultsPublic {
     }
 }
 
-fileprivate protocol papDefaultsPrivate:DefaultsProperty{
+fileprivate protocol papDefaultsPrivate:PropertyDefaults{
     var appCount: [String:Double]{set get}
 }
 
 extension Defaults:papDefaultsPrivate{
 // private
     fileprivate var appCount:[String:Double]{ // [identifier: performed count]
-        set{ set(newValue) } get{ return get(or:[String:Double]()) }
+        set{
+            set(newValue)
+        } get{ return get(or:[String:Double]()) }
     }
 }
 
