@@ -86,8 +86,7 @@ extension PhotoPickerViewController{
         return false
     }
 
-    //WARNING: This action is the most critical for entire business. Careful when modify
-    //INFO: Unselected Chargeable Button Tap
+    //CRITICAL: Chargeable button state control. The payment action of Charge that has a reward .nonBlockOfUses should execute before chargeable button's tap action.
     // -> Press Heart
     // -> Call each "Pay" unpaid 1-charge with reward nonBlockOfUses
     // -> if all nonBlockOfUses pay was charged, -> go to Shop
@@ -125,8 +124,7 @@ extension PhotoPickerViewController{
         }
     }
 
-    //WARNING: This action is the most critical for entire business. Careful when modify
-    //INFO: Selected Chargeable Button Tap
+    //CRITICAL: Normal done button state BUT, payment action of Charge that has a reward .blockOfUses should execute before done button's tap action.
     // -> Press Heart
     // -> Call each "Try" already paid 1-charge with reward blockOfUses
     // -> if found, execute else go to ShopApp
@@ -134,6 +132,9 @@ extension PhotoPickerViewController{
         let paidChagesInBlockingReward = AppCenter.charge.getChargesPaid().filter({
             return $0.reward == .blockOfUses
         })
+
+        let doneButtonEnabled = self.doneButton?.isEnabled ?? true
+        self.doneButton?.isEnabled = false
 
         DispatchQueue.global(qos: .userInteractive).async{
             let signal = AsyncSignal()
@@ -160,6 +161,8 @@ extension PhotoPickerViewController{
             }
 
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                self.doneButton?.isEnabled = doneButtonEnabled
+
                 if succeedAfterTriedAtOnce {
                     self.doneButtonDidTap(sender: "")
                 }else{
