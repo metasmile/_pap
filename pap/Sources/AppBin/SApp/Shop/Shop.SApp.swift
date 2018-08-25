@@ -537,7 +537,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c0.iconImage = R.image.cellIconGiveARating.name
         c0.iconImageTintColor = self.view.tintColor
         c0.valueHandler = { _ in
-            _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+            DispatchQueue.global().async{
+                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+            }
         }
         contactCellDescribers.append(c0)
 
@@ -548,7 +550,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c1.iconImage = R.image.cellIconWriteAReview.name
         c0.iconImageTintColor = self.view.tintColor
         c1.valueHandler = { _ in
-            _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
+            DispatchQueue.global().async{
+                _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
+            }
         }
         contactCellDescribers.append(c1)
 
