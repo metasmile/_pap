@@ -36,7 +36,7 @@ public class EventKitUtil {
         }
     }
 
-    public init(calendarName: String = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String){
+    public init(calendarName: String = Bundle.main.displayName ?? Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String){
         self.calendarName = calendarName
     }
 
