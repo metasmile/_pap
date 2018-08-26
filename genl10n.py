@@ -14,11 +14,22 @@ import codecs
 import fnmatch
 import collections
 
-dest_app_path = './pap/'
-dest_l10n_base_path ='./pap/Resources/Localizations/Base.lproj/Localizable.strings'
-dest_l10n_result_path ='./genl10n_results.txt'
+parser = argparse.ArgumentParser(
+    description='Extract elements from from Swift code to the .strings file.')
 
-split_key = '.localized'
+parser.add_argument('src_path', help='Main swift source path, default=./)',
+                    default='./', nargs='?')
+parser.add_argument('dest_l10n_base_path', help='Target Base Localizable.strings path. (default=./)',
+                    default='./', nargs='?')
+parser.add_argument('-k', '--split-key',
+                    help='Splitting identifier to extract strings from Swift code. (e.g. "This is string".localized )',
+                    default='.localized', required=False)
+args = vars(parser.parse_args())
+
+src_path = expanduser(args['src_path'])
+dest_l10n_base_path = expanduser(args['dest_l10n_base_path'])
+split_key = args['split_key']
+
 __GEN_FLAG__ = "Generated from genl10n"
 
 complied_patterns_by_priority = [
@@ -31,7 +42,7 @@ qs = re.compile(r'\\\((.+)\)', re.I|re.U)
 
 swift_files = []
 
-for root, dirnames, filenames in os.walk(dest_app_path):
+for root, dirnames, filenames in os.walk(src_path):
     for filename in fnmatch.filter(filenames, '*.swift'):
         swift_files.append(os.path.join(root, filename))
 
@@ -83,7 +94,6 @@ keys_in_l10n_file = map(lambda line: line.split("=")[0].strip(), wlines)
 keys_in_gened_strs = sorted(gened_strs.keys())#[k for k, v in sorted(gened_strs.items())]
 #FIXME: python2.7 <-> 3 dict key ordering is fucking different  what??
 
-# diff_keys = list(set(keys_in_gened_strs) - set(keys_in_l10n_file))
 if keys_in_gened_strs and len(wlines[-1].strip()) > 0:
     wlines.append('\n')
 
@@ -104,7 +114,3 @@ for new_key in keys_in_gened_strs:
 wcur = codecs.open(dest_l10n_base_path, "w", "utf-8")
 wcur.writelines(wlines)
 wcur.close()
-
-# wcur = codecs.open(dest_l10n_result_path, "w", "utf-8")
-# wcur.writelines('\n'.join(keys_in_gened_strs))
-# wcur.close()
