@@ -10,6 +10,20 @@ import UIKit
 import Photos
 import PropertyKit
 
+protocol FilterAppDefaults: AppDefaults {
+    var filterName: String? { get set }
+}
+
+extension Defaults: FilterAppDefaults {
+    var filterName: String? {
+        get {
+            return get(or: nil)
+        }
+        
+        set { set(newValue); papLog.app.defaults.log(value:newValue ?? FiltersAppDockContent.PhotosFilterNames.CIPhotoEffectChrome) }
+    }
+}
+
 public class CIFilterItem: ImageEditStateValue {
     override var ciFilter: CIFilter? {
         return _filter
@@ -70,6 +84,9 @@ PhotoEditorViewControllerDelegatableApp {
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
+        
+        var defaults = type(of: self).defaults as! FilterAppDefaults
+        defaults.filterName = editStateValue?.ciFilter?.name
     }
 
     public static let info = AppInfo(
@@ -90,6 +107,33 @@ PhotoEditorViewControllerDelegatableApp {
         
         config?.watch(\.tintColor, options: [.initial, .new]) {
             self.updateControllerView()
+        }
+        
+        if let controllerContent = self.content as? FiltersAppDockContent {
+            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
+                if let filterItem = controllerContent.filterItem {
+                    self.config?.filter = filterItem
+                }
+                else {
+                    var defaults = type(of: self).defaults as! FilterAppDefaults
+                    let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
+                    self.config?.filter = filterItem
+                    self.defaultEditStateValue = filterItem
+                }
+            }
+        }
+        
+        if let controllerContent = self.photoEditorDockContent as? FiltersAppDockContent {
+            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
+                if let filterItem = controllerContent.filterItem {
+                    self.config?.filter = filterItem
+                }
+                else {
+                    var defaults = type(of: self).defaults as! FilterAppDefaults
+                    let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
+                    self.config?.filter = filterItem
+                }
+            }
         }
     }
 
@@ -182,14 +226,13 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
         var items = [AppUICollectionView.CollectionItem]()
         
         items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            let filterItem = CIFilterItem()
-            AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
+            self.filterItem = CIFilterItem()
         }))
         
         items += CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: PhotosFilterNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
                 let filterItem = CIFilterItem(filter)
-                AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
+                self.filterItem = filterItem
             })
         })
 
@@ -207,10 +250,18 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     var selectedEditStateValue: ImageEditStateValue?
     
-    func selectItem(with editStateValue: ImageEditStateValue?) {
-        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(editStateValue?.ciFilter?.name ?? "") }) ?? 0
-        
+    fileprivate func selectItem(by filterName: String?) {
+        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
         (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
+    }
+    
+    fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
+        selectItem(by: editStateValue?.ciFilter?.name)
+    }
+    
+    fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {
+        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
+        return CIFilterItem(CIFilters.filters[safe: index - 1])
     }
     
     var preferences: AppDockContentPreferable? {
@@ -226,6 +277,8 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     func didSetContentView(_ view:UIView, dock:AppDock) {
         
     }
+    
+    @objc dynamic var filterItem: CIFilterItem?
 }
 
 private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
