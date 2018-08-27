@@ -20,7 +20,7 @@ extension Defaults: FilterAppDefaults {
             return get(or: nil)
         }
         
-        set { set(newValue); papLog.app.defaults.log(value:newValue ?? FiltersAppDockContent.PhotosFilterNames.CIPhotoEffectChrome) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
     }
 }
 
