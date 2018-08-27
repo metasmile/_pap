@@ -238,9 +238,9 @@ extension PreviewView {
             return nil
         }
         
-        collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at: [indexPath])
-        }) { _ in
+        self.collectionView.deleteItems(at: [indexPath])
+        
+        collectionView.performBatchUpdates({}) { _ in
             self.collectionView.collectionViewLayout.invalidateLayout()
             self.scrollToNeareastItem(at: indexPath)
         }
@@ -249,16 +249,16 @@ extension PreviewView {
     }
     
     func removeCollectionViewItems(with assets: [PHAsset]?) {
-        guard let _assets = assets else {
+        guard let _assets = assets, !_assets.isEmpty else {
             return
         }
         
         let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
         _assets.forEach { appAssetsSelected.remove(for: $0) }
         
-        collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at: indexPaths)
-        }) { _ in
+        self.collectionView.deleteItems(at: indexPaths)
+        
+        collectionView.performBatchUpdates({}) { _ in
             self.collectionView.collectionViewLayout.invalidateLayout()
             if let indexPath = indexPaths.first {
                 self.scrollToNeareastItem(at: indexPath)
