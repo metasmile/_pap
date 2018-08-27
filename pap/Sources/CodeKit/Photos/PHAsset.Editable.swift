@@ -103,8 +103,6 @@ struct PAPAdjustmentData {
             data = Data()
         }
         
-        print("edited", adjustmentInfo)
-        
         let adjustmentData = PHAdjustmentData(formatIdentifier: PAPAdjustmentData.formatIdentifier, formatVersion: PAPAdjustmentData.formatVersion, data: data)
         
         return adjustmentData

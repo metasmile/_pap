@@ -69,8 +69,7 @@ internal class AppDockDrawerView: DesignableView {
 
     var isHandleOpened = false {
         didSet{
-            layoutIfNeeded()
-            handleOpeningProgress = isHandleOpened ? 1 : 0
+//            handleOpeningProgress = isHandleOpened ? 1 : 0
         }
     }
     
@@ -122,6 +121,11 @@ internal class AppDockDrawerView: DesignableView {
         drawerShapeLayer.lineCap = kCALineCapRound
         layer.addSublayer(drawerShapeLayer)
         
+        drawerShapePath.removeAllPoints()
+        drawerShapePath.move(to: CGPoint(x: 0, y: 0))
+        drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: 0))
+        drawerShapeLayer.path = drawerShapePath.cgPath
+        
         contentMode = .redraw
     }
 
@@ -166,6 +170,8 @@ internal class AppDockDrawerView: DesignableView {
         CATransaction.setDisableActions(true)
         drawerShapeLayer.frame.origin = CGPoint(x: (bounds.width - drawerShapePath.bounds.width) / 2, y: topMargin + (compactHeight - drawerShapeLayer.lineWidth) / 2)
         CATransaction.setDisableActions(disableActionsToRestore)
+        
+        layoutIfNeeded()
     }
     
     func setApp(_ app: App.Type) {
@@ -184,7 +190,6 @@ internal class AppDockDrawerView: DesignableView {
         else {
             appIconViewHeightLayout?.constant = 0
         }
-        
     }
 }
 

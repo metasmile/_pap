@@ -705,7 +705,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
             controllerViewHeightLayout.constant = (isNeedingFixedContentLayout && contentLayoutState != .minimized) ? preferredControllerViewHeight : appContentViewHeightLayout.constant - max(0, preferredAccessoryViewHeight)
             
             if contentLayoutState == .maximized {
-                drawerView.handleOpeningProgress = remapNormalizeClamp(delta, minHeight, maxHeight)
+//                drawerView.handleOpeningProgress = remapNormalizeClamp(delta, minHeight, maxHeight)
                 topAccessoryView.layoutIfNeeded()
                 controllerView.layoutIfNeeded()
             } else if contentLayoutState == .neutralized {
