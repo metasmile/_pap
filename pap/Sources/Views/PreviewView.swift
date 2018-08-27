@@ -179,14 +179,11 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     public func setPreviewLayout(with height: CGFloat) {
-        let toLayout = PreviewCollectionLayout(previewHeight: height)
-        
         let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
         
         collectionViewHeightLayout.constant = height
-//        collectionView.layoutIfNeeded() // for test
-        //FIXME: A strange main queue BAD_EXEC crash: https://www.evernote.com/l/AEGXgIlYWZhOyp29B4mJH804vQ1tZaVWS7wB/image.png
-        collectionView.setCollectionViewLayout(toLayout, animated: false)
+        collectionView.setCollectionViewLayout(collectionView.collectionViewLayout, animated: false)
+        (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
         if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
             scrollToNeareastItem(at: indexPath, animated: false)
