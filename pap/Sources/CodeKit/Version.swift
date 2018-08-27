@@ -31,6 +31,15 @@ extension OperatingSystemVersion: Equatable, Comparable{
     }
 }
 
+public enum VersionDescription:Int, Codable{
+    case first
+    case normal
+    case new
+    case skippedNew
+    case reversed
+    case unhandled
+}
+
 public struct SemanticVersion {
     //INFO: based on semantic versioning
     // 1.0 -> 1.1 == +1

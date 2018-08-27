@@ -6,27 +6,21 @@
 import Foundation
 import PropertyKit
 
-//INFO: if shortVersionDistance == nil, user using first version or newly installed again.
-//INFO: if shortVersionDistance == 0, user is using latest version
-//INFO: if shortVersionDistance > 0, user installed new version in current runtime
-//INFO: if shortVersionDistance > 1, user skipped recent version in current runtime
-//INFO: if shortVersionDistance < 0, sucks, user is using some illegal version in current runtime
-enum ShortVersionDescription:Int, Codable{
-    case first
-    case normal
-    case new
-    case skippedNew
-    case reversed
-    case unhandled
-}
-
 protocol VersionDefaults:PropertyDefaults{
     func initVersionInfo()
+
+    //INFO: if shortVersionDistance == nil, user using first version or newly installed again.
+    //INFO: if shortVersionDistance == 0, user is using latest version
+    //INFO: if shortVersionDistance > 0, user installed new version in current runtime
+    //INFO: if shortVersionDistance > 1, user skipped recent version in current runtime
+    //INFO: if shortVersionDistance < 0, sucks, user is using some illegal version in current runtime
     var shortVersionDistance:Int? {get}
+
     var latestVersion:String? {get}
     var latestShortVersion:String? {get}
-    var shortVersionDescription: ShortVersionDescription {get}
-    var shortVersionDescriptionLatestDates:[ShortVersionDescription:Date] {get}
+    var shortVersionDescription: VersionDescription {get}
+    var shortVersionDescriptionLatestDates:[VersionDescription:Date] {get}
+    var shortVersionDescriptionLatestTouchedDates:[VersionDescription:Date] {get}
 }
 
 extension Defaults: VersionDefaults {
@@ -38,13 +32,15 @@ extension Defaults: VersionDefaults {
         self.latestVersion = Bundle.main.version
 
         let currentDescription = self.shortVersionDescription
+
+        self.shortVersionDescriptionLatestTouchedDates[currentDescription] = Date()
         if currentDescription == .first || preDescription != currentDescription {
             self.shortVersionDescriptionLatestDates[currentDescription] = Date()
         }
     }
 
     //INFO: It is recommended to use for only init-time procedure. shortVersionDescription will be maintained in current runtime.
-    var shortVersionDescription: ShortVersionDescription {
+    var shortVersionDescription: VersionDescription {
         if let distance = shortVersionDistance{
             if distance==0{
                 return .normal
@@ -64,13 +60,14 @@ extension Defaults: VersionDefaults {
         return .first
     }
 
-    var shortVersionDescriptionLatestDates:[ShortVersionDescription:Date]{
-        set{
-            set(newValue)
-        }
-        get{
-            return get(or:[ShortVersionDescription:Date]())
-        }
+    var shortVersionDescriptionLatestDates:[VersionDescription:Date]{
+        set{ set(newValue) }
+        get{ return get(or:[VersionDescription:Date]()) }
+    }
+
+    var shortVersionDescriptionLatestTouchedDates:[VersionDescription:Date]{
+        set{ set(newValue) }
+        get{ return get(or:[VersionDescription:Date]()) }
     }
 
     private(set) var shortVersionDistance:Int?{
