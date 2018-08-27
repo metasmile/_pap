@@ -117,11 +117,7 @@ extension AsyncSignal: AsyncWaitSignalable {
             return nil
         }
 
-        #if DEBUG
-        if Thread.isMainThread{
-            print("[!] WARNING: \(#function) called in the main queue - at \(String(describing: type(of: self)))")
-        }
-        #endif
+        assert(Thread.isMainThread == false,"[!] WARNING: \(#function) called in the main queue - at \(String(describing: type(of: self)))")
 
         if let timeout = timeout {
             return dispatchGroup.wait(timeout: timeout)
