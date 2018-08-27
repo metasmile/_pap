@@ -214,8 +214,6 @@
 "Color And Reminder for Each Phases" = "สีและคำเตือนสำหรับแต่ละเฟส";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "ติดต่อเราตอนนี้";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "ติดต่อ";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
@@ -226,6 +224,14 @@
 "Converter" = "แปลง";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "สำเนา";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "ไม่พบการกระทำใด ๆ";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "ไม่พบที่อยู่ติดต่อใด ๆ";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "ไม่พบหมายเลขโทรศัพท์ใด ๆ";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "ไม่พบข้อความใด ๆ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -242,8 +248,6 @@
 "Deleting Targets" = "การลบเป้าหมาย";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "ไม่พบอะไร";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -306,8 +310,8 @@
 "GIF Maker" = "เครื่อง GIF";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "ได้รับการเข้าถึง";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "ได้รับการติดต่อ";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "ได้รับการติดต่อ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "ให้คะแนน";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */

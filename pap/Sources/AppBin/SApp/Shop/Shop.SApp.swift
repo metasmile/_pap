@@ -470,7 +470,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if contactCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Contact".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers))
+            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers))
         }
 
         return s
@@ -582,7 +582,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c2 = UITableViewButtonCellDescriber()
         c2.itemIdentifier = CellDescriber.Key.support.hashValue
         c2.label = "Contact Us Now".localized
-        c2.buttonTitle = "Get in touch".localized
+        c2.buttonTitle = "Get In Touch".localized
         c2.iconImage = R.image.cellIconContactUs.name
         c2.valueHandler = { _ in
             AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
@@ -604,7 +604,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
-            c6.buttonTitle = "Contact".localized
+            c6.buttonTitle = "Get In Touch".localized
             c6.iconImage = R.image.cellIconVIPHotline.name
             c0.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in

@@ -214,8 +214,6 @@
 "Color And Reminder for Each Phases" = "Her Faz İçin Renk ve Hatırlatma";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Şimdi bize ulaşın";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "Temas";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "İletişim";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
@@ -226,6 +224,14 @@
 "Converter" = "Dönüştürücü";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "kopya";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "Herhangi bir eylem tespit edilemedi.";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Herhangi bir kişi tespit edilemedi.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Herhangi bir telefon numarası tespit edilemedi.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Herhangi bir metin tespit edilemedi.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "yaratmak";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -242,8 +248,6 @@
 "Deleting Targets" = "Hedefleri Silme";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Algılanıyor ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "Hiçbir şey tespit etmedi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -306,8 +310,8 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Erişim Al";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "Temasta olmak";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "Temasta olmak";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Bir Derecelendirme Ver";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */

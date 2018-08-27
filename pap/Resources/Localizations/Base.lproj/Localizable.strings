@@ -178,9 +178,7 @@
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Contact Us Now";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "Contact";
-/* Generated from genl10n: Finder.BApp.swift#1325 */
+/* Generated from genl10n: Shop.SApp.swift#473, Finder.BApp.swift#1325 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
 "Continuous Free Use" = "Continuous Free Use";
@@ -190,6 +188,14 @@
 "Converter" = "Converter";
 /* Generated from genl10n: Finder.BApp.swift#375, Finder.BApp.swift#460, Finder.BApp.swift#543, Finder.BApp.swift#640, Finder.BApp.swift#758, Finder.BApp.swift#855 */
 "Copy" = "Copy";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "Could not detect any action.";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Could not detect any contact.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Could not detect any phone number.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Could not detect any text.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift#503 */
@@ -206,8 +212,6 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift#173 */
 "Detecting ... %@ " = "Detecting ... %@ ";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226, Finder.BApp.swift#218, Finder.BApp.swift#232, Finder.BApp.swift#911 */
-"Did not detect anything." = "Did not detect anything.";
 /* Generated from genl10n: GIFMaker.BApp.swift#553 */
 "Direction" = "Direction";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -270,8 +274,8 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Get Access";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "Get in touch";
+/* Generated from genl10n: Shop.SApp.swift#585, Shop.SApp.swift#607 */
+"Get In Touch" = "Get In Touch";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#558 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */

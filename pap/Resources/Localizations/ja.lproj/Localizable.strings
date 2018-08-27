@@ -214,8 +214,6 @@
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "お問い合わせ";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "接触";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "連絡先";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
@@ -226,6 +224,14 @@
 "Converter" = "コンバータ";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "コピー";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "アクションを検出できませんでした。";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "連絡先を検出できませんでした。";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "電話番号を検出できませんでした。";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "テキストを検出できませんでした。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "作成する";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -242,8 +248,6 @@
 "Deleting Targets" = "ターゲットの削除";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "検出中... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "何も検出しませんでした。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -306,8 +310,8 @@
 "GIF Maker" = "GIFメーカー";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "アクセスを取得";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "連絡する";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "連絡する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */

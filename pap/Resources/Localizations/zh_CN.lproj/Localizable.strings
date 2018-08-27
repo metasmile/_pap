@@ -214,8 +214,6 @@
 "Color And Reminder for Each Phases" = "每个阶段的颜色和提醒";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "现在就联系我们";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "联系";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "往来";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
@@ -226,6 +224,14 @@
 "Converter" = "变流器";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "复制";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "无法检测到任何操作。";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "无法检测到任何联系人。";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "无法检测到任何电话号码。";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "无法检测到任何文字。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -242,8 +248,6 @@
 "Deleting Targets" = "删除目标";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "检测... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "没有发现任何东西。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -306,8 +310,8 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "获得访问权限";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "保持联系";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "保持联系";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "给予评级";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */

@@ -214,8 +214,6 @@
 "Color And Reminder for Each Phases" = "Kolor i przypomnienie dla każdej fazy";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Skontaktuj się z nami teraz";
-/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
-"Contact" = "Kontakt";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Łączność";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
@@ -226,6 +224,14 @@
 "Converter" = "Przetwornik";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Kopiuj";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect any action." = "Nie można wykryć żadnej akcji.";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Nie można wykryć żadnego kontaktu.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Nie można wykryć żadnego numeru telefonu.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Nie można wykryć żadnego tekstu.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Stwórz";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -242,8 +248,6 @@
 "Deleting Targets" = "Usuwanie celów";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Wykrywanie ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "Nic nie wykryłem.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Kierunek";
 /* Generated from genl10n: Shop.SApp.swift#543 */
@@ -306,8 +310,8 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Uzyskać dostęp";
-/* Generated from genl10n: Shop.SApp.swift#585 */
-"Get in touch" = "Skontaktuj się";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "Bądź w kontakcie";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Huknąć";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
