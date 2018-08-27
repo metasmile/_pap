@@ -289,7 +289,7 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
         setHighlighted(false, animated: false)
     }
 
-    func setButtonTitle(title: String, detailTitle: String?=nil, for state: UIControl.State) {
+    func setButtonTitle(title: String, detailTitle: String?=nil, for state: UIControlState) {
         guard let _detailTitle = detailTitle else {
             button.setTitle(title, for: .normal)
             return
