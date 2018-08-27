@@ -118,22 +118,42 @@
 "cs_keyword_12" = "ystävä";
 /*Translated from: lover*/
 "cs_keyword_13" = "rakastaja";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Day License";
+/* Generated from genl10n: Shop.SApp.swift#84 */
+"%@ App Passes" = "%@ App Passes";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Päivä";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Lataa nyt ILMAISEKSI!";
+/* Generated from genl10n: Shop.SApp.swift#254 */
+"%@ Passes" = "%@ Passes";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ Käyttäjäryhmä";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ saattaa löytyä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ on piilotettu";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "1 kuukauden kuluttua";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "3 kuukauden kuluttua";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "6 kuukauden kuluttua";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "Valokuvasovellus, mutta siinä on paljon omaa sovellusta.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Pääsy evätty.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Käyttö epäonnistui.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Pääsy myönnetty.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Toimet";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Aktivoi täyskäyttöiset mainokset";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Nykyisten näkyvien kohteiden aktivointi ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -190,8 +210,16 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Puhdistusaineella voit etsiä ja poistaa erilaisia ​​vääriä valokuvia, jos ne ovat sopineet esimerkiksi kaksoiskappaleisiin ja vastaaviin kuviin, lähikuviin tai lukkotulosteisiin!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "siivooja";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Väri ja muistutus jokaiselle vaiheelle";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Ota yhteyttä nyt";
+/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
+"Contact" = "Ottaa yhteyttä";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Yhteydet";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Continuous Free Use" = "Jatkuva vapaa käyttö";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter avulla voit muuntaa jokaisen mediamuodon kuten videoita, live-kuvia ja GIF-tiedostoja toisiinsa.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -218,6 +246,10 @@
 "Did not detect anything." = "Ei havaittu mitään.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Näytä prosenttiosuus";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Näytä jäljellä oleva taso";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Lataa nyt ILMAISEKSI osoitteessa %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,8 +258,12 @@
 "E-mail Address" = "Sähköpostiosoite";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostin avulla voit poistaa kaikenlaisia ​​valokuvasi sisältäviä tietoja, kuten yksityisiä tietoja.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "Sähköpostiosoite";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
+/* Generated from genl10n: Shop.SApp.swift#277 */
+"Engage Now And Recharge Free Period Repeatedly." = "Aktivoi nyt ja lataa vapaa ajanjakso toistuvasti.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "Eteenpäin";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kehyksen viive";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Ilmainen sovellusmenettely";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Ilmainen käyttö %@ päivä, VIP-lisenssimahdollisuus";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Ilmainen käyttö ja kaikki uudet päivitykset";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Ilmainen päivä %@ käyttö";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Vapaa käyttö";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker mahdollistaa helposti ja nopeasti GIF-kuvat valokuvista tai live-valokuvista, joissa on useita vaihtoehtoja! Ja sitten voit avata muunnossovelluksen muunnettavaksi kaiken, kuten Live-valokuvia tai videoita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Hanki pääsy";
+/* Generated from genl10n: Shop.SApp.swift#585 */
+"Get in touch" = "Ota yhteyttä";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Anna luokitus";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Hei, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Moi! Olen %@, tarvitsen apua.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "kuvat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Tuonti";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Syötä tähän";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Sitä ei voitu tallentaa.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Se näyttää virheelliseltä koodilta. Yritä uudelleen.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Tuotteet";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Liity %@ ohjelmaan";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "Liittyä seuraan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Maisema";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,18 @@
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tee GIF";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Kuukausilippu";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Palautani %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "Nimi";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Uusi kontakti";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -316,6 +384,8 @@
 "Open Web Page" = "Avaa Web-sivu";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Alkuperäinen";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Omistajan pass";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory tekee PDF-dokumentista useita kuvia, joissa on useita sivuvaihtoehtoja.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +394,46 @@
 "Page Size Preset" = "Sivun koko Esiasetettu";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sivut";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Pysyvä käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Puhelinsoitot";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Valokuvat";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Syötä salainen koodi";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Muotokuva";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "Valmistellaan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "esiasetukset";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "yksityisyys";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "käsittely";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Osta %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Ostohallinta";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Ostaa";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Laatu";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Arvioi se";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Arvostele nyt";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Palauta kaikki ostokset";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "Palauttaa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Käänteinen";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -384,16 +476,22 @@
 "Send Us Feedback" = "Lähetä meille palautetta";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Lähetä sähköposti";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "asetukset";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "Myymälä";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Jotkut yhteystiedot tallentuivat, mutta jotkut eivät olleet.";
+/* Generated from genl10n: Shop.SApp.swift#267 */
+"Special Passes" = "Erityislähetykset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Neliö";
 /* Generated from genl10n: Stabilizer.swift */
@@ -412,6 +510,8 @@
 "Starting the Process..." = "Prosessin käynnistäminen ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "Lähetä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
@@ -434,6 +534,22 @@
 "Translate" = "Kääntää";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Käännä mielipiteesi uuteen asiaan.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Tällä hetkellä koodia ei voi tarkistaa. Yritä myöhemmin.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Käytä kokeilua";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "Käyttää";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "käyttäjä";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP-lisenssiohjelma";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP-pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Vahvistus epäonnistui.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +558,35 @@
 "Videos Shorter Than 1 Second" = "Videot lyhyempi kuin 1 sekunti";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videot ilman ääntä";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Näytä koko näytön mainokset";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "näkymä";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Siirry sosiaalisiin sivuihin";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Vierailla";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Odotetaan valitsemaan ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Loimi";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Tervetuloa ilmainen kokeiluversio";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Tervetuloa vapaa pass";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
 "Welcome on %@" = "Tervetuloa %@";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Tervetuloa VIP-lisenssiohjelmaan.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Kirjoita arvostelu";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "Kirjoittaa";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Vuotuinen pass";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Voit uudistaa ne toistuvasti.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Voit valita vain kohteita, jotka sopivat aloitusformaattiin.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Ideasi, sovelluksesi";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Sinun koodisi on virheellinen. Yritä uudelleen.";

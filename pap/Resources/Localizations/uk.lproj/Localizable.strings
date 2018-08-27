@@ -118,22 +118,42 @@
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
 "cs_keyword_13" = "коханець";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Ліцензія на день";
+/* Generated from genl10n: Shop.SApp.swift#84 */
+"%@ App Passes" = "%@ Додатки додатків";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Завантажити зараз БЕЗКОШТОВНО!";
+/* Generated from genl10n: Shop.SApp.swift#254 */
+"%@ Passes" = "%@ Пропуски";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ Група користувачів";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ може бути знайдений";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ буде сховано";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / День";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d раз";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "1-місячний пас";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "3-місячний пас";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "6-місячний пас";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "Додаток для фотографій, але містить багато підрозділів додатків окремо.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Доступ заборонено.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Доступ не вдалося.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Доступ дозволено.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Дії";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Активувати повноекранні оголошення";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Активація поточних видимих ​​елементів ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -190,8 +210,16 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Очищувач дозволяє знаходити та видаляти різноманітні невірні фотографії, якщо вони збігаються, наприклад, з дублікатами та подібними зображеннями, знімками з великим планом або знімкам з локальним екраном!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Очищувач";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Колір і нагадування для кожної фази";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Зв'язатися з нами зараз";
+/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
+"Contact" = "Зв'язатися";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Контакти";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Continuous Free Use" = "Безперервне вільне користування";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Конвертер дозволяє конвертувати будь-які медіа-формати, такі як Відео, Живі фотографії, GIF-файли в один одного.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -218,6 +246,10 @@
 "Did not detect anything." = "Не виявив нічого.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Відсоток відображення";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Показати залишковий рівень";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,8 +258,12 @@
 "E-mail Address" = "Адреса електронної пошти";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "Адреса електронної пошти";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Увімкнути швидкі дії";
+/* Generated from genl10n: Shop.SApp.swift#277 */
+"Engage Now And Recharge Free Period Repeatedly." = "Займайте зараз і повільно перезавантажуйте.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Параметри експорту";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "Вперед";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Кадрова затримка";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Безкоштовні додатки проходить";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Безкоштовне користування %@ днем, VIP-ліцензія";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Безкоштовне користування та всі нові оновлення";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Безкоштовне користування днем ​​%@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Вільне користування";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker дозволяє легко і швидко створювати зображення GIF з фотографій або Live Photos з різними параметрами! І тоді ви можете відкрити програму конвертеру, щоб перетворити на все, наприклад, на Live Photos або Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Отримати доступ";
+/* Generated from genl10n: Shop.SApp.swift#585 */
+"Get in touch" = "Будемо на зв'язку";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дайте рейтинг";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Привіт, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Привіт! Я %@ мені потрібна допомога.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Сховати";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "Зображення";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Імпортувати";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Введіть тут";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Не вдалося зберегти.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Виглядає недійсний код. Будь ласка спробуйте ще раз.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Елементи";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Приєднатися до програми %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "Приєднатися";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,18 @@
 "Loop" = "Петля";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Зробити GIF";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Щомісячний пропуск";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мої альбоми";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Мій відгук про %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "Ім'я";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Новий контакт";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -316,6 +384,8 @@
 "Open Web Page" = "Відкрита веб-сторінка";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Оригінал";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Пропуск власника";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory робить PDF-документ з декількох зображень з різними варіантами сторінки.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +394,46 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Сторінки";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Постійне використання та всі нові оновлення";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Телефонні дзвінки";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Номер телефону";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фотографії";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Введіть свій секретний код";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Портрет";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "Підготовка";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "Обробка";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Придбати %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Управління покупками";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Покупка";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Якість";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Оцініть це";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Оцінити зараз";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Видалення 'червоних очей'";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Повторити";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Відновити всі покупки";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "Відновлення";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Зворотний";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -384,16 +476,22 @@
 "Send Us Feedback" = "Надішліть нам відгук";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Send an Email";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "Налаштування";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Поділитися цим додатком";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "Магазин";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Розмір";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Деякі контакти були збережені, але хтось не був.";
+/* Generated from genl10n: Shop.SApp.swift#267 */
+"Special Passes" = "Спеціальні паспорти";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -412,6 +510,8 @@
 "Starting the Process..." = "Початок процесу ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Починаючи перевірку відредагованих фотографій ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "Відправити";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде повністю незмінним.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
@@ -434,6 +534,22 @@
 "Translate" = "Перекласти";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Перетворіть свою думку новим речам.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Неможливо перевірити код в даний час. Будь ласка, спробуйте це пізніше.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Використовуйте Trial";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "Використовуйте";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "Користувач";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP ліцензійна програма";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP Pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Верифікація не вдалася.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Відео";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +558,35 @@
 "Videos Shorter Than 1 Second" = "Відео коротше, ніж 1 секунда";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Відео без звуку";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Переглянути повноекранні оголошення";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "Вид";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Відвідайте соціальні сторінки";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Відвідайте";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Очікування вибрати ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Ласкаво просимо в безкоштовний пробний пакет";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Ласкаво просимо!";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
 "Welcome on %@" = "Ласкаво просимо на %@";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Ласкаво просимо до нашої програми ліцензування VIP.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Написати відгук";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "Напиши";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Щорічний прохід";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Ви можете відновлювати їх повторно.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Ви можете вибрати лише елементи, які відповідають початковому формату.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Ваша ідея, Ваш додаток";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Ваш код недійсний. Будь ласка спробуйте ще раз.";

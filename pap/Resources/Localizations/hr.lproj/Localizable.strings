@@ -118,22 +118,42 @@
 "cs_keyword_12" = "prijatelj";
 /*Translated from: lover*/
 "cs_keyword_13" = "ljubavnik";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Dnevna licenca";
+/* Generated from genl10n: Shop.SApp.swift#84 */
+"%@ App Passes" = "%@ Prijave za aplikacije";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dan";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Preuzmite sada besplatno!";
+/* Generated from genl10n: Shop.SApp.swift#254 */
+"%@ Passes" = "%@ Prolazi";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ User Group";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "Možda se pronađe %@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ će biti skriven";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Dan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "1-mjesečni prolaz";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "Prošlo 3 mjeseca";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "6 mjeseci";
 /* Generated from genl10n: pap.Strings.swift#32 */
 "A photos app, but contains a lot of sub-apps in its own." = "Aplikacija za fotografije, ali u sebi sadrži mnogo pod-aplikacija.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Pristup odbijen.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Pristup nije uspio.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Pristup odobren.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "akcije";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Aktivirajte oglase na cijelom zaslonu";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Aktivacija trenutnih vidljivih stavki ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -190,8 +210,16 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistač vam omogućuje da pronađete i izbrišete različite vrste netočnih fotografija ako se primjerice podudaraju s dupliciranim i sličnim slikama, fotografijama izbliza ili snimkama sa zasuna zaslona!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistač";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Boja i podsjetnik za svaku fazu";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Kontaktirajte nas sada";
+/* Generated from genl10n: Shop.SApp.swift#473, Shop.SApp.swift#607 */
+"Contact" = "Kontakt";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "kontakti";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Continuous Free Use" = "Kontinuirano besplatno korištenje";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter vam omogućuje pretvorbu svakog medijskog formata kao što su videozapisi, žive fotografije, GIF-ovi u svaki drugi.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -218,6 +246,10 @@
 "Did not detect anything." = "Nisu otkrili ništa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Prikaz postotka";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Prikaz preostale razine";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,8 +258,12 @@
 "E-mail Address" = "Email adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogućuje uklanjanje svih vrsta podataka koji sadrže vaše fotografije, uključujući privatne podatke.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "Email adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
+/* Generated from genl10n: Shop.SApp.swift#277 */
+"Engage Now And Recharge Free Period Repeatedly." = "Uključite se sada i ponovo napunite slobodno razdoblje.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Mogućnosti izvoza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "Naprijed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Odgoda okvira";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Prolazi za besplatnu aplikaciju";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Besplatno korištenje %@ dan, VIP licencka prilika";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Besplatno korištenje i sva nova ažuriranja";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Besplatno korištenje %@ dana";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Besplatno korištenje";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker omogućuje jednostavno i brzo izradu GIF slika iz Fotografija ili Live Fotografije s raznim opcijama! A zatim možete otvoriti aplikaciju pretvarača da biste se pretvorili u sve, kao što su fotografije uživo ili videozapisi.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Dobiti pristup";
+/* Generated from genl10n: Shop.SApp.swift#585 */
+"Get in touch" = "Stupite u kontakt";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Pozdrav, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Bok! Ja sam %@, trebam pomoć.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Sakriti";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvoz";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Unesite ovdje";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nije se moglo pohraniti.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Izgleda nevažeći kôd. Molim te pokušaj ponovno.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "To zahtijeva dopuštenje za pristup vašim kontaktima. Omogućite Kontakti na iOS Postavkama.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "stavke";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Pridružite programu %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "Pridružiti";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "pejzaž";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,18 @@
 "Loop" = "Petlja";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Napravite GIF";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Mjesečni pokaz";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moji albumi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Moje povratne informacije na %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "Ime";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Novi kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -316,6 +384,8 @@
 "Open Web Page" = "Otvori web stranicu";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Vlasnikov pas";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +394,46 @@
 "Page Size Preset" = "Predodređena veličina stranice";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stranice";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Trajna upotreba i sva nova ažuriranja";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Broj telefona";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotografije";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Unesite svoj tajni kôd";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portret";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "priprema";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privatnost";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "Obrada";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Kupnja %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Upravljanje kupnjom";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Kupiti";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "kvaliteta";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Ocijenite ga";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Ocijeni sada";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Uklanjanje crvenih očiju";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ponoviti";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Vraćanje svih kupnji";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "Vratiti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "obrnuti";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -384,16 +476,22 @@
 "Send Us Feedback" = "Pošaljite nam povratne informacije";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Pošalji email";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "postavke";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "Dućan";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Neki su kontakti spremljeni, ali neki nisu bili.";
+/* Generated from genl10n: Shop.SApp.swift#267 */
+"Special Passes" = "Posebni propusti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -412,6 +510,8 @@
 "Starting the Process..." = "Pokretanje procesa ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Početak pregledavanja uređenih fotografija ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "podnijeti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će u cijelosti ostati ista.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
@@ -434,6 +534,22 @@
 "Translate" = "Prevedi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
 "Turn Your Opinion Into New Things." = "Pretvori svoje mišljenje u nove stvari.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Trenutačno nije moguće potvrditi kôd. Pokušajte ga kasnije.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Koristite probnu verziju";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "Koristiti";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "Korisnik";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP licenčni program";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP Pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Potvrda nije uspjela.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +558,35 @@
 "Videos Shorter Than 1 Second" = "Videozapisi kraći od 1 sekunde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videozapisi bez zvuka";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Prikaz oglasa na cijelom zaslonu";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "Pogled";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Posjetite društvene stranice";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Posjetiti";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čeka se odabir ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Dobrodošli besplatno probno pakiranje";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Dobrodošli besplatno";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
 "Welcome on %@" = "Dobrodošli na %@";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Dobrodošli u naš VIP program licenciranja.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napišite svoje mišljenje";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "Pisati";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Godišnji prijelaz";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
 "You Can Renew Them Repeatedly." = "Ponovno ih možete obnoviti.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Možete odabrati samo stavke koje se podudaraju s početnim formatom.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Vaša ideja, vaša aplikacija";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Vaš kôd nije važeći. Molim te pokušaj ponovno.";
