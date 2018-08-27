@@ -224,14 +224,14 @@
 "Converter" = "محول";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "نسخ";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "لا يمكن الكشف عن أي إجراء.";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "لا يمكن الكشف عن أي اتصال.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "لا يمكن الكشف عن أي رقم هاتف.";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "لا يمكن الكشف عن أي نص.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "لا يمكن الكشف عن أي شيء.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "خلق";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "خيارات التصدير";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "تصدير";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "تمديد فترة الاستخدام المجاني";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "مرشحات";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "لا المحاصيل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "لا حلقة";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "الآن ساهم واحصل على الاستخدام المجاني.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "في وضع الاستعداد";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "أهداف";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "نص";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "هذا التطبيق هو لك.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "تتيح لك أداة تحويل الصور دفعة بسيطة ولكنها واسعة النطاق سرعة تدوير الكثير من ملفات الوسائط بما في ذلك الصور المباشرة. لا يوجد حد لعدد الصور لتحريرها.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "وجه قريب جدا";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "بطيئة جدا سرعة مصراع";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "ترجمه";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "حوّل رأيك إلى أشياء جديدة.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "وضع التحويل";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "غير قادر على التحقق من الرمز حاليًا. يرجى المحاولة لاحقا.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "مرحبًا بك مجانًا";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "مرحبًا بك في %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "مرحبًا بك في برنامج ترخيص VIP الخاص بنا.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "كتابة";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "تصريح سنوي";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "يمكنك تجديدها بشكل متكرر.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "يمكنك تحديد العناصر المتطابقة مع تنسيق البداية فقط.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

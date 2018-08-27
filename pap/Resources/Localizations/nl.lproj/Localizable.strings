@@ -224,14 +224,14 @@
 "Converter" = "Omvormer";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "Kon geen actie detecteren.";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "Kon geen contact detecteren.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "Kon geen telefoonnummer vinden.";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "Kon geen tekst vinden.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Kon niets vinden.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creëren";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "Export opties";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exporteren";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Verleng de periode van gratis gebruik";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "Geen gewas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Geen lus";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Draag nu bij en krijg gratis gebruik.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Op standby";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "Deze app is van jou.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Met dit eenvoudige maar grootschalige hulpprogramma voor het transformeren van batchafbeeldingen kunt u snel een groot aantal mediabestanden roteren en spiegelen, waaronder Live Photos. Er is geen limiet aan het aantal foto's om ze te bewerken.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Te dichtbij gezicht";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Te lange sluitertijd";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "Vertalen";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Verander uw mening in nieuwe dingen.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Transformatiemodus";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "Welkom gratis pas";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Welkom bij %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Welkom bij ons VIP-licentieprogramma.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "Schrijven";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "Jaarlijkse pas";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "U kunt ze herhaaldelijk verlengen.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "U kunt alleen items selecteren die overeenkomen met het startformaat.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

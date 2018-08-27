@@ -224,14 +224,14 @@
 "Converter" = "कनवर्टर";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "किसी भी कार्रवाई का पता नहीं लगा सका।";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "किसी भी संपर्क का पता नहीं लगा सका।";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "किसी भी फोन नंबर का पता नहीं लगा सका।";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "किसी भी पाठ का पता नहीं लगा सका।";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "कुछ भी पता नहीं लगा सका।";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "नि: शुल्क उपयोग की अवधि बढ़ाएं";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "फिल्टर";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "अब योगदान करें और नि: शुल्क उपयोग प्राप्त करें।";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "स्टैंडबाय पर";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "लक्ष्य";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "टेक्स्ट";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "यह ऐप आपका है।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "यह सीधा लेकिन बड़े पैमाने पर बैच छवि परिवर्तन उपकरण आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। उन्हें संपादित करने के लिए तस्वीरों की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "बहुत बंद चेहरा";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "बहुत धीमी शटर गति";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "अनुवाद करना";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "नई राय में अपनी राय बारी।";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "ट्रांसफॉर्म मोड";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "वर्तमान में कोड को सत्यापित करने में असमर्थ। कृपया बाद में कोशिश करें।";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "ताना";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "आपका स्वागत है मुफ्त पास";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "%@ पर आपका स्वागत है";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "हमारे वीआईपी लाइसेंस कार्यक्रम में आपका स्वागत है।";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "लिखना";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "वार्षिक पास";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "आप उन्हें दोबारा नवीनीकृत कर सकते हैं।";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "आप केवल वही आइटम चुन सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

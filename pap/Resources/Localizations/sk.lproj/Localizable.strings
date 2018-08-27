@@ -224,14 +224,14 @@
 "Converter" = "konvertor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "kópie";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "Nepodarilo sa zistiť žiadnu akciu.";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "Nepodarilo sa zistiť žiadny kontakt.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "Nepodarilo sa zistiť žiadne telefónne číslo.";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "Nepodarilo sa zistiť žiadny text.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Nie je možné zistiť nič.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Predĺžiť obdobie bezplatného používania";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filtre";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Teraz prispieť a získať zadarmo použitie.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostnom režime";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "ciele";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "text";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "Táto aplikácia je vaša.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tento jednoduchý, ale rozsiahly nástroj na transformáciu dávkových obrázkov vám umožňuje rýchlo otáčať a preklopiť množstvo multimediálnych súborov vrátane fotografií naživo. Nie je obmedzený počet fotografií na úpravu.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Príliš tvár na detail";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Príliš pomalá rýchlosť uzávierky";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "preložiť";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Premeňte svoje stanovisko na nové veci.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Režim transformácie";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálne sa nepodarilo overiť kód. Skúste to neskôr.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "Vitajte zadarmo Pass";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Vitajte na stránkach %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "zapísať";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "Ročný preukaz";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "Môžete ich opakovane obnoviť.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Môžete vybrať iba položky, ktoré zodpovedajú štartovaciemu formátu.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

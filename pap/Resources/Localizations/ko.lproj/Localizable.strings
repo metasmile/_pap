@@ -199,7 +199,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "되돌릴 수 없습니다. 선택한 모든 항목이 편집되지 않았습니다.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "전화 할 전화 번호 선택";
+"Choose A Phone Number To Call" = "통화 할 전화 번호 선택";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "액션 선택";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -224,14 +224,14 @@
 "Converter" = "변환기";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "복사";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "조치를 감지하지 못했습니다.";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "연락처를 찾을 수 없습니다.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "전화 번호를 찾을 수 없습니다.";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "텍스트를 찾을 수 없습니다.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "아무것도 감지 할 수 없습니다.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "생성";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "내보내기 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "자유 사용 기간 연장";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "필터";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -343,7 +341,7 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "어울리다";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
-"Landscape" = "경치";
+"Landscape" = "가로";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -376,14 +374,12 @@
 "No Crop" = "자르지 않음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "루프 없음";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "이제 공헌하고 무료 사용하십시오.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "대기";
 /* Generated from genl10n: Finder.BApp.swift#654 */
-"Open Apple Maps" = "Apple지도 열기";
+"Open Apple Maps" = "Apple 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
-"Open Google Maps" = "Google지도 열기";
+"Open Google Maps" = "Google 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "웹 페이지 열기";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
@@ -411,13 +407,13 @@
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "초상화";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
-"Preparing" = "준비중 인";
+"Preparing" = "준비 중";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "프리셋";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "프라이버시";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
-"Processing" = "가공";
+"Processing" = "프로세싱 중";
 /* Generated from genl10n: AppCenter.Charge.swift#384 */
 "Purchase %@" = "Purchase %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
@@ -435,7 +431,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
-"Restore All Purchases" = "모든 구입 복원";
+"Restore All Purchases" = "모든 구입 복원하기";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "복원";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -457,7 +453,7 @@
 /* Generated from genl10n: App.Finalizable.UIAlertController.PHAsset.swift */
 "Save" = "저장";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Saved With Built-in Camera" = "내장 카메라로 저장";
+"Saved With Built-in Camera" = "내장 카메라로 저장됨";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -475,7 +471,7 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "전화 번호를 잡고 싶은 사진을 선택하십시오!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
-"Selected" = "선택된";
+"Selected" = "선택됨";
 /* Generated from genl10n: AppCenter.Charge.swift#21 */
 "Send Us Feedback" = "의견 보내기";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -487,7 +483,7 @@
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
 /* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "가게";
+"Shop" = "상점";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -526,18 +522,14 @@
 "Targets" = "목표";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "일반 텍스트";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "이 응용 프로그램은 당신 것입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "너무 근접 촬영 얼굴";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "너무 느린 셔터 속도";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "옮기다";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "당신의 의견을 새로운 것으로 바꾸십시오.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "변환 모드";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "현재 코드를 확인할 수 없습니다. 나중에 다시 시도하십시오.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -565,7 +557,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Fullscreen Ads" = "전체 화면 광고보기";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "전망";
+"View" = "보기";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "소셜 페이지 방문";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -575,19 +567,15 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "환영 프리 패스";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "%@에 오신 것을 환영합니다.";
+"Welcome Free Pass" = "Welcome 프리 패스";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP 라이센스 프로그램에 오신 것을 환영합니다.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "리뷰를 작성";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
-"Write" = "쓰다";
+"Write" = "작성하기";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "연간 패스";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "반복해서 갱신 할 수 있습니다.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "시작 형식과 일치하는 항목 만 선택할 수 있습니다.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

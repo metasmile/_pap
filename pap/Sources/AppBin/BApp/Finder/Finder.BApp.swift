@@ -908,7 +908,7 @@ extension FinderApp{
             return nil
         }
 
-        return "Could not detect any action.".localized
+        return "Could not detect anything.".localized
     }
 
 }

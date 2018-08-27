@@ -224,14 +224,14 @@
 "Converter" = "แปลง";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "สำเนา";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "ไม่พบการกระทำใด ๆ";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "ไม่พบที่อยู่ติดต่อใด ๆ";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "ไม่พบหมายเลขโทรศัพท์ใด ๆ";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "ไม่พบข้อความใด ๆ";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "ไม่พบสิ่งใด";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "ขยายระยะเวลาการใช้งานฟรี";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ฟิลเตอร์";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ไม่มีลูป";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "มีส่วนร่วมและใช้งานฟรี";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "เมื่อสแตนด์บาย";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "เป้าหมาย";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "ข้อความ";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "App นี้เป็นของคุณ";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "เครื่องมือแปลงไฟล์ชุดภาพที่ซับซ้อนและตรงไปตรงมานี้ช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึงรูปภาพสดได้อย่างรวดเร็ว ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "ความเร็วชัตเตอร์ต่ำเกินไป";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "แปลความ";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "เปลี่ยนความคิดเห็นของคุณให้กลายเป็นสิ่งใหม่ ๆ";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "โหมดการแปลง";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "ไม่สามารถยืนยันรหัสได้ในขณะนี้ โปรดลองภายหลัง";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "วิปริต";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "Welcome Pass ฟรี";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "ยินดีต้อนรับสู่ %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "ยินดีต้อนรับสู่โปรแกรมอนุญาตวีไอพีของเรา";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "เขียน";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "ผ่านปี";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "คุณสามารถต่ออายุได้อีกครั้ง";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "คุณสามารถเลือกเฉพาะรายการที่ตรงกับรูปแบบเริ่มต้น";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

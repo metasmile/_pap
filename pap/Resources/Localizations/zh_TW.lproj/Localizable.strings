@@ -224,14 +224,14 @@
 "Converter" = "變流器";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "複製";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "無法檢測到任何操作。";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "無法檢測到任何联係人。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "無法檢測到任何電話號碼。";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "無法檢測到任何文字。";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "無法檢測到任何東西。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "創建";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "導出選項";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "出口";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "延長免費使用期限";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "過濾器";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "沒有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "沒有循環";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "現在貢獻並獲得免費使用。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "隨時待命";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "目標";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "文本";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "這個應用程序是你的。";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "這種直觀但大規模的批量圖像變換工具可讓您快速旋轉和翻轉包括實時照片在內的大量媒體文件。編輯照片的數量沒有限制。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "太近距離的臉";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "快門速度太慢";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "翻譯";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "把你的意見變成新事物。";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "變換模式";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "目前無法驗證代碼。請稍後再試。";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "歡迎免費通行證";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "歡迎來到%@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "歡迎來到我們的VIP許可計劃。";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "寫";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "每年通行證";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "你可以反復更新它們。";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "您只能選擇與起始格式匹配的項目。";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

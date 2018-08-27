@@ -224,14 +224,14 @@
 "Converter" = "Μετατροπέας";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
-/* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect any action." = "Δεν ήταν δυνατή η ανίχνευση οποιασδήποτε ενέργειας.";
 /* Generated from genl10n: Finder.BApp.swift#232 */
 "Could not detect any contact." = "Δεν ήταν δυνατή η ανίχνευση οποιασδήποτε επαφής.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#226 */
 "Could not detect any phone number." = "Δεν ήταν δυνατή η ανίχνευση αριθμού τηλεφώνου.";
 /* Generated from genl10n: Finder.BApp.swift#218 */
 "Could not detect any text." = "Δεν ήταν δυνατή η ανίχνευση κειμένου.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Δεν μπορούσε να ανιχνεύσει τίποτα.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -272,8 +272,6 @@
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Περίοδος παράτασης της δωρεάν χρήσης";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Φίλτρα";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -376,8 +374,6 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Τώρα συμβάλλετε και αποκτήστε δωρεάν χρήση.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Σε αναμονή";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -526,18 +522,14 @@
 "Targets" = "Στόχοι";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Κείμενο";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "Αυτή η εφαρμογή είναι δική σας.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Πάρα πολύ κοντινή όψη";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Πολύ αργή ταχύτητα κλείστρου";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "Μεταφράζω";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Γυρίστε τη γνώμη σας σε νέα πράγματα.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Λειτουργία μετασχηματισμού";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Δεν είναι δυνατή η επαλήθευση του κώδικα αυτήν τη στιγμή. Δοκιμάστε το αργότερα.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -576,8 +568,6 @@
 "Warp" = "Στημόνι";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pass" = "Καλώς ήλθατε στο Free Pass";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Καλώς ήρθατε στο %@";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -586,8 +576,6 @@
 "Write" = "Γράφω";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
 "Yearly Pass" = "Ετήσια επιτυχία";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "Μπορείτε να τους επαναλάβετε επανειλημμένα.";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Μπορείτε να επιλέξετε μόνο στοιχεία που ταιριάζουν με τη μορφή εκκίνησης.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */

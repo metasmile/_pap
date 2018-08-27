@@ -327,7 +327,7 @@ extension Defaults: StabilizerAppDefaults {
 struct StabilizerSettings {
     static var stabilizationTitles: [String] {
         return [
-            "Translate".localized,
+            "Transform Mode".localized,
             "Warp".localized
         ]
     }
