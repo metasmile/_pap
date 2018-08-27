@@ -904,6 +904,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
         
+        //INFO: update PHPhotoLibraryChangeObserver immediately
+        PhotosManager.default.cachingImageManager.stopCachingImagesForAllAssets()
+        
         //POLICY: no keeps selected items
         deselectAllCollectionViewItems()
 
