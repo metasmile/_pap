@@ -507,6 +507,7 @@ extension FinderApp{
                             if let event = event{
                                 event.title = "New Event".localized
                                 event.startDate = date
+                                event.endDate = date
 
                                 //insert Note with original plain text
                                 if let visionTexts = item.sourceVisionTexts{
