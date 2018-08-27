@@ -11,6 +11,7 @@ private struct PhotoPickerViewControllerPHCachingImageDefault {
     static let RequestOption = { () -> PHImageRequestOptions in
         var option = PHImageRequestOptions()
         option.resizeMode = .fast
+        option.version = .current
         return option
     }()
 }

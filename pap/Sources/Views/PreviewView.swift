@@ -189,7 +189,7 @@ class PreviewView: CustomView, AppDockContentTransition {
         collectionView.setCollectionViewLayout(toLayout, animated: false)
         
         if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            scrollToNeareastItem(at: indexPath, animated: false)
         }
     }
 }
@@ -279,10 +279,10 @@ extension PreviewView {
         }
     }
     
-    func scrollToNeareastItem(at indexPath: IndexPath) {
+    func scrollToNeareastItem(at indexPath: IndexPath, animated: Bool = true) {
         if appAssetsSelected.count > 0 {
             let nearestItem = indexPath.item < appAssetsSelected.count ? indexPath.item : max(min(indexPath.item - 1, appAssetsSelected.count - 2), 0)
-            collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: true)
+            collectionView.scrollToItem(at: IndexPath(item: nearestItem, section: 0), at: .centeredHorizontally, animated: animated)
         }
     }
 
@@ -311,7 +311,7 @@ extension PreviewView {
         //TODO: append dynamically more items where Set(EditItems) - Set(alreadyqueued Items) BatchAppCenter.default.task.query(by:_)
         delegate?.batchPreviewViewWillBeginEdit(self)
 
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: targetSection), at: .centeredHorizontally, animated: true)
+        scrollToNeareastItem(at: IndexPath(item: 0, section: targetSection))
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProgressNotification.Name.progressChanged, object: nil)
@@ -365,7 +365,7 @@ extension PreviewView {
             let destItem = Int(Float(totalCount-1)*progress).clamped(to: 0...numberOfItems-1)
 
             //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.pap/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
-            self.collectionView.scrollToItem(at: IndexPath(item: destItem, section: index.section), at: .centeredHorizontally, animated: true)
+            self.scrollToNeareastItem(at: IndexPath(item: destItem, section: index.section))
 
 
         }).will(finish: { resultsByApps, respondables in
