@@ -164,7 +164,7 @@ extension ShopApp{
         }
         
         return mutableDefaultCollection.filter {
-            if let index = mutableDefaultCollection.firstIndex(of: $0), let _ = removingIndexes.firstIndex(of: index) {
+            if let index = mutableDefaultCollection.index(of: $0), removingIndexes.contains(index) {
                 return false
             }
             return true
