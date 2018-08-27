@@ -143,22 +143,24 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
         if numbers.count > 0{
             alert.addAction(UIAlertAction(title: "Save All Phone Numbers".localized, style: . default, handler: { action in
-                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal) {
+                DispatchQueue.global(qos: .userInteractive).async {
+                    if ContactsUtil.shared.requestAuthorizationAndWait(AsyncSignal()) {
 
-                    let contact = CNMutableContact()
-                    contact.contactType = .person
-                    contact.givenName = "New Phone Number".localized
+                        let contact = CNMutableContact()
+                        contact.contactType = .person
+                        contact.givenName = "New Phone Number".localized
 
-                    for number in numbers{
-                        let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
-                        contact.phoneNumbers.append(value)
+                        for number in numbers{
+                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            contact.phoneNumbers.append(value)
+                        }
+
+                        DispatchQueue.main.async {
+                            CNContactViewController.presentDialog(newContact: contact)
+                        }
+
+                        asyncSignal.end()
                     }
-
-                    DispatchQueue.main.async {
-                        CNContactViewController.presentDialog(newContact: contact)
-                    }
-
-                    asyncSignal.end()
                 }
             }))
         }

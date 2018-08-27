@@ -118,7 +118,7 @@
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Fullscreen Ads" = "Activate Fullscreen Ads";
-/* Generated from genl10n: PhoneCalls.BApp.swift#591, Finder.BApp.swift#1665, Cleaner.BApp.swift#879 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#593, Finder.BApp.swift#1665, Cleaner.BApp.swift#879 */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#374, Finder.BApp.swift#441, Finder.BApp.swift#656, Finder.BApp.swift#774 */
 "Add New Contact" = "Add New Contact";
@@ -150,7 +150,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#175 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#209, PhoneCalls.BApp.swift#372, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1298, Cleaner.BApp.swift#536 */
+/* Generated from genl10n: Revert.BApp.swift#209, PhoneCalls.BApp.swift#374, ExifGhost.AppDockContent.swift#162, Finder.BApp.swift#1298, Cleaner.BApp.swift#536 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
 "Auto Straighten" = "Auto Straighten";
@@ -236,13 +236,13 @@
 "Extend Period of Free Use" = "Extend Period of Free Use";
 /* Generated from genl10n: Filters.BApp.swift#97 */
 "Filters" = "Filters";
-/* Generated from genl10n: PhoneCalls.BApp.swift#248, Finder.BApp.swift#177 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#250, Finder.BApp.swift#177 */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#45 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.";
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder" = "Finder";
-/* Generated from genl10n: PhoneCalls.BApp.swift#244 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#246 */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#77 */
 "Flashlight" = "Flashlight";
@@ -330,7 +330,7 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#508 */
 "New Event" = "New Event";
-/* Generated from genl10n: PhoneCalls.BApp.swift#150, PhoneCalls.BApp.swift#153, PhoneCalls.BApp.swift#189, PhoneCalls.BApp.swift#191 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#191, PhoneCalls.BApp.swift#193 */
 "New Phone Number" = "New Phone Number";
 /* Generated from genl10n: Stabilizer.swift#338, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
@@ -338,7 +338,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#201 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#597, Finder.BApp.swift#1671, Cleaner.BApp.swift#884 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#599, Finder.BApp.swift#1671, Cleaner.BApp.swift#884 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#737 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -432,7 +432,7 @@
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* Generated from genl10n: Finder.BApp.swift#1451 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#432 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#434 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#559 */
 "Selected" = "Selected";
@@ -468,7 +468,7 @@
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
 /* Generated from genl10n: PhotoPickerViewController.swift#473 */
 "Start" = "Start";
-/* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#165 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#238, Finder.BApp.swift#165 */
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift#821 */
 "Starting the Process..." = "Starting the Process...";
@@ -478,7 +478,7 @@
 "Submit" = "Submit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#298 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Switch on any items you want to hide. The quality will entirely remain the same.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#385, Finder.BApp.swift#1309 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#387, Finder.BApp.swift#1309 */
 "Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#560 */
 "Targeted" = "Targeted";
@@ -530,7 +530,7 @@
 "Visit Social Pages" = "Visit Social Pages";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Visit";
-/* Generated from genl10n: PhoneCalls.BApp.swift#240, Finder.BApp.swift#169 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#242, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift#331 */
 "Warp" = "Warp";
