@@ -249,7 +249,7 @@ extension FinderApp{
                     continue
                 }
 
-                let imageData = item.asset.asData
+                let imageData = item.asset.requestThumbnailImage(targetSize: CGSize(width: 400, height: 400))?.asData
 
                 for contact in _contacts{
                     autoreleasepool{
@@ -288,7 +288,7 @@ extension FinderApp{
                 for contact in _contacts{
 
                     autoreleasepool{
-                        contact.imageData = item.asset.asData
+                        contact.imageData = item.asset.requestThumbnailImage(targetSize: CGSize(width: 400, height: 400))?.asData
 
                         asyncSignal.begin()
                         DispatchQueue.main.async{
