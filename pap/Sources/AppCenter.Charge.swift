@@ -416,7 +416,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     private lazy var receiptStorage = ChargeReceiptStorage(banker:self)
 
-    fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = 8//60*60*24
+    fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = papTimeInterval.ofTimeOfUsesDayTimeUnit
     fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3
     fileprivate static let Abs_TimeOfUses_Day:TimeInterval = 30
     fileprivate static let Abs_TimeOfUses_Time:TimeInterval = Abs_TimeOfUses_Day * Abs_TimeOfUses_DayTimeUnit

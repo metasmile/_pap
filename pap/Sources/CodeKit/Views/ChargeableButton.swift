@@ -120,7 +120,7 @@ class ChargeableBadgeIcon: UIImage {
         let renderText = NSString(string: "\(title)")
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
-        let badgePaddingLeft: CGFloat = 2//6
+        let badgePaddingLeft: CGFloat = 2
         let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
 //        let badgeRect = CGRect(origin: .zero, size: badgeSize)
@@ -155,7 +155,7 @@ class ChargeableBadgeIcon: UIImage {
         let renderText = NSString(string: "\(title)")
         let textSize = renderText.size(withAttributes: attributes)
         let badgePaddingTop: CGFloat = 2
-        let badgePaddingLeft: CGFloat = 2//6
+        let badgePaddingLeft: CGFloat = 2
         let labelSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: textSize), UIEdgeInsets(top: -badgePaddingTop, left: -badgePaddingLeft, bottom: -badgePaddingTop, right: -badgePaddingLeft)).size
         
         guard let titleImage = UIGraphicsImageRenderer(size: labelSize).imageWithCurrentContext(actions: { ctx in
