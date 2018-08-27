@@ -239,12 +239,17 @@ extension PreviewView {
             return nil
         }
         
-        collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at: [indexPath])
-        }) { fin in
-            guard fin else { return }
-            self.collectionView.collectionViewLayout.invalidateLayout()
-            self.scrollToNeareastItem(at: indexPath)
+        if appAssetsSelected.count > 0 {
+            collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: [indexPath])
+            }) { fin in
+                guard fin else { return }
+                self.collectionView.collectionViewLayout.invalidateLayout()
+                self.scrollToNeareastItem(at: indexPath)
+            }
+        }
+        else {
+            collectionView.reloadData()
         }
         
         return indexPath
@@ -258,14 +263,19 @@ extension PreviewView {
         let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
         _assets.forEach { appAssetsSelected.remove(for: $0) }
         
-        collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at: indexPaths)
-        }) { fin in
-            guard fin else { return }
-            self.collectionView.collectionViewLayout.invalidateLayout()
-            if let indexPath = indexPaths.first {
-                self.scrollToNeareastItem(at: indexPath)
+        if appAssetsSelected.count > 0 {
+            collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: indexPaths)
+            }) { fin in
+                guard fin else { return }
+                self.collectionView.collectionViewLayout.invalidateLayout()
+                if let indexPath = indexPaths.first {
+                    self.scrollToNeareastItem(at: indexPath)
+                }
             }
+        }
+        else {
+            collectionView.reloadData()
         }
     }
     
