@@ -65,7 +65,8 @@ public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttr
 public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-PhotoEditorViewControllerDelegatableApp {
+PhotoEditorViewControllerDelegatableApp, ChargeableApp {
+
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
 
@@ -73,6 +74,10 @@ PhotoEditorViewControllerDelegatableApp {
         let config = FiltersAppConfigValue()
         config.tintColor = .black
         return config
+    }
+
+    static var localCharges: [Charge] {
+        return self.defaultFreeBAppLocalCharges
     }
 
     @objc dynamic
