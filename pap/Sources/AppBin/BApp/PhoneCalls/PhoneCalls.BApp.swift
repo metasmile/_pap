@@ -223,7 +223,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert(AppStrings.cannot.detect.information, completion:{ _ in
+                UIAlertController.alert("Could not detect any phone number.".localized, completion:{ _ in
                     asyncSignal.end()
                 })
             }
