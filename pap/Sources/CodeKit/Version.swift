@@ -35,7 +35,6 @@ public enum VersionDescription:Int, Codable{
     case first
     case normal
     case new
-    case skippedNew
     case reversed
     case unhandled
 }

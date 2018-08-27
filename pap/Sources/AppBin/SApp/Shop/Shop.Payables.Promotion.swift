@@ -21,7 +21,7 @@ struct WelcomeTutorialPayment:Payable{
 private extension VerifiablePayable{
     func verifyForAvailableOnlyThisVersion() -> Bool? {
         let d = Defaults.shared.shortVersionDescription
-        if d == .new || d == .skippedNew{ // if new version arrived clear
+        if d == .new{ // if new version arrived clear
             return false
         }
         return true

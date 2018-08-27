@@ -45,9 +45,6 @@ extension Defaults: VersionDefaults {
             if distance==0{
                 return .normal
             }
-            else if distance>1{
-                return .skippedNew
-            }
             else if distance>0{
                 return .new
             }

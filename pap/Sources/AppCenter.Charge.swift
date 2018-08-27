@@ -451,7 +451,7 @@ private final class AppChargeBanker: ChargeBanker {
                     createOrReplaceReceipt(for:welcomeCharge)
                 }
 
-            case .new, .skippedNew:
+            case .new:
                 //Not thing
                 break
 
