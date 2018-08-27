@@ -221,9 +221,10 @@ extension PreviewView {
         }
 
         if appAssetsSelected.count>prevCount{
-            self.collectionView.insertItems(at: [insertedIndexPath])
-            
-            collectionView.performBatchUpdates({}) { _ in
+            collectionView.performBatchUpdates({
+                self.collectionView.insertItems(at: [insertedIndexPath])
+            }) { fin in
+                guard fin else { return }
                 self.collectionView.collectionViewLayout.invalidateLayout()
                 self.scrollToNeareastItem(at: insertedIndexPath)
             }
@@ -238,9 +239,10 @@ extension PreviewView {
             return nil
         }
         
-        self.collectionView.deleteItems(at: [indexPath])
-        
-        collectionView.performBatchUpdates({}) { _ in
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: [indexPath])
+        }) { fin in
+            guard fin else { return }
             self.collectionView.collectionViewLayout.invalidateLayout()
             self.scrollToNeareastItem(at: indexPath)
         }
@@ -256,9 +258,10 @@ extension PreviewView {
         let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
         _assets.forEach { appAssetsSelected.remove(for: $0) }
         
-        self.collectionView.deleteItems(at: indexPaths)
-        
-        collectionView.performBatchUpdates({}) { _ in
+        collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: indexPaths)
+        }) { fin in
+            guard fin else { return }
             self.collectionView.collectionViewLayout.invalidateLayout()
             if let indexPath = indexPaths.first {
                 self.scrollToNeareastItem(at: indexPath)
