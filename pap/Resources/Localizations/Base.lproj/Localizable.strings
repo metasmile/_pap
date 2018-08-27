@@ -216,7 +216,7 @@
 "Display Remaining Level" = "Display Remaining Level";
 /* Generated from genl10n: pap.Strings.swift#49 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
-/* Generated from genl10n: PhotoPickerViewController.swift#866 */
+/* Generated from genl10n: PhotoPickerViewController.swift#864 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#664, Finder.BApp.swift#1230 */
 "E-mail Address" = "E-mail Address";
@@ -418,7 +418,7 @@
 "Save" = "Save";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Saved With Built-in Camera" = "Saved With Built-in Camera";
-/* Generated from genl10n: PhotoPickerViewController.swift#889 */
+/* Generated from genl10n: PhotoPickerViewController.swift#887 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Stabilizer.swift#419, PDFactory.AppDockContent.swift#141 */
 "Scale To Fit" = "Scale To Fit";
@@ -444,7 +444,7 @@
 "Settings" = "Settings";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Share This App" = "Share This App";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#92, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#105, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#131, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#145, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.swift#31, Finder.BApp.swift#380, Finder.BApp.swift#465, Finder.BApp.swift#550, Finder.BApp.swift#647, Finder.BApp.swift#765, Finder.BApp.swift#862 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#94, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#107, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#133, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#147, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.swift#31, Finder.BApp.swift#380, Finder.BApp.swift#465, Finder.BApp.swift#550, Finder.BApp.swift#647, Finder.BApp.swift#765, Finder.BApp.swift#862 */
 "Share" = "Share";
 /* Generated from genl10n: Shop.SApp.swift#34 */
 "Shop" = "Shop";
@@ -470,7 +470,7 @@
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#236, Finder.BApp.swift#165 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#823 */
+/* Generated from genl10n: PhotoPickerViewController.swift#821 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#114 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

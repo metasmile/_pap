@@ -182,7 +182,7 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
         var items = [AppUICollectionView.CollectionItem]()
         
         items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
-            let filterItem = CIFilterItem(CIFilter())
+            let filterItem = CIFilterItem()
             AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.filter = filterItem
         }))
         

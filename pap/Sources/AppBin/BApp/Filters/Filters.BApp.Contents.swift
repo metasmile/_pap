@@ -30,13 +30,12 @@ extension _FiltersAppAsset: PHAssetImageEditable {
 
         guard
             let uiImage = asset.asUIImage,
-            let filter = editState.ciFilter
+            let filter = editState.ciFilter,
+            let image = uiImage.applyFilter(ciFilter: filter)
         else {
             completionHandler(nil, nil)
             return nil
         }
-        
-        let image = uiImage.applyFilter(ciFilter: filter)
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{

@@ -780,9 +780,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin
             
             if let editItem = editItem {
-                if let filter = editItem.ciFilter {
-                    transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: filter)
-                }
+                transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? photoEditor.originalImage
                 
                 transitionContext.placeholderView.transform = editItem.transform
             }
