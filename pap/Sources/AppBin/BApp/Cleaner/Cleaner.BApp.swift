@@ -272,7 +272,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
     }
 }
 
-private class _CleanerAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _CleanerAppTask: AppTaskPrototypeDefaultRestrictedConcurrency, AppTaskable {
 
     private let deletingTargetMatched = CleanerApp.privateDefaults.deletingTarget==DeletingTarget.targeted.rawValue
 

@@ -311,7 +311,7 @@ private class PhoneCallsAppDetector{
     }
 }
 
-private class _PhoneCallsAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _PhoneCallsAppTask: AppTaskPrototypeDefaultRestrictedConcurrency, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()

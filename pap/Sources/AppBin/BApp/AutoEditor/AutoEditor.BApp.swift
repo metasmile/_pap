@@ -204,7 +204,7 @@ private extension AutoEditorApp {
     }
 }
 
-private class _AutoEditorAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _AutoEditorAppAsset
     public typealias ResultType = PHAssetResultItem
 

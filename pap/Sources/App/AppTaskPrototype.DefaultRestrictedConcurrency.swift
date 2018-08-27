@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class AppTaskPrototypeDefaultConcurrencyCountPolicy:AppTaskPrototype{
+public class AppTaskPrototypeDefaultRestrictedConcurrency:AppTaskPrototype{
 
     public required init(_ info: AppTaskInfo) {
         super.init(info)

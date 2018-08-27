@@ -281,7 +281,7 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     @objc dynamic var filterItem: CIFilterItem?
 }
 
-private class _FiltersAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _FiltersAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _FiltersAppAsset
     public typealias ResultType = PHAssetResultItem
 

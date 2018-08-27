@@ -1048,7 +1048,7 @@ private struct FinderAppDetector{
     }
 }
 
-private class _FinderAppTask: AppTaskPrototypeDefaultConcurrencyCountPolicy, AppTaskable {
+private class _FinderAppTask: AppTaskPrototypeDefaultRestrictedConcurrency, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
     private let phoneNumberParser = VisionTextPhoneNumberParser()
