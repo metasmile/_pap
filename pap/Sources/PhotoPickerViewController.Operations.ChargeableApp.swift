@@ -59,7 +59,7 @@ extension PhotoPickerViewController{
                 rightButtonItem.title = doneButton?.title
                 rightButtonItem.normalizedValue = balanceValue
                 rightButtonItem.target = self
-                rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+                rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenSelected)
                 navigationItem.setRightBarButton(rightButtonItem, animated: false)
             }
             
@@ -81,16 +81,20 @@ extension PhotoPickerViewController{
         rightButtonItem.title = nil
         rightButtonItem.normalizedValue = balanceValue
         rightButtonItem.target = self
-        rightButtonItem.action = #selector(self.chargeableButtonDidTap)
+        rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenDeselected)
         navigationItem.setRightBarButton(rightButtonItem, animated: false)
         return false
+    }
+
+    @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
+        openShopApp()
     }
 
     //CRITICAL: Chargeable button state control. The payment action of Charge that has a reward .nonBlockOfUses should execute before chargeable button's tap action.
     // -> Press Heart
     // -> Call each "Pay" unpaid 1-charge with reward nonBlockOfUses
     // -> if all nonBlockOfUses pay was charged, -> go to Shop
-    @objc fileprivate func chargeableButtonDidTap(sender: Any) {
+    @objc fileprivate func chargeableButtonDidTapWhenDeselected(sender: Any) {
         // check rated once a version
         let unpaidChagesInNonBlockingReward = AppCenter.charge.getCharges().filter({
             return $0.reward == .nonBlockOfUses && AppCenter.charge.isPaid(payable: $0.payment) == false
