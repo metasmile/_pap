@@ -515,17 +515,17 @@ extension FinderApp{
                     return UIAlertAction(title: t, style: .default, handler: { action in
 
                         EventKitUtil.shared.newEvent { event in
-                            assert(!Thread.isMainThread)
 
                             if let event = event{
                                 event.title = "New Event".localized
-                                //FIXME: sometimes fired strange crash.
                                 event.startDate = date
                                 event.endDate = date
 
                                 //insert Note with original plain text
                                 if let visionTexts = item.sourceVisionTexts{
-                                    event.notes = visionTexts.parse(type: VisionTextStringParser.self, asyncSignal)?.joined()
+
+                                    let syncParser = VisionTextStringParser()
+                                    event.notes = visionTexts.compactMap { syncParser.process(input: $0) }.joined()
                                 }
 
                                 EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
