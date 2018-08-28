@@ -143,7 +143,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
                 resultMessage = self.finalize_contact(items: items, asyncSignal)
             case SelectionPreset.action.rawValue:
                 resultMessage = self.finalize_action(items: items, asyncSignal)
-            default:
+            default:/**/
                 assert(false, "not supported preset \(String(describing: FinderApp.privateDefaults.selectionPreset))")
         }
 
@@ -249,6 +249,7 @@ extension FinderApp{
 
         let saveContactWithoutEdit = FinderApp.privateDefaults.saveContactWithoutEdit
 
+        //INFO: Direct save mode
         if saveContactWithoutEdit {
             var savedCount = 0
             for item in items {
@@ -270,8 +271,6 @@ extension FinderApp{
                 }
             }
 
-            asyncSignal.begin()
-
             var message = errorMessage
             if savedCount > 0{
                 if savedCount == items.count {
@@ -280,36 +279,32 @@ extension FinderApp{
                     message = "Some contacts were saved, but someones were not.".localized
                 }
             }
-            DispatchQueue.main.async {
-                UIAlertController.alert(message, completion:{ _ in
-                    asyncSignal.end()
-                })
+            return message
+        }
+
+
+        //INFO: Editor Mode
+        for item in items {
+            guard let _contacts = item.contacts, _contacts.count > 0 else{
+                continue
             }
-            asyncSignal.waitUntilEnd()
+            for contact in _contacts{
 
-        }else{
-            for item in items {
-                guard let _contacts = item.contacts, _contacts.count > 0 else{
-                    continue
-                }
-                for contact in _contacts{
+                autoreleasepool{
+                    contact.imageData = item.asset.requestThumbnailImage(targetSize: CGSize(width: 400, height: 400))?.asData
 
-                    autoreleasepool{
-                        contact.imageData = item.asset.requestThumbnailImage(targetSize: CGSize(width: 400, height: 400))?.asData
-
-                        asyncSignal.begin()
-                        DispatchQueue.main.async{
-                            CNContactViewController.presentDialog(newContact: contact, didDismiss: {
-                                asyncSignal.end()
-                            })
-                        }
-                        asyncSignal.waitUntilEnd()
+                    asyncSignal.begin()
+                    DispatchQueue.main.async{
+                        CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                            asyncSignal.end()
+                        })
                     }
+                    asyncSignal.waitUntilEnd()
                 }
             }
         }
 
-        return nil
+        return "All processes you have confirmed were finished.".localized
     }
 
     fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
@@ -345,7 +340,7 @@ extension FinderApp{
                     StringSet.insert(phoneNumber)
                 }
 
-                let _quickAction = { (t:String) -> UIAlertAction in
+                let phoneNumberActionContactsSaving = { (t:String) -> UIAlertAction in
 
                     return UIAlertAction(title: t, style: .default, handler: { action in
 
@@ -371,11 +366,33 @@ extension FinderApp{
                     })
                 }
 
+                let phoneNumberActionCall = { (t:String) -> UIAlertAction in
+
+                    return UIAlertAction(title: t, style: .default, handler: { action in
+
+                        if let url = URL(string: "tel://\(phoneNumber)")
+                        , ContactsUtil.shared.isCapableToCall
+                        , UIApplication.shared.canOpenURL(url) {
+
+                            asyncSignal.end()
+
+                            if #available(iOS 10, *) {
+                                UIApplication.shared.open(url)
+                            } else {
+                                UIApplication.shared.openURL(url)
+                            }
+
+                        }else{
+                            asyncSignal.end()
+                        }
+                    })
+                }
+
                 var action:UIAlertAction
 
                 if isQuickActionOnly {
 
-                    action = _quickAction(phoneNumber)
+                    action = phoneNumberActionCall(phoneNumber)
 
                 }else{
                     let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
@@ -383,7 +400,9 @@ extension FinderApp{
                     let _actions = [
                         defaultCancelSubAction,
 
-                        _quickAction("Add New Contact".localized),
+                        phoneNumberActionCall("Making A Call".localized),
+
+                        phoneNumberActionContactsSaving("Add New Contact".localized),
 
                         UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
                             UIPasteboard.general.string = phoneNumber
