@@ -207,9 +207,16 @@ extension FinderApp{
         if strings.count > 0 {
             asyncSignal.begin()
             DispatchQueue.main.async{
-                UIActivityViewController.share(activityItems: strings, excludedActivityTypes: nil) { _, _, _, _ in
+                let actionSheet = UIAlertController.actionSheet(title: nil, message: strings.joined().trimmed)
+                actionSheet.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
+                    UIActivityViewController.share(activityItems: strings, excludedActivityTypes: nil) { _, _, _, _ in
+                        asyncSignal.end()
+                    }
+                }))
+                actionSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { (action) in
                     asyncSignal.end()
-                }
+                }))
+                UIViewController.present(actionSheet, animated: true)
             }
             asyncSignal.waitUntilEnd()
             return nil
