@@ -67,7 +67,6 @@
 		4F71D29B3911115701282220 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1B67855F1829EB9787D /* CodeKit.Timer.swift */; };
 		4F71D2A169A523C841ED63B8 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9E00E76B61EE487E600 /* PhotoCollectionViewCell.xib */; };
 		4F71D2C6467BAA687E8C9FD6 /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE4061C997C8A012BC74 /* GIFMaker.BApp.swift */; };
-		4F71D2D27471ACDA37B79991 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CBFA41A95C5A503D0 /* AppStrings.swift */; };
 		4F71D301E56EEE1B6BE5CF4F /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D82693811867D6242765 /* StateValue.swift */; };
 		4F71D3219B8207BEDF0763AD /* pap.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3DEBC7096177138684A /* pap.Defaults.swift */; };
 		4F71D33BBAD23E5407CA228D /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA85C98EDB773862B2DF /* GADManager.swift */; };
@@ -389,7 +388,6 @@
 		4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		4F71D2363FDBBFC0BEE21FBE /* App.PreviewProcessableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PreviewProcessableApp.swift; sourceTree = "<group>"; };
 		4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.URL.swift; sourceTree = "<group>"; };
-		4F71D23CBFA41A95C5A503D0 /* AppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		4F71D2428B6ACA432A97F89F /* CodeKit.Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Bundle.swift; sourceTree = "<group>"; };
 		4F71D2554588E3B8582A1C6E /* Shop.Payables.FreeCharge.URLVisitingTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.FreeCharge.URLVisitingTypes.swift; sourceTree = "<group>"; };
 		4F71D2588E42F7B00E16E945 /* App.Lib.Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.Parser.swift; sourceTree = "<group>"; };
@@ -632,6 +630,7 @@
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A004BDDA21345C2800987713 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "../pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* pap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pap.entitlements; sourceTree = "<group>"; };
 		A020941A2129AC2A00D0F84C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1231,7 +1230,6 @@
 				4F71DEB93AC64362D74F6A31 /* App.Lib.FirebaseMLVision.VisionText.Parser.Extensions */,
 				4F71D1FFEDB90792654FC9A6 /* App.UICollectionViewPreheatable.swift */,
 				4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */,
-				4F71D23CBFA41A95C5A503D0 /* AppStrings.swift */,
 				4F71D2363FDBBFC0BEE21FBE /* App.PreviewProcessableApp.swift */,
 			);
 			path = App;
@@ -1916,110 +1914,45 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
-				he,
-				mi,
-				mr,
-				zu,
-				ja,
-				km,
-				pa,
-				sk,
-				sq,
-				am,
-				af,
-				xh,
-				it,
-				eu,
-				fr,
-				el,
-				ig,
-				kn,
-				hu,
-				gd,
-				bg,
-				hr,
-				tg,
-				ha,
-				cy,
-				lt,
-				es_MX,
-				pt,
-				yo,
-				ga,
-				hi,
-				mk,
-				ku,
-				fi,
-				zh_TW,
-				mn,
-				zh_CN,
-				iw,
-				st,
-				sw,
-				sm,
-				si,
-				kk,
-				no,
-				fy,
-				pl,
-				sn,
-				ar,
-				co,
-				lv,
-				fa,
-				vi,
-				sv,
-				mt,
-				sr,
-				et,
-				lo,
-				ka,
-				es,
-				so,
-				de,
-				tr,
-				ml,
-				sl,
-				gl,
-				zh_HK,
-				ru,
-				sd,
-				bs,
-				lb,
-				mg,
-				fr_CA,
-				eo,
-				is,
-				ca,
-				bn,
-				ne,
-				uk,
-				"en-AU",
-				pt_PT,
-				id,
-				th,
-				yi,
-				az,
-				cs,
 				ko,
-				ur,
-				ps,
-				nl,
-				hy,
-				da,
-				tl,
-				te,
-				ny,
-				uz,
-				jw,
-				ht,
-				ms,
-				ro,
+				el,
+				fr_CA,
+				vi,
+				ca,
+				it,
+				zh_HK,
+				ar,
+				cs,
+				id,
+				es,
 				"en-GB",
-				ta,
-				gu,
+				ru,
+				nl,
+				pt,
+				no,
+				tr,
+				"en-AU",
+				th,
+				ro,
+				pl,
+				fr,
+				uk,
+				hr,
+				de,
+				hu,
+				hi,
+				fi,
+				da,
+				ja,
+				he,
+				pt_PT,
+				zh_TW,
+				sv,
+				es_MX,
+				sk,
+				zh_CN,
+				ms,
+				"pt-BR",
 			);
 			mainGroup = 0ABFCF6F1F14B65C0078A583;
 			productRefGroup = 0ABFCF791F14B65C0078A583 /* Products */;
@@ -2477,7 +2410,6 @@
 				4F71D6AFB78F59B14C11DAEB /* UITableViewCells.swift in Sources */,
 				4F71D2236731DFA0D68AA382 /* UITableViewPickerCell.swift in Sources */,
 				4F71D4153D97A1F440C3291F /* CodeKit.UIAlertAction.swift in Sources */,
-				4F71D2D27471ACDA37B79991 /* AppStrings.swift in Sources */,
 				4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.LaunchableApp.swift in Sources */,
 				4F71D41EE4FDCF600C6EB54C /* App.Launchable.swift in Sources */,
 				4F71D603DD5AF2B6F3376A99 /* App.Launchable.OptionsKey.swift in Sources */,
@@ -2906,6 +2838,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A0956C20209501B500E680B9 /* he */,
+				A004BDDA21345C2800987713 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

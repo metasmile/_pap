@@ -118,22 +118,36 @@
 "cs_keyword_12" = "Vriend";
 /*Translated from: lover*/
 "cs_keyword_13" = "Minnaar";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Daglicentie";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download nu GRATIS!";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ Gebruikersgroep";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ kan worden gevonden";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ wordt verborgen";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d keer";
-/* Generated from genl10n: pap.Strings.swift#32 */
-"A photos app, but contains a lot of sub-apps in its own." = "Een foto-app, maar bevat veel eigen sub-apps.";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "Pass van 1 maand";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "Pas voor 3 maanden";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "Pas voor 6 maanden";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Toegang geweigerd.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Toegang mislukt.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Toegang verleend.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Acties";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Activeer advertenties op volledig scherm";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Actuele zichtbare items activeren ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -148,8 +162,12 @@
 "All contacts were successfully saved." = "Alle contacten zijn succesvol opgeslagen.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Opgeslagen zonder de camera";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "Alle processen die u hebt bevestigd, zijn voltooid.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Alle";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "Een app, maar bevat veel foto-apps.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Geanimeerde GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -178,6 +196,8 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan niet terugkeren. Alle geselecteerde items zijn niet bewerkt.";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Charged App Passes" = "Geladen App-passen";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Kies een telefoonnummer dat u wilt bellen";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -190,6 +210,10 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Met Cleaner kunt u verschillende soorten onjuiste foto's vinden en verwijderen als ze zijn gekoppeld, bijvoorbeeld dubbele en vergelijkbare afbeeldingen, close-upfoto's of Lockscreen-foto's!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Cleaner";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Kleur en herinnering voor elke fase";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Contacteer ons nu";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contacten";
 /* Generated from genl10n: Converter.BApp.swift#42 */
@@ -198,6 +222,14 @@
 "Converter" = "Omvormer";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Kon geen contact detecteren.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Kon geen telefoonnummer vinden.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Kon geen tekst vinden.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Kon niets vinden.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creëren";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,10 +246,12 @@
 "Deleting Targets" = "Doelen verwijderen";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Bezig met detecteren ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "Niets gedetecteerd.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Percentage weergeven";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Geeft het resterende niveau weer";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS op %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,14 +260,16 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Met EXIF ​​Ghost kunt u alle soorten gegevens verwijderen die uw foto's bevatten, inclusief privégegevens.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "E-mailadres";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schakel Snelle acties in";
+/* Generated from genl10n: Shop.SApp.swift#274 */
+"Engage Now And Recharge Repeatedly Free Apps Passes." = "Betrek nu en herlaad herhaaldelijk gratis pasjes voor apps.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export opties";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exporteren";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Verleng de periode van gratis gebruik";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "Vooruit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Gratis app-passen";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Gratis gebruik %@ Day, VIP Licence Opportunity";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Gratis gebruik en alle nieuwe updates";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Gratis gebruik van %@ dag";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Gratis gebruik";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Met GIF Maker kun je eenvoudig en snel GIF-afbeeldingen maken van Foto's of Live Photos met verschillende opties! En dan kun je de converter-app openen om alles te converteren, zoals Live Photos of Video's.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Toegang krijgen";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "Neem contact op";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Geef een beoordeling";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Hallo, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Hoi! Ik ben %@, ik heb hulp nodig.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importeren";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Voer hier in";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Het kan niet worden opgeslagen.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Het ziet er ongeldige code uit. Probeer het opnieuw.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Doe mee met %@ Programma";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "toetreden";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,20 @@
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Maak GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Een telefoontje plegen";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Wijzigen";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Maandabonnement";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mijn albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Mijn feedback over %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "Naam";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -304,10 +374,10 @@
 "No Crop" = "Geen gewas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Geen lus";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Draag nu bij en krijg gratis gebruik.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Op standby";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Ongoing Free Use" = "Doorlopend gratis gebruik";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -316,6 +386,8 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Origineel";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Eigenaarspas";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory maakt een PDF-document van meerdere afbeeldingen met verschillende pagina-opties.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +396,46 @@
 "Page Size Preset" = "Voorinstelling paginagrootte";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Permanent gebruik en alle nieuwe updates";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefoonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto's";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Voer uw geheime code in";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portret";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "voorbereidingen treffen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "Verwerken";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Aankoop %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Aankoopbeheer";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Aankoop";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kwaliteit";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Beoordeel het";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Beoordeel nu";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rode-ogen-verwijdering";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaling";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Herstel van alle aankopen";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "Herstellen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Omgekeerde";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -360,8 +454,6 @@
 "Save and Share" = "Sla op en deel";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Opslaan";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Saved With Built-in Camera" = "Opgeslagen met ingebouwde camera";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Resultaten opslaan ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -374,8 +466,8 @@
 "Select Format To Convert" = "Selecteer Formaat om te converteren";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Selecteer Foto's om te verwijderen.";
-/* Generated from genl10n: Finder.BApp.swift#1345 */
-"Select Photos To Find Everything." = "Selecteer Foto's om alles te vinden.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "Selecteer Foto's om iets te vinden.";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Selecteer Foto's die u wilt gebruiken Telefoonnummers!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
@@ -384,10 +476,16 @@
 "Send Us Feedback" = "Stuur ons feedback";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Stuur een email";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "Sturen";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "instellingen";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Deel deze app";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "Winkel";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Gelijkenis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -412,28 +510,44 @@
 "Starting the Process..." = "Het proces starten ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Beginnen met het controleren van bewerkte foto's ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "voorleggen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Schakel alle items in die u wilt verbergen. De kwaliteit blijft volledig hetzelfde.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Maak een foto";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Genomen met ingebouwde camera";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Gerichte";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "Deze app is van jou.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Met dit eenvoudige maar grootschalige hulpprogramma voor het transformeren van batchafbeeldingen kunt u snel een groot aantal mediabestanden roteren en spiegelen, waaronder Live Photos. Er is geen limiet aan het aantal foto's om ze te bewerken.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Te dichtbij gezicht";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Te lange sluitertijd";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "Vertalen";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Verander uw mening in nieuwe dingen.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Transformatiemodus";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Gebruik Trial";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "Gebruik";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "Gebruiker";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP-hotline";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP-licentieprogramma";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP kaart";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Verificatie mislukt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +556,31 @@
 "Videos Shorter Than 1 Second" = "Video's korter dan 1 seconde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video's zonder geluid";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Bekijk volledig scherm advertenties";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "Uitzicht";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Bezoek sociale pagina's";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Bezoek";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Welkom Gratis proefpakket";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Welkom bij %@";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Welkom gratis pas";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Welkom bij ons VIP-licentieprogramma.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Schrijf een recensie";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "U kunt ze herhaaldelijk verlengen.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "Schrijven";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Jaarlijkse pas";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "U kunt alleen items selecteren die overeenkomen met het startformaat.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Je idee, je app";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Uw code is ongeldig Probeer het opnieuw.";

@@ -639,7 +639,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return section == 0 ? 30 : 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

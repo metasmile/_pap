@@ -118,22 +118,36 @@
 "cs_keyword_12" = "priateľ";
 /*Translated from: lover*/
 "cs_keyword_13" = "milovník";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Denná licencia";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Deň";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Prevziať teraz ZDARMA!";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ Skupina používateľov";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ možno nájsť";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ bude skryté";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Deň";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
-/* Generated from genl10n: pap.Strings.swift#32 */
-"A photos app, but contains a lot of sub-apps in its own." = "Aplikácia s fotografiami, ale obsahuje veľa sub-aplikácií vo svojej vlastnej podobe.";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "1-mesačný preukaz";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "3-mesačný preukaz";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "6-mesačný preukaz";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Prístup zamietnutý.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Prístup zlyhal.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Prístup povolený.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akcia";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Aktivujte reklamy na celej obrazovke";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Aktivovanie aktuálnych viditeľných položiek ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -148,8 +162,12 @@
 "All contacts were successfully saved." = "Všetky kontakty boli úspešne uložené.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Uložené bez fotoaparátu";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "Všetky procesy, ktoré ste potvrdili, boli dokončené.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "Aplikácia, ale obsahuje veľa fotografií Apps.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animovaný GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -178,6 +196,8 @@
 "Camera" = "fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nemožno sa vrátiť späť. Všetky vybraté položky neboli upravené.";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Charged App Passes" = "Účtované poplatky za povolenie";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Vyberte telefónne číslo, ktoré chcete zavolať";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -190,6 +210,10 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistič vám umožňuje vyhľadať a odstrániť rôzne nesprávne fotografie, ak sa zhodujú napr. S duplikátmi a podobnými obrázkami, detailnými fotografiami alebo zámkami v zámku!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "čistič";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Farba a pripomenutie pre každú fázu";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Teraz nás kontaktujte";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "kontakty";
 /* Generated from genl10n: Converter.BApp.swift#42 */
@@ -198,6 +222,14 @@
 "Converter" = "konvertor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "kópie";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Nepodarilo sa zistiť žiadny kontakt.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Nepodarilo sa zistiť žiadne telefónne číslo.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Nepodarilo sa zistiť žiadny text.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Nie je možné zistiť nič.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,10 +246,12 @@
 "Deleting Targets" = "Odstránenie cieľov";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Zisťovanie ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "Nenašiel nič.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Percento zobrazenia";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Zobrazenie zostávajúcej úrovne";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Stiahnite si teraz zadarmo na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,14 +260,16 @@
 "E-mail Address" = "Emailová adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožňuje odstrániť všetky druhy údajov obsahujúcich vaše fotky vrátane súkromných informácií.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "Emailová adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Povoliť rýchle akcie";
+/* Generated from genl10n: Shop.SApp.swift#274 */
+"Engage Now And Recharge Repeatedly Free Apps Passes." = "Zapojte teraz a opakovane nabíjajte bezplatné priečinky Aplikácie.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Predĺžiť obdobie bezplatného používania";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filtre";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "vpred";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Voľné priechody aplikácií";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Voľný deň %@, možnosť VIP licencie";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Voľné použitie a všetky nové aktualizácie";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Voľný deň %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Voľné použitie";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker umožňuje jednoduché a rýchle vytváranie obrázkov vo formáte GIF z fotografií alebo fotiek s rôznymi možnosťami! Potom môžete otvoriť konvertorovú aplikáciu a previesť na všetko, ako sú napríklad Fotky naživo alebo Videá.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Dostať prístup";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "Dotknite sa";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Uveďte hodnotenie";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Dobrý deň, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Ahoj! Som %@, potrebujem nejakú pomoc.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "skryť";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "snímky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "import";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Zadajte tu";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nemohol byť uložený.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Vyzerá to ako neplatný kód. Prosím skúste znova.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "predmety";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Pripojte sa k %@ programu";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "pripojiť";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,20 @@
 "Loop" = "slučka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Vytvorte GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Uskutočnenie hovoru";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Mesačný preukaz";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje albumy";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Moja spätná väzba na %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "názov";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Nový kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -304,10 +374,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Teraz prispieť a získať zadarmo použitie.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostnom režime";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Ongoing Free Use" = "Prebieha bezplatné používanie";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorte Mapy Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -316,6 +386,8 @@
 "Open Web Page" = "Otvorte webovú stránku";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "originál";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Vlastný preukaz";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory vytvára dokument PDF z viacerých obrázkov s rôznymi možnosťami stránky.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +396,46 @@
 "Page Size Preset" = "Predvolená veľkosť stránky";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stránky";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Trvalé používanie a všetky nové aktualizácie";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Hovory";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefónne číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotografie";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Zadajte svoj tajný kód";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "portrét";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "príprava";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "súkromia";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "spracovanie";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Kúpiť %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Správa nákupu";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "nákup";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "kvalita";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Ohodnoť to";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Hodnotiť teraz";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Odstránenie efektu červených očí";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Obnoviť všetky nákupy";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "obnoviť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "reverse";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -360,8 +454,6 @@
 "Save and Share" = "Uložiť a zdieľať";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Uložiť";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Saved With Built-in Camera" = "Uložené s vstavanou kamerou";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ukladanie výsledkov ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -374,8 +466,8 @@
 "Select Format To Convert" = "Vyberte formát na konverziu";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Vyberte fotky, ktoré chcete odstrániť.";
-/* Generated from genl10n: Finder.BApp.swift#1345 */
-"Select Photos To Find Everything." = "Vyberte fotky, ak chcete nájsť všetko.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "Vyberte fotky, ak chcete nájsť niečo.";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, ktoré chcete chytiť telefónne čísla!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
@@ -384,10 +476,16 @@
 "Send Us Feedback" = "Pošlite nám spätnú väzbu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Poslať email";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "odoslať";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "nastavenie";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Zdieľať túto aplikáciu";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "zdieľam";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "predajňa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "podobnosť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -412,28 +510,44 @@
 "Starting the Process..." = "Spustenie procesu ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Začať skontrolovať upravené fotografie ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "Predložiť";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita zostane úplne rovnaká.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Odfoť";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "cielená";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ciele";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "text";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "Táto aplikácia je vaša.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tento jednoduchý, ale rozsiahly nástroj na transformáciu dávkových obrázkov vám umožňuje rýchlo otáčať a preklopiť množstvo multimediálnych súborov vrátane fotografií naživo. Nie je obmedzený počet fotografií na úpravu.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Príliš tvár na detail";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Príliš pomalá rýchlosť uzávierky";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "preložiť";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Premeňte svoje stanovisko na nové veci.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Režim transformácie";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Momentálne sa nepodarilo overiť kód. Skúste to neskôr.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Použite skúšku";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "použitie";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "užívateľ";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP horúca linka";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP licenčný program";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP Pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Overenie sa nepodarilo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +556,31 @@
 "Videos Shorter Than 1 Second" = "Videá kratšie ako 1 sekundu";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videá bez zvuku";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Zobraziť reklamy na celej obrazovke";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "vyhliadka";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Navštívte sociálne stránky";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "návšteva";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čakanie na výber ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Vitajte zadarmo skúšobný balík";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Vitajte na stránkach %@";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Vitajte zadarmo Pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napísať recenziu";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "Môžete ich opakovane obnoviť.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "zapísať";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Ročný preukaz";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Môžete vybrať iba položky, ktoré zodpovedajú štartovaciemu formátu.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Vaša myšlienka, vaša aplikácia";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Váš kód je neplatný. Prosím skúste znova.";

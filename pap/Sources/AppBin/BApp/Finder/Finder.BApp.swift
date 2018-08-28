@@ -222,7 +222,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppStrings.cannot.detect.information
+        return "Could not detect any text.".localized
     }
 
     fileprivate func finalize_contact(items _items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
@@ -236,13 +236,12 @@ extension FinderApp{
         var canSaveContract = items.count > 0
 
         if false == canSaveContract{
-            return AppStrings.cannot.detect.information
+            return "Could not detect any contact.".localized
         }
 
         canSaveContract = ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal)
 
-        let errorMessage:String = AppStrings.cannot.save
-
+        let errorMessage = "It could not be stored.".localized
         if false == canSaveContract{
             return errorMessage
         }
@@ -942,7 +941,7 @@ extension FinderApp{
             return nil
         }
 
-        return AppStrings.cannot.detect.information
+        return "Could not detect anything.".localized
     }
 
 }
@@ -1488,7 +1487,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        let label_section0 = "Select Photos To Find Everything.".localized
+        let label_section0 = "Select Photos To Find Something.".localized
         return section == 0 ? label_section0 : parserCollection[section-1].label
     }
 

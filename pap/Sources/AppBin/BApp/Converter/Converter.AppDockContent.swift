@@ -170,7 +170,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return section == 0 ? 30 : 50
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

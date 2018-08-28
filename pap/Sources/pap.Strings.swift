@@ -22,9 +22,7 @@ struct papStrings {
     }
 
     static var title: String{
-        //TODO: decide
-        //TODO: Rethink subtitle such as "Camera and Photos Platform"-sided. Not the meaning of action
-        return "Do Anything At Once"
+        return "Do Anything for Every Photo."
     }
 
     static var nameTitle:String{
@@ -32,8 +30,7 @@ struct papStrings {
     }
 
     static var tagline: String{
-        //TODO: decide
-        return "A photos app, but contains a lot of sub-apps in its own.".localized
+        return "An App, But Contains Many Photo Apps.".localized
     }
 
     struct download{

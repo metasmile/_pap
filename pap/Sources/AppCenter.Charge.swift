@@ -122,7 +122,7 @@ private final class AppChargeManager: ChargeManager{
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Fullscreen Ads".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Continuous Free Use".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Ongoing Free Use".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting

@@ -118,22 +118,36 @@
 "cs_keyword_12" = "người bạn";
 /*Translated from: lover*/
 "cs_keyword_13" = "người yêu";
-/* Generated from genl10n: AppCenter.Charge.swift#33 */
-"%@ Day License" = "%@ Giấy phép ngày";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ngày";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Tải xuống miễn phí!";
+/* Generated from genl10n: Shop.SApp.swift#594 */
+"%@ User Group" = "%@ Nhóm người dùng";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ có thể được tìm thấy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
 "%@ will be hidden" = "%@ sẽ bị ẩn";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Ngày";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: pap.Strings.swift#32 */
-"A photos app, but contains a lot of sub-apps in its own." = "Ứng dụng ảnh, nhưng lại chứa rất nhiều ứng dụng phụ.";
+/* Generated from genl10n: AppCenter.Charge.swift#177 */
+"1-Month Pass" = "Vé 1 tháng";
+/* Generated from genl10n: AppCenter.Charge.swift#184 */
+"3-Month Pass" = "Vé 3 tháng";
+/* Generated from genl10n: AppCenter.Charge.swift#191 */
+"6-Month Pass" = "Vé 6 tháng";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Access Denied." = "Truy cập bị từ chối.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"Access Failed." = "Không truy cập được.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Access Granted." = "Chấp thuận quyền truy cập.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Hành động";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Fullscreen Ads" = "Kích hoạt quảng cáo toàn màn hình";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Đang kích hoạt các mục hiển thị hiện tại ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -148,8 +162,12 @@
 "All contacts were successfully saved." = "Tất cả địa chỉ liên hệ đã được lưu thành công.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Đã lưu mà không có máy ảnh";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "Tất cả các quy trình bạn đã xác nhận đã hoàn tất.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "Một ứng dụng, nhưng chứa nhiều ứng dụng ảnh.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF động";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -178,6 +196,8 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Charged App Passes" = "Thẻ ứng dụng đã tính phí";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Chọn số điện thoại để gọi";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -190,6 +210,10 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner cho phép bạn tìm và xóa các loại ảnh không chính xác khác nhau nếu chúng đã khớp với các hình ảnh trùng lặp và tương tự, ảnh cận cảnh hoặc ảnh chụp màn hình khóa!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Sạch hơn";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Màu sắc và nhắc nhở cho từng giai đoạn";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Liên lạc với chúng tôi ngay";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Danh bạ";
 /* Generated from genl10n: Converter.BApp.swift#42 */
@@ -198,6 +222,14 @@
 "Converter" = "Chuyển đổi";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Không thể phát hiện bất kỳ liên hệ nào.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Không thể phát hiện bất kỳ số điện thoại nào.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Không thể phát hiện bất kỳ văn bản nào.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Không thể phát hiện bất cứ điều gì.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -214,10 +246,12 @@
 "Deleting Targets" = "Xóa mục tiêu";
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "Đang phát hiện ... %@";
-/* Generated from genl10n: AppStrings.swift#17 */
-"Did not detect anything." = "Đã không phát hiện bất cứ điều gì.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Percentage" = "Tỷ lệ phần trăm hiển thị";
+/* Generated from genl10n: Shop.SApp.swift#531 */
+"Display Remaining Level" = "Hiển thị mức độ còn lại";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -226,14 +260,16 @@
 "E-mail Address" = "Địa chỉ email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+"Email Address" = "Địa chỉ email";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
+/* Generated from genl10n: Shop.SApp.swift#274 */
+"Engage Now And Recharge Repeatedly Free Apps Passes." = "Tham gia ngay và nạp tiền miễn phí các ứng dụng miễn phí lặp đi lặp lại.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Tùy chọn xuất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"Extend Period of Free Use" = "Kéo dài thời gian sử dụng miễn phí";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -254,12 +290,30 @@
 "Forward" = "Phía trước";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Shop.SApp.swift#276 */
+"Free App Passes" = "Thẻ ứng dụng miễn phí";
+/* Generated from genl10n: AppCenter.Charge.swift#140 */
+"Free Use %@ Day, VIP License Opportunity" = "Sử dụng miễn phí %@ Cơ hội cấp phép ngày, VIP";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Sử dụng miễn phí và tất cả cập nhật mới";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Use of %@ Day" = "Sử dụng %@ ngày miễn phí";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+"Free Use" = "Sử dụng miễn phí";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker cho phép tạo ảnh GIF dễ dàng và nhanh chóng từ Ảnh hoặc Live Photos với nhiều tùy chọn khác nhau! Và sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+"Get Access" = "Nhận quyền truy cập";
+/* Generated from genl10n: Shop.SApp.swift#607 */
+"Get In Touch" = "Liên lạc";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Hello, %@!" = "Xin chào, %@!";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
+"Hi! I'm %@, I need some help." = "Chào! Tôi là %@, tôi cần trợ giúp.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Ẩn giấu";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -270,12 +324,20 @@
 "Images" = "Hình ảnh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Nhập";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+"Input Here" = "Nhập vào đây";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nó không thể được lưu trữ.";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Có vẻ mã không hợp lệ. Vui lòng thử lại.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Mặt hàng";
+/* Generated from genl10n: AppCenter.Charge.swift#139 */
+"Join %@ Program" = "Tham gia chương trình %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+"Join" = "Tham gia";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -288,12 +350,20 @@
 "Loop" = "Loop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tạo GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Thực hiện cuộc gọi";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Sửa đổi";
+/* Generated from genl10n: AppCenter.Charge.swift#162 */
+"Monthly Pass" = "Pass hàng tháng";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album của tôi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Phản hồi của tôi về %@";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+"Name" = "Tên";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Địa chỉ liên lạc mới";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -304,10 +374,10 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#96 */
-"Now Contribute And Get Free Use." = "Bây giờ đóng góp và sử dụng miễn phí.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
+/* Generated from genl10n: AppCenter.Charge.swift#125 */
+"Ongoing Free Use" = "Đang sử dụng miễn phí";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -316,6 +386,8 @@
 "Open Web Page" = "Mở trang web";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Nguyên";
+/* Generated from genl10n: AppCenter.Charge.swift#155 */
+"Owner's Pass" = "Thẻ của chủ sở hữu";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory tạo tài liệu PDF từ nhiều hình ảnh với các tùy chọn trang khác nhau.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -324,24 +396,46 @@
 "Page Size Preset" = "Kích thước trang đặt trước";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Trang";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Sử dụng vĩnh viễn và tất cả cập nhật mới";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Số điện thoại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+"Please Input Your Secret Code" = "Vui lòng nhập mã bí mật của bạn";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Chân dung";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+"Preparing" = "Đang chuẩn bị";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Riêng tư";
+/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+"Processing" = "Chế biến";
+/* Generated from genl10n: AppCenter.Charge.swift#384 */
+"Purchase %@" = "Mua %@";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Quản lý mua hàng";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Mua, tựa vào, bám vào";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Phẩm chất";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+"Rate It" = "Xếp hạng";
+/* Generated from genl10n: Shop.SApp.swift#559 */
+"Rate Now" = "Bình chọn bây giờ";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Loại bỏ mắt đỏ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
+/* Generated from genl10n: Shop.Payables.System.swift#11 */
+"Restore" = "Khôi phục";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Đảo ngược";
 /* Generated from genl10n: Revert.BApp.swift#44 */
@@ -360,8 +454,6 @@
 "Save and Share" = "Lưu và chia sẻ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
-/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Saved With Built-in Camera" = "Đã lưu với máy ảnh tích hợp";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Đang lưu kết quả ...";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
@@ -374,8 +466,8 @@
 "Select Format To Convert" = "Chọn định dạng để chuyển đổi";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Chọn Ảnh để Xóa.";
-/* Generated from genl10n: Finder.BApp.swift#1345 */
-"Select Photos To Find Everything." = "Chọn ảnh để tìm mọi thứ.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "Chọn ảnh để tìm nội dung nào đó.";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
@@ -384,10 +476,16 @@
 "Send Us Feedback" = "Gửi phản hồi cho chúng tôi";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Gửi email";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "Gửi";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "Cài đặt";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
+/* Generated from genl10n: Shop.SApp.swift#34 */
+"Shop" = "Shop";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -412,28 +510,44 @@
 "Starting the Process..." = "Đang bắt đầu quá trình ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
+/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+"Submit" = "Gửi đi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
 "Switch on any items you want to hide. The quality will entirely remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Chụp một tấm";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Chụp với máy ảnh tích hợp";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mục tiêu";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Bản văn";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#82 */
-"This App Is Yours." = "App này là của bạn.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Khuôn mặt quá gần";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Tốc độ màn trập quá chậm";
-/* Generated from genl10n: Stabilizer.swift#325 */
-"Translate" = "Dịch";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#83 */
-"Turn Your Opinion Into New Things." = "Biến ý kiến ​​của bạn thành những điều mới.";
+/* Generated from genl10n: Stabilizer.swift#330 */
+"Transform Mode" = "Chế độ chuyển đổi";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Không thể xác minh mã hiện tại. Vui lòng thử lại sau.";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Dùng thử";
+/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+"Use" = "Sử dụng";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+"User" = "Người dùng";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+"VIP License Program" = "VIP License Program";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Pass" = "VIP Pass";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+"Verification Failed." = "Xác minh không hoàn thành.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
@@ -442,17 +556,31 @@
 "Videos Shorter Than 1 Second" = "Video ngắn hơn 1 giây";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video không có âm thanh";
+/* Generated from genl10n: AppCenter.Charge.swift#117 */
+"View Fullscreen Ads" = "Xem quảng cáo toàn màn hình";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
+"View" = "Lượt xem";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Truy cập trang xã hội";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Chuyến thăm";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#17 */
-"Welcome Free Trial Pack" = "Gói dùng thử miễn phí chào mừng";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#95 */
-"Welcome on %@" = "Chào mừng bạn vào %@";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pass" = "Welcome Pass miễn phí";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+"Welcome to our VIP license program." = "Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Viết đánh giá";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#75 */
-"You Can Renew Them Repeatedly." = "Bạn có thể gia hạn chúng lặp đi lặp lại.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+"Write" = "Viết";
+/* Generated from genl10n: AppCenter.Charge.swift#169 */
+"Yearly Pass" = "Vé hàng năm";
 /* Generated from genl10n: Converter.AppDockContent.swift#41 */
 "You can select only items that matched with starting format." = "Bạn chỉ có thể chọn các mục phù hợp với định dạng bắt đầu.";
+/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
+"Your Idea, Your App" = "Ý tưởng của bạn, ứng dụng của bạn";
+/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+"Your code is invalid. Please Try again." = "Mã của bạn không hợp lệ. Vui lòng thử lại.";

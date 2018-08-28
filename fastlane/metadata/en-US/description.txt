@@ -6,7 +6,7 @@ Finder enables extracting every meaningful information such as phone numbers, ad
 
 List of Finder Actions
 • Phone Number - Save or numbers or convert into iOS contacts.
-• E-Mail Address - Send a messages.
+• E-Mail Address - Send a message.
 • Address - Open on map
 • Date - Save as Event with Calendar.
 • URL - Open with Browser.
@@ -84,10 +84,10 @@ Auto Editor lets you edit automatically if your photos are needed to correct.
 
 
 Filters
-Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
+Apply high-quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
 
 • Tested processing capacity: 2000+a photos at one time.
-• Optimized for multi-core processing. It depends on image size and iDevice models. 
+• Optimized for multi-core processing. It depends on image size and iDevice models.
 
 
 PDFactory

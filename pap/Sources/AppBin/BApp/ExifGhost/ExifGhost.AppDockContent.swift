@@ -286,20 +286,24 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return section == 0 ? 30 : 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return self.tableView(tableView, viewForFooterInSection: section)?.height ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0
-                ? "Switch on any items you want to hide. The quality will entirely remain the same.".localized
+                ? "Settings".localized
                 : metadataCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            return UITableView.createHeaderFooterViewForSmallMessage(text: "Switch on any items you want to hide. The quality will entirely remain the same.".localized)
+        }
+
         return nil
     }
 

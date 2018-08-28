@@ -280,7 +280,7 @@ class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
     }
 
     override class var label:String{
-        return "Saved With Built-in Camera".localized
+        return "Taken With Built-in Camera".localized
     }
 
     override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {

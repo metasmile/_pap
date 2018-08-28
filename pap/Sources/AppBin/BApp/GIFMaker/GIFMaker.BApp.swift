@@ -626,7 +626,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 30/**/
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

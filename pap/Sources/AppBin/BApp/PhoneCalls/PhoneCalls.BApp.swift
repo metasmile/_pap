@@ -59,7 +59,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
             , appType: PhoneCallsApp.self
             , displayName: "Phone Calls".localized
             , description:"Phone Calls lets you grab phone numbers accurately in your numerous photos. Then you merely start calling!"
-            , keywords: ["Phone", "Call", "Numbers", "Address", "Contact"]
+            , keywords: ["Phone", "Call", "Numbers", "Address", "Contacts"]
             , iconBundleName: R.image.phoneCallsBAppIcon.name
             , policy: AppPolicy.default
 //            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -223,7 +223,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
             asyncSignal.begin()
             DispatchQueue.main.async {
-                UIAlertController.alert(AppStrings.cannot.detect.information, completion:{ _ in
+                UIAlertController.alert("Could not detect any phone number.".localized, completion:{ _ in
                     asyncSignal.end()
                 })
             }
@@ -423,18 +423,26 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 0.1
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return self.tableView(tableView, viewForFooterInSection: section)?.height ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Select Photos You Want To Grab Phone Numbers!".localized : nil
+        return nil
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            return UITableView.createHeaderFooterViewForSmallMessage(text: "Select Photos You Want To Grab Phone Numbers!".localized)
+        }
+
         return nil
     }
 
