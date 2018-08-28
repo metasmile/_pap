@@ -27,6 +27,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
     static var paramType: AppTaskParamable.Type = AppAsset.self
     
     public private(set) lazy var content: AppDockContent? = MemoCamAppDockContent()
+    public private(set) static var fixedContentLayout: Bool = true
     
     public static let info = AppInfo(
         identifier: "com.stells.pap.memocam"
@@ -130,19 +131,28 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return view as! AppUIARView
     }
     
-    private lazy var debugLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
+    internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
+        override func action(forKey event: String) -> CAAction? {
+            switch event {
+            case "position", "onOrderIn", "onOrderOut", "path": return NSNull()
+            default: return super.action(forKey: event)
+            }
+        }
+    }
+    
+    private lazy var debugLayer: DisableImplicitAnimatableShapeLayer = {
+        let layer = DisableImplicitAnimatableShapeLayer()
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = UIColor.red.cgColor
         layer.lineWidth = 1
-        layer.actions = ["path": NSNull()]
         return layer
     }()
     
-    private var detector = MemoCamAppDetector()
+    private lazy var detector = MemoCamAppDetector()
     
     var preferences: AppDockContentPreferable? {
-        let pref = AppDockContentPreferences()
+        var pref = AppDockContentPreferences()
+        pref.preferredHeight = AppDockContentPreferences.GreatestHeight
         return pref
     }
     
@@ -150,50 +160,93 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
     }
     
+    struct DetectedLabel {
+        var boundingRect: CGRect
+        var visionTexts: [VisionText]
+    }
+    
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        let targetSize = arView.previewSize
-        
         debugLayer.removeFromSuperlayer()
         
-        debugLayer.frame = arView.previewView.bounds
         arView.previewView.layer.addSublayer(debugLayer)
+        
+        var previewSize = self.arView.previewSize
+        var aspectRatio = CGSize.zero
+        
+        let detectTextRequest = VNDetectTextRectanglesRequest { (request, error) in
+            guard let observations = request.results as? [VNTextObservation] else { return }
+            
+            DispatchQueue.main.async {
+                previewSize = aspectRatio.aspectFill(in: self.arView.previewSize)
+                
+                let path = UIBezierPath()
+                
+                for observation in observations {
+                    let polygon = UIBezierPath()
+                    polygon.move(to: observation.topLeft)
+                    polygon.addLine(to: observation.topRight)
+                    polygon.addLine(to: observation.bottomRight)
+                    polygon.addLine(to: observation.bottomLeft)
+                    polygon.close()
+                    
+                    path.append(polygon)
+                }
+                
+                let transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: -1)
+                    .translatedBy(x: 0, y: -previewSize.height)
+                    .scaledBy(x: previewSize.width, y: previewSize.height)
+                
+                path.apply(transform)
+                
+                self.debugLayer.path = path.cgPath
+                self.debugLayer.frame = CGRect(origin: CGPoint(x: (self.arView.previewSize.width - previewSize.width) / 2, y: (self.arView.previewSize.height - previewSize.height) / 2), size: previewSize)
+            }
+        }
         
         arView.startSession()
         arView.updateRenderer = { renderer, frame in
             autoreleasepool {
-                let image = renderer.snapshot(atTime: frame.timestamp, with: targetSize, antialiasingMode: .none)
+                let deviceOrientation = self.arView.deviceMotion.orientation
+                if deviceOrientation.isPortrait {
+                    aspectRatio = CGSize(width: frame.camera.imageResolution.height, height: frame.camera.imageResolution.width)
+                }
+                else {
+                    aspectRatio = frame.camera.imageResolution
+                }
                 
-                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
+                let options = [VNImageOption.cameraIntrinsics: frame.camera.intrinsics]
+                try? VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
                 
-                let path = UIBezierPath()
-                
-                result.sourceVisionTexts?.forEach {
-                    let bounds = $0.frame
-                    let normalizedBounds = bounds.normalized(by: image.size)
-                    
-                    let polygon = UIBezierPath()
-                    
-                    guard
-                        let firstPoint = $0.cornerPoints.first?.cgPointValue,
-                        normalizedBounds.width * normalizedBounds.height > 0.01
-                    else { return }
-                    
-                    polygon.move(to: firstPoint)
-                    $0.cornerPoints[1...].forEach {
-                        polygon.addLine(to: $0.cgPointValue)
-                    }
-                    polygon.close()
-                    
-                    path.append(polygon)
-                    
-//                    DispatchQueue(label: "nodeQueue", qos: .utility).async {
-//                        self.addPlane(bounds)
+//                let image = renderer.snapshot(atTime: frame.timestamp, with: view.previewSize, antialiasingMode: .none)
+//
+//                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
+//
+//                let path = UIBezierPath()
+//
+//                result.sourceVisionTexts?.forEach {
+//                    let bounds = $0.frame
+//                    let normalizedBounds = bounds.normalized(by: image.size)
+//
+//                    let polygon = UIBezierPath()
+//
+//                    guard
+//                        let firstPoint = $0.cornerPoints.first?.cgPointValue,
+//                        normalizedBounds.width * normalizedBounds.height > 0.01
+//                    else { return }
+//
+//                    polygon.move(to: firstPoint)
+//                    $0.cornerPoints[1...].forEach {
+//                        polygon.addLine(to: $0.cgPointValue)
 //                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.debugLayer.path = path.cgPath
-                }
+//                    polygon.close()
+//
+//                    path.append(polygon)
+//                }
+//
+//                DispatchQueue.main.async {
+//                    self.debugLayer.path = path.cgPath
+//                }
             }
         }
     }
@@ -266,6 +319,8 @@ class AppUIARView: UIView {
     private lazy var renderer: SCNRenderer = SCNRenderer(device: nil, options: nil)
     private lazy var renderQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
+    private(set) lazy var deviceMotion = UIDeviceMotion()
+    
     var updateRenderer: ((_ renderer: SCNRenderer, _ frame: ARFrame) -> Void)?
     
     override init(frame: CGRect) {
@@ -298,17 +353,20 @@ class AppUIARView: UIView {
     
     private func initialize() {
         addSubview(previewView)
-        previewView.translatesAutoresizingMaskIntoConstraints = false
-        previewView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        previewView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 16 / 9).isActive = true
-        previewView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        previewView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        previewView.translatesAutoresizingMaskIntoConstraints = false
+//        previewView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+//        previewView.heightAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: 16 / 9).isActive = true
+//        previewView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        previewView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        previewView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        previewView.fitConstraints(to: self)
         
         previewView.automaticallyUpdatesLighting = true
         previewView.autoenablesDefaultLighting = true
         
         previewView.showsStatistics = true
-        previewView.debugOptions = [ARSCNDebugOptions.showFeaturePoints/*, ARSCNDebugOptions.showWorldOrigin*/]
+//        previewView.debugOptions = [ARSCNDebugOptions.showFeaturePoints/*, ARSCNDebugOptions.showWorldOrigin*/]
         
         renderer.autoenablesDefaultLighting = true
         renderer.scene = scene
@@ -321,12 +379,16 @@ class AppUIARView: UIView {
 
 extension AppUIARView {
     func startSession() {
+        deviceMotion.startUpdates(interval: 0.6)
+        
         previewView.session.delegateQueue = renderQueue
         previewView.session.delegate = self
         previewView.session.run(worldTrackingConfiguration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     func stopSession() {
+        deviceMotion.stopUpdates()
+        
         previewView.session.delegate = nil
         previewView.session.pause()
     }
