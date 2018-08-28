@@ -34,7 +34,7 @@ public class ShopApp: NSObject
             , displayName: "Shop".localized
             , description: nil
             , keywords: nil
-            , iconBundleName: nil
+            , iconBundleName: R.image.shopSAppIcon.name
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
