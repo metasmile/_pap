@@ -92,7 +92,7 @@
 "%@ Passes" = "%@ Passes";
 /* Generated from genl10n: Shop.SApp.swift#594 */
 "%@ User Group" = "%@ User Group";
-/* Generated from genl10n: Finder.BApp.swift#1598, Cleaner.BApp.swift#762 */
+/* Generated from genl10n: Finder.BApp.swift#1605, Cleaner.BApp.swift#762 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#413 */
 "%@ will be hidden" = "%@ will be hidden";
@@ -118,7 +118,7 @@
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Fullscreen Ads" = "Activate Fullscreen Ads";
-/* Generated from genl10n: PhoneCalls.BApp.swift#593, Finder.BApp.swift#1672, Cleaner.BApp.swift#879 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#593, Finder.BApp.swift#1679, Cleaner.BApp.swift#879 */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift#381, Finder.BApp.swift#448, Finder.BApp.swift#663, Finder.BApp.swift#781 */
 "Add New Contact" = "Add New Contact";
@@ -338,7 +338,7 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#205 */
 "Now Contribute And Get Free Use." = "Now Contribute And Get Free Use.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#599, Finder.BApp.swift#1678, Cleaner.BApp.swift#884 */
+/* Generated from genl10n: PhoneCalls.BApp.swift#599, Finder.BApp.swift#1685, Cleaner.BApp.swift#884 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: Finder.BApp.swift#744 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -430,7 +430,7 @@
 "Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift#651 */
 "Select Photos To Delete." = "Select Photos To Delete.";
-/* Generated from genl10n: Finder.BApp.swift#1458 */
+/* Generated from genl10n: Finder.BApp.swift#1465 */
 "Select Photos To Find Everything." = "Select Photos To Find Everything.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#434 */
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";

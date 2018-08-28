@@ -1354,17 +1354,24 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                     self.settingCellDescribers.remove(at: index)
                 }
             }
+            
+            let tableView = view as? UITableView
 
             //saveContactWithoutEdit
             if preset == SelectionPreset.contact.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit())
+                let desc = self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit()
+                self.settingCellDescribers.append(desc)
+                
+                tableView?.register(describer: desc)
             }
 
             if preset == SelectionPreset.action.rawValue{
-                self.settingCellDescribers.append(self.createCellDescriber_SelectionPreset_action_quickActionsOnly())
+                let desc = self.createCellDescriber_SelectionPreset_action_quickActionsOnly()
+                self.settingCellDescribers.append(desc)
+                
+                tableView?.register(describer: desc)
             }
-
-            let tableView = view as? UITableView
+            
             tableView?.reloadData()
 
             /*let d = Defaults.shared.shortVersionDescription*/
