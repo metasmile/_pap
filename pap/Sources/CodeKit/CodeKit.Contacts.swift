@@ -27,6 +27,7 @@ public struct ContactsUtil {
         return CNContactStore.authorizationStatus(for: .contacts)
     }
 
+    //TODO: rm asyncSignal in this function. Use just block.
     public func requestAuthorizationAndWait(_ asyncSignal: AsyncWaitSignalable) -> Bool{
         var canSaveContract = false
 

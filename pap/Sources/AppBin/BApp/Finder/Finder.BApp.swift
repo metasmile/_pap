@@ -313,6 +313,8 @@ extension FinderApp{
     }
 
     fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+        let currentQueue = DispatchQueue.current
+
         let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
@@ -346,22 +348,25 @@ extension FinderApp{
                 let _quickAction = { (t:String) -> UIAlertAction in
 
                     return UIAlertAction(title: t, style: .default, handler: { action in
-                        if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
-                            let contact = CNMutableContact()
-                            contact.contactType = .person
-                            contact.fillNameIfBlanked()
 
-                            let components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-                            contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                            contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
-                            contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+                        currentQueue.async{
+                            if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                let contact = CNMutableContact()
+                                contact.contactType = .person
+                                contact.fillNameIfBlanked()
 
-                            CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                let components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+                                contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
+                                contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
+                                contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
+
+                                CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                    asyncSignal.end()
+                                })
+
+                            }else{
                                 asyncSignal.end()
-                            })
-
-                        }else{
-                            asyncSignal.end()
+                            }
                         }
                     })
                 }
@@ -397,8 +402,7 @@ extension FinderApp{
 
                     action =  UIAlertAction(title: phoneNumber, style: .default, handler: { action in
                         DispatchQueue.main.async{
-                            TableViewController.present(with: [UITableViewCellDescriber(label: "test")])
-//                            UIViewController.present(_alert, animated: true)
+                            UIViewController.present(_alert, animated: true)
                         }
 
                     })
@@ -511,8 +515,11 @@ extension FinderApp{
                     return UIAlertAction(title: t, style: .default, handler: { action in
 
                         EventKitUtil.shared.newEvent { event in
+                            assert(!Thread.isMainThread)
+
                             if let event = event{
                                 event.title = "New Event".localized
+                                //FIXME: sometimes fired strange crash.
                                 event.startDate = date
                                 event.endDate = date
 

@@ -64,9 +64,12 @@ public protocol AsyncFinalSignalable {
 //INFO: Avoid store AsyncSignal instance as soon as possible
 public final class AsyncSignal{
     private let dispatchGroup:DispatchGroup = DispatchGroup()
+    //TODO: Check/Test UUID requirement for Statically singleton use.
     private let _offsetSyncQueue:DispatchQueue = DispatchQueue(label:"com.stells.internal__sync_queue_\(UUID().uuidString)")
     private(set) public var queueStack = [String]()
     private var offset:Int = 0
+
+    public init(){}
 }
 
 extension AsyncSignal: AsyncWaitSignalable {
