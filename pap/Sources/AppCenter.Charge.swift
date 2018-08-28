@@ -464,9 +464,6 @@ private final class AppChargeBanker: ChargeBanker {
 
             default:
                 //INFO: If it needs to reset all
-#if DEBUG
-            for r in receiptStorage.receipts{ receiptStorage.removeReceipt(r.key) }
-#endif
                 break
         }
 

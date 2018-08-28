@@ -31,10 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        #if !DEBUG
+#if !DEBUG
         Fabric.with([Crashlytics.self])
-        #endif
-
+#endif
         FirebaseApp.configure()
 
         DispatchQueue.global(qos: .background).async{
@@ -42,6 +41,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
             self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
+
+
+#if DEBUG
+        //INFO: Reset all receipt for testing
+        for c in AppCenter.charge.getChargesHasReceipt(){
+            if let r = AppCenter.charge.bank.getReceipt(for: c){
+                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
+            }
+        }
+        AppCenter.charge.synchronize()
+
+
+        //INFO: Unlock all for app testing.
+        let paymentsToTest = [
+            AllTimeAllAppsPayment.self
+        ]
+        for p in paymentsToTest{
+            AppCenter.charge.pay(for: p, skipTransaction: true)
+        }
+#endif
         return true
     }
 
