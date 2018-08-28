@@ -78,9 +78,9 @@ extension ShopApp{
             if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
                 
                 localOwnedExisted = localCharges.contains(where:{ $0.reward.isLocalOwned })
-                
+
                 mutableDefaultCollection.append(PayGroup(
-                            key: .LocalCharge
+                            key: .PaidCharge
                             , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
                             , items: localCharges.map ({
                         let pay = PayItem(payable: $0.payment)
@@ -230,9 +230,9 @@ private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
-        case LocalCharge
+//        case LocalCharge
         case FreeCharge
-        case Promotion
+//        case Promotion
     }
 
     var isPaidAll:Bool{
@@ -251,7 +251,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "%@ Passes".localizedFormatted(papStrings.name)
+                , label: "Paid App Passes".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
@@ -259,23 +259,16 @@ private struct PayGroup:Hashable, Equatable, Section {
                     , PayItem(payable:OneMonthAllAppsPayment.self)
                     , PayItem(payable:ThreeMonthsAllAppsPayment.self)
                     , PayItem(payable:SixMonthsAllAppsPayment.self)
-                ]
-        )
-
-        , PayGroup(
-                key: .Promotion
-                , label: "Special Passes".localized
-                , items: [
-                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid])
                     , PayItem(payable: PermanentVIPProgramPayment.self)
-            ]
+                ]
         )
 
         , PayGroup(
                 key: .FreeCharge
                 , label: "Free App Passes".localized
-                , detailedLabel: "Engage Now And Recharge Free Period Repeatedly.".localized
+                , detailedLabel: "Engage Now And Recharge Repeatedly Free Apps Passes.".localized
                 , items: [
+                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
