@@ -79,17 +79,22 @@ extension ShopApp{
                 
                 localOwnedExisted = localCharges.contains(where:{ $0.reward.isLocalOwned })
 
-                mutableDefaultCollection.append(PayGroup(
-                            key: .PaidCharge
-                            , label: "%@ App Passes".localizedFormatted(sourceChargeableApp.info.displayName)
-                            , items: localCharges.map ({
-                        let pay = PayItem(payable: $0.payment)
-                        pay.rewardIconImageStyle.beRound = true
-                        pay.rewardIconImageStyle.useTintColor = false
-                        return pay
-                    })
-                ))
-                
+                //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
+                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
+                    var mutablePayGroup = payGroup
+                    var items = payGroup.items
+                    items.append(contentsOf:localCharges.map ({
+                            let pay = PayItem(payable: $0.payment)
+                            pay.rewardIconImageStyle.beRound = true
+                            pay.rewardIconImageStyle.useTintColor = false
+                            return pay
+                        })
+                    )
+                    mutablePayGroup.items = items
+                    mutableDefaultCollection[i] = mutablePayGroup
+                    break
+                }
+
                 mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
             }else{
                 localOwnedExisted = false
