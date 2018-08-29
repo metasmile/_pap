@@ -37,7 +37,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return nil
         }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.rowHeight * 5 - 2
+        preferences.preferredHeight = tableView.contentSize.height
         return preferences
     }
 
@@ -277,6 +277,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
                 values.append(k)
             }
+            cell.segmentedControl.sizeToFit()
 
             cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.index(of: item.valueGetter() as? Int ?? PDFactoryAppSettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler

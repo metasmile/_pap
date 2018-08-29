@@ -87,20 +87,15 @@ public protocol AppDockContentScrollable {
     func invalidateCollectionViewLayout()
 }
 
-public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockContentScrollable {
-    @objc dynamic private(set) public var scrollView: UIScrollView
+public struct AppDockScrollableContent: AppDockContentScrollable {
+    private(set) public var scrollView: UIScrollView
 
     init(_ scrollView: UIScrollView) {
         self.scrollView = scrollView
-
-        super.init()
     }
     
     public func makeScrollableContent() {
-        guard scrollView is UITableView else { return }
-        self.watch(\.scrollView.contentSize) {
-            self.scrollView.bounces = self.scrollView.contentSize.height >= self.scrollView.bounds.height
-        }
+        self.scrollView.alwaysBounceVertical = false
     }
     
     public func invalidateCollectionViewLayout() {
