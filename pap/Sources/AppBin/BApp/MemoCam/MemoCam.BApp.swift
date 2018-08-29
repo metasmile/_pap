@@ -180,16 +180,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 previewSize = aspectRatio.aspectFill(in: self.arView.previewSize)
                 
                 let path = UIBezierPath()
-                
                 for observation in observations {
-                    let polygon = UIBezierPath()
-                    polygon.move(to: observation.topLeft)
-                    polygon.addLine(to: observation.topRight)
-                    polygon.addLine(to: observation.bottomRight)
-                    polygon.addLine(to: observation.bottomLeft)
-                    polygon.close()
-                    
-                    path.append(polygon)
+                    // Strange release build error on Xcode 9.4. but it works also with code 10.
+                    for box in observation.characterBoxes ?? []{
+                        let polygon = UIBezierPath()
+                        polygon.move(to: box.topLeft)
+                        polygon.addLine(to: box.topRight)
+                        polygon.addLine(to: box.bottomRight)
+                        polygon.addLine(to: box.bottomLeft)
+                        polygon.close()
+                        
+                        path.append(polygon)
+                    }
                 }
                 
                 let transform = CGAffineTransform.identity
