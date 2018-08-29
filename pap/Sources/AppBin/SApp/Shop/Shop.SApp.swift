@@ -465,7 +465,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         var s:[Section] = payGroups
 
         if freeChargeSettingsCellDescribers.count > 0{
-            let settings = CellDescriberGroup(label: "Settings for Free Apps Access".localized, detailedLabel: "After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed.".localized, describers: freeChargeSettingsCellDescribers)
+            let settings = CellDescriberGroup(label: "Settings for Free Apps Access".localized, detailedLabel: "After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed.".localized, describers: freeChargeSettingsCellDescribers)
             s.append(settings)
         }
 
