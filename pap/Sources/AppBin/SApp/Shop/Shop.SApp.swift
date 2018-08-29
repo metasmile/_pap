@@ -31,7 +31,7 @@ public class ShopApp: NSObject
             , version: "1.0"
             , phase: .release
             , appType: ShopApp.self
-            , displayName: "Shop".localized
+            , displayName: "Shop"
             , description: nil
             , keywords: nil
             , iconBundleName: R.image.shopSAppIcon.name
@@ -256,7 +256,8 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "Charged App Passes".localized
+                , label: "Purchase of All Apps Access".localized
+                , detailedLabel: "Current Prices Are Including New Apps and Updates and Could Subject To Increase.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
@@ -270,8 +271,8 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         , PayGroup(
                 key: .FreeCharge
-                , label: "Free App Passes".localized
-                , detailedLabel: "Engage Now And Recharge Repeatedly Free Apps Passes.".localized
+                , label: "Free Apps Access".localized
+                , detailedLabel: "Engage Now And Recharge Repeatedly Free Apps Access.".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
@@ -458,13 +459,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     // Sections
     private lazy var payGroups:[PayGroup] = PayGroup.Default
     private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
-    private var settingsCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var freeChargeSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         var s:[Section] = payGroups
 
-        if settingsCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Settings".localized, detailedLabel: nil, describers: settingsCellDescribers))
+        if freeChargeSettingsCellDescribers.count > 0{
+            let settings = CellDescriberGroup(label: "Settings for Free Apps Access".localized, detailedLabel: "After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed.".localized, describers: freeChargeSettingsCellDescribers)
+            s.append(settings)
         }
 
         if contactCellDescribers.count > 0{
@@ -520,7 +522,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     private func loadShopSettingsCellDescribers(){
-        settingsCellDescribers.removeAll()
+        freeChargeSettingsCellDescribers.removeAll()
 
         if !AppCenter.isPaidAsVIPInCurrentContext{
 
@@ -534,17 +536,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             c3.valueHandler = { b in
                 Defaults.shared.showChargeButtonLevelColorInNavigationBar = (b as? Bool) ?? false
             }
-            settingsCellDescribers.append(c3)
+            freeChargeSettingsCellDescribers.append(c3)
 
             let c4 = UITableViewSwitchSubtitleCellDescriber()
             c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
-            c4.label = "Display Percentage".localized
+            c4.label = "Display Remaining Percentage.".localized
             c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
             c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
             c4.valueHandler = { b in
                 Defaults.shared.showChargeButtonPercentageInNavigationBar = (b as? Bool) ?? false
             }
-            settingsCellDescribers.append(c4)
+            freeChargeSettingsCellDescribers.append(c4)
         }
     }
 
@@ -589,7 +591,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let c3 = UITableViewButtonCellDescriber()
         c3.itemIdentifier = CellDescriber.Key.support.hashValue
-        c3.label = "%@ User Group".localizedFormatted(papStrings.name)
+        c3.label = "User Community".localized
         c3.buttonTitle = "Visit".localized
         c3.iconImage = R.image.cellIconUserGroup.name
         c0.iconImageTintColor = self.view.tintColor
@@ -682,6 +684,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let k = detailedLabel
         if footerViews[k] == nil{
             footerViews[k] = UITableView.createHeaderFooterViewForSmallMessage(text: detailedLabel)
+            footerViews[k]?.sizeToFit()
         }
         return footerViews[k]
     }
@@ -760,7 +763,10 @@ extension ShopAppDockContent {
     private func defaultSetCellAppearanceForRow(cellForRowAt indexPath: IndexPath, describer:UITableViewCellDescriber, cell:UITableViewCell){
         let item = describer
 
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.text = item.label
+
+        cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
         cell.detailTextLabel?.text = item.detailedLabel
 
         if let image = item.iconImage?.asUIImage{
@@ -860,8 +866,11 @@ extension ShopAppDockContent{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: forItem.cellInfo.id) as! UITableViewIndicatorCell
 
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.text = dataItem.label
         cell.textLabel?.text = dataItem.label
+
+        cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
         cell.detailTextLabel?.text = dataItem.rewardLabel
         cell.detailTextLabel?.textColor = UIColor.gray
 

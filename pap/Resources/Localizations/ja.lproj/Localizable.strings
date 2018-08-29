@@ -122,8 +122,6 @@
 "%@ Day" = "%@日";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@今すぐ無料でダウンロードしてください！";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ユーザグループ";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@が見つかりました";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d回";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "1ヶ月のパス";
+"1 Month Full Access" = "1ヶ月フルアクセス";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "3ヶ月間のパス";
+"3 Months Full Access" = "3ヶ月フルアクセス";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "すべてのアプリと新機能の3ヶ月間の使用";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6ヶ月間のパス";
+"6 Months Full Access" = "6ヶ月フルアクセス";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "アクセスが拒否されました。";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "行動";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "フルスクリーン広告を有効にする";
+"Activate Ads" = "広告をアクティブにする";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "現在表示されている項目を有効にしています...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "イベントを追加する";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "住所";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "無料アプリキャンペーンを実施した後、残高が表示されます。";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "カメラ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "有料アプリパス";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "電話する電話番号を選択";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "現在の価格には新しいアプリやアップデートが含まれており、増加する可能性があります。";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字でのみ使用できます。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "表示割合";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "残りのレベルを表示";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "残りのパーセントを表示します。";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "電子メールアドレス";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "今すぐ参加し、無料のアプリパスを繰り返し充電する。";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "今すぐ参加し、無料でアプリのアクセスを繰り返し充電する。";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "フォワード";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "フレーム遅延";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "無料アプリパス";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "無料アプリアクセス";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "無料アプリの%@日の使用";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "無料の%@日、VIPライセンスの機会";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "無料で使用し、すべての新しいアップデート";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "%@日の無料使用";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "無料使用";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "月間パス";
+"Monthly Full Access" = "毎月フルアクセス";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "私のアルバム";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "待機して";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "継続的な無料使用";
+"Ongoing Free Apps Use" = "継続的な無料アプリの使用";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "すべてのアプリの継続使用と新規";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Mapsを開く";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "元の";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "オーナーパス";
+"Owners Access" = "オーナーのアクセス";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactoryは、さまざまなページオプションを使用して複数の画像からPDFドキュメントを作成します。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "ページ";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "恒久的な使用とすべての新しいアップデート";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "すべてのアプリケーションと新規の恒久的な使用";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "電話";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "購入%@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "購買管理";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "すべてのAppsアクセスの購入";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "購入";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "メールを送る";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "送信";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "無料アプリアクセスの設定";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "設定";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "このアプリを共有する";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "シェア";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "ショップ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "類似性";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "試用版を使用する";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "つかいます";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "ユーザーコミュニティ";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "ユーザー";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "VIPアクセス";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIPライセンスプログラム";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "VIPパス";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "サウンドなしのビデオ";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "フルスクリーン広告を見る";
+"View Ads" = "広告を見る";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "ビュー";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ワープ";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "ウェルカムフリーパス";
+"Welcome Free Pack" = "ウェルカムフリーパック";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "VIPライセンスプログラムへようこそ。";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "書きます";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "年間パス";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "開始フォーマットと一致する項目のみを選択できます。";
+"Yearly Full Access" = "年間フルアクセス";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "開始フォーマットと一致する写真またはビデオのみを選択できます。";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "あなたのアイデア、あなたのアプリ";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

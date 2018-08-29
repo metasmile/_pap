@@ -122,8 +122,6 @@
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Ladda ner nu GRATIS!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ Användargrupp";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ kan hittas";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d gånger";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "1 månadspass";
+"1 Month Full Access" = "1 månad Full Access";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1 månaders användning av alla appar och nytt";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "3-månaderspass";
+"3 Months Full Access" = "3 månaders fullständig åtkomst";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "3 månaders användning av alla appar och nytt";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6-månaderspass";
+"6 Months Full Access" = "6 månaders fullständig åtkomst";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "6-månaders användning av alla appar och nytt";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Tillträde beviljas ej.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Handlingar";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "Aktivera fullskärmsannonser";
+"Activate Ads" = "Aktivera annonser";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Aktiverar nuvarande synliga föremål ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "Lägg till en händelse";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adress";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "När du har engagerat gratis programkampanjer visas den fyllda balansen.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan inte återgå. Alla valda objekt har inte redigerats.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "Laddade App Pass";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Välj ett telefonnummer att ringa";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Skörda att passa";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Beskära";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Nuvarande priser inkluderar nya appar och uppdateringar och kan komma att öka.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "För närvarande är vår AI-textigenkänningsmodell endast tillgänglig för alfanumeriska och några specialtecken.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "Detekterar ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Riktning";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "Visningsandel";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "Visa återstående nivå";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "Visa återstående procentandel.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Hämta nu gratis på %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "E-postadress";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivera snabba åtgärder";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "Engagera nu och ladda upp upprepade fria programpass.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "Engagera nu och ladda upp upprepade gånger gratis åtkomst till appar.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Exportera alternativ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "Fram";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "Gratis App Pass";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "Gratis Apps Access";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "Gratis Apps Använd av %@ Day";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Fri användning %@ Dag, VIP-licensmöjlighet";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Fri användning och alla nya uppdateringar";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "Fri användning av %@ Day";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "Fri användning";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "Månadspass";
+"Monthly Full Access" = "Månadlig åtkomst";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mina album";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "I vänteläge";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "Löpande fri användning";
+"Ongoing Free Apps Use" = "Pågående Gratis Apps Använd";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "Löpande användning av alla appar och nya";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Öppna Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "Ägarepass";
+"Owners Access" = "Ägaråtkomst";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory gör PDF-dokument från flera bilder med olika sidalternativ.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "sidor";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Permanent användning och alla nya uppdateringar";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "Permanent användning av alla appar och nya";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Telefonsamtal";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "Inköp %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Inköpshantering";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "Köp av alla Apps Access";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Inköp";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "Skicka ett email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Skicka";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "Inställningar för gratis Apps Access";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "inställningar";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Dela denna appen";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "affär";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Likhet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "Använd prov";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Använda sig av";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "Användargemenskap";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Användare";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "VIP Access";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP License Program";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "VIP Pass";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Verifiering misslyckades.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videor utan ljud";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "Visa helskärmsannonser";
+"View Ads" = "Visa annonser";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "Se";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "Välkommen Gratis Pass";
+"Welcome Free Pack" = "Välkommen Free Pack";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Välkommen till vårt VIP-licensprogram.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Skriva";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "Årlig Pass";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "Du kan bara välja objekt som matchade startformatet.";
+"Yearly Full Access" = "Årlig fullständig åtkomst";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Du kan bara välja foton eller videoklipp som matchade startformatet.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Din idé, din app";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

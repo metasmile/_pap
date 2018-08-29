@@ -122,8 +122,6 @@
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ Kumpulan Pengguna";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ boleh dijumpai";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "Pas 1 Bulan";
+"1 Month Full Access" = "Akses Penuh 1 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "Penggunaan 1 Bulan Semua Semua dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "Pas 3 Bulan";
+"3 Months Full Access" = "Akses Penuh 3 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "Penggunaan Bulan 3-Semua Semua dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "Pas 6 Bulan";
+"6 Months Full Access" = "Akses Penuh 6 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "Penggunaan 6 Bulan Semua Semua dan Baru";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Akses dinafikan.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Tindakan";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "Aktifkan Iklan Skrin Penuh";
+"Activate Ads" = "Aktifkan Iklan";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Mengaktifkan Item Terkini Terkini ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "Tambah Acara";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Alamat";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "Selepas Anda Bergerak Kempen Apps Percuma, Baki Diisi Akan Ditampilkan.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "Pas Permohonan Bercagar";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Pilih Nombor Telefon Untuk Panggilan";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Tanam untuk Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Harga Semasa Merangkumi Aplikasi dan Pembaharuan Baru dan Boleh Diperluas Untuk Meningkatkan.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Pada masa ini, model pengenalan teks AI kami hanya tersedia untuk abjad angka dan beberapa aksara khas.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "Mengesan ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "Peratusan Paparan";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "Paparkan Tahap Ketara";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "Peratusan Baki Paparkan.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Muat turun sekarang secara PERCUMA di %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "Alamat emel";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Dayakan Tindakan Pantas";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "Engaged Now And Recharge Pass Apps Percuma Berulang.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "Terlibat Sekarang Dan Recharge Berulang Akses Aplikasi Percuma.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Pilihan Eksport";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "Teruskan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kelewatan Frame";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "Pas Aplikasi Percuma";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "Akses Apps Percuma";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "Aplikasi Percuma Penggunaan %@ Hari";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Penggunaan Percuma %@ Hari, Peluang Lesen VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Penggunaan Percuma Dan Semua Maklumat Terbaru";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "Penggunaan Percuma %@ Hari";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "Penggunaan Percuma";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "Pas Bulanan";
+"Monthly Full Access" = "Akses Penuh Bulanan";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Bersiap sedia";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "Penggunaan Percuma yang berterusan";
+"Ongoing Free Apps Use" = "Penggunaan Aplikasi Percuma yang berterusan";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "Penggunaan Penggunaan Semua Semua dan Baru";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Buka Peta Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asal";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "Pas Pemilik";
+"Owners Access" = "Akses Pemilik";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory membuat dokumen PDF dari pelbagai imej dengan pelbagai pilihan halaman.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "Pages";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Penggunaan Tetap Dan Semua Kemas Kini Baharu";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "Penggunaan Tetap Semua Aplikasi dan Baru";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "Pembelian %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Pengurusan Pembelian";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "Pembelian Akses Semua Aplikasi";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Pembelian";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "Hantar email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Hantar";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "Tetapan untuk Akses Apps Percuma";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Tetapan";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Kongsi Aplikasi ini";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "Kedai";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "Gunakan Percubaan";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Gunakan";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "Komuniti Pengguna";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Pengguna";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "Akses VIP";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "Program Lesen VIP";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "Pas VIP";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Pengesahan Gagal.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video Tanpa Bunyi";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "Lihat Iklan skrin penuh";
+"View Ads" = "Lihat Iklan";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "Lihat";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "Selamat Datang Pass";
+"Welcome Free Pack" = "Selamat Datang Pack Percuma";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Selamat datang ke program lesen VIP kami.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Tulis";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "Pas Tahunan";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "Anda hanya boleh memilih item yang dipadankan dengan format permulaan.";
+"Yearly Full Access" = "Akses Penuh Tahunan";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Anda hanya boleh memilih foto atau video yang dipadankan dengan format permulaan.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Idea Anda, App Anda";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

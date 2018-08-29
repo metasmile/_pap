@@ -5,24 +5,33 @@
 
 import Foundation
 import UIKit
+
+//wtf uikit
+private class _UITextView: UITextView{
+    override func layoutSubviews() {
+        setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        super.layoutSubviews()
+    }
+}
+
 extension UITableView{
 
-    class func createHeaderFooterTextView(text:String, fontSize:CGFloat=UIFont.systemFontSize, fontColor:UIColor=UIColor.gray, inset:UIEdgeInsets=UIEdgeInsetsMake(10, 10, 10, 10)) -> UITextView{
-        let label = UITextView()
-        label.autoresizingMask = [.flexibleWidth]
-        label.backgroundColor = UIColor.clear
-        label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.systemFont(ofSize: fontSize)
-        label.text = text
-        label.isEditable = false
-        label.textColor = fontColor
-        label.isUserInteractionEnabled = false
-        label.textContainer.lineBreakMode = .byWordWrapping
-        label.textContainer.maximumNumberOfLines = Int.max
-        label.textContainerInset = inset
-        label.sizeToFit()
-        label.scrollsToTop = true
-        return label
+    private class func createHeaderFooterTextView(text:String, fontSize:CGFloat=UIFont.systemFontSize, fontColor:UIColor=UIColor.gray, inset:UIEdgeInsets=UIEdgeInsetsMake(10, 10, 10, 10)) -> UITextView{
+        let textView = _UITextView()
+        textView.autoresizingMask = [.flexibleWidth]
+        textView.backgroundColor = UIColor.clear
+        textView.adjustsFontForContentSizeCategory = true
+        textView.font = UIFont.systemFont(ofSize: fontSize)
+        textView.isEditable = false
+        textView.textColor = fontColor
+        textView.isUserInteractionEnabled = false
+        textView.textContainer.lineBreakMode = .byWordWrapping
+        textView.textContainer.maximumNumberOfLines = 0
+        textView.textContainerInset = inset
+        textView.textContainer.heightTracksTextView = true
+        textView.text = text
+        textView.sizeToFit()
+        return textView
     }
 
     class func createHeaderFooterViewForSmallMessage(text:String) -> UITextView{
@@ -30,7 +39,7 @@ extension UITableView{
                 text: text
                 , fontSize: UIFont.smallSystemFontSize
                 , fontColor: UIColor.gray
-                , inset: UIEdgeInsetsMake(10, 10, 15, 15)
+                , inset: UIEdgeInsetsMake(10, 10, 15, 20)
         )
     }
 }

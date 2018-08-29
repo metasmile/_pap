@@ -443,9 +443,12 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         return nil
     }
 
+    lazy var footerView = UITableView.createHeaderFooterViewForSmallMessage(text: "Select Photos You Want To Grab Phone Numbers!".localized)
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0 {
-            return UITableView.createHeaderFooterViewForSmallMessage(text: "Select Photos You Want To Grab Phone Numbers!".localized)
+            footerView.sizeToFit()
+            return footerView
         }
 
         return nil

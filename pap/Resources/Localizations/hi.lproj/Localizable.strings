@@ -122,8 +122,6 @@
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ उपयोगकर्ता समूह";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ पाया जा सकता है";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d बार";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "1 महीने का पास";
+"1 Month Full Access" = "1 महीने पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "सभी ऐप्स और नए का 1-महीने का उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "3 महीने का पास";
+"3 Months Full Access" = "3 महीने पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "सभी ऐप्स और नए के 3 महीने का उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6 महीने का पास";
+"6 Months Full Access" = "6 महीने पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "सभी ऐप्स और नए के 6 महीने का उपयोग";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "पहुंच अस्वीकृत।";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "क्रिया";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "पूर्णस्क्रीन विज्ञापन सक्रिय करें";
+"Activate Ads" = "विज्ञापन सक्रिय करें";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "वर्तमान दृश्य वस्तुओं को सक्रिय करना ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "एक कार्यक्रम जोड़ें";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "पता";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "निःशुल्क ऐप अभियान चलाने के बाद, भरा शेष राशि प्रदर्शित की जाएगी।";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "एल्बम";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "कैमरा";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "वापस नहीं जा सकता सभी चयनित आइटम संपादित नहीं किए गए हैं।";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "चार्ज किया गया ऐप पास";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "कॉल करने के लिए एक फोन नंबर चुनें";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "वर्तमान मूल्यों में नए ऐप्स और अपडेट शामिल हैं और बढ़ने के अधीन हो सकते हैं।";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "वर्तमान में, हमारे एआई पाठ पहचान मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "पता लगा रहा है ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "प्रदर्शन प्रतिशत";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "शेष स्तर प्रदर्शित करें";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "शेष प्रतिशत प्रदर्शित करें।";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "ईमेल पता";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "त्वरित क्रियाएं सक्षम करें";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "अब व्यस्त रहें और रिचार्ज दोहराए गए निशुल्क ऐप्स पास हो जाएं।";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "अब व्यस्त रहें और पुन: शुल्क मुक्त ऐप्स एक्सेस रिचार्ज करें।";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "आगे";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "निशुल्क ऐप पास";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "निशुल्क ऐप्स एक्सेस";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "%@ दिन का निःशुल्क ऐप्स उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "मुफ्त उपयोग %@ दिन, वीआईपी लाइसेंस अवसर";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "नि: शुल्क उपयोग और सभी नए अपडेट";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "%@ दिन का निःशुल्क उपयोग";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "नि: शुल्क उपयोग";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "मासिक पास";
+"Monthly Full Access" = "मासिक पूर्ण पहुंच";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरे एल्बम";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "स्टैंडबाय पर";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "चल रहे नि: शुल्क उपयोग";
+"Ongoing Free Apps Use" = "चल रहे नि: शुल्क ऐप्स का उपयोग करें";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "सभी ऐप्स और नए का निरंतर उपयोग";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "ऐप्पल मैप्स खोलें";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "मालिक का पास";
+"Owners Access" = "मालिकों का उपयोग";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "पीडीएफएचक विभिन्न पेज विकल्पों के साथ कई छवियों से पीडीएफ दस्तावेज बनाता है।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "पेज";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "स्थायी उपयोग और सभी नए अपडेट";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "सभी ऐप्स और नए का स्थायी उपयोग";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "फोन कॉल्स";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "खरीद %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "खरीद प्रबंधन";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "सभी एप्स एक्सेस की खरीद";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "खरीद फरोख्त";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "एक ईमेल भेजो";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "भेजना";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "नि: शुल्क ऐप्स एक्सेस के लिए सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "सेटिंग्स";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "दुकान";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "परीक्षण का प्रयोग करें";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "उपयोग";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "उपयोगकर्ता";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "वीआईपी एक्सेस";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "वीआईपी लाइसेंस कार्यक्रम";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "विप पास";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "पूर्णस्क्रीन विज्ञापन देखें";
+"View Ads" = "विज्ञापन देखें";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "राय";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "ताना";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "आपका स्वागत है मुफ्त पास";
+"Welcome Free Pack" = "आपका स्वागत है मुफ्त पैक";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "हमारे वीआईपी लाइसेंस कार्यक्रम में आपका स्वागत है।";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "लिखना";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "वार्षिक पास";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "आप केवल वही आइटम चुन सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
+"Yearly Full Access" = "वार्षिक पूर्ण पहुंच";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "आप केवल फोटो या वीडियो का चयन कर सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "आपका विचार, आपका ऐप";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

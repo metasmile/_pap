@@ -1487,22 +1487,32 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return tableView.numberOfSections-1 == section ? footerView.height : 0
+
+        return tableView.numberOfSections-1 == section
+                ? 64 //ff
+                : 0
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let label_section0 = "Select Photos To Find Something.".localized
-        return section == 0 ? label_section0 : parserCollection[section-1].label
+        return section == 0
+                ? label_section0
+                : parserCollection[section-1].label
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        footerView.sizeThatFits(CGSize(width:tableView.width, height:footerView.height))
-        return tableView.numberOfSections-1 == section ? footerView : nil
+        if tableView.numberOfSections-1 == section {
+            footerView.sizeToFit()
+            return footerView
+        }
+        return nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingCellDescribers.count : parserCollection[section-1].items.count
+        return section == 0
+                ? settingCellDescribers.count
+                : parserCollection[section-1].items.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -1510,7 +1520,9 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = indexPath.section == 0 ? settings_tableView(tableView, cellForRowAt: indexPath) : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
+        let cell = indexPath.section == 0
+                ? settings_tableView(tableView, cellForRowAt: indexPath)
+                : parserCollection_tableView(tableView, cellForRowAt: IndexPath(item: indexPath.item, section: indexPath.section))
         return cell
     }
 

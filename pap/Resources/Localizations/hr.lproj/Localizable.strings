@@ -122,8 +122,6 @@
 "%@ Day" = "%@ Dan";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Preuzmite sada besplatno!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ User Group";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "Možda se pronađe %@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "1-mjesečni prolaz";
+"1 Month Full Access" = "1 mjesec punog pristupa";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1-mjesečna upotreba svih aplikacija i novo";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "Prošlo 3 mjeseca";
+"3 Months Full Access" = "3 mjeseca puni pristup";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "3-mjesečna upotreba svih aplikacija i novo";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6 mjeseci";
+"6 Months Full Access" = "6 mjeseci punog pristupa";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "6 mjeseci korištenja svih aplikacija i novih";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Pristup odbijen.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "akcije";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "Aktivirajte oglase na cijelom zaslonu";
+"Activate Ads" = "Aktivirajte oglase";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Aktivacija trenutnih vidljivih stavki ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "Dodajte događaj";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresa";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "Nakon što sudjelujete u besplatnim kampanjama za besplatne aplikacije, prikazat će se napunjena bilanca.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumi";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "Fotoaparat";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne mogu se vratiti. Sve odabrane stavke nisu uređene.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "Prolazi naplaćenih aplikacija";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Odaberite telefonski broj za poziv";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Obreži na Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Usjev";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Trenutačne cijene uključuju nove aplikacije i ažuriranja i mogu se povećati.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "Otkrivanje ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "Prikaz postotka";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "Prikaz preostale razine";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "Prikaz preostalog postotka.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "Email adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "Uključite se sada i ponovno napunite prolazne aplikacije za besplatne aplikacije.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "Uključite se sada i ponovno napunite pristup besplatnim besplatnim aplikacijama.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Mogućnosti izvoza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "Naprijed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Odgoda okvira";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "Prolazi za besplatnu aplikaciju";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "Pristup besplatnim aplikacijama";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "Besplatna upotreba dana %@ dana";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Besplatno korištenje %@ dan, VIP licencka prilika";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Besplatno korištenje i sva nova ažuriranja";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "Besplatno korištenje %@ dana";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "Besplatno korištenje";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "Mjesečni pokaz";
+"Monthly Full Access" = "Mjesečni puni pristup";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moji albumi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Na čekanju";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "U tijeku je besplatna upotreba";
+"Ongoing Free Apps Use" = "U tijeku upotreba besplatnih aplikacija";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "U tijeku upotreba svih aplikacija i novih";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorite Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "Vlasnikov pas";
+"Owners Access" = "Pristup vlasnicima";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "stranice";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Trajna upotreba i sva nova ažuriranja";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "Stalna upotreba svih aplikacija i novo";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "Kupnja %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Upravljanje kupnjom";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "Kupnja pristupa svim aplikacijama";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Kupiti";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "Pošalji email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Poslati";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "Postavke za pristup besplatnim aplikacijama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "postavke";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "Dućan";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "Koristite probnu verziju";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Koristiti";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "Korisnička zajednica";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Korisnik";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "VIP pristup";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP licenčni program";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "VIP Pass";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Potvrda nije uspjela.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videozapisi bez zvuka";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "Prikaz oglasa na cijelom zaslonu";
+"View Ads" = "Prikaži oglase";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "Pogled";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "Dobrodošli besplatno";
+"Welcome Free Pack" = "Dobrodošli besplatni paket";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Dobrodošli u naš VIP program licenciranja.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Pisati";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "Godišnji prijelaz";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "Možete odabrati samo stavke koje se podudaraju s početnim formatom.";
+"Yearly Full Access" = "Godišnji puni pristup";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Možete odabrati samo fotografije ili videozapise koji se podudaraju s početnim formatom.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Vaša ideja, vaša aplikacija";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

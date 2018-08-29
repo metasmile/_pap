@@ -122,8 +122,6 @@
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ Ομάδα χρηστών";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ μπορεί να βρεθεί";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "1-Μήνας Pass";
+"1 Month Full Access" = "1 μήνας πλήρης πρόσβαση";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1 μήνας χρήσης όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "Πέρασμα 3 μηνών";
+"3 Months Full Access" = "3 μήνες πλήρης πρόσβαση";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "3-Μήνες χρήσης όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6-Μήνας Pass";
+"6 Months Full Access" = "Πλήρης πρόσβαση 6 μηνών";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "Χρήση 6 μηνών όλων των εφαρμογών και νέων";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Δεν επιτρέπεται η πρόσβαση.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Ενέργειες";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "Ενεργοποίηση διαφημίσεων πλήρους οθόνης";
+"Activate Ads" = "Ενεργοποίηση διαφημίσεων";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Ενεργοποίηση τωρινών ορατών στοιχείων ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "Προσθέστε ένα συμβάν";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Διεύθυνση";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "Αφού ενεργοποιήσετε τις Καμπάνιες Ελεύθερων Εφαρμογών, θα εμφανιστεί το Γεμάτο Υπόλοιπο.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Άλμπουμ";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "Το χρεωμένο App Passes";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Επιλέξτε έναν αριθμό τηλεφώνου για κλήση";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Οι τρέχουσες τιμές συμπεριλαμβάνουν νέες εφαρμογές και ενημερώσεις και θα μπορούσαν να αυξηθούν.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Προς το παρόν, το μοντέλο αναγνώρισης κειμένου AI είναι διαθέσιμο μόνο για αλφαριθμητικά και μερικούς ειδικούς χαρακτήρες.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "Ανίχνευση ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "Ποσοστό εμφάνισης";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "Εμφανίζει το υπόλοιπο επίπεδο";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "Εμφάνιση υπολοίπου ποσοστού.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Κατεβάστε τώρα δωρεάν στο %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "Ενεργοποιήστε τώρα και επαναφορτίζετε επανειλημμένα δωρεάν εφαρμογές.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "Ενεργοποιήστε τώρα και επαναφορτίστε επανειλημμένα την πρόσβαση σε δωρεάν εφαρμογές.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "Προς τα εμπρός";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "Η δωρεάν εφαρμογή Passes";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "Δωρεάν πρόσβαση σε εφαρμογές";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "Δωρεάν Εφαρμογές Χρήση %@ Ημέρας";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Δωρεάν χρήση %@ Ημέρα, ευκαιρία άδειας VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Δωρεάν χρήση και όλες τις νέες ενημερώσεις";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "Δωρεάν χρήση της %@ Ημέρας";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "Δωρεάν χρήση";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "Μηνιαία κάρτα";
+"Monthly Full Access" = "Μηνιαία πλήρης πρόσβαση";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Σε αναμονή";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "Συνεχιζόμενη δωρεάν χρήση";
+"Ongoing Free Apps Use" = "Τρέχουσα Χρήση Ελεύθερων Εφαρμογών";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "Συνεχής χρήση όλων των εφαρμογών και νέων";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "Πέρασμα ιδιοκτήτη";
+"Owners Access" = "Πρόσβαση ιδιοκτητών";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "Το PDFactory κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "Σελίδες";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Μόνιμη χρήση και όλες τις νέες ενημερώσεις";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "Μόνιμη χρήση όλων των εφαρμογών και νέων";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "Αγορά %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Διαχείριση αγορών";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "Αγορά πρόσβασης σε όλες τις εφαρμογές";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Αγορά";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Στείλετε";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "Ρυθμίσεις για την πρόσβαση σε δωρεάν εφαρμογές";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ρυθμίσεις";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "Κατάστημα";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Χρήση";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Χρήστης";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "VIP Access";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "Πρόγραμμα Άδειας VIP";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "VIP Pass";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "Προβολή διαφημίσεων πλήρους οθόνης";
+"View Ads" = "Προβολή διαφημίσεων";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "Θέα";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Στημόνι";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "Καλώς ήλθατε στο Free Pass";
+"Welcome Free Pack" = "Καλώς ήρθατε στο Πακέτο Δωρεάν";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Γράφω";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "Ετήσια επιτυχία";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "Μπορείτε να επιλέξετε μόνο στοιχεία που ταιριάζουν με τη μορφή εκκίνησης.";
+"Yearly Full Access" = "Ετήσια πλήρη πρόσβαση";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Μπορείτε να επιλέξετε μόνο φωτογραφίες ή βίντεο που ταιριάζουν με την αρχική μορφή.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Η ιδέα σας, η εφαρμογή σας";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

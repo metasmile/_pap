@@ -122,8 +122,6 @@
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ קבוצת משתמשים";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ עשוי להימצא";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d פעמים";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "מעבר של חודש";
+"1 Month Full Access" = "1 חודש גישה מלאה";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1 חודש שימוש בכל היישומים חדשים";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "מעבר של 3 חודשים";
+"3 Months Full Access" = "3 חודשים גישה מלאה";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "3 חודשים שימוש בכל היישומים חדשים";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "6 חודשים לעבור";
+"6 Months Full Access" = "6 חודשים גישה מלאה";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "6 חודשים שימוש בכל היישומים חדשים";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "גישה נדחתה.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "פעולות";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "הפעל מודעות של מסך מלא";
+"Activate Ads" = "הפעל מודעות";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "מפעיל פריטים גלויים נוכחיים ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "הוסף אירוע";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "כתובת";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "לאחר שאתה מעורב חינם Apps מסעות פרסום, יתרת מלא יוצג.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "אלבומים";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "מַצלֵמָה";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "לא ניתן לחזור. כל הפריטים שנבחרו לא נערכו.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "האפליקציה טעונה עובר";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "בחר מספר טלפון להתקשרות";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "חתוך לפיט";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "יְבוּל";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "המחירים הנוכחיים כוללים יישומים חדשים ועדכונים יכול להיות כפוף להגדלה.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "נכון לעכשיו, מודל זיהוי הטקסט AI שלנו זמין רק עבור אלפאנומריים וכמה תווים מיוחדים.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "מזהה ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "אחוז תצוגה";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "הצג רמה שנותרה";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "הצגת אחוז שנותר.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "הורד כעת בחינם ב- %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "כתובת דוא'ל";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "הפעל פעולות מהירות";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "עכשיו ולהפעיל Reappatedly חינם Apps עובר.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "עכשיו ולהטעין שוב ושוב ללא תשלום גישה Apps.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "אפשרויות ייצוא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "קָדִימָה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "עיכוב מסגרת";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "חינם App עובר";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "גישה חופשית Apps";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "שימוש חינם ב- Apps של %@ יום";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "שימוש חינם ב- %@ יום, הזדמנות רשיון VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "חינם לשימוש וכל עדכונים חדשים";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "שימוש חופשי ב- %@ יום";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "שימוש חופשי";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "מעבר חודשי";
+"Monthly Full Access" = "גישה חודשית מלאה";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "האלבומים שלי";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "בסטנד ביי";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "שימוש שוטף חינם";
+"Ongoing Free Apps Use" = "מתמשך שימוש חינם Apps";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "שימוש מתמשך בכל האפליקציות וב- New";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "מְקוֹרִי";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "מעבר הבעלים";
+"Owners Access" = "גישה לבעלי";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory עושה מסמך PDF מתמונות מרובות עם אפשרויות דף שונים.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "דפים";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "שימוש קבוע וכל העדכונים החדשים";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "שימוש קבוע בכל היישומים חדשים";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "שיחות טלפון";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "רכישה %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "ניהול הרכש";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "רכישת כל גישת Apps";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "לִרְכּוֹשׁ";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "שלח אימייל";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "לִשְׁלוֹחַ";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "הגדרות עבור גישה חופשית Apps";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "הגדרות";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "שתף את זה App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "לִקְנוֹת";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "דִמיוֹן";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "השתמש בניסוי";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "להשתמש";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "קהילת המשתמשים";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "מִשׁתַמֵשׁ";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "גישה VIP";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "תוכנית רשיון VIP";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "כניסת וי אי פי";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "האימות נכשל.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "וידאו ללא קול";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "הצג מודעות מסך מלא";
+"View Ads" = "הצג מודעות";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "נוף";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "מעבר חופשי חופשי";
+"Welcome Free Pack" = "ברוכים הבאים חינם Pack";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "לִכתוֹב";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "מעבר שנתי";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "ניתן לבחור רק פריטים המתאימים לפורמט ההתחלה.";
+"Yearly Full Access" = "גישה שנתית מלאה";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "ניתן לבחור רק תמונות או סרטונים שמתאימים לפורמט ההתחלה.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "הרעיון שלך, App שלך";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

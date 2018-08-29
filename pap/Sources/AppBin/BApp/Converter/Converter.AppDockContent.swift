@@ -43,7 +43,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         return AppDockScrollableContent(scrollView)
     }
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"You can select only items that matched with starting format.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"You can select only photos or videos that matched with starting format.".localized)
 
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{
@@ -187,11 +187,11 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 1 ? footerView.height : 0
+        return section == 0 ? footerView.height : 0
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return section == 1 ? footerView : nil
+        return section == 0 ? footerView : nil
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

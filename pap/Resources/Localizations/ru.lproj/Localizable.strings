@@ -122,8 +122,6 @@
 "%@ Day" = "%@ День";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Скачайте БЕСПЛАТНО!";
-/* Generated from genl10n: Shop.SApp.swift#594 */
-"%@ User Group" = "%@ Группа пользователей";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ можно найти";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -133,11 +131,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d раз";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1-Month Pass" = "Билет на 1 месяца";
+"1 Month Full Access" = "Полный доступ на 1 месяц";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All Apps and New" = "1-месячное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3-Month Pass" = "Билет на 3 месяца";
+"3 Months Full Access" = "Полный доступ 3 месяца";
+/* Generated from genl10n: AppCenter.Charge.swift#185 */
+"3-Month Use of All Apps and New" = "3-месячное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6-Month Pass" = "Билет на 6 месяцев";
+"6 Months Full Access" = "Полный доступ на 6 месяцев";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All Apps and New" = "6-месячное использование всех приложений и новых";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Access Denied." = "Доступ закрыт.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -147,7 +151,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "действия";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Fullscreen Ads" = "Активировать полноэкранные объявления";
+"Activate Ads" = "Активировать рекламу";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
 "Activating Current Visible Items ..." = "Активация текущих видимых элементов ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
@@ -156,6 +160,8 @@
 "Add an Event" = "Добавить событие";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Адрес";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"After You Engaged Free Apps Campaigns, Filled Balance Will Be Displayed." = "После того, как вы включили бесплатные кампании в приложениях, будет отображаться заполненный баланс.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Альбомы";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -196,8 +202,6 @@
 "Camera" = "камера";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не удается вернуться. Все выбранные элементы не отредактированы.";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Charged App Passes" = "Charged App Passes";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Выберите номер телефона для вызова";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -236,6 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Текущие цены включают новые приложения и обновления и могут увеличиваться.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "В настоящее время наша модель распознавания текста AI доступна только для буквенно-цифровых и некоторых специальных символов.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -248,10 +254,10 @@
 "Detecting ... %@ " = "Обнаружение ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "направление";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Percentage" = "Процент отображения";
 /* Generated from genl10n: Shop.SApp.swift#531 */
 "Display Remaining Level" = "Отобразить оставшийся уровень";
+/* Generated from genl10n: Shop.SApp.swift#543 */
+"Display Remaining Percentage." = "Показывать оставшийся процент.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Бесплатно загрузить в %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -264,8 +270,8 @@
 "Email Address" = "Адрес электронной почты";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Включить быстрые действия";
-/* Generated from genl10n: Shop.SApp.swift#274 */
-"Engage Now And Recharge Repeatedly Free Apps Passes." = "Занимайтесь сейчас и перезаряжайте многократно бесплатных приложений.";
+/* Generated from genl10n: Shop.SApp.swift#275 */
+"Engage Now And Recharge Repeatedly Free Apps Access." = "Занимайтесь сейчас и регулярно загружайте бесплатный доступ к приложениям.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Параметры экспорта";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -290,14 +296,14 @@
 "Forward" = "Вперед";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Задержка кадров";
-/* Generated from genl10n: Shop.SApp.swift#276 */
-"Free App Passes" = "Бесплатные пропуски приложений";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Free Apps Access" = "Бесплатный доступ к приложениям";
+/* Generated from genl10n: AppCenter.Charge.swift#292 */
+"Free Apps Use of %@ Day" = "Бесплатное использование приложений %@ День";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Свободное использование %@ День, возможность VIP-лицензии";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Бесплатное использование и все новые обновления";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Use of %@ Day" = "Бесплатное использование %@ дня";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "Бесплатное использование";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
@@ -357,7 +363,7 @@
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Pass" = "Ежемесячный пропуск";
+"Monthly Full Access" = "Ежемесячный полный доступ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мои альбомы";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -377,7 +383,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режиме ожидания";
 /* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Use" = "Постоянное бесплатное использование";
+"Ongoing Free Apps Use" = "Постоянное использование бесплатных приложений";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All Apps and New" = "Постоянное использование всех приложений и новых";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Откройте Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -387,7 +395,7 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "оригинал";
 /* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owner's Pass" = "Пропуск владельца";
+"Owners Access" = "Доступ для владельцев";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory делает PDF-документ из нескольких изображений с различными параметрами страницы.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -398,6 +406,8 @@
 "Pages" = "страницы";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Постоянное использование и все новые обновления";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All Apps and New" = "Постоянное использование всех приложений и новых";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -420,6 +430,8 @@
 "Purchase %@" = "Покупка %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Управление покупками";
+/* Generated from genl10n: Shop.SApp.swift#259 */
+"Purchase of All Apps Access" = "Покупка всех приложений";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "покупка";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -478,14 +490,14 @@
 "Send an Email" = "Отправить письмо";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "послать";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"Settings for Free Apps Access" = "Настройки для бесплатного доступа к приложениям";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "настройки";
 /* Generated from genl10n: AppCenter.Charge.swift#20 */
 "Share This App" = "Поделись этим приложением";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Shop.SApp.swift#34 */
-"Shop" = "Магазин";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "сходство";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -538,14 +550,16 @@
 "Use Trial" = "Использовать пробную версию";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "использование";
+/* Generated from genl10n: Shop.SApp.swift#592 */
+"User Community" = "Пользовательское сообщество";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "пользователь";
+/* Generated from genl10n: AppCenter.Charge.swift#147 */
+"VIP Access" = "VIP-доступ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Горячая линия VIP";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP-лицензионная программа";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Pass" = "VIP Pass";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Ошибка проверки.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -557,7 +571,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Видео без звука";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Fullscreen Ads" = "Просмотр полноэкранных объявлений";
+"View Ads" = "Просмотр объявлений";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
 "View" = "Посмотреть";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
@@ -569,7 +583,7 @@
 /* Generated from genl10n: Stabilizer.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pass" = "Добро пожаловать!";
+"Welcome Free Pack" = "Приветственный бесплатный пакет";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Добро пожаловать в нашу VIP-лицензионную программу.";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
@@ -577,9 +591,9 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Написать";
 /* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Pass" = "Ежегодный пропуск";
-/* Generated from genl10n: Converter.AppDockContent.swift#41 */
-"You can select only items that matched with starting format." = "Вы можете выбрать только элементы, соответствующие начальному формату.";
+"Yearly Full Access" = "Ежегодный полный доступ";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Вы можете выбрать только фотографии или видеоролики, которые соответствуют начальному формату.";
 /* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
 "Your Idea, Your App" = "Ваша идея, ваше приложение";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
