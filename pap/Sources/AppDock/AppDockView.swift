@@ -269,6 +269,8 @@ class AppDockView: CustomView {
 //                DispatchQueue.main.async { //TODO: if not found any side-effect, remove async block
                     self.controller?.didSetContentView(view, dock:self)
 //                }
+                
+                controller?.contentScrollable?.makeScrollableContent()
             }
             else {
                 controller?.willRemoveContentView()

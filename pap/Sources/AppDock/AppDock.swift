@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import PropertyKit
 
 // AppDock
 public protocol AppDock {
@@ -60,6 +61,7 @@ public protocol AppDockContent {
     var view: UIView {get}
     var preferences: AppDockContentPreferable? {get}
     var delegate: AppDockDelegate? {get}
+    var contentScrollable: AppDockContentScrollable? {get}
 
     //INFO: initializer codes should locate on `willSetContentView` (e.g. assigning delegate object)
     func willSetContentView(_ view:UIView, dock:AppDock)
@@ -70,11 +72,34 @@ public protocol AppDockContent {
 
 extension AppDockContent{
     public var delegate: AppDockDelegate? { return nil }
+    public var contentScrollable: AppDockContentScrollable? { return nil }
 
     public func willSetContentView(_ view:UIView, dock:AppDock) {}
     public func didSetContentView(_ view:UIView, dock:AppDock) {}
 
     public func willRemoveContentView() {}
+}
+
+// AppDockContentScrollable
+public protocol AppDockContentScrollable {
+    var scrollView: UIScrollView { get }
+    func makeScrollableContent()
+}
+
+public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockContentScrollable {
+    @objc dynamic private(set) public var scrollView: UIScrollView
+
+    init(_ scrollView: UIScrollView) {
+        self.scrollView = scrollView
+
+        super.init()
+    }
+    
+    public func makeScrollableContent() {
+        self.watch(\.scrollView.contentSize) {
+            self.scrollView.bounces = self.scrollView.contentSize.height > self.scrollView.bounds.height
+        }
+    }
 }
 
 public struct AppDockContentItem: AppDockContent {
