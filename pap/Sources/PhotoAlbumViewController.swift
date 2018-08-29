@@ -290,7 +290,8 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
         
-        let width = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
+        let scaleTransform = CGAffineTransform(scaleX: 1 / UIScreen.main.nativeScale, y: 1 / UIScreen.main.nativeScale)
+        let width = (UIEdgeInsetsInsetRect(UIScreen.main.nativeBounds.applying(scaleTransform), collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
         return CGSize(width: width, height: width + 50)
     }
     
