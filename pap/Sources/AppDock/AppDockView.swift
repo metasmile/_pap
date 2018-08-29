@@ -579,6 +579,11 @@ extension AppDockView: UICollectionViewDataSource {
 }
 
 extension AppDockView: UICollectionViewDelegate {
+    func invalidateCollectionViewLayout() {
+        reloadKeepingDrawerOpened()
+        appCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
 

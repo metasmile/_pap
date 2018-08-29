@@ -147,6 +147,12 @@ class AppDockViewController: UIViewController {
         unregisterWatchingAppConfig()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        appDockView?.invalidateCollectionViewLayout()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
