@@ -84,6 +84,7 @@ extension AppDockContent{
 public protocol AppDockContentScrollable {
     var scrollView: UIScrollView { get }
     func makeScrollableContent()
+    func invalidateCollectionViewLayout()
 }
 
 public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockContentScrollable {
@@ -97,7 +98,13 @@ public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockConte
     
     public func makeScrollableContent() {
         self.watch(\.scrollView.contentSize) {
-            self.scrollView.bounces = self.scrollView.contentSize.height > self.scrollView.bounds.height
+            self.scrollView.bounces = self.scrollView.contentSize.height >= self.scrollView.bounds.height
+        }
+    }
+    
+    public func invalidateCollectionViewLayout() {
+        if let collectionView = scrollView as? UICollectionView {
+            collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 }
@@ -105,6 +112,7 @@ public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockConte
 public struct AppDockContentItem: AppDockContent {
     public var view: UIView
     public var preferences: AppDockContentPreferable? = nil
+    public var contentScrollable: AppDockContentScrollable? = nil
 }
 
 // AppDockReloadableContentView

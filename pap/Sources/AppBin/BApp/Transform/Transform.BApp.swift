@@ -121,7 +121,10 @@ private extension TransformApp{
         
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 52
-        return AppDockContentItem(view: view, preferences: preferences)
+        
+        let scrollable = AppDockScrollableContent(view.collectionView)
+        
+        return AppDockContentItem(view: view, preferences: preferences, contentScrollable: scrollable)
     }
 
     private func updateControllerView(){

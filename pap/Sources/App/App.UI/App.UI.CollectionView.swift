@@ -64,7 +64,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    private lazy var collectionView: UICollectionView = {
+    private(set) lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
         view.dataSource = self
         view.delegate = self

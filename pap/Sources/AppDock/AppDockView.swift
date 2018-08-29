@@ -582,6 +582,7 @@ extension AppDockView: UICollectionViewDelegate {
     func invalidateCollectionViewLayout() {
         reloadKeepingDrawerOpened()
         appCollectionView.collectionViewLayout.invalidateLayout()
+        controller?.contentScrollable?.invalidateCollectionViewLayout()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

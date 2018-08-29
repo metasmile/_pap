@@ -269,6 +269,11 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return CIFilterItem(CIFilters.filters[safe: index - 1])
     }
     
+    var contentScrollable: AppDockContentScrollable? {
+        guard let view = view as? AppUICollectionView else { return nil }
+        return AppDockScrollableContent(view.collectionView)
+    }
+    
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 120

@@ -23,6 +23,6 @@ extension AppDockApp {
         label.textAlignment = .center
         label.sizeToFit()
 
-        return AppDockContentItem(view: label, preferences: nil)
+        return AppDockContentItem(view: label, preferences: nil, contentScrollable: nil)
     }
 }
