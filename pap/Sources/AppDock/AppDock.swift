@@ -97,6 +97,7 @@ public class AppDockScrollableContent: NSObject, PropertyWatchable, AppDockConte
     }
     
     public func makeScrollableContent() {
+        guard scrollView is UITableView else { return }
         self.watch(\.scrollView.contentSize) {
             self.scrollView.bounces = self.scrollView.contentSize.height >= self.scrollView.bounds.height
         }
