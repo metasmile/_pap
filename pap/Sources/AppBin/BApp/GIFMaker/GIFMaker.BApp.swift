@@ -403,6 +403,11 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         return tableView
     }()
     
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
+    
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{
             return nil

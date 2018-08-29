@@ -270,6 +270,11 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         let tableView = UITableView(frame: .zero)
         return tableView
     }()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{

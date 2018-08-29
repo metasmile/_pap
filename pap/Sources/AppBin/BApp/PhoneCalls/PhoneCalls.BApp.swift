@@ -349,6 +349,11 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         tableView.tintColor = primaryColor
         return tableView
     }()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     private var autoSelect:Bool = false
 

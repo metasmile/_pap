@@ -466,6 +466,11 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
         tableView.tintColor = tintColor
         return tableView
     }()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()

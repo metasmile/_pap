@@ -159,6 +159,11 @@ fileprivate class RevertAppDockContent: NSObject, PropertyWatchable, AppDockCont
     private let primaryColor = UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
 
     lazy var view: UIView = UITableView()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{

@@ -26,6 +26,11 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
     fileprivate var cellDescribers = [UITableViewCellDefaultDescribable]()
 
     lazy var view: UIView = UITableView()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     var preferences: AppDockContentPreferable? {
         guard let tableView = self.view as? UITableView else{

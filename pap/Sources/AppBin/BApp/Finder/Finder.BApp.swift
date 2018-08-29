@@ -1279,7 +1279,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         tableView.tintColor = tintColor
         return tableView
     }()
-
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
+    
     lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
 
     var preferences: AppDockContentPreferable? {

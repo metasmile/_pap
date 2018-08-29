@@ -37,6 +37,11 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     lazy var view: UIView = UITableView(frame: .zero, style: .grouped)
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"You can select only items that matched with starting format.".localized)
 

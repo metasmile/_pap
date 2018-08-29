@@ -132,6 +132,11 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         tableView.tintColor = UIColor(red:0.13, green:0.15, blue:0.16, alpha:1)
         return tableView
     }()
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()

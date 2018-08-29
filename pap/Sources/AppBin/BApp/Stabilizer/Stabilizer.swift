@@ -354,6 +354,11 @@ class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, App
         return tableView
     }()
     
+    var contentScrollable: AppDockContentScrollable? {
+        guard let scrollView = view as? UITableView else { return nil }
+        return AppDockScrollableContent(scrollView)
+    }
+    
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 200
