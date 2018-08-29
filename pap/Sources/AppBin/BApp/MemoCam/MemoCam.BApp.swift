@@ -207,6 +207,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         arView.startSession()
         arView.updateRenderer = { renderer, frame in
             autoreleasepool {
+                switch frame.camera.trackingState {
+                case .limited(let reason):
+                    switch reason {
+                    case .excessiveMotion:
+                        print("TRACKING LIMITED - EXCESSIVE MOTION")
+                    default: break
+                    }
+                    return
+                case .normal: break
+                default: return
+                }
+                
                 let deviceOrientation = self.arView.deviceMotion.orientation
                 if deviceOrientation.isPortrait {
                     aspectRatio = CGSize(width: frame.camera.imageResolution.height, height: frame.camera.imageResolution.width)
@@ -215,15 +227,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                     aspectRatio = frame.camera.imageResolution
                 }
                 
+                //STEP 1 - find text rectangle when stable movement
+                
                 let options = [VNImageOption.cameraIntrinsics: frame.camera.intrinsics]
                 try? VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
                 
-//                let image = renderer.snapshot(atTime: frame.timestamp, with: view.previewSize, antialiasingMode: .none)
-//
-//                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
-//
-//                let path = UIBezierPath()
-//
+                //STEP 2 - find text 
+                
+                let image = renderer.snapshot(atTime: frame.timestamp, with: previewSize, antialiasingMode: .none)
+                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
+                
+                //STEP 3 - merge text with rect
+                
 //                result.sourceVisionTexts?.forEach {
 //                    let bounds = $0.frame
 //                    let normalizedBounds = bounds.normalized(by: image.size)
@@ -240,12 +255,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 //                        polygon.addLine(to: $0.cgPointValue)
 //                    }
 //                    polygon.close()
-//
-//                    path.append(polygon)
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.debugLayer.path = path.cgPath
 //                }
             }
         }
@@ -353,20 +362,15 @@ class AppUIARView: UIView {
     
     private func initialize() {
         addSubview(previewView)
-//        previewView.translatesAutoresizingMaskIntoConstraints = false
-//        previewView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-//        previewView.heightAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: 16 / 9).isActive = true
-//        previewView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        previewView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        previewView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
         previewView.fitConstraints(to: self)
         
         previewView.automaticallyUpdatesLighting = true
         previewView.autoenablesDefaultLighting = true
         
+        #if DEBUG
         previewView.showsStatistics = true
 //        previewView.debugOptions = [ARSCNDebugOptions.showFeaturePoints/*, ARSCNDebugOptions.showWorldOrigin*/]
+        #endif
         
         renderer.autoenablesDefaultLighting = true
         renderer.scene = scene
