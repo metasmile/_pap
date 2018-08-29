@@ -138,7 +138,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
         
-        let gridWidth = (UIEdgeInsetsInsetRect(collectionView.bounds, collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
+        let scaleTransform = CGAffineTransform(scaleX: 1 / UIScreen.main.nativeScale, y: 1 / UIScreen.main.nativeScale)
+        let gridWidth = (UIEdgeInsetsInsetRect(UIScreen.main.nativeBounds.applying(scaleTransform), collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
         return CGSize(width: gridWidth, height: gridWidth)
     }
 
