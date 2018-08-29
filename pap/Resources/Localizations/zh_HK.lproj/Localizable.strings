@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "免費應用訪問設置";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "設置";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "分享這個應用程式";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "分享";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "在Facebook上分享";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "相似";
 /* Generated from genl10n: GIFMaker.BApp.swift */

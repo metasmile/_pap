@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Nastavení volného přístupu k aplikacím";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Nastavení";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Sdílej tuto aplikaci";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Podíl";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Sharing on Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */

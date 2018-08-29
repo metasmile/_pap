@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Vapaa sovellusten käyttöoikeudet";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "asetukset";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Sharing on Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */

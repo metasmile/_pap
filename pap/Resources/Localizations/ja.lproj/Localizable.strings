@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "無料アプリアクセスの設定";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "設定";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "このアプリを共有する";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "シェア";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Facebookでの共有";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "類似性";
 /* Generated from genl10n: GIFMaker.BApp.swift */

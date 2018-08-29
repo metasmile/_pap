@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Configurações para acesso gratuito ao Google Apps";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Configurações";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Compartilhe esse aplicativo";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Compartilhando no Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Semelhança";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "नि: शुल्क ऐप्स एक्सेस के लिए सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "सेटिंग्स";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "फेसबुक पर साझा करना";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */

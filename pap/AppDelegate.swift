@@ -12,6 +12,7 @@ import Fabric
 import Crashlytics
 import PropertyKit
 import Armchair
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
 
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
 #if DEBUG
         //INFO: Reset all receipt for testing
@@ -57,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let paymentsToTest = [
             AllTimeAllAppsPayment.self
         ]
-        for p in paymentsToTest{
+        for _ in paymentsToTest{
 //            AppCenter.charge.pay(for: p, skipTransaction: true)
         }
 #endif
@@ -68,6 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         spotlightSearchAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
         return false
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+
+        let handledFBSDK = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return handledFBSDK
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -86,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

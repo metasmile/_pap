@@ -28,6 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>pap</string>
+				<string>fb443161082811578</string>
 			</array>
 		</dict>
 	</array>
@@ -51,6 +52,11 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fbapi</string>
+		<string>fbapi20150629</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 		<string>comgooglemaps-x-callback</string>
 		<string>comgooglemaps</string>
 		<string>comgooglemapsurl</string>
@@ -130,5 +136,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>443161082811578</string>
+	<key>FacebookDisplayName</key>
+	<string>Photo Apps</string>
 </dict>
 </plist>

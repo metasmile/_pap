@@ -38,12 +38,16 @@ struct papStrings {
             return "https://get.apps.photo"
         }
 
+        static var urlWithoutScheme: String{
+            return "https://get.apps.photo"
+        }
+
         static var urlFirst: String{
-            return "%@ Download now for FREE!".localizedFormatted(url)
+            return "%@ Download now for FREE!".localizedFormatted(urlWithoutScheme)
         }
 
         static var messageFirst: String{
-            return "Download now for FREE at %@".localizedFormatted(url)
+            return "Download now for FREE at %@".localizedFormatted(urlWithoutScheme)
         }
     }
 
@@ -99,11 +103,18 @@ struct papStrings {
         }
 
         static var messageFirstShort: String{
-            return "\(nameTitle): \(download.messageFirst)"
+            return "\(nameTitle)\n\(download.messageFirst)"
         }
 
         static var messageFirst: String{
-            return "\(nameTitle): \(tagline) \(download.messageFirst)"
+            return "\(nameTitle)\n\(tagline) \(download.messageFirst)"
+        }
+
+        static var hashTags: [String]{
+            return [
+                "#PhotoApps",
+                "#GetPhotoApps"
+            ]
         }
     }
 }

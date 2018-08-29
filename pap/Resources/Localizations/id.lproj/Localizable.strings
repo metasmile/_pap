@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Pengaturan untuk Akses Aplikasi Gratis";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Pengaturan";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Bagikan aplikasi ini";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Bagikan";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Berbagi di Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */

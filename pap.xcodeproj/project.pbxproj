@@ -127,6 +127,7 @@
 		4F71D6AFB78F59B14C11DAEB /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6262EC75C4CC6E4BDB4 /* UITableViewCells.swift */; };
 		4F71D6B8B6B9C21F6BB43A57 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D44BB7D2917E81856D0A /* PreviewView.xib */; };
 		4F71D6F706B03B7D0A69F404 /* Converter.Mov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDE9A9CE37F16E753B80 /* Converter.Mov.swift */; };
+		4F71D7043691EB8617B9E6D9 /* Shop.Payables.FreeCharge.Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D06D1CC3CEADF38F086A /* Shop.Payables.FreeCharge.Facebook.swift */; };
 		4F71D7183DFB117A969BE78E /* FirebaseMLVision.VisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D660E9D0D9F31FE22592 /* FirebaseMLVision.VisionText.swift */; };
 		4F71D7188829B440276F4A55 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D57DA15E2931006D080E /* Selectable.swift */; };
 		4F71D7260F2A027807AA1A3B /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19E3BDD7D8E7927412E /* PhotoPickerDetailViewController.swift */; };
@@ -221,6 +222,7 @@
 		4F71DC9F7775B12598E39F35 /* CodeKit.AVAssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB44F9359202952BB3D3 /* CodeKit.AVAssetExportSession.swift */; };
 		4F71DCBDD5BF113EECDBC448 /* AppDockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7D5C4AEA9D67FB0FFFD /* AppDockView.swift */; };
 		4F71DCC84F86371629383638 /* ExifGhost.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC82553239CE9C10FA36 /* ExifGhost.AppDockContent.swift */; };
+		4F71DCDD116D35E4B9774AB4 /* FBSharePaymentShareTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */; };
 		4F71DCE64C6D9C7248A5B47F /* Converter.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D901FA7E5CD05A976B67 /* Converter.LivePhoto.swift */; };
 		4F71DCFA3845A8CF3195E882 /* Converter.Png.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAF79F3B9E82509B651C /* Converter.Png.swift */; };
 		4F71DD1A80D5A9A8E7DAB4B7 /* Converter.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C64A2CCB9FC98CFF2D /* Converter.BApp.swift */; };
@@ -355,6 +357,7 @@
 		4F71D01EF7502A9D743D888D /* CodeKit.SKProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.SKProduct.swift; sourceTree = "<group>"; };
 		4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditorViewControllerDelegatable.swift; sourceTree = "<group>"; };
 		4F71D05C5F9729D98015C194 /* FileIO.UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.UTI.swift; sourceTree = "<group>"; };
+		4F71D06D1CC3CEADF38F086A /* Shop.Payables.FreeCharge.Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.FreeCharge.Facebook.swift; sourceTree = "<group>"; };
 		4F71D077D3D83619681446DA /* PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHImageManager.swift; sourceTree = "<group>"; };
 		4F71D07F06651FC2637771BB /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.App.Tests.swift; sourceTree = "<group>"; };
@@ -603,6 +606,7 @@
 		4F71DE9D04DED27BEE2E8E60 /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DEA308D9B38286F2EC8F /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
 		4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBSharePaymentShareTitle.png; sourceTree = "<group>"; };
 		4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DECC1D4250520B24DDE3 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
 		4F71DEF14527034010D8943D /* App.Preheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Preheatable.swift; sourceTree = "<group>"; };
@@ -1030,6 +1034,8 @@
 				4F71D62136217015E31AA803 /* Shop.Payables.FreeCharge.YouApp.swift */,
 				4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */,
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
+				4F71D06D1CC3CEADF38F086A /* Shop.Payables.FreeCharge.Facebook.swift */,
+				4F71D940EF929E8304EC9050 /* Shop.Spp.StaticAssets */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -1241,6 +1247,14 @@
 				4F71DD97E45E61FD6DE7D15A /* Loggable.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		4F71D940EF929E8304EC9050 /* Shop.Spp.StaticAssets */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */,
+			);
+			path = Shop.Spp.StaticAssets;
 			sourceTree = "<group>";
 		};
 		4F71D9B81A2E58D3C6BDEE99 /* CodeKit.UITableView */ = {
@@ -2052,6 +2066,7 @@
 				4F71D0DDBDE1464AF55CCCA9 /* PhoneCalls.BApp.Assets.xcassets in Resources */,
 				4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */,
 				4F71DF9085AE27ED0953C7B7 /* Camera.SApp.Assets.xcassets in Resources */,
+				4F71DCDD116D35E4B9774AB4 /* FBSharePaymentShareTitle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2185,7 +2200,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -2202,7 +2220,10 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -2229,7 +2250,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pap/Pods-pap-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -2246,7 +2270,10 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -2501,6 +2528,7 @@
 				4F71DF36390CB1F5CDDC287B /* BApp.Chargeable.DefaultLocalCharge.swift in Sources */,
 				4F71D8CF0E55B5F5514525EB /* Charge.Types.Trialable.swift in Sources */,
 				4F71D91F046985261E794AFB /* pap.TimerInterval.swift in Sources */,
+				4F71D7043691EB8617B9E6D9 /* Shop.Payables.FreeCharge.Facebook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Ücretsiz Uygulama Erişimi için Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ayarlar";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Bu uygulamayı paylaş";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Facebook'ta paylaşma";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Benzerlik";
 /* Generated from genl10n: GIFMaker.BApp.swift */

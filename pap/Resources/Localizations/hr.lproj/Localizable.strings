@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Postavke za pristup besplatnim aplikacijama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "postavke";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Dijeljenje na Facebooku";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */

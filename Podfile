@@ -20,7 +20,10 @@ target 'pap' do
 
   # com.stells.pap.shop
   # pod 'Eureka'
-  pod 'Firebase/AdMob'
+  pod 'Firebase/AdMob', inhibit_warnings: true
+  pod 'FBSDKCoreKit', inhibit_warnings: true
+  pod 'FBSDKShareKit', inhibit_warnings: true
+
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
   # com.stells.pap.pdfactory

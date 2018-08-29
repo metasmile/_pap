@@ -278,7 +278,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
-                    PayItem(payable: SocialSharePayment.self),
+                    PayItem(payable: FBSharePayment.self),
 //                    PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
                     PayItem(payable: URLVisitingPayment<URLVisitingTypeSocialPage>.self)
                 ]

@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Ingyenes alkalmazások elérésének beállításai";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Beállítások";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Oszd meg ezt az alkalmazást";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Ossza meg";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Megosztás a Facebookon";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: GIFMaker.BApp.swift */

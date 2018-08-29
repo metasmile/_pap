@@ -237,7 +237,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 //STEP 2 - find text 
                 
                 let image = renderer.snapshot(atTime: frame.timestamp, with: previewSize, antialiasingMode: .none)
-                guard let result = self.detector.detectResult(image: image, AsyncSignal()) else { return }
+                guard let _ = self.detector.detectResult(image: image, AsyncSignal()) else { return }
                 
                 //STEP 3 - merge text with rect
                 

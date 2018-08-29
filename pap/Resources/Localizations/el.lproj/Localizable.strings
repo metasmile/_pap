@@ -494,10 +494,10 @@
 "Settings for Free Apps Access" = "Ρυθμίσεις για την πρόσβαση σε δωρεάν εφαρμογές";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ρυθμίσεις";
-/* Generated from genl10n: AppCenter.Charge.swift#20 */
-"Share This App" = "Share This App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Κοινή χρήση στο Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
