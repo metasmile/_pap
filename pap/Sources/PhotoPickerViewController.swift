@@ -150,8 +150,7 @@ class PhotoPickerViewController: AppDockViewController {
                     self.loadPhotoLibraryInCurrentCollection()
                 }
                 else {
-                    self.navigationItem.hidesBackButton = true
-                    self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "⚠️", style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
+                    self.updateNavigationLeftBarButton()
                 }
             }
         }
@@ -481,12 +480,22 @@ class PhotoPickerViewController: AppDockViewController {
                 appDockView?.accessory = batchPreviewView
             }
         }else {
-            navigationItem.setLeftBarButton(nil, animated: true)
+            updateNavigationLeftBarButton()
 
             if appDockView?.accessory != nil {
                 appDockView?.accessory = nil
                 batchPreviewView.reloadContent()
             }
+        }
+    }
+    
+    private func updateNavigationLeftBarButton() {
+        if PHPhotoLibrary.authorizationStatus() == .authorized {
+            navigationItem.setLeftBarButton(nil, animated: true)
+        }
+        else {
+            navigationItem.hidesBackButton = true
+            navigationItem.setLeftBarButton(UIBarButtonItem(title: "⚠️", style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
         }
     }
 
