@@ -187,16 +187,19 @@ class PreviewView: CustomView, AppDockContentTransition {
     public func setPreviewLayout(with height: CGFloat) {
         let needsToLayout = collectionViewHeightLayout.constant != height
         
-        let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
+        var targetLocation = collectionView.convert(transitionBeginLocation, from: self)
+        targetLocation.y = collectionView.bounds.height / 2
+        
+        let targetIndexPath = collectionView.indexPathForItem(at: targetLocation) ?? IndexPath(item: transitionBeginLocation.x > collectionView.contentSize.width / 2 ? appAssetsSelected.count - 1 : 0, section: 0)
         
         collectionViewHeightLayout.constant = height
         (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
-        if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
+        if appAssetsSelected.count > 0 {
             if needsToLayout {
                 collectionView.layoutIfNeeded()
             }
-            scrollToNeareastItem(at: indexPath, animated: false)
+            scrollToNeareastItem(at: targetIndexPath, animated: false)
         }
     }
 }
