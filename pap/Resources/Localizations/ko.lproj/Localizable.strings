@@ -77,7 +77,7 @@
 /*com.stells.pap.photosfilter*/
 "Apply" = "적용";
 /*com.stells.pap.revert*/
-"Revert" = "복원";
+"Revert" = "되돌리기";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "되 돌리는 중 ...";
 /*Translated from: Reverting Photos...*/
@@ -427,11 +427,11 @@
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "프로세싱 중";
 /* Generated from genl10n: Shop.SApp.swift#246 */
-"Purchase Management" = "구매 관리";
+"Purchase Management" = "구입 관리";
 /* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "모든 앱 액세스 구매";
+"Purchase of All Apps Access" = "모든 앱 액세스 구입";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
-"Purchase" = "매수";
+"Purchase" = "구입";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "품질";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
