@@ -26,10 +26,15 @@ private enum FBSharePublicKeys:String{
 }
 
 protocol FBShareType {
+    static var dialog:FBSDKSharingDialog.Type {get}
     static func makeShareContent() -> FBSDKSharingContent
 }
 
 struct FBShareTypeDownloadUrl: FBShareType {
+    static var dialog: FBSDKSharingDialog.Type {
+        return FBSDKShareDialog.self
+    }
+
     static func makeShareContent() -> FBSDKSharingContent{
 
         //photo
@@ -54,28 +59,37 @@ struct FBShareTypeDownloadUrl: FBShareType {
     }
 }
 
-struct FBShareTypeDownloadMessage: FBShareType {
+struct FBShareTypeDownloadMessager: FBShareType {
+    static var dialog: FBSDKSharingDialog.Type{
+        return FBSDKMessageDialog.self
+    }
+
     static func makeShareContent() -> FBSDKSharingContent{
+        return FBShareTypeDownloadUrl.makeShareContent()
 
-        //photo
-//        let content = FBSDKShareMediaContent()
-//        //TODO: fetch from remote.
-//        content.media = [SLComposeViewController
-//            FBSDKSharePhoto(image: R.image.fbSharePaymentShareTitle()!, userGenerated: true)
-//        ]
+//        let actionButton = FBSDKShareMessengerURLActionButton()
+//        actionButton.title = "Free Download".localized
+//        actionButton.url = papStrings.download.url.asURL
+//        actionButton.fallbackURL = URLOpenTypeSocialPage.webUrl
+//
+//        let content = FBSDKShareMessengerGenericTemplateContent()
+//
+    //FIXME: unable to share error
+//        let e = FBSDKShareMessengerGenericTemplateElement()
+//        e.title = papStrings.nameTitle
+//        e.subtitle = papStrings.tagline
+//        e.imageURL = "https://postfoc.us/assets/images/title_og_1605.png".asURL
+//        e.defaultAction = actionButton
+//
+//        content.element = e
+//
+//        //Common
+//        content.contentURL = papStrings.download.url.asURL
+//        content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
+//        content.pageID = FBSharePublicKeys.pageId.rawValue
+//        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
 
-
-        //link
-        let content = FBSDKShareLinkContent()
-        content.quote = papStrings.share.messageFirst
-
-        //Common
-        content.contentURL = "https://get.apps.photo".asURL
-        content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
-        content.pageID = FBSharePublicKeys.pageId.rawValue
-        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
-
-        return content
+//        return content
     }
 }
 
@@ -132,15 +146,32 @@ class FBSharePayment<T:FBShareType>:NSObject, Payable, PropertyWatchable, FBSDKS
 
     static var isEnable: Bool {
         return autoreleasepool {
-            return FBSDKShareDialog().canShow()
+
+            if T.dialog is FBSDKShareDialog.Type{
+                return FBSDKShareDialog().canShow()
+            }
+
+            if T.dialog is FBSDKMessageDialog.Type{
+                return FBSDKMessageDialog().canShow()
+            }
+
+            return false
         }
     }
 
     func tryShare() -> Bool{
-        if let vc = UIViewController.presentable{
-            FBSDKShareDialog.show(from: vc, with: T.makeShareContent(), delegate: self)
+        if let dialog = T.dialog as? FBSDKShareDialog.Type{
+            if let vc = UIViewController.presentable{
+                dialog.show(from: vc, with: T.makeShareContent(), delegate: self)
+                return true
+            }
+        }
+
+        if let dialog = T.dialog as? FBSDKMessageDialog.Type{
+            dialog.show(with: T.makeShareContent(), delegate: self)
             return true
         }
+
         return false
     }
 

@@ -32,6 +32,10 @@ struct papStrings {
     static var tagline: String{
         return "An App, But Contains Many Photo Apps.".localized
     }
+    
+    static var nameTitleTagLine:String{
+        return "\(nameTitle): \(tagline)"
+    }    
 
     struct download{
         static var url: String{

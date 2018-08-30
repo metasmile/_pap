@@ -279,7 +279,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: FBSharePayment<FBShareTypeDownloadUrl>.self),
-                    PayItem(payable: FBSharePayment<FBShareTypeDownloadMessage>.self),
+                    PayItem(payable: FBSharePayment<FBShareTypeDownloadMessager>.self),
                     PayItem(payable: URLOpenPayment<URLOpenTypeSocialPage>.self)
                 ]
         )
