@@ -118,6 +118,8 @@
 "cs_keyword_12" = "友人";
 /*Translated from: lover*/
 "cs_keyword_13" = "恋人";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@アプリのアクセス";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@日";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@は非表示になります";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ /日";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@：単一のアプリケーションへのアクセス";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d回";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */

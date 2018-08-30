@@ -118,6 +118,8 @@
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
 "cs_keyword_13" = "연인";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@ 앱 액세스";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@이 (가) 숨겨집니다.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / 일";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@ : 단일 앱 액세스";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */

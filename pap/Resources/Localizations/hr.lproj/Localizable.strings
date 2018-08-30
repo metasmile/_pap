@@ -118,6 +118,8 @@
 "cs_keyword_12" = "prijatelj";
 /*Translated from: lover*/
 "cs_keyword_13" = "ljubavnik";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@ Pristup aplikaciji";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dan";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@ će biti skriven";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Dan";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@: Pristup jednim aplikacijama";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */

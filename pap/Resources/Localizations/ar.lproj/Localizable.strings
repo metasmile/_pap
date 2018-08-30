@@ -118,6 +118,8 @@
 "cs_keyword_12" = "صديق";
 /*Translated from: lover*/
 "cs_keyword_13" = "حبيب";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@ الوصول إلى التطبيق";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ اليوم";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@ سيكون مخفيًا";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / يوم";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@: الوصول إلى التطبيق الواحد";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d مرة";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */

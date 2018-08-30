@@ -118,6 +118,8 @@
 "cs_keyword_12" = "Friend";
 /*Translated from: lover*/
 "cs_keyword_13" = "Amoureux";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@ Accès aux applications";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Jour";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@ sera caché";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Jour";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@: Accès à une application unique";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d fois";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */

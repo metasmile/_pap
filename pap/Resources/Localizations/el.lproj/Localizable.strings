@@ -118,6 +118,8 @@
 "cs_keyword_12" = "φίλος";
 /*Translated from: lover*/
 "cs_keyword_13" = "εραστής";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@ App Access" = "%@ Πρόσβαση εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -128,8 +130,6 @@
 "%@ will be hidden" = "%@ θα είναι κρυμμένο";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Ημέρα";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@: Single App Access" = "%@: Πρόσβαση σε ενιαία εφαρμογή";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
