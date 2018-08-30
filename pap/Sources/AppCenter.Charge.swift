@@ -98,9 +98,16 @@ private final class AppChargeManager: ChargeManager{
             // Freecharge
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
-                    , payment: FBSharePayment.self
+                    , payment: FBSharePayment<FBShareTypeDownloadUrl>.self
                     , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .socialShare
+                    , reward: .timeOfUses
+                    , payment: FBSharePayment<FBShareTypeDownloadMessage>.self
+                    , priceAmount: AmountObject(value:0.3)
+                    , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
 //            , AppCharge(type: .feedback

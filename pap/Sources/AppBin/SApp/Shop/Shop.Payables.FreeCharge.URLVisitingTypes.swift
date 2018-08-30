@@ -18,7 +18,7 @@ extension URLVisitingType{
 }
 
 struct URLVisitingTypeSocialPage: URLVisitingType {
-    static var url: URL?{ return papStrings.social.url.asURL }
+    static var url: URL?{ return "https://twitter.com/AppsForPhotos".asURL/*papStrings.social.url.asURL*/ }
 }
 
 struct URLVisitingTypeUserCommunity: URLVisitingType {

@@ -257,7 +257,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "Purchase of All Apps Access".localized
-                , detailedLabel: "Current Prices Are Including New Apps and Updates and Could Subject To Increase.".localized
+                , detailedLabel: "Prices Are Including New Apps or Updates.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
@@ -278,8 +278,8 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
-                    PayItem(payable: FBSharePayment.self),
-//                    PayItem(payable: MailContactPayment<MailContactFeedbackType>.self),
+                    PayItem(payable: FBSharePayment<FBShareTypeDownloadUrl>.self),
+                    PayItem(payable: FBSharePayment<FBShareTypeDownloadMessage>.self),
                     PayItem(payable: URLVisitingPayment<URLVisitingTypeSocialPage>.self)
                 ]
         )
@@ -578,6 +578,19 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             }
         }
         contactCellDescribers.append(c1)
+
+        let c123 = UITableViewButtonCellDescriber()
+        c123.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
+        c123.label = "Share This App".localized
+        c123.buttonTitle = "Share".localized
+        c123.iconImage = R.image.commonCellIconShare()
+        c0.iconImageTintColor = self.view.tintColor
+        c123.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = SocialSharePayment.self.init().pay(AsyncSignal())
+            }
+        }
+        contactCellDescribers.append(c123)
 
         let c2 = UITableViewButtonCellDescriber()
         c2.itemIdentifier = CellDescriber.Key.support.hashValue

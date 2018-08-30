@@ -17,35 +17,76 @@ private enum FBSharePaymentStatus:Int{
     case succeed
 }
 
-class FBSharePayment:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
+private enum FBSharePublicKeys:String{
+    case pageId = "616758765335887"
+    case appId = "443161082811578"
 
-    @objc dynamic
-    private var status:Int = FBSharePaymentStatus.initial.rawValue
+    case ogType = "pap:share"
+    case ogActionType = "pap:fbsharepayment"
+}
 
-    override required init() {
-        super.init()
+protocol FBShareType {
+    static func makeShareContent() -> FBSDKSharingContent
+}
+
+struct FBShareTypeDownloadUrl: FBShareType {
+    static func makeShareContent() -> FBSDKSharingContent{
+
+        //photo
+//        let content = FBSDKShareMediaContent()
+//        //TODO: fetch from remote.
+//        content.media = [SLComposeViewController
+//            FBSDKSharePhoto(image: R.image.fbSharePaymentShareTitle()!, userGenerated: true)
+//        ]
+
+
+        //link
+        let content = FBSDKShareLinkContent()
+        content.quote = papStrings.share.messageFirst
+
+        //Common
+        content.contentURL = "https://get.apps.photo".asURL
+        content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
+        content.pageID = FBSharePublicKeys.pageId.rawValue
+        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
+
+        return content
     }
+}
 
-    static var action:PayableAction{
-        return PayableAction(title: "Share".localized)
+struct FBShareTypeDownloadMessage: FBShareType {
+    static func makeShareContent() -> FBSDKSharingContent{
+
+        //photo
+//        let content = FBSDKShareMediaContent()
+//        //TODO: fetch from remote.
+//        content.media = [SLComposeViewController
+//            FBSDKSharePhoto(image: R.image.fbSharePaymentShareTitle()!, userGenerated: true)
+//        ]
+
+
+        //link
+        let content = FBSDKShareLinkContent()
+        content.quote = papStrings.share.messageFirst
+
+        //Common
+        content.contentURL = "https://get.apps.photo".asURL
+        content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
+        content.pageID = FBSharePublicKeys.pageId.rawValue
+        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
+
+        return content
     }
+}
 
-    static var isEnable: Bool {
-        return autoreleasepool {
-            return FBSDKShareDialog().canShow()
-        }
-    }
-
-    //https://findmyfbid.com/
-    private let FB_PAGE_ID = "616758765335887"
-
-//    private let FB_APP_ID = "443161082811578"
+struct FBShareTypeOpenGraph /*: FBShareType*/{
+    //    private let FB_APP_ID = "443161082811578"
 //    private let FB_APP_OG_ACTION_TYPE = "pap:fbsharepayment"
 //    private let FB_APP_OG_TYPE = "pap:share"
 //
 //    //TODO: retain permmission : https://developers.facebook.com/apps/443161082811578/dashboard/
 //
-//    func makeOGPhotoContent() -> FBSDKSharingContent {
+//    static func makeOGPhotoContent() -> FBSDKSharingContent {
 //        //TODO: fetch from remote.
 //        let photo = FBSDKSharePhoto(image: R.image.shopSAppIcon()!, userGenerated: false)!
 //
@@ -73,47 +114,43 @@ class FBSharePayment:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
 //
 //        return ogContent
 //    }
-    
-    func makeShareContent() -> FBSDKSharingContent{
-
-        //photo
-//        let content = FBSDKShareMediaContent()
-//        //TODO: fetch from remote.
-//        content.media = [SLComposeViewController
-//            FBSDKSharePhoto(image: R.image.fbSharePaymentShareTitle()!, userGenerated: true)
-//        ]
+}
 
 
-    //link
-        let content = FBSDKShareLinkContent()
-        content.quote = papStrings.share.messageFirst
+class FBSharePayment<T:FBShareType>:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
 
-        //Common
-        content.contentURL = "https://get.apps.photo".asURL
-        content.peopleIDs = [FB_PAGE_ID]
-        content.pageID = FB_PAGE_ID
-        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
+    @objc dynamic
+    private var status:Int = FBSharePaymentStatus.initial.rawValue
 
-        return content
+    override required init() {
+        super.init()
     }
-    
+
+    static var action:PayableAction{
+        return PayableAction(title: "Share".localized)
+    }
+
+    static var isEnable: Bool {
+        return autoreleasepool {
+            return FBSDKShareDialog().canShow()
+        }
+    }
+
     func tryShare() -> Bool{
         if let vc = UIViewController.presentable{
-//            FBSDKShareDialog.show(from: vc, with: makeOGPhotoContent(), delegate: self)
-
-            FBSDKShareDialog.show(from: vc, with: makeShareContent(), delegate: self)
+            FBSDKShareDialog.show(from: vc, with: T.makeShareContent(), delegate: self)
             return true
         }
         return false
     }
-    
+
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
         var paid = false
         asyncSignal.begin()
 
         DispatchQueue.main.async {
-            
+
             if self.tryShare(){
                 self.watch(\.status) { (o,_) in
                     paid = o.status == FBSharePaymentStatus.succeed.rawValue
