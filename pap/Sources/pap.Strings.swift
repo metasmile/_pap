@@ -39,7 +39,7 @@ struct papStrings {
         }
 
         static var urlWithoutScheme: String{
-            return "https://get.apps.photo"
+            return "get.apps.photo"
         }
 
         static var urlFirst: String{

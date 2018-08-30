@@ -99,7 +99,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBSharePayment.self
-                    , priceAmount: AmountObject(value:0.3)
+                    , priceAmount: AmountObject(value:0.2)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
             )
 

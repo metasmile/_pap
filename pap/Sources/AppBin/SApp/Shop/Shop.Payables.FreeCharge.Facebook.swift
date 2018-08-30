@@ -36,52 +36,53 @@ class FBSharePayment:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
         }
     }
 
-    private let FB_APP_ID = "443161082811578"
-    private let FB_APP_OG_ACTION_TYPE = "pap:fbsharepayment"
-    private let FB_APP_OG_TYPE = "pap:share"
-
     //https://findmyfbid.com/
     private let FB_PAGE_ID = "616758765335887"
 
-    //TODO: retain permmission : https://developers.facebook.com/apps/443161082811578/dashboard/
-
-    func makeOGPhotoContent() -> FBSDKSharingContent {
-        //TODO: fetch from remote.
-        let photo = FBSDKSharePhoto(image: R.image.shopSAppIcon()!, userGenerated: false)!
-
-        let og = FBSDKShareOpenGraphObject(properties: [
-            "og:type": FB_APP_OG_TYPE,
-            "og:title": papStrings.nameTitle,
-            "og:url": papStrings.download.url,
-            "og:caption": papStrings.tagline,
-            "og:description": papStrings.share.messageFirst,
-            "fb:app_id": FB_APP_ID,
-            "article:author": papStrings.name,
-            "article:publisher": papStrings.name,
-            "fb:explicitly_shared": "true"
-        ])
-        
-        let ogAction = FBSDKShareOpenGraphAction()
-        ogAction.actionType = FB_APP_OG_ACTION_TYPE
-        ogAction.setArray([photo], forKey: "image")
-        ogAction.setObject(og, forKey: FB_APP_OG_TYPE)
-//        ogAction.setPhoto(photo, forKey: FBAPP_OG_TYPE)
-        
-        let ogContent = FBSDKShareOpenGraphContent()
-        ogContent.action = ogAction
-        ogContent.previewPropertyName = FB_APP_OG_TYPE
-        
-        return ogContent
-    }
+//    private let FB_APP_ID = "443161082811578"
+//    private let FB_APP_OG_ACTION_TYPE = "pap:fbsharepayment"
+//    private let FB_APP_OG_TYPE = "pap:share"
+//
+//    //TODO: retain permmission : https://developers.facebook.com/apps/443161082811578/dashboard/
+//
+//    func makeOGPhotoContent() -> FBSDKSharingContent {
+//        //TODO: fetch from remote.
+//        let photo = FBSDKSharePhoto(image: R.image.shopSAppIcon()!, userGenerated: false)!
+//
+//        let og = FBSDKShareOpenGraphObject(properties: [
+//            "og:type": FB_APP_OG_TYPE,
+//            "og:title": papStrings.nameTitle,
+//            "og:url": papStrings.download.url,
+//            "og:caption": papStrings.tagline,
+//            "og:description": papStrings.share.messageFirst,
+//            "fb:app_id": FB_APP_ID,
+//            "article:author": papStrings.name,
+//            "article:publisher": papStrings.name,
+//            "fb:explicitly_shared": "true"
+//        ])
+//
+//        let ogAction = FBSDKShareOpenGraphAction()
+//        ogAction.actionType = FB_APP_OG_ACTION_TYPE
+//        ogAction.setArray([photo], forKey: "image")
+//        ogAction.setObject(og, forKey: FB_APP_OG_TYPE)
+////        ogAction.setPhoto(photo, forKey: FBAPP_OG_TYPE)
+//
+//        let ogContent = FBSDKShareOpenGraphContent()
+//        ogContent.action = ogAction
+//        ogContent.previewPropertyName = FB_APP_OG_TYPE
+//
+//        return ogContent
+//    }
     
     func makeShareContent() -> FBSDKSharingContent{
 
         //photo
 //        let content = FBSDKShareMediaContent()
 //        //TODO: fetch from remote.
-//        content.media = [
+//        content.media = [SLComposeViewController
 //            FBSDKSharePhoto(image: R.image.fbSharePaymentShareTitle()!, userGenerated: true)
 //        ]
+
 
     //link
         let content = FBSDKShareLinkContent()
@@ -99,6 +100,7 @@ class FBSharePayment:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
     func tryShare() -> Bool{
         if let vc = UIViewController.presentable{
 //            FBSDKShareDialog.show(from: vc, with: makeOGPhotoContent(), delegate: self)
+
             FBSDKShareDialog.show(from: vc, with: makeShareContent(), delegate: self)
             return true
         }

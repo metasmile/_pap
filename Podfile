@@ -20,10 +20,12 @@ target 'pap' do
 
   # com.stells.pap.shop
   # pod 'Eureka'
+  # # Garbage Social/Ads Kits - Must Use In ShopApp Only.
   pod 'Firebase/AdMob', inhibit_warnings: true
   pod 'FBSDKCoreKit', inhibit_warnings: true
   pod 'FBSDKShareKit', inhibit_warnings: true
-
+  # pod 'TwitterKit', inhibit_warnings: true
+  # Store
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
   # com.stells.pap.pdfactory
