@@ -15,6 +15,11 @@ import UIKit
 import SafariServices
 import StoreKit
 
+extension AppLaunchOptionsKey {
+    //value type: App.Type
+    static let ShopAppCallerAppType = AppLaunchOptionsKey(rawValue:#file.hashValue)
+}
+
 public class ShopApp: NSObject
         , PropertyWatchable
         , SApp
@@ -57,7 +62,7 @@ public class ShopApp: NSObject
     }
 
     var sourceAppType:App.Type?{
-        return self.launchedOption?.options?[.SourceAppType] as? App.Type
+        return self.launchedOption?.options?[.ShopAppCallerAppType] as? App.Type
     }
     
     public private(set) static var fixedContentLayout: Bool = true

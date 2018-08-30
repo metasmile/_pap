@@ -83,6 +83,7 @@ open class AppManager: NSObject, SelectableCollection {
     public func setCurrent(current:App.Type, with launchOption: AppLaunchOptions){
         self.currentLaunchOption = launchOption
         self.current = current
+        self.currentLaunchOption = nil
     }
 
     public var current: App.Type?

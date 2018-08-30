@@ -177,8 +177,16 @@ extension PhotoPickerViewController{
     }
 
     private func openShopApp(){
+        guard let currentApp = AppCenter.default.current else {
+            return
+        }
+
         var option = AppLaunchOptions()
-        option.identifierToReturn = AppCenter.default.current?.info.identifier
+        option.identifierToReturn = currentApp.info.identifier
+
+        var options = [AppLaunchOptionsKey:Any]()
+        options[.ShopAppCallerAppType] = currentApp
+        option.options = options
 
         if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
             papLog.charge.opened()
