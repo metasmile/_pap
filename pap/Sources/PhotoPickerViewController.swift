@@ -493,7 +493,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
         else {
             navigationItem.hidesBackButton = true
-            navigationItem.setLeftBarButton(UIBarButtonItem(title: "⚠️", style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
+            navigationItem.setLeftBarButton(UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
         }
     }
 
