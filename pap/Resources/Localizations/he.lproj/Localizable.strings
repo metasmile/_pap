@@ -160,8 +160,6 @@
 "Add an Event" = "הוסף אירוע";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "כתובת";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "אחרי שאתה מעורב חינם Apps מסעות פרסום, יחס מלא יוצג.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "אלבומים";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "חתוך לפיט";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "יְבוּל";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "המחירים הנוכחיים כוללים יישומים חדשים ועדכונים יכול להיות כפוף להגדלה.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "נכון לעכשיו, מודל זיהוי הטקסט AI שלנו זמין רק עבור אלפאנומריים וכמה תווים מיוחדים.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "גישה חופשית Apps";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "שימוש חינם ב- Apps של %@ יום";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "הורדה חינמית";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "שימוש חינם ב- %@ יום, הזדמנות רשיון VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "קלט כאן";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "זה מציג יחס של תקופות גישה חינם App חינם.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "זה לא יכול להיות מאוחסן.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "מכין";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "המחירים כוללים יישומים חדשים או עדכונים.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "פְּרָטִיוּת";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "הגדרות עבור גישה חופשית Apps";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "הגדרות";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "שתף את זה App";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "שיתוף בפייסבוק";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "שיתוף ב- Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "דִמיוֹן";
 /* Generated from genl10n: GIFMaker.BApp.swift */

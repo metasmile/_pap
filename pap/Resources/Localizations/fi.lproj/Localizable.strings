@@ -160,8 +160,6 @@
 "Add an Event" = "Lisää tapahtuma";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Osoite";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "Kun olet sitoutunut ilmaisia ​​sovelluskampanjoita, täytetty suhde tulee näkyviin.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albumit";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "Rajaa sopivaksi";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Nykyiset hinnat sisältävät uusia sovelluksia ja päivityksiä ja ne saattavat kasvaa.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Tällä hetkellä AI-tekstintunnistusmallimme on käytettävissä vain aakkosnumeerisille ja tietyille erikoismerkille.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "Vapaa sovellusten käyttöoikeus";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Ilmainen sovellus %@ päivä";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "Ilmainen lataus";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Ilmainen käyttö %@ päivä, VIP-lisenssimahdollisuus";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "Tuonti";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Syötä tähän";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Se näyttää jäljellä olevien ilmaisten sovellusten käyttöjaksojen suhteen.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Sitä ei voitu tallentaa.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "Valmistellaan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "esiasetukset";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Hinnat sisältävät uusia sovelluksia tai päivityksiä.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "yksityisyys";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "Vapaa sovellusten käyttöoikeudet";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "asetukset";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Sharing on Facebook";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "Jakaminen Messenger-palvelussa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */

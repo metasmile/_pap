@@ -160,8 +160,6 @@
 "Add an Event" = "Esemény hozzáadása";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Cím";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "Miután bekapcsolódott a szabad alkalmazások kampányai, megjelenik a kitöltett arány.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumok";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "Vágás a fithez";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "A jelenlegi árak magukban foglalják az új alkalmazásokat és frissítéseket, és a növekedéshez is tartozhatnak.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Jelenleg az AI szövegfelismerési modellünk csak az Alfanumerikus és néhány speciális karakter számára elérhető.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "Ingyenes alkalmazások elérése";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Ingyenes alkalmazások a %@ nap használatához";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "Ingyenes letöltés";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Ingyenes %@ nap, VIP licensz lehetőség";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Bemenet itt";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Megjeleníti a fennmaradó ingyenes hozzáférési periódusok arányát.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nem lehetett tárolni.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "Felkészülés";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Az árak tartalmazzák az új alkalmazásokat vagy frissítéseket.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Magánélet";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "Ingyenes alkalmazások elérésének beállításai";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Beállítások";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Oszd meg ezt az alkalmazást";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Ossza meg";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Megosztás a Facebookon";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "Megosztás a Messengerben";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: GIFMaker.BApp.swift */

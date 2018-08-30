@@ -160,8 +160,6 @@
 "Add an Event" = "เพิ่มเหตุการณ์";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ที่อยู่";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "หลังจากที่คุณสมัครแคมเปญแอปฟรีจะมีการแสดงอัตราส่วนที่เต็มไปด้วย";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "ราคาปัจจุบันรวมแอปพลิเคชันและการอัปเดตใหม่ ๆ และอาจมีการเพิ่มขึ้น";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้สำหรับตัวอักษรและตัวเลขเท่านั้นและอักขระพิเศษบางตัว";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "การเข้าถึงแอปฟรี";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "ใช้ฟรีของ %@ วัน";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "ดาวน์โหลดฟรี";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "ใช้ฟรี %@ วันโอกาสในการให้สิทธิ์วีไอพี";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "นำเข้า";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "ใส่ที่นี่";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "แสดงอัตราส่วนของระยะเวลาการเข้าถึงแอปฟรีที่เหลืออยู่";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "ไม่สามารถจัดเก็บได้";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "การจัดเตรียม";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ค่าที่ตั้งไว้";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "ราคารวม Apps ใหม่หรือการปรับปรุง";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "การตั้งค่าสำหรับการเข้าถึงแอปฟรี";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "การตั้งค่า";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "แชร์แอปนี้";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "แบ่งปันบน Facebook";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "การแบ่งปันใน Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */

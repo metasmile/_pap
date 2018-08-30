@@ -160,8 +160,6 @@
 "Add an Event" = "Thêm sự kiện";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Địa chỉ nhà";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "Sau khi bạn tham gia Chiến dịch ứng dụng miễn phí, tỷ lệ đầy sẽ được hiển thị.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "Cắt để phù hợp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Giá hiện tại bao gồm các ứng dụng và cập nhật mới và có thể tăng lên.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "Quyền truy cập ứng dụng miễn phí";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Sử dụng ứng dụng miễn phí %@ ngày";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "Tải xuống miễn phí";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Sử dụng miễn phí %@ Cơ hội cấp phép ngày, VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "Nhập";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Nhập vào đây";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Nó hiển thị một tỷ lệ thời gian truy cập ứng dụng miễn phí còn lại.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nó không thể được lưu trữ.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "Đang chuẩn bị";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Giá đang bao gồm các ứng dụng hoặc bản cập nhật mới.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Riêng tư";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "Cài đặt cho quyền truy cập miễn phí ứng dụng";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Cài đặt";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Chia sẻ trên Facebook";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "Chia sẻ trên Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: GIFMaker.BApp.swift */

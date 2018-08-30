@@ -160,8 +160,6 @@
 "Add an Event" = "Dodaj wydarzenie";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adres";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "Po uruchomieniu bezpłatnych kampanii w aplikacjach wyświetli się wypełniony współczynnik.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumy";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Aktualne ceny zawierają nowe aplikacje i aktualizacje i mogą ulec zwiększeniu.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Obecnie nasz model rozpoznawania tekstu AI jest dostępny tylko dla alfanumerycznych i niektórych znaków specjalnych.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "Darmowy dostęp do aplikacji";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Darmowe aplikacje Wykorzystanie %@ dnia";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "Darmowe pobieranie";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Bezpłatne korzystanie z %@ dnia, okazji licencji VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Tutaj wprowadź";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Wyświetla stosunek pozostałych wolnych okresów dostępu do aplikacji.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nie można go było zapisać.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "Przygotowanie";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Ceny zawierają nowe aplikacje lub aktualizacje.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Prywatność";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "Ustawienia bezpłatnego dostępu do aplikacji";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ustawienia";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Udostępnij tą aplikację";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Dzielić";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Udostępnianie na Facebooku";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "Udostępnianie w programie Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobieństwo";
 /* Generated from genl10n: GIFMaker.BApp.swift */

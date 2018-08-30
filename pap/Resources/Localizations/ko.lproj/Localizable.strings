@@ -160,8 +160,6 @@
 "Add an Event" = "이벤트 추가";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "주소";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "무료 앱 캠페인 참여 후 채워진 비율이 표시됩니다.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "앨범";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "자르기";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop" = "자르기";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "현재 가격은 새로운 앱 및 업데이트를 포함하며 증가 할 수 있습니다.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "현재 AI 텍스트 인식 모델은 영숫자 및 일부 특수 문자에만 사용할 수 있습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "무료 앱 액세스";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "무료 앱 %@ 일 사용";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "무료 다운로드";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "무료 사용 %@ VIP 라이센스 기회";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "가져오기";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "여기에 입력";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "남은 무료 앱 액세스 시간 비율을 표시합니다.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "저장할 수 없습니다.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "준비 중";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "프리셋";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "가격에는 새로운 앱이나 업데이트가 포함됩니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "프라이버시";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "무료 앱 액세스 설정";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "설정";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "이 앱 공유";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "페이스 북에서 공유하기";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "메신저에서 공유하기";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -160,8 +160,6 @@
 "Add an Event" = "Etkinlik ekle";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adres";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"After You Engaged Free Apps Campaigns, Filled Ratio Will Be Displayed." = "Ücretsiz Uygulamalar Kampanyaları Yaptıktan Sonra, Dolgulu Oran Gösterilecek.";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albümler";
 /* Generated from genl10n: Finder.BApp.swift#215 */
@@ -240,8 +238,6 @@
 "Crop to Fit" = "Sığacak şekilde kırp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Mevcut Fiyatlar Yeni Uygulamalar ve Güncellemeler İçermektedir ve Artışa Konu Olabilir.";
 /* Generated from genl10n: Finder.BApp.swift#1245 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Şu anda bizim AI metin tanıma modelimiz sadece Alfanümerik ve bazı özel karakterler için kullanılabilir.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
@@ -300,6 +296,8 @@
 "Free Apps Access" = "Ücretsiz Uygulama Erişimi";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Ücretsiz Uygulamalar %@ Gününün Kullanımı";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
+"Free Download" = "Ücretsiz indirin";
 /* Generated from genl10n: AppCenter.Charge.swift#140 */
 "Free Use %@ Day, VIP License Opportunity" = "Ücretsiz Kullanım %@ Günü, VIP Lisansı Fırsatı";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -332,6 +330,8 @@
 "Import" = "İthalat";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Buradan Girin";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Kalan Ücretsiz Uygulama Erişimi Dönemlerinin Bir Oranını Gösterir.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Depolanamadı.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
@@ -422,6 +422,8 @@
 "Preparing" = "hazırlama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Hazır ayarlar";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Fiyatlar Yeni Uygulamalar veya Güncellemeler İçeriyor.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Gizlilik";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -494,10 +496,14 @@
 "Settings for Free Apps Access" = "Ücretsiz Uygulama Erişimi için Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ayarlar";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Bu uygulamayı paylaş";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Facebook'ta paylaşma";
+/* Generated from genl10n: AppCenter.Charge.swift#110 */
+"Sharing on Messenger" = "Messenger'da Paylaşma";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Benzerlik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
