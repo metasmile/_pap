@@ -256,6 +256,8 @@
 "Display Remaining Level" = "Показати залишковий рівень";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "Відображення залишкового відсотка.";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Робити все з фотографіями.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "Доступ до безкоштовних програм";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Безкоштовні програми Використовуйте %@ День";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "Безкоштовне завантаження";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "Безкоштовне користування %@ днем, VIP-ліцензія";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Безкоштовне користування та всі нові оновлення";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Елементи";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "Приєднатися до програми %@";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "Приєднатися";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "Немає петлі";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режимі очікування";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "Використання постійних безкоштовних програм";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Постійне використання всіх програм і нових";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "Постійне використання всіх безкоштовних програм";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Відкрийте Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Виберіть фотографії, які потрібно захопити по телефону!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Вибрано";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "Надішліть нам відгук";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "Щорічний повний доступ";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Ви можете вибрати лише фотографії або відео, які відповідають початковому формату.";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "Ваша ідея, Ваш додаток";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Ваш код недійсний. Будь ласка спробуйте ще раз.";

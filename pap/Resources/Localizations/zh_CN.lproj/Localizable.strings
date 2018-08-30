@@ -256,6 +256,8 @@
 "Display Remaining Level" = "显示剩余级别";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "显示剩余百分比。";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "用照片做一切。";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "立即免费下载%@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "免费应用访问";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "免费应用使用%@天";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "免费下载";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "免费使用%@天，VIP许可机会";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "免费使用和所有新更新";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "项目";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "加入%@计划";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "加入";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "没有循环";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "随时待命";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "正在进行的免费应用程序使用";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "正在使用所有应用程序和新的";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "正在使用所有免费应用程序";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "打开Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "选择您想要获取电话号码的照片！";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "选";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "向我们发送反馈";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "发送电子邮件";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "每年完全访问";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能选择与起始格式匹配的照片或视频。";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "你的想法，你的应用程序";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "您的代码无效。请再试一次。";

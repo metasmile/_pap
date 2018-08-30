@@ -22,7 +22,7 @@ struct papStrings {
     }
 
     static var title: String{
-        return "Do Anything for Every Photo."
+        return "Do Everything With Photos.".localized
     }
 
     static var nameTitle:String{

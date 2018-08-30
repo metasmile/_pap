@@ -256,6 +256,8 @@
 "Display Remaining Level" = "Geeft het resterende niveau weer";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "Geef het resterende percentage weer.";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Alles doen met foto's.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS op %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "Gratis toegang tot apps";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Gratis apps Gebruik van %@ Dag";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "Gratis download";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "Gratis gebruik %@ Day, VIP Licence Opportunity";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Gratis gebruik en alle nieuwe updates";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "Doe mee met %@ Programma";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "toetreden";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "Geen lus";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Op standby";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "Doorlopend gebruik van gratis apps";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Doorlopend gebruik van alle apps en nieuw";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "Doorlopend gebruik van alle gratis apps";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Selecteer Foto's die u wilt gebruiken Telefoonnummers!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Gekozen";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "Stuur ons feedback";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Stuur een email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "Jaarlijkse volledige toegang";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "Je idee, je app";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Uw code is ongeldig Probeer het opnieuw.";

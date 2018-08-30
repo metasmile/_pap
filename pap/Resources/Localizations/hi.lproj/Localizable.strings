@@ -256,6 +256,8 @@
 "Display Remaining Level" = "शेष स्तर प्रदर्शित करें";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "शेष प्रतिशत प्रदर्शित करें।";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "तस्वीरें के साथ सब कुछ करो।";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "निशुल्क ऐप्स एक्सेस";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "%@ दिन का निःशुल्क ऐप्स उपयोग";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "मुफ्त डाउनलोड";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "मुफ्त उपयोग %@ दिन, वीआईपी लाइसेंस अवसर";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "नि: शुल्क उपयोग और सभी नए अपडेट";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "इसे आपके संपर्कों तक पहुंचने की अनुमति की आवश्यकता है। कृपया आईओएस सेटिंग्स पर संपर्कों की अनुमति दें।";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "आइटम";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "%@ कार्यक्रम में शामिल हों";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "शामिल हों";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "स्टैंडबाय पर";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "चल रहे नि: शुल्क ऐप्स का उपयोग करें";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "सभी ऐप्स और नए का निरंतर उपयोग";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "सभी मुफ्त ऐप्स का निरंतर उपयोग";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "ऐप्पल मैप्स खोलें";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "उन फ़ोनों का चयन करें जिन्हें आप फोन नंबर प्राप्त करना चाहते हैं!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "चयनित";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "हमें फीडबैक भेजें";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "एक ईमेल भेजो";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "वार्षिक पूर्ण पहुंच";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "आप केवल फोटो या वीडियो का चयन कर सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "आपका विचार, आपका ऐप";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "आपका कोड अमान्य है। कृपया पुन: प्रयास करें।";

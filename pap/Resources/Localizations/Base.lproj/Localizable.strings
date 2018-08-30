@@ -220,6 +220,8 @@
 "Display Remaining Level" = "Display Remaining Level";
 /* Generated from genl10n: Shop.SApp.swift#548 */
 "Display Remaining Percentage." = "Display Remaining Percentage.";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Do Everything With Photos.";
 /* Generated from genl10n: pap.Strings.swift#54 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: PhotoPickerViewController.swift#874 */
@@ -262,10 +264,6 @@
 "Free Apps Access" = "Free Apps Access";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Free Apps Use of %@ Day" = "Free Apps Use of %@ Day";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "Free Download";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"Free Use %@ Day, VIP License Opportunity" = "Free Use %@ Day, VIP License Opportunity";
 /* Generated from genl10n: AppCenter.Charge.swift#379 */
 "Free Use And All New Updates" = "Free Use And All New Updates";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -306,8 +304,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift#1260 */
 "Items" = "Items";
-/* Generated from genl10n: AppCenter.Charge.swift#146 */
-"Join %@ Program" = "Join %@ Program";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#45, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "Join";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -348,10 +344,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#615, Finder.BApp.swift#1727, Cleaner.BApp.swift#889 */
 "On Standby" = "On Standby";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Free Apps Use" = "Ongoing Free Apps Use";
 /* Generated from genl10n: AppCenter.Charge.swift#170, AppCenter.Charge.swift#177 */
 "Ongoing Use of All Apps and New" = "Ongoing Use of All Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "Ongoing Use of All Free Apps";
 /* Generated from genl10n: Finder.BApp.swift#769 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#783 */
@@ -452,8 +448,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Select Photos You Want To Grab Phone Numbers!";
 /* Generated from genl10n: Cleaner.BApp.swift#564 */
 "Selected" = "Selected";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"Send Us Feedback" = "Send Us Feedback";
 /* Generated from genl10n: Finder.BApp.swift#644, Finder.BApp.swift#655, Finder.BApp.swift#665 */
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#603 */
@@ -558,7 +552,7 @@
 "Welcome Free Pack" = "Welcome Free Pack";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
-/* Generated from genl10n: AppCenter.Charge.swift#95, Shop.SApp.swift#576 */
+/* Generated from genl10n: Shop.SApp.swift#576 */
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#577 */
 "Write" = "Write";
@@ -566,7 +560,5 @@
 "Yearly Full Access" = "Yearly Full Access";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
-/* Generated from genl10n: AppCenter.Charge.swift#146, AppCenter.Charge.swift#147 */
-"Your Idea, Your App" = "Your Idea, Your App";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Your code is invalid. Please Try again.";

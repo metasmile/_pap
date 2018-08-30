@@ -129,7 +129,7 @@ private final class AppChargeManager: ChargeManager{
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Ads".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Ongoing Free Apps Use".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Free Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting

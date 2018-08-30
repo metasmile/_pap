@@ -256,6 +256,8 @@
 "Display Remaining Level" = "Hiển thị mức độ còn lại";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "Hiển thị phần trăm còn lại.";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Làm mọi thứ với hình ảnh.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "Quyền truy cập ứng dụng miễn phí";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Sử dụng ứng dụng miễn phí %@ ngày";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "Tải xuống miễn phí";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "Sử dụng miễn phí %@ Cơ hội cấp phép ngày, VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Sử dụng miễn phí và tất cả cập nhật mới";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Mặt hàng";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "Tham gia chương trình %@";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "Tham gia";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "Đang sử dụng ứng dụng miễn phí đang diễn ra";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Đang sử dụng tất cả ứng dụng và mới";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "Đang sử dụng tất cả ứng dụng miễn phí";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Đã chọn";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "Gửi phản hồi cho chúng tôi";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Gửi email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "Quyền truy cập đầy đủ hàng năm";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Bạn chỉ có thể chọn ảnh hoặc video phù hợp với định dạng bắt đầu.";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "Ý tưởng của bạn, ứng dụng của bạn";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Mã của bạn không hợp lệ. Vui lòng thử lại.";

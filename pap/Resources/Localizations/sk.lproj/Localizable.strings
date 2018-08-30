@@ -256,6 +256,8 @@
 "Display Remaining Level" = "Zobrazenie zostávajúcej úrovne";
 /* Generated from genl10n: Shop.SApp.swift#543 */
 "Display Remaining Percentage." = "Zobrazuje zostávajúci percentuálny podiel.";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Robte všetko s fotografiami.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Stiahnite si teraz zadarmo na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -298,10 +300,6 @@
 "Free Apps Access" = "Voľný prístup k aplikáciám";
 /* Generated from genl10n: AppCenter.Charge.swift#292 */
 "Free Apps Use of %@ Day" = "Voľné aplikácie Použitie dňa %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Facebook.swift#71 */
-"Free Download" = "Bezplatné stiahnutie";
-/* Generated from genl10n: AppCenter.Charge.swift#140 */
-"Free Use %@ Day, VIP License Opportunity" = "Voľný deň %@, možnosť VIP licencie";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Voľné použitie a všetky nové aktualizácie";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -342,8 +340,6 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "predmety";
-/* Generated from genl10n: AppCenter.Charge.swift#139 */
-"Join %@ Program" = "Pripojte sa k %@ programu";
 /* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "pripojiť";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -384,10 +380,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostnom režime";
-/* Generated from genl10n: AppCenter.Charge.swift#125 */
-"Ongoing Free Apps Use" = "Prebieha používanie bezplatných aplikácií";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Prebiehajúce používanie všetkých aplikácií a nové";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Ongoing Use of All Free Apps" = "Prebiehajúce používanie všetkých bezplatných aplikácií";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorte Mapy Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +484,6 @@
 "Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, ktoré chcete chytiť telefónne čísla!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Vybraný";
-/* Generated from genl10n: AppCenter.Charge.swift#21 */
-"Send Us Feedback" = "Pošlite nám spätnú väzbu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
 "Send an Email" = "Poslať email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
@@ -602,7 +596,5 @@
 "Yearly Full Access" = "Ročný úplný prístup";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Môžete vybrať len fotografie alebo videá, ktoré zodpovedajú štartovaciemu formátu.";
-/* Generated from genl10n: AppCenter.Charge.swift#139, AppCenter.Charge.swift#140 */
-"Your Idea, Your App" = "Vaša myšlienka, vaša aplikácia";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Váš kód je neplatný. Prosím skúste znova.";
