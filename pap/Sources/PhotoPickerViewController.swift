@@ -818,7 +818,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAssetItem = AppAssets.selected.at(indexPath.item)
+        guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
         
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState == .maximized {
             showPhotoEditor(with: selectedAssetItem)

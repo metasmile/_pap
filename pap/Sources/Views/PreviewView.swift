@@ -96,9 +96,12 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
     
     private func sizeForItem(at indexPath: IndexPath) -> CGSize {
-        guard let collectionView = self.collectionView else { return .zero }
+        guard
+            let collectionView = self.collectionView,
+            let appAsset = AppAssets.selected.at(unsafeIndex: indexPath.item)
+        else { return .zero }
         
-        let asset = AppAssets.selected.at(indexPath.item).asset
+        let asset = appAsset.asset
         
         let contentInset = collectionView.contentInset
         let maximumHeight = min(previewHeight, collectionView.bounds.width)
@@ -106,7 +109,7 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         let contentSize = UIEdgeInsetsInsetRect(CGRect(origin: .zero, size: CGSize(width: maximumHeight, height: maximumHeight)), contentInset).size
         let boundingSize = CGSize(width: contentSize.height, height: contentSize.height)
         let photoSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight).aspectFit(in: boundingSize)
-        let cellSize = photoSize.applying(AppAssets.selected.at(indexPath.item).editState.transform).magnitude
+        let cellSize = photoSize.applying(appAsset.editState.transform).magnitude
         
         return CGSize(width: cellSize.width, height: floor(contentSize.height))
     }
@@ -164,8 +167,11 @@ class PreviewView: CustomView, AppDockContentTransition {
         
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         for indexPath in visibleIndexPaths {
-            guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { continue }
-            let appAsset = appAssetsSelected.at(indexPath.item)
+            guard
+                let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell,
+                let appAsset = appAssetsSelected.at(unsafeIndex: indexPath.item)
+            else { continue }
+            
             if appAsset.editState.hasChanges || forced {
                 if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
                     renderPreviewProcessing(with: cell, at: indexPath)
@@ -179,13 +185,17 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     public func setPreviewLayout(with height: CGFloat) {
+        let needsToLayout = collectionViewHeightLayout.constant != height
+        
         let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
         
         collectionViewHeightLayout.constant = height
         (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
         if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
-            collectionView.layoutIfNeeded()
+            if needsToLayout {
+                collectionView.layoutIfNeeded()
+            }
             scrollToNeareastItem(at: indexPath, animated: false)
         }
     }
@@ -554,8 +564,7 @@ extension PreviewView: UICollectionViewDataSource {
         if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
             cell.assetView.isProcessing = true
         }
-        else {
-            let item = appAssetsSelected.at(indexPath.item)
+        else if let item = appAssetsSelected.at(unsafeIndex: indexPath.item) {
             cell.setEditItemForPreview(item)
         }
         
@@ -567,9 +576,10 @@ extension PreviewView: UICollectionViewDataSource {
     }
     
     private func renderPreviewProcessing(with cell: PreviewCollectionViewCell, at indexPath: IndexPath) {
-        guard let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) else { return }
-        
-        let item = appAssetsSelected.at(indexPath.item)
+        guard
+            let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self),
+            let item = appAssetsSelected.at(unsafeIndex: indexPath.item)
+        else { return }
         
         let targetSize = CGSize(width: min(self.bounds.width, self.bounds.height), height: min(self.bounds.width, self.bounds.height))
         if let cached = PreviewProcessingQueue.cachedImage(item: item, targetSize: targetSize) {
@@ -590,8 +600,7 @@ extension PreviewView: PreviewCollectionViewCellDelegate {
         if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
             renderPreviewProcessing(with: cell, at: indexPath)
         }
-        else {
-            let item = appAssetsSelected.at(indexPath.item)
+        else if let item = appAssetsSelected.at(unsafeIndex: indexPath.item) {
             cell.setEditItemForPreview(item)
         }
     }
