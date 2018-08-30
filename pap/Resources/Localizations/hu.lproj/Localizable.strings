@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ el lesz rejtve";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Nap";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Egyetlen alkalmazáshozzáférés";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d alkalommal";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Magánélet";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Feldolgozás";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Vásárlás %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Vásárlás menedzsment";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Vörösszem-eltávolítás";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ismétlés";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "A helyreállítás lehetővé teszi, hogy egy csomó mennyiségű szerkesztett fényképet helyreállítsanak az eredetihez. Ezenkívül segít az automatikus kiválasztásban is!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Felújítás";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Összes vásárlás visszaállítása";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "visszaállítás";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Fordított";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Az alkalmazás visszaállítása lehetővé teszi egy csomó szerkesztett fénykép visszaállítását az eredetihez. Ezenkívül segít az automatikus kiválasztásban is!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Visszatekerés";
 /* Generated from genl10n: Transform.BApp.swift#70 */

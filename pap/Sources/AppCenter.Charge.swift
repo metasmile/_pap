@@ -388,7 +388,7 @@ extension AppCharge{
                 , reward: .localOwned
                 , payment: chargingPayable
                 , priceAmount: AmountObject.min
-                , describable: AppChargeDescription(title:"Purchase %@".localizedFormatted(app.info.displayName), description: nil, iconImage: nil) 
+                , describable: AppChargeDescription(title:"%@: Single App Access".localizedFormatted(app.info.displayName), description: nil, iconImage: nil)
                 , rewardDescribable: rewardDescribable
         )
     }

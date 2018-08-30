@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@將被隱藏";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ /日";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@：單一應用訪問";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d次";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "隱私";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "處理";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "購買%@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "採購管理";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重複";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "恢復允許快速將大量編輯過的照片恢復到原始照片。此外，它可以幫助您自動選擇！";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "恢復";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢復所有購買";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "恢復";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "相反";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "還原應用程序允許快速將大量已編輯的照片恢復為原始照片。此外，它可以幫助您自動選擇！";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "倒帶";
 /* Generated from genl10n: Transform.BApp.swift#70 */

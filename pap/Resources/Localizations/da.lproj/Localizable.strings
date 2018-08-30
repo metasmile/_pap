@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ vil blive gemt";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Dag";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Single App Access";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d gange";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Privatliv";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Forarbejdning";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Køb %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Købsstyring";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Fjernelse af røde øjne";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Gentage";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Genoprettelse gør det muligt hurtigt at genoprette en masse mængder redigerede fotos til den oprindelige. Desuden hjælper det dig med det automatiske valg!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Restaurering";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Gendan alle indkøb";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Gendan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Bagside";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Gendan app gør det muligt hurtigt at genoprette en masse mængder redigerede fotos til den oprindelige. Desuden hjælper det dig med det automatiske valg!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Spole tilbage";
 /* Generated from genl10n: Transform.BApp.swift#70 */

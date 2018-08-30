@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ bude skryté";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Deň";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Prístup k jednotlivým aplikáciám";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "súkromia";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "spracovanie";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Kúpiť %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Správa nákupu";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Odstránenie efektu červených očí";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Obnova umožňuje rýchlo obnoviť veľké množstvo upravených fotografií na pôvodné fotografie. Okrem toho vám pomáha pri automatickom výbere!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "obnovenie";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Obnoviť všetky nákupy";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "obnoviť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "reverse";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Aplikácia Revert umožňuje rýchlo obnoviť veľké množstvo upravených fotografií na pôvodnú fotografiu. Okrem toho vám pomáha pri automatickom výbere!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
 /* Generated from genl10n: Transform.BApp.swift#70 */

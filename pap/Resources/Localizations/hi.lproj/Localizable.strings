@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ छुपाया जाएगा";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / दिन";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: एकल ऐप एक्सेस";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d बार";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "एकांत";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "प्रसंस्करण";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "खरीद %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "खरीद प्रबंधन";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "रेड-आई रिमूवल";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "बहाली मूल रूप से संपादित फ़ोटो की एक गुच्छा राशि को बहाल करने की अनुमति देता है। इसके अलावा, यह स्वचालित चयन के साथ आपकी मदद करता है!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "मरम्मत";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "पुनर्स्थापित";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "रिवर्स";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "रीवर्ट ऐप संपादित फ़ोटो की एक गुच्छा राशि को मूल रूप से जल्दी से बहाल करने की अनुमति देता है। इसके अलावा, यह स्वचालित चयन के साथ आपकी मदद करता है!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "रिवाइंड";
 /* Generated from genl10n: Transform.BApp.swift#70 */

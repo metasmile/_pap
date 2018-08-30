@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@이 (가) 숨겨집니다.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / 일";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@ : 단일 앱 액세스";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "프라이버시";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "프로세싱 중";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Purchase %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "구매 관리";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "적목 현상 제거";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "복원을 사용하면 여러 장의 사진을 원본 사진으로 신속하게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "복구";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "모든 구입 복원하기";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "복원";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "역방향";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "되돌리기 앱을 사용하면 여러 장의 사진을 원래 사진으로 빠르게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "되감기";
 /* Generated from genl10n: Transform.BApp.swift#70 */

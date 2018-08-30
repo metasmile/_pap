@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ s'amagarà";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Day";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Accés d'una sola aplicació";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d vegades";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Privadesa";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Processament";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Compra %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Gestió de compres";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Remoció d'ulls vermells";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repetiu";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "La restauració permet restaurar ràpidament un munt de fotografies editades a l'original. A més, us ajuda amb la selecció automàtica!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Restauració";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaura totes les compres";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Restaurar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Revers";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "La devolució de l'aplicació permet restaurar ràpidament un munt de fotografies editades a l'original. A més, us ajuda amb la selecció automàtica!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
 /* Generated from genl10n: Transform.BApp.swift#70 */

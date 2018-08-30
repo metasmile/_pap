@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ sẽ bị ẩn";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Ngày";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Truy cập ứng dụng đơn lẻ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Riêng tư";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Chế biến";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Mua %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Quản lý mua hàng";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Loại bỏ mắt đỏ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Phục hồi cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Phục hồi";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Khôi phục";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Đảo ngược";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Hoàn nguyên ứng dụng cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Tua lại";
 /* Generated from genl10n: Transform.BApp.swift#70 */

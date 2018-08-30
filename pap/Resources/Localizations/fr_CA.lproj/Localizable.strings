@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ sera caché";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Jour";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Accès à une application unique";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d fois";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Intimité";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "En traitement";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Achat %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Gestion des achats";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Enlèvement des yeux rouges";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Répéter";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "La restauration permet de restaurer rapidement un grand nombre de photos éditées sur l’original. De plus, il vous aide avec la sélection automatique!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Restauration";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurer tous les achats";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Restaurer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Sens inverse";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "L'application Rétablir permet de restaurer rapidement une quantité de photos modifiées sur l'original. En outre, il vous aide avec la sélection automatique!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rembobiner";
 /* Generated from genl10n: Transform.BApp.swift#70 */

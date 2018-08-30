@@ -41,9 +41,9 @@ public class RevertApp: NSObject, PropertyWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: RevertApp.self
-            , displayName: "Revert".localized
-            , description: "Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
-            , keywords: ["Restore","Repair","Revert","recovery"]
+            , displayName: "Restoration".localized
+            , description: "Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
+            , keywords: ["Restore","Repair","Revert","recovery", "Restoration"]
             , iconBundleName: R.image.revertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil

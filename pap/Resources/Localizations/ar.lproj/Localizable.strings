@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ سيكون مخفيًا";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / يوم";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: الوصول إلى التطبيق الواحد";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d مرة";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "الإجمالية";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "معالجة";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "شراء %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "إدارة شراء";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "إزالة العين الحمراء";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "كرر";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "تسمح عملية الاستعادة باستعادة كمية حفنة من الصور التي تم تعديلها إلى الصورة الأصلية بسرعة. وعلاوة على ذلك ، فإنه يساعدك على الاختيار التلقائي!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "استعادة";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "استعادة جميع المشتريات";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "استعادة";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "عكسي";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "يتيح تطبيق Revert استعادة عدد حفنة من الصور التي تم تعديلها إلى الصورة الأصلية بسرعة. وعلاوة على ذلك ، فإنه يساعدك على الاختيار التلقائي!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "الترجيع";
 /* Generated from genl10n: Transform.BApp.swift#70 */

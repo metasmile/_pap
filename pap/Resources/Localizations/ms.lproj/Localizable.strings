@@ -128,6 +128,8 @@
 "%@ will be hidden" = "%@ akan disembunyikan";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Hari";
+/* Generated from genl10n: AppCenter.Charge.swift#391 */
+"%@: Single App Access" = "%@: Akses Apl Single";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
 /* Generated from genl10n: AppCenter.Charge.swift#177 */
@@ -428,8 +430,6 @@
 "Privacy" = "Privasi";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Pemprosesan";
-/* Generated from genl10n: AppCenter.Charge.swift#384 */
-"Purchase %@" = "Pembelian %@";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Pengurusan Pembelian";
 /* Generated from genl10n: Shop.SApp.swift#259 */
@@ -446,14 +446,16 @@
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Pemulihan membolehkan memulihkan sejumlah besar gambar yang diedit kepada yang asal dengan cepat. Tambahan pula, ia membantu anda dengan pemilihan automatik!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restoration" = "Pemulihan";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Pulihkan Semua Pembelian";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Pulihkan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Songsang";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Revert app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Mengembalikan aplikasi membolehkan memulihkan sejumlah besar foto yang diedit dengan yang asal dengan cepat. Tambahan pula, ia membantu anda dengan pemilihan automatik!";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Rewind" = "Rewind";
 /* Generated from genl10n: Transform.BApp.swift#70 */
