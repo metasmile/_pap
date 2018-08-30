@@ -134,6 +134,7 @@ class AppDockView: CustomView {
 
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
+        gesture.maximumNumberOfTouches = 1
         addGestureRecognizer(gesture)
         
         //TODO: save order states
@@ -691,10 +692,10 @@ extension AppDockView: UIGestureRecognizerDelegate {
             sender.beginAppContentViewOffset = appContentViewHeightLayout.constant
             sender.beginContentLayoutState = contentLayoutState
             
-            if let content =  accessory?.view as? AppDockContentTransition {
+            if let content = accessory?.view as? AppDockContentTransition {
                 content.transitionWillBegin(at: sender.location(in: accessory?.view))
             }
-            break
+            UIViewController.root?.view.isUserInteractionEnabled = false
         case .changed:
             let delta = sender.beginDrawerOffset - translation.y
             let maxHeight = max(DefaultPreferences.DrawerView.compactHeight, DefaultPreferences.DrawerView.prominentHeight)
@@ -749,6 +750,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 sender.isEnabled = true
             }
         default:
+            UIViewController.root?.view.isUserInteractionEnabled = true
+            
             if sender.beginContentLayoutState == contentLayoutState && velocity.y < 0 {
                 openDrawer(reloadDockContentViews: true)
             }

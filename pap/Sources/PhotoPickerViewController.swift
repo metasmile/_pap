@@ -134,6 +134,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
+        dragSelectionGesture.maximumNumberOfTouches = 1
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
         //AppCenter.chargeManager related

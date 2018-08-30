@@ -46,13 +46,16 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
 
             dragSelectionGesture.ignoredIndexPaths = photoCollectionView.indexPathsForSelectedItems
             
+            UIViewController.root?.view.isUserInteractionEnabled = false
             photoCollectionView.isScrollEnabled = false
         case .changed:
             if !panWithDragging(at: touchLocation, with: sender.selectionMode) {
                 drag(at: touchLocation, with: sender.selectionMode)
             }
         default:
+            UIViewController.root?.view.isUserInteractionEnabled = true
             photoCollectionView.isScrollEnabled = true
+            
             sender.reset()
             
             batchPreviewView.updatePreviews(forced: true)
