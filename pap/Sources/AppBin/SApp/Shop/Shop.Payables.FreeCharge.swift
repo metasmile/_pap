@@ -98,36 +98,49 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
     }
 }
 
-struct URLVisitingPayment<Type: URLVisitingType>: Payable {
+struct URLOpenPayment<T: URLOpenType>: Payable {
 
     static var action:PayableAction{
-        return PayableAction(title: Type.label ?? "Visit".localized)
+        return PayableAction(title: T.label ?? "Visit".localized)
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        guard let url = Type.url else{
+        guard let webUrl = T.webUrl else{
             return false
         }
-
+        
         var paid = false
 
-        asyncSignal.begin()
+        if let localUrl = T.localUrl, UIApplication.shared.canOpenURL(localUrl){
+            asyncSignal.begin()
 
-        var presented = false
+            UIApplication.shared.open(localUrl, options: [:]) { b in
+                paid = b
+                asyncSignal.end()
+            }
 
-        UIApplication.openSafari(with: url, didPresent: {
-            presented = true
+            asyncSignal.waitUntilEnd()
 
-        }, didLoad:{ loaded in
-            paid = presented && loaded
+            return paid
 
-        }, didDismiss: {
-            asyncSignal.end()
-        })
+        }else{
 
-        asyncSignal.waitUntilEnd()
-        return paid
+            asyncSignal.begin()
+
+            var presented = false
+
+            UIApplication.openSafari(with: webUrl, didPresent: {
+                presented = true
+
+            }, didLoad:{ loaded in
+                paid = presented && loaded
+
+            }, didDismiss: {
+                asyncSignal.end()
+            })
+
+            asyncSignal.waitUntilEnd()
+            return paid
+        }
     }
 }
-
-

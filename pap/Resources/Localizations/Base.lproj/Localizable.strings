@@ -202,8 +202,6 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift#337, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Current Prices Are Including New Apps and Updates and Could Subject To Increase." = "Current Prices Are Including New Apps and Updates and Could Subject To Increase.";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#184 */
@@ -306,7 +304,7 @@
 "Items" = "Items";
 /* Generated from genl10n: AppCenter.Charge.swift#146 */
 "Join %@ Program" = "Join %@ Program";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#45, Shop.Payables.FreeCharge.YouApp.swift#54 */
 "Join" = "Join";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Landscape" = "Landscape";
@@ -386,6 +384,8 @@
 "Preparing" = "Preparing";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift#260 */
+"Prices Are Including New Apps or Updates." = "Prices Are Including New Apps or Updates.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */

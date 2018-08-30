@@ -280,7 +280,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: FBSharePayment<FBShareTypeDownloadUrl>.self),
                     PayItem(payable: FBSharePayment<FBShareTypeDownloadMessage>.self),
-                    PayItem(payable: URLVisitingPayment<URLVisitingTypeSocialPage>.self)
+                    PayItem(payable: URLOpenPayment<URLOpenTypeSocialPage>.self)
                 ]
         )
     ]
@@ -609,7 +609,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c3.iconImage = R.image.cellIconUserGroup.name
         c0.iconImageTintColor = self.view.tintColor
         c3.valueHandler = { _ in
-            AppCenter.charge.try(for: URLVisitingPayment<URLVisitingTypeUserCommunity>.self)
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
         }
         contactCellDescribers.append(c3)
 

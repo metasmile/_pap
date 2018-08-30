@@ -24,7 +24,6 @@ target 'pap' do
   pod 'Firebase/AdMob', inhibit_warnings: true
   pod 'FBSDKCoreKit', inhibit_warnings: true
   pod 'FBSDKShareKit', inhibit_warnings: true
-  # pod 'TwitterKit', inhibit_warnings: true
   # Store
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"

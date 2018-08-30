@@ -52,6 +52,7 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fb</string>
 		<string>fbapi</string>
 		<string>fbapi20150629</string>
 		<string>fb-messenger-share-api</string>
@@ -62,6 +63,8 @@
 		<string>comgooglemapsurl</string>
 		<string>googlegmail</string>
 		<string>inbox-gmail</string>
+		<string>instagram</string>
+		<string>twitter</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -222,7 +222,6 @@
 		4F71DC9F7775B12598E39F35 /* CodeKit.AVAssetExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB44F9359202952BB3D3 /* CodeKit.AVAssetExportSession.swift */; };
 		4F71DCBDD5BF113EECDBC448 /* AppDockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7D5C4AEA9D67FB0FFFD /* AppDockView.swift */; };
 		4F71DCC84F86371629383638 /* ExifGhost.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC82553239CE9C10FA36 /* ExifGhost.AppDockContent.swift */; };
-		4F71DCDD116D35E4B9774AB4 /* FBSharePaymentShareTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */; };
 		4F71DCE64C6D9C7248A5B47F /* Converter.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D901FA7E5CD05A976B67 /* Converter.LivePhoto.swift */; };
 		4F71DCFA3845A8CF3195E882 /* Converter.Png.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAF79F3B9E82509B651C /* Converter.Png.swift */; };
 		4F71DD1A80D5A9A8E7DAB4B7 /* Converter.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C64A2CCB9FC98CFF2D /* Converter.BApp.swift */; };
@@ -606,7 +605,6 @@
 		4F71DE9D04DED27BEE2E8E60 /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DEA308D9B38286F2EC8F /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
 		4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBSharePaymentShareTitle.png; sourceTree = "<group>"; };
 		4F71DEC69AB8A6AD6EF11C5E /* AppTaskOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskOperationQueue.swift; sourceTree = "<group>"; };
 		4F71DECC1D4250520B24DDE3 /* Sourceable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.swift; sourceTree = "<group>"; };
 		4F71DEF14527034010D8943D /* App.Preheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Preheatable.swift; sourceTree = "<group>"; };
@@ -1035,7 +1033,6 @@
 				4F71D0E0CDFF78F80323BC0A /* Shop.Policy.RelativePayable.swift */,
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 				4F71D06D1CC3CEADF38F086A /* Shop.Payables.FreeCharge.Facebook.swift */,
-				4F71D940EF929E8304EC9050 /* Shop.Spp.StaticAssets */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -1247,14 +1244,6 @@
 				4F71DD97E45E61FD6DE7D15A /* Loggable.swift */,
 			);
 			path = Log;
-			sourceTree = "<group>";
-		};
-		4F71D940EF929E8304EC9050 /* Shop.Spp.StaticAssets */ = {
-			isa = PBXGroup;
-			children = (
-				4F71DEBB188EB51F59D4FDD5 /* FBSharePaymentShareTitle.png */,
-			);
-			path = Shop.Spp.StaticAssets;
 			sourceTree = "<group>";
 		};
 		4F71D9B81A2E58D3C6BDEE99 /* CodeKit.UITableView */ = {
@@ -2066,7 +2055,6 @@
 				4F71D0DDBDE1464AF55CCCA9 /* PhoneCalls.BApp.Assets.xcassets in Resources */,
 				4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */,
 				4F71DF9085AE27ED0953C7B7 /* Camera.SApp.Assets.xcassets in Resources */,
-				4F71DCDD116D35E4B9774AB4 /* FBSharePaymentShareTitle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
