@@ -149,9 +149,7 @@ class PhotoPickerViewController: AppDockViewController {
                 if authorized {
                     self.loadPhotoLibraryInCurrentCollection()
                 }
-                else {
-                    self.updateNavigationLeftBarButton()
-                }
+                self.updateNavigationLeftBarButton()
             }
         }
     }
