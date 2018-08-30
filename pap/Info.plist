@@ -33,7 +33,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>21</string>
+	<string>22</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -48,6 +48,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>FacebookAppID</key>
+	<string>443161082811578</string>
+	<key>FacebookDisplayName</key>
+	<string>Photo Apps</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -139,9 +143,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>FacebookAppID</key>
-	<string>443161082811578</string>
-	<key>FacebookDisplayName</key>
-	<string>Photo Apps</string>
 </dict>
 </plist>
