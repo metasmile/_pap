@@ -786,13 +786,16 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
         if let transitionContext = photoEditorTransitionContext {
-            transitionContext.placeholderView.frame.origin = transitionContext.sourceView.frame.origin
-            
             if let editItem = editItem {
-                transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? photoEditor.originalImage
+                if let filter = editItem.ciFilter {
+                    transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: filter)
+                }
                 
                 transitionContext.placeholderView.transform = editItem.transform
             }
+            
+            transitionContext.placeholderView.frame.origin.x = transitionContext.sourceView.frame.origin.x
+            transitionContext.placeholderView.center.y = transitionContext.sourceView.center.y
         }
         
         photoEditorTransitionContext?.sourceView.isHidden = true

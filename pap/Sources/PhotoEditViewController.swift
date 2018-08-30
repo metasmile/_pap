@@ -233,7 +233,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func doneButtonDidTap(sender: Any) {
         super.doneButtonDidTap(sender: sender)
         
-        placeholderView.image = originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? originalImage
+        if let filter = editItem.ciFilter {
+            placeholderView.image = originalImage?.applyFilter(ciFilter: filter)
+        }
         
         placeholderView.transform = editItem.transform
         
