@@ -182,10 +182,10 @@ class PreviewView: CustomView, AppDockContentTransition {
         let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
         
         collectionViewHeightLayout.constant = height
-        collectionView.setCollectionViewLayout(collectionView.collectionViewLayout, animated: false)
         (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
         if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
+            collectionView.layoutIfNeeded()
             scrollToNeareastItem(at: indexPath, animated: false)
         }
     }
