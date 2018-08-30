@@ -117,6 +117,10 @@ public class RevertApp: NSObject, PropertyWatchable, BApp
     public var titleWillFinalize: String? {
         return "Reverting Photos...".localized
     }
+
+    public var doneButtonTitle: String? {
+        return "Revert".localized
+    }
 }
 
 private class _RevertAppTask: AppTaskPrototype, AppTaskable {
