@@ -30,7 +30,7 @@ struct papTimeInterval{
 #if DEBUG
         return 30
 #else
-        return 60*60*6
+        return 60*60*3
 #endif
     }
 
