@@ -262,7 +262,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "Purchase of All Apps Access".localized
-                , detailedLabel: "Prices Are Including New Apps or Updates.".localized
+                , detailedLabel: "Prices Are Including New Apps and Updates.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
