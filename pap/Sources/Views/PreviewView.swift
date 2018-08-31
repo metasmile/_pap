@@ -25,11 +25,7 @@ protocol PreviewViewDelegate {
 }
 
 internal class PreviewCollectionLayout: UICollectionViewLayout {
-    var previewHeight: CGFloat = 0 {
-        didSet {
-            invalidateLayout()
-        }
-    }
+    var previewHeight: CGFloat = 0
     
     private enum LayoutItem: String {
         case item = "Item"
@@ -123,7 +119,7 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return false
+        return collectionView?.bounds.height != newBounds.height
     }
     
     var contentSize: CGSize {
@@ -157,7 +153,7 @@ class PreviewView: CustomView, AppDockContentTransition {
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
     }
     
-    private var transitionBeginLocation: CGPoint = .zero
+    private var transitionBeginLocation: CGPoint?
     func transitionWillBegin(at location: CGPoint) {
         transitionBeginLocation = location
     }
@@ -184,22 +180,27 @@ class PreviewView: CustomView, AppDockContentTransition {
         }
     }
     
-    public func setPreviewLayout(with height: CGFloat) {
-        let needsToLayout = collectionViewHeightLayout.constant != height
+    private func setPreviewLayout(with height: CGFloat) {
+        let toLayout = PreviewCollectionLayout(previewHeight: height)
         
-        var targetLocation = collectionView.convert(transitionBeginLocation, from: self)
+        var targetIndexPath: IndexPath? = nil
+        let location = transitionBeginLocation ?? CGPoint(x: collectionView.bounds.width / 2, y: 0)
+        var targetLocation = collectionView.convert(location, from: self)
         targetLocation.y = collectionView.bounds.height / 2
         
-        let targetIndexPath = collectionView.indexPathForItem(at: targetLocation) ?? IndexPath(item: transitionBeginLocation.x > collectionView.contentSize.width / 2 ? appAssetsSelected.count - 1 : 0, section: 0)
+        targetIndexPath = collectionView.indexPathForItem(at: targetLocation) ?? IndexPath(item: location.x > collectionView.contentSize.width / 2 ? appAssetsSelected.count - 1 : 0, section: 0)
+        
+        transitionBeginLocation = nil
         
         collectionViewHeightLayout.constant = height
-        (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
-        if appAssetsSelected.count > 0 {
-            if needsToLayout {
-                collectionView.layoutIfNeeded()
+        UIView.performWithoutAnimation { [unowned self] in
+            self.collectionView.performBatchUpdates(nil) { [unowned self] _ in
+                self.collectionView.setCollectionViewLayout(toLayout, animated: false)
+                if self.appAssetsSelected.count > 0, let indexPath = targetIndexPath {
+                    self.scrollToNeareastItem(at: indexPath, animated: false)
+                }
             }
-            scrollToNeareastItem(at: targetIndexPath, animated: false)
         }
     }
 }

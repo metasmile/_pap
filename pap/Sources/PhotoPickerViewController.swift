@@ -784,6 +784,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
+        batchPreviewView.reloadCollectionViewItems(animated: false)
+        
         if let transitionContext = photoEditorTransitionContext {
             if let editItem = editItem {
                 if let filter = editItem.ciFilter {
@@ -798,7 +800,6 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         }
         
         photoEditorTransitionContext?.sourceView.isHidden = true
-        batchPreviewView.reloadCollectionViewItems(animated: false)
         
         photoEditor.dismiss(animated: true, completion: {
             self.photoEditorTransitionContext?.sourceView.isHidden = false
