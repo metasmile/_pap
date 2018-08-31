@@ -243,36 +243,14 @@ extension PreviewView {
         
         return insertedIndexPath
     }
-
-    @discardableResult
-    func removeCollectionViewItem(with asset: PHAsset?) -> IndexPath? {
-        guard let _asset = asset, let indexPath = appAssetsSelected.remove(for:_asset) else {
-            return nil
-        }
-        
-        if appAssetsSelected.count > 0 {
-            collectionView.performBatchUpdates({
-                self.collectionView.deleteItems(at: [indexPath])
-            }) { fin in
-                guard fin else { return }
-                self.collectionView.collectionViewLayout.invalidateLayout()
-                self.scrollToNeareastItem(at: indexPath)
-            }
-        }
-        else {
-            collectionView.reloadData()
-        }
-        
-        return indexPath
-    }
     
     func removeCollectionViewItems(with assets: [PHAsset]?) {
         guard let _assets = assets, !_assets.isEmpty else {
             return
         }
         
-        let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
-        _assets.forEach { appAssetsSelected.remove(for: $0) }
+        let indexPaths = _assets.compactMap({ appAssetsSelected.index(for: $0) }).map { IndexPath(item: $0, section: 0)}
+        _assets.forEach { AppAssets.selected.remove(for: $0) }
         
         if appAssetsSelected.count > 0 {
             collectionView.performBatchUpdates({
