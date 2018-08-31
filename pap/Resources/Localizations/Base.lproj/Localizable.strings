@@ -458,7 +458,7 @@
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift#589 */
 "Share This App" = "Share This App";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#71, Shop.Payables.FreeCharge.Facebook.swift#136, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#73, Shop.Payables.FreeCharge.Facebook.swift#138, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Sharing on Facebook";
@@ -542,7 +542,7 @@
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#139 */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#613 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift#31, Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#613 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#242, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "Waiting To Select ...";

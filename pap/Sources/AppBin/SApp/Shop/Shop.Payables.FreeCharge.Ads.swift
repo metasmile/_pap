@@ -32,7 +32,7 @@ private protocol AdsDefaultsInfo:PropertyDefaults{
 }
 
 extension Defaults: AdsDefaultsInfo {
-    var latestAdsShownDate: [String:Date] {
+    fileprivate var latestAdsShownDate: [String:Date] {
         set{ set(newValue) } get{ return get(or:[String:Date]()) }
     }
 }

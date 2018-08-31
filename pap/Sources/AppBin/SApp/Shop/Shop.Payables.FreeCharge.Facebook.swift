@@ -59,7 +59,9 @@ class FBSDKSharingDelegatePrototype:NSObject, FBSDKSharingDelegate, PropertyWatc
 
 class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePayable {
 
-    private static let defaults: Defaults = Defaults(suiteName: String(describing: FBShareTypeDownloadUrlPayment.self))
+    private static var defaults: Defaults{
+        return Defaults(suiteName: String(describing: self))
+    }
 
     class func prepare(_ asyncSignal: AsyncWaitSignalable) {
         if Defaults.shared.shortVersionDescription != .normal {

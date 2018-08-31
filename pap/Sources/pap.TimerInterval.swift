@@ -34,4 +34,12 @@ struct papTimeInterval{
 #endif
     }
 
+    static var ofSNSEngagementPaymentLatestPaid:TimeInterval{
+#if DEBUG
+        return 10
+#else
+        return 60*60*24*5
+#endif
+    }
+
 }
