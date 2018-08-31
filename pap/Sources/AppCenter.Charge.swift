@@ -99,14 +99,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBSharePayment<FBShareTypeDownloadUrl>.self
-                    , priceAmount: AmountObject(value:0.2)
+                    , priceAmount: AmountObject(value:0.066)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBSharePayment<FBShareTypeDownloadMessager>.self
-                    , priceAmount: AmountObject(value:0.3)
+                    , priceAmount: AmountObject(value:0.166)
                     , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
@@ -135,7 +135,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
                     , payment: URLOpenPayment<URLOpenTypeSocialPage>.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , priceAmount: AmountObject(value:0.066/2)
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 
