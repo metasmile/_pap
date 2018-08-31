@@ -129,7 +129,7 @@ private final class AppChargeManager: ChargeManager{
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Ads".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Free Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Main Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting
@@ -296,7 +296,7 @@ class AppCharge: Charge {
             switch (charge.reward) {
             case .timeOfUses:
                 if let unit = unit {
-                    return "Free Apps Use of %@ Day".localizedFormatted(unit)
+                    return "Main Apps Use of %@ Day".localizedFormatted(unit)
                 }
             default:
                 break

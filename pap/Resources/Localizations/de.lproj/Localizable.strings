@@ -270,8 +270,8 @@
 "Email Address" = "E-Mail-Addresse";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schnellaktionen aktivieren";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Engagieren Sie sich jetzt und laden Sie immer wieder kostenlosen Apps-Zugriff auf.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Engagieren Sie sich jetzt und laden Sie den Haupt-Apps-Zugriff immer wieder auf.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Exportoptionen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Nach vorne";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Rahmenverzögerung";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Kostenloser Apps-Zugriff";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Kostenlose Apps Nutzung von %@ Tag";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Kostenlose Nutzung und alle neuen Updates";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Zugriff auf Hauptanwendungen";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Haupt-Apps Verwendung von %@ Tag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Mache GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Laufende Nutzung aller Apps und neu";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Laufende Nutzung aller kostenlosen Apps";
+"Ongoing Use of All Main Apps" = "Laufende Nutzung aller Haupt-Apps";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Öffnen Sie Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Eine E-Mail senden";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Senden";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Einstellungen für den Zugriff auf kostenlose Apps";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Einstellungen für den Zugriff auf Hauptanwendungen";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "die Einstellungen";
 /* Generated from genl10n: Shop.SApp.swift#584 */

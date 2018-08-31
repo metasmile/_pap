@@ -270,8 +270,8 @@
 "Email Address" = "Emailová adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivovat rychlé akce";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Zapojte nyní a opakovaně dobijte volné přístupy k aplikacím.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Zapojte nyní a opakovaně dobijte hlavní přístup k aplikacím.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Vpřed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Volný přístup k aplikacím";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Aplikace zdarma Aplikace %@ Den";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Volné použití a všechny nové aktualizace";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Zámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Smyčka";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Hlavní přístup k aplikacím";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Hlavní aplikace Použití %@ dne";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Vytvořte GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Pokračující používání všech aplikací a nových";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Probíhá používání všech bezplatných aplikací";
+"Ongoing Use of All Main Apps" = "Probíhající používání všech hlavních aplikací";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otevřete Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Poslat email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Poslat";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Nastavení volného přístupu k aplikacím";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Nastavení přístupu k hlavním aplikacím";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Nastavení";
 /* Generated from genl10n: Shop.SApp.swift#584 */

@@ -270,8 +270,8 @@
 "Email Address" = "Địa chỉ email";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Tham gia ngay và nạp tiền miễn phí truy cập ứng dụng miễn phí.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Tham gia ngay và tiếp tục nạp tiền cho quyền truy cập ứng dụng chính.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Tùy chọn xuất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Phía trước";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Quyền truy cập ứng dụng miễn phí";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Sử dụng ứng dụng miễn phí %@ ngày";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Sử dụng miễn phí và tất cả cập nhật mới";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Truy cập ứng dụng chính";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Sử dụng ứng dụng chính của %@ ngày";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tạo GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Đang sử dụng tất cả ứng dụng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Đang sử dụng tất cả ứng dụng miễn phí";
+"Ongoing Use of All Main Apps" = "Đang sử dụng tất cả ứng dụng chính";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Gửi email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Gửi";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Cài đặt cho quyền truy cập miễn phí ứng dụng";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Cài đặt cho Truy cập ứng dụng chính";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Cài đặt";
 /* Generated from genl10n: Shop.SApp.swift#584 */

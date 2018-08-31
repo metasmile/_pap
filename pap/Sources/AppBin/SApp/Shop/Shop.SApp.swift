@@ -276,8 +276,8 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         , PayGroup(
                 key: .FreeCharge
-                , label: "Free Apps Access".localized
-                , detailedLabel: "Engage Now And Recharge Repeatedly Free Apps Access.".localized
+                , label: "Main Apps Access".localized
+                , detailedLabel: "Engage Now And Repeatedly Recharge Main Apps Access.".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
@@ -470,7 +470,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         var s:[Section] = payGroups
 
         if freeChargeSettingsCellDescribers.count > 0{
-            let settings = CellDescriberGroup(label: "Settings for Free Apps Access".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
+            let settings = CellDescriberGroup(label: "Settings for Main Apps Access".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
             s.append(settings)
         }
 

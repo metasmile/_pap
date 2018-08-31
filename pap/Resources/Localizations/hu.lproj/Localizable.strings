@@ -270,8 +270,8 @@
 "Email Address" = "Email cím";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Gyors műveletek engedélyezése";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Kapcsolódjon be és töltse be ismételten ingyenes alkalmazásokat.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Engedj el most és ismételten töltsd fel a fő alkalmazások elérését.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export opciók";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Előre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Keret késleltetés";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Ingyenes alkalmazások elérése";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Ingyenes alkalmazások a %@ nap használatához";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Ingyenes felhasználás és minden új frissítés";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Hurok";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Főbb alkalmazások elérése";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Főbb alkalmazások a %@ nap használata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Az összes alkalmazás és az új";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Az összes ingyenes alkalmazás folyamatos használata";
+"Ongoing Use of All Main Apps" = "Az összes főbb alkalmazás folyamatos használata";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Küldj emailt";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Elküld";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Ingyenes alkalmazások elérésének beállításai";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "A fő alkalmazások elérésének beállításai";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Beállítások";
 /* Generated from genl10n: Shop.SApp.swift#584 */

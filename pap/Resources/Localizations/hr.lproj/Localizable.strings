@@ -270,8 +270,8 @@
 "Email Address" = "Email adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Uključite se sada i ponovno napunite pristup besplatnim besplatnim aplikacijama.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Uključite se sada i ponovo ponovite pristup glavnim aplikacijama.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Mogućnosti izvoza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Naprijed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Odgoda okvira";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Pristup besplatnim aplikacijama";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Besplatna upotreba dana %@ dana";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Besplatno korištenje i sva nova ažuriranja";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Petlja";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Glavni pristup aplikacijama";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Glavna aplikacija upotreba %@ dana";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Napravite GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "U tijeku upotreba svih aplikacija i novih";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "U tijeku upotreba svih besplatnih aplikacija";
+"Ongoing Use of All Main Apps" = "U tijeku upotreba svih glavnih aplikacija";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorite Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Pošalji email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Poslati";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Postavke za pristup besplatnim aplikacijama";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Postavke za pristup glavnim aplikacijama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "postavke";
 /* Generated from genl10n: Shop.SApp.swift#584 */

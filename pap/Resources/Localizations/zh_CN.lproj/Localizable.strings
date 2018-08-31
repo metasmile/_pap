@@ -270,8 +270,8 @@
 "Email Address" = "电子邮件地址";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "启用快速操作";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "立即参与并重复充值免费应用访问。";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "立即参与并反复补充主要应用访问权限。";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "前锋";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "帧延迟";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "免费应用访问";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "免费应用使用%@天";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "免费使用和所有新更新";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "主要应用访问";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "主要应用使用%@天";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "制作GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "正在使用所有应用程序和新的";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "正在使用所有免费应用程序";
+"Ongoing Use of All Main Apps" = "正在使用所有主要应用程序";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "打开Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "发送电子邮件";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "发送";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "免费应用访问设置";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "主要应用访问的设置";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "设置";
 /* Generated from genl10n: Shop.SApp.swift#584 */

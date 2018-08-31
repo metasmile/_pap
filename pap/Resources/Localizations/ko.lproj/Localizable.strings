@@ -270,8 +270,8 @@
 "Email Address" = "이메일 주소";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "지금 참여하고 반복적으로 무료 앱 액세스를 재충전하십시오.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "지금 참여하고 메인 앱 액세스를 반복적으로 충전하십시오.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "내보내기 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "앞으로";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "프레임 딜레이";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "무료 앱 액세스";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "무료 앱 %@ 일 사용";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "무료 사용 및 모든 새 업데이트";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "잠금 화면";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "무한반복";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "주요 앱 액세스";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "주요 앱 %@ 일 사용";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF 만들기";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "지속적으로 모든 앱들과 새로운 앱 사용";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "모든 무료 앱의 지속적인 사용";
+"Ongoing Use of All Main Apps" = "모든 주요 앱의 지속적인 사용";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -488,8 +488,8 @@
 "Send an Email" = "이메일 보내기";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "보내기";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "무료 앱 액세스 설정";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "기본 앱 액세스 설정";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "설정";
 /* Generated from genl10n: Shop.SApp.swift#584 */
