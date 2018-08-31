@@ -97,9 +97,9 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
     fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
         return [
             PHAssetGarbageDetector_Similarity.self
-            , PHAssetGarbageDetector_Screenshots.self
+            , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
             , PHAssetGarbageDetector_Flashlight.self
-            , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+            , PHAssetGarbageDetector_VideosShorterThan1Sec.self
         ]
     }
 
@@ -367,7 +367,7 @@ extension Defaults: CleanerAppDefaults {
 
     fileprivate var autoSelect: Bool {
         set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: false ) }
+        get{ return get(or: true ) }
     }
 }
 
