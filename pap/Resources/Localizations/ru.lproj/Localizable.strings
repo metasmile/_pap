@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "В настоящее время наша модель распознавания текста AI доступна только для буквенно-цифровых и некоторых специальных символов.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В настоящее время наша модель распознавания текста AI доступна только для буквенно-цифровых и некоторых специальных символов, и на нее может влиять текущий системный язык.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Получить доступ";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Связаться";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Вход здесь";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "запрос";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Он отображает соотношение оставшихся бесплатных периодов доступа к приложениям.";
 /* Generated from genl10n: AppStrings.swift#22 */

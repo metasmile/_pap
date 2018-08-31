@@ -240,8 +240,8 @@
 "Crop to Fit" = "Obreži na Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Usjev";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove, a na njega bi moglo utjecati trenutačni jezik sustava.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Prilagođen";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Dobiti pristup";
-/* Generated from genl10n: Shop.SApp.swift#585, Shop.SApp.swift#607 */
-"Get In Touch" = "Stupite u kontakt";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "Uvoz";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Unesite ovdje";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "pitanje";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Prikazuje omjer preostalih razdoblja pristupa besplatnoj aplikaciji.";
 /* Generated from genl10n: AppStrings.swift#22 */

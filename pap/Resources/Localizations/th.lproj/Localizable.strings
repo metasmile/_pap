@@ -240,8 +240,8 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้สำหรับตัวอักษรและตัวเลขเท่านั้นและอักขระพิเศษบางตัว";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้ใช้งานเฉพาะสำหรับตัวอักษรและตัวเลขและอักขระพิเศษบางตัวเท่านั้นและอาจได้รับผลกระทบจากภาษาระบบปัจจุบัน";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "กำหนดเอง";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "เครื่อง GIF";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "ได้รับการเข้าถึง";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "ได้รับการติดต่อ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "ให้คะแนน";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "นำเข้า";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "ใส่ที่นี่";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "การสอบสวน";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "แสดงอัตราส่วนของระยะเวลาการเข้าถึงแอปฟรีที่เหลืออยู่";
 /* Generated from genl10n: AppStrings.swift#22 */

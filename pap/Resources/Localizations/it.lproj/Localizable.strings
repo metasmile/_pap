@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Attualmente, il nostro modello di riconoscimento del testo AI è disponibile solo per caratteri alfanumerici e alcuni caratteri speciali.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Attualmente, il nostro modello di riconoscimento del testo AI è disponibile solo per caratteri alfanumerici e alcuni caratteri speciali e potrebbe essere interessato dalla lingua corrente del sistema.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "costume";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Avere accesso";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Mettiti in contatto";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dai un voto";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "Importare";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Inserisci qui";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Inchiesta";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Visualizza un rapporto di rimanenti periodi di accesso alle app gratuiti.";
 /* Generated from genl10n: AppStrings.swift#22 */

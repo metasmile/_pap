@@ -240,8 +240,8 @@
 "Crop to Fit" = "Cắt để phù hợp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt và nó có thể bị ảnh hưởng bởi ngôn ngữ hệ thống hiện tại.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Tập quán";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Nhận quyền truy cập";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Liên lạc";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "Nhập";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Nhập vào đây";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Yêu cầu";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Nó hiển thị một tỷ lệ thời gian truy cập ứng dụng miễn phí còn lại.";
 /* Generated from genl10n: AppStrings.swift#22 */

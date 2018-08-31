@@ -622,7 +622,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
-            c6.buttonTitle = "Get In Touch".localized
+            c6.buttonTitle = "Inquiry".localized
             c6.iconImage = R.image.cellIconVIPHotline.name
             c0.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in

@@ -67,7 +67,7 @@ EXIF Ghost lets you remove all kinds of data containing your photos including pr
 • Selective metadata purging for all properties of GPS, EXIF, TIFF support.
 
 
-Transform
+Rotation
 This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.
 
 • Tested processing capacity: 2000+a photos at one time.

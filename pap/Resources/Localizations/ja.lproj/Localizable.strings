@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字でのみ使用できます。";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字に対してのみ使用でき、現在のシステム言語の影響を受ける可能性があります。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "カスタム";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIFメーカー";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "アクセスを取得";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "連絡する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "インポート";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "ここに入力";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "問い合わせ";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
 /* Generated from genl10n: AppStrings.swift#22 */

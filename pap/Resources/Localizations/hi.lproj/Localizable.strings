@@ -240,8 +240,8 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "वर्तमान में, हमारे एआई पाठ पहचान मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है।";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "वर्तमान में, हमारे एआई टेक्स्ट मान्यता मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है, और यह वर्तमान सिस्टम भाषा से प्रभावित हो सकता है।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "रिवाज";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "जीआईएफ निर्माता";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "उपयोग करना";
-/* Generated from genl10n: Shop.SApp.swift#585, Shop.SApp.swift#607 */
-"Get In Touch" = "संपर्क में रहो";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "एक रेटिंग दें";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "आयात";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "यहां इनपुट करें";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "जांच";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "यह शेष नि: शुल्क ऐप एक्सेस अवधि का अनुपात प्रदर्शित करता है।";
 /* Generated from genl10n: AppStrings.swift#22 */

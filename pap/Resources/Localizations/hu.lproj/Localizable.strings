@@ -240,8 +240,8 @@
 "Crop to Fit" = "Vágás a fithez";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Jelenleg az AI szövegfelismerési modellünk csak az Alfanumerikus és néhány speciális karakter számára elérhető.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Jelenleg az AI szövegfelismerési modellünk csak az alfanumerikus és néhány speciális karakter számára elérhető, és az aktuális rendszernyelv befolyásolhatja.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Szokás";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -306,8 +306,6 @@
 "GIF Maker" = "GIF készítő";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Hozzáférést szerezni";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Felveszi a kapcsolatot";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Adj egy értékelést";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -326,6 +324,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Bemenet itt";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Vizsgálat";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Megjeleníti a fennmaradó ingyenes hozzáférési periódusok arányát.";
 /* Generated from genl10n: AppStrings.swift#22 */
