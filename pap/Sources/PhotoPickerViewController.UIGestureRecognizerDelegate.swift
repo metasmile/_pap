@@ -166,16 +166,17 @@ extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     }
 
     private func dragDeselection(with indexPaths: [IndexPath]) {
-        indexPaths.forEach({ self.dragDeselection(at: $0) })
+        let assets = indexPaths.compactMap { PHAssets.fetched.asset(at: $0) }
+        
+        indexPaths.forEach({ self.photoCollectionView.deselectItem(at: $0, animated: false) })
+        batchPreviewView.removeCollectionViewItems(with: assets)
+        
+        updateUIDisplays()
+        updateVisibleCellsEnabled()
     }
 
     private func dragSelection(at indexPath: IndexPath) {
         self.selectCollectionViewItem(at: indexPath)
-    }
-
-    private func dragDeselection(at indexPath: IndexPath) {
-        photoCollectionView.deselectItem(at: indexPath, animated: false)
-        collectionView(photoCollectionView, didDeselectItemAt: indexPath)
     }
 
     private func panWithDragging(at location: CGPoint, with selectionMode: DragSelectionGestureRecognizer.DragSelectionMode) -> Bool {

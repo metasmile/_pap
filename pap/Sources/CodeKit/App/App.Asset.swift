@@ -123,6 +123,10 @@ public final class AppAssets: NSObject {
     func index(of assetItem: AppAsset) -> Int?{
         return  _items.index(of: assetItem)
     }
+    
+    func index(for asset: PHAsset) -> Int? {
+        return _itemsAssets.index(of:asset)
+    }
 
     @discardableResult
     func put(with asset: PHAsset) -> IndexPath? {

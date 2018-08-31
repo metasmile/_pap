@@ -100,7 +100,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         if let asset = PHAssets.fetched.asset(at: indexPath){
             batchPreviewView.appendCollectionViewItem(with:asset)
 
-            if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) ?? AppAsset.create(for:asset) {
+            if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
                 AppAssets.selected.appendValue(value, for: [item])
             }
         }
@@ -111,7 +111,8 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        batchPreviewView.removeCollectionViewItem(with: PHAssets.fetched.asset(at: indexPath))
+        guard let asset = PHAssets.fetched.asset(at: indexPath) else { return }
+        batchPreviewView.removeCollectionViewItems(with: [asset])
 
         updateUIDisplays()
 
