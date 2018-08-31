@@ -106,7 +106,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBSharePayment<FBShareTypeDownloadMessager>.self
-                    , priceAmount: AmountObject(value:0.166)
+                    , priceAmount: AmountObject(value:0.133)
                     , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
