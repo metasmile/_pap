@@ -240,8 +240,8 @@
 "Crop to Fit" = "Tallar a Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Actualment, el nostre model de reconeixement de text AI només està disponible per a Alphanumeric i alguns caràcters especials.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actualment, el nostre model de reconeixement de text AI només està disponible per a Alphanumeric i alguns caràcters especials, i es pot veure afectat per l'idioma del sistema actual.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "Correu electrònic";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Activa les accions ràpides";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Involucri ara i recarregueu accessos repetits a aplicacions gratuïtes.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Involucri i actualitzeu repetidament les aplicacions principals d'accés.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opcions d'exportació";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Endavant";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Retard del marc";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Accés gratuït a les aplicacions";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Aplicacions gratuïtes Ús de %@ Dia";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Ús gratuït i totes les novetats";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Obteniu accés";
-/* Generated from genl10n: Shop.SApp.swift#585, Shop.SApp.swift#607 */
-"Get In Touch" = "Posar-se en contacte";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Doneu una valoració";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "Importació";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Introduïu aquí";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Investigació";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Mostra una proporció dels períodes restants d'accés gratuït a l'aplicació.";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Bucle";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Accés principal d'aplicacions";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Aplicacions principals Ús de %@ Dia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Ús continu de totes les aplicacions i novetats";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Ús continu de totes les aplicacions gratuïtes";
+"Ongoing Use of All Main Apps" = "Ús continu de totes les aplicacions principals";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Obriu els mapes d'Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "Preparant";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "Els preus inclouen noves aplicacions o actualitzacions.";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "Els preus inclouen noves aplicacions i actualitzacions.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privadesa";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Enviar";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Configuració de l'accés a aplicacions gratuïtes";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Configuració de l'accés a aplicacions principals";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Configuració";
 /* Generated from genl10n: Shop.SApp.swift#584 */

@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "В даний час наша модель розпізнавання тексту AI доступна лише для буквено-цифрових та деяких спеціальних символів.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В даний час наша модель розпізнавання тексту AI доступна лише для буквено-цифрових та деяких спеціальних символів, і це може вплинути на поточну системну мову.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "Адреса електронної пошти";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Увімкнути швидкі дії";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Займайте зараз і багаторазово завантажуйте безкоштовні програми.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Займайте зараз і багаторазово підвищуйте рівень доступу до основних програм.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Параметри експорту";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "Вперед";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Кадрова затримка";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Доступ до безкоштовних програм";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Безкоштовні програми Використовуйте %@ День";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Безкоштовне користування та всі нові оновлення";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Отримати доступ";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Будемо на зв'язку";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дайте рейтинг";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "Імпортувати";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Введіть тут";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Запит";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Він показує відношення залишкових періодів доступу до програми.";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Блокування екранів";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Петля";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Основний доступ до програм";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Основні програми Використання %@ Дня";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Зробити GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Постійне використання всіх програм і нових";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Постійне використання всіх безкоштовних програм";
+"Ongoing Use of All Main Apps" = "Постійне використання всіх основних програм";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Відкрийте Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "Підготовка";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "Ціни включають нові програми або оновлення.";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "Ціни включають нові програми та оновлення.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Відправити";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Налаштування доступу до безкоштовних програм";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Налаштування основного доступу до додатків";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Налаштування";
 /* Generated from genl10n: Shop.SApp.swift#584 */

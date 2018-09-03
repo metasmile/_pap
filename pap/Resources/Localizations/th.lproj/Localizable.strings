@@ -240,8 +240,8 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้สำหรับตัวอักษรและตัวเลขเท่านั้นและอักขระพิเศษบางตัว";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้ใช้งานเฉพาะสำหรับตัวอักษรและตัวเลขและอักขระพิเศษบางตัวเท่านั้นและอาจได้รับผลกระทบจากภาษาระบบปัจจุบัน";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "กำหนดเอง";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "ที่อยู่อีเมล";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "มีส่วนร่วมในตอนนี้และเติมเงินในการเข้าถึงแอปฟรีอีกครั้ง";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "มีส่วนร่วมในตอนนี้และการเข้าถึงแอปหลัก ๆ ที่เติมเงิน";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "ข้างหน้า";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "ความล่าช้าของเฟรม";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "การเข้าถึงแอปฟรี";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "ใช้ฟรีของ %@ วัน";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "ใช้ฟรีและปรับปรุงใหม่ทั้งหมด";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "เครื่อง GIF";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "ได้รับการเข้าถึง";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "ได้รับการติดต่อ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "ให้คะแนน";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "นำเข้า";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "ใส่ที่นี่";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "การสอบสวน";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "แสดงอัตราส่วนของระยะเวลาการเข้าถึงแอปฟรีที่เหลืออยู่";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ห่วง";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "การเข้าถึงแอปหลัก";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "แอปพลิเคชันหลักใช้เวลา %@ วัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "ทำ GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "การใช้แอปทั้งหมดและใหม่อย่างต่อเนื่อง";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "การใช้แอปฟรีทั้งหมดอย่างต่อเนื่อง";
+"Ongoing Use of All Main Apps" = "การใช้แอปหลักทั้งหมดอย่างต่อเนื่อง";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "เปิดแอปเปิ้ลแผนที่";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "การจัดเตรียม";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ค่าที่ตั้งไว้";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "ราคารวม Apps ใหม่หรือการปรับปรุง";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "ราคารวม Apps ใหม่และการปรับปรุง";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "ส่งอีเมล์";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "ส่ง";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "การตั้งค่าสำหรับการเข้าถึงแอปฟรี";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "การตั้งค่าสำหรับการเข้าถึง Apps หลัก";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "การตั้งค่า";
 /* Generated from genl10n: Shop.SApp.swift#584 */

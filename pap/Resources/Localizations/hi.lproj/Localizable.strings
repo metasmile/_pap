@@ -240,8 +240,8 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "वर्तमान में, हमारे एआई पाठ पहचान मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है।";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "वर्तमान में, हमारे एआई टेक्स्ट मान्यता मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है, और यह वर्तमान सिस्टम भाषा से प्रभावित हो सकता है।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "रिवाज";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "ईमेल पता";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "त्वरित क्रियाएं सक्षम करें";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "अब व्यस्त रहें और पुन: शुल्क मुक्त ऐप्स एक्सेस रिचार्ज करें।";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "अब व्यस्त रहें और बार-बार रिचार्ज मुख्य ऐप्स एक्सेस करें।";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "आगे";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "निशुल्क ऐप्स एक्सेस";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "%@ दिन का निःशुल्क ऐप्स उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "नि: शुल्क उपयोग और सभी नए अपडेट";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "जीआईएफ निर्माता";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "उपयोग करना";
-/* Generated from genl10n: Shop.SApp.swift#585, Shop.SApp.swift#607 */
-"Get In Touch" = "संपर्क में रहो";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "एक रेटिंग दें";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "आयात";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "यहां इनपुट करें";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "जांच";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "यह शेष नि: शुल्क ऐप एक्सेस अवधि का अनुपात प्रदर्शित करता है।";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "लूप";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "मुख्य ऐप्स एक्सेस";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "%@ दिन का मुख्य ऐप्स उपयोग";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "जीआईएफ बनाओ";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "सभी ऐप्स और नए का निरंतर उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "सभी मुफ्त ऐप्स का निरंतर उपयोग";
+"Ongoing Use of All Main Apps" = "सभी मुख्य ऐप्स का निरंतर उपयोग";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "ऐप्पल मैप्स खोलें";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "तैयार कर रहे हैं";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रीसेट";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "कीमतें नए ऐप्स या अपडेट शामिल हैं।";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "कीमतें नए ऐप्स और अपडेट शामिल हैं।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "एकांत";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "एक ईमेल भेजो";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "भेजना";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "नि: शुल्क ऐप्स एक्सेस के लिए सेटिंग्स";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "मुख्य ऐप्स एक्सेस के लिए सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#584 */

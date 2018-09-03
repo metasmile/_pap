@@ -154,7 +154,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#175 */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift#214, PhoneCalls.BApp.swift#379, ExifGhost.AppDockContent.swift#167, Finder.BApp.swift#1335, Cleaner.BApp.swift#541 */
+/* Generated from genl10n: Revert.BApp.swift#218, PhoneCalls.BApp.swift#379, ExifGhost.AppDockContent.swift#167, Finder.BApp.swift#1335, Cleaner.BApp.swift#541 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
 "Auto Straighten" = "Auto Straighten";
@@ -205,7 +205,7 @@
 /* Generated from genl10n: Stabilizer.swift#337, GIFMaker.BApp.swift#142 */
 "Crop" = "Crop";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters.";
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#184 */
 "Custom" = "Custom";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */
@@ -235,7 +235,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Engage Now And Recharge Repeatedly Free Apps Access.";
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Engage Now And Repeatedly Recharge Main Apps Access.";
 /* Generated from genl10n: Converter.AppDockContent.swift#159 */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
@@ -260,10 +260,6 @@
 "Forward" = "Forward";
 /* Generated from genl10n: GIFMaker.BApp.swift#521 */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Free Apps Access" = "Free Apps Access";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Free Apps Use of %@ Day" = "Free Apps Use of %@ Day";
 /* Generated from genl10n: AppCenter.Charge.swift#379 */
 "Free Use And All New Updates" = "Free Use And All New Updates";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -274,8 +270,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Get Access";
-/* Generated from genl10n: Shop.SApp.swift#625 */
-"Get In Touch" = "Get In Touch";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -294,6 +288,8 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Input Here";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Inquiry";
 /* Generated from genl10n: Shop.SApp.swift#473 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
 /* Generated from genl10n: Finder.BApp.swift#244 */
@@ -316,6 +312,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift#596 */
 "Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Main Apps Access";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Main Apps Use of %@ Day";
 /* Generated from genl10n: GIFMaker.BApp.swift#281 */
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -347,7 +347,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#170, AppCenter.Charge.swift#177 */
 "Ongoing Use of All Apps and New" = "Ongoing Use of All Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Ongoing Use of All Free Apps";
+"Ongoing Use of All Main Apps" = "Ongoing Use of All Main Apps";
 /* Generated from genl10n: Finder.BApp.swift#769 */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#783 */
@@ -385,7 +385,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps or Updates." = "Prices Are Including New Apps or Updates.";
+"Prices Are Including New Apps and Updates." = "Prices Are Including New Apps and Updates.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -453,12 +453,12 @@
 /* Generated from genl10n: Shop.SApp.swift#603 */
 "Send" = "Send";
 /* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Free Apps Access" = "Settings for Free Apps Access";
+"Settings for Main Apps Access" = "Settings for Main Apps Access";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#303 */
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift#589 */
 "Share This App" = "Share This App";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#144, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#73, Shop.Payables.FreeCharge.Facebook.swift#138, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Sharing on Facebook";
@@ -542,7 +542,7 @@
 "View" = "View";
 /* Generated from genl10n: AppCenter.Charge.swift#139 */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#613 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift#31, Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#613 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#242, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "Waiting To Select ...";

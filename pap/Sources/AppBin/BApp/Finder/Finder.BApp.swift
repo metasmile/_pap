@@ -1285,7 +1285,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         return AppDockScrollableContent(scrollView)
     }
     
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.".localized)
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -1489,7 +1489,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 
         return tableView.numberOfSections-1 == section
-                ? 64 //ff
+                ? 80 //ff
                 : 0
     }
 

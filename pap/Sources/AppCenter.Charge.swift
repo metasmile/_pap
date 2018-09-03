@@ -98,15 +98,15 @@ private final class AppChargeManager: ChargeManager{
             // Freecharge
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
-                    , payment: FBSharePayment<FBShareTypeDownloadUrl>.self
-                    , priceAmount: AmountObject(value:0.2)
+                    , payment: FBShareTypeDownloadUrlPayment.self
+                    , priceAmount: AmountObject(value:0.066)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
-                    , payment: FBSharePayment<FBShareTypeDownloadMessager>.self
-                    , priceAmount: AmountObject(value:0.3)
+                    , payment: FBShareTypeDownloadMessagerPayment.self
+                    , priceAmount: AmountObject(value:0.133)
                     , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
@@ -129,13 +129,13 @@ private final class AppChargeManager: ChargeManager{
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Ads".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Free Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Main Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
-                    , payment: URLOpenPayment<URLOpenTypeSocialPage>.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , payment: SNSEngagementPayment.self
+                    , priceAmount: AmountObject(value:0.066/2)
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 
@@ -296,7 +296,7 @@ class AppCharge: Charge {
             switch (charge.reward) {
             case .timeOfUses:
                 if let unit = unit {
-                    return "Free Apps Use of %@ Day".localizedFormatted(unit)
+                    return "Main Apps Use of %@ Day".localizedFormatted(unit)
                 }
             default:
                 break

@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Plodina";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "V súčasnosti je náš model rozpoznávania textu AI dostupný iba pre alfanumerické a niektoré špeciálne znaky.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V súčasnosti je náš model rozpoznávania textu AI dostupný iba pre alfanumerické a niektoré špeciálne znaky a môže to byť ovplyvnené aktuálnym systémovým jazykom.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "zvyk";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "Emailová adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Povoliť rýchle akcie";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Zapojte teraz a načítajte opakovane bezplatný prístup k aplikáciám.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Zahrnúť teraz a opakovane dobíjať prístup k hlavným aplikáciám.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "vpred";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Voľný prístup k aplikáciám";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Voľné aplikácie Použitie dňa %@";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Voľné použitie a všetky nové aktualizácie";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Dostať prístup";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Dotknite sa";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Uveďte hodnotenie";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "import";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Zadajte tu";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "dotaz";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Zobrazuje pomer zostávajúcich období bezplatného prístupu k aplikácii.";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "slučka";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Hlavný prístup k aplikáciám";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Hlavné aplikácie Použitie dňa %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Vytvorte GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Prebiehajúce používanie všetkých aplikácií a nové";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Prebiehajúce používanie všetkých bezplatných aplikácií";
+"Ongoing Use of All Main Apps" = "Prebiehajúce používanie všetkých hlavných aplikácií";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorte Mapy Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "príprava";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "Ceny zahŕňajú nové aplikácie alebo aktualizácie.";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "Ceny zahŕňajú nové aplikácie a aktualizácie.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "súkromia";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Poslať email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "odoslať";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Nastavenia pre voľný prístup k aplikáciám";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Nastavenia pre hlavný prístup k aplikáciám";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "nastavenie";
 /* Generated from genl10n: Shop.SApp.swift#584 */

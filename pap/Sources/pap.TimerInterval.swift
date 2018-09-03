@@ -30,7 +30,15 @@ struct papTimeInterval{
 #if DEBUG
         return 30
 #else
-        return 60*60*6
+        return 60*60*3
+#endif
+    }
+
+    static var ofSNSEngagementPaymentLatestPaid:TimeInterval{
+#if DEBUG
+        return 10
+#else
+        return 60*60*24*5
 #endif
     }
 

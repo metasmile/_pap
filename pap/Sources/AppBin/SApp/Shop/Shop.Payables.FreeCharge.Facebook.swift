@@ -25,17 +25,64 @@ private enum FBSharePublicKeys:String{
     case ogActionType = "pap:fbsharepayment"
 }
 
-protocol FBShareType {
-    static var dialog:FBSDKSharingDialog.Type {get}
-    static func makeShareContent() -> FBSDKSharingContent
+
+private protocol FBShareTypeDownloadUrlDefaults:PropertyDefaults{
+    var shouldDisableInNormalVersion:Bool{set get}
+}
+extension Defaults:FBShareTypeDownloadUrlDefaults{
+    var shouldDisableInNormalVersion:Bool{ set{ set(newValue) } get{ return get(or:false) } }
 }
 
-struct FBShareTypeDownloadUrl: FBShareType {
-    static var dialog: FBSDKSharingDialog.Type {
-        return FBSDKShareDialog.self
+class FBSDKSharingDelegatePrototype:NSObject, FBSDKSharingDelegate, PropertyWatchable{
+    @objc dynamic
+    fileprivate var status: Int = FBSharePaymentStatus.initial.rawValue
+
+    override required init() {
+        super.init()
     }
 
-    static func makeShareContent() -> FBSDKSharingContent{
+    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable: Any]!) {
+        print(results)
+        status = FBSharePaymentStatus.succeed.rawValue
+    }
+
+    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
+        print(error)
+        status = FBSharePaymentStatus.failed.rawValue
+    }
+
+    func sharerDidCancel(_ sharer: FBSDKSharing!) {
+        print(#function, sharer)
+        status = FBSharePaymentStatus.cancelled.rawValue
+    }
+}
+
+class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePayable {
+
+    private static var defaults: Defaults{
+        return Defaults(suiteName: String(describing: self))
+    }
+
+    class func prepare(_ asyncSignal: AsyncWaitSignalable) {
+        if Defaults.shared.shortVersionDescription != .normal {
+            defaults.shouldDisableInNormalVersion = false
+        }
+    }
+
+    static var action: PayableAction {
+        return PayableAction(title: "Share".localized)
+    }
+
+    static var isEnable: Bool {
+        return autoreleasepool {
+            if Defaults.shared.shortVersionDescription == .normal {
+                return defaults.shouldDisableInNormalVersion == false
+            }
+            return FBSDKShareDialog().canShow()
+        }
+    }
+
+    fileprivate static func makeShareContent() -> FBSDKSharingContent {
 
         //photo
 //        let content = FBSDKShareMediaContent()
@@ -57,15 +104,48 @@ struct FBShareTypeDownloadUrl: FBShareType {
 
         return content
     }
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+
+        var paid = false
+        asyncSignal.begin()
+
+        DispatchQueue.main.async {
+
+            if let vc = UIViewController.presentable {
+                FBSDKShareDialog.show(from: vc, with: type(of: self).makeShareContent(), delegate: self)
+
+                super.watch(\.status) { (o, _) in
+                    paid = o.status == FBSharePaymentStatus.succeed.rawValue
+                    asyncSignal.end()
+                }
+            }else{
+                asyncSignal.end()
+            }
+        }
+
+        asyncSignal.waitUntilEnd()
+
+        type(of: self).defaults.shouldDisableInNormalVersion = paid
+
+        return paid
+    }
 }
 
-struct FBShareTypeDownloadMessager: FBShareType {
-    static var dialog: FBSDKSharingDialog.Type{
-        return FBSDKMessageDialog.self
+class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Payable{
+
+    static var action:PayableAction{
+        return PayableAction(title: "Share".localized)
+    }
+
+    static var isEnable: Bool {
+        return autoreleasepool {
+            return FBSDKMessageDialog().canShow()
+        }
     }
 
     static func makeShareContent() -> FBSDKSharingContent{
-        return FBShareTypeDownloadUrl.makeShareContent()
+        return FBShareTypeDownloadUrlPayment.makeShareContent()
 
 //        let actionButton = FBSDKShareMessengerURLActionButton()
 //        actionButton.title = "Free Download".localized
@@ -74,7 +154,7 @@ struct FBShareTypeDownloadMessager: FBShareType {
 //
 //        let content = FBSDKShareMessengerGenericTemplateContent()
 //
-    //FIXME: unable to share error
+        //FIXME: unable to share error
 //        let e = FBSDKShareMessengerGenericTemplateElement()
 //        e.title = papStrings.nameTitle
 //        e.subtitle = papStrings.tagline
@@ -91,89 +171,6 @@ struct FBShareTypeDownloadMessager: FBShareType {
 
 //        return content
     }
-}
-
-struct FBShareTypeOpenGraph /*: FBShareType*/{
-    //    private let FB_APP_ID = "443161082811578"
-//    private let FB_APP_OG_ACTION_TYPE = "pap:fbsharepayment"
-//    private let FB_APP_OG_TYPE = "pap:share"
-//
-//    //TODO: retain permmission : https://developers.facebook.com/apps/443161082811578/dashboard/
-//
-//    static func makeOGPhotoContent() -> FBSDKSharingContent {
-//        //TODO: fetch from remote.
-//        let photo = FBSDKSharePhoto(image: R.image.shopSAppIcon()!, userGenerated: false)!
-//
-//        let og = FBSDKShareOpenGraphObject(properties: [
-//            "og:type": FB_APP_OG_TYPE,
-//            "og:title": papStrings.nameTitle,
-//            "og:url": papStrings.download.url,
-//            "og:caption": papStrings.tagline,
-//            "og:description": papStrings.share.messageFirst,
-//            "fb:app_id": FB_APP_ID,
-//            "article:author": papStrings.name,
-//            "article:publisher": papStrings.name,
-//            "fb:explicitly_shared": "true"
-//        ])
-//
-//        let ogAction = FBSDKShareOpenGraphAction()
-//        ogAction.actionType = FB_APP_OG_ACTION_TYPE
-//        ogAction.setArray([photo], forKey: "image")
-//        ogAction.setObject(og, forKey: FB_APP_OG_TYPE)
-////        ogAction.setPhoto(photo, forKey: FBAPP_OG_TYPE)
-//
-//        let ogContent = FBSDKShareOpenGraphContent()
-//        ogContent.action = ogAction
-//        ogContent.previewPropertyName = FB_APP_OG_TYPE
-//
-//        return ogContent
-//    }
-}
-
-
-class FBSharePayment<T:FBShareType>:NSObject, Payable, PropertyWatchable, FBSDKSharingDelegate{
-
-    @objc dynamic
-    private var status:Int = FBSharePaymentStatus.initial.rawValue
-
-    override required init() {
-        super.init()
-    }
-
-    static var action:PayableAction{
-        return PayableAction(title: "Share".localized)
-    }
-
-    static var isEnable: Bool {
-        return autoreleasepool {
-
-            if T.dialog is FBSDKShareDialog.Type{
-                return FBSDKShareDialog().canShow()
-            }
-
-            if T.dialog is FBSDKMessageDialog.Type{
-                return FBSDKMessageDialog().canShow()
-            }
-
-            return false
-        }
-    }
-
-    func tryShare() -> Bool{
-        if let dialog = T.dialog as? FBSDKShareDialog.Type{
-            if let vc = UIViewController.presentable{
-                dialog.show(from: vc, with: T.makeShareContent(), delegate: self)
-                return true
-            }
-        }
-
-        if let dialog = T.dialog as? FBSDKMessageDialog.Type{
-            dialog.show(with: T.makeShareContent(), delegate: self)
-            return true
-        }
-
-        return false
-    }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
 
@@ -182,34 +179,15 @@ class FBSharePayment<T:FBShareType>:NSObject, Payable, PropertyWatchable, FBSDKS
 
         DispatchQueue.main.async {
 
-            if self.tryShare(){
-                self.watch(\.status) { (o,_) in
-                    paid = o.status == FBSharePaymentStatus.succeed.rawValue
-                    asyncSignal.end()
-                }
-            }else{
+            FBSDKMessageDialog.show(with: type(of: self).makeShareContent(), delegate: self)
+            super.watch(\.status) { (o,_) in
+                paid = o.status == FBSharePaymentStatus.succeed.rawValue
                 asyncSignal.end()
             }
         }
 
         asyncSignal.waitUntilEnd()
+
         return paid
     }
-
-
-    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
-        print(results)
-        status = FBSharePaymentStatus.succeed.rawValue
-    }
-
-    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
-        print(error)
-        status = FBSharePaymentStatus.failed.rawValue
-    }
-
-    func sharerDidCancel(_ sharer: FBSDKSharing!) {
-        print(#function, sharer)
-        status = FBSharePaymentStatus.cancelled.rawValue
-    }
-
 }

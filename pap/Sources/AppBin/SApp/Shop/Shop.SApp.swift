@@ -262,7 +262,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "Purchase of All Apps Access".localized
-                , detailedLabel: "Prices Are Including New Apps or Updates.".localized
+                , detailedLabel: "Prices Are Including New Apps and Updates.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:AnnualAllAppsPayment.self)
@@ -276,16 +276,16 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         , PayGroup(
                 key: .FreeCharge
-                , label: "Free Apps Access".localized
-                , detailedLabel: "Engage Now And Recharge Repeatedly Free Apps Access.".localized
+                , label: "Main Apps Access".localized
+                , detailedLabel: "Engage Now And Repeatedly Recharge Main Apps Access.".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
-                    PayItem(payable: FBSharePayment<FBShareTypeDownloadUrl>.self),
-                    PayItem(payable: FBSharePayment<FBShareTypeDownloadMessager>.self),
-                    PayItem(payable: URLOpenPayment<URLOpenTypeSocialPage>.self)
+                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
+                    PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
+                    PayItem(payable: SNSEngagementPayment.self)
                 ]
         )
     ]
@@ -470,7 +470,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         var s:[Section] = payGroups
 
         if freeChargeSettingsCellDescribers.count > 0{
-            let settings = CellDescriberGroup(label: "Settings for Free Apps Access".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
+            let settings = CellDescriberGroup(label: "Settings for Main Apps Access".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
             s.append(settings)
         }
 
@@ -622,7 +622,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
-            c6.buttonTitle = "Get In Touch".localized
+            c6.buttonTitle = "Inquiry".localized
             c6.iconImage = R.image.cellIconVIPHotline.name
             c0.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in

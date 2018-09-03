@@ -240,8 +240,8 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "作物";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字でのみ使用できます。";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字に対してのみ使用でき、現在のシステム言語の影響を受ける可能性があります。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "カスタム";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "電子メールアドレス";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "今すぐ参加し、無料でアプリのアクセスを繰り返し充電する。";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "今すぐ参加し、メインアプリのアクセスを繰り返し充電します。";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "フォワード";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "フレーム遅延";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "無料アプリアクセス";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "無料アプリの%@日の使用";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "無料で使用し、すべての新しいアップデート";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "GIFメーカー";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "アクセスを取得";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "連絡する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "インポート";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "ここに入力";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "問い合わせ";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "ロックスクリーン";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ループ";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "メインアプリへのアクセス";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "メインアプリの使用%@日";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIFを作る";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "すべてのアプリの継続使用と新規";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "すべての無料アプリの継続使用";
+"Ongoing Use of All Main Apps" = "すべてのメインアプリの継続使用";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Mapsを開く";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "プリセット";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "価格には新しいアプリやアップデートが含まれています。";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "価格には新しいアプリやアップデートが含まれています。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "プライバシー";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "メールを送る";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "送信";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "無料アプリアクセスの設定";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "メインのAppsアクセスの設定";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "設定";
 /* Generated from genl10n: Shop.SApp.swift#584 */

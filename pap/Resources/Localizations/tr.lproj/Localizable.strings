@@ -240,8 +240,8 @@
 "Crop to Fit" = "Sığacak şekilde kırp";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1245 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters." = "Şu anda bizim AI metin tanıma modelimiz sadece Alfanümerik ve bazı özel karakterler için kullanılabilir.";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Şu anda bizim AI metin tanıma modelimiz yalnızca Alfanümerik ve bazı özel karakterler için kullanılabilir ve mevcut sistem dilinden etkilenebilir.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "görenek";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -270,8 +270,8 @@
 "Email Address" = "E";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
-/* Generated from genl10n: Shop.SApp.swift#275 */
-"Engage Now And Recharge Repeatedly Free Apps Access." = "Şimdi Giriş Yapın ve Tekrarlı Ücretsiz Uygulama Erişimini Yeniden Paylaşın.";
+/* Generated from genl10n: Shop.SApp.swift#280 */
+"Engage Now And Repeatedly Recharge Main Apps Access." = "Şimdi Nişan Olun ve Ana Uygulamaları Erişin Tekrar Paylaşın.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "İhracat Seçenekleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -296,10 +296,6 @@
 "Forward" = "ileri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Çerçeve Gecikmesi";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Free Apps Access" = "Ücretsiz Uygulama Erişimi";
-/* Generated from genl10n: AppCenter.Charge.swift#292 */
-"Free Apps Use of %@ Day" = "Ücretsiz Uygulamalar %@ Gününün Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Ücretsiz Kullanım ve Tüm Yeni Güncellemeler";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
@@ -310,8 +306,6 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Erişim Al";
-/* Generated from genl10n: Shop.SApp.swift#607 */
-"Get In Touch" = "Temasta olmak";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Bir Derecelendirme Ver";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
@@ -330,6 +324,8 @@
 "Import" = "İthalat";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Buradan Girin";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "soruşturma";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Kalan Ücretsiz Uygulama Erişimi Dönemlerinin Bir Oranını Gösterir.";
 /* Generated from genl10n: AppStrings.swift#22 */
@@ -352,6 +348,10 @@
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "döngü";
+/* Generated from genl10n: Shop.SApp.swift#279 */
+"Main Apps Access" = "Ana Uygulamalar Erişimi";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Ana Uygulamalar %@ Gününün Kullanımı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF yap";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -383,7 +383,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Tüm Uygulamaların Sürekli Kullanımı ve Yeni";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Free Apps" = "Tüm Ücretsiz Uygulamaların Devam Eden Kullanımı";
+"Ongoing Use of All Main Apps" = "Tüm Ana Uygulamaların Devam Eden Kullanımı";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Haritalar'ı aç";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -420,8 +420,8 @@
 "Preparing" = "hazırlama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Hazır ayarlar";
-/* Generated from genl10n: Shop.SApp.swift#260 */
-"Prices Are Including New Apps or Updates." = "Fiyatlar Yeni Uygulamalar veya Güncellemeler İçeriyor.";
+/* Generated from genl10n: Shop.SApp.swift#265 */
+"Prices Are Including New Apps and Updates." = "Fiyatlar Yeni Uygulamalar ve Güncellemeler İçeriyor.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Gizlilik";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -488,8 +488,8 @@
 "Send an Email" = "Bir e-posta göndermek";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "göndermek";
-/* Generated from genl10n: Shop.SApp.swift#468 */
-"Settings for Free Apps Access" = "Ücretsiz Uygulama Erişimi için Ayarlar";
+/* Generated from genl10n: Shop.SApp.swift#473 */
+"Settings for Main Apps Access" = "Ana Uygulama Erişimi için Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#584 */
