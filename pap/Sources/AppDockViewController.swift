@@ -74,7 +74,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        viewControllers.forEach({ $0.viewDidLayoutSubviews() })
+        viewControllers.filter({ $0.isViewLoaded }).forEach({ $0.viewDidLayoutSubviews() })
     }
     
     func setAppDockHidden(_ hidden: Bool, animated: Bool) {
