@@ -490,6 +490,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     private func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
+            navigationItem.hidesBackButton = false
             navigationItem.setLeftBarButton(nil, animated: true)
         }
         else {
