@@ -45,11 +45,6 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        self.setViewControllers([
-            R.storyboard.appStoryboard.photoAlbumViewController(),
-            R.storyboard.appStoryboard.photoPickerViewController()
-        ].compactMap { $0 }, animated: false)
     }
     
     override func viewDidLoad() {
@@ -70,6 +65,10 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
         appDockView.trailingAnchor.constraint(equalTo: appDockContainerView.trailingAnchor).isActive = true
         appDockViewBottomLayout = appDockView.bottomAnchor.constraint(equalTo: appDockContainerView.bottomAnchor)
         appDockViewBottomLayout?.isActive = true
+        
+        if let pickerVC = R.storyboard.appStoryboard.photoPickerViewController() {
+            pushViewController(pickerVC, animated: false)
+        }
     }
     
     override func viewDidLayoutSubviews() {
