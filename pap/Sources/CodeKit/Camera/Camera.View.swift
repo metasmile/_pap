@@ -139,6 +139,8 @@ class CameraView: UIView {
     var capturesInProgress = Set<CaptureProcessor>()
 
     func takePhoto() {
+        guard let _ = self.capturePhotoOutput.connection(with: .video) else { return }
+        
         performShutterAnimation()
 
         let captureProcessor: CaptureProcessor
