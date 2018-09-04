@@ -8,11 +8,11 @@ global_notices:
 com.stells.pap:
     version: '1.0'
     Base:
-        marketing_url: ''
-        privacy_url: ''
-        support_url: ''
-        promotional_text: ''
+        marketing_url: 'https://apps.photo'
+        privacy_url: 'https://apps.photo/privacy'
+        support_url: 'https://apps.photo/support'
+        promotional_text: 'An App, But Contains Many Photo Apps: Photo Apps(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own.'
     en-US:
         name: Photo Apps
-        subtitle: ''
+        subtitle: 'Do Everything With Photos.'
         release_notes: ''
