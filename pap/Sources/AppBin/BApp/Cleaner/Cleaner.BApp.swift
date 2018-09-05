@@ -99,7 +99,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
             PHAssetGarbageDetector_Similarity.self
             , PHAssetGarbageDetector_Lockscreens.self
             , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
-            , PHAssetGarbageDetector_Flashlight.self
+            , PHAssetGarbageDetector_TooCloseupFace.self
         ]
     }
 
