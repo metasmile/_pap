@@ -42,4 +42,12 @@ struct papTimeInterval{
 #endif
     }
 
+    static var ofFBShareTypeDownloadMessagerPaymentLatestPaid:TimeInterval{
+#if DEBUG
+        return 10
+#else
+        return 60*60*24*7
+#endif
+    }
+
 }

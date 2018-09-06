@@ -74,10 +74,11 @@ class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePa
     }
 
     static var isEnable: Bool {
+        if Defaults.shared.shortVersionDescription == .normal {
+            return defaults.shouldDisableInNormalVersion == false
+        }
+
         return autoreleasepool {
-            if Defaults.shared.shortVersionDescription == .normal {
-                return defaults.shouldDisableInNormalVersion == false
-            }
             return FBSDKShareDialog().canShow()
         }
     }
@@ -97,7 +98,7 @@ class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePa
         content.quote = papStrings.share.messageFirst
 
         //Common
-        content.contentURL = "https://get.apps.photo".asURL
+        content.contentURL = papStrings.download.url.asURL
         content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
         content.pageID = FBSharePublicKeys.pageId.rawValue
         content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
@@ -132,13 +133,29 @@ class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePa
     }
 }
 
+
+private protocol FBShareTypeDownloadMessagerPaymentDefaults:PropertyDefaults{
+    var latestPaidDate:Date?{set get}
+}
+extension Defaults:FBShareTypeDownloadMessagerPaymentDefaults{
+    fileprivate var latestPaidDate:Date?{ set{ set(newValue) } get{ return get() } }
+}
+
 class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Payable{
+
+    private static var defaults: Defaults{
+        return Defaults(suiteName: String(describing: self))
+    }
 
     static var action:PayableAction{
         return PayableAction(title: "Share".localized)
     }
 
     static var isEnable: Bool {
+        if let latestPaidDate = defaults.latestPaidDate{
+            return Date().timeIntervalSince(latestPaidDate) > papTimeInterval.ofFBShareTypeDownloadMessagerPaymentLatestPaid
+        }
+
         return autoreleasepool {
             return FBSDKMessageDialog().canShow()
         }
@@ -187,6 +204,10 @@ class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Payable
         }
 
         asyncSignal.waitUntilEnd()
+
+        if paid{
+            type(of: self).defaults.latestPaidDate = Date()
+        }
 
         return paid
     }
