@@ -72,6 +72,9 @@ struct papLog: Loggable {
 
         static func userCalledCameraInApp(){ log() }
 
+        static func userEnablesASB(){ log() }
+        static func userDisablesASB(){ log() }
+
         struct defaults: Loggable {}
     }
 

@@ -170,6 +170,12 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.autoSelect = self.autoSelect
+
+            if self.autoSelect{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
         }
         cellDescribers.append(cell1)
 

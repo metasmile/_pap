@@ -552,6 +552,12 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
                 }
             }
 
+            if enabled{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
+
         }
         settingCellDescribers.append(cell1)
 

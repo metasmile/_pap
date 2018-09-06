@@ -383,6 +383,12 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             let enable = (on as? Bool) ?? false
             self.autoSelect = enable
             AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = enable
+
+            if enable{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
         }
         settingCellDescribers.append(cell1)
 

@@ -1349,6 +1349,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
+
+            if self.autoSelect{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
         }
         settingCellDescribers.append(cell1)
 
