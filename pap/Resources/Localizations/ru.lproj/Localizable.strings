@@ -444,6 +444,8 @@
 "Rate Now" = "Оценить сейчас";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Удаление красных глаз";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Справочное руководство";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Скриншоты";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Поиск рейсов";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Видеть";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Выберите Формат для преобразования";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Видео без звука";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Просмотр объявлений";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Посмотреть";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Посетите социальные страницы";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

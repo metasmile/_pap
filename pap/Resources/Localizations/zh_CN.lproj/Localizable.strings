@@ -37,7 +37,7 @@
 /*Translated from: Deleting Photos...*/
 "Deleting Photos..." = "删除照片...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "恢复照片...";
+"Reverting Photos..." = "还原照片...";
 /*Translated from: Select this photo*/
 "Select this photo" = "选择此照片";
 /*Translated from: Select this video*/
@@ -444,6 +444,8 @@
 "Rate Now" = "现在就评价吧";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "消除红眼";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "参考指南";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "截图";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "搜索航班";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "看到";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "选择要转换的格式";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "没有声音的视频";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "查看广告";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "视图";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "访问社交页面";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

@@ -635,7 +635,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c7 = UITableViewButtonCellDescriber()
         c7.itemIdentifier = CellDescriber.Key.support.hashValue
         c7.label = "Reference Guide".localized
-        c7.buttonTitle = "View".localized
+        c7.buttonTitle = "See".localized
         c7.iconImage = R.image.cellIconReferenceGuide.name
         c7.iconImageTintColor = self.view.tintColor
         c7.valueHandler = { _ in

@@ -444,6 +444,8 @@
 "Rate Now" = "Qualifica ara";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Remoció d'ulls vermells";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Guia de referència";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repetiu";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Captures de pantalla";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vols de cerca";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Veure";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Seleccioneu Format per convertir";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Videos sense so";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Mostra anuncis";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Veure";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Visiteu les pàgines socials";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

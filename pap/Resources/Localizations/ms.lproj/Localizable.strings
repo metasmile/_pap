@@ -444,6 +444,8 @@
 "Rate Now" = "Nilai sekarang";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Panduan Rujukan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Tangkapan skrin";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Penerbangan Penerbangan";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Lihat";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Pilih Format Untuk Tukar";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Video Tanpa Bunyi";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Lihat Iklan";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Lihat";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Lawati Halaman Sosial";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

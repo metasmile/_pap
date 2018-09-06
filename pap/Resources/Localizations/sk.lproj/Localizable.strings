@@ -444,6 +444,8 @@
 "Rate Now" = "Hodnotiť teraz";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Odstránenie efektu červených očí";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Referenčná príručka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "ukážky";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhľadávacie lety";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "vidieť";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Vyberte formát na konverziu";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Videá bez zvuku";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Zobraziť reklamy";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "vyhliadka";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Navštívte sociálne stránky";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

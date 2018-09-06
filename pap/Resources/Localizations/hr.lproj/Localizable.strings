@@ -444,6 +444,8 @@
 "Rate Now" = "Ocijeni sada";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Uklanjanje crvenih očiju";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Referentni vodič";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ponoviti";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Slike";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pretraži letove";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Vidjeti";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Odaberite Format za pretvorbu";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Videozapisi bez zvuka";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Prikaži oglase";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Pogled";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Posjetite društvene stranice";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

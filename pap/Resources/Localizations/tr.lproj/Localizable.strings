@@ -444,6 +444,8 @@
 "Rate Now" = "Şimdi oyla";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Kırmızı Göz Giderme";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Başvuru Kılavuzu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Tekrar et";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Ekran görüntüleri";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Uçuş ara";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Görmek";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Dönüştürmek için Formatı seçin";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Sessiz Videolar";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Reklamlara göz at";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Görünüm";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Sosyal sayfaları ziyaret et";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

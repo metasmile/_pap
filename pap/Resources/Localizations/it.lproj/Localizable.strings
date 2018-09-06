@@ -444,6 +444,8 @@
 "Rate Now" = "Vota adesso";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rimozione dell'effetto occhi rossi";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Guida di riferimento";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ripetere";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Cerca voli";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Vedere";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Seleziona il formato da convertire";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Video senza audio";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Vedi annunci";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "vista";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Visita le pagine sociali";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

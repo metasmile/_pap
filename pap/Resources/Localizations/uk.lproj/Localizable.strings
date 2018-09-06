@@ -444,6 +444,8 @@
 "Rate Now" = "Оцінити зараз";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Видалення 'червоних очей'";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Довідковий посібник";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Повторити";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Знімки екрану";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Пошук авіарейсів";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Побачити";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Виберіть формат для перетворення";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Відео без звуку";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Переглянути оголошення";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Вид";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Відвідайте соціальні сторінки";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

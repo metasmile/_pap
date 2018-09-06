@@ -444,6 +444,8 @@
 "Rate Now" = "अब रेट करें";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "रेड-आई रिमूवल";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "निर्देशिका";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "स्क्रीनशॉट";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "उड़ान खोजें";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "देख";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "कनवर्ट करने के लिए प्रारूप का चयन करें";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "विज्ञापन देखें";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "राय";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "सोशल पेजेस पर जाएं";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

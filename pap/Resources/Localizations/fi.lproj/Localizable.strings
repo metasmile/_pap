@@ -444,6 +444,8 @@
 "Rate Now" = "Arvostele nyt";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Viiteopas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "kuvakaappauksia";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Etsi lennot";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "nähdä";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Valitse Muotoon muunnettava";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Videot ilman ääntä";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Näytä mainokset";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "näkymä";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Siirry sosiaalisiin sivuihin";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

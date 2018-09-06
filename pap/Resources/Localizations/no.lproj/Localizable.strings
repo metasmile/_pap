@@ -444,6 +444,8 @@
 "Rate Now" = "Vurder nå";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Fjerning av røde øyne";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Referansehåndbok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Gjenta";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Skjerm";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Søk flyreiser";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Se";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Velg Format for å konvertere";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Videoer uten lyd";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Se annonser";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Utsikt";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Besøk sosiale sider";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

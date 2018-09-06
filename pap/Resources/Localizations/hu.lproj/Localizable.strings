@@ -444,6 +444,8 @@
 "Rate Now" = "Értékeld most";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Vörösszem-eltávolítás";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Útmutató";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ismétlés";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "Pillanatképek";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Keres járatok";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Lát";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Válassza a Konvertálás formátumot";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "Hang nélküli videók";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Hirdetések megtekintése";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Kilátás";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Látogassa meg a szociális oldalakat";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

@@ -444,6 +444,8 @@
 "Rate Now" = "지금 평가";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "참조 가이드";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -478,6 +480,8 @@
 "Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "보기";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "변환 할 형식 선택";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -578,8 +582,6 @@
 "Videos Without Sound" = "소리가없는 비디오";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "광고보기";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "보기";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "소셜 페이지 방문";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
