@@ -148,10 +148,10 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
                         let contact = CNMutableContact()
                         contact.contactType = .person
-                        contact.givenName = "New Phone Number".localized
+                        contact.givenName = "New Phone Numbers".localized
 
                         for number in numbers{
-                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            let value = CNLabeledValue(label: "Number".localized, value: CNPhoneNumber(stringValue: number))
                             contact.phoneNumbers.append(value)
                         }
 
@@ -188,9 +188,9 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
                         let contact = CNMutableContact()
                         contact.contactType = .person
-                        contact.givenName = "New Phone Number".localized
+                        contact.givenName = "New Phone Numbers".localized
                         for number in [phoneNumber]{
-                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            let value = CNLabeledValue(label: "Number".localized, value: CNPhoneNumber(stringValue: number))
                             contact.phoneNumbers.append(value)
                         }
 

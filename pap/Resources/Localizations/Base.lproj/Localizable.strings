@@ -336,12 +336,16 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift#538 */
 "New Event" = "New Event";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#191, PhoneCalls.BApp.swift#193 */
-"New Phone Number" = "New Phone Number";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "New Number";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "New Phone Numbers";
 /* Generated from genl10n: Stabilizer.swift#338, GIFMaker.BApp.swift#141 */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift#589 */
 "No loop" = "No loop";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "Number";
 /* Generated from genl10n: PhoneCalls.BApp.swift#615, Finder.BApp.swift#1727, Cleaner.BApp.swift#889 */
 "On Standby" = "On Standby";
 /* Generated from genl10n: AppCenter.Charge.swift#170, AppCenter.Charge.swift#177 */
@@ -372,7 +376,7 @@
 "Permanent Use of All Apps and New" = "Permanent Use of All Apps and New";
 /* Generated from genl10n: PhoneCalls.BApp.swift#60 */
 "Phone Calls" = "Phone Calls";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210, Finder.BApp.swift#355, Finder.BApp.swift#1262 */
+/* Generated from genl10n: Finder.BApp.swift#355, Finder.BApp.swift#1262 */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "Photos";
