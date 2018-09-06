@@ -134,6 +134,7 @@ class PhotoPickerViewController: AppDockViewController {
         
         dragSelectionGesture = DragSelectionGestureRecognizer(target: self, action: #selector(self.dragSelectionGestureDidRecognize))
         dragSelectionGesture.delegate = self
+        dragSelectionGesture.maximumNumberOfTouches = 1
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
         //AppCenter.chargeManager related
@@ -489,6 +490,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     private func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
+            navigationItem.hidesBackButton = false
             navigationItem.setLeftBarButton(nil, animated: true)
         }
         else {
@@ -783,6 +785,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         appDockView?.setDrawerDisplay(forState: appDockContentLayoutStateRestoringAfterProcessing ?? .neutralized, reloadDockContentViews: true)
         
+        batchPreviewView.reloadCollectionViewItems(animated: false)
+        
         if let transitionContext = photoEditorTransitionContext {
             if let editItem = editItem {
                 if let filter = editItem.ciFilter {
@@ -797,7 +801,6 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         }
         
         photoEditorTransitionContext?.sourceView.isHidden = true
-        batchPreviewView.reloadCollectionViewItems(animated: false)
         
         photoEditor.dismiss(animated: true, completion: {
             self.photoEditorTransitionContext?.sourceView.isHidden = false

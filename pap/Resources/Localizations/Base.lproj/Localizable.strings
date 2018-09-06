@@ -224,7 +224,7 @@
 "Do Everything With Photos." = "Do Everything With Photos.";
 /* Generated from genl10n: pap.Strings.swift#54 */
 "Download now for FREE at %@" = "Download now for FREE at %@";
-/* Generated from genl10n: PhotoPickerViewController.swift#874 */
+/* Generated from genl10n: PhotoPickerViewController.swift#877 */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#708, Finder.BApp.swift#1274 */
 "E-mail Address" = "E-mail Address";
@@ -436,7 +436,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#52 */
 "Save" = "Save";
-/* Generated from genl10n: PhotoPickerViewController.swift#897 */
+/* Generated from genl10n: PhotoPickerViewController.swift#900 */
 "Saving Results..." = "Saving Results...";
 /* Generated from genl10n: Stabilizer.swift#424, PDFactory.AppDockContent.swift#146 */
 "Scale To Fit" = "Scale To Fit";
@@ -488,11 +488,11 @@
 "Stabilizer" = "Stabilizer";
 /* Generated from genl10n: Stabilizer.swift#100 */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
-/* Generated from genl10n: PhotoPickerViewController.swift#470 */
+/* Generated from genl10n: PhotoPickerViewController.swift#471 */
 "Start" = "Start";
 /* Generated from genl10n: PhoneCalls.BApp.swift#238, Finder.BApp.swift#165 */
 "Starting To Find ..." = "Starting To Find ...";
-/* Generated from genl10n: PhotoPickerViewController.swift#831 */
+/* Generated from genl10n: PhotoPickerViewController.swift#834 */
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift#114 */
 "Starting to check edited photos..." = "Starting to check edited photos...";

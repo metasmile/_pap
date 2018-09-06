@@ -25,11 +25,7 @@ protocol PreviewViewDelegate {
 }
 
 internal class PreviewCollectionLayout: UICollectionViewLayout {
-    var previewHeight: CGFloat = 0 {
-        didSet {
-            invalidateLayout()
-        }
-    }
+    var previewHeight: CGFloat = 0
     
     private enum LayoutItem: String {
         case item = "Item"
@@ -123,7 +119,7 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return false
+        return collectionView?.bounds.height != newBounds.height
     }
     
     var contentSize: CGSize {
@@ -157,7 +153,7 @@ class PreviewView: CustomView, AppDockContentTransition {
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PreviewCollectionViewCell.self))
     }
     
-    private var transitionBeginLocation: CGPoint = .zero
+    private var transitionBeginLocation: CGPoint?
     func transitionWillBegin(at location: CGPoint) {
         transitionBeginLocation = location
     }
@@ -184,19 +180,27 @@ class PreviewView: CustomView, AppDockContentTransition {
         }
     }
     
-    public func setPreviewLayout(with height: CGFloat) {
-        let needsToLayout = collectionViewHeightLayout.constant != height
+    private func setPreviewLayout(with height: CGFloat) {
+        let toLayout = PreviewCollectionLayout(previewHeight: height)
         
-        let touchedIndexPath = collectionView.indexPathForItem(at: transitionBeginLocation)
+        var targetIndexPath: IndexPath? = nil
+        let location = transitionBeginLocation ?? CGPoint(x: collectionView.bounds.width / 2, y: 0)
+        var targetLocation = collectionView.convert(location, from: self)
+        targetLocation.y = collectionView.bounds.height / 2
+        
+        targetIndexPath = collectionView.indexPathForItem(at: targetLocation) ?? IndexPath(item: location.x > collectionView.contentSize.width / 2 ? appAssetsSelected.count - 1 : 0, section: 0)
+        
+        transitionBeginLocation = nil
         
         collectionViewHeightLayout.constant = height
-        (collectionView.collectionViewLayout as? PreviewCollectionLayout)?.previewHeight = height
         
-        if appAssetsSelected.count > 0, let indexPath = touchedIndexPath {
-            if needsToLayout {
-                collectionView.layoutIfNeeded()
+        UIView.performWithoutAnimation { [unowned self] in
+            self.collectionView.performBatchUpdates(nil) { [unowned self] _ in
+                self.collectionView.setCollectionViewLayout(toLayout, animated: false)
+                if self.appAssetsSelected.count > 0, let indexPath = targetIndexPath {
+                    self.scrollToNeareastItem(at: indexPath, animated: false)
+                }
             }
-            scrollToNeareastItem(at: indexPath, animated: false)
         }
     }
 }
@@ -239,36 +243,14 @@ extension PreviewView {
         
         return insertedIndexPath
     }
-
-    @discardableResult
-    func removeCollectionViewItem(with asset: PHAsset?) -> IndexPath? {
-        guard let _asset = asset, let indexPath = appAssetsSelected.remove(for:_asset) else {
-            return nil
-        }
-        
-        if appAssetsSelected.count > 0 {
-            collectionView.performBatchUpdates({
-                self.collectionView.deleteItems(at: [indexPath])
-            }) { fin in
-                guard fin else { return }
-                self.collectionView.collectionViewLayout.invalidateLayout()
-                self.scrollToNeareastItem(at: indexPath)
-            }
-        }
-        else {
-            collectionView.reloadData()
-        }
-        
-        return indexPath
-    }
     
     func removeCollectionViewItems(with assets: [PHAsset]?) {
         guard let _assets = assets, !_assets.isEmpty else {
             return
         }
         
-        let indexPaths = _assets.compactMap({ appAssetsSelected.by($0)?.indexPath })
-        _assets.forEach { appAssetsSelected.remove(for: $0) }
+        let indexPaths = _assets.compactMap({ appAssetsSelected.index(for: $0) }).map { IndexPath(item: $0, section: 0)}
+        _assets.forEach { AppAssets.selected.remove(for: $0) }
         
         if appAssetsSelected.count > 0 {
             collectionView.performBatchUpdates({

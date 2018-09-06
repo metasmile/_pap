@@ -36,7 +36,7 @@ extension MP4Converter {
 class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov, to:.mp4) }
 
-    static let supportedPresets = ConverterQualityPreset.all
+    static let supportedPresets = ConverterQualityPreset.originalOnly
     
     func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         guard let video = source.asset.asAVAsset else { return nil }
@@ -44,7 +44,15 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
         let url = FileURL.temp(source.asset.localIdentifierWithoutSplitter, UTI.mpeg4, group: FileURL.fileAndQueuePrivateGroup())
         async.begin()
 
-        let preset = (self.options ?? MP4ConverterOption()).avAssetPreset
+        let options = self.options ?? MP4ConverterOption()
+        
+        var preset = options.avAssetPreset
+        if !MP4Converter_Mov.supportedPresets.contains(where: { (preset) -> Bool in
+            MP4ConverterOption.optionBy(preset, with: source.asset).avAssetPreset == options.avAssetPreset
+        }) {
+            preset = MP4ConverterOption().avAssetPreset
+        }
+        
         AVAssetExportSession.export(asset: video, presetName:preset, outputFileType: .mp4, outputURL: url, shouldOptimizeForNetworkUse: true, progressHandler: progressHandler) { (success) in
             async.end()
         }
@@ -54,14 +62,14 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
     }
     
     static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video && source.asset.duration < 15 && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
+        return source.asset.mediaType == .video && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
     }
 }
 
 class MP4Converter_Timelapse: OptionableConverterBase<MP4ConverterOption>, MP4Converter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.mov_timelapse, to:.mp4) }
 
-    static let supportedPresets = ConverterQualityPreset.all
+    static let supportedPresets = ConverterQualityPreset.originalOnly
 
     func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
         let converter = MP4Converter_Mov()
