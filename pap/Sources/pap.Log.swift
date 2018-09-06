@@ -70,6 +70,8 @@ struct papLog: Loggable {
         static func minimizeAppDockDrawer(){ log() }
         static func maximizeAppDockDrawer(){ log() }
 
+        static func userCalledCameraInApp(){ log() }
+
         struct defaults: Loggable {}
     }
 

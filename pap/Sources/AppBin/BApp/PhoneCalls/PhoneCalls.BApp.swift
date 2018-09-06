@@ -396,6 +396,8 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             option.identifierToReturn = PhoneCallsApp.info.identifier
             AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
+            papLog.app.userCalledCameraInApp()
+
         }
         settingCellDescribers.append(cell_b)
 
