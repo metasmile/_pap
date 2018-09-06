@@ -23,6 +23,7 @@ target 'pap' do
   # # Garbage Social/Ads Kits - Must Use In ShopApp Only.
   pod 'Firebase/AdMob', inhibit_warnings: true
   # Consider to use this: https://developers.facebook.com/docs/sharing/messenger/
+  pod 'Bolts', inhibit_warnings: true
   pod 'FBSDKCoreKit', inhibit_warnings: true
   pod 'FBSDKShareKit', inhibit_warnings: true
   # Store
