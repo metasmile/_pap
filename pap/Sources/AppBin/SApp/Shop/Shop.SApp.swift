@@ -576,7 +576,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c1.label = "Write A Review".localized
         c1.buttonTitle = "Write".localized
         c1.iconImage = R.image.cellIconWriteAReview.name
-        c0.iconImageTintColor = self.view.tintColor
+        c1.iconImageTintColor = self.view.tintColor
         c1.valueHandler = { _ in
             DispatchQueue.global().async{
                 _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
@@ -589,7 +589,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c123.label = "Share This App".localized
         c123.buttonTitle = "Share".localized
         c123.iconImage = R.image.commonCellIconShare()
-        c0.iconImageTintColor = self.view.tintColor
+        c123.iconImageTintColor = self.view.tintColor
         c123.valueHandler = { _ in
             DispatchQueue.global().async{
                 _ = SocialSharePayment.self.init().pay(AsyncSignal())
@@ -607,30 +607,41 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
         contactCellDescribers.append(c2)
 
-        let c3 = UITableViewButtonCellDescriber()
-        c3.itemIdentifier = CellDescriber.Key.support.hashValue
-        c3.label = "User Community".localized
-        c3.buttonTitle = "Visit".localized
-        c3.iconImage = R.image.cellIconUserGroup.name
-        c0.iconImageTintColor = self.view.tintColor
-        c3.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
-        }
-        contactCellDescribers.append(c3)
-
         if AppCenter.isPaidAsVIPInCurrentContext {
             let c6 = UITableViewButtonCellDescriber()
             c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
             c6.buttonTitle = "Inquiry".localized
             c6.iconImage = R.image.cellIconVIPHotline.name
-            c0.iconImageTintColor = self.view.tintColor
+            c6.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in
                 //TODO: add realtime messenger or in-app messaging.
                 AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
             }
             contactCellDescribers.append(c6)
         }
+
+        let c3 = UITableViewButtonCellDescriber()
+        c3.itemIdentifier = CellDescriber.Key.support.hashValue
+        c3.label = "User Community".localized
+        c3.buttonTitle = "Visit".localized
+        c3.iconImage = R.image.cellIconUserGroup.name
+        c3.iconImageTintColor = self.view.tintColor
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+        }
+        contactCellDescribers.append(c3)
+
+        let c7 = UITableViewButtonCellDescriber()
+        c7.itemIdentifier = CellDescriber.Key.support.hashValue
+        c7.label = "Reference Guide".localized
+        c7.buttonTitle = "View".localized
+        c7.iconImage = R.image.cellIconReferenceGuide.name
+        c7.iconImageTintColor = self.view.tintColor
+        c7.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
+        }
+        contactCellDescribers.append(c7)
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
