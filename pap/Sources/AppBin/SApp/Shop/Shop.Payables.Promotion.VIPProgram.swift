@@ -184,7 +184,7 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
 
         // if not found -> input process
         else {
-            papLog.app.shop.vipTriedToAccess()
+            papLog.charge.vip.triedToAccess()
 
             asyncSignal.begin()
 
@@ -223,19 +223,19 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
         DispatchQueue.main.async{
             switch result.state{
             case .error:
-                papLog.app.shop.vipAccessError()
+                papLog.charge.vip.accessError()
 
                 UIAlertController.alert("Unable to verify the code currently. Please try it later.".localized, title:"Verification Failed.".localized, completion:{ action in
                     asyncSignal.end()
                 })
             case .denied:
-                papLog.app.shop.vipAccessDenied(recordName: result.entry?.id.recordName)
+                papLog.charge.vip.accessDenied(recordName: result.entry?.id.recordName)
 
                 UIAlertController.alert("Your code is invalid. Please Try again.".localized, title:"Access Denied.".localized, completion:{ action in
                     asyncSignal.end()
                 })
             case .granted:
-                papLog.app.shop.vipAccessGranted(recordName: result.entry?.id.recordName)
+                papLog.charge.vip.accessGranted(recordName: result.entry?.id.recordName)
 
                 let userName = result.entry?.ownerName ?? "User".localized
                 DispatchQueue.main.async{
@@ -373,12 +373,12 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
                     currentAppIDStack = nil
 
                     if isEnable{
-                        papLog.app.shop.vipActivationStarted()
+                        papLog.charge.vip.activationStarted()
 
                         Timer.scheduledTimer(identifier: #function, withTimeInterval: 10, block: { _ in
                             isEnable = false
 
-                            papLog.app.shop.vipActivationTimeout()
+                            papLog.charge.vip.activationTimeout()
                         })
                     }
                 }

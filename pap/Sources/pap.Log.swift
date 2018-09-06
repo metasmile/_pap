@@ -41,6 +41,20 @@ struct papLog: Loggable {
         }
 
         static func userHasShownInAppPromptRating(){ log() }
+
+        static func restoredStorePayables(){ log() }
+
+        struct vip: Loggable {
+            static func activationStarted(){ log() }
+            static func activationTimeout(){ log() }
+
+            static func triedToAccess(){ log() }
+            static func cancelledToAccess(){ log() }
+
+            static func accessDenied(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func accessGranted(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func accessError(){ log() }
+        }
     }
 
     struct app: Loggable {
@@ -57,20 +71,6 @@ struct papLog: Loggable {
         static func maximizeAppDockDrawer(){ log() }
 
         struct defaults: Loggable {}
-
-        struct shop: Loggable {
-            static func restoredStorePayables(){ log() }
-
-            static func vipActivationStarted(){ log() }
-            static func vipActivationTimeout(){ log() }
-
-            static func vipTriedToAccess(){ log() }
-            static func vipCancelledToAccess(){ log() }
-
-            static func vipAccessDenied(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
-            static func vipAccessGranted(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
-            static func vipAccessError(){ log() }
-        }
     }
 
     struct error {
