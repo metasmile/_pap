@@ -39,6 +39,8 @@ struct papLog: Loggable {
                 kChargeIdentifier:String(describing: charge.identifier)
             ])
         }
+
+        static func userHasShownInAppPromptRating(){ log() }
     }
 
     struct app: Loggable {
