@@ -108,13 +108,19 @@ public final class GADManager: NSObject {
     }
     
     public func setTestDevics(testDevices: [String]){
+#if DEBUG
         self.testDevices = testDevices
         self.testDevices += [kGADSimulatorID as! String ] //all simulator
+#endif
     }
-    
+
     private func getGADRequest() -> GADRequest{
         let request = GADRequest()
-        request.testDevices = self.testDevices
+#if DEBUG
+        if self.testDevices.count > 0{
+            request.testDevices = self.testDevices
+        }
+#endif
         return request
     }
     
