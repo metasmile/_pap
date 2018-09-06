@@ -58,6 +58,16 @@ struct papLog: Loggable {
 
         struct shop: Loggable {
             static func restoredStorePayables(){ log() }
+
+            static func vipActivationStarted(){ log() }
+            static func vipActivationTimeout(){ log() }
+
+            static func vipTriedToAccess(){ log() }
+            static func vipCancelledToAccess(){ log() }
+
+            static func vipAccessDenied(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func vipAccessGranted(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func vipAccessError(){ log() }
         }
     }
 

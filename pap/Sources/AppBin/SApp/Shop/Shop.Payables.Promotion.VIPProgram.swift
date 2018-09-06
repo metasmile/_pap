@@ -184,6 +184,8 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
 
         // if not found -> input process
         else {
+            papLog.app.shop.vipTriedToAccess()
+
             asyncSignal.begin()
 
             DispatchQueue.main.async{
@@ -221,14 +223,20 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
         DispatchQueue.main.async{
             switch result.state{
             case .error:
+                papLog.app.shop.vipAccessError()
+
                 UIAlertController.alert("Unable to verify the code currently. Please try it later.".localized, title:"Verification Failed.".localized, completion:{ action in
                     asyncSignal.end()
                 })
             case .denied:
+                papLog.app.shop.vipAccessDenied(recordName: result.entry?.id.recordName)
+
                 UIAlertController.alert("Your code is invalid. Please Try again.".localized, title:"Access Denied.".localized, completion:{ action in
                     asyncSignal.end()
                 })
             case .granted:
+                papLog.app.shop.vipAccessGranted(recordName: result.entry?.id.recordName)
+
                 let userName = result.entry?.ownerName ?? "User".localized
                 DispatchQueue.main.async{
                     UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + "Welcome to our VIP license program.".localized, title:"Access Granted.".localized, completion:{ action in
@@ -365,8 +373,12 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
                     currentAppIDStack = nil
 
                     if isEnable{
+                        papLog.app.shop.vipActivationStarted()
+
                         Timer.scheduledTimer(identifier: #function, withTimeInterval: 10, block: { _ in
                             isEnable = false
+
+                            papLog.app.shop.vipActivationTimeout()
                         })
                     }
                 }
