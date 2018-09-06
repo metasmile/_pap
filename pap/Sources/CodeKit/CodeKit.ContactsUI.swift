@@ -30,7 +30,7 @@ extension CNContactViewController{
             , onViewController:UIViewController?=nil
             , willPresent:((CNContactViewController) -> Bool)?=nil
             , didPresent:(() -> ())?=nil
-            , willDismiss:(() -> ())?=nil
+            , willDismiss:((CNContact?) -> ())?=nil
             , didDismiss:(() -> ())?=nil){
 
         let contactViewController = CNContactViewController(forNewContact: newContact)
@@ -42,8 +42,8 @@ extension CNContactViewController{
         if delegator == nil{
             delegator = CNContactViewControllerDelegator()
         }
-        delegator?.watch(\.contact) {
-            willDismiss?()
+        delegator?.watch(\.contact) { t, c in
+            willDismiss?(t.contact)
 
             navigationController.dismiss(animated: true) {
                 didDismiss?()
