@@ -52,7 +52,7 @@ List of Cleaner Matchers
 
 
 GIF Maker
-GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! Moreover, then you can open the converter app to convert into everything such as Live Photos or Videos.
 
 • Multiple Photos
 • Burst Photos
@@ -68,7 +68,7 @@ EXIF Ghost lets you remove all kinds of data containing your photos including pr
 
 
 Rotation
-This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.
+This straightforward but large-scale batch image transform tool lets you quickly rotate and flip many media files including Live Photos. There is no limit to the number of photos to edit them.
 
 • Tested processing capacity: 2000+a photos at one time.
 • Optimized for multi-core processing. It depends on iDevice models.
@@ -109,7 +109,7 @@ Restoration app allows restoring a bunch amount of edited photos to the original
 
 
 
-And Finally..., Introducing "Auto Selection Bot (ASB)"
+Moreover, Finally..., Introducing "Auto Selection Bot (ASB)"
 ASB is a multi-purpose assistant engine for choosing the right items in the current context of an app. Currently, several apps, Finder, Cleaner, EXIF Ghost, Phone Calls, and Revery app are supporting it.
 
 Now switch on the control panel of each app!
