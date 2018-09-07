@@ -149,6 +149,9 @@ final class ChargeBank: NSObject, PropertyWatchable {
         }
     }
 
+    @objc dynamic
+    private(set) var savedChargeIdentifier:String?
+
     private let banker: ChargeBanker
     private let registeredCharges:[Charge]
 
@@ -223,6 +226,7 @@ final class ChargeBank: NSObject, PropertyWatchable {
             synchronize()
             balanceValue = synchronizedBalance.value
             banker.didSaveDeposit(for: charge, balance: synchronizedBalance)
+            savedChargeIdentifier = charge.identifier
             return true
         }
         return false

@@ -41,25 +41,55 @@ protocol GADInterestialType {
     static var appId: String {get}
     static var unitId: String {get}
     static var interval: Double? {get}
+    static func prepare(_ asyncSignal: AsyncWaitSignalable)
 }
 
 struct GADInterestialTypeTimeOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
     private(set) static var interval: Double?
+
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {}
 }
 
 struct GADInterestialTypeBlockOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
     private(set) static var interval: Double? = papTimeInterval.ofGADInterestialTypeBlockOfUses
-}
 
-//extension GADInterestialAdsViewingPayment:RelativePayable where T==GADInterestialTypeBlockOfUses{
-//    static var superPayables: HashSet<Payable.Type> {
-//        return self.defaultSuperPayables
-//    }
-//}
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {
+        if wasPaid(){
+            prepareTrackingAds()
+        }else{
+            AppCenter.charge.bank.watch(\.savedChargeIdentifier){
+                prepareTrackingAds()
+            }
+        }
+    }
+
+    private static var thisPayment:Payable.Type{
+        return GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
+    }
+
+    private static func wasPaid() -> Bool{
+        return AppCenter.charge.isPaid(payable: thisPayment)
+    }
+
+    private static func prepareTrackingAds(){
+        let watcherId = String(describing: self)+#function
+        if wasPaid(){
+            DispatchQueue.mainAsyncAfter(qos: .background) {
+                AppCenter.default.watch(\.currentIdentifier, id:watcherId){
+                    if wasPaid(){
+                        AppCenter.charge.try(for: thisPayment)
+                    }
+                }
+            }
+        }else{
+            AppCenter.default.unwatch(\.currentIdentifier, forIds:[watcherId])
+        }
+    }
+}
 
 class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
     static var superPayables: HashSet<Payable.Type> {
@@ -97,7 +127,7 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
     }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-
+        T.prepare(asyncSignal)
     }
 
     static var action: PayableAction{
@@ -170,10 +200,23 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                     paid = false
 
                     //INFO: No fill Error
-                    if let error = self.errorWhileLoadAd, error.domain=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
+                    if let error = self.errorWhileLoadAd, error.domain.trimmed=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
                         // alert -> end()
-                        UIAlertController.alert("\("Please turn off following option, or reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking"
+                        var actions = [UIAlertAction]()
+
+                        //INFO: if current is not ShopApp, present Deactivate option.
+                        if AppCenter.default.current != ShopApp.self{
+                            let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
+                                asyncSignal.end()
+                                AppCenter.default.openApp(identifier:ShopApp.info.identifier)
+                            }
+                            actions.append(goShopAppAction)
+                        }
+
+                        UIAlertController.alert("\("Please turn off following option, and reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking / 'Reset Advertising Identifier ...'"
                                 , title: "An Error Occurred While Receiving Ads.".localized
+                                , buttonTitle: "OK".localized
+                                , actions: actions
                                 , completion: { action in
                                     asyncSignal.end()
                                 }
