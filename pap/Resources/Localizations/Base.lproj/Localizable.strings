@@ -424,9 +424,9 @@
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift#210 */
 "Rewind" = "Rewind";
-/* Generated from genl10n: Transform.BApp.swift#78 */
+/* Generated from genl10n: Transform.BApp.swift#73 */
 "Rotate" = "Rotate";
-/* Generated from genl10n: Transform.BApp.swift#62 */
+/* Generated from genl10n: Transform.BApp.swift#57 */
 "Rotation" = "Rotation";
 /* Generated from genl10n: PhoneCalls.BApp.swift#145 */
 "Save All Phone Numbers" = "Save All Phone Numbers";
@@ -510,7 +510,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Finder.BApp.swift#1383 */
 "Text" = "Text";
-/* Generated from genl10n: Transform.BApp.swift#63 */
+/* Generated from genl10n: Transform.BApp.swift#58 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Too Close-up Face";
