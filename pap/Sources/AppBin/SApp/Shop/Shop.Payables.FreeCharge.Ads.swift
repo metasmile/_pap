@@ -79,8 +79,8 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType{
         let watcherId = String(describing: self)+#function
         if wasPaid(){
             DispatchQueue.mainAsyncAfter(qos: .background) {
-                AppCenter.default.watch(\.currentIdentifier, id:watcherId){
-                    if wasPaid(){
+                AppCenter.default.watch(\.currentIdentifier, id:watcherId){ app, _ in
+                    if wasPaid(), AppCenter.isPaidInCurrentContext == false, app.currentIdentifier != ShopApp.info.identifier{
                         AppCenter.charge.try(for: thisPayment)
                     }
                 }
