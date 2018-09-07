@@ -56,7 +56,7 @@ final class PhotosManager: NSObject, PropertyWatchable, PHPhotoLibraryChangeObse
     private func showPhotoLibrarySettingsAlert() {
         let alert = UIAlertController(title: "Photos Access Disabled".localized, message: "Please open settings and allow access to your photos".localized, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Open Settings".localized, style: .default, handler: { (action) in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+            UIApplication.shared.openSettings()
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 

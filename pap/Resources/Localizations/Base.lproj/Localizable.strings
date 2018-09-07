@@ -138,6 +138,8 @@
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "An App, But Contains Many Photo Apps.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#177 */
+"An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
 /* Generated from genl10n: GIFMaker.BApp.swift#471, GIFMaker.BApp.swift#472 */
 "Animated GIF" = "Animated GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#603 */
@@ -382,6 +384,8 @@
 "Photos" = "Photos";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#194 */
 "Please Input Your Secret Code" = "Please Input Your Secret Code";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#176 */
+"Please turn off following option, or reset advertising identifier in Settings. Then try again. " = "Please turn off following option, or reset advertising identifier in Settings. Then try again. ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Portrait" = "Portrait";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -444,7 +448,7 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#894 */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Shop.SApp.swift#655, Shop.Payables.FreeCharge.Ads.swift#102 */
+/* Generated from genl10n: Shop.SApp.swift#655, Shop.Payables.FreeCharge.Ads.swift#104 */
 "See" = "See";
 /* Generated from genl10n: Converter.AppDockContent.swift#158 */
 "Select Format To Convert" = "Select Format To Convert";

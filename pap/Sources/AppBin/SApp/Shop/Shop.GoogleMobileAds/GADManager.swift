@@ -28,7 +28,7 @@ public protocol GADManagerBannerDelegate{
 
 public protocol GADManagerInterestialDelegate{
     func interestialDidReceiveAd()
-    func interestialDidFailToReceiveAd()
+    func interestialDidFailToReceiveAd(error:GADRequestError)
     func interestialWillPresentScreen()
     func interestialWillDismissScreen()
     func interestialDidDismissScreen()
@@ -58,7 +58,7 @@ public extension GADManagerBannerDelegate {
 //default implementation GADManagerInterestialDelegate
 public extension GADManagerInterestialDelegate {
     func interestialDidReceiveAd() {}
-    func interestialDidFailToReceiveAd() {}
+    func interestialDidFailToReceiveAd(error:GADRequestError) {}
     func interestialWillPresentScreen() {}
     func interestialWillDismissScreen() {}
     func interestialDidDismissScreen() {}
@@ -309,7 +309,7 @@ extension GADManager: GADInterstitialDelegate {
     /// Tells the delegate an ad request failed.
     public func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         
-        delegateInterestial?.interestialDidFailToReceiveAd()
+        delegateInterestial?.interestialDidFailToReceiveAd(error:error)
     }
     
     /// Tells the delegate that an interstitial will be presented.

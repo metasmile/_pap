@@ -75,6 +75,8 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
     @objc dynamic
     private var didUserShowAd = false
 
+    private var errorWhileLoadAd:GADRequestError?
+
     private lazy var dateKey = String(describing: type(of:self))
     
     required override init() {
@@ -106,7 +108,8 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
         didAdLoad = true
     }
 
-    func interestialDidFailToReceiveAd() {
+    func interestialDidFailToReceiveAd(error:GADRequestError) {
+        errorWhileLoadAd = error
         didAdLoad = false
     }
 
@@ -165,7 +168,22 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                 }else{
                     // failed
                     paid = false
-                    asyncSignal.end()
+
+                    //INFO: No fill Error
+                    if let error = self.errorWhileLoadAd, error.domain=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
+                        // alert -> end()
+                        UIAlertController.alert("\("Please turn off following option, or reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking"
+                                , title: "An Error Occurred While Receiving Ads.".localized
+                                , completion: { action in
+                                    asyncSignal.end()
+                                }
+                        )
+
+                    }else{
+
+                        // end
+                        asyncSignal.end()
+                    }
                 }
             }
 

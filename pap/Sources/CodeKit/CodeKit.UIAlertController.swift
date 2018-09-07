@@ -49,11 +49,13 @@ public extension UIAlertController{
     public static func alert(_ message:String
             , title:String?=nil
             , buttonTitle:String="OK".localized
+            , cancelButtonTitle:String?=nil
             , actions:[UIAlertAction]?=nil
             , textField:((UITextField) -> ())?=nil
             , sourceView:UIView?=nil
             , autoDismiss:TimeInterval?=nil
             , willDismiss:(() -> Void)?=nil
+            , cancelled:(() -> Swift.Void)?=nil //INFO: if cancelButtonTitle preferred.
             , completion:((UIAlertAction) -> Swift.Void)? = nil) -> Bool{
 
         if let existedAlertVC = UIAlertControllerPool.shared.presentingAlertViewController
@@ -69,8 +71,20 @@ public extension UIAlertController{
 
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
 
+        var cancelActionExisted = false
         for action in actions ?? []{
+            if cancelActionExisted == false{
+                cancelActionExisted = action.style == .cancel
+            }
+
             alert.addAction(action)
+        }
+
+        if let cancelButtonTitle = cancelButtonTitle, cancelActionExisted == false{
+            alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: { action in
+                cancelled?()
+                UIAlertControllerPool.shared.clear()
+            }))
         }
 
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { action in
