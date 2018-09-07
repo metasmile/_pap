@@ -102,7 +102,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     }
     
     private func initialize() {
-        title = "Albums".localized
+        navigationItem.title = "Albums".localized
         
         //TODO: Preload
         PhotosManager.default.authorizeIfNeeded { authorized in
