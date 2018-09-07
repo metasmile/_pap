@@ -174,6 +174,8 @@
 "All" = "את כל";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "App, אבל מכיל יישומים רבים צילום.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "אירעה שגיאה בעת קבלת מודעות.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF מונפש";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,6 +390,8 @@
 "Ongoing Use of All Apps and New" = "שימוש מתמשך בכל האפליקציות וב- New";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "שימוש מתמשך בכל היישומים העיקריים";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "פתח את %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -418,6 +422,8 @@
 "Photos" = "תמונות";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "אנא הכנס את הקוד הסודי שלך";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "כבה את האפשרות הבאה, ואפס את מזהה הפרסום ב'הגדרות '. לאחר מכן נסה שוב.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "דְיוֹקָן";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */

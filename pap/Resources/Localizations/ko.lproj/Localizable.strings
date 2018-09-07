@@ -174,6 +174,8 @@
 "All" = "전체";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "하나의 앱 속 다양한 사진 앱들.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "광고를받는 동안 오류가 발생했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "애니메이션 GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,6 +390,8 @@
 "Ongoing Use of All Apps and New" = "지속적으로 모든 앱들과 새로운 앱 사용";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "모든 주요 앱의 지속적인 사용";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "%@ 열기";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -418,6 +422,8 @@
 "Photos" = "사진";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "비밀 번호를 입력하십시오.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "다음 옵션을 사용 중지하고 설정에서 광고 식별자를 재설정하십시오. 그런 다음 다시 시도하십시오.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "세로";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */

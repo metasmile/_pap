@@ -120,6 +120,8 @@
 "All" = "全體";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "一個app裡存在的多種照片apps。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "接收廣告時出錯。";
 /* Generated from genl10n: GIFMaker.BApp.swift#471, GIFMaker.BApp.swift#472 */
 "Animated GIF" = "動畫GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#603 */
@@ -334,6 +336,8 @@
 "Ongoing Use of All Apps and New" = "正在使用所有應用程序和新的";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "正在使用所有主要應用程序";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "打開%@";
 /* Generated from genl10n: Finder.BApp.swift#769 */
 "Open Apple Maps" = "打開Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#783 */
@@ -364,6 +368,8 @@
 "Photos" = "相片";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "請輸入您的密碼";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "請關閉以下選項，並在“設置”中重置廣告標識符。然後再試一次。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Portrait" = "肖像";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */

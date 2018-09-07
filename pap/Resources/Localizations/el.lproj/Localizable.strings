@@ -174,6 +174,8 @@
 "All" = "Ολα";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Μια εφαρμογή, αλλά περιέχει πολλές εφαρμογές φωτογραφιών.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "Παρουσιάστηκε σφάλμα κατά την παραλαβή διαφημίσεων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Κινούμενο GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,6 +390,8 @@
 "Ongoing Use of All Apps and New" = "Συνεχής χρήση όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "Συνεχής χρήση όλων των κύριων εφαρμογών";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "Άνοιγμα %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -418,6 +422,8 @@
 "Photos" = "Φωτογραφίες";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Εισαγάγετε τον μυστικό κωδικό σας";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Απενεργοποιήστε την παρακάτω επιλογή και επαναφέρετε το αναγνωριστικό διαφήμισης στις Ρυθμίσεις. Στη συνέχεια προσπαθήστε ξανά.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Πορτρέτο";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
