@@ -99,14 +99,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBShareTypeDownloadUrlPayment.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBShareTypeDownloadMessagerPayment.self
-                    , priceAmount: AmountObject(value:0.133)
+                    , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
@@ -120,7 +120,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .instantAdsViewingOnDemand
                     , reward: .timeOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"View Ads".localized, description: nil, iconImage: nil)
             )
 
@@ -135,7 +135,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
                     , payment: SNSEngagementPayment.self
-                    , priceAmount: AmountObject(value:0.066/2)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 
