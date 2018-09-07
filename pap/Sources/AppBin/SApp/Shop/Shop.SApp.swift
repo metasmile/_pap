@@ -512,6 +512,24 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         reloadData()
     }
 
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        DispatchQueue.main.async {
+            self.scrollToPaidChargeSection()
+        }
+
+        loadStoreProductsData(retryCount:5)
+    }
+
+    func scrollToPaidChargeSection(){
+        //Scroll Top to Purchase Section
+        for (i, s) in self.sections.enumerated(){
+            if let g = s as? PayGroup, g.key == .PaidCharge{
+                tableView.scrollToRow(at: IndexPath(item: 0, section: i), at: .top, animated: false)
+                break
+            }
+        }
+    }
+
     private func loadPayGroups(){
         //INFO: join local charges onto defaultCollection.
 
@@ -641,10 +659,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
         }
         contactCellDescribers.append(c7)
-    }
-
-    func didSetContentView(_ view:UIView, dock:AppDock) {
-        loadStoreProductsData(retryCount:5)
     }
 
     private func reloadData(){
