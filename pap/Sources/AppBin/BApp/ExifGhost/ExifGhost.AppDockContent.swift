@@ -310,7 +310,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 : metadataCollection[section-1].label
     }
 
-    lazy var footerView = UITableView.createHeaderFooterViewForSmallMessage(text: "Switch on any items you want to hide. The quality will entirely remain the same.".localized)
+    lazy var footerView = UITableView.createHeaderFooterViewForSmallMessage(text: "Switch on any items you want to hide. The quality will perfectly remain the same.".localized)
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0 {
