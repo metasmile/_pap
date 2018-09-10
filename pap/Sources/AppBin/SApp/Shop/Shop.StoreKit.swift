@@ -20,28 +20,125 @@ private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.pro
 
 //INFO: StorePayableCenter: Not recommended to use in Charge-ChargeBank-ChargeBanker family directly.
 // Use in only in an ShopApp. When add Directory-Scoped access permission in swift?? huh.
-struct StorePayableCenter {
+
+struct StoreKitPayableCenter {
+
+    //WARNING: Always must match with indicating status.
+    private static var productIdentifierFromAppStoreForTransaction:String?
+
     static func configure() {
 
-        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-/**/
-            for purchase in purchases {
-                switch purchase.transaction.transactionState {
-                case .purchased, .restored:
-                    let downloads = purchase.transaction.downloads
-                    if !downloads.isEmpty {
-                        SwiftyStoreKit.start(downloads)
-                    } else if purchase.needsFinishTransaction {
-                        // Deliver content from server, then:
-                        SwiftyStoreKit.finishTransaction(purchase.transaction)
-                    }
-                    print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
-
-                case .failed, .purchasing, .deferred:
-                    print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
-                    break // do nothing
+        func _getLocalChargeableAppBy(storeProductIdentifier:String) -> ChargeableApp.Type?{
+            for app in AppCenter.default.apps() {
+                if let cApp = app as? ChargeableApp.Type, Set(cApp.localCharges.compactMap({ ($0.payment as? StorePayable.Type)?.product.identifier })).contains(storeProductIdentifier) {
+                    
+                    return cApp
                 }
             }
+            return nil
+        }
+
+        /*
+        Test URL of Sandbox
+
+            Finder: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_com.stells.pap.finder_NC_P_owned
+            Converter: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_com.stells.pap.converter_NC_P_owned
+            1M: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_xapp_NR_1M_rented
+        */
+
+        //INFO: Tap an IAP Product in AppStore -> App Download or Open -> Forwarding
+        SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
+            guard let charge = AppCenter.charge.getChargesHasStorePayable()[product.productIdentifier] else {
+                return false
+            }
+
+            let currentIsShop = AppCenter.default.current == ShopApp.self
+
+            DispatchQueue.main.async{
+                let localChargeableApp = _getLocalChargeableAppBy(storeProductIdentifier:product.productIdentifier)
+
+                if currentIsShop {
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType = localChargeableApp
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.reloadProductItems()
+
+                }else{
+                    var options:AppLaunchOptions?
+                    if localChargeableApp != nil{
+                        var o = [AppLaunchOptionsKey:Any]()
+                        o[.ShopAppCallerAppType] = localChargeableApp
+                        options = AppLaunchOptions(options: o)
+                    }
+                    AppCenter.default.openApp(identifier: ShopApp.info.identifier, options: options)
+                }
+            }
+
+            //assign identifier if only unpaid product
+            if false == AppCenter.charge.isPaid(charge: charge){
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (currentIsShop ? 0.0 : 1.0)) {
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: charge.payment, indicating:true)
+                }
+                productIdentifierFromAppStoreForTransaction = product.productIdentifier
+            }
+
+            return true
+        }
+
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            
+            //Pre-process with StoreKit
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                    case .purchased, .restored:
+                        let downloads = purchase.transaction.downloads
+                        if !downloads.isEmpty {
+                            SwiftyStoreKit.start(downloads)
+                        } else if purchase.needsFinishTransaction {
+                            // Deliver content from server, then:
+                            SwiftyStoreKit.finishTransaction(purchase.transaction)
+                        }
+                        print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+
+                    case .failed, .purchasing, .deferred:
+                        print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+                        break // do nothing
+                }
+            }
+            
+            //If user completes from App Store
+            if let idByAppStore = productIdentifierFromAppStoreForTransaction, let c = AppCenter.charge.getChargesHasStorePayable()[idByAppStore]{
+                //Dispose first
+                productIdentifierFromAppStoreForTransaction = nil
+                DispatchQueue.main.async{
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: c.payment, indicating:false)
+                }
+
+                for purchase in purchases where idByAppStore==purchase.productId{
+                    let state = purchase.transaction.transactionState
+                    guard state == .purchased || state == .restored else{
+                        continue
+                    }
+
+                    // Pay with ChargeBank
+                    if !AppCenter.charge.isPaid(payable: c.payment){
+                        AppCenter.charge.pay(for: c.payment, skipTransaction: true)
+                    }
+
+                    // Reload Shop Products
+                    DispatchQueue.main.async{
+                        AppCenter.default.currentInstanceAs(ShopApp.self)?.reloadProductItems()
+
+                        //Show alert for localCharge
+                        if let cApp = _getLocalChargeableAppBy(storeProductIdentifier:purchase.productId) {
+                            UIAlertController.alert("\nWould you like to move to %@?\n".localizedFormatted(cApp.info.displayName), title: "Thank you for your purchase.".localized, buttonTitle: "OK".localized, cancelButtonTitle: "Cancel".localized) { action in
+
+                                AppCenter.default.openApp(identifier: cApp.info.identifier)
+                            }
+                        }
+                    }
+                    break
+                }
+            }
+
         }
 
         SwiftyStoreKit.updatedDownloadsHandler = { downloads in
@@ -131,7 +228,7 @@ struct StorePayableCenter {
 
                     for p in fetchedProductsSet {
                         if requestedPayablesProductIdSet.contains(p.productIdentifier){
-                            StorePayableCenter.fetchedStoreProducts[p.productIdentifier] = p
+                            StoreKitPayableCenter.fetchedStoreProducts[p.productIdentifier] = p
                         }else{
                             assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
                         }
@@ -218,7 +315,7 @@ private extension StoreProduct {
 
 extension StorePayable{
     static var storeProduct: SKProduct? {
-        let storeProduct = StorePayableCenter.fetchedStoreProducts[product.identifier]
+        let storeProduct = StoreKitPayableCenter.fetchedStoreProducts[product.identifier]
 #if DEBUG
         if #available(iOS 11.2, *) {
             if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
@@ -238,7 +335,7 @@ extension StorePayable{
             return true
         }
 
-        if let fetchedInfo = StorePayableCenter.fetch(for: [self], signal){
+        if let fetchedInfo = StoreKitPayableCenter.fetch(for: [self], signal){
             for p in fetchedInfo.products where product.identifier == p.productIdentifier{
                 return true
             }

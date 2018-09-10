@@ -25,7 +25,7 @@ struct RestorePurchasesSystemPayment:VerifiablePayable{
         let paidProductIDs = Set(AppCenter.charge.getStorePayablesPaid().map { $0.product.identifier })
         let unpaidProductIDs = productIDs.subtracting(paidProductIDs)
 
-        if let restoredProductIds = StorePayableCenter.restore(asyncSignal), restoredProductIds.count > 0{
+        if let restoredProductIds = StoreKitPayableCenter.restore(asyncSignal), restoredProductIds.count > 0{
 
             let restoredDeprecatedIDs = restoredProductIds.subtracting(productIDs)
             let restoredLiveIDs = restoredProductIds.subtracting(restoredDeprecatedIDs)

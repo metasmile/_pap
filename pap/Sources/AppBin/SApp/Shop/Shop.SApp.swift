@@ -49,22 +49,30 @@ public class ShopApp: NSObject
     }
 
     static func didConfigure(with manager: AppManager) {
-        StorePayableCenter.configure()
+
     }
 
     func didResign(current: App.Type?) {
 
     }
 
-    fileprivate var launchedOption: AppLaunchOptions?
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
-        launchedOption = withOption
+    func reloadProductItems(){
+        (content as? ShopAppDockContent)?.reloadData()
     }
 
-    var sourceAppType:App.Type?{
-        return self.launchedOption?.options?[.ShopAppCallerAppType] as? App.Type
+    func indicateProductItem(for payable:Payable.Type, indicating:Bool){
+        (content as? ShopAppDockContent)?.indicateCell(for:payable, indicating:indicating)
     }
-    
+
+    var sourceAppType:App.Type?
+
+    fileprivate var launchedOption: AppLaunchOptions?
+
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
+        launchedOption = withOption
+        sourceAppType = launchedOption?.options?[.ShopAppCallerAppType] as? App.Type
+    }
+
     public private(set) static var fixedContentLayout: Bool = true
 }
 
@@ -202,7 +210,7 @@ extension ShopApp{
         return Set(self.getStorePayables().compactMap({ $0.storeProduct }))
     }
 
-    fileprivate func fetchStoreProductsInfo(completion:((StorePayableCenter.StoreProductFetchResult) -> ())?=nil) {
+    fileprivate func fetchStoreProductsInfo(completion:((StoreKitPayableCenter.StoreProductFetchResult) -> ())?=nil) {
         let payablesNeedToFetch = self.getStorePayablesNotFetched()
 
         guard payablesNeedToFetch.count > 0 else {
@@ -214,10 +222,10 @@ extension ShopApp{
         DispatchQueue.global().async{
             let signal = AsyncSignal()
 
-            if let result = StorePayableCenter.fetch(for: payablesNeedToFetch, signal){
+            if let result = StoreKitPayableCenter.fetch(for: payablesNeedToFetch, signal){
                 completion?(result)
             }else{
-                print("[!] WARNING: \(String(describing: StorePayableCenter.self)) fetching was failed.")
+                print("[!] WARNING: \(String(describing: StoreKitPayableCenter.self)) fetching was failed.")
             }
         }
     }
@@ -401,7 +409,14 @@ private class PayItem: Hashable, Equatable {
     var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
     var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
 
-    var isIndicating: Bool = false
+    var isIndicating: Bool = false {
+        didSet {
+            if isIndicating == false{
+
+
+            }
+        }
+    }
     let enabled: Bool = true
     let cellType:CellType
     let label:String
@@ -662,7 +677,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c7)
     }
 
-    private func reloadData(){
+    fileprivate func reloadData(){
         AppCenter.charge.synchronize()
 
         loadShopSettingsCellDescribers()
@@ -795,6 +810,38 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 cell.stopIndicating()
             }
         }
+    }
+}
+
+/*
+    Payable Macros
+*/
+
+extension ShopAppDockContent{
+    fileprivate func getPayItem(for payable:Payable.Type) -> (item:PayItem, indexPath:IndexPath)?{
+        for (si, section) in sections.enumerated(){
+            if section is PayGroup{
+                for (ii, item) in section.itemsOfSection.enumerated(){
+                    if let pItem = item as? PayItem, pItem.payable.identifier == payable.identifier{
+                        return (item:pItem, indexPath:IndexPath(item: ii, section: si))
+                    }
+                }
+            }
+        }
+        return nil
+    }
+
+    fileprivate func indicateCell(for payable:Payable.Type, indicating:Bool){
+        guard let o = getPayItem(for:payable) else{
+            return
+        }
+
+        tableView.performBatchUpdates({}, completion: { b in
+            if b{
+                o.item.isIndicating = indicating
+                self.updateIndicatorCellIfNeeded(at:o.indexPath, with:o.item)
+            }
+        })
     }
 }
 

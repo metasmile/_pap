@@ -30,7 +30,7 @@ extension ChargeManager{
         return getCharges(excluding:types).compactMap{ $0.payment as? StorePayable.Type }
     }
 
-    func getChargesHasStorePayable(excluding types:Set<ChargeType>?=nil) -> [String:Charge]{
+    func getChargesHasStorePayable(excluding types:Set<ChargeType>?=nil) -> [String:Charge] /* SKProduct\.productIdentifier: Charge*/ {
         var storePayableCharges = [String:Charge]()
         for charge in self.getCharges(excluding: types){
             if let storePayableProductId = (charge.payment as? StorePayable.Type)?.product.identifier{

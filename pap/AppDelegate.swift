@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #endif
         FirebaseApp.configure()
 
+        StoreKitPayableCenter.configure()
+
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
