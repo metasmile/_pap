@@ -513,9 +513,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        DispatchQueue.main.async {
+
+        tableView.performBatchUpdates({}, completion: { b in
             self.scrollToPaidChargeSection()
-        }
+        })
 
         loadStoreProductsData(retryCount:5)
     }
