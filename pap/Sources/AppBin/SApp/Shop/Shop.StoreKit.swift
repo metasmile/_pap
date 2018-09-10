@@ -107,11 +107,6 @@ struct StoreKitPayableCenter {
             
             //If user completes from App Store
             if let idByAppStore = productIdentifierFromAppStoreForTransaction, let c = AppCenter.charge.getChargesHasStorePayable()[idByAppStore]{
-                //Dispose first
-                productIdentifierFromAppStoreForTransaction = nil
-                DispatchQueue.main.async{
-                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: c.payment, indicating:false)
-                }
 
                 for purchase in purchases where idByAppStore==purchase.productId{
                     let state = purchase.transaction.transactionState
@@ -137,6 +132,13 @@ struct StoreKitPayableCenter {
                         }
                     }
                     break
+                }
+
+
+                //Dispose first
+                productIdentifierFromAppStoreForTransaction = nil
+                DispatchQueue.main.async{
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: c.payment, indicating:false)
                 }
             }
 

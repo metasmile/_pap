@@ -836,12 +836,8 @@ extension ShopAppDockContent{
             return
         }
 
-        tableView.performBatchUpdates({}, completion: { b in
-            if b{
-                o.item.isIndicating = indicating
-                self.updateIndicatorCellIfNeeded(at:o.indexPath, with:o.item)
-            }
-        })
+        o.item.isIndicating = indicating
+        self.updateIndicatorCellIfNeeded(at:o.indexPath, with:o.item)
     }
 }
 
