@@ -72,16 +72,25 @@ struct StoreKitPayableCenter {
                 }
             }
 
-            //assign identifier if only unpaid product
-            if false == AppCenter.charge.isPaid(charge: charge){
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (currentIsShop ? 0.0 : 1.0)) {
-                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: charge.payment, indicating:true)
+            // if super payable already paid
+            if let superPayables = (charge.payment as? RelativePayable.Type)?.superPayables{
+                for p in superPayables where AppCenter.charge.isPaid(payable: p.element){
+                    return false
                 }
-                productIdentifierFromAppStoreForTransaction = product.productIdentifier
-                return true
             }
 
-            return false
+            // if self payable already paid
+            if AppCenter.charge.isPaid(charge: charge){
+                return false
+            }
+
+            //reserve identifier if only unpaid product
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (currentIsShop ? 0.0 : 1.0)) {
+                AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: charge.payment, indicating:true)
+            }
+
+            productIdentifierFromAppStoreForTransaction = product.productIdentifier
+            return true
         }
 
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
