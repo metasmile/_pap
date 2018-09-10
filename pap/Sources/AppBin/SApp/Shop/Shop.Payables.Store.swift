@@ -92,7 +92,11 @@ struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
 
 // 1_App
 
-struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayable{
+struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayable, RelativePayable{
+    static var superPayables: HashSet<Payable.Type> {
+        return self.defaultSuperPayables
+    }
+
     static var product: StoreProduct{
         return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil)
     }
