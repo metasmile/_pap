@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1 lună de acces complet";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Utilizare pe 1 lună a tuturor aplicațiilor și a celor noi";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 luni de acces complet";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "Utilizare pe 3 luni a tuturor aplicațiilor și a celor noi";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "6 luni de acces complet";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -540,8 +536,8 @@
 "Starting to check edited photos..." = "Începând să verificați fotografiile editate ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "A depune";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne în întregime aceeași.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne perfect aceeași.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Fă o poză";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -552,6 +548,8 @@
 "Targets" = "Obiective";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Multumesc pentru cumparaturile facute.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Această unealtă simplă, dar la scară largă, permite transformarea și răsturnarea rapidă a multor fișiere media, inclusiv Live Photos. Nu există nicio limită a numărului de fotografii pentru a le edita.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -600,6 +598,8 @@
 "Welcome Free Pack" = "Bine ati venit pachetul gratuit";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Bine ați venit la programul nostru de licență VIP.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Doriți să vă mutați la %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Scrie o recenzie";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

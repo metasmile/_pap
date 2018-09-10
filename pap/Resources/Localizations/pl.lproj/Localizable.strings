@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1 miesiąc pełnego dostępu";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-miesięczne korzystanie z wszystkich aplikacji i nowych";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 miesiące pełnego dostępu";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "3-miesięczne korzystanie z wszystkich aplikacji i nowych";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "Pełny dostęp do 6 miesięcy";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -540,8 +536,8 @@
 "Starting to check edited photos..." = "Zaczynam sprawdzać edytowane zdjęcia ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Zatwierdź";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Włącz wszystkie przedmioty, które chcesz ukryć. Jakość pozostanie całkowicie taka sama.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Włącz wszystkie przedmioty, które chcesz ukryć. Jakość doskonale pozostanie taka sama.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Robić zdjęcie";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -552,6 +548,8 @@
 "Targets" = "Cele";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Dziękujemy za zakupy.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "To proste narzędzie do przekształcania obrazów wsadowych na dużą skalę pozwala szybko obracać i przerzucać wiele plików multimedialnych, w tym na żywo. Nie ma ograniczenia liczby zdjęć do ich edycji.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -600,6 +598,8 @@
 "Welcome Free Pack" = "Witamy bezpłatny pakiet";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Witamy w naszym programie licencji VIP.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Czy chcesz przenieść się do %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napisać recenzję";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

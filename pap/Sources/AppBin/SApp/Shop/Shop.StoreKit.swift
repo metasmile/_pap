@@ -129,7 +129,7 @@ struct StoreKitPayableCenter {
 
                         //Show alert for localCharge
                         if let cApp = _getLocalChargeableAppBy(storeProductIdentifier:purchase.productId) {
-                            UIAlertController.alert("\nWould you like to move to %@?\n".localizedFormatted(cApp.info.displayName), title: "Thank you for your purchase.".localized, buttonTitle: "OK".localized, cancelButtonTitle: "Cancel".localized) { action in
+                            UIAlertController.alert("\n\("Would you like to move to %@?".localizedFormatted(cApp.info.displayName))\n", title: "Thank you for your purchase.".localized, buttonTitle: "OK".localized, cancelButtonTitle: "Cancel".localized) { action in
 
                                 AppCenter.default.openApp(identifier: cApp.info.identifier)
                             }

@@ -136,10 +136,6 @@
 "1 Month Full Access" = "Quyền truy cập đầy đủ 1 tháng";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 tháng truy cập đầy đủ";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "Sử dụng 3 tháng của tất cả ứng dụng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "6 tháng truy cập đầy đủ";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -540,8 +536,8 @@
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Gửi đi";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Chụp một tấm";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -552,6 +548,8 @@
 "Targets" = "Mục tiêu";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Bản văn";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Cám ơn vì đã mua hàng.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -600,6 +598,8 @@
 "Welcome Free Pack" = "Chào mừng gói miễn phí";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Bạn có muốn chuyển sang %@ không?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Viết đánh giá";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
