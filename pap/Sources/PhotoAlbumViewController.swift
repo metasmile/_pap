@@ -358,6 +358,12 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     
     private var indexPath: IndexPath?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        imageView.accessibilityIgnoresInvertColors = true
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
