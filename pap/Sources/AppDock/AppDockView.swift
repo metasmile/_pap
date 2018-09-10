@@ -267,9 +267,7 @@ class AppDockView: CustomView {
 
                 setControllerView(view, animated: false)
 
-//                DispatchQueue.main.async { //TODO: if not found any side-effect, remove async block
-                    self.controller?.didSetContentView(view, dock:self)
-//                }
+                self.controller?.didSetContentView(view, dock:self)
                 
                 controller?.contentScrollable?.makeScrollableContent()
             }
@@ -343,9 +341,7 @@ class AppDockView: CustomView {
 
                 setTopAccessoryView(view, animated: true)
 
-//                DispatchQueue.main.async{ //TODO: if not found any side-effect, remove async block
                 self.accessory?.didSetContentView(view, dock:self)
-//                }
             }
             else {
                 accessory?.willRemoveContentView()
