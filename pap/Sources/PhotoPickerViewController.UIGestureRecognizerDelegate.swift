@@ -9,6 +9,8 @@ import Photos
 
 extension PhotoPickerViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard !AppCenter.default.task.isRunning else { return false }
+        
         if gestureRecognizer == dragSelectionGesture {
             let velocity = dragSelectionGesture.velocity(in: dragSelectionGesture.view)
             return velocity.x.magnitude > velocity.y.magnitude
