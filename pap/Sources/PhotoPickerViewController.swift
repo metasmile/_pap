@@ -898,6 +898,11 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
         titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
+        
+        //INFO: update PHPhotoLibraryChangeObserver immediately
+        DispatchQueue.main.async {
+            PhotosManager.default.cachingImageManager.stopCachingImagesForAllAssets()
+        }
 
         UIView.animate(withDuration: 0.6) {
             self.progressBar.alpha = 0
@@ -916,9 +921,6 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
-        
-        //INFO: update PHPhotoLibraryChangeObserver immediately
-        PhotosManager.default.cachingImageManager.stopCachingImagesForAllAssets()
         
         //POLICY: no keeps selected items
         deselectAllCollectionViewItems()
