@@ -33,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-HU-RAa">
-                    <rect key="frame" x="0.0" y="-2" width="375" height="62"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="AppDockDrawerView" customModule="pap" customModuleProvider="target">
@@ -113,7 +113,7 @@
                 <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
                 <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
                 <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
-                <constraint firstItem="Ar8-HU-RAa" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" constant="-2" id="Jdq-X3-ZGF"/>
+                <constraint firstItem="Ar8-HU-RAa" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" id="Jdq-X3-ZGF"/>
                 <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
                 <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
                 <constraint firstItem="XOc-rv-YPn" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="SiB-DM-Nmy"/>

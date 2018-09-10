@@ -477,14 +477,6 @@ extension AppDockView {
         return UIScreen.main.bounds.height - topOffset
     }
     
-    fileprivate func layoutDrawerView() {
-        drawerViewHeightLayout.constant = preferredDrawerViewHeight
-
-        drawerView.isBarHidden = !shouldDrawerBarEnable
-        drawerView.layoutIfNeeded()
-        invalidateIntrinsicContentSize()
-    }
-    
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
@@ -515,7 +507,6 @@ extension AppDockView {
         }
         
         drawerView.isBarHidden = !shouldDrawerBarEnable
-        drawerView.layoutIfNeeded()
         
         updateBackgroundColors()
         
