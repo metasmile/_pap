@@ -223,9 +223,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "변환기";
+"Converter" = "컨버터";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "복사";
 /* Generated from genl10n: Finder.BApp.swift#232 */
