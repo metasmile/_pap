@@ -185,12 +185,12 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
-                    , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"3 Months Full Access".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps and New".localized, shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
+//                    , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"3 Months Full Access".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps and New".localized, shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
+//            )
 
             , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self
