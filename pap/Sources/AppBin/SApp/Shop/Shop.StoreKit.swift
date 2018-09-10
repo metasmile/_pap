@@ -78,9 +78,10 @@ struct StoreKitPayableCenter {
                     AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: charge.payment, indicating:true)
                 }
                 productIdentifierFromAppStoreForTransaction = product.productIdentifier
+                return true
             }
 
-            return true
+            return false
         }
 
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
