@@ -1067,6 +1067,10 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         return collectionView?.frame.size ?? .zero
     }
     
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+    }
+    
     private func itemSize(with layoutMetrics: LayoutMetrics) -> CGSize {
         let size: CGSize
         switch layoutMetrics {
