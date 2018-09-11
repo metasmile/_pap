@@ -57,7 +57,11 @@ class FBSDKSharingDelegatePrototype:NSObject, FBSDKSharingDelegate, PropertyWatc
     }
 }
 
-class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePayable {
+class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePayable, RelativePayable {
+
+    static var superPayables: HashSet<Payable.Type> {
+        return self.defaultSuperPayables
+    }
 
     private static var defaults: Defaults{
         return Defaults(suiteName: String(describing: self))
@@ -141,7 +145,10 @@ extension Defaults:FBShareTypeDownloadMessagerPaymentDefaults{
     fileprivate var latestPaidDate:Date?{ set{ set(newValue) } get{ return get() } }
 }
 
-class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Payable{
+class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, RelativePayable{
+    static var superPayables: HashSet<Payable.Type> {
+        return self.defaultSuperPayables
+    }
 
     private static var defaults: Defaults{
         return Defaults(suiteName: String(describing: self))

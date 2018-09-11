@@ -14,7 +14,10 @@ extension Defaults:SNSEngagementPaymentDefaults{
     fileprivate var latestPaidDate:Date?{ set{ set(newValue) } get{ return get() } }
 }
 
-struct SNSEngagementPayment: Payable {
+struct SNSEngagementPayment: RelativePayable {
+    static var superPayables: HashSet<Payable.Type> {
+        return self.defaultSuperPayables
+    }
 
     static var isEnable: Bool {
         if let latestPaidDate = defaults.latestPaidDate{
