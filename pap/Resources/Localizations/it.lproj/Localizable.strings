@@ -232,6 +232,8 @@
 "Could not detect any text." = "Impossibile rilevare alcun testo.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Impossibile rilevare nulla.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "Impossibile ricevere annunci.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creare";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -418,6 +420,8 @@
 "Photos" = "Fotografie";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Per favore inserisci il tuo codice segreto";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Si prega di verificare e ripristinare la connettività Internet o disattivare gli annunci.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Si prega di disattivare la seguente opzione e reimpostare l'identificatore della pubblicità in Impostazioni. Quindi riprova.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -448,6 +452,8 @@
 "Red-Eye Removal" = "Rimozione dell'effetto occhi rossi";
 /* Generated from genl10n: Shop.SApp.swift#637 */
 "Reference Guide" = "Guida di riferimento";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "Conteggio rimanente in questa esecuzione";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ripetere";
 /* Generated from genl10n: Revert.BApp.swift#45 */
