@@ -265,6 +265,7 @@
 		4F71DF7293BD071AEF5A1B93 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4DACD3DE4FCBFA15864 /* PhotoPickerViewController.Operations.PreheatableApp.swift */; };
 		4F71DF8F3504A8832D659C00 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D077D3D83619681446DA /* PHImageManager.swift */; };
 		4F71DF9085AE27ED0953C7B7 /* Camera.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D769EEF518D4DAECEDDC /* Camera.SApp.Assets.xcassets */; };
+		4F71DF9410A5B3E55D25CD84 /* pap.Counts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */; };
 		4F71DF970A25BD69A64B2854 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5CA3FDACBAD4B734803 /* Finder.BApp.swift */; };
 		4F71DF97F15BDFC02D838757 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7E3C18F3D98C13E34A1 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71DF9E8CF93879A1DFA695 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */; };
@@ -505,6 +506,7 @@
 		4F71D82693811867D6242765 /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 		4F71D842AC616FE4F150ABBE /* Converter.Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Gif.swift; sourceTree = "<group>"; };
 		4F71D8432FF35FE7D9C633CC /* CodeKit.UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.swift; sourceTree = "<group>"; };
+		4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.Counts.swift; sourceTree = "<group>"; };
 		4F71D850917CA806926DC874 /* Charge.Objects.Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Objects.Receipt.swift; sourceTree = "<group>"; };
 		4F71D85980FE87C2FB5A2398 /* AppTaskRespondable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskRespondable.swift; sourceTree = "<group>"; };
 		4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKitTests.swift; sourceTree = "<group>"; };
@@ -1303,6 +1305,7 @@
 				4F71D4A251F6E0A3A9B2803D /* AppBin */,
 				4F71D4B3CE8EE7B285F6028E /* AppCenter.Charge.Appearance.swift */,
 				4F71D1FA39CE8C435998C723 /* pap.TimerInterval.swift */,
+				4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -2517,6 +2520,7 @@
 				4F71D7043691EB8617B9E6D9 /* Shop.Payables.FreeCharge.Facebook.swift in Sources */,
 				4F71DCE77AE93D5E3832132B /* Shop.Payables.FreeCharge.SNSEngagement.swift in Sources */,
 				4F71DECF871E7474BE4B23B3 /* CodeKit.UIApplication.swift in Sources */,
+				4F71DF9410A5B3E55D25CD84 /* pap.Counts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

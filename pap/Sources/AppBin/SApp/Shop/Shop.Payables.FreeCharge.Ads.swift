@@ -44,6 +44,11 @@ protocol GADInterestialType {
     static func prepare(_ asyncSignal: AsyncWaitSignalable)
 }
 
+fileprivate protocol GADOfflineInterestialType{
+    static var remainingOfflineAdsSkipCountInCurrentRuntime:Int {set get}
+    static var offlineMessage:String {get}
+}
+
 struct GADInterestialTypeTimeOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
@@ -52,7 +57,8 @@ struct GADInterestialTypeTimeOfUses: GADInterestialType{
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {}
 }
 
-struct GADInterestialTypeBlockOfUses: GADInterestialType{
+//POLICY: offline ads support - non-block but always popup alerts
+struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
     private(set) static var interval: Double? = papTimeInterval.ofGADInterestialTypeBlockOfUses
@@ -88,6 +94,19 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType{
         }else{
             AppCenter.default.unwatch(\.currentIdentifier, forIds:[watcherId])
         }
+    }
+
+    fileprivate static var remainingOfflineAdsSkipCountInCurrentRuntime:Int
+            = papCounts.defaultAllowedOfflineAdsSkipCountInCurrentRuntime
+
+    fileprivate static var offlineMessage: String {
+        let menu = "Main Apps Access".localized
+        let item = "Activate Ads".localized
+        let appName = ShopApp.info.displayName
+        let msg = "Please check and restore your internet connectivity, or deactivate Ads.".localized
+        let count = "(\("Remaining Count In This Run".localized): \(remainingOfflineAdsSkipCountInCurrentRuntime))"
+
+        return "\(msg)\n\(appName) > \(menu) > \(item)\n\n\(count)"
     }
 }
 
@@ -169,7 +188,23 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
             }
         }
 
+        //Handle for offline
         if NetworkReachabilityManager(host: "www.google.com")?.isReachable == false{
+            if let offlineAdsType = T.self as? GADOfflineInterestialType.Type
+            , offlineAdsType.remainingOfflineAdsSkipCountInCurrentRuntime > 0{
+                offlineAdsType.remainingOfflineAdsSkipCountInCurrentRuntime -= 1
+
+                asyncSignal.begin()
+                DispatchQueue.main.async{
+                    UIAlertController.alert(offlineAdsType.offlineMessage, title: "Could not receive Ads.".localized) { action in
+                        asyncSignal.end()
+                    }
+                }
+                asyncSignal.waitUntilEnd()
+                return true
+            }
+
+            //Default actions is not allowed.
             return false
         }
 
