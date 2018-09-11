@@ -50,7 +50,7 @@ enum ChargeLevel: CGFloat {
     var representativeColor: UIColor? {
         switch self {
         case .warning: return UIColor(red: 0.92, green: 0.3, blue: 0.25, alpha: 1)
-        case .low: return UIColor(red: 1, green: 0.68, blue: 0.26, alpha: 1)
+        case .low: return UIColor(red:0.99, green:0.49, blue:0.14, alpha:1)
         case .full: return UIColor(red: 0.46, green: 0.97, blue: 0.36, alpha: 1)
         default: return nil
         }
