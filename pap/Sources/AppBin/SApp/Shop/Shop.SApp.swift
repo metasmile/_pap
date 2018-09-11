@@ -562,7 +562,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadShopSettingsCellDescribers(){
         freeChargeSettingsCellDescribers.removeAll()
 
-        if !AppCenter.isPaidAsVIPInCurrentContext{
+        if !AppCenter.isPaidAsOwnedInCurrentContext{
 
             let c3 = UITableViewSwitchSubtitleCellDescriber()
             c3.itemIdentifier = CellDescriber.Key.displayRemainingLevel.hashValue

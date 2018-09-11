@@ -21,6 +21,11 @@ extension AppCenter{
         //this is '.owned' specific. different from 'isOwned'
     }
 
+    //POLICY: RewardType.\isOwned == '.owned/.rented'
+    static var isPaidAsOwnedInCurrentContext:Bool{
+        return charge.getChargesPaid().contains { $0.reward.isOwned }
+    }
+
     //CRITICAL: Priority ordering
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
