@@ -409,14 +409,7 @@ private class PayItem: Hashable, Equatable {
     var chargeIconImageStyle: PayItemImageStyle = PayItemImageStyle()
     var rewardIconImageStyle: PayItemImageStyle = PayItemImageStyle()
 
-    var isIndicating: Bool = false {
-        didSet {
-            if isIndicating == false{
-
-
-            }
-        }
-    }
+    var isIndicating: Bool = false
     let enabled: Bool = true
     let cellType:CellType
     let label:String
