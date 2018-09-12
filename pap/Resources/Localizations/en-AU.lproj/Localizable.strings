@@ -118,12 +118,14 @@
 "cs_keyword_12" = "friend";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ App Access";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Membership";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Ownership";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@/Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "1 Month Full Access";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 Month Membership";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-Month Use of All Apps and New";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "6 Months Full Access";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 Months Membership";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-Month Use of All Apps and New";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "Email Address";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Enable Quick Actions";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "Engage Now And Repeatedly Recharge Main Apps Access.";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Engage Now And Repeatedly Recharge Main Apps License.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -348,8 +350,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "Main Apps Access";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "Main Apps License";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Main Apps Use of %@ Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +362,8 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "Monthly Full Access";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Monthly Membership";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +400,8 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "Owners Access";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Ownership" = "Ownership";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory makes PDF document from multiple images with various page options.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -438,8 +440,6 @@
 "Processing" = "Processing";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Purchase Management";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "Purchase of All Apps Access";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Purchase";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +504,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Send";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "Settings for Main Apps Access";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Settings for Main Apps License";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -574,12 +574,12 @@
 "User Community" = "User Community";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "User";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "VIP Access";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP License Program";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP Membership";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +610,8 @@
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Write";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "Yearly Full Access";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Yearly Membership";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

@@ -118,12 +118,14 @@
 "cs_keyword_12" = "दोस्त";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रेमी";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ ऐप एक्सेस";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ सदस्यता";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ स्वामित्व";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ पाया जा सकता है";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@ / दिन";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d बार";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "1 महीने पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 महीने की सदस्यता";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "सभी ऐप्स और नए का 1-महीने का उपयोग";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "6 महीने पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 महीने की सदस्यता";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "सभी ऐप्स और नए के 6 महीने का उपयोग";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "ईमेल पता";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "त्वरित क्रियाएं सक्षम करें";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "अब व्यस्त रहें और बार-बार रिचार्ज मुख्य ऐप्स एक्सेस करें।";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "अब व्यस्त रहें और बार-बार रिचार्ज मुख्य ऐप्स लाइसेंस।";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -348,8 +350,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "लूप";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "मुख्य ऐप्स एक्सेस";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "मुख्य एप्स लाइसेंस";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "%@ दिन का मुख्य ऐप्स उपयोग";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +362,8 @@
 "Memo Cam" = "मेमो कैम";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "मासिक पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "मासिक सदस्यता";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरे एल्बम";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +400,8 @@
 "Open Web Page" = "ओपन वेब पेज";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "मालिकों का उपयोग";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Ownership" = "स्वामित्व";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "पीडीएफएचक विभिन्न पेज विकल्पों के साथ कई छवियों से पीडीएफ दस्तावेज बनाता है।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -438,8 +440,6 @@
 "Processing" = "प्रसंस्करण";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "खरीद प्रबंधन";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "सभी एप्स एक्सेस की खरीद";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "खरीद फरोख्त";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +504,8 @@
 "Send an Email" = "एक ईमेल भेजो";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "भेजना";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "मुख्य ऐप्स एक्सेस के लिए सेटिंग्स";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "मुख्य ऐप्स लाइसेंस के लिए सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -574,12 +574,12 @@
 "User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "उपयोगकर्ता";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "वीआईपी एक्सेस";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "वीआईपी लाइसेंस कार्यक्रम";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "वीआईपी सदस्यता";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +610,8 @@
 "Write A Review" = "एक समीक्षा लिखे";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "लिखना";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "वार्षिक पूर्ण पहुंच";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "वार्षिक सदस्यता";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "आप केवल फोटो या वीडियो का चयन कर सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

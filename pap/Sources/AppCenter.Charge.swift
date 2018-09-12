@@ -156,7 +156,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .secretCode
                     , reward: .owned, payment: PermanentVIPProgramPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"VIP Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"VIP Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps and New".localized, shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -164,21 +164,21 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .nonConsumablePurchaseInAppStore
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Owners Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Ownership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All Apps and New".localized, shortTitle: "Permanent Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .renewableMonthlySubscriptionInAppStore
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Monthly Full Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Monthly Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Apps and New".localized, shortTitle: "Monthly Apps License", description: nil, unit: nil, iconImage: nil)
             )
             , AppCharge(type: .renewableYearlySubscriptionInAppStore
                     , reward: .rented
                     , payment: AnnualAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Yearly Full Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Yearly Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Apps and New".localized, shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -186,21 +186,21 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .rented
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"1 Month Full Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"1 Month Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
 //            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
 //                    , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
 //                    , priceAmount: AmountObject.min
-//                    , describable: AppChargeDescription(title:"3 Months Full Access".localized, description: nil, iconImage: nil)
+//                    , describable: AppChargeDescription(title:"3 Months Membership".localized, description: nil, iconImage: nil)
 //                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps and New".localized, shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
 //            )
 
             , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"6 Months Full Access".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"6 Months Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "6-Month Use of All Apps and New".localized, shortTitle: "6-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
         ]
@@ -393,7 +393,7 @@ extension AppCharge{
                 , reward: .localOwned
                 , payment: chargingPayable
                 , priceAmount: AmountObject.min
-                , describable: AppChargeDescription(title:"%@ App Access".localizedFormatted(app.info.displayName), description: nil, iconImage: nil)
+                , describable: AppChargeDescription(title:"%@ Ownership".localizedFormatted(app.info.displayName), description: nil, iconImage: nil)
                 , rewardDescribable: rewardDescribable
         )
     }

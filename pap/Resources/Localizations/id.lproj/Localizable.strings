@@ -118,12 +118,14 @@
 "cs_keyword_12" = "teman";
 /*Translated from: lover*/
 "cs_keyword_13" = "kekasih";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ Akses Aplikasi";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Unduh sekarang GRATIS!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Membership";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Kepemilikan";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ dapat ditemukan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@ / Hari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "Akses Lengkap 1 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "Keanggotaan 1 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Penggunaan 1 Bulan Semua Aplikasi dan Baru";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "Akses Lengkap 6 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "Keanggotaan 6 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Penggunaan 6 Bulan Semua Aplikasi dan Baru";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "Alamat email";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktifkan Tindakan Cepat";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "Terlibat Sekarang Dan Berulang Kali Mengisi Ulang Akses Aplikasi Utama.";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Terlibat Sekarang Dan Berulang Kali Mengisi Ulang Lisensi Aplikasi Utama.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Opsi Ekspor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -348,8 +350,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "Akses Aplikasi Utama";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "Lisensi Aplikasi Utama";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Main Apps Use of %@ Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +362,8 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "Akses Penuh Bulanan";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Keanggotaan Bulanan";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album Saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +400,8 @@
 "Open Web Page" = "Buka Halaman Web";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asli";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "Akses Pemilik";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Ownership" = "Kepemilikan";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "Pabrikan PDF membuat dokumen PDF dari banyak gambar dengan berbagai opsi halaman.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -438,8 +440,6 @@
 "Processing" = "Pengolahan";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Manajemen Pembelian";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "Pembelian Semua Akses Aplikasi";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Membeli";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +504,8 @@
 "Send an Email" = "Kirim Sebuah email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Kirim";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "Pengaturan untuk Akses Aplikasi Utama";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Pengaturan untuk Lisensi Aplikasi Utama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Pengaturan";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -574,12 +574,12 @@
 "User Community" = "Komunitas Pengguna";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Pengguna";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "Akses VIP";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP License Program";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "Keanggotaan VIP";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Verifikasi gagal.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +610,8 @@
 "Write A Review" = "Menulis review";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Menulis";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "Akses Lengkap Tahunan";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Keanggotaan Tahunan";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya dapat memilih foto atau video yang dicocokkan dengan format awal.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

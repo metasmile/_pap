@@ -118,12 +118,14 @@
 "cs_keyword_12" = "φίλος";
 /*Translated from: lover*/
 "cs_keyword_13" = "εραστής";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ Πρόσβαση εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Σύνθεση";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Ιδιοκτησία";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ μπορεί να βρεθεί";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@ / Ημέρα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "1 μήνας πλήρης πρόσβαση";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 Μήνας Σύνθεση";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1 μήνας χρήσης όλων των εφαρμογών και νέων";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "Πλήρης πρόσβαση 6 μηνών";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 μήνες Σύνθεση";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Χρήση 6 μηνών όλων των εφαρμογών και νέων";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "Ενεργοποιήστε τώρα και επαναφέρετε επανειλημμένα την πρόσβαση των κύριων εφαρμογών.";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Ενεργοποιήστε τώρα και επαναφορτίζετε επανειλημμένα την κύρια άδεια χρήσης εφαρμογών.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -348,8 +350,8 @@
 "Lockscreens" = "Κλειδαριές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Βρόχος";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "Κύρια πρόσβαση εφαρμογών";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "Κύρια άδεια εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Βασικές εφαρμογές Χρήση %@ Ημέρας";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +362,8 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "Μηνιαία πλήρης πρόσβαση";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Μηνιαία συμμετοχή";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +400,8 @@
 "Open Web Page" = "Ανοίξτε την ιστοσελίδα";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "Πρόσβαση ιδιοκτητών";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Ownership" = "Ιδιοκτησία";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "Το PDFactory κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -438,8 +440,6 @@
 "Processing" = "Επεξεργασία";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Διαχείριση αγορών";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "Αγορά πρόσβασης σε όλες τις εφαρμογές";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Αγορά";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +504,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Στείλετε";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "Ρυθμίσεις για την πρόσβαση στις κύριες εφαρμογές";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Ρυθμίσεις για την κύρια άδεια εφαρμογών";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ρυθμίσεις";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -574,12 +574,12 @@
 "User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Χρήστης";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "VIP Access";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "Πρόγραμμα Άδειας VIP";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP Σύνθεση";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +610,8 @@
 "Write A Review" = "Γράψτε μια κριτική";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Γράφω";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "Ετήσια πλήρη πρόσβαση";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Ετήσια ιδιότητα μέλους";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Μπορείτε να επιλέξετε μόνο φωτογραφίες ή βίντεο που ταιριάζουν με την αρχική μορφή.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

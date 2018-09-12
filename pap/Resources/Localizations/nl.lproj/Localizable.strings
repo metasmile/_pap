@@ -118,12 +118,14 @@
 "cs_keyword_12" = "Vriend";
 /*Translated from: lover*/
 "cs_keyword_13" = "Minnaar";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ Toegang tot apps";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download nu GRATIS!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Lidmaatschap";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Eigendom";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ kan worden gevonden";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@ / Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d keer";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "1 maand volledige toegang";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 maand lidmaatschap";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-maand gebruik van alle apps en nieuw";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "6 maanden volledige toegang";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 maanden lidmaatschap";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-maands gebruik van alle apps en nieuw";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "E-mailadres";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schakel Snelle acties in";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "Neem nu deel en herlaad de belangrijkste toegang tot apps.";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Neem nu deel en herlaad de licentie voor de hoofd-apps.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export opties";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -348,8 +350,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "Belangrijkste toegang tot apps";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "Hoofd Apps-licentie";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Belangrijkste Apps Gebruik van %@ Dag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +362,8 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Wijzigen";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "Maandelijks volledige toegang";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Maandelijks Lidmaatschap";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mijn albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +400,8 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Origineel";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "Toegang voor eigenaren";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Ownership" = "Eigendom";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory maakt een PDF-document van meerdere afbeeldingen met verschillende pagina-opties.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -438,8 +440,6 @@
 "Processing" = "Verwerken";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Aankoopbeheer";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "Aankoop van toegang tot alle apps";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Aankoop";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +504,8 @@
 "Send an Email" = "Stuur een email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Sturen";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "Instellingen voor Main Apps Access";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Instellingen voor Main Apps-licentie";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "instellingen";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -574,12 +574,12 @@
 "User Community" = "Gebruikerscommunity";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "Gebruiker";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "VIP-toegang";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP-licentieprogramma";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP-lidmaatschap";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Verificatie mislukt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +610,8 @@
 "Write A Review" = "Schrijf een recensie";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Schrijven";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "Jaarlijkse volledige toegang";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Jaarlijks lidmaatschap";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
