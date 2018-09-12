@@ -922,8 +922,13 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
         
-        //POLICY: no keeps selected items
-        deselectAllCollectionViewItems()
+        if let selectedIndexPaths = self.photoCollectionView.indexPathsForSelectedItems {
+            //POLICY: no keeps selected items
+            deselectAllCollectionViewItems()
+            
+            //INFO: force update PHAssets because of missing photo library changes
+            self.photoCollectionView.reloadItems(at: selectedIndexPaths)
+        }
 
         updateAllPhotosTitle()
         updateUIDisplays()
