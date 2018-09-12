@@ -437,7 +437,7 @@ private class PayItem: Hashable, Equatable {
 
 private struct CellDescriberGroup: Section{
     fileprivate let label:String
-    fileprivate let detailedLabel:String?
+    fileprivate var detailedLabel:String?
     fileprivate var describers:[UITableViewCellDefaultDescribable]
 
     var itemsOfSection: [Any] {
@@ -472,6 +472,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private lazy var payGroups:[PayGroup] = PayGroup.Default
     private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
     private var freeChargeSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var informationOfUsetCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         var s:[Section] = payGroups
@@ -482,7 +483,15 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if contactCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers))
+            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: nil, describers: contactCellDescribers))
+        }
+
+        if informationOfUsetCellDescribers.count > 0{
+            var info = "Version \(Defaults.shared.latestShortVersion ?? "-")"
+#if DEBUG
+            info = "Version \(Defaults.shared.latestShortVersion ?? "-") | Build \(Bundle.main.version ?? "-")"
+#endif
+            s.append(CellDescriberGroup(label: "Information of Use".localized, detailedLabel: info, describers: informationOfUsetCellDescribers))
         }
 
         return s
@@ -670,11 +679,38 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c7)
     }
 
+    private func loadInformationOfUsetCellDescribers(){
+        informationOfUsetCellDescribers.removeAll()
+
+        let c3 = UITableViewButtonCellDescriber()
+        c3.itemIdentifier = CellDescriber.Key.support.hashValue
+        c3.label = "Privacy Policy".localized
+        c3.buttonTitle = "See".localized
+        c3.iconImage = R.image.commonCellIconInfo()
+        c3.iconImageTintColor = self.view.tintColor
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypePrivacyPolicy>.self)
+        }
+        informationOfUsetCellDescribers.append(c3)
+
+        let c7 = UITableViewButtonCellDescriber()
+        c7.itemIdentifier = CellDescriber.Key.support.hashValue
+        c7.label = "Terms of Use".localized
+        c7.buttonTitle = "See".localized
+        c7.iconImage = R.image.commonCellIconInfo()
+        c7.iconImageTintColor = self.view.tintColor
+        c7.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeTermsOfUse>.self)
+        }
+        informationOfUsetCellDescribers.append(c7)
+    }
+
     fileprivate func reloadData(){
         AppCenter.charge.synchronize()
 
         loadShopSettingsCellDescribers()
         loadContactCellDescribers()
+        loadInformationOfUsetCellDescribers()
         loadPayGroups()
 
         for s in self.sections{

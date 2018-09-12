@@ -178,11 +178,11 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
 "Cleaner" = "Cleaner";
-/* Generated from genl10n: Shop.SApp.swift#563 */
+/* Generated from genl10n: Shop.SApp.swift#568 */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
-/* Generated from genl10n: Shop.SApp.swift#628 */
+/* Generated from genl10n: Shop.SApp.swift#633 */
 "Contact Us Now" = "Contact Us Now";
-/* Generated from genl10n: Shop.SApp.swift#485, Finder.BApp.swift#1382 */
+/* Generated from genl10n: Shop.SApp.swift#486, Finder.BApp.swift#1382 */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift#46 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
@@ -218,9 +218,9 @@
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift#558 */
 "Direction" = "Direction";
-/* Generated from genl10n: Shop.SApp.swift#562 */
+/* Generated from genl10n: Shop.SApp.swift#567 */
 "Display Remaining Level" = "Display Remaining Level";
-/* Generated from genl10n: Shop.SApp.swift#574 */
+/* Generated from genl10n: Shop.SApp.swift#579 */
 "Display Remaining Percentage." = "Display Remaining Percentage.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Do Everything With Photos.";
@@ -272,7 +272,7 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
 "Get Access" = "Get Access";
-/* Generated from genl10n: AppCenter.Charge.swift#93, Shop.SApp.swift#589 */
+/* Generated from genl10n: AppCenter.Charge.swift#93, Shop.SApp.swift#594 */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#242 */
 "Hello, %@!" = "Hello, %@!";
@@ -288,11 +288,13 @@
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift#456 */
 "Import" = "Import";
+/* Generated from genl10n: Shop.SApp.swift#490 */
+"Information of Use" = "Information of Use";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#201 */
 "Input Here" = "Input Here";
-/* Generated from genl10n: Shop.SApp.swift#640 */
+/* Generated from genl10n: Shop.SApp.swift#645 */
 "Inquiry" = "Inquiry";
-/* Generated from genl10n: Shop.SApp.swift#480 */
+/* Generated from genl10n: Shop.SApp.swift#481 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
 /* Generated from genl10n: Finder.BApp.swift#244 */
 "It could not be stored." = "It could not be stored.";
@@ -398,6 +400,8 @@
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including New Apps and Updates." = "Prices Are Including New Apps and Updates.";
+/* Generated from genl10n: Shop.SApp.swift#683 */
+"Privacy Policy" = "Privacy Policy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#189 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -410,11 +414,11 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
 "Rate It" = "Rate It";
-/* Generated from genl10n: Shop.SApp.swift#590 */
+/* Generated from genl10n: Shop.SApp.swift#595 */
 "Rate Now" = "Rate Now";
 /* Generated from genl10n: AutoEditor.BApp.swift#176 */
 "Red-Eye Removal" = "Red-Eye Removal";
-/* Generated from genl10n: Shop.SApp.swift#663 */
+/* Generated from genl10n: Shop.SApp.swift#668 */
 "Reference Guide" = "Reference Guide";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
 "Remaining Count In This Run" = "Remaining Count In This Run";
@@ -452,7 +456,7 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#894 */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Shop.SApp.swift#664, Shop.Payables.FreeCharge.Ads.swift#153 */
+/* Generated from genl10n: Shop.SApp.swift#669, Shop.SApp.swift#684, Shop.SApp.swift#695, Shop.Payables.FreeCharge.Ads.swift#153 */
 "See" = "See";
 /* Generated from genl10n: Converter.AppDockContent.swift#158 */
 "Select Format To Convert" = "Select Format To Convert";
@@ -466,15 +470,15 @@
 "Selected" = "Selected";
 /* Generated from genl10n: Finder.BApp.swift#655, Finder.BApp.swift#666, Finder.BApp.swift#676 */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: Shop.SApp.swift#629 */
+/* Generated from genl10n: Shop.SApp.swift#634 */
 "Send" = "Send";
-/* Generated from genl10n: Shop.SApp.swift#480 */
+/* Generated from genl10n: Shop.SApp.swift#481 */
 "Settings for Main Apps License" = "Settings for Main Apps License";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#309 */
 "Settings" = "Settings";
-/* Generated from genl10n: Shop.SApp.swift#615 */
+/* Generated from genl10n: Shop.SApp.swift#620 */
 "Share This App" = "Share This App";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#77, Shop.Payables.FreeCharge.Facebook.swift#158, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#616, Finder.BApp.swift#211, Finder.BApp.swift#421, Finder.BApp.swift#505, Finder.BApp.swift#594, Finder.BApp.swift#691, Finder.BApp.swift#809, Finder.BApp.swift#906 */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#77, Shop.Payables.FreeCharge.Facebook.swift#158, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#621, Finder.BApp.swift#211, Finder.BApp.swift#421, Finder.BApp.swift#505, Finder.BApp.swift#594, Finder.BApp.swift#691, Finder.BApp.swift#809, Finder.BApp.swift#906 */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift#108 */
 "Sharing on Facebook" = "Sharing on Facebook";
@@ -516,6 +520,8 @@
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#400 */
 "Targets" = "Targets";
+/* Generated from genl10n: Shop.SApp.swift#694 */
+"Terms of Use" = "Terms of Use";
 /* Generated from genl10n: Finder.BApp.swift#1383 */
 "Text" = "Text";
 /* Generated from genl10n: Shop.StoreKit.swift#137 */
@@ -534,11 +540,11 @@
 "Use Trial" = "Use Trial";
 /* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
 "Use" = "Use";
-/* Generated from genl10n: Shop.SApp.swift#652 */
+/* Generated from genl10n: Shop.SApp.swift#657 */
 "User Community" = "User Community";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#240 */
 "User" = "User";
-/* Generated from genl10n: Shop.SApp.swift#639 */
+/* Generated from genl10n: Shop.SApp.swift#644 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#195 */
 "VIP License Program" = "VIP License Program";
@@ -558,7 +564,7 @@
 "View Ads" = "View Ads";
 /* Generated from genl10n: AppCenter.Charge.swift#144 */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift#34, Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#653 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift#34, Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#658 */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift#242, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "Waiting To Select ...";
@@ -570,9 +576,9 @@
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
 /* Generated from genl10n: Shop.StoreKit.swift#137 */
 "Would you like to move to %@?" = "Would you like to move to %@?";
-/* Generated from genl10n: Shop.SApp.swift#602 */
+/* Generated from genl10n: Shop.SApp.swift#607 */
 "Write A Review" = "Write A Review";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#603 */
+/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#608 */
 "Write" = "Write";
 /* Generated from genl10n: AppCenter.Charge.swift#181 */
 "Yearly Membership" = "Yearly Membership";

@@ -53,6 +53,15 @@ struct URLOpenTypeProductHuntSurvey: URLOpenType {
 }
 
 
+struct URLOpenTypePrivacyPolicy: URLOpenType {
+    static var webUrl: URL?{ return papStrings.contact.community.url.asURL }
+}
+
+struct URLOpenTypeTermsOfUse: URLOpenType {
+    static var webUrl: URL?{ return papStrings.contact.guide.url.asURL }
+}
+
+
 /*
 twitter://user?screen_name=lorenb
 twitter://user?id=12345
