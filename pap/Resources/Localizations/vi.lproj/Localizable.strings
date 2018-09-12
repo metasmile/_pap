@@ -324,6 +324,8 @@
 "Images" = "Hình ảnh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Nhập";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Thông tin sử dụng";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Nhập vào đây";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -432,8 +434,10 @@
 "Preparing" = "Đang chuẩn bị";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "Giá đang bao gồm các ứng dụng và bản cập nhật mới.";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "Giá được bao gồm mọi ứng dụng và bản cập nhật mới.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Chính sách bảo mật";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Riêng tư";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -552,6 +556,8 @@
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mục tiêu";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Điều khoản sử dụng";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Bản văn";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */

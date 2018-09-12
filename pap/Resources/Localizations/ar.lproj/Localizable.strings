@@ -324,6 +324,8 @@
 "Images" = "صور";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "استيراد";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "معلومات الاستخدام";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "مدخلات هنا";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -432,8 +434,10 @@
 "Preparing" = "خطة";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "المسبقة";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "الأسعار تشمل تطبيقات وتحديثات جديدة.";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "الأسعار تشمل كل التطبيقات والتحديثات الجديدة.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "سياسة الخصوصية";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "الإجمالية";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -552,6 +556,8 @@
 "Targeted" = "المستهدفة";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "أهداف";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "تعليمات الاستخدام";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "نص";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */

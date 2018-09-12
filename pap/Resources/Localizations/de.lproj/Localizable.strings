@@ -324,6 +324,8 @@
 "Images" = "Bilder";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Informationen zur Verwendung";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Eingabe hier";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -432,8 +434,10 @@
 "Preparing" = "Vorbereitung";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "Preise beinhalten neue Apps und Updates.";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "Die Preise beinhalten alle neuen Apps und Updates.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Datenschutz-Bestimmungen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -552,6 +556,8 @@
 "Targeted" = "Gezielt";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Ziele";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Nutzungsbedingungen";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */

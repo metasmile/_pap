@@ -324,6 +324,8 @@
 "Images" = "इमेजिस";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "आयात";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "उपयोग की जानकारी";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "यहां इनपुट करें";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -432,8 +434,10 @@
 "Preparing" = "तैयार कर रहे हैं";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रीसेट";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "कीमतें नए ऐप्स और अपडेट शामिल हैं।";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "कीमतें हर नए ऐप और अपडेट्स सहित हैं।";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "गोपनीयता नीति";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "एकांत";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -552,6 +556,8 @@
 "Targeted" = "लक्षित";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "लक्ष्य";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "उपयोग की शर्तें";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "टेक्स्ट";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */

@@ -324,6 +324,8 @@
 "Images" = "slike";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Uvoz";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Informacije o korištenju";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Unesite ovdje";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -432,8 +434,10 @@
 "Preparing" = "priprema";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "Cijene uključuju nove aplikacije i ažuriranja.";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "Cijene uključuju svaku novu aplikaciju i ažuriranja.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Pravila o privatnosti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privatnost";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
@@ -552,6 +556,8 @@
 "Targeted" = "ciljano";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ciljevi";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Uvjeti korištenja";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Tekst";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */

@@ -270,10 +270,10 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "%@ Membership".localizedFormatted(papStrings.name)
-                , detailedLabel: "Prices Are Including New Apps and Updates.".localized
+                , detailedLabel: "Prices Are Including Every New Apps and Updates.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
-                    , PayItem(payable:AnnualAllAppsPayment.self)
+                    , PayItem(payable:YearlyAllAppsPayment.self)
                     , PayItem(payable:MonthlyAllAppsPayment.self)
                     , PayItem(payable:OneMonthAllAppsPayment.self)
                     , PayItem(payable:SixMonthsAllAppsPayment.self)
