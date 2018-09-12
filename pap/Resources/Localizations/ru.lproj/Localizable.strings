@@ -136,10 +136,6 @@
 "1 Month Full Access" = "Полный доступ на 1 месяц";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-месячное использование всех приложений и новых";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "Полный доступ 3 месяца";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "3-месячное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "Полный доступ на 6 месяцев";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -174,6 +170,8 @@
 "All" = "Все";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Приложение, но содержит множество приложений для фотографий.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "При получении объявлений произошла ошибка.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Анимированный GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -234,6 +232,8 @@
 "Could not detect any text." = "Не удалось обнаружить какой-либо текст.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Не удалось обнаружить ничего.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "Не удалось получить Объявления.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Создайте";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -372,18 +372,24 @@
 "New Contact" = "Новый контакт";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Новое событие";
-/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
-"New Phone Number" = "Новый номер телефона";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "Новый номер";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "Новые номера телефонов";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Нет петли";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "Число";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режиме ожидания";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Постоянное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "Текущее использование всех основных приложений";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "Открыть %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Откройте Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -414,6 +420,10 @@
 "Photos" = "Фото";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Введите свой секретный код";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Проверьте и восстановите подключение к Интернету или отключите рекламу.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Отключите следующий параметр и сбросьте идентификатор рекламы в настройках. Затем повторите попытку.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Портрет";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -440,6 +450,10 @@
 "Rate Now" = "Оценить сейчас";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Удаление красных глаз";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Справочное руководство";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "Оставшееся количество в этом прогоне";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -474,6 +488,8 @@
 "Screenshots" = "Скриншоты";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Поиск рейсов";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Видеть";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Выберите Формат для преобразования";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -526,8 +542,8 @@
 "Starting to check edited photos..." = "Начиная проверять отредактированные фотографии ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Отправить";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Включите все элементы, которые вы хотите скрыть. Качество будет оставаться неизменным.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Включите все элементы, которые вы хотите скрыть. Качество отлично сохранится.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Сфотографировать";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -538,6 +554,8 @@
 "Targets" = "Цели";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Текст";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Спасибо за покупку.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Этот простой, но крупномасштабный пакетный инструмент преобразования изображений позволяет вам быстро вращать и переворачивать множество мультимедийных файлов, включая Live Photos. Количество фотографий для редактирования не ограничено.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -574,8 +592,6 @@
 "Videos Without Sound" = "Видео без звука";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Просмотр объявлений";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Посмотреть";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Посетите социальные страницы";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -588,6 +604,8 @@
 "Welcome Free Pack" = "Приветственный бесплатный пакет";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Добро пожаловать в нашу VIP-лицензионную программу.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Вы хотите перейти на %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Написать обзор";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

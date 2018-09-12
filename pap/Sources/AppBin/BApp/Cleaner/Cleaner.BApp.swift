@@ -97,9 +97,9 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
     fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
         return [
             PHAssetGarbageDetector_Similarity.self
+            , PHAssetGarbageDetector_Lockscreens.self
             , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
-            , PHAssetGarbageDetector_Flashlight.self
-            , PHAssetGarbageDetector_VideosShorterThan1Sec.self
+            , PHAssetGarbageDetector_TooCloseupFace.self
         ]
     }
 
@@ -366,7 +366,7 @@ extension Defaults: CleanerAppDefaults {
     }
 
     fileprivate var autoSelect: Bool {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); }
         get{ return get(or: true ) }
     }
 }
@@ -550,6 +550,12 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
                 for section in 1..<self.numberOfSections(in: tableView) {
                     tableView.reloadSections(IndexSet(integer: section), with: .none)
                 }
+            }
+
+            if enabled{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
             }
 
         }

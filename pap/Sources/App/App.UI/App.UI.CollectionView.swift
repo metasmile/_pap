@@ -134,6 +134,10 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
         cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
     }
     
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+    }
+    
     private var numberOfItems: Int {
         return collectionView?.numberOfItems(inSection: 0) ?? 0
     }

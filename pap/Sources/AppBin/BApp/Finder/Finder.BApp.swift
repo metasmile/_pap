@@ -283,6 +283,8 @@ extension FinderApp{
 
 
         //INFO: Editor Mode
+        var reviewAndDoneAtLeaseOne = false
+
         for item in items {
             guard let _contacts = item.contacts, _contacts.count > 0 else{
                 continue
@@ -294,7 +296,12 @@ extension FinderApp{
 
                     asyncSignal.begin()
                     DispatchQueue.main.async{
-                        CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                        CNContactViewController.presentDialog(newContact: contact, willDismiss: { contact in
+                            if reviewAndDoneAtLeaseOne == false{
+                                reviewAndDoneAtLeaseOne = contact != nil
+                            }
+
+                        }, didDismiss: {
                             asyncSignal.end()
                         })
                     }
@@ -303,7 +310,11 @@ extension FinderApp{
             }
         }
 
-        return "All processes you have confirmed were finished.".localized
+        if reviewAndDoneAtLeaseOne {
+            return "All processes you have confirmed were finished.".localized
+        }
+
+        return nil
     }
 
     fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
@@ -1338,6 +1349,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         cell1.valueHandler = {
             self.autoSelect = $0 as! Bool
             AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
+
+            if self.autoSelect{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
         }
         settingCellDescribers.append(cell1)
 
@@ -1349,6 +1366,8 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             var option = AppLaunchOptions()
             option.identifierToReturn = FinderApp.info.identifier
             AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
+
+            papLog.app.userCalledCameraInApp()
 
         }
         settingCellDescribers.append(cell_b)

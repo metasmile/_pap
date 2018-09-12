@@ -22,7 +22,7 @@ extension URLOpenType {
 }
 
 struct URLOpenTypeSocialPage: URLOpenType {
-    static var webUrl: URL?{ return papStrings.social.url.asURL }
+    static var webUrl: URL?{ return papStrings.contact.social.url.asURL }
 
     static var localUrl: URL? {
         //Facebook -> Twitter
@@ -35,12 +35,18 @@ struct URLOpenTypeSocialPage: URLOpenType {
 }
 
 struct URLOpenTypeUserCommunity: URLOpenType {
-    static var webUrl: URL?{ return papStrings.userCommunity.url.asURL }
+    static var webUrl: URL?{ return papStrings.contact.community.url.asURL }
+}
+
+struct URLOpenTypeReferenceGuide: URLOpenType {
+    static var webUrl: URL?{ return papStrings.contact.guide.url.asURL }
 }
 
 //TODO: YOU. app compaign - must check submit state - Typeform? PH Survey? hm
 struct URLOpenTypeProductHuntSurvey: URLOpenType {
-    static var webUrl: URL?{ return "https://apps.photo/youapp".asURL }
+    static var webUrl: URL?{
+        return papStrings.youapp.url.asURL
+    }
     static var label: String? {
         return "Join".localized
     }

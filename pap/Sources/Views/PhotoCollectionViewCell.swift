@@ -70,6 +70,8 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionCheckView.heightAnchor.constraint(equalToConstant: checkmarkSize.height).isActive = true
         selectionCheckView.bottomAnchor.constraint(equalTo: selectionView.bottomAnchor, constant: -checkmarkmargin).isActive = true
         selectionCheckView.trailingAnchor.constraint(equalTo: selectionView.trailingAnchor, constant: -checkmarkmargin).isActive = true
+        
+        imageView.accessibilityIgnoresInvertColors = true
     }
     
     override func prepareForReuse() {

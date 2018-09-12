@@ -148,10 +148,10 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
                         let contact = CNMutableContact()
                         contact.contactType = .person
-                        contact.givenName = "New Phone Number".localized
+                        contact.givenName = "New Phone Numbers".localized
 
                         for number in numbers{
-                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            let value = CNLabeledValue(label: "Number".localized, value: CNPhoneNumber(stringValue: number))
                             contact.phoneNumbers.append(value)
                         }
 
@@ -188,9 +188,9 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
 
                         let contact = CNMutableContact()
                         contact.contactType = .person
-                        contact.givenName = "New Phone Number".localized
+                        contact.givenName = "New Phone Numbers".localized
                         for number in [phoneNumber]{
-                            let value = CNLabeledValue(label: "New Phone Number".localized, value: CNPhoneNumber(stringValue: number))
+                            let value = CNLabeledValue(label: "Number".localized, value: CNPhoneNumber(stringValue: number))
                             contact.phoneNumbers.append(value)
                         }
 
@@ -383,6 +383,12 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             let enable = (on as? Bool) ?? false
             self.autoSelect = enable
             AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.autoSelect = enable
+
+            if enable{
+                papLog.app.userEnablesASB()
+            }else{
+                papLog.app.userDisablesASB()
+            }
         }
         settingCellDescribers.append(cell1)
 
@@ -395,6 +401,8 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             var option = AppLaunchOptions()
             option.identifierToReturn = PhoneCallsApp.info.identifier
             AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
+
+            papLog.app.userCalledCameraInApp()
 
         }
         settingCellDescribers.append(cell_b)

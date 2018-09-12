@@ -55,6 +55,12 @@ struct papStrings {
         }
     }
 
+    struct youapp{
+        static var url: String{
+            return "https://you.apps.photo"
+        }
+    }
+
     struct contact{
         struct feedback {
             static var email: String{
@@ -79,20 +85,20 @@ struct papStrings {
 
         struct community {
             static var url: String{
-                return "https://apps.photo"
+                return "https://apps.photo/users"
             }
         }
-    }
 
-    struct social{
-        static var url: String{
-            return "https://apps.photo/social"
+        struct guide {
+            static var url: String{
+                return "https://apps.photo/guide"
+            }
         }
-    }
 
-    struct userCommunity{
-        static var url: String{
-            return "https://apps.photo/users"
+        struct social {
+            static var url: String{
+                return "https://apps.photo/social"
+            }
         }
     }
 

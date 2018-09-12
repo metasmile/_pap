@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1 mesiac plný prístup";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-mesačné používanie všetkých aplikácií a nové";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 mesiace plný prístup";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "3-mesačné používanie všetkých aplikácií a nové";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "6 mesiacov plný prístup";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -174,6 +170,8 @@
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Aplikácia, ale obsahuje veľa fotografií Apps.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "Pri prijímaní reklám došlo k chybe.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animovaný GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -234,6 +232,8 @@
 "Could not detect any text." = "Nepodarilo sa zistiť žiadny text.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Nie je možné zistiť nič.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "Nepodarilo sa prijímať reklamy.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -372,18 +372,24 @@
 "New Contact" = "Nový kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Nová udalosť";
-/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
-"New Phone Number" = "Nové telefónne číslo";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "Nové číslo";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "Nové telefónne čísla";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "číslo";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostnom režime";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Prebiehajúce používanie všetkých aplikácií a nové";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "Prebiehajúce používanie všetkých hlavných aplikácií";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "Otvorte %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorte Mapy Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -414,6 +420,10 @@
 "Photos" = "fotografie";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Zadajte svoj tajný kód";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Skontrolujte a obnovte svoje internetové pripojenie alebo deaktivujte reklamy.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Vypnite nasledujúce možnosti a resetujte identifikátor reklamy v časti Nastavenia. Potom skúste znova.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "portrét";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -440,6 +450,10 @@
 "Rate Now" = "Hodnotiť teraz";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Odstránenie efektu červených očí";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Referenčná príručka";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "Zostávajúce počty v tomto úteku";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -474,6 +488,8 @@
 "Screenshots" = "ukážky";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhľadávacie lety";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "vidieť";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Vyberte formát na konverziu";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -526,8 +542,8 @@
 "Starting to check edited photos..." = "Začať skontrolovať upravené fotografie ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Predložiť";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita zostane úplne rovnaká.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita bude dokonale zostať rovnaká.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Odfoť";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -538,6 +554,8 @@
 "Targets" = "ciele";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "text";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Ďakujem za Váš nákup.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tento jednoduchý, ale rozsiahly nástroj na transformáciu dávkových obrázkov vám umožňuje rýchlo otáčať a preklopiť množstvo multimediálnych súborov vrátane fotografií naživo. Nie je obmedzený počet fotografií na úpravu.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -574,8 +592,6 @@
 "Videos Without Sound" = "Videá bez zvuku";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Zobraziť reklamy";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "vyhliadka";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Navštívte sociálne stránky";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -588,6 +604,8 @@
 "Welcome Free Pack" = "Vitajte zadarmo balíček";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Chcete prejsť na %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napísať recenziu";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

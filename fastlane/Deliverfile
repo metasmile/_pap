@@ -4,5 +4,6 @@
 team_id "2020888" #Tae ho Lee
 app_identifier "com.stells.pap"
 metadata_path "./fastlane/com.stells.pap"
+screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/pap"
 ipa "pap.ipa"
 username "illhert@yahoo.com"

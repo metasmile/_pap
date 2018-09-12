@@ -41,25 +41,74 @@ protocol GADInterestialType {
     static var appId: String {get}
     static var unitId: String {get}
     static var interval: Double? {get}
+    static func prepare(_ asyncSignal: AsyncWaitSignalable)
+}
+
+fileprivate protocol GADOfflineInterestialType{
+    static var remainingOfflineAdsSkipCountInCurrentRuntime:Int {set get}
+    static var offlineMessage:String {get}
 }
 
 struct GADInterestialTypeTimeOfUses: GADInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
     private(set) static var interval: Double?
+
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {}
 }
 
-struct GADInterestialTypeBlockOfUses: GADInterestialType{
+//POLICY: offline ads support - non-block but always popup alerts
+struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
     private(set) static var interval: Double? = papTimeInterval.ofGADInterestialTypeBlockOfUses
-}
 
-//extension GADInterestialAdsViewingPayment:RelativePayable where T==GADInterestialTypeBlockOfUses{
-//    static var superPayables: HashSet<Payable.Type> {
-//        return self.defaultSuperPayables
-//    }
-//}
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {
+        if wasPaid(){
+            prepareTrackingAds()
+        }else{
+            AppCenter.charge.bank.watch(\.savedChargeIdentifier){
+                prepareTrackingAds()
+            }
+        }
+    }
+
+    private static var thisPayment:Payable.Type{
+        return GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
+    }
+
+    private static func wasPaid() -> Bool{
+        return AppCenter.charge.isPaid(payable: thisPayment)
+    }
+
+    private static func prepareTrackingAds(){
+        let watcherId = String(describing: self)+#function
+        if wasPaid(){
+            DispatchQueue.mainAsyncAfter(qos: .background) {
+                AppCenter.default.watch(\.currentIdentifier, id:watcherId){ app, _ in
+                    if wasPaid(), AppCenter.isPaidInCurrentContext == false, app.currentIdentifier != ShopApp.info.identifier{
+                        AppCenter.charge.try(for: thisPayment)
+                    }
+                }
+            }
+        }else{
+            AppCenter.default.unwatch(\.currentIdentifier, forIds:[watcherId])
+        }
+    }
+
+    fileprivate static var remainingOfflineAdsSkipCountInCurrentRuntime:Int
+            = papCounts.defaultAllowedOfflineAdsSkipCountInCurrentRuntime
+
+    fileprivate static var offlineMessage: String {
+        let menu = "Main Apps Access".localized
+        let item = "Activate Ads".localized
+        let appName = ShopApp.info.displayName
+        let msg = "Please check and restore your internet connectivity, or deactivate Ads.".localized
+        let count = "(\("Remaining Count In This Run".localized): \(remainingOfflineAdsSkipCountInCurrentRuntime))"
+
+        return "\(msg)\n\(appName) > \(menu) > \(item)\n\n\(count)"
+    }
+}
 
 class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
     static var superPayables: HashSet<Payable.Type> {
@@ -74,6 +123,8 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
 
     @objc dynamic
     private var didUserShowAd = false
+
+    private var errorWhileLoadAd:GADRequestError?
 
     private lazy var dateKey = String(describing: type(of:self))
     
@@ -95,18 +146,19 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
     }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-
+        T.prepare(asyncSignal)
     }
 
     static var action: PayableAction{
-        return PayableAction(title: "View".localized)
+        return PayableAction(title: "See".localized)
     }
 
     func interestialDidReceiveAd() {
         didAdLoad = true
     }
 
-    func interestialDidFailToReceiveAd() {
+    func interestialDidFailToReceiveAd(error:GADRequestError) {
+        errorWhileLoadAd = error
         didAdLoad = false
     }
 
@@ -136,7 +188,23 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
             }
         }
 
+        //Handle for offline
         if NetworkReachabilityManager(host: "www.google.com")?.isReachable == false{
+            if let offlineAdsType = T.self as? GADOfflineInterestialType.Type
+            , offlineAdsType.remainingOfflineAdsSkipCountInCurrentRuntime > 0{
+                offlineAdsType.remainingOfflineAdsSkipCountInCurrentRuntime -= 1
+
+                asyncSignal.begin()
+                DispatchQueue.main.async{
+                    UIAlertController.alert(offlineAdsType.offlineMessage, title: "Could not receive Ads.".localized) { action in
+                        asyncSignal.end()
+                    }
+                }
+                asyncSignal.waitUntilEnd()
+                return true
+            }
+
+            //Default actions is not allowed.
             return false
         }
 
@@ -165,7 +233,35 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                 }else{
                     // failed
                     paid = false
-                    asyncSignal.end()
+
+                    //INFO: No fill Error
+                    if let error = self.errorWhileLoadAd, error.domain.trimmed=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
+                        // alert -> end()
+                        var actions = [UIAlertAction]()
+
+                        //INFO: if current is not ShopApp, present Deactivate option.
+                        if AppCenter.default.current != ShopApp.self{
+                            let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
+                                asyncSignal.end()
+                                AppCenter.default.openApp(identifier:ShopApp.info.identifier)
+                            }
+                            actions.append(goShopAppAction)
+                        }
+
+                        UIAlertController.alert("\("Please turn off following option, and reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking / 'Reset Advertising Identifier ...'"
+                                , title: "An Error Occurred While Receiving Ads.".localized
+                                , buttonTitle: "OK".localized
+                                , actions: actions
+                                , completion: { action in
+                                    asyncSignal.end()
+                                }
+                        )
+
+                    }else{
+
+                        // end
+                        asyncSignal.end()
+                    }
                 }
             }
 

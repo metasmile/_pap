@@ -267,9 +267,7 @@ class AppDockView: CustomView {
 
                 setControllerView(view, animated: false)
 
-//                DispatchQueue.main.async { //TODO: if not found any side-effect, remove async block
-                    self.controller?.didSetContentView(view, dock:self)
-//                }
+                self.controller?.didSetContentView(view, dock:self)
                 
                 controller?.contentScrollable?.makeScrollableContent()
             }
@@ -343,9 +341,7 @@ class AppDockView: CustomView {
 
                 setTopAccessoryView(view, animated: true)
 
-//                DispatchQueue.main.async{ //TODO: if not found any side-effect, remove async block
                 self.accessory?.didSetContentView(view, dock:self)
-//                }
             }
             else {
                 accessory?.willRemoveContentView()
@@ -481,14 +477,6 @@ extension AppDockView {
         return UIScreen.main.bounds.height - topOffset
     }
     
-    fileprivate func layoutDrawerView() {
-        drawerViewHeightLayout.constant = preferredDrawerViewHeight
-
-        drawerView.isBarHidden = !shouldDrawerBarEnable
-        drawerView.layoutIfNeeded()
-        invalidateIntrinsicContentSize()
-    }
-    
     fileprivate func layoutDockView() {
         dockViewHeightLayout.constant = preferredDockViewHeight
 
@@ -519,7 +507,6 @@ extension AppDockView {
         }
         
         drawerView.isBarHidden = !shouldDrawerBarEnable
-        drawerView.layoutIfNeeded()
         
         updateBackgroundColors()
         
@@ -1065,6 +1052,10 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     
     private var collectionViewSize: CGSize {
         return collectionView?.frame.size ?? .zero
+    }
+    
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return false
     }
     
     private func itemSize(with layoutMetrics: LayoutMetrics) -> CGSize {

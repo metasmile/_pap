@@ -22,7 +22,7 @@ struct papTimeInterval{
 #if DEBUG
         return 30
 #else
-        return 60*60*24*3
+        return 60*60*24*1
 #endif
     }
 
@@ -30,15 +30,23 @@ struct papTimeInterval{
 #if DEBUG
         return 30
 #else
-        return 60*60*3
+        return 60*60*1
 #endif
     }
 
     static var ofSNSEngagementPaymentLatestPaid:TimeInterval{
 #if DEBUG
-        return 10
+        return 30
 #else
-        return 60*60*24*5
+        return 60*60*24*14
+#endif
+    }
+
+    static var ofFBShareTypeDownloadMessagerPaymentLatestPaid:TimeInterval{
+#if DEBUG
+        return 30
+#else
+        return 60*60*24*7
 #endif
     }
 

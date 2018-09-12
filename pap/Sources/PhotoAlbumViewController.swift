@@ -102,7 +102,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     }
     
     private func initialize() {
-        title = "Albums".localized
+        navigationItem.title = "Albums".localized
         
         //TODO: Preload
         PhotosManager.default.authorizeIfNeeded { authorized in
@@ -357,6 +357,12 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     
     private var indexPath: IndexPath?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        imageView.accessibilityIgnoresInvertColors = true
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1 개월 전체 액세스";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1 개월 동안 모든 앱 및 새로운 앱 사용";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 개월 전체 액세스";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "3 개월간 모든 앱 및 새로운 앱 사용";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "6 개월 전체 액세스";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -174,6 +170,8 @@
 "All" = "전체";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "하나의 앱 속 다양한 사진 앱들.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "광고를받는 동안 오류가 발생했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "애니메이션 GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -221,9 +219,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "변환기";
+"Converter" = "컨버터";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "복사";
 /* Generated from genl10n: Finder.BApp.swift#232 */
@@ -234,6 +232,8 @@
 "Could not detect any text." = "텍스트를 찾을 수 없습니다.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "아무것도 감지 할 수 없습니다.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "광고를받지 못했습니다.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "생성";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -372,18 +372,24 @@
 "New Contact" = "새 연락처";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "새로운 이벤트";
-/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
-"New Phone Number" = "새 전화 번호";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "새 번호";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "새 전화 번호";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No Crop" = "자르지 않음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "루프 없음";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "번호";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "대기";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "지속적으로 모든 앱들과 새로운 앱 사용";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "모든 주요 앱의 지속적인 사용";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "%@ 열기";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -414,6 +420,10 @@
 "Photos" = "사진";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "비밀 번호를 입력하십시오.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "인터넷 연결을 확인하고 복원하거나 광고를 비활성화하십시오.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "다음 옵션을 사용 중지하고 설정에서 광고 식별자를 재설정하십시오. 그런 다음 다시 시도하십시오.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "세로";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -440,6 +450,10 @@
 "Rate Now" = "지금 평가";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "참조 가이드";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "이 실행에서 남은 카운트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -474,6 +488,8 @@
 "Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "보기";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "변환 할 형식 선택";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -526,8 +542,8 @@
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "제출";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "숨기려는 항목을 켭니다. 품질은 전적으로 동일하게 유지됩니다.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "사진촬영";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -538,6 +554,8 @@
 "Targets" = "목표";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "일반 텍스트";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "구입 주셔서 감사합니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -574,8 +592,6 @@
 "Videos Without Sound" = "소리가없는 비디오";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "광고보기";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "보기";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "소셜 페이지 방문";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -588,6 +604,8 @@
 "Welcome Free Pack" = "환영 프리 팩";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP 라이센스 프로그램에 오신 것을 환영합니다.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "%@ (으)로 이사 하시겠습니까?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "리뷰를 작성";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

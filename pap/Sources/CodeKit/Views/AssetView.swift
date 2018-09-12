@@ -88,6 +88,10 @@ class AssetView: UIView {
         imageRequestOptions = defaultImageRequestOptions
         videoRequestOptions = defaultVideoRequestOptions
         livePhotoRequestOptions = defaultLivePhotoRequestOptions
+        
+        imageView.accessibilityIgnoresInvertColors = true
+        videoView.accessibilityIgnoresInvertColors = true
+        livePhotoView.accessibilityIgnoresInvertColors = true
     }
     
     override func layoutSubviews() {

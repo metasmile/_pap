@@ -39,6 +39,22 @@ struct papLog: Loggable {
                 kChargeIdentifier:String(describing: charge.identifier)
             ])
         }
+
+        static func userHasShownInAppPromptRating(){ log() }
+
+        static func restoredStorePayables(){ log() }
+
+        struct vip: Loggable {
+            static func activationStarted(){ log() }
+            static func activationTimeout(){ log() }
+
+            static func triedToAccess(){ log() }
+            static func cancelledToAccess(){ log() }
+
+            static func accessDenied(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func accessGranted(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
+            static func accessError(){ log() }
+        }
     }
 
     struct app: Loggable {
@@ -54,11 +70,12 @@ struct papLog: Loggable {
         static func minimizeAppDockDrawer(){ log() }
         static func maximizeAppDockDrawer(){ log() }
 
-        struct defaults: Loggable {}
+        static func userCalledCameraInApp(){ log() }
 
-        struct shop: Loggable {
-            static func restoredStorePayables(){ log() }
-        }
+        static func userEnablesASB(){ log() }
+        static func userDisablesASB(){ log() }
+
+        struct defaults: Loggable {}
     }
 
     struct error {

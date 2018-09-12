@@ -14,11 +14,11 @@ protocol ChargeButtonAppearanceDefaults:PropertyDefaults{
 
 extension Defaults: ChargeButtonAppearanceDefaults {
     var showChargeButtonPercentageInNavigationBar: Bool {
-        set{ set(newValue) } get{ return get(or:false) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) } get{ return get(or:false) }
     }
 
     var showChargeButtonLevelColorInNavigationBar: Bool {
-        set{ set(newValue) } get{ return get(or:false) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) } get{ return get(or:false) }
     }
 }
 

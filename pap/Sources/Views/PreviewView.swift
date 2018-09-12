@@ -56,6 +56,10 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     public private(set) var paddingLeft: CGFloat = 0
     public private(set) var paddingRight: CGFloat = 0
     
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+    }
+    
     override func prepare() {
         super.prepare()
         

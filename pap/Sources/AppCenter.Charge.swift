@@ -21,6 +21,11 @@ extension AppCenter{
         //this is '.owned' specific. different from 'isOwned'
     }
 
+    //POLICY: RewardType.\isOwned == '.owned/.rented'
+    static var isPaidAsOwnedInCurrentContext:Bool{
+        return charge.getChargesPaid().contains { $0.reward.isOwned }
+    }
+
     //CRITICAL: Priority ordering
     static var paidChargeableTypeInCurrentContext: ChargeableKey?{
         // Priority 1 - Owned - paid
@@ -99,14 +104,14 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBShareTypeDownloadUrlPayment.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
             )
 
             , AppCharge(type: .socialShare
                     , reward: .timeOfUses
                     , payment: FBShareTypeDownloadMessagerPayment.self
-                    , priceAmount: AmountObject(value:0.133)
+                    , priceAmount: AmountObject(value:0.1)
                     , describable: AppChargeDescription(title:"Sharing on Messenger".localized, description: nil, iconImage: nil)
             )
 
@@ -120,7 +125,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .instantAdsViewingOnDemand
                     , reward: .timeOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
-                    , priceAmount: AmountObject(value:0.066)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"View Ads".localized, description: nil, iconImage: nil)
             )
 
@@ -135,7 +140,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
                     , payment: SNSEngagementPayment.self
-                    , priceAmount: AmountObject(value:0.066/2)
+                    , priceAmount: AmountObject(value:0.1/3)
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 
@@ -185,12 +190,12 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: "1-Month Apps License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
-                    , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"3 Months Full Access".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps and New".localized, shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
+//                    , reward: .rented, payment: ThreeMonthsAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"3 Months Full Access".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of All Apps and New".localized, shortTitle: "3-Month Apps License", description: nil, unit: nil, iconImage: nil)
+//            )
 
             , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self

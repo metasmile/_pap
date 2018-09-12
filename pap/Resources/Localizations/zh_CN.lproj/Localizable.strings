@@ -1,13 +1,13 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "照片访问被禁用";
+"Photos Access Disabled" = "禁用照片访问";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "请打开设置并允许访问您的照片";
+"Please open settings and allow access to your photos" = "请打开设定并允许接入照片";
 /*Translated from: Open Settings*/
 "Open Settings" = "打开设置";
 /*Translated from: OK*/
 "OK" = "好";
 /*Translated from: Done*/
-"Done" = "Done";
+"Done" = "完毕";
 /*Translated from: Confirm*/
 "Confirm" = "确认";
 /*Translated from: Cancel*/
@@ -27,9 +27,9 @@
 /*Translated from: Edit*/
 "Edit" = "编辑";
 /*Translated from: Discard Changes*/
-"Discard Changes" = "放弃更改";
+"Discard Changes" = "丢弃更改";
 /*Translated from: Processing...*/
-"Processing..." = "Processing...";
+"Processing..." = "正在处理...";
 /*Translated from: Cancelling...*/
 "Cancelling..." = "取消...";
 /*Translated from: Saving Photos...*/
@@ -39,7 +39,7 @@
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "还原照片...";
 /*Translated from: Select this photo*/
-"Select this photo" = "选择这张照片";
+"Select this photo" = "选择此照片";
 /*Translated from: Select this video*/
 "Select this video" = "选择此视频";
 /*Translated from: Deselect this photo*/
@@ -55,7 +55,7 @@
 /*Translated from: %@ Video*/
 "%d Video" = "%@视频";
 /*Translated from: %@ Item*/
-"%d Item" = "%@物品";
+"%d Item" = "%@项目";
 /*Translated from: %@ Photos*/
 "%d Photos" = "%@照片";
 /*Translated from: %@ Videos*/
@@ -89,15 +89,15 @@
 /*Translated from: Creating PDF Pages...*/
 "Creating PDF Pages..." = "创建PDF页面...";
 /*com.stells.pap.converter*/
-"Convert" = "Convert";
+"Convert" = "变换";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "专辑";
+"cs_keyword_0" = "相册";
 /*Translated from: camera*/
 "cs_keyword_1" = "相机";
 /*Translated from: photos*/
 "cs_keyword_2" = "相片";
 /*Translated from: editor*/
-"cs_keyword_3" = "编辑";
+"cs_keyword_3" = "编辑器";
 /*Translated from: messenger*/
 "cs_keyword_4" = "信使";
 /*Translated from: filter*/
@@ -105,13 +105,13 @@
 /*Translated from: edit*/
 "cs_keyword_6" = "编辑";
 /*Translated from: image*/
-"cs_keyword_7" = "图片";
+"cs_keyword_7" = "影像";
 /*Translated from: smart*/
 "cs_keyword_8" = "smart";
 /*Translated from: picture*/
 "cs_keyword_9" = "picture";
 /*Translated from: memory*/
-"cs_keyword_10" = "记忆";
+"cs_keyword_10" = "回忆";
 /*Translated from: familiy*/
 "cs_keyword_11" = "家庭";
 /*Translated from: friend*/
@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1个月完全访问权限";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "所有应用程序和新应用程序的1个月使用";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3个月完全访问权限";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "所有应用程序和新应用程序的3个月使用";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "6个月完全访问权限";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -169,23 +165,25 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "没有相机保存";
 /* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "您已确认的所有流程均已完成。";
+"All processes you have confirmed were finished." = "您确认的所有过程都已完毕。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "所有";
+"All" = "全体";
 /* Generated from genl10n: pap.Strings.swift#33 */
-"An App, But Contains Many Photo Apps." = "一个应用程序，但包含许多照片应用程序。";
+"An App, But Contains Many Photo Apps." = "一个app里存在的多种照片apps。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "接收广告时出错。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "动画GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "动画";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "在您想要的所有照片上应用高品质过滤器。此批处理工具对应用过滤器的照片数量没有限制。";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "您选哪张照片，都可以应用高品质过滤器。此批处理工具对应用过滤器的照片数量没有限制。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "纵横比";
+"Aspect Ratio" = "宽高比";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
 "Auto Crop" = "自动裁剪";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
-"Auto Editor lets you edit automatically if your photos are needed to correct." = "如果需要更正照片，“自动编辑器”可让您自动编辑。";
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "如果您需要修改照片，就可以用自动编辑器来进行自动编辑。";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
 "Auto Editor" = "自动编辑器";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
@@ -221,9 +219,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "往来";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter允许您将每种媒体格式（如视频，实时照片，GIF）转换为彼此。";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "转换器使您可以将每种媒体格式（如视频、现场照片、GIFS）转换为彼此。";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "变流器";
+"Converter" = "转换器";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "复制";
 /* Generated from genl10n: Finder.BApp.swift#232 */
@@ -234,16 +232,18 @@
 "Could not detect any text." = "无法检测到任何文字。";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "无法检测到任何东西。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "无法接收广告。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "Crop to Fit";
+"Crop to Fit" = "裁剪";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
-"Crop" = "作物";
+"Crop" = "裁剪";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我们的AI文本识别模型仅适用于字母数字和一些特殊字符，并且可能受当前系统语言的影响。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "习惯";
+"Custom" = "自定义";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "日期";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -271,11 +271,11 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "启用快速操作";
 /* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "立即参与并反复补充主要应用访问权限。";
+"Engage Now And Repeatedly Recharge Main Apps Access." = "立即参与并重复充值免费Apps自由利用券。。";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "出口";
+"Export" = "导出";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "过滤器";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
@@ -283,7 +283,7 @@
 /* Generated from genl10n: Finder.BApp.swift#44 */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder可以从您的照片中提取每个有意义的信息，如电话号码，地址，日期或URL，然后呼叫，打开地图或浏览网站甚至搜索航班。您也可以将它们全部保存为原始文本。";
 /* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "发现者";
+"Finder" = "探测器";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "查找联系人... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -293,7 +293,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "格式";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "前锋";
+"Forward" = "向前";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "帧延迟";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
@@ -301,7 +301,7 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "免费使用";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
-"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker可以通过各种选项轻松快速地从照片或实时照片制作GIF图像！然后您可以打开转换器应用程序以转换为实时照片或视频等所有内容。";
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通过各种选项，让您可以轻松快速地从照片或实时照片制作GIF图像！然后您可以打开转换器app以转换为实时照片或视频等所有东西。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
@@ -372,18 +372,24 @@
 "New Contact" = "新联系人";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "新事件";
-/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
-"New Phone Number" = "新电话号码";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "新号码";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "新电话号码";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "没有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "没有循环";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "数";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "随时待命";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "正在使用所有应用程序和新的";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "正在使用所有主要应用程序";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "打开%@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "打开Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -414,6 +420,10 @@
 "Photos" = "相片";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "请输入您的密码";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "请检查并恢复您的互联网连接，或停用广告。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "请关闭以下选项，并在“设置”中重置广告标识符。然后再试一次。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "肖像";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -440,6 +450,10 @@
 "Rate Now" = "现在就评价吧";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "消除红眼";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "参考指南";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "此次运行中的剩余计数";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -474,6 +488,8 @@
 "Screenshots" = "截图";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "搜索航班";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "看到";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "选择要转换的格式";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -526,8 +542,8 @@
 "Starting to check edited photos..." = "开始检查编辑的照片...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "提交";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "拍个照";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -538,6 +554,8 @@
 "Targets" = "目标";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "文本";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "感谢您的购买。";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "这种直观但大规模的批量图像变换工具可让您快速旋转和翻转包括实时照片在内的大量媒体文件。编辑照片的数量没有限制。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -574,8 +592,6 @@
 "Videos Without Sound" = "没有声音的视频";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "查看广告";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "视图";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "访问社交页面";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -588,6 +604,8 @@
 "Welcome Free Pack" = "欢迎免费包";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "欢迎来到我们的VIP许可计划。";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "你想搬到%@吗？";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "写评论";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

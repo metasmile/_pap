@@ -68,6 +68,7 @@ extension PhotoPickerViewController{
 
         let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
         let paidAsAnOwnerReward = chargeInCurrentContext?.reward.isOwned == true
+                || chargeInCurrentContext?.reward.isLocalOwned == true
         if paidAsAnOwnerReward {
             rightButtonItem.chargeableButton?.showsPercentage = false
             rightButtonItem.chargeableButton?.showsColorLevel = false

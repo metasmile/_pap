@@ -136,10 +136,6 @@
 "1 Month Full Access" = "1 μήνας πλήρης πρόσβαση";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1 μήνας χρήσης όλων των εφαρμογών και νέων";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"3 Months Full Access" = "3 μήνες πλήρης πρόσβαση";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"3-Month Use of All Apps and New" = "3-Μήνες χρήσης όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift#191 */
 "6 Months Full Access" = "Πλήρης πρόσβαση 6 μηνών";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
@@ -174,6 +170,8 @@
 "All" = "Ολα";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Μια εφαρμογή, αλλά περιέχει πολλές εφαρμογές φωτογραφιών.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+"An Error Occurred While Receiving Ads." = "Παρουσιάστηκε σφάλμα κατά την παραλαβή διαφημίσεων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Κινούμενο GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -234,6 +232,8 @@
 "Could not detect any text." = "Δεν ήταν δυνατή η ανίχνευση κειμένου.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Δεν μπορούσε να ανιχνεύσει τίποτα.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+"Could not receive Ads." = "Δεν ήταν δυνατή η λήψη διαφημίσεων.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -372,18 +372,24 @@
 "New Contact" = "Νέα επαφή";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Νέο γεγονός";
-/* Generated from genl10n: PhoneCalls.BApp.swift#142, PhoneCalls.BApp.swift#145, PhoneCalls.BApp.swift#180, PhoneCalls.BApp.swift#182 */
-"New Phone Number" = "Νέος αριθμός τηλεφώνου";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+"New Number" = "Νέος αριθμός";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "Νέοι αριθμοί τηλεφώνου";
 /* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "Αριθμός";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Σε αναμονή";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
 "Ongoing Use of All Apps and New" = "Συνεχής χρήση όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Ongoing Use of All Main Apps" = "Συνεχής χρήση όλων των κύριων εφαρμογών";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+"Open %@" = "Άνοιγμα %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -414,6 +420,10 @@
 "Photos" = "Φωτογραφίες";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
 "Please Input Your Secret Code" = "Εισαγάγετε τον μυστικό κωδικό σας";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Ελέγξτε και επαναφέρετε τη σύνδεση στο διαδίκτυο ή απενεργοποιήστε τις Διαφημίσεις.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Απενεργοποιήστε την παρακάτω επιλογή και επαναφέρετε το αναγνωριστικό διαφήμισης στις Ρυθμίσεις. Στη συνέχεια προσπαθήστε ξανά.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Πορτρέτο";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
@@ -440,6 +450,10 @@
 "Rate Now" = "Βαθμολογήστε Τώρα";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
+/* Generated from genl10n: Shop.SApp.swift#637 */
+"Reference Guide" = "Οδηγός αναφοράς";
+/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+"Remaining Count In This Run" = "Η εναπομένουσα μέτρηση σε αυτή την εκτέλεση";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -474,6 +488,8 @@
 "Screenshots" = "Στιγμιότυπα οθόνης";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Αναζήτηση Πτήσεων";
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+"See" = "Βλέπω";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Επιλέξτε Μορφή για να μετατρέψετε";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -526,8 +542,8 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "υποβάλλουν";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift#297 */
-"Switch on any items you want to hide. The quality will entirely remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει εξ ολοκλήρου η ίδια.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Βγάλε μια φωτογραφία";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -538,6 +554,8 @@
 "Targets" = "Στόχοι";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Κείμενο";
+/* Generated from genl10n: Shop.StoreKit.swift#96 */
+"Thank you for your purchase." = "Σας ευχαριστούμε για την αγορά σας.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -574,8 +592,6 @@
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
 /* Generated from genl10n: AppCenter.Charge.swift#117 */
 "View Ads" = "Προβολή διαφημίσεων";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#102 */
-"View" = "Θέα";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Επισκεφτείτε τις κοινωνικές σελίδες";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
@@ -588,6 +604,8 @@
 "Welcome Free Pack" = "Καλώς ήρθατε στο Πακέτο Δωρεάν";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
+/* Generated from genl10n: Shop.StoreKit.swift#132 */
+"Would you like to move to %@?" = "Θέλετε να μετακινηθείτε στο %@;";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Γράψτε μια κριτική";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
