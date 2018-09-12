@@ -402,8 +402,6 @@
 "Open Web Page" = "Web sayfasını aç";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "orijinal";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "sahiplik";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDF, çeşitli sayfa seçenekleriyle PDF belgesini birden çok görüntüden yapar.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Sayfa Boyutu Ön Ayarı";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Sayfalar";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Kalıcı Mülkiyet";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Kalıcı Kullanım ve Tüm Yeni Güncellemeler";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

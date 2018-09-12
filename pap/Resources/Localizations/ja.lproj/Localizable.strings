@@ -402,8 +402,6 @@
 "Open Web Page" = "ウェブページを開く";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "オリジナル";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "所有";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactoryは、さまざまなページオプションを使用して複数の画像からPDFドキュメントを作成します。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "ページサイズプリセット";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "ページ";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "永続的所有権";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "恒久的な使用とすべての新しいアップデート";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

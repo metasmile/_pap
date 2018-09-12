@@ -402,8 +402,6 @@
 "Open Web Page" = "Buka Halaman Web";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asal";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Pemilikan";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory membuat dokumen PDF dari pelbagai imej dengan pelbagai pilihan halaman.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Halaman Preset Saiz";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Pemilikan Tetap";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Penggunaan Tetap Dan Semua Kemas Kini Baharu";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

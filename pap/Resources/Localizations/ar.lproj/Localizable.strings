@@ -402,8 +402,6 @@
 "Open Web Page" = "افتح صفحة الويب";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "ملكية";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory يجعل وثيقة PDF من صور متعددة مع خيارات الصفحة المختلفة.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "حجم الصفحة";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "صفحات";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "ملكية دائمة";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "الاستخدام الدائم وجميع التحديثات الجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

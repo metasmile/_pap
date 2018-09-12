@@ -402,8 +402,6 @@
 "Open Web Page" = "Deschideți o pagină Web";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Proprietate";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory face document PDF din mai multe imagini cu diverse opțiuni de pagină.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pagini";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Proprietate permanentă";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Utilizarea permanentă și toate actualizările noi";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

@@ -402,8 +402,6 @@
 "Open Web Page" = "Otvori web stranicu";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Vlasništvo";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Predodređena veličina stranice";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stranice";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Stalno posjedovanje";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Trajna upotreba i sva nova ažuriranja";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

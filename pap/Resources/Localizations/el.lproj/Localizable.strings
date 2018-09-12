@@ -402,8 +402,6 @@
 "Open Web Page" = "Ανοίξτε την ιστοσελίδα";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Ιδιοκτησία";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "Το PDFactory κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Προεπιλογή μεγέθους σελίδας";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Σελίδες";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Μόνιμη Κυριότητα";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Μόνιμη χρήση και όλες τις νέες ενημερώσεις";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

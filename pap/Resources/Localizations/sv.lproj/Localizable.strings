@@ -402,8 +402,6 @@
 "Open Web Page" = "Öppna webbsidan";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Äganderätt";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory gör PDF-dokument från flera bilder med olika sidalternativ.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Sidstorlek Förinställd";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sidor";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Permanent ägande";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Permanent användning och alla nya uppdateringar";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

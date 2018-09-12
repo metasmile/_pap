@@ -402,8 +402,6 @@
 "Open Web Page" = "웹 페이지 열기";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
 "Original" = "원본";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "소유권";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory는 다양한 페이지 옵션으로 여러 이미지에서 PDF 문서를 만듭니다.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "페이지 크기 사전 설정";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "페이지";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "영구 소유권";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "영구 사용 및 모든 새 업데이트";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

@@ -402,8 +402,6 @@
 "Open Web Page" = "เปิดเว็บเพจ";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "ความเป็นเจ้าของ";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory ทำให้เอกสาร PDF จากภาพหลายภาพพร้อมตัวเลือกหน้าต่างๆ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "ตั้งค่าขนาดหน้าเว็บ";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "หน้า";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "การเป็นเจ้าของถาวร";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "การใช้งานถาวรและการปรับปรุงใหม่ทั้งหมด";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

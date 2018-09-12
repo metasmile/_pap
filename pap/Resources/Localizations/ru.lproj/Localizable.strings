@@ -402,8 +402,6 @@
 "Open Web Page" = "Открыть веб-страницу";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "оригинал";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Владение";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory делает PDF-документ из нескольких изображений с различными параметрами страницы.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Размер страницы";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "страницы";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Постоянная собственность";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Постоянное использование и все новые обновления";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

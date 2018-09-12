@@ -402,8 +402,6 @@
 "Open Web Page" = "Otevřete webovou stránku";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Originál";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "Vlastnictví";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory vytváří dokument PDF z více obrázků s různými možnostmi stránky.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Stránky";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Trvalé vlastnictví";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Trvalé použití a všechny nové aktualizace";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

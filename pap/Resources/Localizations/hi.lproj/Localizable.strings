@@ -402,8 +402,6 @@
 "Open Web Page" = "ओपन वेब पेज";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "स्वामित्व";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "पीडीएफएचक विभिन्न पेज विकल्पों के साथ कई छवियों से पीडीएफ दस्तावेज बनाता है।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "पृष्ठ आकार प्रीसेट";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "पेज";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "स्थायी स्वामित्व";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "स्थायी उपयोग और सभी नए अपडेट";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

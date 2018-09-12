@@ -402,8 +402,6 @@
 "Open Web Page" = "פתח את דף האינטרנט";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "מְקוֹרִי";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "בַּעֲלוּת";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory עושה מסמך PDF מתמונות מרובות עם אפשרויות דף שונים.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "הגדרת גודל דף";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "דפים";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "בעלות קבועה";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "שימוש קבוע וכל העדכונים החדשים";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */

@@ -402,8 +402,6 @@
 "Open Web Page" = "打开网页";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "原版的";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Ownership" = "所有权";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory使用各种页面选项从多个图像制作PDF文档。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -412,6 +410,8 @@
 "Page Size Preset" = "页面大小预设";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "网页";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "永久所有权";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "永久使用和所有新更新";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
