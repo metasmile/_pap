@@ -666,21 +666,21 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
         }
         contactCellDescribers.append(c3)
-
-        let c7 = UITableViewButtonCellDescriber()
-        c7.itemIdentifier = CellDescriber.Key.support.hashValue
-        c7.label = "Reference Guide".localized
-        c7.buttonTitle = "See".localized
-        c7.iconImage = R.image.cellIconReferenceGuide.name
-        c7.iconImageTintColor = self.view.tintColor
-        c7.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
-        }
-        contactCellDescribers.append(c7)
     }
 
     private func loadInformationOfUsetCellDescribers(){
         informationOfUsetCellDescribers.removeAll()
+
+        let c234 = UITableViewButtonCellDescriber()
+        c234.itemIdentifier = CellDescriber.Key.support.hashValue
+        c234.label = "Reference Guide".localized
+        c234.buttonTitle = "See".localized
+        c234.iconImage = R.image.cellIconReferenceGuide.name
+        c234.iconImageTintColor = self.view.tintColor
+        c234.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
+        }
+        informationOfUsetCellDescribers.append(c234)
 
         let c3 = UITableViewButtonCellDescriber()
         c3.itemIdentifier = CellDescriber.Key.support.hashValue
