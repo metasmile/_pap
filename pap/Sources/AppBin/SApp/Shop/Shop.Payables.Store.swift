@@ -54,7 +54,7 @@ struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
     }
 }
 
-struct AnnualAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
+struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
     static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables

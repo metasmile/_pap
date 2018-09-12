@@ -118,12 +118,14 @@
 "cs_keyword_12" = "ystävä";
 /*Translated from: lover*/
 "cs_keyword_13" = "rakastaja";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ App Access";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Päivä";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Lataa nyt ILMAISEKSI!";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Jäsenyys";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Omistusoikeus";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ saattaa löytyä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -132,12 +134,12 @@
 "%@/Day" = "%@ / Päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
-/* Generated from genl10n: AppCenter.Charge.swift#177 */
-"1 Month Full Access" = "1 kuukausi Täysi pääsy";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 kuukauden jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Kaikkien sovellusten 1 kuukauden käyttö ja uusi";
-/* Generated from genl10n: AppCenter.Charge.swift#191 */
-"6 Months Full Access" = "6 kuukautta Täysi pääsy";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 kuukautta Jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Kaikkien sovellusten 6 kuukauden käyttö ja uusi";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -270,8 +272,8 @@
 "Email Address" = "Sähköpostiosoite";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "Aktivoi nyt ja toistuvasti lataa tärkeimmät sovellusten käyttöoikeudet.";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Aktivoi nyt ja toistuvasti lataa pääohjelmistolisenssi.";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -322,6 +324,8 @@
 "Images" = "kuvat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Tuonti";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Käyttötiedot";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "Syötä tähän";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -348,8 +352,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "Main-sovellusten käyttöoikeudet";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "Main-sovelluslisenssi";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Pääsovellukset %@ päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -360,8 +364,8 @@
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Monthly Full Access" = "Kuukausittainen täysi pääsy";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Kuukausittainen jäsenyys";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -398,8 +402,6 @@
 "Open Web Page" = "Avaa Web-sivu";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Alkuperäinen";
-/* Generated from genl10n: AppCenter.Charge.swift#155 */
-"Owners Access" = "Omistajien pääsy";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory tekee PDF-dokumentista useita kuvia, joissa on useita sivuvaihtoehtoja.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -408,6 +410,8 @@
 "Page Size Preset" = "Sivun koko Esiasetettu";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sivut";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Pysyvä omistaja";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Pysyvä käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
@@ -430,16 +434,16 @@
 "Preparing" = "Valmistellaan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "esiasetukset";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "Hinnat sisältävät uusia sovelluksia ja päivityksiä.";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "Hinnat sisältävät jokaisen uuden sovelluksen ja päivityksen.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Tietosuojakäytäntö";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "yksityisyys";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "käsittely";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Ostohallinta";
-/* Generated from genl10n: Shop.SApp.swift#259 */
-"Purchase of All Apps Access" = "Kaikkien sovellusten käyttöoikeuksien hankkiminen";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "Ostaa";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
@@ -504,8 +508,8 @@
 "Send an Email" = "Lähetä sähköposti";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Lähettää";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "Main Apps Accessin asetukset";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Main-sovellusten käyttöoikeuksien asetukset";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "asetukset";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -552,6 +556,8 @@
 "Targeted" = "kohdennettu";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "tavoitteet";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Käyttöehdot";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Teksti";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */
@@ -574,12 +580,12 @@
 "User Community" = "Käyttäjäyhteisö";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "käyttäjä";
-/* Generated from genl10n: AppCenter.Charge.swift#147 */
-"VIP Access" = "VIP-pääsy";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP-lisenssiohjelma";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP-jäsenyys";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "Vahvistus epäonnistui.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -610,8 +616,8 @@
 "Write A Review" = "Kirjoita arvostelu";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
 "Write" = "Kirjoittaa";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Yearly Full Access" = "Vuotuinen täysi pääsy";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Vuotuinen jäsenyys";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Voit valita vain valokuvia tai videoita, jotka sopivat aloitusformaattiin.";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

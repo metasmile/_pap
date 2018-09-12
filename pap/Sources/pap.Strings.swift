@@ -102,6 +102,26 @@ struct papStrings {
         }
     }
 
+    struct info{
+        struct privacy {
+            static var email: String{
+                return "info@apps.photo"
+            }
+            static var url: String{
+                return "https://apps.photo/privacy"
+            }
+        }
+
+        struct terms {
+            static var email: String{
+                return privacy.email
+            }
+            static var url: String{
+                return "https://apps.photo/terms"
+            }
+        }
+    }
+
     struct share{
 
         static var urlFirstShort: String{
