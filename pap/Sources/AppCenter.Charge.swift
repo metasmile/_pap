@@ -27,7 +27,7 @@ extension AppCenter{
     }
 
     //CRITICAL: Priority ordering
-    static var paidChargeableTypeInCurrentContext: ChargeableKey?{
+    static var paidChargeableTypeInCurrentContext: Chargeable?{
         // Priority 1 - Owned - paid
         if let charge = charge.getChargesPaidOwned().nilEmpty?.first{
             return charge
@@ -176,7 +176,7 @@ private final class AppChargeManager: ChargeManager{
             )
             , AppCharge(type: .renewableYearlySubscriptionInAppStore
                     , reward: .rented
-                    , payment: AnnualAllAppsPayment.self
+                    , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Yearly Membership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All Apps and New".localized, shortTitle: "Yearly Apps License", description: nil, unit: nil, iconImage: nil)

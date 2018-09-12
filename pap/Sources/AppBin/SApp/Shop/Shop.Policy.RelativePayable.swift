@@ -27,7 +27,7 @@ extension RelativePayable{
             AllTimeAllAppsPayment.self,
             PermanentVIPProgramPayment.self,
             MonthlyAllAppsPayment.self,
-            AnnualAllAppsPayment.self
+            YearlyAllAppsPayment.self
         ].hashSet
     }
 
