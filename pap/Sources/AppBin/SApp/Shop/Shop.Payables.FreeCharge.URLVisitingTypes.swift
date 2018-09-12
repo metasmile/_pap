@@ -54,11 +54,11 @@ struct URLOpenTypeProductHuntSurvey: URLOpenType {
 
 
 struct URLOpenTypePrivacyPolicy: URLOpenType {
-    static var webUrl: URL?{ return papStrings.contact.community.url.asURL }
+    static var webUrl: URL?{ return papStrings.info.privacy.url.asURL }
 }
 
 struct URLOpenTypeTermsOfUse: URLOpenType {
-    static var webUrl: URL?{ return papStrings.contact.guide.url.asURL }
+    static var webUrl: URL?{ return papStrings.info.terms.url.asURL }
 }
 
 
