@@ -64,12 +64,14 @@
 "cs_keyword_11" = "家庭";
 "cs_keyword_12" = "朋友";
 "cs_keyword_13" = "情人";
-/* Generated from genl10n: AppCenter.Charge.swift#391 */
-"%@ App Access" = "%@ App Access";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
 /* Generated from genl10n: pap.Strings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@會員資格";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@所有權";
 /* Generated from genl10n: Finder.BApp.swift#1647, Cleaner.BApp.swift#767 */
 "%@ might be found" = "可能會找到%@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#425 */
@@ -78,12 +80,12 @@
 "%@/Day" = "%@ /日";
 /* Generated from genl10n: GIFMaker.BApp.swift#592 */
 "%d times" = "%d次";
-/* Generated from genl10n: AppCenter.Charge.swift#184 */
-"1 Month Full Access" = "1個月完全訪問權限";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#185 */
 "1-Month Use of All Apps and New" = "所有應用程序和新應用程序的1個月使用";
-/* Generated from genl10n: AppCenter.Charge.swift#198 */
-"6 Months Full Access" = "6個月完全訪問權限";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#199 */
 "6-Month Use of All Apps and New" = "所有應用程序和新應用程序的6個月使用";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
@@ -216,8 +218,8 @@
 "Email Address" = "電子郵件地址";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
-/* Generated from genl10n: Shop.SApp.swift#280 */
-"Engage Now And Repeatedly Recharge Main Apps Access." = "立即參與並重複充值免費Apps自由利用券。。";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "立即參與並反复補充主要應用程序許可。";
 /* Generated from genl10n: Converter.AppDockContent.swift#159 */
 "Export Options" = "導出選項";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
@@ -268,6 +270,8 @@
 "Images" = "圖片";
 /* Generated from genl10n: GIFMaker.BApp.swift#456 */
 "Import" = "進口";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "使用信息";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
 "Input Here" = "輸入這裡";
 /* Generated from genl10n: Shop.SApp.swift#625 */
@@ -294,8 +298,8 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift#596 */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#279 */
-"Main Apps Access" = "主要應用訪問";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+"Main Apps License" = "主要應用許可證";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "主要應用使用%@天";
 /* Generated from genl10n: GIFMaker.BApp.swift#281 */
@@ -306,8 +310,8 @@
 "Memo Cam" = "備忘錄凸輪";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
-/* Generated from genl10n: AppCenter.Charge.swift#169 */
-"Monthly Full Access" = "每月完全訪問權限";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "每月會員";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "我的相冊";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#18 */
@@ -344,8 +348,6 @@
 "Open Web Page" = "打開網頁";
 /* Generated from genl10n: App.UI.AssetView.swift#45, Filters.BApp.swift#233 */
 "Original" = "原版的";
-/* Generated from genl10n: AppCenter.Charge.swift#162 */
-"Owners Access" = "業主訪問";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory使用各種頁面選項從多個圖像製作PDF文檔。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#122 */
@@ -354,6 +356,8 @@
 "Page Size Preset" = "頁面大小預設";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "網頁";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "永久所有權";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Permanent Use And All New Updates" = "永久使用和所有新更新";
 /* Generated from genl10n: AppCenter.Charge.swift#155, AppCenter.Charge.swift#163 */
@@ -376,16 +380,16 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "預置";
-/* Generated from genl10n: Shop.SApp.swift#265 */
-"Prices Are Including New Apps and Updates." = "價格包括新的應用和更新。";
+/* Generated from genl10n: Shop.SApp.swift#273 */
+"Prices Are Including Every New Apps and Updates." = "價格包括每個新的應用程序和更新。";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "隱私政策";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */
 "Privacy" = "隱私";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "處理";
 /* Generated from genl10n: Shop.SApp.swift#256 */
 "Purchase Management" = "採購管理";
-/* Generated from genl10n: Shop.SApp.swift#264 */
-"Purchase of All Apps Access" = "購買所有應用訪問權限";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
 "Purchase" = "採購";
 /* Generated from genl10n: Converter.AppDockContent.swift#143, GIFMaker.BApp.swift#602 */
@@ -450,8 +454,8 @@
 "Send an Email" = "發送電子郵件";
 /* Generated from genl10n: Shop.SApp.swift#603 */
 "Send" = "發送";
-/* Generated from genl10n: Shop.SApp.swift#473 */
-"Settings for Main Apps Access" = "主要應用訪問的設置";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "主應用程序許可證的設置";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#303 */
 "Settings" = "設置";
 /* Generated from genl10n: Shop.SApp.swift#589 */
@@ -498,6 +502,8 @@
 "Targeted" = "目標";
 /* Generated from genl10n: Cleaner.BApp.swift#400 */
 "Targets" = "目標";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "使用條款";
 /* Generated from genl10n: Finder.BApp.swift#1364 */
 "Text" = "文本";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */
@@ -520,12 +526,12 @@
 "User Community" = "用戶社區";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
 "User" = "用戶";
-/* Generated from genl10n: AppCenter.Charge.swift#154 */
-"VIP Access" = "貴賓通道";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
 "VIP License Program" = "VIP許可計劃";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP會員資格";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
@@ -556,8 +562,8 @@
 "Write A Review" = "寫評論";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#577 */
 "Write" = "寫";
-/* Generated from genl10n: AppCenter.Charge.swift#176 */
-"Yearly Full Access" = "每年完全訪問";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "每年會員資格";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
 /* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */

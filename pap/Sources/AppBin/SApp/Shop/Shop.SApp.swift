@@ -269,11 +269,11 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "Purchase of All Apps Access".localized
-                , detailedLabel: "Prices Are Including New Apps and Updates.".localized
+                , label: "%@ Membership".localizedFormatted(papStrings.name)
+                , detailedLabel: "Prices Are Including Every New Apps and Updates.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
-                    , PayItem(payable:AnnualAllAppsPayment.self)
+                    , PayItem(payable:YearlyAllAppsPayment.self)
                     , PayItem(payable:MonthlyAllAppsPayment.self)
                     , PayItem(payable:OneMonthAllAppsPayment.self)
                     , PayItem(payable:SixMonthsAllAppsPayment.self)
@@ -283,8 +283,8 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         , PayGroup(
                 key: .FreeCharge
-                , label: "Main Apps Access".localized
-                , detailedLabel: "Engage Now And Repeatedly Recharge Main Apps Access.".localized
+                , label: "Main Apps License".localized
+                , detailedLabel: "Engage Now And Repeatedly Recharge Main Apps License.".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
@@ -437,7 +437,7 @@ private class PayItem: Hashable, Equatable {
 
 private struct CellDescriberGroup: Section{
     fileprivate let label:String
-    fileprivate let detailedLabel:String?
+    fileprivate var detailedLabel:String?
     fileprivate var describers:[UITableViewCellDefaultDescribable]
 
     var itemsOfSection: [Any] {
@@ -472,17 +472,26 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private lazy var payGroups:[PayGroup] = PayGroup.Default
     private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
     private var freeChargeSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var informationOfUsetCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         var s:[Section] = payGroups
 
         if freeChargeSettingsCellDescribers.count > 0{
-            let settings = CellDescriberGroup(label: "Settings for Main Apps Access".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
+            let settings = CellDescriberGroup(label: "Settings for Main Apps License".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
             s.append(settings)
         }
 
         if contactCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: "Version \(Defaults.shared.latestShortVersion ?? "1.0")", describers: contactCellDescribers))
+            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: nil, describers: contactCellDescribers))
+        }
+
+        if informationOfUsetCellDescribers.count > 0{
+            var info = "Version \(Defaults.shared.latestShortVersion ?? "-")"
+#if DEBUG
+            info = "Version \(Defaults.shared.latestShortVersion ?? "-") | Build \(Bundle.main.version ?? "-")"
+#endif
+            s.append(CellDescriberGroup(label: "Information of Use".localized, detailedLabel: info, describers: informationOfUsetCellDescribers))
         }
 
         return s
@@ -657,17 +666,43 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
         }
         contactCellDescribers.append(c3)
+    }
+
+    private func loadInformationOfUsetCellDescribers(){
+        informationOfUsetCellDescribers.removeAll()
+
+        let c234 = UITableViewButtonCellDescriber()
+        c234.itemIdentifier = CellDescriber.Key.support.hashValue
+        c234.label = "Reference Guide".localized
+        c234.buttonTitle = "See".localized
+        c234.iconImage = R.image.cellIconReferenceGuide.name
+        c234.iconImageTintColor = self.view.tintColor
+        c234.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
+        }
+        informationOfUsetCellDescribers.append(c234)
+
+        let c3 = UITableViewButtonCellDescriber()
+        c3.itemIdentifier = CellDescriber.Key.support.hashValue
+        c3.label = "Privacy Policy".localized
+        c3.buttonTitle = "See".localized
+        c3.iconImage = R.image.commonCellIconInfo()
+        c3.iconImageTintColor = self.view.tintColor
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypePrivacyPolicy>.self)
+        }
+        informationOfUsetCellDescribers.append(c3)
 
         let c7 = UITableViewButtonCellDescriber()
         c7.itemIdentifier = CellDescriber.Key.support.hashValue
-        c7.label = "Reference Guide".localized
+        c7.label = "Terms of Use".localized
         c7.buttonTitle = "See".localized
-        c7.iconImage = R.image.cellIconReferenceGuide.name
+        c7.iconImage = R.image.commonCellIconInfo()
         c7.iconImageTintColor = self.view.tintColor
         c7.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeTermsOfUse>.self)
         }
-        contactCellDescribers.append(c7)
+        informationOfUsetCellDescribers.append(c7)
     }
 
     fileprivate func reloadData(){
@@ -675,6 +710,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         loadShopSettingsCellDescribers()
         loadContactCellDescribers()
+        loadInformationOfUsetCellDescribers()
         loadPayGroups()
 
         for s in self.sections{

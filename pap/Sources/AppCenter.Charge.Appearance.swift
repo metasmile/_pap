@@ -63,7 +63,7 @@ extension ChargeableBarButtonItem{
 
 
 struct ChargeButtonAppearance: ChargeableButtonAppearance{
-    let charge: ChargeableKey?
+    let charge: Chargeable?
 
     var emptyImage: UIImage? {
         guard let charge = charge else {
@@ -72,11 +72,23 @@ struct ChargeButtonAppearance: ChargeableButtonAppearance{
 
         switch charge.reward{
             case .owned:
-                return R.image.systemIconFavoriteLineOwned()
-            case .rented:
-                return R.image.systemIconFavoriteLineCharging()
+                return R.image.systemIconChargeOwned()
+
+            case .rented where charge.payment is SixMonthsAllAppsPayment.Type:
+                return R.image.systemIconChargeRentedSixMonth()
+
+            case .rented where charge.payment is OneMonthAllAppsPayment.Type:
+                return R.image.systemIconChargeRentedOneMonth()
+
+            case .rented where charge.payment is MonthlyAllAppsPayment.Type:
+                return R.image.systemIconChargeRentedMonthly()
+
+            case .rented where charge.payment is YearlyAllAppsPayment.Type:
+                return R.image.systemIconChargeRentedYearly()
+
             case .blockOfUses where charge.type == .instantAdsShowingAllowance:
-                return R.image.systemIconFavoriteAd()
+                return R.image.systemIconChargeAd()
+
             default:
                 return R.image.systemIconFavoriteLine()
         }
@@ -89,7 +101,7 @@ struct ChargeButtonAppearance: ChargeableButtonAppearance{
 struct ChargeableRestoreImageAppearance: ChargeableButtonAppearance{
 
     var emptyImage: UIImage? {
-        return R.image.systemIconFavoriteLineRestore()
+        return R.image.systemIconChargeStoreRestore()
     }
     var filledImage: UIImage? {
         return R.image.systemIconFavoriteFill()
