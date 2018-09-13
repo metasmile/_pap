@@ -713,6 +713,12 @@ extension UIView {
 
 extension PhotoPickerViewController: EditViewControllerDelegate {
     func showPhotoEditor(with editItem: AppAsset?) {
+        DispatchQueue.main.async{
+            self._showPhotoEditor(with:editItem)
+        }
+    }
+
+    private func _showPhotoEditor(with editItem: AppAsset?) {
         guard let editItem = editItem else { return }
         
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
@@ -755,8 +761,8 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             navigationController.hero.isEnabled = true
             navigationController.hero.modalAnimationType = .fade
             navigationController.hero.navigationAnimationType = .fade
-            
-            present(navigationController, animated: true) {
+
+            present(navigationController, animated: false) {
                 self.photoEditorTransitionContext?.sourceView.isHidden = false
                 
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: .white))
@@ -922,13 +928,8 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView) {
         progressBar.isHidden = true
         
-        if let selectedIndexPaths = self.photoCollectionView.indexPathsForSelectedItems {
-            //POLICY: no keeps selected items
-            deselectAllCollectionViewItems()
-            
-            //INFO: force update PHAssets because of missing photo library changes
-            self.photoCollectionView.reloadItems(at: selectedIndexPaths)
-        }
+        //POLICY: no keeps selected items
+        deselectAllCollectionViewItems()
 
         updateAllPhotosTitle()
         updateUIDisplays()
