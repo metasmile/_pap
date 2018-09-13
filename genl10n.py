@@ -111,7 +111,9 @@ for new_key in keys_in_gened_strs:
 
     # gened_strs[new_key][0] : code file path as string
     # gened_strs[new_key][1] : line as int
-    from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), gened_strs[new_key]))
+
+    # from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), gened_strs[new_key]))
+    from_files = ", ".join(map(lambda s: "{}".format(os.path.basename(s[0])), gened_strs[new_key]))
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
