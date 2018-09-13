@@ -276,6 +276,7 @@
 		4F71DFD47203D2BB95918C34 /* Shop.Payables.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCDF9029D4F588CE0C02 /* Shop.Payables.System.swift */; };
 		4F71DFDB7500B2FFA2938EEF /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA25079F23C2E3097538 /* Defaults.Version.swift */; };
 		4F71DFE5074AF3A8EACED3B2 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D500774A9E14C8E4F76F /* PHAssets.swift */; };
+		512774C22149F3F0001602BD /* ColorThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512774C12149F3F0001602BD /* ColorThemeManager.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
 		515AB1632106C029005E1997 /* AppUIActionFinalizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* AppUIActionFinalizationViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
@@ -626,6 +627,7 @@
 		4F71DFE9DE932092B856F772 /* Shop.Payables.Promotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.Promotion.swift; sourceTree = "<group>"; };
 		4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFEDA5A22CEADE72D78D /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
+		512774C12149F3F0001602BD /* ColorThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManager.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.ShortcutItem.swift; sourceTree = "<group>"; };
 		515AB1622106C029005E1997 /* AppUIActionFinalizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIActionFinalizationViewController.swift; sourceTree = "<group>"; };
@@ -1306,6 +1308,7 @@
 				4F71D4B3CE8EE7B285F6028E /* AppCenter.Charge.Appearance.swift */,
 				4F71D1FA39CE8C435998C723 /* pap.TimerInterval.swift */,
 				4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */,
+				512774C12149F3F0001602BD /* ColorThemeManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -2437,6 +2440,7 @@
 				4F71DC13E83C432C049C5399 /* App.PreviewProcessableApp.swift in Sources */,
 				4F71DD212768CD615EFA57E0 /* PhotoPickerViewController.Operations.ChargeableApp.swift in Sources */,
 				4F71D53D8666AAD3A454B3C4 /* CodeKit.CMMotionManager.swift in Sources */,
+				512774C22149F3F0001602BD /* ColorThemeManager.swift in Sources */,
 				4F71D74CD448F4473D613D55 /* ImageIO.Metadata.Util.swift in Sources */,
 				4F71D82816900C9C4C93BC6E /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71D09C4038E6D07CE506BC /* PHAsset.Items.swift in Sources */,
