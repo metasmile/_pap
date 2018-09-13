@@ -83,18 +83,7 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
     var selectionMode = DragSelectionGestureRecognizer.DragSelectionMode.none
     var autoPanningTimer: CADisplayLink?
 
-    //TODO: ugh... remove this line when able to use xcode10 for appstore release build .
-#if DEBUG //DEBUG means sdk 12, otherwise is sdk 11.
     override func reset() {
-        super.reset()
-        _reset()
-    }
-#else
-    func reset() {
-        _reset()
-    }
-#endif
-    func _reset(){
         beginIndexPath = nil
         beginLocation = nil
         ignoredIndexPaths = nil
@@ -103,7 +92,7 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
         selectionMode = .none
         stopAutoPanning()
     }
-    
+
     private var panHandler: (() -> Void)?
     func panAutomatically(_ panBlock: (() -> Void)?) {
         if autoPanningTimer == nil {
