@@ -25,7 +25,7 @@ extension RelativePayable{
     private static var AllAppsAutoRenewable:HashSet<Payable.Type> {
         return [
             AllTimeAllAppsPayment.self,
-            PermanentVIPProgramPayment.self,
+            SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self,
             MonthlyAllAppsPayment.self,
             YearlyAllAppsPayment.self
         ].hashSet

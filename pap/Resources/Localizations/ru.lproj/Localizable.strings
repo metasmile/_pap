@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 месяцев Членство";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-месячное использование всех приложений и новых";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Доступ закрыт.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "Ошибка доступа.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Доступ разрешен.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "действия";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker позволяет легко и быстро создавать GIF-изображения из фотографий или живых фотографий с различными вариантами! А затем вы можете открыть приложение конвертера для преобразования во все, например, «Живые фотографии» или «Видео».";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Получить доступ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Привет, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Здравствуй! Я %@, мне нужна помощь.";
@@ -330,7 +330,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Информация об использовании";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Вход здесь";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "запрос";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Он отображает соотношение оставшихся бесплатных периодов доступа к приложениям.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Он не может быть сохранен.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Он выглядит недействительным. Пожалуйста, попробуйте снова.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для этого требуется разрешение на доступ к вашим контактам. Разрешите Контакты в настройках iOS.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Номер телефона";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Фото";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Введите свой секретный код";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Проверьте и восстановите подключение к Интернету или отключите рекламу.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Слишком низкая скорость затвора";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Режим преобразования";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Не удалось проверить код в настоящее время. Пожалуйста, попробуйте позже.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Использовать пробную версию";
@@ -584,15 +584,15 @@
 "Use" = "использование";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Пользовательское сообщество";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "пользователь";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Горячая линия VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIP-лицензионная программа";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP-членство";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ошибка проверки.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Видео";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Приветственный бесплатный пакет";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Добро пожаловать в нашу VIP-лицензионную программу.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Вы хотите перейти на %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Ежегодное членство";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Вы можете выбрать только фотографии или видеоролики, которые соответствуют начальному формату.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Недопустимый код. Пожалуйста, попробуйте снова.";

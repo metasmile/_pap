@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 hónapos tagság";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Minden alkalmazás 6 hónapos használata és új";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Hozzáférés megtagadva.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "A hozzáférés sikertelen.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Hozzáférés biztosított.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Hozzászólások";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "A GIF Maker segítségével könnyedén és gyorsan készíthet GIF-képeket a Fényképekről vagy az élőképekről különböző lehetőségekkel! Ezután megnyithatja a konvertálóalkalmazást, hogy minden olyan formába konvertáljon, mint az élő fotók vagy videók.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF készítő";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Hozzáférést szerezni";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Adj egy értékelést";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Szia! Én vagyok %@, segítségre van szükségem.";
@@ -330,7 +330,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Használati információ";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Bemenet itt";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Vizsgálat";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Megjeleníti a fennmaradó ingyenes hozzáférési periódusok arányát.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nem lehetett tárolni.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Érvénytelen kódnak tűnik. Kérlek próbáld újra.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ehhez engedély szükséges a névjegyek eléréséhez. Engedélyezze a Kapcsolatok lehetőséget az iOS-beállításoknál.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Telefonszám";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotók";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Kérjük, adja meg titkos kódját";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Kérjük, ellenőrizze és helyreállítsa internetkapcsolatát, illetve tiltsa le a hirdetéseket.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Túl lassú zársebesség";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Átalakítási mód";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "A kód jelenleg nem ellenőrizhető. Próbálja ki később.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Használd a próbát";
@@ -584,15 +584,15 @@
 "Use" = "Használat";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Felhasználói közösség";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "használó";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIP licencprogram";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP tagság";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Az ellenőrzés sikertelen.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videó";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Welcome Free Pack";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Üdvözöljük a VIP licencprogramunkban.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Szeretne költözni a %@ -ra?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Éves tagság";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Csak olyan fényképeket vagy videókat választhat ki, amelyek megfelelnek a kezdő formátumnak.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "A kód érvénytelen. Kérlek próbáld újra.";

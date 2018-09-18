@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 luni de membru";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Utilizarea la 6 luni a tuturor aplicațiilor și a noului";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Acces interzis.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "Accesul a eșuat.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acces permis.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "acţiuni";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker permite realizarea cu ușurință și rapidă a imaginilor GIF din Photos sau Live Photos cu diverse opțiuni! Apoi puteți deschide aplicația Convertor pentru a vă converti în orice, cum ar fi Fotografii live sau Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Obține acces";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Acordați o evaluare";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Bună ziua, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Bună! Sunt %@, am nevoie de ajutor.";
@@ -330,7 +330,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Informații despre utilizare";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Introduceți aici";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Anchetă";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Afișează un raport al perioadelor rămase gratuite pentru accesarea aplicațiilor.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nu putea fi stocat.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Se pare că codul este nevalid. Vă rugăm să încercați din nou.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Este necesară o permisiune pentru a accesa contactele dvs. Activați persoanele de contact din setările iOS.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Numar de telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotografii";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Introduceți codul secret";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Verificați și restaurați conectivitatea dvs. la internet sau dezactivați anunțurile.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Viteză de declanșare prea lentă";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Modul de transformare";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Codul nu a putut fi verificat în prezent. Încercați mai târziu.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Utilizați procesul";
@@ -584,15 +584,15 @@
 "Use" = "Utilizare";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunitatea utilizatorilor";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "Utilizator";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "Programul de licență VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP membru";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificare esuata.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
@@ -612,7 +612,7 @@
 "Warp" = "Urzeală";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Bine ati venit pachetul gratuit";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Bine ați venit la programul nostru de licență VIP.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Doriți să vă mutați la %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Membru anual";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Puteți selecta numai fotografiile sau videoclipurile care corespund formatului de pornire.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Codul dvs. este nevalid. Vă rugăm să încercați din nou.";

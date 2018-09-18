@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 maanden lidmaatschap";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-maands gebruik van alle apps en nieuw";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Toegang geweigerd.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "Toegang mislukt.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Toegang verleend.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Acties";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Met GIF Maker kun je eenvoudig en snel GIF-afbeeldingen maken van Foto's of Live Photos met verschillende opties! En dan kun je de converter-app openen om alles te converteren, zoals Live Photos of Video's.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Toegang krijgen";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Geef een beoordeling";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hallo, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Hoi! Ik ben %@, ik heb hulp nodig.";
@@ -330,7 +330,7 @@
 "Import" = "Importeren";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Gebruiksinformatie";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Voer hier in";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Onderzoek";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Het geeft een verhouding weer van resterende vrije app-toegangsperioden.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Het kan niet worden opgeslagen.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Het ziet er ongeldige code uit. Probeer het opnieuw.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Telefoonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto's";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Voer uw geheime code in";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Controleer en herstel uw internetconnectiviteit of deactiveer advertenties.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Te lange sluitertijd";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Transformatiemodus";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Gebruik Trial";
@@ -584,15 +584,15 @@
 "Use" = "Gebruik";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Gebruikerscommunity";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "Gebruiker";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIP-licentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP-lidmaatschap";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificatie mislukt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Welkom gratis pakket";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Welkom bij ons VIP-licentieprogramma.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Wilt u verhuizen naar %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Jaarlijks lidmaatschap";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Uw code is ongeldig Probeer het opnieuw.";

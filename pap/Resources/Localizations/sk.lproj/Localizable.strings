@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 mesiacov členstva";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-mesačné používanie všetkých aplikácií a nové";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Prístup zamietnutý.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "Prístup zlyhal.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Prístup povolený.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akcia";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker umožňuje jednoduché a rýchle vytváranie obrázkov vo formáte GIF z fotografií alebo fotiek s rôznymi možnosťami! Potom môžete otvoriť konvertorovú aplikáciu a previesť na všetko, ako sú napríklad Fotky naživo alebo Videá.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Dostať prístup";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Uveďte hodnotenie";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý deň, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "Ahoj! Som %@, potrebujem nejakú pomoc.";
@@ -330,7 +330,7 @@
 "Import" = "import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Informácie o použití";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Zadajte tu";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "dotaz";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Zobrazuje pomer zostávajúcich období bezplatného prístupu k aplikácii.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nemohol byť uložený.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Vyzerá to ako neplatný kód. Prosím skúste znova.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Telefónne číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "fotografie";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Zadajte svoj tajný kód";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Skontrolujte a obnovte svoje internetové pripojenie alebo deaktivujte reklamy.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Príliš pomalá rýchlosť uzávierky";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Režim transformácie";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálne sa nepodarilo overiť kód. Skúste to neskôr.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Použite skúšku";
@@ -584,15 +584,15 @@
 "Use" = "použitie";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komunita používateľa";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "užívateľ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIP licenčný program";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP členstvo";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Overenie sa nepodarilo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Vitajte zadarmo balíček";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Chcete prejsť na %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Ročné členstvo";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Môžete vybrať len fotografie alebo videá, ktoré zodpovedajú štartovaciemu formátu.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Váš kód je neplatný. Prosím skúste znova.";

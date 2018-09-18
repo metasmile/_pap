@@ -144,11 +144,11 @@
 "6 Months Membership" = "6ヶ月間の会員";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "アクセスが拒否されました。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "アクセスに失敗しました。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "アクション";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIFメーカーは、様々なオプションで写真やライブ写真からGIF画像を簡単かつ迅速に作成できます。そしてコンバータアプリを開いて、ライブ写真や動画に変換することができます。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIFメーカー";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "アクセスを取得";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "こんにちは！私は%@です。助けが必要です。";
@@ -330,7 +330,7 @@
 "Import" = "インポート";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "使用の情報";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "ここに入力";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "問い合わせ";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "保存することができませんでした。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "それは無効なコードに見えます。もう一度お試しください。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "あなたの連絡先にアクセスするための許可が必要です。 iOSの設定で連絡先を許可してください。";
@@ -426,7 +426,7 @@
 "Phone Number" = "電話番号";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "写真";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "あなたの秘密のコードを入力してください";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "インターネット接続を確認して復元するか、広告を無効にしてください。";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "遅すぎるシャッタースピード";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "変換モード";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "試用版を使用する";
@@ -584,15 +584,15 @@
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "ユーザーコミュニティ";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "ユーザー";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIPライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP会員";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "動画";
@@ -612,7 +612,7 @@
 "Warp" = "ワープ";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ウェルカムフリーパック";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIPライセンスプログラムへようこそ。";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "%@に移動しますか？";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "年間会員数";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "最初のファイル形式と一致するアイテムのみ選択できます。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "あなたのコードは無効です。もう一度お試しください。";

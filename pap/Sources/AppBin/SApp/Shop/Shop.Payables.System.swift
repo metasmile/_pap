@@ -13,7 +13,7 @@ struct RestorePurchasesSystemPayment:VerifiablePayable{
 
     static var isEnable: Bool {
         let inVipMode = AppCenter.charge.getChargesPaid().contains { charge in
-            charge.payment.identifier == PermanentVIPProgramPayment.identifier
+            charge.payment.identifier == SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.identifier
         }
         return inVipMode == false && AppCenter.charge.getChargesPaidByStorePayable().count == 0
     }

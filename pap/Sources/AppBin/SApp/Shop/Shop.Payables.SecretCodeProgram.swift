@@ -98,7 +98,38 @@ private extension CKDatabase{
     }
 }
 
-struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
+protocol SecretCodeProgram {
+    static var title:String{get}
+    static var grantedMessage:String{get}
+
+    static var isEnable:Bool{set get}
+    static var currentAppIDStack:[String]?{set get}
+    static var passCodeAppIDStack:[String]{get}
+}
+
+struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
+    static var title: String {
+        return "VIP License Program".localized
+    }
+    static var grantedMessage: String {
+        return "Welcome to our VIP license program.".localized
+    }
+
+    static var isEnable: Bool = false
+
+    static var currentAppIDStack:[String]?
+
+    static var passCodeAppIDStack:[String] {
+        return [
+            PDFactoryApp.info.identifier,
+            ConverterApp.info.identifier,
+            TransformApp.info.identifier,
+            FiltersApp.info.identifier
+        ]
+    }
+}
+
+struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, PreparablePayable {
     /*
         Verification Pseudo
 
@@ -192,7 +223,7 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
 
                 UIAlertController.alert(
                         "Please Input Your Secret Code".localized
-                        , title: "VIP License Program".localized
+                        , title: Program.title.localized
                         , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
 
                     asyncSignal.end()
@@ -239,7 +270,7 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
 
                 let userName = result.entry?.ownerName ?? "User".localized
                 DispatchQueue.main.async{
-                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + "Welcome to our VIP license program.".localized, title:"Access Granted.".localized, completion:{ action in
+                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + Program.grantedMessage, title:"Access Granted.".localized, completion:{ action in
                         asyncSignal.end()
                     })
                 }
@@ -333,26 +364,19 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
     }
 
     private static var WatcherId:String {
-        return #function+String(describing: PermanentVIPProgramPayment.self)
+        return #function+String(describing: self)
     }
 
-    private(set) static var isEnable: Bool = false
-
-    private static var currentAppIDStack:[String]?
-
-    private static let passCodeAppIDStack = [
-        PDFactoryApp.info.identifier,
-        ConverterApp.info.identifier,
-        TransformApp.info.identifier,
-        FiltersApp.info.identifier
-    ]
+    static var isEnable: Bool {
+        return Program.isEnable
+    }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         AppCenter.default.watch(\.currentIdentifier, id:WatcherId){
             if AppCenter.default.previous?.info.identifier == ShopApp.info.identifier{
                 //Exit from Shop
-                currentAppIDStack = nil
-                isEnable = false
+                Program.currentAppIDStack = nil
+                Program.isEnable = false
 
             } else if AppCenter.default.current?.info.identifier == ShopApp.info.identifier{
                 //Entered with secret code.
@@ -360,23 +384,23 @@ struct PermanentVIPProgramPayment:VerifiablePayable, PreparablePayable {
             }
 
             if let id = AppCenter.default.currentIdentifier{
-                if currentAppIDStack == nil && id == passCodeAppIDStack.first{
-                    currentAppIDStack = [String]()
+                if Program.currentAppIDStack == nil && id == Program.passCodeAppIDStack.first{
+                    Program.currentAppIDStack = [String]()
                 }
 
-                if currentAppIDStack != nil && currentAppIDStack?.contains(id) == false{
-                    currentAppIDStack?.append(id)
+                if Program.currentAppIDStack != nil && Program.currentAppIDStack?.contains(id) == false{
+                    Program.currentAppIDStack?.append(id)
                 }
 
-                if currentAppIDStack?.count == passCodeAppIDStack.count{
-                    isEnable = currentAppIDStack == passCodeAppIDStack
-                    currentAppIDStack = nil
+                if Program.currentAppIDStack?.count == Program.passCodeAppIDStack.count{
+                    Program.isEnable = Program.currentAppIDStack == Program.passCodeAppIDStack
+                    Program.currentAppIDStack = nil
 
                     if isEnable{
                         papLog.charge.vip.activationStarted()
 
                         Timer.scheduledTimer(identifier: #function, withTimeInterval: 10, block: { _ in
-                            isEnable = false
+                            Program.isEnable = false
 
                             papLog.charge.vip.activationTimeout()
                         })

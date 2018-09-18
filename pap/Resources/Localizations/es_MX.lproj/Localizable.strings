@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 meses de membresía";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Uso de 6 meses de todas las aplicaciones y nuevo";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Acceso denegado.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "Acceso Fallido.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acceso permitido.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Actions";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "¡GIF Maker permite hacer imágenes GIF de fotos o fotos en vivo de forma fácil y rápida con varias opciones! Y luego puede abrir la aplicación del convertidor para convertirlo en todo, como Live Photos o Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "Tener acceso";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dar una calificación";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hola, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "¡Hola! Estoy %@, necesito ayuda.";
@@ -330,7 +330,7 @@
 "Import" = "Importar";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Información de uso";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "Ingrese aquí";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Investigación";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Muestra una relación de los períodos de acceso a aplicaciones gratuitas restantes.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "No pudo ser almacenado.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Parece código inválido. Inténtalo de nuevo.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requiere un permiso para acceder a sus contactos. Por favor, permite contactos en la configuración de iOS.";
@@ -426,7 +426,7 @@
 "Phone Number" = "Número de teléfono";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotos";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Por favor ingrese su código secreto";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Verifique y restablezca su conectividad a Internet, o desactive Anuncios.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "Velocidad de obturación demasiado lenta";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Modo de transformación";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "No se puede verificar el código actualmente. Por favor intente más tarde.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Usa prueba";
@@ -584,15 +584,15 @@
 "Use" = "Utilizar";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunidad de usuario";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "Usuario";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línea VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "Programa de licencia VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "Membresía VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Fallo en la verificación.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Bienvenido paquete gratuito";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Bienvenido a nuestro programa de licencia VIP.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "¿Te gustaría moverte a %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "Membresía Anual";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Puede seleccionar solo fotos o videos que coincidan con el formato de inicio.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "Tu código no es válido Inténtalo de nuevo.";

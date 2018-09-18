@@ -144,11 +144,11 @@
 "6 Months Membership" = "6 חודשים חברות";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6 חודשים שימוש בכל היישומים חדשים";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "גישה נדחתה.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "הגישה נכשלה.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "כניסה מורשית.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "פעולות";
@@ -310,11 +310,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker מאפשר בקלות ובמהירות לעשות תמונות GIF מ תמונות או תמונות חיות עם אפשרויות שונות! ואז אתה יכול לפתוח את היישום ממיר להמיר כל דבר כגון תמונות חיות או וידאו.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "לקבל גישה";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "תן דירוג";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "שלום, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "היי! אני %@, אני זקוק לעזרה.";
@@ -330,7 +330,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "מידע על השימוש";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "קלט כאן";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "חֲקִירָה";
@@ -338,7 +338,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "זה מציג יחס של תקופות גישה חינם App חינם.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "זה לא יכול להיות מאוחסן.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "הוא נראה קוד לא חוקי. בבקשה נסה שוב.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "זה דורש אישור לגשת לאנשי הקשר שלך. המתן אנשי קשר בהגדרות iOS.";
@@ -426,7 +426,7 @@
 "Phone Number" = "מספר טלפון";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "תמונות";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "אנא הכנס את הקוד הסודי שלך";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "בדוק ושחזר את קישוריות האינטרנט שלך או השבת מודעות.";
@@ -576,7 +576,7 @@
 "Too Slow Shutter Speed" = "מהירות תריס איטית מדי";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "שינוי צורה";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "לא ניתן לאמת את הקוד כרגע. נסה את זה מאוחר יותר.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "השתמש בניסוי";
@@ -584,15 +584,15 @@
 "Use" = "להשתמש";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "קהילת המשתמשים";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "מִשׁתַמֵשׁ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "תוכנית רשיון VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "חברות VIP";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "האימות נכשל.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
@@ -612,7 +612,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ברוכים הבאים חינם Pack";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "האם ברצונך לעבור אל %@?";
@@ -624,5 +624,5 @@
 "Yearly Membership" = "חברות שנתית";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "ניתן לבחור רק תמונות או סרטונים שמתאימים לפורמט ההתחלה.";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";

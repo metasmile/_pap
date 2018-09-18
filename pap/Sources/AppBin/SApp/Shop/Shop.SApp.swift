@@ -277,7 +277,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                     , PayItem(payable:MonthlyAllAppsPayment.self)
                     , PayItem(payable:OneMonthAllAppsPayment.self)
                     , PayItem(payable:SixMonthsAllAppsPayment.self)
-                    , PayItem(payable: PermanentVIPProgramPayment.self)
+                    , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
         )
 

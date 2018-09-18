@@ -90,11 +90,11 @@
 "6 Months Membership" = "6個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#199 */
 "6-Month Use of All Apps and New" = "所有應用程序和新應用程序的6個月使用";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "拒絕訪問。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "Access Failed." = "訪問失敗。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Access Granted." = "授予訪問權限。";
 /* Generated from genl10n: Finder.BApp.swift#1362 */
 "Actions" = "操作";
@@ -256,11 +256,11 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通過各種選項，讓您可以輕鬆快速地從照片或實時照片製作GIF圖像！然後您可以打開轉換器app以轉換為實時照片或視頻等所有東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#601 */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#128 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
 "Get Access" = "獲得訪問權限";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
 "Give A Rating" = "給予評級";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
 "Hi! I'm %@, I need some help." = "嗨！我是%@，我需要一些幫助。";
@@ -276,7 +276,7 @@
 "Import" = "進口";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "使用信息";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#199 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
 "Input Here" = "輸入這裡";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "查詢";
@@ -284,7 +284,7 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "它顯示剩餘免費應用訪問時段的比率。";
 /* Generated from genl10n: Finder.BApp.swift#244 */
 "It could not be stored." = "它無法存儲。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#208 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "它看起來無效代碼。請再試一次。";
 /* Generated from genl10n: CodeKit.Contacts.swift#64 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要獲得訪問您的聯繫人的權限。請允許iOS設置上的聯繫人。";
@@ -372,7 +372,7 @@
 "Phone Number" = "電話號碼";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
 "Photos" = "相片";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#192 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "請輸入您的密碼";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "請檢查並恢復您的互聯網連接，或停用廣告。";
@@ -522,7 +522,7 @@
 "Too Slow Shutter Speed" = "快門速度太慢";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "變換模式";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "目前無法驗證代碼。請稍後再試。";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "使用試用版";
@@ -530,15 +530,15 @@
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#612 */
 "User Community" = "用戶社區";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#232 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
 "User" = "用戶";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#193 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
 "VIP License Program" = "VIP許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP會員資格";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#224 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "視頻";
@@ -558,7 +558,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "歡迎免費包";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#234 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "歡迎來到我們的VIP許可計劃。";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "你想搬到%@嗎？";
@@ -570,5 +570,5 @@
 "Yearly Membership" = "每年會員資格";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
-/* Generated from genl10n: Shop.Payables.Promotion.VIPProgram.swift#228 */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Your code is invalid. Please Try again." = "您的代碼無效。請再試一次。";
