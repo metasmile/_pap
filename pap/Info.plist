@@ -56,6 +56,7 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>youtube</string>
 		<string>fb</string>
 		<string>fbapi</string>
 		<string>fbapi20150629</string>

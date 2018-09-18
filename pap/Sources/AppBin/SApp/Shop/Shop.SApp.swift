@@ -483,7 +483,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if contactCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Contacts".localized, detailedLabel: nil, describers: contactCellDescribers))
+            s.append(CellDescriberGroup(label: "Staying with us".localized, detailedLabel: nil, describers: contactCellDescribers))
         }
 
         if informationOfUsetCellDescribers.count > 0{
@@ -666,10 +666,23 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
         }
         contactCellDescribers.append(c3)
+
+
+        let c345 = UITableViewButtonCellDescriber()
+        c345.itemIdentifier = CellDescriber.Key.support.hashValue
+        c345.label = "%@ Channel".localizedFormatted("Youtube")
+        c345.buttonTitle = "Visit".localized
+        c345.iconImage = R.image.cellIconYouTubeChannel.name
+        c345.iconImageTintColor = self.view.tintColor
+        c345.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeYouTubeChannel>.self)
+        }
+        contactCellDescribers.append(c345)
     }
 
     private func loadInformationOfUsetCellDescribers(){
         informationOfUsetCellDescribers.removeAll()
+
 
         let c234 = UITableViewButtonCellDescriber()
         c234.itemIdentifier = CellDescriber.Key.support.hashValue
@@ -681,6 +694,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
         }
         informationOfUsetCellDescribers.append(c234)
+
+        let c3243 = UITableViewButtonCellDescriber()
+        c3243.itemIdentifier = CellDescriber.Key.support.hashValue
+        c3243.label = "Engineering Notes".localized
+        c3243.buttonTitle = "See".localized
+        c3243.iconImage = R.image.cellIconReferenceGuide.name
+        c3243.iconImageTintColor = self.view.tintColor
+        c3243.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeEngineeringNotes>.self)
+        }
+        informationOfUsetCellDescribers.append(c3243)
 
         let c3 = UITableViewButtonCellDescriber()
         c3.itemIdentifier = CellDescriber.Key.support.hashValue

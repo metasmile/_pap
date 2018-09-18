@@ -22,24 +22,40 @@ extension URLOpenType {
 }
 
 struct URLOpenTypeSocialPage: URLOpenType {
-    static var webUrl: URL?{ return papStrings.contact.social.url.asURL }
+    static var webUrl: URL?{ return papStrings.social.facebook.url.asURL }
 
     static var localUrl: URL? {
         //Facebook -> Twitter
-        let url:URL = "fb://profile/\("616758765335887")".asURL!
+        let url:URL = "fb://profile/\(papStrings.social.facebook.pageId)".asURL!
         if UIApplication.shared.canOpenURL(url){
             return url
         }
-        return "twitter://user?screen_name=\("AppsForPhotos")".asURL
+        return "twitter://user?screen_name=\(papStrings.social.twitter.accountName)".asURL
     }
 }
 
 struct URLOpenTypeUserCommunity: URLOpenType {
-    static var webUrl: URL?{ return papStrings.contact.community.url.asURL }
+    static var webUrl: URL?{ return papStrings.social.facebook.groupUrl.asURL }
+
+    static var localUrl: URL? {
+        return "fb://group?id=\(papStrings.social.facebook.groupId)".asURL
+    }
+}
+
+struct URLOpenTypeEngineeringNotes: URLOpenType {
+    static var webUrl: URL?{ return papStrings.info.engineering.url.asURL }
+}
+
+struct URLOpenTypeYouTubeChannel: URLOpenType {
+    static var webUrl: URL?{ return papStrings.social.youtube.url.asURL }
+
+    static var localUrl: URL? {
+        return "youtube://www.youtube.com/channel/\(papStrings.social.youtube.channelId)".asURL 
+    }
 }
 
 struct URLOpenTypeReferenceGuide: URLOpenType {
-    static var webUrl: URL?{ return papStrings.contact.guide.url.asURL }
+    static var webUrl: URL?{ return papStrings.info.guide.url.asURL }
 }
 
 //TODO: YOU. app compaign - must check submit state - Typeform? PH Survey? hm

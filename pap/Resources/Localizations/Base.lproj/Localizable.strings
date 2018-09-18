@@ -82,6 +82,8 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Channel";
 /* Generated from genl10n: AppCenter.Charge.swift, Charge.Types.Trialable.swift */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: pap.Strings.swift */
@@ -182,7 +184,7 @@
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* Generated from genl10n: Shop.SApp.swift */
 "Contact Us Now" = "Contact Us Now";
-/* Generated from genl10n: Shop.SApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
@@ -238,6 +240,8 @@
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engage Now And Repeatedly Recharge Main Apps License.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -456,7 +460,7 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift */
 "Search Flights" = "Search Flights";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payables.FreeCharge.Ads.swift */
 "See" = "See";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Select Format To Convert" = "Select Format To Convert";
@@ -508,6 +512,8 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Staying with us";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift, Shop.Payables.FreeCharge.YouApp.swift */
 "Submit" = "Submit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -564,7 +570,7 @@
 "View Ads" = "View Ads";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift, Shop.Payables.FreeCharge.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift, Shop.Payables.FreeCharge.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
