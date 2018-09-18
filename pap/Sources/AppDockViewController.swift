@@ -135,7 +135,10 @@ class AppDockViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        registerWatchingAppConfig()
+        if !isWatchingAppConfig {
+            isWatchingAppConfig = true
+            registerWatchingAppConfig()
+        }
 
         SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
     }
@@ -143,7 +146,10 @@ class AppDockViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        unregisterWatchingAppConfig()
+        if isWatchingAppConfig {
+            isWatchingAppConfig = false
+            unregisterWatchingAppConfig()
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -159,6 +165,7 @@ class AppDockViewController: UIViewController {
         self.appDockView?.superview?.layoutIfNeeded()
     }
     
+    private var isWatchingAppConfig = false
     func registerWatchingAppConfig() {
         
     }
