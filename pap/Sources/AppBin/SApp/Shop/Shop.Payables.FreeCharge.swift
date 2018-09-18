@@ -111,6 +111,7 @@ struct URLOpenPayment<T: URLOpenType>: Payable {
         
         var paid = false
 
+        //Phase 1 : local url with scheme
         if let localUrl = T.localUrl, UIApplication.shared.canOpenURL(localUrl){
             asyncSignal.begin()
 
@@ -122,25 +123,24 @@ struct URLOpenPayment<T: URLOpenType>: Payable {
             asyncSignal.waitUntilEnd()
 
             return paid
-
-        }else{
-
-            asyncSignal.begin()
-
-            var presented = false
-
-            UIApplication.openSafari(with: webUrl, didPresent: {
-                presented = true
-
-            }, didLoad:{ loaded in
-                paid = presented && loaded
-
-            }, didDismiss: {
-                asyncSignal.end()
-            })
-
-            asyncSignal.waitUntilEnd()
-            return paid
         }
+
+        //Phase 2 : remote url
+        asyncSignal.begin()
+
+        var presented = false
+
+        UIApplication.openSafari(with: webUrl, didPresent: {
+            presented = true
+
+        }, didLoad:{ loaded in
+            paid = presented && loaded
+
+        }, didDismiss: {
+            asyncSignal.end()
+        })
+
+        asyncSignal.waitUntilEnd()
+        return paid
     }
 }
