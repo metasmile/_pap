@@ -118,6 +118,8 @@
 "cs_keyword_12" = "Barát";
 /*Translated from: lover*/
 "cs_keyword_13" = "Lover";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Csatorna";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Nap";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Gyors műveletek engedélyezése";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engedje el és ismételten töltse fel a fő alkalmazói licencet.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Mérnöki megjegyzések";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Export opciók";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "A folyamat indítása ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "A szerkesztett fotók ellenőrzése ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Velünk maradni";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "beküldése";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Videók rövidebb, mint 1 másodperc";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Hang nélküli videók";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Hirdetések megtekintése";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Látogassa meg a szociális oldalakat";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

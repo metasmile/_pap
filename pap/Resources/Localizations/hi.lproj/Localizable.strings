@@ -118,6 +118,8 @@
 "cs_keyword_12" = "दोस्त";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रेमी";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ चैनल";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "त्वरित क्रियाएं सक्षम करें";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "अब व्यस्त रहें और बार-बार रिचार्ज मुख्य ऐप्स लाइसेंस।";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "इंजीनियरिंग नोट्स";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "प्रक्रिया शुरू कर रहा है ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "संपादित फोटो जांचना शुरू कर रहा है ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "हमारे साथ रहना";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "जमा करें";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "1 सेकंड से कम वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "विज्ञापन देखें";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "सोशल पेजेस पर जाएं";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

@@ -118,6 +118,8 @@
 "cs_keyword_12" = "người bạn";
 /*Translated from: lover*/
 "cs_keyword_13" = "người yêu";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kênh";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ngày";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Bật tác vụ nhanh";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Tham gia ngay và liên tục nạp tiền cho giấy phép ứng dụng chính.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Ghi chú kỹ thuật";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Tùy chọn xuất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Đang bắt đầu quá trình ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Ở lại với chúng tôi";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Gửi đi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Video ngắn hơn 1 giây";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video không có âm thanh";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Xem quảng cáo";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Truy cập trang xã hội";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

@@ -118,6 +118,8 @@
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
 "cs_keyword_13" = "연인";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ 채널";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -273,7 +275,9 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
 /* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "지금 가입하고 메인 애플리케이션 라이선스를 반복적으로 충전하십시오.";
+"Engage Now And Repeatedly Recharge Main Apps License." = "지금 참여하고 메인 앱스 라이센스를 반복적으로 충전하십시오.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "내보내기 옵션";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "프로세스 시작 중 ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "우리와 함께 지내기";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "제출";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "1 초보다 짧은 동영상";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "소리가없는 비디오";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "광고보기";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "소셜 페이지 방문";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

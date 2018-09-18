@@ -118,6 +118,8 @@
 "cs_keyword_12" = "صديق";
 /*Translated from: lover*/
 "cs_keyword_13" = "حبيب";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ القناة";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ اليوم";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "تمكين الإجراءات السريعة";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "الانخراط الآن وتكرار شحن التطبيقات الرئيسية الترخيص.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "ملاحظات هندسية";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "خيارات التصدير";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "بدء العملية ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "البدء في التحقق من الصور التي تم تعديلها ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "البقاء معنا";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "خضع";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "مقاطع فيديو أقل من ثانية واحدة";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "فيديو بدون صوت";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "شاهد الاعلانات";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "زيارة الصفحات الاجتماعية";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

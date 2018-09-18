@@ -118,6 +118,8 @@
 "cs_keyword_12" = "友人";
 /*Translated from: lover*/
 "cs_keyword_13" = "恋人";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@チャンネル";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@日";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "クイックアクションを有効にする";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "今すぐ従事し、メインアプリケーションのライセンスを繰り返し申請します。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "エンジニアリングノート";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "プロセスの開始中...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "編集した写真のチェックを開始しています...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "私たちと一緒に泊まる";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "提出する";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "1秒未満の動画";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "音がない動画";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "広告を見る";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "ソーシャルページを訪問する";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

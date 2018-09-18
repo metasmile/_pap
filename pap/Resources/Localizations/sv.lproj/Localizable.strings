@@ -118,6 +118,8 @@
 "cs_keyword_12" = "vän";
 /*Translated from: lover*/
 "cs_keyword_13" = "älskare";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kanal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Aktivera snabba åtgärder";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engagera nu och upprepade gånger ladda huvudapplicenslicens.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Tekniska anteckningar";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Exportera alternativ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Startar processen ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Börjar att kolla redigerade foton ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Bo hos oss";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Lämna";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Videor kortare än 1 sekund";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videor utan ljud";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Visa annonser";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Besök sociala sidor";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

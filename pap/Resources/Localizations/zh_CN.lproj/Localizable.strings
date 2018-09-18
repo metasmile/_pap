@@ -118,6 +118,8 @@
 "cs_keyword_12" = "朋友";
 /*Translated from: lover*/
 "cs_keyword_13" = "情人";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@频道";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@天";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "启用快速操作";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "立即参与并反复补充主要应用程序许可。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "工程笔记";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "启动过程...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "开始检查编辑的照片...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "和我们在一起";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "提交";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "短于1秒的视频";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "没有声音的视频";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "查看广告";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "访问社交页面";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

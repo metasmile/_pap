@@ -118,6 +118,8 @@
 "cs_keyword_12" = "arkadaş";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kanal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Gün";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Şimdi Kapatın ve Ana Uygulama Lisansını Sürekli Olarak Yeniden Şarj Edin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Mühendislik Notları";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "İhracat Seçenekleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "İşlemi Başlatma ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Düzenlenmiş fotoğrafları kontrol etmeye başlıyor ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Bizimle kalıyorum";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Gönder";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "1 saniyeden kısa videolar";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Sessiz Videolar";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Reklamlara göz at";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Sosyal sayfaları ziyaret et";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

@@ -118,6 +118,8 @@
 "cs_keyword_12" = "φίλος";
 /*Translated from: lover*/
 "cs_keyword_13" = "εραστής";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Κανάλι";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Ενεργοποιήστε τώρα και επαναφορτίζετε επανειλημμένα την κύρια άδεια χρήσης εφαρμογών.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Τεχνικές σημειώσεις";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Ξεκινώντας τη διαδικασία ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Μείνετε μαζί μας";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "υποβάλλουν";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Βίντεο μικρότερη από 1 δευτερόλεπτο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Προβολή διαφημίσεων";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Επισκεφτείτε τις κοινωνικές σελίδες";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

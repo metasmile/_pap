@@ -118,6 +118,8 @@
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
 "cs_keyword_13" = "любовник";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Канал";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Включить быстрые действия";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Занимайтесь сейчас и многократно перезаряжайте лицензию на основные приложения.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Технические примечания";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Параметры экспорта";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Запуск процесса ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Начиная проверять отредактированные фотографии ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Пребывание с нами";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Отправить";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Видеоролик короче 1 секунды";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Видео без звука";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Просмотр объявлений";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Посетите социальные страницы";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

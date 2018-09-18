@@ -118,6 +118,8 @@
 "cs_keyword_12" = "priateľ";
 /*Translated from: lover*/
 "cs_keyword_13" = "milovník";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kanál";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Deň";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Povoliť rýchle akcie";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Zapojte teraz a opakovane dobite hlavnú licenciu aplikácií.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Technické poznámky";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Spustenie procesu ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Začať skontrolovať upravené fotografie ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Zostať s nami";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Predložiť";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Videá kratšie ako 1 sekundu";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videá bez zvuku";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Zobraziť reklamy";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Navštívte sociálne stránky";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

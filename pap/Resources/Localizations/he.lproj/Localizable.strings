@@ -118,6 +118,8 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ ערוץ";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "הפעל פעולות מהירות";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "עכשיו ולהפעיל מחדש שוב ושוב ראשי יישומים רישיון.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "הערות הנדסיות";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "אפשרויות ייצוא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "מתחיל את התהליך ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "מתחיל לבדוק תמונות שנערכו ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "להישאר איתנו";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "שלח";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "קטעי וידאו קצר יותר מ 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "וידאו ללא קול";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "הצג מודעות";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "בקר בדפים חברתיים";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

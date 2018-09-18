@@ -118,6 +118,8 @@
 "cs_keyword_12" = "prijatelj";
 /*Translated from: lover*/
 "cs_keyword_13" = "ljubavnik";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kanal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dan";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Omogući brze radnje";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Uključite se sada i ponovo napunite licencu za glavne aplikacije.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Tehničke napomene";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Mogućnosti izvoza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Pokretanje procesa ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Početak pregledavanja uređenih fotografija ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Ostati s nama";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "podnijeti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Videozapisi kraći od 1 sekunde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videozapisi bez zvuka";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Prikaži oglase";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Posjetite društvene stranice";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

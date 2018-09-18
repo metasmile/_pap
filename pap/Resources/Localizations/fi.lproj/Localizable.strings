@@ -118,6 +118,8 @@
 "cs_keyword_12" = "ystävä";
 /*Translated from: lover*/
 "cs_keyword_13" = "rakastaja";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ Kanava";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Päivä";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "Aktivoi nyt ja toistuvasti lataa pääohjelmistolisenssi.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "Prosessin käynnistäminen ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "Pysy kanssamme";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Lähetä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "Videot lyhyempi kuin 1 sekunti";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videot ilman ääntä";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "Näytä mainokset";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Siirry sosiaalisiin sivuihin";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */

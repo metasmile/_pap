@@ -118,6 +118,8 @@
 "cs_keyword_12" = "เพื่อน";
 /*Translated from: lover*/
 "cs_keyword_13" = "คนรัก";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ Channel" = "%@ แชแนล";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -274,6 +276,8 @@
 "Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
 /* Generated from genl10n: Shop.SApp.swift#287 */
 "Engage Now And Repeatedly Recharge Main Apps License." = "มีส่วนร่วมในตอนนี้และโหลดใบอนุญาต Apps ซ้ำอีกครั้ง";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "วิศวกรรมหมายเหตุ";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -544,6 +548,8 @@
 "Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying with us" = "อยู่กับเรา";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "เสนอ";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -596,8 +602,6 @@
 "Videos Shorter Than 1 Second" = "วิดีโอสั้นกว่า 1 วินาที";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
-/* Generated from genl10n: AppCenter.Charge.swift#117 */
-"View Ads" = "ดูโฆษณา";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "ไปที่หน้าทางสังคม";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
