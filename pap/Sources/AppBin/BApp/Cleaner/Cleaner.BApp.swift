@@ -97,7 +97,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
     fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
         return [
             PHAssetGarbageDetector_Similarity.self
-            , PHAssetGarbageDetector_Lockscreens.self
+            , PHAssetGarbageDetector_Flashlight.self
             , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
             , PHAssetGarbageDetector_TooCloseupFace.self
         ]
