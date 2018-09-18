@@ -25,7 +25,7 @@ struct StoreProduct {
 */
 extension StorePayable where Self:TrialablePayable{
     static var action:PayableAction {
-        if self.isAvailableToStartTutorial {
+        if self.isTrialAvailable {
             return PayableAction(title:"Use Trial".localized, detailedTitle: trialTimeLengthLocalizedDayString)
         }
         return defaultStoreAction

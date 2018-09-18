@@ -18,41 +18,69 @@ extension TrialablePayable {
         return Date(timeIntervalSinceReferenceDate: 0)
     }
 
+    private static var DisabledTrialDate:Date{
+        return Date(timeIntervalSinceReferenceDate: 1)
+    }
+
     static var trialTimeLengthLocalizedDayString:String{
         return "%@ Day".localizedFormatted((trialTimeLength/TimeInterval(60.0*60*24)).roundedString(toPlaces: 1))
     }
 
-    static func tryTrial() -> Bool{
-        if isAvailableToStartTutorial{
+    static func trial(or pay:(() -> Bool)) -> Bool{
+        if isTrialAvailable{
             startTrialIfNeeded()
             return true
         }
 
-        if verifyTrial() {
+        if verifyTrial() == true {
+            return true
+        }
+
+        if pay(){
+            disableTrial()
             return true
         }
 
         return false
     }
 
-    static func verifyTrial() -> Bool{
-        if let tutorialStartedDate = startedTrialTimeLength, Date().timeIntervalSince(tutorialStartedDate) < trialTimeLength{
-            return true
+    static func verifyTrial() -> Bool?{
+        //Trial has started
+        if let d = startedTrialTimeLength, d != DisabledTrialDate {
+
+            //started -> expired
+            if d == ExpiredTrialDate{
+                return false
+            }
+
+            //started -> check
+            if Date().timeIntervalSince(d) < trialTimeLength{
+                // be continued
+                return true
+
+            } else {
+                //expire tutorial -> verification fail
+                expireTrialIfNeeded()
+                return false
+            }
         }
-        expireTrialIfNeeded()
-        return false
+
+        //initial state OR DisabledTrial
+        return nil
     }
 
-    static var isAvailableToStartTutorial:Bool {
-        let t = Defaults.shared.trialStartedDate[identifier]
-        return t == nil
+    static var isTrialAvailable:Bool {
+        return Defaults.shared.trialStartedDate[identifier] == nil
+    }
+
+    private static func disableTrial(){
+        if Defaults.shared.trialStartedDate[identifier] != DisabledTrialDate{
+            Defaults.shared.trialStartedDate[identifier] = DisabledTrialDate
+        }
     }
 
     private static var startedTrialTimeLength:Date? {
-        if let t = Defaults.shared.trialStartedDate[identifier]{
-            return t != ExpiredTrialDate ? t : nil
-        }
-        return nil
+        return Defaults.shared.trialStartedDate[identifier]
     }
 
     private static func startTrialIfNeeded(){
