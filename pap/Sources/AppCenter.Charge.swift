@@ -122,12 +122,12 @@ private final class AppChargeManager: ChargeManager{
 //                    , describable: AppChargeDescription(title:"Send Us Feedback".localized, description: nil, iconImage: nil)
 //            )
 
-            , AppCharge(type: .instantAdsViewingOnDemand
-                    , reward: .timeOfUses
-                    , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
-                    , priceAmount: AmountObject(value:0.1/3)
-                    , describable: AppChargeDescription(title:"View Ads".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .instantAdsViewingOnDemand
+//                , reward: .timeOfUses
+//                , payment: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self
+//                , priceAmount: AmountObject(value:0.1/3)
+//                , describable: AppChargeDescription(title:"View Ads".localized, description: nil, iconImage: nil)
+//            )
 
             , AppCharge(type: .instantAdsShowingAllowance
                     , reward: .blockOfUses
@@ -521,6 +521,7 @@ private final class AppChargeBanker: ChargeBanker {
 
         for (_, receipt) in receiptStorage.receipts {
             guard let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier] else {
+                removingReceipts.insert(receipt)
                 continue
             }
 
