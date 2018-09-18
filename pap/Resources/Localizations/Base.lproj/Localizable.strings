@@ -552,7 +552,7 @@
 "User" = "User";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "VIP License Program" = "VIP License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP Membership" = "VIP Membership";
@@ -576,7 +576,7 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Welcome Free Pack" = "Welcome Free Pack";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
 /* Generated from genl10n: Shop.StoreKit.swift */
 "Would you like to move to %@?" = "Would you like to move to %@?";

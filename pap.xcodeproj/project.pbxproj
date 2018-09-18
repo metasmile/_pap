@@ -184,6 +184,7 @@
 		4F71DA867580DB35978AC9CD /* CodeKit.Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6EE03CBABA678F99AF1 /* CodeKit.Sequence.swift */; };
 		4F71DA8A9A7ED3D643CD7298 /* FileIO.URL.File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D74325BC077BBABF30 /* FileIO.URL.File.swift */; };
 		4F71DAA45D6A9A4FA7FB64DF /* CodeKit.Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2428B6ACA432A97F89F /* CodeKit.Bundle.swift */; };
+		4F71DAA8BBDDAF90AE14CAE9 /* Shop.Payables.SecretCodeProgram.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA6FCFCF860C09E2A6CC /* Shop.Payables.SecretCodeProgram.Types.swift */; };
 		4F71DAB78D600D44DC0CB2CC /* CodeKit.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D773FC46EC6E276E5D44 /* CodeKit.Collection.swift */; };
 		4F71DAC453CB22542D4E6AD8 /* AssetIO.LivePhotoResource.Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5FD660E93628AFA9F99 /* AssetIO.LivePhotoResource.Video.swift */; };
 		4F71DAD5564C7293F4D41BBC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE9D04DED27BEE2E8E60 /* ImageIO.Metadata.swift */; };
@@ -541,6 +542,7 @@
 		4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
 		4F71DA48CBC788C2A5093364 /* Camera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.CaptureProcessor.swift; sourceTree = "<group>"; };
+		4F71DA6FCFCF860C09E2A6CC /* Shop.Payables.SecretCodeProgram.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.SecretCodeProgram.Types.swift; sourceTree = "<group>"; };
 		4F71DA85C98EDB773862B2DF /* GADManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GADManager.swift; sourceTree = "<group>"; };
 		4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhotoResource.Image.swift; sourceTree = "<group>"; };
 		4F71DA8A996DE6E8643C88F5 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
@@ -1042,6 +1044,7 @@
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 				4F71D06D1CC3CEADF38F086A /* Shop.Payables.FreeCharge.Facebook.swift */,
 				4F71D755807389761F5F6A07 /* Shop.Payables.FreeCharge.SNSEngagement.swift */,
+				4F71DA6FCFCF860C09E2A6CC /* Shop.Payables.SecretCodeProgram.Types.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2532,6 +2535,7 @@
 				4F71DCE77AE93D5E3832132B /* Shop.Payables.FreeCharge.SNSEngagement.swift in Sources */,
 				4F71DECF871E7474BE4B23B3 /* CodeKit.UIApplication.swift in Sources */,
 				4F71DF9410A5B3E55D25CD84 /* pap.Counts.swift in Sources */,
+				4F71DAA8BBDDAF90AE14CAE9 /* Shop.Payables.SecretCodeProgram.Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

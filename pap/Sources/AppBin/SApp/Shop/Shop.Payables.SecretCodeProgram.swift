@@ -8,18 +8,22 @@ import PropertyKit
 import CloudKit
 
 private protocol SecretCodeStore:PropertyDefaults{
-    var secretCodeEntry:SecretCodeEntry? {set get}
+    var secretCodeEntry:[String:SecretCodeEntry] {set get} //[String:SecretCodeEntry] - Program : SecretCodeEntry
 }
 
 extension Defaults: SecretCodeStore {
-    fileprivate var secretCodeEntry: SecretCodeEntry? {
-        set{ set(newValue) } get{ return get() }
+    fileprivate var secretCodeEntry:[String:SecretCodeEntry] {
+        set{ set(newValue) } get{ return get(or:[String:SecretCodeEntry]()) }
     }
 }
 
 private typealias SecretCodeResult = (state:SecretCodeEntry.AccessState, entry:SecretCodeEntry?)
 
 private struct SecretCodeEntry: Codable, Equatable {
+    static var local:SecretCodeStore = Defaults(suiteName: "SecretCodeEntry")
+
+    fileprivate static var nullString:String { return "null" }
+
     enum AccessState {
         case error
         case denied
@@ -36,7 +40,7 @@ private struct SecretCodeEntry: Codable, Equatable {
         }
 
         static var null:ID{
-            return ID(recordName:"null", zoneName:"null", ownerName:"null")
+            return ID(recordName:SecretCodeEntry.nullString, zoneName:SecretCodeEntry.nullString, ownerName:SecretCodeEntry.nullString)
         }
 
         static func == (lhs: ID, rhs: ID) -> Bool{
@@ -46,23 +50,23 @@ private struct SecretCodeEntry: Codable, Equatable {
         }
     }
 
-    private static var nullId:String { return "null" }
-    private static var nullCode:String { return "null" }
     private static var nullDate:Date { return Date.init(timeIntervalSinceReferenceDate: 0) }
     static var invalid:SecretCodeEntry{
-        return SecretCodeEntry(id:ID.null, code:nullCode, codeCreationDate:nil, joinedDate:nullDate, ownerName:nil)
+        return SecretCodeEntry(id:ID.null, code:SecretCodeEntry.nullString, codeCreationDate:nil, joinedDate:nullDate, ownerName:nil, program: nil)
     }
 
     static var recordType:String { return "SAC" }
     static var kCode:String { return "code" }
     static var kOwnerName:String {return "ownerName"}
     static var kJoinedAt:String {return "joinedAt"}
+    static var kProgram:String {return "program"}
 
     let id:ID //.recordID.recordName
     let code:String
     let codeCreationDate:Date?
     let joinedDate:Date
     let ownerName:String?
+    let program:String?
 
     static func create(from record:CKRecord) -> SecretCodeEntry?{
         if let code = record[SecretCodeEntry.kCode] as? String{
@@ -71,13 +75,18 @@ private struct SecretCodeEntry: Codable, Equatable {
                     , code: code
                     , codeCreationDate: record.creationDate
                     , joinedDate: Date()
-                    , ownerName: record[SecretCodeEntry.kOwnerName] as? String)
+                    , ownerName: record[SecretCodeEntry.kOwnerName] as? String
+                    , program: record[SecretCodeEntry.kProgram] as? String
+            )
         }
         return nil
     }
 
     static func == (lhs: SecretCodeEntry, rhs: SecretCodeEntry) -> Bool{
-        return lhs.id == rhs.id && lhs.code == rhs.code
+        return lhs.id == rhs.id
+                && lhs.code == rhs.code
+                && lhs.ownerName == rhs.ownerName
+                && lhs.program == rhs.program
     }
 }
 
@@ -102,34 +111,22 @@ protocol SecretCodeProgram {
     static var title:String{get}
     static var grantedMessage:String{get}
 
+    static var localStoreKey:String{get} //INFO: key to store. Does NOT used by iCloud
+    static var program:String?{get} //INFO: this used by SAC 'program' field
+
+    //temp value storage for operations.
     static var isEnable:Bool{set get}
     static var currentAppIDStack:[String]?{set get}
     static var passCodeAppIDStack:[String]{get}
 }
 
-struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
-    static var title: String {
-        return "VIP License Program".localized
-    }
-    static var grantedMessage: String {
-        return "Welcome to our VIP license program.".localized
-    }
-
-    static var isEnable: Bool = false
-
-    static var currentAppIDStack:[String]?
-
-    static var passCodeAppIDStack:[String] {
-        return [
-            PDFactoryApp.info.identifier,
-            ConverterApp.info.identifier,
-            TransformApp.info.identifier,
-            FiltersApp.info.identifier
-        ]
+extension SecretCodeProgram{
+    static var localStoreKey: String {
+        return String(describing: self)
     }
 }
 
-struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, PreparablePayable {
+struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, PreparablePayable {
     /*
         Verification Pseudo
 
@@ -160,26 +157,26 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
     }
 
     static var grantedOwnerName:String?{
-        return Defaults.shared.secretCodeEntry?.ownerName
+        return SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.ownerName
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
         let result = _pay(asyncSignal)
         if result.state == .granted{
-            Defaults.shared.secretCodeEntry = result.entry
-            assert(Defaults.shared.secretCodeEntry != nil, "Access granted but entry is nil.")
+            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey] = result.entry
+            assert(SecretCodeEntry.local.secretCodeEntry[P.localStoreKey] != nil, "Access granted but entry is nil.")
             return result.entry != nil
         }
 
-        Defaults.shared.secretCodeEntry = nil
+        SecretCodeEntry.local.secretCodeEntry[P.localStoreKey] = nil
         return false
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        if let code = Defaults.shared.secretCodeEntry?.code.nilEmpty{
+        if let code = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.code.nilEmpty{
             let isValid = verify(code: code, shouldRegister: false, asyncSignal).state == .granted
             if isValid == false{
-                Defaults.shared.secretCodeEntry = nil
+                SecretCodeEntry.local.secretCodeEntry[P.localStoreKey] = nil
             }
             return isValid
         }
@@ -192,7 +189,7 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
         var result:SecretCodeResult = (state:.error, entry:nil)
 
         //if found local entry, granted
-        if let localEntry = Defaults.shared.secretCodeEntry{
+        if let localEntry = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]{
             result = verify(code: localEntry.code, shouldRegister: false, asyncSignal)
         }
 
@@ -223,7 +220,7 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
 
                 UIAlertController.alert(
                         "Please Input Your Secret Code".localized
-                        , title: Program.title.localized
+                        , title: P.title.localized
                         , actions: [ UIAlertAction(title: "Cancel".localized, style: .cancel) { action in
 
                     asyncSignal.end()
@@ -270,7 +267,7 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
 
                 let userName = result.entry?.ownerName ?? "User".localized
                 DispatchQueue.main.async{
-                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + Program.grantedMessage, title:"Access Granted.".localized, completion:{ action in
+                    UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + P.grantedMessage, title:"Access Granted.".localized, completion:{ action in
                         asyncSignal.end()
                     })
                 }
@@ -310,11 +307,19 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
             if error == nil{
 
                 let resultMatchedCode = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
+
                     if let code = record[SecretCodeEntry.kCode] as? String
-                    , (shouldRegister == (record[SecretCodeEntry.kJoinedAt] == nil)) // [i] Code anyone not used yet/ or registerd.
-                    , code == inputCode // and matched.
-                    , let entry = SecretCodeEntry.create(from: record)
-                    {
+                    /*
+                        INFO: core matching conditions
+                    */
+                    // [i] Code anyone not used yet/ or registerd.
+                    , (shouldRegister == (record[SecretCodeEntry.kJoinedAt] == nil))
+                    // and code was matched.
+                    , code.trimmed == inputCode.trimmed
+                    // is matched program
+                    , P.program?.trimmed == (record[SecretCodeEntry.kProgram] as? String)?.trimmed
+
+                    , let entry = SecretCodeEntry.create(from: record) {
                         return (record:record, entry: entry)
                     }
                     return nil
@@ -368,15 +373,15 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
     }
 
     static var isEnable: Bool {
-        return Program.isEnable
+        return P.isEnable
     }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         AppCenter.default.watch(\.currentIdentifier, id:WatcherId){
             if AppCenter.default.previous?.info.identifier == ShopApp.info.identifier{
                 //Exit from Shop
-                Program.currentAppIDStack = nil
-                Program.isEnable = false
+                P.currentAppIDStack = nil
+                P.isEnable = false
 
             } else if AppCenter.default.current?.info.identifier == ShopApp.info.identifier{
                 //Entered with secret code.
@@ -384,23 +389,23 @@ struct SecretCodeProgramPayment<Program:SecretCodeProgram>:VerifiablePayable, Pr
             }
 
             if let id = AppCenter.default.currentIdentifier{
-                if Program.currentAppIDStack == nil && id == Program.passCodeAppIDStack.first{
-                    Program.currentAppIDStack = [String]()
+                if P.currentAppIDStack == nil && id == P.passCodeAppIDStack.first{
+                    P.currentAppIDStack = [String]()
                 }
 
-                if Program.currentAppIDStack != nil && Program.currentAppIDStack?.contains(id) == false{
-                    Program.currentAppIDStack?.append(id)
+                if P.currentAppIDStack != nil && P.currentAppIDStack?.contains(id) == false{
+                    P.currentAppIDStack?.append(id)
                 }
 
-                if Program.currentAppIDStack?.count == Program.passCodeAppIDStack.count{
-                    Program.isEnable = Program.currentAppIDStack == Program.passCodeAppIDStack
-                    Program.currentAppIDStack = nil
+                if P.currentAppIDStack?.count == P.passCodeAppIDStack.count{
+                    P.isEnable = P.currentAppIDStack == P.passCodeAppIDStack
+                    P.currentAppIDStack = nil
 
                     if isEnable{
                         papLog.charge.vip.activationStarted()
 
                         Timer.scheduledTimer(identifier: #function, withTimeInterval: 10, block: { _ in
-                            Program.isEnable = false
+                            P.isEnable = false
 
                             papLog.charge.vip.activationTimeout()
                         })
