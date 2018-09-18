@@ -129,6 +129,14 @@ private final class AppChargeManager: ChargeManager{
 //                , describable: AppChargeDescription(title:"View Ads".localized, description: nil, iconImage: nil)
 //            )
 
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self
+                    , priceAmount: AmountObject(value:1)
+                    , describable: AppChargeDescription(title:"Special Guest License".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
             , AppCharge(type: .instantAdsShowingAllowance
                     , reward: .blockOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self

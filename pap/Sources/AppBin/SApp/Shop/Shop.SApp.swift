@@ -287,6 +287,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , detailedLabel: "Engage Now And Repeatedly Recharge Main Apps License.".localized
                 , items: [
                     PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
+                    PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: YouAppProgramPayment.self),
 //                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),

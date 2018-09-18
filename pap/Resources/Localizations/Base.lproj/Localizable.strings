@@ -102,7 +102,7 @@
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1 Month Membership" = "1 Month Membership";
-/* Generated from genl10n: AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
 "1-Month Use of All Apps and New" = "1-Month Use of All Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months Membership" = "6 Months Membership";
@@ -494,6 +494,10 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Special Guest License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Special Guest License";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -553,7 +557,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"VIP License Program" = "VIP License Program";
+"VIP Membership Program" = "VIP Membership Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP Membership" = "VIP Membership";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
@@ -578,6 +582,8 @@
 "Welcome Free Pack" = "Welcome Free Pack";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Welcome to our special guest license program!";
 /* Generated from genl10n: Shop.StoreKit.swift */
 "Would you like to move to %@?" = "Would you like to move to %@?";
 /* Generated from genl10n: Shop.SApp.swift */
