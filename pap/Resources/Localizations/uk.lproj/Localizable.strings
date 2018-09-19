@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 місяців членства";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-місячне використання всіх програм і нових";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "7-денне використання всіх програм і нових";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Доступ заборонено.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Введіть свій секретний код";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Будь ласка, перевірте та відновіть підключення до Інтернету або деактивуйте оголошення.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Будь ласка, спробуйте ще раз, використовуючи інший код.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Вимкніть таку опцію та скиньте рекламний ідентифікатор в Налаштуваннях. Потім спробуйте ще раз.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Обробка";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Програма ліцензій на просування";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Ліцензія на просування";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Управління покупками";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Ласкаво просимо до нашої програми ліцензування VIP.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Ласкаво просимо до нашої ліцензійної програми!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Ласкаво просимо до нашої спеціальної ліцензійної програми!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Ви хотіли б перейти до %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Щорічне членство";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Ви можете вибрати лише фотографії або відео, які відповідають початковому формату.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Ваш код недійсний. Будь ласка спробуйте ще раз.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Ваш код недійсний. Будь ласка спробуйте ще раз.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Ваш код минув.";

@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 månaders medlemskap";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-månaders användning av alla appar och nytt";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "7 dagars användning av alla appar och nytt";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Tillträde beviljas ej.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Var god ange din hemliga kod";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Kontrollera och återställ din internetanslutning, eller inaktivera annonser.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Försök igen med en annan kod.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Vänligen stäng av följande alternativ och återställ annonseringsidentifieraren i Inställningar. Försök sedan igen.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Integritet";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "bearbetning";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Promotions License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Kampanjlicens";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Inköpshantering";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Välkommen till vårt VIP-licensprogram.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Välkommen till vårt program för främjande av licens!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Välkommen till vårt speciella gästlicensprogram!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Vill du flytta till %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Årligt medlemskap";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Du kan bara välja foton eller videoklipp som matchade startformatet.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Din kod är ogiltig. Var god försök igen.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Din kod är ogiltig. Var god försök igen.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Din kod har löpt ut.";

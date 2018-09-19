@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 חודשים חברות";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6 חודשים שימוש בכל היישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "7 יום שימוש בכל היישומים חדשים";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "גישה נדחתה.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "אנא הכנס את הקוד הסודי שלך";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "בדוק ושחזר את קישוריות האינטרנט שלך או השבת מודעות.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "נסה שוב עם קוד אחר.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "כבה את האפשרות הבאה, ואפס את מזהה הפרסום ב'הגדרות '. לאחר מכן נסה שוב.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "פְּרָטִיוּת";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "מעבד";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "תוכנית רשיון קידום";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "רישיון קידום";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "ניהול הרכש";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "ברוכים הבאים לתוכנית הרישוי שלנו!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "האם ברצונך לעבור אל %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "חברות שנתית";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "ניתן לבחור רק תמונות או סרטונים שמתאימים לפורמט ההתחלה.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "פג תוקפו של הקוד שלך.";

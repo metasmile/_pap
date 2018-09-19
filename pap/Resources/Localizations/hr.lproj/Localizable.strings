@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 mjeseci članstva";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6 mjeseci korištenja svih aplikacija i novih";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "7 dana upotrebe svih aplikacija i novih";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Pristup odbijen.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Unesite svoj tajni kôd";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Provjerite i vratite internetsku vezu ili deaktivirajte oglase.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Pokušajte ponovo pomoću drugog koda.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Isključite sljedeću opciju i ponovno postavite identifikator oglašavanja u Postavkama. Zatim pokušajte ponovo.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Privatnost";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Obrada";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Program licence za promociju";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Licenca za promociju";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Upravljanje kupnjom";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Dobrodošli u naš VIP program licenciranja.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Dobro došli u naš program promocije licence!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Dobro došli u naš specijalni program licenciranja gostiju!";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */
 "Would you like to move to %@?" = "Želite li se premjestiti na %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Godišnje članstvo";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Možete odabrati samo fotografije ili videozapise koji se podudaraju s početnim formatom.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Vaš kôd nije važeći. Molim te pokušaj ponovno.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Vaš kôd nije važeći. Molim te pokušaj ponovno.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Vaš je kôd istekao.";

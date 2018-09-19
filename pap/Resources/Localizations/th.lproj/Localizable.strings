@@ -144,6 +144,8 @@
 "6 Months Membership" = "สมาชิก 6 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "การใช้แอปทั้งหมดและใหม่ในอีก 6 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "ใช้งานแอพทั้งหมดและใหม่ 7 วัน";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "ปฏิเสธการเข้าใช้.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "โปรดใส่รหัสลับของคุณ";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "โปรดตรวจสอบและกู้คืนการเชื่อมต่ออินเทอร์เน็ตของคุณหรือปิดใช้งานโฆษณา";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "โปรดลองอีกครั้งด้วยรหัสอื่น";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "โปรดปิดตัวเลือกต่อไปนี้และรีเซ็ตตัวระบุการโฆษณาในการตั้งค่า จากนั้นลองอีกครั้ง";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "การประมวลผล";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "โปรแกรมใบอนุญาตการส่งเสริมการขาย";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "ใบอนุญาตการส่งเสริมการขาย";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "การจัดการการซื้อ";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ยินดีต้อนรับสู่โปรแกรมอนุญาตวีไอพีของเรา";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตการส่งเสริมการขายของเรา!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตพิเศษสำหรับแขกของเรา!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "คุณต้องการย้ายไปที่ %@ หรือไม่?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "สมาชิกรายปี";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "คุณสามารถเลือกเฉพาะรูปถ่ายหรือวิดีโอที่ตรงกับรูปแบบเริ่มต้น";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "รหัสของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "รหัสของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "รหัสของคุณหมดอายุแล้ว";

@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 महीने की सदस्यता";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "सभी ऐप्स और नए के 6 महीने का उपयोग";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "सभी ऐप्स और नए के 7 दिन का उपयोग";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "पहुंच अस्वीकृत।";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "कृपया अपना गुप्त कोड इनपुट करें";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "कृपया अपनी इंटरनेट कनेक्टिविटी की जांच करें और पुनर्स्थापित करें, या विज्ञापनों को निष्क्रिय करें।";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "कृपया दूसरे कोड के साथ पुनः प्रयास करें।";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "कृपया निम्न विकल्प बंद करें, और सेटिंग में विज्ञापन पहचानकर्ता को रीसेट करें। फिर पुन: प्रयास करें।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "एकांत";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "प्रसंस्करण";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "पदोन्नति लाइसेंस कार्यक्रम";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "पदोन्नति लाइसेंस";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "खरीद प्रबंधन";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "हमारे वीआईपी लाइसेंस कार्यक्रम में आपका स्वागत है।";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "हमारे पदोन्नति लाइसेंस कार्यक्रम में आपका स्वागत है!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "हमारे विशेष अतिथि लाइसेंस कार्यक्रम में आपका स्वागत है!";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */
 "Would you like to move to %@?" = "क्या आप %@ पर जाना चाहते हैं?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "वार्षिक सदस्यता";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "आप केवल फोटो या वीडियो का चयन कर सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "आपका कोड अमान्य है। कृपया पुन: प्रयास करें।";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "आपका कोड अमान्य है। कृपया पुन: प्रयास करें।";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "आपका कोड समाप्त हो गया था।";

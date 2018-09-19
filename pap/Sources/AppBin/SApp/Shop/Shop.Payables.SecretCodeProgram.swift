@@ -9,10 +9,16 @@ import CloudKit
 
 private protocol SecretCodeStore:PropertyDefaults{
     var secretCodeEntry:[String:SecretCodeEntry] {set get} //[String:SecretCodeEntry] - localStoreKey : SecretCodeEntry
+
+    var expiredCodeEntry:[String:SecretCodeEntry] {set get} //[String:SecretCodeEntry] - localStoreKey : SecretCodeEntry
 }
 
 extension Defaults: SecretCodeStore {
     fileprivate var secretCodeEntry:[String:SecretCodeEntry] {
+        set{ set(newValue) } get{ return get(or:[String:SecretCodeEntry]()) }
+    }
+
+    fileprivate var expiredCodeEntry:[String:SecretCodeEntry] {
         set{ set(newValue) } get{ return get(or:[String:SecretCodeEntry]()) }
     }
 }
@@ -295,9 +301,22 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             case .denied:
                 papLog.charge.scp.accessDenied(recordName: result.entry?.id.recordName)
 
-                UIAlertController.alert("Your code is invalid. Please Try again.".localized, title:"Access Denied.".localized, completion:{ action in
+                let title:String
+                let msg:String
+
+                if let _ = SecretCodeEntry.local.expiredCodeEntry[P.localStoreKey]?.expiredDate{
+                    title = "Your code was expired.".localized
+                    msg = "Please try again with another code.".localized
+
+                }else{
+                    title = "Access Denied.".localized
+                    msg = "Your code is invalid. Please try again.".localized
+                }
+
+                UIAlertController.alert(msg, title:title, completion:{ action in
                     asyncSignal.end()
                 })
+
             case .granted:
                 papLog.charge.scp.accessGranted(recordName: result.entry?.id.recordName)
 
@@ -406,6 +425,15 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
         return (state:state, entry:verifiedEntry)
     }
 
+    private static func expireCurrentCodeIfNeeded(){
+        if P.shouldExpire, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
+            let expiredDate = Date()
+            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
+            SecretCodeEntry.local.expiredCodeEntry[P.localStoreKey] = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+        }
+    }
+
     private static var WatcherId:String {
         return #function+String(describing: self)
     }
@@ -462,12 +490,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
     static func didUpdateReceipt() {}
 
     static func willRemoveReceipt() {
-
-        if P.shouldExpire, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
-            let expiredDate = Date()
-            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
-            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
-        }
+        expireCurrentCodeIfNeeded()
     }
 
     static func didCommitReceipt() {}

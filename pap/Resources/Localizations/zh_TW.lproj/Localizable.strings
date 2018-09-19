@@ -90,6 +90,8 @@
 "6 Months Membership" = "6個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#199 */
 "6-Month Use of All Apps and New" = "所有應用程序和新應用程序的6個月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "所有應用程序和新的7天使用";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "拒絕訪問。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -376,6 +378,8 @@
 "Please Input Your Secret Code" = "請輸入您的密碼";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "請檢查並恢復您的互聯網連接，或停用廣告。";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "請使用其他代碼重試。";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "請關閉以下選項，並在“設置”中重置廣告標識符。然後再試一次。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
@@ -392,6 +396,10 @@
 "Privacy" = "隱私";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "處理";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "促銷許可計劃";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "促銷許可證";
 /* Generated from genl10n: Shop.SApp.swift#256 */
 "Purchase Management" = "採購管理";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -565,6 +573,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "歡迎來到我們的VIP許可計劃。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "歡迎來到我們的促銷許可計劃！";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "歡迎來到我們的特邀嘉賓計劃！";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "你想搬到%@嗎？";
@@ -576,5 +586,7 @@
 "Yearly Membership" = "每年會員資格";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "您的代碼無效。請再試一次。";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "您的代碼無效。請再試一次。";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "您的代碼已過期。";

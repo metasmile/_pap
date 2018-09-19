@@ -44,7 +44,7 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
     }
 
     static var program: String? {
-        return "sg"
+        return "special_guest"
     }
 
     static var isEnable: Bool = false
@@ -57,6 +57,36 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
             PDFactoryApp.info.identifier,
             FiltersApp.info.identifier,
             TransformApp.info.identifier
+        ]
+    }
+}
+
+struct PromotionSecretCodeProgram:SecretCodeProgram{
+    static var shouldExpire: Bool{
+        return true
+    }
+
+    static var title: String {
+        return "Promotion License Program".localized
+    }
+    static var grantedMessage: String {
+        return "Welcome to our promotion license program!".localized
+    }
+
+    static var program: String? {
+        return "promotion"
+    }
+
+    static var isEnable: Bool = false
+
+    static var currentAppIDStack:[String]?
+
+    static var passCodeAppIDStack:[String] {
+        return [
+            FiltersApp.info.identifier,
+            TransformApp.info.identifier,
+            ConverterApp.info.identifier,
+            PDFactoryApp.info.identifier
         ]
     }
 }

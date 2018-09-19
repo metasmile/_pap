@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 개월 회원";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6 개월간 모든 앱 및 새로운 앱 사용";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "모든 앱과 새로운 앱의 7 일간 사용";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "접근 불가.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "비밀 번호를 입력하십시오.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "인터넷 연결을 확인하고 복원하거나 광고를 비활성화하십시오.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "다른 코드로 다시 시도하십시오.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "다음 옵션을 사용 중지하고 설정에서 광고 식별자를 재설정하십시오. 그런 다음 다시 시도하십시오.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "프라이버시";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "프로세싱 중";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "프로모션 라이선스 프로그램";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "프로모션 라이선스";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "구입 관리";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP 라이센스 프로그램에 오신 것을 환영합니다.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "프로모션 라이센스 프로그램에 오신 것을 환영합니다!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "특별 게스트 라이센스 프로그램에 오신 것을 환영합니다!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "%@ (으)로 이사 하시겠습니까?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "연간 회원";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "시작 형식과 일치하는 사진 또는 비디오 만 선택할 수 있습니다.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "코드가 만료되었습니다.";

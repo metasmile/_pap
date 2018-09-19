@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 hónapos tagság";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Minden alkalmazás 6 hónapos használata és új";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "Minden nap 7 napos alkalmazása és új";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Hozzáférés megtagadva.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Kérjük, adja meg titkos kódját";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Kérjük, ellenőrizze és helyreállítsa internetkapcsolatát, illetve tiltsa le a hirdetéseket.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Próbálkozzon újra egy másik kóddal.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Kérjük, kapcsolja ki a következő lehetőséget, és állítsa alaphelyzetbe a hirdetési azonosítót a Beállítások menüpontban. Ezután próbálkozzon újra.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Magánélet";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Feldolgozás";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Promóciós engedély program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Promóciós licenc";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Vásárlás menedzsment";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Üdvözöljük a VIP licencprogramunkban.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Üdvözöljük a promóciós licencprogramunkban!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Üdvözöljük a különleges vendégprogramunkban!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Szeretne költözni a %@ -ra?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Éves tagság";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Csak olyan fényképeket vagy videókat választhat ki, amelyek megfelelnek a kezdő formátumnak.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "A kód érvénytelen. Kérlek próbáld újra.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "A kód érvénytelen. Kérlek próbáld újra.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "A kód lejárt.";

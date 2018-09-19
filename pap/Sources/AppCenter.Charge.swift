@@ -137,6 +137,14 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self
+                    , priceAmount: AmountObject(value:(0.1/3)*7)
+                    , describable: AppChargeDescription(title:"Promotion License".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "7 Day Use of All Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
             , AppCharge(type: .instantAdsShowingAllowance
                     , reward: .blockOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self

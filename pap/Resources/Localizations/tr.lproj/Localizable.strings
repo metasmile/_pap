@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 Aylık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 6 Aylık Kullanım";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 7 Günlerin Kullanımı";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Erişim reddedildi.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Lütfen Gizli Kodunuzu Girin";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Lütfen İnternet bağlantınızı kontrol edip geri yükleyin veya Reklamları devre dışı bırakın.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Lütfen başka bir kodla tekrar deneyin.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Lütfen aşağıdaki seçeneği kapatın ve Ayarlar'da reklam tanımlayıcısını sıfırlayın. Sonra tekrar dene.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Gizlilik";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "İşleme";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Tanıtım Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Tanıtım Lisansı";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Satın alma yönetimi";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Tanıtım lisans programımıza hoş geldiniz!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Özel misafir lisans programımıza hoş geldiniz!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "%@ 'Ye geçmek ister misiniz?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Yıllık Üyelik";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Sadece başlangıç ​​formatıyla eşleşen fotoğrafları veya videoları seçebilirsiniz.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Kodunuz geçersiz. Lütfen tekrar deneyin.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Kodunuz geçersiz. Lütfen tekrar deneyin.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Kodunuzun süresi doldu.";

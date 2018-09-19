@@ -144,6 +144,8 @@
 "6 Months Membership" = "6 mesiacov členstva";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-mesačné používanie všetkých aplikácií a nové";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "7 dní používanie všetkých aplikácií a nových";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Prístup zamietnutý.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Zadajte svoj tajný kód";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Skontrolujte a obnovte svoje internetové pripojenie alebo deaktivujte reklamy.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Skúste to znova pomocou iného kódu.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Vypnite nasledujúce možnosti a resetujte identifikátor reklamy v časti Nastavenia. Potom skúste znova.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "súkromia";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "spracovanie";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Program propagačných licencií";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Licencia na propagáciu";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Správa nákupu";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Vitajte v našom propagačnom licenčnom programe!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Vitajte v našom licenčnom programe pre špeciálnych hostí!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Chcete prejsť na %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Ročné členstvo";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Môžete vybrať len fotografie alebo videá, ktoré zodpovedajú štartovaciemu formátu.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Váš kód je neplatný. Prosím skúste znova.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Váš kód je neplatný. Prosím skúste znova.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Váš kód vypršal.";

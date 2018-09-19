@@ -144,6 +144,8 @@
 "6 Months Membership" = "Membres de 6 mesos";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Ús de 6 mesos de totes les aplicacions i novetats";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "Ús de totes les aplicacions durant 7 dies i nou";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Accés denegat.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Introduïu el vostre codi secret";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Comproveu i restableix la connectivitat a Internet o desactiveu els anuncis.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Torna-ho a provar amb un altre codi.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Desactiveu l'opció següent i restabliu l'identificador de publicitat a Configuració. Torneu-ho a provar.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Privadesa";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Processament";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Programa de llicència de promoció";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Llicència de promoció";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Gestió de compres";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Benvingut al nostre programa de llicències VIP.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Benvingut al nostre programa de llicència de promoció.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Benvingut al nostre programa especial de llicència de convidats!";
 /* Generated from genl10n: Shop.StoreKit.swift#96 */
 "Would you like to move to %@?" = "Voleu passar a %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Membres anuals";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Podeu seleccionar només fotos o vídeos que coincideixin amb el format inicial.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "El vostre codi no és vàlid. Siusplau torna-ho a provar.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "El vostre codi no és vàlid. Siusplau torna-ho a provar.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "El vostre codi ha caducat.";

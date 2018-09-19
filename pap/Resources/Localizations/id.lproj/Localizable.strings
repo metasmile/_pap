@@ -144,6 +144,8 @@
 "6 Months Membership" = "Keanggotaan 6 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Penggunaan 6 Bulan Semua Aplikasi dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7 Day Use of All Apps and New" = "Penggunaan 7 Hari Semua Aplikasi dan Baru";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Akses ditolak.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -430,6 +432,8 @@
 "Please Input Your Secret Code" = "Silakan Masukan Kode Rahasia Anda";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Silakan periksa dan kembalikan konektivitas internet Anda, atau nonaktifkan Iklan.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Please try again with another code." = "Silakan coba lagi dengan kode lain.";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Harap matikan opsi berikut, dan setel ulang pengenal iklan di Setelan. Kemudian coba lagi.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
@@ -446,6 +450,10 @@
 "Privacy" = "Pribadi";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Pengolahan";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Promotion License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Lisensi Promosi";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Manajemen Pembelian";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -619,6 +627,8 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Selamat datang di program lisensi VIP kami.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Selamat datang di program lisensi promosi kami!";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Selamat datang di program lisensi tamu spesial kami!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Apakah Anda ingin pindah ke %@?";
@@ -630,5 +640,7 @@
 "Yearly Membership" = "Keanggotaan Tahunan";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya dapat memilih foto atau video yang dicocokkan dengan format awal.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
-"Your code is invalid. Please Try again." = "Kode Anda tidak valid. Silakan Coba lagi.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Kode Anda tidak valid. Silakan coba lagi.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+"Your code was expired." = "Kode Anda telah kedaluwarsa.";
