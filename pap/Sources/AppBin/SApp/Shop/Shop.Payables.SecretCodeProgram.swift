@@ -54,8 +54,8 @@ private struct SecretCodeEntry: Codable, Equatable {
         let zoneName:String
         let ownerName:String
 
-        func makeCKRecordID() -> CKRecordID{
-            return CKRecordID(recordName: recordName, zoneID: CKRecordZoneID(zoneName: zoneName, ownerName: ownerName))
+        func makeCKRecordID() -> CKRecord.ID{
+            return CKRecord.ID(recordName: recordName, zoneID: CKRecordZone.ID(zoneName: zoneName, ownerName: ownerName))
         }
 
         static var null:ID{
@@ -129,7 +129,7 @@ private extension CKDatabase{
         self.add(o)
     }
 
-    func remove(recordIDs:[CKRecordID], completion:((CKRecord, Error?) -> Void)?=nil){
+    func remove(recordIDs:[CKRecord.ID], completion:((CKRecord, Error?) -> Void)?=nil){
         let o = CKModifyRecordsOperation()
         o.recordIDsToDelete = recordIDs
         o.perRecordCompletionBlock = completion
