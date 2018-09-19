@@ -202,7 +202,14 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
-        if let code = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.code.nilEmpty{
+        if let entry = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]
+        , let code = entry.code.nilEmpty{
+            // INFO: if expired -> false
+            if entry.expiredDate != nil{
+                return false
+            }
+
+            // Start verification process with iCloud.
             let isValid = verify(code: code, shouldRegister: false, asyncSignal).state == .granted
             if isValid == false{
                 SecretCodeEntry.local.secretCodeEntry[P.localStoreKey] = nil
@@ -456,7 +463,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
 
     static func willRemoveReceipt() {
 
-        if P.shouldExpire, SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate == nil{
+        if P.shouldExpire, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
             let expiredDate = Date()
             SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
             SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
