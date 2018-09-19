@@ -434,7 +434,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     private(set) var receiptStorageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
 
-    private lazy var receiptStorage = ChargeReceiptStorage(banker:self)
+    private lazy var receiptStorage = ChargeReceiptStorage(identifier: self.receiptStorageIdentifier)
 
     fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = papTimeInterval.ofTimeOfUsesDayTimeUnit
     fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3

@@ -158,6 +158,10 @@ extension Defaults: ChargeReceiptAccessorStorage {
     }
 }
 
+protocol ChargeReceiptStorageDelegate{
+
+}
+
 final class ChargeReceiptStorage {
     private let syncQueue = DispatchQueue(label: String(describing: ChargeReceiptStorage.self), qos: .userInteractive)
 
@@ -169,11 +173,14 @@ final class ChargeReceiptStorage {
         }
     }
 
-    private var _receipts:[String: ChargeableReceipt]
+    private var _receipts:[String: ChargeableReceipt] //INFO: [{uuid} : {receipt object}]
 
-    init(banker: ChargeBanker){
-        receiptsStorage = Defaults(suiteName: banker.receiptStorageIdentifier+String(describing: ChargeReceiptStorage.self))
+    private var _delegate:ChargeReceiptStorageDelegate?
+
+    init(identifier: String, delegate:ChargeReceiptStorageDelegate?=nil){
+        receiptsStorage = Defaults(suiteName: identifier+String(describing: ChargeReceiptStorage.self))
         _receipts = receiptsStorage.receipts.dictionary { $0.uuid }
+        _delegate = delegate
     }
 
     var balanceAmountValue:Double{
