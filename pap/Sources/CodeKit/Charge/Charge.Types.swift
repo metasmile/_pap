@@ -158,6 +158,14 @@ protocol VerifiablePayable: Payable {
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool?
 }
 
+protocol ReceiptObservablePayable: Payable{
+    func didAddReceipt()
+    func didUpdateReceipt()
+    func willRemoveReceipt()
+
+    func didCommitReceipt()
+}
+
 protocol Chargeable {
     var type: ChargeType {get}
     var reward: RewardType {get}

@@ -12,6 +12,12 @@ struct ChargeableReceiptVerificationResult{
     let failed:Set<ChargeableReceipt>
 }
 
+struct ChargeableReceiptChanges{
+    let added:Set<ChargeableReceipt>
+    let updated:Set<ChargeableReceipt>
+    let removed:Set<ChargeableReceipt>
+}
+
 struct ChargeableReceipt: Codable, Hashable{
 
     let uuid:String
@@ -159,7 +165,11 @@ extension Defaults: ChargeReceiptAccessorStorage {
 }
 
 protocol ChargeReceiptStorageDelegate{
+    func didAdd(receipt:ChargeableReceipt)
+    func didUpdate(receipt:ChargeableReceipt)
+    func willRemove(receipt:ChargeableReceipt)
 
+    func didCommit(changes:ChargeableReceiptChanges)
 }
 
 final class ChargeReceiptStorage {
@@ -210,6 +220,7 @@ final class ChargeReceiptStorage {
         if !hasReceipt(by: receipt.uuid){
             syncQueue.async(flags:.barrier) {
                 self._receipts[receipt.uuid] = receipt
+                self._delegate?.didAdd(receipt: receipt)
                 print("[i] INFO: Receipt Added: ", receipt, receipt.uuid)
             }
         }
@@ -219,6 +230,9 @@ final class ChargeReceiptStorage {
         assert(hasReceipt(by: receiptId), "Given id of receipt, already \(receiptId) does not exist")
         syncQueue.async(flags:.barrier) {
             print("[i] INFO: Receipt Removed:", self._receipts[receiptId] ?? "", receiptId)
+            if let removingReceipt = self._receipts[receiptId]{
+                self._delegate?.willRemove(receipt: removingReceipt)
+            }
             self._receipts[receiptId] = nil
         }
     }
@@ -228,6 +242,7 @@ final class ChargeReceiptStorage {
         if hasReceipt(by: receipt.uuid){
             syncQueue.async(flags:.barrier) {
                 self._receipts[receipt.uuid] = receipt
+                self._delegate?.didUpdate(receipt: receipt)
                 print("[i] Receipt Updated: type: \(receipt.type), reward: \(receipt.reward), created: \(receipt.createdDate)")
             }
         }
@@ -235,8 +250,18 @@ final class ChargeReceiptStorage {
 
     func commit(){
         syncQueue.async(flags:.barrier) {
+            let settingReceipts = Array(self._receipts.values)
             var mutableReceiptsStorage = self.receiptsStorage
-            mutableReceiptsStorage.receipts = Array(self._receipts.values)
+
+            let changes = ChargeableReceiptChanges(
+                    added: Set(settingReceipts).subtracting(mutableReceiptsStorage.receipts)
+                    , updated: Set(mutableReceiptsStorage.receipts).intersection(settingReceipts)
+                    , removed: Set(mutableReceiptsStorage.receipts).subtracting(settingReceipts)
+            )
+
+            mutableReceiptsStorage.receipts = settingReceipts
+
+            self._delegate?.didCommit(changes: changes)
         }
     }
 }

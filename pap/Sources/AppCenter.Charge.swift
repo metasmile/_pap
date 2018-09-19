@@ -434,7 +434,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     private(set) var receiptStorageIdentifier: String = "com.stells.AppChargeBanker.receiptStorage"
 
-    private lazy var receiptStorage = ChargeReceiptStorage(identifier: self.receiptStorageIdentifier)
+    private lazy var receiptStorage = ChargeReceiptStorage(identifier: self.receiptStorageIdentifier, delegate: self)
 
     fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = papTimeInterval.ofTimeOfUsesDayTimeUnit
     fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3
@@ -497,10 +497,16 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didInitializeBank(verifiedResults: ChargeableReceiptVerificationResult, balance: Amount) {
+        var removedCount = 0
         for invalidReceipt in verifiedResults.invalid{
             if receiptStorage.hasReceipt(by: invalidReceipt.uuid){
                 receiptStorage.removeReceipt(invalidReceipt.uuid)
+                removedCount += 1
             }
+        }
+
+        if removedCount > 0{
+            self.receiptStorage.commit()
         }
     }
 
@@ -614,5 +620,33 @@ private final class AppChargeBanker: ChargeBanker {
 
     func didDeclineDeposit(for charge: Charge) {
         papLog.charge.unpaid(charge: charge)
+    }
+}
+
+extension AppChargeBanker:ChargeReceiptStorageDelegate{
+    internal func didAdd(receipt: ChargeableReceipt) {
+        if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
+            (charge.payment as? ReceiptObservablePayable)?.didAddReceipt()
+        }
+    }
+
+    internal func didUpdate(receipt: ChargeableReceipt) {
+        if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
+            (charge.payment as? ReceiptObservablePayable)?.didUpdateReceipt()
+        }
+    }
+
+    internal func willRemove(receipt: ChargeableReceipt) {
+        if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
+            (charge.payment as? ReceiptObservablePayable)?.willRemoveReceipt()
+        }
+    }
+
+    internal func didCommit(changes: ChargeableReceiptChanges) {
+        for committedReceipt in changes.added.union(changes.removed).union(changes.updated){
+            if let charge = registeredChargesIdentifierSet[committedReceipt.chargeableIdentifier]{
+                (charge.payment as? ReceiptObservablePayable)?.didCommitReceipt()
+            }
+        }
     }
 }
