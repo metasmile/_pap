@@ -1692,6 +1692,22 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
     }
 }
 
+import Intents
+
+extension FinderApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenFinderIntent()
+            openAppIntent.appId = FinderApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Finder"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}
+
 private class Cell: UITableViewCell {
     lazy var optionSwitch: UISwitch = {
         let view = UISwitch()

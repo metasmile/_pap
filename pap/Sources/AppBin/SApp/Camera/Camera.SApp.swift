@@ -73,6 +73,78 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     }
 }
 
+import Intents
+
+extension CameraApp: IntentableApp {
+    struct IntentLaunchOption: OptionSet {
+        public let rawValue: Int
+        
+        init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        init(_ rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        static let takePhoto = IntentLaunchOption(1 << 0)
+        static let livePhoto = IntentLaunchOption(1 << 1)
+        static let stillPhoto = IntentLaunchOption(1 << 2)
+    }
+    
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenCameraIntent()
+            openAppIntent.mode = .photo
+            openAppIntent.appId = CameraApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Camera".localized
+            
+            let takeAPhotoIntent = TakeAPhotoIntent()
+            takeAPhotoIntent.appId = CameraApp.info.identifier
+            takeAPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeAPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption.takePhoto.rawValue)
+            takeAPhotoIntent.suggestedInvocationPhrase = "Fire The Shutter".localized //TODO: run this intent while camera app is opened
+            
+            let takeAStillPhotoIntent = TakeAPhotoIntent()
+            takeAStillPhotoIntent.cameraMode = .photo
+            takeAStillPhotoIntent.appId = CameraApp.info.identifier
+            takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeAStillPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .stillPhoto]).rawValue)
+            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo".localized
+            
+            let takeALivePhotoIntent = TakeAPhotoIntent()
+            takeALivePhotoIntent.cameraMode = .livePhoto
+            takeALivePhotoIntent.appId = CameraApp.info.identifier
+            takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeALivePhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .livePhoto]).rawValue)
+            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo".localized
+            
+            return [openAppIntent, takeAPhotoIntent, takeAStillPhotoIntent, takeALivePhotoIntent]
+        } else {
+            return []
+        }
+    }
+}
+
+//@available(iOS 12.0, *)
+//class IntentHandler: INExtension {
+//    override func handler(for intent: INIntent) -> Any? {
+//        guard intent is TakeAPhotoIntent else { return nil }
+//        return TakeAPhotoIntentHandler()
+//    }
+//}
+//
+//@available(iOS 12.0, *)
+//public class TakeAPhotoIntentHandler: NSObject, TakeAPhotoIntentHandling {
+//    public func handle(intent: TakeAPhotoIntent, completion: @escaping (TakeAPhotoIntentResponse) -> Void) {
+//        let response = TakeAPhotoIntentResponse(code: .success, userActivity: nil)
+//        response.mode = intent.mode
+//        response.userActivity = NSUserActivity(activityType: NSStringFromClass(TakeAPhotoIntent.self))
+//        completion(response)
+//    }
+//}
+
 class CameraAppView: AppUICameraView {}
 
 fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
@@ -113,6 +185,22 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
                 }
 
                 self.didCaptured(with:data)
+            }
+        }
+        
+        if let optionValue = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.options?[AppLaunchOptionsKey.Intent] as? NSNumber {
+            let option = CameraApp.IntentLaunchOption(optionValue.intValue)
+            if option.contains(.livePhoto) {
+                self.cameraView?.isLivePhotoEnabled = true
+            }
+            else if option.contains(.stillPhoto) {
+                self.cameraView?.isLivePhotoEnabled = false
+            }
+            
+            if option.contains(.takePhoto) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+                    self.cameraView?.takePhoto()
+                }
             }
         }
     }

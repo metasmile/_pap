@@ -144,3 +144,18 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
 
 }
 
+import Intents
+
+extension ExifGhostApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenEXIFGhostIntent()
+            openAppIntent.appId = ExifGhostApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open EXIF Ghost"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}

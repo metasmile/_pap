@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import PropertyKit
+import Intents
 
 protocol FilterAppDefaults: AppDefaults {
     var filterName: String? { get set }
@@ -65,7 +66,7 @@ public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttr
 public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-PhotoEditorViewControllerDelegatableApp, ChargeableApp {
+PhotoEditorViewControllerDelegatableApp, ChargeableApp, IntentableApp {
 
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
@@ -139,6 +140,18 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
                     self.config?.filter = filterItem
                 }
             }
+        }
+    }
+    
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenFiltersIntent()
+            openAppIntent.appId = FiltersApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FiltersApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Filters"
+            return [openAppIntent]
+        } else {
+            return []
         }
     }
 

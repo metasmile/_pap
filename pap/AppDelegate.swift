@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let spotlightSearchAppDelegate = SpotlightSearchAppDelegate()
     let shortcutItemAppDelegate = ShortcutItemAppDelegate()
+    let intentsAppDelegate = IntentsAppDelegate()
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Defaults.shared.initVersionInfo()
@@ -43,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
             self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
             self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+            self.intentsAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         }
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -71,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
 
         spotlightSearchAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        intentsAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
         return false
     }
 

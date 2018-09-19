@@ -478,7 +478,7 @@ class PhotoPickerViewController: AppDockViewController {
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
-        }else {
+        } else {
             updateNavigationLeftBarButton()
 
             if appDockView?.accessory != nil {
@@ -989,6 +989,3 @@ extension PhotoPickerViewController: AppDockViewDelegate{
         setViewControllerDisabled(isOpened)
     }
 }
-
-// MARK: - Photos
-

@@ -625,3 +625,19 @@ extension PhoneCallsAppDockContent: PreheatableAppSubscribable{
     }
 
 }
+
+import Intents
+
+extension PhoneCallsApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenPhoneCallsIntent()
+            openAppIntent.appId = PhoneCallsApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Phone Calls"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}

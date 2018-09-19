@@ -896,3 +896,19 @@ extension CleanerAppDockContent: PreheatableAppSubscribable{
         self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
     }
 }
+
+import Intents
+
+extension CleanerApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenCleanerIntent()
+            openAppIntent.appId = CleanerApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Cleaner"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}

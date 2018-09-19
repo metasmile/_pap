@@ -238,3 +238,19 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
         return ConverterAppResult(result: result, orderedIndex: index)
     }
 }
+
+import Intents
+
+extension ConverterApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenConverterIntent()
+            openAppIntent.appId = ConverterApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Converter"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}

@@ -220,3 +220,18 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
+import Intents
+
+extension PDFactoryApp: IntentableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenPDFactoryIntent()
+            openAppIntent.appId = PDFactoryApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFactoryApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open PDF Maker"
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+}
