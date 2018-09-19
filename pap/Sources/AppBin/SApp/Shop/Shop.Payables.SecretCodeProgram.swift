@@ -8,7 +8,7 @@ import PropertyKit
 import CloudKit
 
 private protocol SecretCodeStore:PropertyDefaults{
-    var secretCodeEntry:[String:SecretCodeEntry] {set get} //[String:SecretCodeEntry] - Program : SecretCodeEntry
+    var secretCodeEntry:[String:SecretCodeEntry] {set get} //[String:SecretCodeEntry] - localStoreKey : SecretCodeEntry
 }
 
 extension Defaults: SecretCodeStore {
@@ -20,9 +20,22 @@ extension Defaults: SecretCodeStore {
 private typealias SecretCodeResult = (state:SecretCodeEntry.AccessState, entry:SecretCodeEntry?)
 
 private struct SecretCodeEntry: Codable, Equatable {
+    static let container = CKContainer(identifier: "iCloud.com.stells.pap")
+    
     static var local:SecretCodeStore = Defaults(suiteName: "SecretCodeEntry")
 
     fileprivate static var nullString:String { return "null" }
+
+    static func commitValue(in database:CKDatabase, localStoreKey:String, key:String, value:__CKRecordObjCValue?, completion:((CKRecord, Error?) -> Void)?=nil){
+        if let e = SecretCodeEntry.local.secretCodeEntry[localStoreKey]{
+            database.fetch(withRecordID: e.id.makeCKRecordID()) { record, error in
+                if let fetchedCKRecord = record, error == nil{
+                    fetchedCKRecord[key] = value
+                    database.set(records: [fetchedCKRecord], completion:completion)
+                }
+            }
+        }
+    }
 
     enum AccessState {
         case error
@@ -52,7 +65,15 @@ private struct SecretCodeEntry: Codable, Equatable {
 
     private static var nullDate:Date { return Date.init(timeIntervalSinceReferenceDate: 0) }
     static var invalid:SecretCodeEntry{
-        return SecretCodeEntry(id:ID.null, code:SecretCodeEntry.nullString, codeCreationDate:nil, joinedDate:nullDate, ownerName:nil, program: nil)
+        return SecretCodeEntry(
+                id:ID.null,
+                code:SecretCodeEntry.nullString,
+                codeCreationDate:nil,
+                joinedDate:nullDate,
+                ownerName:nil,
+                program: nil,
+                expiredDate:nil
+        )
     }
 
     static var recordType:String { return "SAC" }
@@ -60,6 +81,7 @@ private struct SecretCodeEntry: Codable, Equatable {
     static var kOwnerName:String {return "ownerName"}
     static var kJoinedAt:String {return "joinedAt"}
     static var kProgram:String {return "program"}
+    static var kExpiredAt:String {return "expiredAt"}
 
     let id:ID //.recordID.recordName
     let code:String
@@ -67,6 +89,7 @@ private struct SecretCodeEntry: Codable, Equatable {
     let joinedDate:Date
     let ownerName:String?
     let program:String?
+    var expiredDate:Date?
 
     static func create(from record:CKRecord) -> SecretCodeEntry?{
         if let code = record[SecretCodeEntry.kCode] as? String{
@@ -77,6 +100,7 @@ private struct SecretCodeEntry: Codable, Equatable {
                     , joinedDate: Date()
                     , ownerName: record[SecretCodeEntry.kOwnerName] as? String
                     , program: record[SecretCodeEntry.kProgram] as? String
+                    , expiredDate: record[SecretCodeEntry.kExpiredAt] as? Date
             )
         }
         return nil
@@ -114,6 +138,8 @@ protocol SecretCodeProgram {
     static var localStoreKey:String{get} //INFO: key to store. Does NOT used by iCloud
     static var program:String?{get} //INFO: this used by SAC 'program' field
 
+    static var shouldExpire:Bool {get}
+
     //temp value storage for operations.
     static var isEnable:Bool{set get}
     static var currentAppIDStack:[String]?{set get}
@@ -121,12 +147,16 @@ protocol SecretCodeProgram {
 }
 
 extension SecretCodeProgram{
+    static var shouldExpire: Bool {
+        return false
+    }
+
     static var localStoreKey: String {
         return String(describing: self)
     }
 }
 
-struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, PreparablePayable {
+struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, PreparablePayable, ReceiptObservablePayable {
     /*
         Verification Pseudo
 
@@ -150,8 +180,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             -> granted
 
     */
-    private let CkContainer = CKContainer(identifier: "iCloud.com.stells.pap")
-
+    
     static var action: PayableAction {
         return PayableAction(title: "Get Access".localized)
     }
@@ -206,7 +235,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             if result.state != .granted{
                 result = (state:.denied, entry:nil)
                 //remove invalid SAC data
-                CkContainer.privateCloudDatabase.remove(recordIDs: privateEntries.map { $0.id.makeCKRecordID() })
+                SecretCodeEntry.container.privateCloudDatabase.remove(recordIDs: privateEntries.map { $0.id.makeCKRecordID() })
             }
         }
 
@@ -283,7 +312,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
         asyncSignal.begin()
         var entries:[SecretCodeEntry]?
         let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
-        CkContainer.privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+        SecretCodeEntry.container.privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             if error == nil{
                 entries = records?.compactMap { record -> SecretCodeEntry? in
                     return SecretCodeEntry.create(from: record)
@@ -303,7 +332,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
         var verifiedEntry: SecretCodeEntry?
 
         let query = CKQuery(recordType: SecretCodeEntry.recordType, predicate: NSPredicate(value: true))
-        CkContainer.publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+        SecretCodeEntry.container.publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             if error == nil{
 
                 let resultMatchedCode = records?.compactMap { record -> (record:CKRecord, entry:SecretCodeEntry)? in
@@ -314,12 +343,14 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
                     */
                     // [i] Code anyone not used yet/ or registerd.
                     , (shouldRegister == (record[SecretCodeEntry.kJoinedAt] == nil))
+                    // Did not expired
+                    , (record[SecretCodeEntry.kExpiredAt] as? Date) == nil
                     // and code was matched.
                     , code.trimmed == inputCode.trimmed
                     // is matched program
                     , P.program?.trimmed == (record[SecretCodeEntry.kProgram] as? String)?.trimmed
 
-                    , let entry = SecretCodeEntry.create(from: record) {
+                    , let entry = SecretCodeEntry.create (from: record) {
                         return (record:record, entry: entry)
                     }
                     return nil
@@ -333,10 +364,10 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
                         savingRecord[SecretCodeEntry.kJoinedAt] = NSDate()
 
                         //1. touch public
-                        self.CkContainer.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
+                        SecretCodeEntry.container.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
 
                             //2. add to private
-                            self.CkContainer.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in
+                            SecretCodeEntry.container.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in
                                 assert(result.record.recordID == r.recordID, "Record ID was unmatched")
                                 assert(e == nil, "Error \(String(describing: e)) was occurred.")
 
@@ -414,4 +445,23 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             }
         }
     }
+
+    /*
+        Receipt Handlers
+    */
+
+    static func didAddReceipt() {}
+
+    static func didUpdateReceipt() {}
+
+    static func willRemoveReceipt() {
+
+        if P.shouldExpire, SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate == nil{
+            let expiredDate = Date()
+            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+        }
+    }
+
+    static func didCommitReceipt() {}
 }

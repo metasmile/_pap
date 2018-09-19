@@ -626,26 +626,26 @@ private final class AppChargeBanker: ChargeBanker {
 extension AppChargeBanker:ChargeReceiptStorageDelegate{
     internal func didAdd(receipt: ChargeableReceipt) {
         if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
-            (charge.payment as? ReceiptObservablePayable)?.didAddReceipt()
+            (charge.payment as? ReceiptObservablePayable.Type)?.didAddReceipt()
         }
     }
 
     internal func didUpdate(receipt: ChargeableReceipt) {
         if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
-            (charge.payment as? ReceiptObservablePayable)?.didUpdateReceipt()
+            (charge.payment as? ReceiptObservablePayable.Type)?.didUpdateReceipt()
         }
     }
 
     internal func willRemove(receipt: ChargeableReceipt) {
         if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
-            (charge.payment as? ReceiptObservablePayable)?.willRemoveReceipt()
+            (charge.payment as? ReceiptObservablePayable.Type)?.willRemoveReceipt()
         }
     }
 
     internal func didCommit(changes: ChargeableReceiptChanges) {
         for committedReceipt in changes.added.union(changes.removed).union(changes.updated){
             if let charge = registeredChargesIdentifierSet[committedReceipt.chargeableIdentifier]{
-                (charge.payment as? ReceiptObservablePayable)?.didCommitReceipt()
+                (charge.payment as? ReceiptObservablePayable.Type)?.didCommitReceipt()
             }
         }
     }

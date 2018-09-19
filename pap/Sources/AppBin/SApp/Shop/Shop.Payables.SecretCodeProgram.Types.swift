@@ -32,6 +32,10 @@ struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
 }
 
 struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
+    static var shouldExpire: Bool{
+        return true
+    }
+
     static var title: String {
         return "Special Guest License Program".localized
     }
