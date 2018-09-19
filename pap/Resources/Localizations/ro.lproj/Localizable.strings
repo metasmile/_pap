@@ -530,6 +530,10 @@
 "Size" = "mărimea";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Unele persoane au fost salvate, dar unele nu au fost.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Programul special de licență pentru oaspeți";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Licență specială pentru oaspeți";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Pătrat";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Începând să verificați fotografiile editate ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "Stați cu noi";
+"Staying With Us" = "Rămâi cu noi";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "A depune";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "Utilizator";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "Programul de licență VIP";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "Programul VIP al membrilor";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP membru";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "Bine ati venit pachetul gratuit";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Bine ați venit la programul nostru de licență VIP.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Bine ați venit la programul nostru special de licență pentru oaspeți!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Doriți să vă mutați la %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

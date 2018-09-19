@@ -530,6 +530,10 @@
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "특별 게스트 라이센스 프로그램";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "특별 게스트 라이센스";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "우리와 함께 지내기";
+"Staying With Us" = "우리와 함께 지내기";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "제출";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "사용자";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "VIP 라이선스 프로그램";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "VIP 회원 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP 회원";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "환영 프리 팩";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP 라이센스 프로그램에 오신 것을 환영합니다.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "특별 게스트 라이센스 프로그램에 오신 것을 환영합니다!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "%@ (으)로 이사 하시겠습니까?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

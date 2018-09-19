@@ -530,6 +530,10 @@
 "Size" = "גודל";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "כמה אנשי קשר ניצלו, אבל לא היו כאלה.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "תוכנית רשיון אורח מיוחדת";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "רישיון אורח מיוחד";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "כיכר";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "מתחיל לבדוק תמונות שנערכו ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "להישאר איתנו";
+"Staying With Us" = "להישאר איתנו";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "שלח";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "מִשׁתַמֵשׁ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "תוכנית רשיון VIP";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "תוכנית חברות VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "חברות VIP";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "ברוכים הבאים חינם Pack";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "האם ברצונך לעבור אל %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

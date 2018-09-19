@@ -530,6 +530,10 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Bazı kişiler kurtarıldı, ancak birileri değildi.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Özel Misafir Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Özel Misafir Ruhsatı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Düzenlenmiş fotoğrafları kontrol etmeye başlıyor ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "Bizimle kalıyorum";
+"Staying With Us" = "Bizimle Kalmak";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Gönder";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "kullanıcı";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Yardım Hattı";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "VIP Lisans Programı";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "VIP Üyelik Programı";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP Üyeliği";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "Hoşgeldiniz ücretsiz paketi";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Özel misafir lisans programımıza hoş geldiniz!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "%@ 'Ye geçmek ister misiniz?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

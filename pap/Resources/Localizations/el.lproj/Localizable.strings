@@ -530,6 +530,10 @@
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Κάποιες επαφές σώθηκαν, αλλά κάποιοι δεν ήταν.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Ειδικό Πρόγραμμα Άδειας Χρήστη";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Ειδική Άδεια Χρήστη";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "τετράγωνο";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "Μείνετε μαζί μας";
+"Staying With Us" = "Μείνετε μαζί μας";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "υποβάλλουν";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "Χρήστης";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "Πρόγραμμα Άδειας VIP";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "VIP Πρόγραμμα Συμμετοχής";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP Σύνθεση";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "Καλώς ήρθατε στο Πακέτο Δωρεάν";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Καλώς ήρθατε στο πρόγραμμα ειδικών αδειών επισκέπτη!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "Θέλετε να μετακινηθείτε στο %@;";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

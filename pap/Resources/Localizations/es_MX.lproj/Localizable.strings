@@ -530,6 +530,10 @@
 "Size" = "Tamaño";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Algunos contactos se guardaron, pero algunos no.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Programa de licencia de invitado especial";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Licencia de invitado especial";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Cuadrado";
 /* Generated from genl10n: Stabilizer.swift */
@@ -549,7 +553,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Comenzando a revisar fotos editadas ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying with us" = "Quedarse con nosotros";
+"Staying With Us" = "Quedarse con nosotros";
 /* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
 "Submit" = "Enviar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -588,8 +592,8 @@
 "User" = "Usuario";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línea VIP";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#193 */
-"VIP License Program" = "Programa de licencia VIP";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "Programa de Membresía VIP";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "Membresía VIP";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
@@ -614,6 +618,8 @@
 "Welcome Free Pack" = "Bienvenido paquete gratuito";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Bienvenido a nuestro programa de licencia VIP.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Bienvenido a nuestro programa de licencia de invitado especial!";
 /* Generated from genl10n: Shop.StoreKit.swift#132 */
 "Would you like to move to %@?" = "¿Te gustaría moverte a %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

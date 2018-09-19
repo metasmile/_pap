@@ -484,7 +484,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if contactCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Staying with us".localized, detailedLabel: nil, describers: contactCellDescribers))
+            s.append(CellDescriberGroup(label: "Staying With Us".localized, detailedLabel: nil, describers: contactCellDescribers))
         }
 
         if informationOfUsetCellDescribers.count > 0{

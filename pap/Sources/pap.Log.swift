@@ -44,7 +44,7 @@ struct papLog: Loggable {
 
         static func restoredStorePayables(){ log() }
 
-        struct vip: Loggable {
+        struct scp: Loggable {
             static func activationStarted(){ log() }
             static func activationTimeout(){ log() }
 
