@@ -55,6 +55,14 @@ struct papLog: Loggable {
             static func accessGranted(recordName:String?){ log(parameters:["recordName": recordName ?? "nil"]) }
             static func accessError(){ log() }
         }
+
+        struct ads: Loggable{
+            static func offlineModeWarning(){ log() }
+            static func offlineModeDenied(){ log() }
+
+            static func movedToSettingsUnableReceivingAds(){ log() }
+            static func occurredShowedUnableReceivingAds(){ log() }
+        }
     }
 
     struct app: Loggable {

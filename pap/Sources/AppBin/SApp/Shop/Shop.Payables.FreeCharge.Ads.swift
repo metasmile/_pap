@@ -201,10 +201,13 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                     }
                 }
                 asyncSignal.waitUntilEnd()
+
+                papLog.charge.ads.offlineModeWarning()
                 return true
             }
 
             //Default actions is not allowed.
+            papLog.charge.ads.offlineModeDenied()
             return false
         }
 
@@ -235,27 +238,40 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                     paid = false
 
                     //INFO: No fill Error
-                    if let error = self.errorWhileLoadAd, error.domain.trimmed=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
-                        // alert -> end()
-                        var actions = [UIAlertAction]()
+                    if let error = self.errorWhileLoadAd{
 
-                        //INFO: if current is not ShopApp, present Deactivate option.
-                        if AppCenter.default.current != ShopApp.self{
-                            let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
-                                asyncSignal.end()
-                                AppCenter.default.openApp(identifier:ShopApp.info.identifier)
+                        // message required: alert -> end()
+                        if error.domain.trimmed=="com.google.ads" && error.code == GADErrorCode.noFill.rawValue{
+
+                            var actions = [UIAlertAction]()
+
+                            //INFO: if current is not ShopApp, present Deactivate option.
+                            if AppCenter.default.current != ShopApp.self{
+                                let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
+                                    asyncSignal.end()
+                                    papLog.charge.ads.movedToSettingsUnableReceivingAds()
+
+                                    AppCenter.default.openApp(identifier:ShopApp.info.identifier)
+                                }
+                                actions.append(goShopAppAction)
                             }
-                            actions.append(goShopAppAction)
+
+                            UIAlertController.alert("\("Please turn off following option, and reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking / 'Reset Advertising Identifier ...'"
+                                    , title: "An Error Occurred While Receiving Ads.".localized
+                                    , buttonTitle: "OK".localized
+                                    , actions: actions
+                                    , completion: { action in
+                                asyncSignal.end()
+                            })
+
+                            papLog.charge.ads.occurredShowedUnableReceivingAds()
+
+                        }else{
+                            // message not required
+                            asyncSignal.end()
                         }
 
-                        UIAlertController.alert("\("Please turn off following option, and reset advertising identifier in Settings. Then try again. ".localized)\n\n Settings > Privacy > Advertising > Limit Ad Tracking / 'Reset Advertising Identifier ...'"
-                                , title: "An Error Occurred While Receiving Ads.".localized
-                                , buttonTitle: "OK".localized
-                                , actions: actions
-                                , completion: { action in
-                                    asyncSignal.end()
-                                }
-                        )
+                        papLog.error.recordedError(error)
 
                     }else{
 
