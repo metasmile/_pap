@@ -289,7 +289,7 @@ extension RevertApp: IntentableApp {
             let openAppIntent = OpenRevertIntent()
             openAppIntent.appId = RevertApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Restoration"
+            openAppIntent.suggestedInvocationPhrase = "Open Restoration."
             return [openAppIntent]
         } else {
             return []

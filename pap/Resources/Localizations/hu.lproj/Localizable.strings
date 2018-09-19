@@ -402,6 +402,8 @@
 "Open %@" = "Nyitott %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Nyitott kamera.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Nyissa meg a Google Térképet";
 /* Generated from genl10n: Finder.BApp.swift#370 */
@@ -442,6 +444,8 @@
 "Preparing" = "Felkészülés";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Camera.SApp.swift */
+"Press The Shutter Button." = "Nyomja meg az Exponáló gombot.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Az árak tartalmazzák minden új alkalmazást és frissítést.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -566,8 +570,12 @@
 "Submit" = "beküldése";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Kapcsolja be az elrejteni kívánt elemeket. A minőség tökéletesen megmarad.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Vegyen egy élő fényképet.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Fotózd le";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Fotózd le.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Beépített kamerával";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */

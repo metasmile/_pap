@@ -402,6 +402,8 @@
 "Open %@" = "Otvorte %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorte Mapy Apple";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Otvorte fotoaparát.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Otvorte Mapy Google";
 /* Generated from genl10n: Finder.BApp.swift#370 */
@@ -442,6 +444,8 @@
 "Preparing" = "príprava";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Camera.SApp.swift */
+"Press The Shutter Button." = "Stlačte tlačidlo uzávierky.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Ceny zahŕňajú všetky nové aplikácie a aktualizácie.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -566,8 +570,12 @@
 "Submit" = "Predložiť";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita bude dokonale zostať rovnaká.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Odfoť";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Odfoť.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */

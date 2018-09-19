@@ -98,27 +98,27 @@ extension CameraApp: IntentableApp {
             openAppIntent.mode = .photo
             openAppIntent.appId = CameraApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Camera".localized
+            openAppIntent.suggestedInvocationPhrase = "Open Camera.".localized
             
             let takeAPhotoIntent = TakeAPhotoIntent()
             takeAPhotoIntent.appId = CameraApp.info.identifier
             takeAPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption.takePhoto.rawValue)
-            takeAPhotoIntent.suggestedInvocationPhrase = "Fire The Shutter".localized //TODO: run this intent while camera app is opened
+            takeAPhotoIntent.suggestedInvocationPhrase = "Press The Shutter Button.".localized //TODO: run this intent while camera app is opened
             
             let takeAStillPhotoIntent = TakeAPhotoIntent()
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAStillPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .stillPhoto]).rawValue)
-            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo".localized
+            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
             
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeALivePhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .livePhoto]).rawValue)
-            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo".localized
+            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
             
             return [openAppIntent, takeAPhotoIntent, takeAStillPhotoIntent, takeALivePhotoIntent]
         } else {

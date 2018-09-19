@@ -258,8 +258,6 @@
 "Finder" = "Finder";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
-/* Generated from genl10n: Camera.SApp.swift */
-"Fire The Shutter" = "Fire The Shutter";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
@@ -369,7 +367,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Camera.SApp.swift */
-"Open Camera" = "Open Camera";
+"Open Camera." = "Open Camera.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Google Maps" = "Open Google Maps";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -410,6 +408,8 @@
 "Preparing" = "Preparing";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Camera.SApp.swift */
+"Press The Shutter Button." = "Press The Shutter Button.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Prices Are Including Every New Apps and Updates." = "Prices Are Including Every New Apps and Updates.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -535,9 +535,11 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo" = "Take A Live Photo";
-/* Generated from genl10n: Camera.SApp.swift, PhoneCalls.BApp.swift, Finder.BApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Take A Photo" = "Take A Photo";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Taken With Built-in Camera";
 /* Generated from genl10n: Cleaner.BApp.swift */

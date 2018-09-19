@@ -402,6 +402,8 @@
 "Open %@" = "פתח את %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "מצלמה פתוחה.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "פתח את מפות Google";
 /* Generated from genl10n: Finder.BApp.swift#370 */
@@ -442,6 +444,8 @@
 "Preparing" = "מכין";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Camera.SApp.swift */
+"Press The Shutter Button." = "לחץ על לחצן התריס.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "המחירים כוללים כל אפליקציות חדשות ועדכונים.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -566,8 +570,12 @@
 "Submit" = "שלח";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "הפעל את כל הפריטים שברצונך להסתיר. האיכות תהיה מושלמת.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "צלם תמונה חיה.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "קח תמונה";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "קח תמונה.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "עם מצלמה מובנית";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */

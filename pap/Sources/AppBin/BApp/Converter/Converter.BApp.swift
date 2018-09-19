@@ -247,7 +247,7 @@ extension ConverterApp: IntentableApp {
             let openAppIntent = OpenConverterIntent()
             openAppIntent.appId = ConverterApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Converter"
+            openAppIntent.suggestedInvocationPhrase = "Open Converter."
             return [openAppIntent]
         } else {
             return []

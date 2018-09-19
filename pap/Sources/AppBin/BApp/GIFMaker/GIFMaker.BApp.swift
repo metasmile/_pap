@@ -840,7 +840,7 @@ extension GIFMakerApp: IntentableApp {
             let openAppIntent = OpenGIFMakerIntent()
             openAppIntent.appId = GIFMakerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: GIFMakerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open GIF Maker"
+            openAppIntent.suggestedInvocationPhrase = "Open GIF Maker."
             return [openAppIntent]
         } else {
             return []

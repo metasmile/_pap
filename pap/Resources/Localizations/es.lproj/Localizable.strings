@@ -402,6 +402,8 @@
 "Open %@" = "Abrir %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Abra los mapas de Apple";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Cámara abierta.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Abre Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
@@ -442,6 +444,8 @@
 "Preparing" = "Preparando";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
+/* Generated from genl10n: Camera.SApp.swift */
+"Press The Shutter Button." = "Presione el botón del obturador.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Los precios incluyen todas las nuevas aplicaciones y actualizaciones.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -566,8 +570,12 @@
 "Submit" = "Enviar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Enciende cualquier artículo que quieras esconder. La calidad seguirá siendo la misma.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Toma una foto en vivo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Toma una foto";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Toma una foto.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Tomado con cámara incorporada";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */

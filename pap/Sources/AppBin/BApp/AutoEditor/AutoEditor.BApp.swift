@@ -403,7 +403,7 @@ extension AutoEditorApp: IntentableApp {
             let openAppIntent = OpenAutoEditorIntent()
             openAppIntent.appId = AutoEditorApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: AutoEditorApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Auto Editor"
+            openAppIntent.suggestedInvocationPhrase = "Open Auto Editor."
             return [openAppIntent]
         } else {
             return []
