@@ -29,7 +29,7 @@ struct papTimeInterval{
             return 30
         }
 #endif
-        return 60*60*24*1
+        return 60*60*24*3
     }
 
     static var ofGADInterestialTypeBlockOfUses:TimeInterval{
