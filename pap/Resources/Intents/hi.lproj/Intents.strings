@@ -1,90 +1,90 @@
-"0Xykha" = "Open ${appName}";
-
-"0mLqsX" = "Open ${appName}";
-
-"1SD5Py" = "Open Phone Calls App";
-
-"1kqEcI" = "Open Rotation App";
-
-"4I4kgH" = "Open Camera";
-
-"4TosMR" = "Open ${appName}";
-
-"6TT4Gp" = "Open ${appName}";
-
-"AReNv5" = "Open Finder";
-
-"AW925e" = "Open Filters";
-
-"DcHSN1" = "Open ${appName}";
-
-"DckJin" = "Open Restoration";
-
-"EOxZtc" = "Let's take a photo";
-
-"FbRC9N" = "Take A Photo";
-
-"HYZy53" = "Open Camera To Take A Photo";
-
-"Jvx2bY" = "Take A Photo";
-
-"LjAsN8" = "Open Cleaner App";
-
-"QVrMHs" = "Open ${appName}";
-
-"RxtDNx" = "Open Converter App";
-
-"UCP0Dw" = "Open Photo Filters App";
-
-"ZrFxbp" = "Open EXIF Ghost App";
-
-"aQECqy" = "Open ${appName}";
-
-"cObTva" = "Open EXIF Ghost";
-
-"cOeR5u" = "Open ${appName}";
-
-"cyiLEU" = "Open Cleaner";
-
-"ewGyLx-ZbogxE" = "Take A Live Photo";
-
-"ewGyLx-yQLzJM" = "Take A Photo";
-
-"f8Abn1" = "Open Converter";
-
-"gFHyMK" = "Open ${appName}";
-
-"h99muL" = "Open Phone Calls";
-
-"i5NdZE" = "Open GIF Maker App";
-
-"ibaGsc" = "Open ${appName}";
-
-"jO8fwU" = "Open PDFactory App";
-
-"kiRcMc" = "Open Rotation";
-
-"klHFFj" = "Open Auto Editor";
-
-"lmZpL4" = "Open Restoration App";
-
-"n6SPLH" = "Open ${appName}";
-
-"nCro1h" = "Open ${appName}";
-
-"nsPloR" = "Open Finder App";
-
-"oGM42K" = "Open ${appName}";
-
-"oHEX05" = "Open ${appName}";
-
-"wmUAoj" = "Open Auto Editor App";
-
-"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
-
-"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
-
-"xxih1X" = "Open PDFactory";
-
-"zK6L2E" = "Open GIF Maker";
-
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "खुला ${appName}।";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "खुला ${appName}।";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "ओपन फोन कॉल ऐप।";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "ओपन रोटेशन ऐप।";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "कैमरा खोलो।";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "खुला ${appName}।";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "खुला ${appName}।";
+/*Translated from: Open Finder.*/
+"AReNv5" = "ओपन फाइंडर";
+/*Translated from: Open Filters.*/
+"AW925e" = "खुले फ़िल्टर";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "खुला ${appName}।";
+/*Translated from: Open Restoration.*/
+"DckJin" = "ओपन बहाली";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "कैमरा ऐप के साथ एक फोटो लें।";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "एक तस्वीर लें।";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "एक फोटो लेने के लिए खुला कैमरा।";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "एक तस्वीर लें।";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "ओपन क्लीनर ऐप।";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "खुला ${appName}।";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "ओपन कनवर्टर ऐप।";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "ओपन फोटो फ़िल्टर ऐप।";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "EXIF भूत ऐप खोलें।";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "खुला ${appName}।";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "EXIF भूत खोलें।";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "खुला ${appName}।";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "ओपन क्लीनर।";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "एक लाइव फोटो ले लो।";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "एक तस्वीर लें।";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "खुला कनवर्टर।";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "खुला ${appName}।";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "ओपन फोन कॉल";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "जीआईएफ निर्माता ऐप खोलें।";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "खुला ${appName}।";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "पीडीएफएक्टरी ऐप खोलें।";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "खुला रोटेशन।";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "ओपन ऑटो संपादक।";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "ओपन बहाली ऐप।";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "खुला ${appName}।";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "खुला ${appName}।";
+/*Translated from: Open Finder App.*/
+"nsPloR" = "ओपन फाइंडर ऐप।";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "खुला ${appName}।";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "खुला ${appName}।";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "ऑटो संपादक ऐप खोलें।";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "ठीक। अब आप एक लाइव फोटो ले सकते हैं।";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "ठीक। अब आप एक फोटो ले सकते हैं।";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "पीडीएफ फैक्टरी खोलें।";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "जीआईएफ निर्माता खोलें।";

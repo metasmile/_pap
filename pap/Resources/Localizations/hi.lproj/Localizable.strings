@@ -352,6 +352,8 @@
 "Landscape" = "परिदृश्य";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "ख़ाका";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "चलो एक फोटो लेते हैं।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "लाइव फोटो";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "तैयार कर रहे हैं";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रीसेट";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "शटर बटन दबाएं।";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "कीमतें हर नए ऐप और अपडेट्स सहित हैं।";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "पदोन्नति लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "पदोन्नति लाइसेंस";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "प्रचार उपयोगकर्ता";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "खरीद प्रबंधन";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "विशेष अतिथि लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "विशेष अतिथि लाइसेंस";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "विशेष अतिथि";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "उपयोग";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "उपयोगकर्ता समुदाय";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "उपयोगकर्ता";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

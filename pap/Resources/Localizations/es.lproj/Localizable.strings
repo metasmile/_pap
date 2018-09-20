@@ -352,6 +352,8 @@
 "Landscape" = "Paisaje";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Diseño";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Tomemos una foto.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Foto en vivo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "Preparando";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Presione el botón del obturador.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Los precios incluyen todas las nuevas aplicaciones y actualizaciones.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Programa de licencia de promoción";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Licencia de promoción";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Usuario de promoción";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Gestión de compras";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Programa de licencia de invitado especial";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Licencia de invitado especial";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Invitado especial";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Cuadrado";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Utilizar";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunidad de usuario";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "Usuario";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línea VIP";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

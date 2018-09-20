@@ -1,90 +1,90 @@
-/*Translated from: Open ${appName}*/
-"0Xykha" = "Nyitott ${appName}";
-/*Translated from: Open ${appName}*/
-"0mLqsX" = "Nyitott ${appName}";
-/*Translated from: Open Phone Calls App*/
-"1SD5Py" = "Nyissa meg a telefonhívásokat App";
-/*Translated from: Open Rotation App*/
-"1kqEcI" = "Nyissa meg a Rotation alkalmazást";
-/*Translated from: Open Camera*/
-"4I4kgH" = "Nyitott kamera";
-/*Translated from: Open ${appName}*/
-"4TosMR" = "Nyitott ${appName}";
-/*Translated from: Open ${appName}*/
-"6TT4Gp" = "Nyitott ${appName}";
-/*Translated from: Open Finder*/
-"AReNv5" = "Nyissa meg a keresőt";
-/*Translated from: Open Filters*/
-"AW925e" = "Nyissa meg a szűrőket";
-/*Translated from: Open ${appName}*/
-"DcHSN1" = "Nyitott ${appName}";
-/*Translated from: Open Restoration*/
-"DckJin" = "Szabad restaurálás";
-/*Translated from: Let's take a photo*/
-"EOxZtc" = "Vessünk egy fényképet";
-/*Translated from: Take A Photo*/
-"FbRC9N" = "Fotózd le";
-/*Translated from: Open Camera To Take A Photo*/
-"HYZy53" = "Nyissa meg a fényképezőgépet fénykép készítéséhez";
-/*Translated from: Take A Photo*/
-"Jvx2bY" = "Fotózd le";
-/*Translated from: Open Cleaner App*/
-"LjAsN8" = "Nyissa meg a Cleaner alkalmazást";
-/*Translated from: Open ${appName}*/
-"QVrMHs" = "Nyitott ${appName}";
-/*Translated from: Open Converter App*/
-"RxtDNx" = "Megnyitóalkalmazás";
-/*Translated from: Open Photo Filters App*/
-"UCP0Dw" = "Fotószűrők megnyitása App";
-/*Translated from: Open EXIF Ghost App*/
-"ZrFxbp" = "Nyissa meg az EXIF ​​Ghost App alkalmazást";
-/*Translated from: Open ${appName}*/
-"aQECqy" = "Nyitott ${appName}";
-/*Translated from: Open EXIF Ghost*/
-"cObTva" = "Nyissa meg az EXIF ​​Ghost programot";
-/*Translated from: Open ${appName}*/
-"cOeR5u" = "Nyitott ${appName}";
-/*Translated from: Open Cleaner*/
-"cyiLEU" = "Nyílt tisztító";
-/*Translated from: Take A Live Photo*/
-"ewGyLx-ZbogxE" = "Vegyen egy élő fényképet";
-/*Translated from: Take A Photo*/
-"ewGyLx-yQLzJM" = "Fotózd le";
-/*Translated from: Open Converter*/
-"f8Abn1" = "Nyitott átalakító";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Nyitott ${appName}";
-/*Translated from: Open Phone Calls*/
-"h99muL" = "Nyissa meg a telefonhívásokat";
-/*Translated from: Open GIF Maker App*/
-"i5NdZE" = "Nyissa meg a GIF Maker alkalmazást";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Nyitott ${appName}";
-/*Translated from: Open PDFactory App*/
-"jO8fwU" = "Nyissa meg a PDFactory alkalmazást";
-/*Translated from: Open Rotation*/
-"kiRcMc" = "Nyissa meg a Forgatást";
-/*Translated from: Open Auto Editor*/
-"klHFFj" = "Automatikus szerkesztő megnyitása";
-/*Translated from: Open Restoration App*/
-"lmZpL4" = "Nyitott Restaurálás App";
-/*Translated from: Open ${appName}*/
-"n6SPLH" = "Nyitott ${appName}";
-/*Translated from: Open ${appName}*/
-"nCro1h" = "Nyitott ${appName}";
-/*Translated from: Open Finder App*/
-"nsPloR" = "Nyissa meg a keresőalkalmazást";
-/*Translated from: Open ${appName}*/
-"oGM42K" = "Nyitott ${appName}";
-/*Translated from: Open ${appName}*/
-"oHEX05" = "Nyitott ${appName}";
-/*Translated from: Open Auto Editor App*/
-"wmUAoj" = "Nyissa meg az Automatikus szerkesztő alkalmazást";
-/*Translated from: OK. You can take a Live Photo now*/
-"xwyqoh-ZbogxE" = "RENDBEN. Most készíthet egy élő fényképet";
-/*Translated from: OK. You can take a Photo now*/
-"xwyqoh-yQLzJM" = "RENDBEN. Most készíthet fényképet";
-/*Translated from: Open PDFactory*/
-"xxih1X" = "Nyissa meg a PDFactory programot";
-/*Translated from: Open GIF Maker*/
-"zK6L2E" = "Nyissa meg a GIF-készítőt";
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "Nyissa meg ${appName}.";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "Nyissa meg ${appName}.";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "Nyissa meg a telefonhívásokat App.";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "Nyissa meg a Rotation alkalmazást.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "Nyitott kamera.";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "Nyissa meg ${appName}.";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "Nyissa meg ${appName}.";
+/*Translated from: Open Finder.*/
+"AReNv5" = "Nyissa meg a keresőt.";
+/*Translated from: Open Filters.*/
+"AW925e" = "Nyissa meg a szűrőket.";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "Nyissa meg ${appName}.";
+/*Translated from: Open Restoration.*/
+"DckJin" = "Szabad restaurálás.";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "Vegyél egy fotót a Camera alkalmazással.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "Fotózd le.";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "Nyissa meg a fényképezőgépet fénykép készítéséhez.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "Fotózd le.";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "Nyissa meg a Cleaner alkalmazást.";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "Nyissa meg ${appName}.";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "Megnyitóalkalmazás.";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "Fotószűrők megnyitása App.";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "Nyissa meg az EXIF ​​Ghost App alkalmazást.";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "Nyissa meg ${appName}.";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "Nyissa meg az EXIF ​​Ghost programot.";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "Nyissa meg ${appName}.";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "Nyílt tisztító.";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "Vegyen egy élő fényképet.";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "Fotózd le.";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "Nyitott átalakító.";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "Nyissa meg ${appName}.";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "Nyissa meg a telefonhívásokat.";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "Nyissa meg a GIF Maker alkalmazást.";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "Nyissa meg ${appName}.";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "Nyissa meg a PDFactory alkalmazást.";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "Nyissa meg a Forgatást.";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "Automatikus szerkesztő megnyitása.";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "Nyitott Restaurálás App.";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "Nyissa meg ${appName}.";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "Nyissa meg ${appName}.";
+/*Translated from: Open Finder App.*/
+"nsPloR" = "Nyissa meg a keresőalkalmazást.";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "Nyissa meg ${appName}.";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "Nyissa meg ${appName}.";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "Nyissa meg az Automatikus szerkesztő alkalmazást.";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "RENDBEN. Most készíthet egy élő fényképet.";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "RENDBEN. Most készíthet fényképet.";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "Nyissa meg a PDFactory programot.";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "Nyissa meg a GIF-készítőt.";

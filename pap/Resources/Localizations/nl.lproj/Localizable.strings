@@ -352,6 +352,8 @@
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Lay-out";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Laten we een foto maken.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live foto";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "voorbereidingen treffen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Druk op de sluiterknop.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Prijzen zijn inclusief alle nieuwe apps en updates.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Promotie Licentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Promotielicentie";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promotie Gebruiker";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Aankoopbeheer";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Speciaal gastlicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Speciale gastlicentie";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Speciale gast";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Gebruik";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Gebruikerscommunity";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "Gebruiker";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

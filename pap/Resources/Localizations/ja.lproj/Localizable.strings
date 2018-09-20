@@ -352,6 +352,8 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "写真を撮りましょう。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "プリセット";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "シャッターボタンを押します。";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "価格には新しいアプリやアップデートがすべて含まれています。";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "プロモーションライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "プロモーションライセンス";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "プロモーションユーザー";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "購入管理";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "特別ゲストライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "スペシャルゲストライセンス";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "特別ゲスト";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "正方形";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "ユーザーコミュニティ";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "ユーザー";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

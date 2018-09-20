@@ -352,6 +352,8 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Oppsett";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "La oss ta et bilde.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "Forbereder";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Trykk lukkerknappen.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Prisene inkluderer alle nye apper og oppdateringer.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Promotion License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Opprykkslisens";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promotion Bruker";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Kjøpsstyring";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Spesielt gjestelisensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Spesiell gjestelisens";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Spesiell gjest";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Torget";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Bruk";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Bruker fellesskap";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "Bruker";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

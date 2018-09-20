@@ -352,6 +352,8 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "نسق";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "لنأخذ صورة";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "خطة";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "المسبقة";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "اضغط على زر المصراع.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "الأسعار تشمل كل التطبيقات والتحديثات الجديدة.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "برنامج ترخيص الترقية";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "رخصة الترويج";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "تعزيز المستخدم";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "إدارة شراء";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "برنامج ترخيص الضيف الخاص";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "رخصة ضيف خاص";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "ضيف مميز";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "استعمال";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "مجتمع المستخدم";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "المستعمل";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "خط ساخن لكبار الشخصيات";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

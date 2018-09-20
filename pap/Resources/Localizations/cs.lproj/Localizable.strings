@@ -352,6 +352,8 @@
 "Landscape" = "Krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Rozvržení";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Pojďme si vzít fotografii.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "Připravuje se";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Předvolby";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Stiskněte tlačítko závěrky.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Ceny zahrnují všechny nové aplikace a aktualizace.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Program propagační licence";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Propagační licence";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Uživatel propagace";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Řízení nákupu";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Zvláštní program pro hosty";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Zvláštní licence pro hosty";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Speciální host";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Použití";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komunita uživatelů";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "Uživatel";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

@@ -352,6 +352,8 @@
 "Landscape" = "가로";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "사진을 찍어 봅시다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "준비 중";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "프리셋";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "셔터 버튼을 누릅니다.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "가격에는 새로운 앱 및 업데이트가 모두 포함됩니다.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "프로모션 라이선스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "프로모션 라이선스";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "프로모션 사용자";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "구입 관리";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "특별 게스트 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "특별 게스트 라이센스";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "특별 손님";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "용도";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "사용자 커뮤니티";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "사용자";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

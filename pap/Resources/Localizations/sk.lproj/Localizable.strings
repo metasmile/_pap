@@ -352,6 +352,8 @@
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "dispozície";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Poďme urobiť fotku.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "príprava";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Stlačte tlačidlo uzávierky.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Ceny zahŕňajú všetky nové aplikácie a aktualizácie.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Program propagačných licencií";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Licencia na propagáciu";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Používateľ propagácie";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Správa nákupu";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Špeciálny program pre hosťujúcich licencií";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Špeciálna licencia pre hosťa";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Špeciálny hosť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Námestie";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "použitie";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komunita používateľa";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "užívateľ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

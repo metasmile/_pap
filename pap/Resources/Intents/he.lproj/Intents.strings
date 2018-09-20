@@ -1,90 +1,90 @@
-/*Translated from: Open ${appName}*/
-"0Xykha" = "פתח את ${appName}";
-/*Translated from: Open ${appName}*/
-"0mLqsX" = "פתח את ${appName}";
-/*Translated from: Open Phone Calls App*/
-"1SD5Py" = "פתח את היישום 'שיחות טלפון'";
-/*Translated from: Open Rotation App*/
-"1kqEcI" = "פתח סיבוב App";
-/*Translated from: Open Camera*/
-"4I4kgH" = "מצלמה פתוחה";
-/*Translated from: Open ${appName}*/
-"4TosMR" = "פתח את ${appName}";
-/*Translated from: Open ${appName}*/
-"6TT4Gp" = "פתח את ${appName}";
-/*Translated from: Open Finder*/
-"AReNv5" = "פתח את Finder";
-/*Translated from: Open Filters*/
-"AW925e" = "פתח מסננים";
-/*Translated from: Open ${appName}*/
-"DcHSN1" = "פתח את ${appName}";
-/*Translated from: Open Restoration*/
-"DckJin" = "פתח שחזור";
-/*Translated from: Let's take a photo*/
-"EOxZtc" = "בואו ניקח תמונה";
-/*Translated from: Take A Photo*/
-"FbRC9N" = "קח תמונה";
-/*Translated from: Open Camera To Take A Photo*/
-"HYZy53" = "פתח מצלמה לצילום תמונה";
-/*Translated from: Take A Photo*/
-"Jvx2bY" = "קח תמונה";
-/*Translated from: Open Cleaner App*/
-"LjAsN8" = "פתח מנקה App";
-/*Translated from: Open ${appName}*/
-"QVrMHs" = "פתח את ${appName}";
-/*Translated from: Open Converter App*/
-"RxtDNx" = "פתח ממיר App";
-/*Translated from: Open Photo Filters App*/
-"UCP0Dw" = "פתח תמונה מסננים App";
-/*Translated from: Open EXIF Ghost App*/
-"ZrFxbp" = "פתח Exif Ghost App";
-/*Translated from: Open ${appName}*/
-"aQECqy" = "פתח את ${appName}";
-/*Translated from: Open EXIF Ghost*/
-"cObTva" = "פתח את EXIF ​​Ghost";
-/*Translated from: Open ${appName}*/
-"cOeR5u" = "פתח את ${appName}";
-/*Translated from: Open Cleaner*/
-"cyiLEU" = "פתח את 'מנקה'";
-/*Translated from: Take A Live Photo*/
-"ewGyLx-ZbogxE" = "צלם תמונה חיה";
-/*Translated from: Take A Photo*/
-"ewGyLx-yQLzJM" = "קח תמונה";
-/*Translated from: Open Converter*/
-"f8Abn1" = "ממיר פתוח";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "פתח את ${appName}";
-/*Translated from: Open Phone Calls*/
-"h99muL" = "פתח שיחות טלפון";
-/*Translated from: Open GIF Maker App*/
-"i5NdZE" = "פתח את היישום GIF Maker";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "פתח את ${appName}";
-/*Translated from: Open PDFactory App*/
-"jO8fwU" = "פתח PDFactory App";
-/*Translated from: Open Rotation*/
-"kiRcMc" = "פתח סיבוב";
-/*Translated from: Open Auto Editor*/
-"klHFFj" = "פתח את 'עורך אוטומטי'";
-/*Translated from: Open Restoration App*/
-"lmZpL4" = "פתח את יישום השחזור";
-/*Translated from: Open ${appName}*/
-"n6SPLH" = "פתח את ${appName}";
-/*Translated from: Open ${appName}*/
-"nCro1h" = "פתח את ${appName}";
-/*Translated from: Open Finder App*/
-"nsPloR" = "פתח את היישום Finder";
-/*Translated from: Open ${appName}*/
-"oGM42K" = "פתח את ${appName}";
-/*Translated from: Open ${appName}*/
-"oHEX05" = "פתח את ${appName}";
-/*Translated from: Open Auto Editor App*/
-"wmUAoj" = "פתח את היישום 'עורך אוטומטי'";
-/*Translated from: OK. You can take a Live Photo now*/
-"xwyqoh-ZbogxE" = "בסדר. כעת תוכל לצלם תמונה חיה";
-/*Translated from: OK. You can take a Photo now*/
-"xwyqoh-yQLzJM" = "בסדר. אתה יכול לצלם עכשיו";
-/*Translated from: Open PDFactory*/
-"xxih1X" = "פתח את PDFactory";
-/*Translated from: Open GIF Maker*/
-"zK6L2E" = "פתח את GIF Maker";
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "פתח את ${appName}.";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "פתח את ${appName}.";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "פתח את היישום 'שיחות טלפון'.";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "פתח סיבוב App.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "מצלמה פתוחה.";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "פתח את ${appName}.";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "פתח את ${appName}.";
+/*Translated from: Open Finder.*/
+"AReNv5" = "פתח את Finder.";
+/*Translated from: Open Filters.*/
+"AW925e" = "פתח מסננים.";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "פתח את ${appName}.";
+/*Translated from: Open Restoration.*/
+"DckJin" = "פתח שחזור.";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "צלם תמונה עם יישום המצלמה.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "קח תמונה.";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "פתח מצלמה לצילום תמונה.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "קח תמונה.";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "פתח מנקה App.";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "פתח את ${appName}.";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "פתח ממיר App.";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "פתח תמונה מסננים App.";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "פתח Exif Ghost App.";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "פתח את ${appName}.";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "פתח את EXIF ​​Ghost.";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "פתח את ${appName}.";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "פתח את 'מנקה'.";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "צלם תמונה חיה.";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "קח תמונה.";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "ממיר פתוח.";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "פתח את ${appName}.";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "פתח שיחות טלפון.";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "פתח את היישום GIF Maker.";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "פתח את ${appName}.";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "פתח PDFactory App.";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "פתח סיבוב.";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "פתח את 'עורך אוטומטי'.";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "פתח את יישום השחזור.";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "פתח את ${appName}.";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "פתח את ${appName}.";
+/*Translated from: Open Finder App.*/
+"nsPloR" = "פתח את היישום Finder.";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "פתח את ${appName}.";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "פתח את ${appName}.";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "פתח את היישום 'עורך אוטומטי'.";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "בסדר. כעת תוכל לצלם תמונה חיה.";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "בסדר. אתה יכול לצלם עכשיו.";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "פתח את PDFactory.";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "פתח את GIF Maker.";

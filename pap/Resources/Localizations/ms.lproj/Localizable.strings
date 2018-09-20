@@ -352,6 +352,8 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Mari ambil gambar.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "Bersedia";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Pratetap";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Tekan butang pengatup.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Harga Termasuk Setiap Aplikasi dan Kemas Kini Baru.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Program Lesen Promosi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Lesen Promosi";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Pengguna Promosi";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Pengurusan Pembelian";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Program Lesen Tetamu Khas";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Lesen Tetamu Khas";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Tetamu istimewa";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Gunakan";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komuniti Pengguna";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "Pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

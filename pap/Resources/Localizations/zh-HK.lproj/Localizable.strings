@@ -298,6 +298,8 @@
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#112 */
 "Layout" = "佈局";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "我們拍張照吧。";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
@@ -390,8 +392,6 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "預置";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "按快門按鈕。";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "價格包括每個新的應用程序和更新。";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -404,6 +404,8 @@
 "Promotion License Program" = "促銷許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "促銷許可證";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "推廣用戶";
 /* Generated from genl10n: Shop.SApp.swift#256 */
 "Purchase Management" = "採購管理";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -492,6 +494,8 @@
 "Special Guest License Program" = "特別來賓許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "特邀嘉賓許可證";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "特邀嘉賓";
 /* Generated from genl10n: GIFMaker.BApp.swift#108 */
 "Square" = "廣場";
 /* Generated from genl10n: Stabilizer.swift#393 */
@@ -550,8 +554,6 @@
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#612 */
 "User Community" = "用戶社區";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "用戶";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

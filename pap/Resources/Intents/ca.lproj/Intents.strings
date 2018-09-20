@@ -1,90 +1,90 @@
-"0Xykha" = "Open ${appName}";
-
-"0mLqsX" = "Open ${appName}";
-
-"1SD5Py" = "Open Phone Calls App";
-
-"1kqEcI" = "Open Rotation App";
-
-"4I4kgH" = "Open Camera";
-
-"4TosMR" = "Open ${appName}";
-
-"6TT4Gp" = "Open ${appName}";
-
-"AReNv5" = "Open Finder";
-
-"AW925e" = "Open Filters";
-
-"DcHSN1" = "Open ${appName}";
-
-"DckJin" = "Open Restoration";
-
-"EOxZtc" = "Let's take a photo";
-
-"FbRC9N" = "Take A Photo";
-
-"HYZy53" = "Open Camera To Take A Photo";
-
-"Jvx2bY" = "Take A Photo";
-
-"LjAsN8" = "Open Cleaner App";
-
-"QVrMHs" = "Open ${appName}";
-
-"RxtDNx" = "Open Converter App";
-
-"UCP0Dw" = "Open Photo Filters App";
-
-"ZrFxbp" = "Open EXIF Ghost App";
-
-"aQECqy" = "Open ${appName}";
-
-"cObTva" = "Open EXIF Ghost";
-
-"cOeR5u" = "Open ${appName}";
-
-"cyiLEU" = "Open Cleaner";
-
-"ewGyLx-ZbogxE" = "Take A Live Photo";
-
-"ewGyLx-yQLzJM" = "Take A Photo";
-
-"f8Abn1" = "Open Converter";
-
-"gFHyMK" = "Open ${appName}";
-
-"h99muL" = "Open Phone Calls";
-
-"i5NdZE" = "Open GIF Maker App";
-
-"ibaGsc" = "Open ${appName}";
-
-"jO8fwU" = "Open PDFactory App";
-
-"kiRcMc" = "Open Rotation";
-
-"klHFFj" = "Open Auto Editor";
-
-"lmZpL4" = "Open Restoration App";
-
-"n6SPLH" = "Open ${appName}";
-
-"nCro1h" = "Open ${appName}";
-
-"nsPloR" = "Open Finder App";
-
-"oGM42K" = "Open ${appName}";
-
-"oHEX05" = "Open ${appName}";
-
-"wmUAoj" = "Open Auto Editor App";
-
-"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
-
-"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
-
-"xxih1X" = "Open PDFactory";
-
-"zK6L2E" = "Open GIF Maker";
-
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "Obre ${appName}.";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "Obre ${appName}.";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "Obre l'aplicació de trucades telefòniques.";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "Aplicació de rotació oberta.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "Càmera oberta.";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "Obre ${appName}.";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "Obre ${appName}.";
+/*Translated from: Open Finder.*/
+"AReNv5" = "Cercador obert.";
+/*Translated from: Open Filters.*/
+"AW925e" = "Filtres oberts.";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "Obre ${appName}.";
+/*Translated from: Open Restoration.*/
+"DckJin" = "Restauració oberta.";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "Feu una foto amb l'aplicació Càmera.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "Fer una foto.";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "Obre la càmera per fer una foto.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "Fer una foto.";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "Aplicació Open Cleaner.";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "Obre ${appName}.";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "Aplicació Open Converter.";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "Obre l'aplicació de filtres de fotos.";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "Obriu l'aplicació EXIF ​​Ghost.";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "Obre ${appName}.";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "Obriu el fantasma EXIF.";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "Obre ${appName}.";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "Open Cleaner.";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "Prengui una foto en viu.";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "Fer una foto.";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "Convertidor obert.";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "Obre ${appName}.";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "Obre trucades telefòniques.";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "Obre l'aplicació del fabricant de GIF.";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "Obre ${appName}.";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "Obre l'aplicació de PDF.";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "Rotació oberta.";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "Obre editor automàtic.";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "Aplicació de restauració oberta.";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "Obre ${appName}.";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "Obre ${appName}.";
+/*Translated from: Open Finder App.*/
+"nsPloR" = "Obriu l'aplicació del cercador.";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "Obre ${appName}.";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "Obre ${appName}.";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "Obre l'aplicació de l'editor automàtic.";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "D'ACORD. Podeu fer una foto en directe ara.";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "D'ACORD. Podeu fer una foto ara.";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "Obriu PDFactory.";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "Obriu el fabricant de GIF.";

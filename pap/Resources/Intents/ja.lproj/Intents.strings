@@ -1,90 +1,90 @@
-/*Translated from: Open ${appName}*/
-"0Xykha" = "${appName}を開く";
-/*Translated from: Open ${appName}*/
-"0mLqsX" = "${appName}を開く";
-/*Translated from: Open Phone Calls App*/
-"1SD5Py" = "電話コールアプリを開く";
-/*Translated from: Open Rotation App*/
-"1kqEcI" = "ローテーションアプリケーションを開く";
-/*Translated from: Open Camera*/
-"4I4kgH" = "オープンカメラ";
-/*Translated from: Open ${appName}*/
-"4TosMR" = "${appName}を開く";
-/*Translated from: Open ${appName}*/
-"6TT4Gp" = "${appName}を開く";
-/*Translated from: Open Finder*/
-"AReNv5" = "オープンファインダー";
-/*Translated from: Open Filters*/
-"AW925e" = "オープンフィルタ";
-/*Translated from: Open ${appName}*/
-"DcHSN1" = "${appName}を開く";
-/*Translated from: Open Restoration*/
-"DckJin" = "開いた修復";
-/*Translated from: Let's take a photo*/
-"EOxZtc" = "写真を撮りましょう";
-/*Translated from: Take A Photo*/
-"FbRC9N" = "写真を撮る";
-/*Translated from: Open Camera To Take A Photo*/
-"HYZy53" = "カメラを開いて写真を撮る";
-/*Translated from: Take A Photo*/
-"Jvx2bY" = "写真を撮る";
-/*Translated from: Open Cleaner App*/
-"LjAsN8" = "オープンクリーナーアプリケーション";
-/*Translated from: Open ${appName}*/
-"QVrMHs" = "${appName}を開く";
-/*Translated from: Open Converter App*/
-"RxtDNx" = "オープンコンバーターアプリ";
-/*Translated from: Open Photo Filters App*/
-"UCP0Dw" = "写真フィルターアプリケーションを開く";
-/*Translated from: Open EXIF Ghost App*/
-"ZrFxbp" = "EXIF Ghost Appを開く";
-/*Translated from: Open ${appName}*/
-"aQECqy" = "${appName}を開く";
-/*Translated from: Open EXIF Ghost*/
-"cObTva" = "EXIFゴーストを開く";
-/*Translated from: Open ${appName}*/
-"cOeR5u" = "${appName}を開く";
-/*Translated from: Open Cleaner*/
-"cyiLEU" = "オープンクリーナー";
-/*Translated from: Take A Live Photo*/
-"ewGyLx-ZbogxE" = "ライブ写真を撮る";
-/*Translated from: Take A Photo*/
-"ewGyLx-yQLzJM" = "写真を撮る";
-/*Translated from: Open Converter*/
-"f8Abn1" = "オープンコンバータ";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "${appName}を開く";
-/*Translated from: Open Phone Calls*/
-"h99muL" = "電話を開く";
-/*Translated from: Open GIF Maker App*/
-"i5NdZE" = "Open GIF Maker App";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "${appName}を開く";
-/*Translated from: Open PDFactory App*/
-"jO8fwU" = "PDFactoryアプリケーションを開く";
-/*Translated from: Open Rotation*/
-"kiRcMc" = "オープンローテーション";
-/*Translated from: Open Auto Editor*/
-"klHFFj" = "オープンオートエディタ";
-/*Translated from: Open Restoration App*/
-"lmZpL4" = "開いた修復アプリ";
-/*Translated from: Open ${appName}*/
-"n6SPLH" = "${appName}を開く";
-/*Translated from: Open ${appName}*/
-"nCro1h" = "${appName}を開く";
-/*Translated from: Open Finder App*/
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "${appName}を開きます。";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "${appName}を開きます。";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "電話コールアプリを開く。";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "オープンローテーションアプリケーション。";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "オープンカメラ。";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "${appName}を開きます。";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "${appName}を開きます。";
+/*Translated from: Open Finder.*/
+"AReNv5" = "Finderを開きます。";
+/*Translated from: Open Filters.*/
+"AW925e" = "オープンフィルタ。";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "${appName}を開きます。";
+/*Translated from: Open Restoration.*/
+"DckJin" = "オープンレストレーション。";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "カメラアプリで写真を撮ってください。";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "写真を撮る。";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "カメラを開いて写真を撮る。";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "写真を撮る。";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "オープンクリーナーアプリケーション。";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "${appName}を開きます。";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "オープンコンバーターアプリ。";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "写真フィルターを開くアプリケーション。";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "EXIFゴーストアプリケーションを開きます。";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "${appName}を開きます。";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "EXIFゴーストを開きます。";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "${appName}を開きます。";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "オープンクリーナー。";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "ライブ写真を撮る。";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "写真を撮る。";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "オープンコンバータ。";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "${appName}を開きます。";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "電話を開く。";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "GIF Maker Appを開きます。";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "${appName}を開きます。";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "PDFactoryアプリケーションを開きます。";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "オープンローテーション。";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "自動エディタを開きます。";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "オープンリスティングアプリ。";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "${appName}を開きます。";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "${appName}を開きます。";
+/*Translated from: Open Finder App.*/
 "nsPloR" = "Finderアプリケーションを開く";
-/*Translated from: Open ${appName}*/
-"oGM42K" = "${appName}を開く";
-/*Translated from: Open ${appName}*/
-"oHEX05" = "${appName}を開く";
-/*Translated from: Open Auto Editor App*/
-"wmUAoj" = "自動エディタアプリケーションを開く";
-/*Translated from: OK. You can take a Live Photo now*/
-"xwyqoh-ZbogxE" = "OK。今すぐライブ写真を撮ることができます";
-/*Translated from: OK. You can take a Photo now*/
-"xwyqoh-yQLzJM" = "OK。今すぐ写真を撮ることができます";
-/*Translated from: Open PDFactory*/
-"xxih1X" = "PDFactoryを開く";
-/*Translated from: Open GIF Maker*/
-"zK6L2E" = "オープンGIFメーカー";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "${appName}を開きます。";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "${appName}を開きます。";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "自動エディタアプリケーションを開きます。";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "OK。今すぐライブ写真を撮ることができます。";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "OK。今すぐ写真を撮ることができます。";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "PDFactoryを開きます。";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "オープンGIFメーカー。";

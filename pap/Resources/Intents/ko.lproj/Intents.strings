@@ -1,90 +1,90 @@
-/*Translated from: Open ${appName}*/
-"0Xykha" = "${appName} 열기";
-/*Translated from: Open ${appName}*/
-"0mLqsX" = "${appName} 열기";
-/*Translated from: Open Phone Calls App*/
-"1SD5Py" = "전화 통화 앱 열기";
-/*Translated from: Open Rotation App*/
-"1kqEcI" = "열린 로테이션 앱";
-/*Translated from: Open Camera*/
-"4I4kgH" = "오픈 카메라";
-/*Translated from: Open ${appName}*/
-"4TosMR" = "${appName} 열기";
-/*Translated from: Open ${appName}*/
-"6TT4Gp" = "${appName} 열기";
-/*Translated from: Open Finder*/
-"AReNv5" = "오픈 파인더";
-/*Translated from: Open Filters*/
-"AW925e" = "열린 필터";
-/*Translated from: Open ${appName}*/
-"DcHSN1" = "${appName} 열기";
-/*Translated from: Open Restoration*/
-"DckJin" = "열린 복원";
-/*Translated from: Let's take a photo*/
-"EOxZtc" = "사진 찍자.";
-/*Translated from: Take A Photo*/
-"FbRC9N" = "사진을 찍다";
-/*Translated from: Open Camera To Take A Photo*/
-"HYZy53" = "카메라를 열어 사진 찍기";
-/*Translated from: Take A Photo*/
-"Jvx2bY" = "사진을 찍다";
-/*Translated from: Open Cleaner App*/
-"LjAsN8" = "클리너 앱 열기";
-/*Translated from: Open ${appName}*/
-"QVrMHs" = "${appName} 열기";
-/*Translated from: Open Converter App*/
-"RxtDNx" = "Open Converter 앱";
-/*Translated from: Open Photo Filters App*/
-"UCP0Dw" = "사진 필터 응용 프로그램 열기";
-/*Translated from: Open EXIF Ghost App*/
-"ZrFxbp" = "EXIF Ghost App 열기";
-/*Translated from: Open ${appName}*/
-"aQECqy" = "${appName} 열기";
-/*Translated from: Open EXIF Ghost*/
-"cObTva" = "EXIF Ghost 열기";
-/*Translated from: Open ${appName}*/
-"cOeR5u" = "${appName} 열기";
-/*Translated from: Open Cleaner*/
-"cyiLEU" = "오픈 클리너";
-/*Translated from: Take A Live Photo*/
-"ewGyLx-ZbogxE" = "라이브 사진 찍기";
-/*Translated from: Take A Photo*/
-"ewGyLx-yQLzJM" = "사진을 찍다";
-/*Translated from: Open Converter*/
-"f8Abn1" = "오픈 컨버터";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "${appName} 열기";
-/*Translated from: Open Phone Calls*/
-"h99muL" = "전화 걸기";
-/*Translated from: Open GIF Maker App*/
-"i5NdZE" = "GIF Maker 앱 열기";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "${appName} 열기";
-/*Translated from: Open PDFactory App*/
-"jO8fwU" = "PDFactory 앱 열기";
-/*Translated from: Open Rotation*/
-"kiRcMc" = "열린 회전";
-/*Translated from: Open Auto Editor*/
-"klHFFj" = "자동 편집기 열기";
-/*Translated from: Open Restoration App*/
-"lmZpL4" = "오픈 복원 응용 프로그램";
-/*Translated from: Open ${appName}*/
-"n6SPLH" = "${appName} 열기";
-/*Translated from: Open ${appName}*/
-"nCro1h" = "${appName} 열기";
-/*Translated from: Open Finder App*/
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "${appName}을 여십시오.";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "${appName}을 여십시오.";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "전화 통화 앱을 엽니다.";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "열린 로테이션 앱.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "오픈 카메라.";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "${appName}을 여십시오.";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "${appName}을 여십시오.";
+/*Translated from: Open Finder.*/
+"AReNv5" = "Finder를 엽니다.";
+/*Translated from: Open Filters.*/
+"AW925e" = "필터 열기.";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "${appName}을 여십시오.";
+/*Translated from: Open Restoration.*/
+"DckJin" = "열린 복원.";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "카메라 앱으로 사진을 찍으십시오.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "사진을 찍다.";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "카메라를 열어 사진을 찍으십시오.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "사진 찍기.";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "클리너 응용 프로그램을 엽니다.";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "${appName}을 여십시오.";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "오픈 변환기 응용 프로그램.";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "사진 필터 열기 앱.";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "EXIF Ghost App을 엽니다.";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "${appName}을 여십시오.";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "EXIF Ghost를 엽니다.";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "${appName}을 여십시오.";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "클리너를 엽니다.";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "라이브 사진 찍기.";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "사진을 찍다.";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "변환기 열기.";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "${appName}을 여십시오.";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "전화 통화를 엽니다.";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "GIF Maker 앱을 엽니다.";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "${appName}을 여십시오.";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "PDFactory 응용 프로그램을 엽니다.";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "회전 열기.";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "자동 편집기를 엽니다.";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "오픈 복원 응용 프로그램.";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "${appName}을 여십시오.";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "${appName}을 여십시오.";
+/*Translated from: Open Finder App.*/
 "nsPloR" = "Finder 앱 열기";
-/*Translated from: Open ${appName}*/
-"oGM42K" = "${appName} 열기";
-/*Translated from: Open ${appName}*/
-"oHEX05" = "${appName} 열기";
-/*Translated from: Open Auto Editor App*/
-"wmUAoj" = "자동 편집기 앱 열기";
-/*Translated from: OK. You can take a Live Photo now*/
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "${appName}을 여십시오.";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "${appName}을 여십시오.";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "자동 편집 프로그램 열기.";
+/*Translated from: OK. You can take a Live Photo now.*/
 "xwyqoh-ZbogxE" = "승인. 지금 라이브 사진을 찍을 수 있습니다.";
-/*Translated from: OK. You can take a Photo now*/
+/*Translated from: OK. You can take a Photo now.*/
 "xwyqoh-yQLzJM" = "승인. 지금 사진을 찍을 수 있습니다.";
-/*Translated from: Open PDFactory*/
-"xxih1X" = "PDFactory 열기";
-/*Translated from: Open GIF Maker*/
-"zK6L2E" = "Open GIF Maker";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "PDFactory를여십시오.";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "GIF Maker를 엽니다.";

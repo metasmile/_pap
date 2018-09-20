@@ -1,90 +1,90 @@
-/*Translated from: Open ${appName}*/
-"0Xykha" = "${appName} Açık";
-/*Translated from: Open ${appName}*/
-"0mLqsX" = "${appName} Açık";
-/*Translated from: Open Phone Calls App*/
-"1SD5Py" = "Açık Telefon Görüşmeleri App";
-/*Translated from: Open Rotation App*/
-"1kqEcI" = "Açık Döndürme Uygulaması";
-/*Translated from: Open Camera*/
-"4I4kgH" = "Kamerayı aç";
-/*Translated from: Open ${appName}*/
-"4TosMR" = "${appName} Açık";
-/*Translated from: Open ${appName}*/
-"6TT4Gp" = "${appName} Açık";
-/*Translated from: Open Finder*/
-"AReNv5" = "Açık Bulucu";
-/*Translated from: Open Filters*/
-"AW925e" = "Filtreleri aç";
-/*Translated from: Open ${appName}*/
-"DcHSN1" = "${appName} Açık";
-/*Translated from: Open Restoration*/
-"DckJin" = "Açık Restorasyon";
-/*Translated from: Let's take a photo*/
-"EOxZtc" = "Bir fotoğraf çekelim";
-/*Translated from: Take A Photo*/
-"FbRC9N" = "Fotoğraf çekmek";
-/*Translated from: Open Camera To Take A Photo*/
-"HYZy53" = "Fotoğraf çekmek için kamera açın";
-/*Translated from: Take A Photo*/
-"Jvx2bY" = "Fotoğraf çekmek";
-/*Translated from: Open Cleaner App*/
-"LjAsN8" = "Açık Temizleyici Uygulaması";
-/*Translated from: Open ${appName}*/
-"QVrMHs" = "${appName} Açık";
-/*Translated from: Open Converter App*/
-"RxtDNx" = "Dönüştürücü Uygulamasını Aç";
-/*Translated from: Open Photo Filters App*/
-"UCP0Dw" = "Fotoğraf Filtreleri Uygulamasını Aç";
-/*Translated from: Open EXIF Ghost App*/
-"ZrFxbp" = "EXIF Ghost uygulamasını aç";
-/*Translated from: Open ${appName}*/
-"aQECqy" = "${appName} Açık";
-/*Translated from: Open EXIF Ghost*/
-"cObTva" = "EXIF Ghost'u aç";
-/*Translated from: Open ${appName}*/
-"cOeR5u" = "${appName} Açık";
-/*Translated from: Open Cleaner*/
-"cyiLEU" = "Açık Temizleyici";
-/*Translated from: Take A Live Photo*/
-"ewGyLx-ZbogxE" = "Canlı Fotoğraf Çekin";
-/*Translated from: Take A Photo*/
-"ewGyLx-yQLzJM" = "Fotoğraf çekmek";
-/*Translated from: Open Converter*/
-"f8Abn1" = "Open Converter";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "${appName} Açık";
-/*Translated from: Open Phone Calls*/
-"h99muL" = "Açık Telefon Görüşmeleri";
-/*Translated from: Open GIF Maker App*/
-"i5NdZE" = "GIF Maker Uygulamasını Aç";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "${appName} Açık";
-/*Translated from: Open PDFactory App*/
-"jO8fwU" = "PDFactory Uygulamasını Aç";
-/*Translated from: Open Rotation*/
-"kiRcMc" = "Açık Döndürme";
-/*Translated from: Open Auto Editor*/
-"klHFFj" = "Otomatik Düzenleyici'yi Aç";
-/*Translated from: Open Restoration App*/
-"lmZpL4" = "Restorasyon Uygulamasını Aç";
-/*Translated from: Open ${appName}*/
-"n6SPLH" = "${appName} Açık";
-/*Translated from: Open ${appName}*/
-"nCro1h" = "${appName} Açık";
-/*Translated from: Open Finder App*/
-"nsPloR" = "Açık Bulucu Uygulaması";
-/*Translated from: Open ${appName}*/
-"oGM42K" = "${appName} Açık";
-/*Translated from: Open ${appName}*/
-"oHEX05" = "${appName} Açık";
-/*Translated from: Open Auto Editor App*/
-"wmUAoj" = "Otomatik Editör Uygulamasını Aç";
-/*Translated from: OK. You can take a Live Photo now*/
-"xwyqoh-ZbogxE" = "TAMAM. Şimdi Canlı Fotoğraf çekebilirsiniz";
-/*Translated from: OK. You can take a Photo now*/
-"xwyqoh-yQLzJM" = "TAMAM. Şimdi bir fotoğraf çekebilirsiniz";
-/*Translated from: Open PDFactory*/
-"xxih1X" = "PDFactory'yi aç";
-/*Translated from: Open GIF Maker*/
-"zK6L2E" = "GIF Oluşturucusu'nu Aç";
+/*Translated from: Open ${appName}.*/
+"0Xykha" = "${appName} Açın.";
+/*Translated from: Open ${appName}.*/
+"0mLqsX" = "${appName} Açın.";
+/*Translated from: Open Phone Calls App.*/
+"1SD5Py" = "Telefon Görüşmeleri App açın.";
+/*Translated from: Open Rotation App.*/
+"1kqEcI" = "Rotasyon Uygulamasını Aç.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "Kamerayı aç.";
+/*Translated from: Open ${appName}.*/
+"4TosMR" = "${appName} Açın.";
+/*Translated from: Open ${appName}.*/
+"6TT4Gp" = "${appName} Açın.";
+/*Translated from: Open Finder.*/
+"AReNv5" = "Açık Finder.";
+/*Translated from: Open Filters.*/
+"AW925e" = "Filtreleri aç.";
+/*Translated from: Open ${appName}.*/
+"DcHSN1" = "${appName} Açın.";
+/*Translated from: Open Restoration.*/
+"DckJin" = "Restorasyon açın.";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "Kamera uygulamasıyla bir fotoğraf çekin.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "Fotoğraf çekmek.";
+/*Translated from: Open Camera To Take A Photo.*/
+"HYZy53" = "Fotoğraf çekmek için kamera açın.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "Fotoğraf çekmek.";
+/*Translated from: Open Cleaner App.*/
+"LjAsN8" = "Temizleyici App açın.";
+/*Translated from: Open ${appName}.*/
+"QVrMHs" = "${appName} Açın.";
+/*Translated from: Open Converter App.*/
+"RxtDNx" = "Dönüştürücü App açın.";
+/*Translated from: Open Photo Filters App.*/
+"UCP0Dw" = "Fotoğraf Filtreleri App açın.";
+/*Translated from: Open EXIF Ghost App.*/
+"ZrFxbp" = "EXIF Ghost uygulamasını açın.";
+/*Translated from: Open ${appName}.*/
+"aQECqy" = "${appName} Açın.";
+/*Translated from: Open EXIF Ghost.*/
+"cObTva" = "EXIF Ghost'u açın.";
+/*Translated from: Open ${appName}.*/
+"cOeR5u" = "${appName} Açın.";
+/*Translated from: Open Cleaner.*/
+"cyiLEU" = "Açık Temizleyici.";
+/*Translated from: Take A Live Photo.*/
+"ewGyLx-ZbogxE" = "Canlı Fotoğraf çek.";
+/*Translated from: Take A Photo.*/
+"ewGyLx-yQLzJM" = "Fotoğraf çekmek.";
+/*Translated from: Open Converter.*/
+"f8Abn1" = "Open Converter.";
+/*Translated from: Open ${appName}.*/
+"gFHyMK" = "${appName} Açın.";
+/*Translated from: Open Phone Calls.*/
+"h99muL" = "Telefon Çağrılarını Aç.";
+/*Translated from: Open GIF Maker App.*/
+"i5NdZE" = "GIF Maker Uygulamasını açın.";
+/*Translated from: Open ${appName}.*/
+"ibaGsc" = "${appName} Açın.";
+/*Translated from: Open PDFactory App.*/
+"jO8fwU" = "PDFactory App açın.";
+/*Translated from: Open Rotation.*/
+"kiRcMc" = "Açık Döndürme.";
+/*Translated from: Open Auto Editor.*/
+"klHFFj" = "Otomatik Editör'ü açın.";
+/*Translated from: Open Restoration App.*/
+"lmZpL4" = "Restorasyon uygulamasını açın.";
+/*Translated from: Open ${appName}.*/
+"n6SPLH" = "${appName} Açın.";
+/*Translated from: Open ${appName}.*/
+"nCro1h" = "${appName} Açın.";
+/*Translated from: Open Finder App.*/
+"nsPloR" = "Açık Bulucu Uygulaması.";
+/*Translated from: Open ${appName}.*/
+"oGM42K" = "${appName} Açın.";
+/*Translated from: Open ${appName}.*/
+"oHEX05" = "${appName} Açın.";
+/*Translated from: Open Auto Editor App.*/
+"wmUAoj" = "Otomatik Editör Uygulamasını Aç.";
+/*Translated from: OK. You can take a Live Photo now.*/
+"xwyqoh-ZbogxE" = "TAMAM. Şimdi Canlı Fotoğraf çekebilirsiniz.";
+/*Translated from: OK. You can take a Photo now.*/
+"xwyqoh-yQLzJM" = "TAMAM. Şimdi bir fotoğraf çekebilirsiniz.";
+/*Translated from: Open PDFactory.*/
+"xxih1X" = "PDFactory'yi açın.";
+/*Translated from: Open GIF Maker.*/
+"zK6L2E" = "GIF Maker'u açın.";

@@ -91,7 +91,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                 for intent in section.intents {
                     let cell = UITableViewAccessoryCellDescriber()
                     cell.itemIdentifier = "Intent".hashValue
-                    cell.label = intent.suggestedInvocationPhrase ?? ""
+                    cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
                     cell.detailedLabel = section.app?.info.displayName
                     cell.iconImage = section.app?.info.iconBundleName
                     cell.accessoryGenerator = {

@@ -201,7 +201,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Camera</string>
+			<string>Open Camera.</string>
 			<key>INIntentTitleID</key>
 			<string>4I4kgH</string>
 			<key>INIntentType</key>
@@ -341,7 +341,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Filters</string>
+			<string>Open Filters.</string>
 			<key>INIntentTitleID</key>
 			<string>AW925e</string>
 			<key>INIntentType</key>
@@ -454,7 +454,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Finder</string>
+			<string>Open Finder.</string>
 			<key>INIntentTitleID</key>
 			<string>AReNv5</string>
 			<key>INIntentType</key>
@@ -470,7 +470,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Camera.SApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Let's take a photo</string>
+			<string>Take a photo with Camera app.</string>
 			<key>INIntentDescriptionID</key>
 			<string>EOxZtc</string>
 			<key>INIntentLastParameterTag</key>
@@ -596,7 +596,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Take A Photo</string>
+			<string>Take A Photo.</string>
 			<key>INIntentTitleID</key>
 			<string>Jvx2bY</string>
 			<key>INIntentType</key>
@@ -709,7 +709,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Restoration</string>
+			<string>Open Restoration.</string>
 			<key>INIntentTitleID</key>
 			<string>DckJin</string>
 			<key>INIntentType</key>
@@ -822,7 +822,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open GIF Maker</string>
+			<string>Open GIF Maker.</string>
 			<key>INIntentTitleID</key>
 			<string>zK6L2E</string>
 			<key>INIntentType</key>
@@ -858,7 +858,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Open ${appName}</string>
+					<string>Open ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>oHEX05</string>
 				</dict>
@@ -935,7 +935,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Cleaner</string>
+			<string>Open Cleaner.</string>
 			<key>INIntentTitleID</key>
 			<string>cyiLEU</string>
 			<key>INIntentType</key>
@@ -971,7 +971,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Open ${appName}</string>
+					<string>Open ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>cOeR5u</string>
 				</dict>
@@ -1048,7 +1048,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Rotation</string>
+			<string>Open Rotation.</string>
 			<key>INIntentTitleID</key>
 			<string>kiRcMc</string>
 			<key>INIntentType</key>
@@ -1084,7 +1084,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Open ${appName}</string>
+					<string>Open ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>aQECqy</string>
 				</dict>
@@ -1161,7 +1161,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Phone Calls</string>
+			<string>Open Phone Calls.</string>
 			<key>INIntentTitleID</key>
 			<string>h99muL</string>
 			<key>INIntentType</key>
@@ -1274,7 +1274,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Converter</string>
+			<string>Open Converter.</string>
 			<key>INIntentTitleID</key>
 			<string>f8Abn1</string>
 			<key>INIntentType</key>
@@ -1387,7 +1387,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open PDFactory</string>
+			<string>Open PDFactory.</string>
 			<key>INIntentTitleID</key>
 			<string>xxih1X</string>
 			<key>INIntentType</key>
@@ -1500,7 +1500,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Auto Editor</string>
+			<string>Open Auto Editor.</string>
 			<key>INIntentTitleID</key>
 			<string>klHFFj</string>
 			<key>INIntentType</key>
@@ -1613,7 +1613,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open EXIF Ghost</string>
+			<string>Open EXIF Ghost.</string>
 			<key>INIntentTitleID</key>
 			<string>cObTva</string>
 			<key>INIntentType</key>

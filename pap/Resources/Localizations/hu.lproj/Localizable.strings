@@ -352,6 +352,8 @@
 "Landscape" = "Tájkép";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Elrendezés";
+/* Generated from genl10n: Camera.SApp.swift */
+"Let's take a photo." = "Vessünk egy fényképet.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Élő fotó";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -444,8 +446,6 @@
 "Preparing" = "Felkészülés";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Camera.SApp.swift */
-"Press The Shutter Button." = "Nyomja meg az Exponáló gombot.";
 /* Generated from genl10n: Shop.SApp.swift#273 */
 "Prices Are Including Every New Apps and Updates." = "Az árak tartalmazzák minden új alkalmazást és frissítést.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -458,6 +458,8 @@
 "Promotion License Program" = "Promóciós engedély program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Promóciós licenc";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promóciós felhasználó";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Vásárlás menedzsment";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
@@ -546,6 +548,8 @@
 "Special Guest License Program" = "Különleges vendégajánlat-program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Különleges vendégi engedély";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Különleges vendég";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Négyzet";
 /* Generated from genl10n: Stabilizer.swift */
@@ -604,8 +608,6 @@
 "Use" = "Használat";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Felhasználói közösség";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#232 */
-"User" = "használó";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
