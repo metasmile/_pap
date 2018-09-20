@@ -672,7 +672,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let c345 = UITableViewButtonCellDescriber()
         c345.itemIdentifier = CellDescriber.Key.support.hashValue
-        c345.label = "%@ Channel".localizedFormatted("Youtube")
+        c345.label = "%@ Channel".localizedFormatted("YouTube")
         c345.buttonTitle = "Visit".localized
         c345.iconImage = R.image.cellIconYouTubeChannel.name
         c345.iconImageTintColor = self.view.tintColor

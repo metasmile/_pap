@@ -56,6 +56,6 @@ struct papTimeInterval{
             return 30
         }
 #endif
-        return 60*60*24*7
+        return 60*60*24*14
     }
 }
