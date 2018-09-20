@@ -17,7 +17,7 @@ import StoreKit
 
 extension AppLaunchOptionsKey {
     //value type: App.Type
-    static let ShopAppCallerAppType = AppLaunchOptionsKey(rawValue:#file.hashValue)
+    static var ShopAppCallerAppType:AppLaunchOptionsKey{ return autoKey() }
 }
 
 public class ShopApp: NSObject

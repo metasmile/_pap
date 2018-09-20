@@ -10,7 +10,7 @@ import Foundation
 */
 extension AppLaunchOptionsKey {
     //value type: App.Type
-    static let SourceAppType = AppLaunchOptionsKey(rawValue:0)
+    static var SourceAppType:AppLaunchOptionsKey { return autoKey() }
 }
 
 /*
@@ -18,11 +18,11 @@ extension AppLaunchOptionsKey {
 */
 extension AppLaunchOptionsKey {
     //value type: PHAsset
-    static let PHAsset = AppLaunchOptionsKey(rawValue:200)
+    static var PHAsset:AppLaunchOptionsKey { return autoKey() }
 
     //value type: URL
-    static let PhotoURL = AppLaunchOptionsKey(rawValue:201)
+    static var PhotoURL:AppLaunchOptionsKey { return autoKey() }
 
     //value type: URL
-    static let PairedVideoURL = AppLaunchOptionsKey(rawValue:203)
+    static var PairedVideoURL:AppLaunchOptionsKey { return autoKey() }
 }

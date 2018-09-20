@@ -11,6 +11,10 @@ public struct AppLaunchOptionsKey: Hashable, Equatable, RawRepresentable {
     public init(rawValue: RawValue) {
         self.rawValue = rawValue
     }
+
+    static func autoKey(_identifier:String=#function) -> AppLaunchOptionsKey{
+        return self.init(rawValue: ("\(String(reflecting: self)).\(_identifier)").hashValue)
+    }
 }
 
 public struct AppLaunchOptions {

@@ -51,5 +51,5 @@ extension INIntent {
 }
 
 extension AppLaunchOptionsKey {
-    static let Intent = AppLaunchOptionsKey(rawValue:9999)
+    static var Intent:AppLaunchOptionsKey { return autoKey() }
 }
