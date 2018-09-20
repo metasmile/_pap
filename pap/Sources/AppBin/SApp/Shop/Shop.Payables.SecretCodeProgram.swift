@@ -141,8 +141,12 @@ protocol SecretCodeProgram {
     static var title:String{get}
     static var grantedMessage:String{get}
 
-    static var localStoreKey:String{get} //INFO: key to store. Does NOT used by iCloud
-    static var program:String?{get} //INFO: this used by SAC 'program' field
+    //INFO: if unspecified ownerName in CKRecord`
+    static var defaultOwnerName:String{get}
+    //INFO: key to store. Does NOT used by iCloud
+    static var localStoreKey:String{get}
+    //INFO: this used by SAC 'program' field
+    static var program:String?{get}
 
     static var shouldExpire:Bool {get}
 
@@ -320,7 +324,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             case .granted:
                 papLog.charge.scp.accessGranted(recordName: result.entry?.id.recordName)
 
-                let userName = result.entry?.ownerName ?? "User".localized
+                let userName = result.entry?.ownerName?.trimmed.nilEmpty ?? P.defaultOwnerName
                 DispatchQueue.main.async{
                     UIAlertController.alert("Hello, %@!".localizedFormatted(userName) + "\n" + P.grantedMessage, title:"Access Granted.".localized, completion:{ action in
                         asyncSignal.end()

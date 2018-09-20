@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
     static var title: String {
@@ -11,6 +12,9 @@ struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
     }
     static var grantedMessage: String {
         return "Welcome to our VIP license program.".localized
+    }
+    static var defaultOwnerName: String{
+        return "VIP \(UUID.fixedShortUUIDString)"
     }
 
     static var program: String? {
@@ -46,6 +50,9 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
     static var program: String? {
         return "special_guest"
     }
+    static var defaultOwnerName: String {
+        return "\("Special Guest".localized) \(UUID.fixedShortUUIDString)"
+    }
 
     static var isEnable: Bool = false
 
@@ -75,6 +82,9 @@ struct PromotionSecretCodeProgram:SecretCodeProgram{
 
     static var program: String? {
         return "promotion"
+    }
+    static var defaultOwnerName: String {
+        return "\("Promotion User".localized) \(UUID.fixedShortUUIDString)"
     }
 
     static var isEnable: Bool = false

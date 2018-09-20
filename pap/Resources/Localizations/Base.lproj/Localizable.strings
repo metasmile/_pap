@@ -422,6 +422,8 @@
 "Promotion License Program" = "Promotion License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Promotion License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promotion User";
 /* Generated from genl10n: Shop.SApp.swift */
 "Purchase Management" = "Purchase Management";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
@@ -510,6 +512,8 @@
 "Special Guest License Program" = "Special Guest License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Special Guest License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Special Guest" = "Special Guest";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.swift */
@@ -568,8 +572,6 @@
 "Use" = "Use";
 /* Generated from genl10n: Shop.SApp.swift */
 "User Community" = "User Community";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
-"User" = "User";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
