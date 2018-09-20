@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "Penggunaan 6 Bulan Semua Aplikasi dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "Penggunaan 7 Hari Semua Aplikasi dan Baru";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Lisensi Diperlukan.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Akses ditolak.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Bagikan aplikasi ini";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Bagikan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Berbagi di Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Berbagi di Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Terima kasih atas pembelian Anda.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Alat transformasi gambar batch yang sederhana namun berskala besar ini memungkinkan Anda dengan cepat memutar dan membalik banyak file media termasuk Live Photos. Tidak ada batasan jumlah foto untuk mengeditnya.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Untuk menggunakan aplikasi ini membutuhkan lisensi akses yang sesuai. Apakah Anda ingin membuka %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Terlalu Wajah Close-up";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

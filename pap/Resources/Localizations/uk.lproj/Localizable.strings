@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "6-місячне використання всіх програм і нових";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7-денне використання всіх програм і нових";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Ліцензія потрібна.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Доступ заборонено.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Поділитися цим додатком";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Надання доступу до Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Обмін на Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Спільний доступ до Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Дякуємо за покупку.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Цей простий, але широкомасштабний інструмент перетворення зображень дозволяє вам швидко обертати і перевертати багато медіа-файлів, включаючи Live Photos. Кількість фотографій для їх редагування не обмежується.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Для використання цього додатка потрібна відповідна ліцензія доступу. Ви хотіли б відкрити %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Занадто велике обличчя";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

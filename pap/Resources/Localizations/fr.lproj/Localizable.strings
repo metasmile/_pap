@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "6 mois d'utilisation de toutes les applications et de nouvelles";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7 jours d'utilisation de toutes les applications et de nouvelles";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Une licence est requise";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Accès refusé.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Partager cette application";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Partager";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Partage sur Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Partage sur Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Partage sur Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Similarité";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Merci pour votre achat.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Cet outil de transformation d'image par lot simple mais à grande échelle vous permet de faire pivoter et de retourner rapidement de nombreux fichiers multimédias, y compris des photos en direct. Le nombre de photos à éditer est illimité.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Pour utiliser cette application, vous devez disposer d'une licence d'accès correspondante. Voulez-vous ouvrir %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Visage trop rapproché";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

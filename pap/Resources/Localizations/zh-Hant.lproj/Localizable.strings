@@ -92,6 +92,8 @@
 "6-Month Use of All Apps and New" = "所有應用程序和新應用程序的6個月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "所有應用程序和新的7天使用";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "需要許可證。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "拒絕訪問。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -480,10 +482,10 @@
 "Share This App" = "分享這個應用程式";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payables.FreeCharge.Facebook.swift#73, Shop.Payables.FreeCharge.Facebook.swift#138, Shop.Payables.FreeCharge.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "在Facebook Messenger上分享";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "在Facebook上分享";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "在Messenger上分享";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: GIFMaker.BApp.swift#477, GIFMaker.BApp.swift#680, GIFMaker.BApp.swift#692, GIFMaker.BApp.swift#829 */
@@ -540,6 +542,8 @@
 "Thank you for your purchase." = "感謝您的購買。";
 /* Generated from genl10n: Transform.BApp.swift#63 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "這種直觀但大規模的批量圖像變換工具可讓您快速旋轉和翻轉包括實時照片在內的大量媒體文件。編輯照片的數量沒有限制。";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "要使用此應用程序，需要相應的訪問許可證。你想打開%@嗎？";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "太近距離的臉";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

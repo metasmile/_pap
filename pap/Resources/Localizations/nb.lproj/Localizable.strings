@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "6-måneders bruk av alle apper og ny";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7 dagers bruk av alle apper og nye";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "En lisens er nødvendig.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
 "Access Denied." = "Ingen tilgang.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
@@ -535,9 +537,9 @@
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payables.FreeCharge.Facebook.swift, Shop.Payables.FreeCharge.Facebook.swift, Shop.Payables.FreeCharge.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook" = "Deling på Facebook";
+"Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Messenger" = "Deling på Messenger";
+"Sharing on Facebook" = "Deling på Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Takk for kjøpet.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Dette enkle, men store batch image transform verktøyet lar deg raskt rotere og vende mange mediefiler, inkludert Live Photos. Det er ingen grense for antall bilder for å redigere dem.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "For å bruke denne appen trenger du et tilsvarende tilgangslisens. Vil du åpne %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Too Close-up Face" = "For nærbilde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */

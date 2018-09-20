@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "6-månaders användning av alla appar och nytt";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7 dagars användning av alla appar och nytt";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "En licens krävs.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Tillträde beviljas ej.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Dela denna appen";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Dela på Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Dela på Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Dela på Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Likhet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Tack för ditt köp.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Det här enkla men stora batchbildtransformverktyget gör det möjligt att snabbt rotera och flipa många mediefiler, inklusive Live Photos. Det finns ingen gräns för antalet foton att redigera dem.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "För att använda den här appen behöver en motsvarande åtkomstlicens. Vill du öppna %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "För nära ansikte";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

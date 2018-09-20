@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 6 Aylık Kullanım";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 7 Günlerin Kullanımı";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Bir Lisans Gerekir.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Erişim reddedildi.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Bu uygulamayı paylaş";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Facebook Messenger'da Paylaşım";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Facebook'ta paylaşma";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Messenger'da Paylaşma";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Benzerlik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Satın aldığınız için teşekkür ederiz.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Bu uygulamayı kullanmak için uygun bir erişim lisansı gerekir. %@ Açmak ister misiniz?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Çok Yakın Yüz";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

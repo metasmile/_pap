@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "Kaikkien sovellusten 6 kuukauden käyttö ja uusi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "Kaikkien sovellusten 7 päivän käyttö ja uusi";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Lisenssi vaaditaan.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Pääsy evätty.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Sharing on Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Jakaminen Messenger-palvelussa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Kiitos ostoksestasi.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tämä yksinkertainen mutta laajamittainen eräkuvan muunnostyökalu mahdollistaa nopean kiertämisen ja kääntämisen useista mediatiedostoista, kuten Live-valokuvista. Valokuvien määrää ei ole rajoitettu muokata niitä.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Tämän sovelluksen käyttämiseen tarvitaan vastaava käyttöoikeus. Haluatko avata %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Liian läheltä kasvot";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

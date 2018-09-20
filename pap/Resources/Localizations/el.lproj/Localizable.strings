@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "Χρήση 6 μηνών όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7ήμερη χρήση όλων των εφαρμογών και νέων";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Απαιτείται άδεια χρήσης.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Δεν επιτρέπεται η πρόσβαση.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Μοιραστείτε αυτήν την εφαρμογή";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Κοινή χρήση στο Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Κοινή χρήση στο Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Κοινή χρήση στο Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Σας ευχαριστούμε για την αγορά σας.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Για να χρησιμοποιήσετε αυτήν την εφαρμογή χρειάζεται μια αντίστοιχη άδεια πρόσβασης. Θέλετε να ανοίξετε %@;";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Πάρα πολύ κοντινή όψη";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

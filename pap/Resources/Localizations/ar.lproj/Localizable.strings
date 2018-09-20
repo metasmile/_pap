@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "استخدام لمدة 6 أشهر من جميع التطبيقات والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "7 يوم استخدام جميع التطبيقات والجديدة";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "مطلوب ترخيص.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "تم الرفض.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "شارك هذا التطبيق";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "المشاركة على Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "المشاركة على Facebook";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "تقاسم على رسول";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "تشابه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "شكرا لك على الشراء.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "تتيح لك أداة تحويل الصور دفعة بسيطة ولكنها واسعة النطاق سرعة تدوير الكثير من ملفات الوسائط بما في ذلك الصور المباشرة. لا يوجد حد لعدد الصور لتحريرها.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "لاستخدام هذا التطبيق يحتاج إلى ترخيص وصول المقابلة. هل ترغب في فتح %@؟";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "وجه قريب جدا";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

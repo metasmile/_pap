@@ -88,7 +88,7 @@ extension PhotoPickerViewController{
     }
 
     @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
-        openShopApp()
+        self.openShopAppWithLicenseRequiredMessage()
     }
 
     //CRITICAL: Chargeable button state control. The payment action of Charge that has a reward .nonBlockOfUses should execute before chargeable button's tap action.
@@ -171,7 +171,7 @@ extension PhotoPickerViewController{
                 if succeedAfterTriedAtOnce {
                     self.doneButtonDidTap(sender: "")
                 }else{
-                    self.openShopApp()
+                    self.openShopAppWithLicenseRequiredMessage()
                 }
             }
         }
@@ -192,5 +192,16 @@ extension PhotoPickerViewController{
         if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
             papLog.charge.opened()
         }
+    }
+
+    private func openShopAppWithLicenseRequiredMessage(){
+        UIAlertController.alert("To use this app needs a corresponding access license. Would you like to open %@?".localizedFormatted(ShopApp.info.displayName)
+                , title: "A Licence Is Required.".localized
+                , buttonTitle: "Open %@".localizedFormatted(ShopApp.info.displayName)
+                , cancelButtonTitle: "Cancel".localized
+                , completion: { action in
+
+            self.openShopApp()
+        })
     }
 }

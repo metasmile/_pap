@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "Minden alkalmazás 6 hónapos használata és új";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "Minden nap 7 napos alkalmazása és új";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Engedély szükséges.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "Hozzáférés megtagadva.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "Oszd meg ezt az alkalmazást";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Ossza meg";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Megosztás a Facebook Messengeren";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Megosztás a Facebookon";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "Megosztás a Messengerben";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "Köszönjük a vásárlást.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ez az egyszerű, de nagy méretű képfeldolgozó eszköz lehetővé teszi, hogy gyorsan forgassa és flip sok médiafájl, beleértve a Live Photos. Nincs korlátozás a fotók számának szerkesztésére.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Az alkalmazás használatához megfelelő hozzáférési licenc szükséges. Szeretné megnyitni %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "Túl közelről arccal";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */

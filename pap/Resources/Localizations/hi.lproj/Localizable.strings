@@ -146,6 +146,8 @@
 "6-Month Use of All Apps and New" = "सभी ऐप्स और नए के 6 महीने का उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7 Day Use of All Apps and New" = "सभी ऐप्स और नए के 7 दिन का उपयोग";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "एक लाइसेंस आवश्यक है।";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
 "Access Denied." = "पहुंच अस्वीकृत।";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
@@ -534,10 +536,10 @@
 "Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "फेसबुक मैसेंजर पर साझा करना";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "फेसबुक पर साझा करना";
-/* Generated from genl10n: AppCenter.Charge.swift#110 */
-"Sharing on Messenger" = "मैसेंजर पर साझा करना";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -594,6 +596,8 @@
 "Thank you for your purchase." = "आपकी खरीद के लिए आपको धन्यवाद।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "यह सीधा लेकिन बड़े पैमाने पर बैच छवि परिवर्तन उपकरण आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। उन्हें संपादित करने के लिए तस्वीरों की संख्या की कोई सीमा नहीं है।";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "इस ऐप का उपयोग करने के लिए एक संबंधित एक्सेस लाइसेंस की आवश्यकता है। क्या आप %@ खोलना चाहते हैं?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
 "Too Close-up Face" = "बहुत बंद चेहरा";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
