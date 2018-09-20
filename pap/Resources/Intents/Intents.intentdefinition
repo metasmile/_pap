@@ -470,7 +470,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Camera.SApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Hey Siri, Fire The Shutter</string>
+			<string>Let's take a photo</string>
 			<key>INIntentDescriptionID</key>
 			<string>EOxZtc</string>
 			<key>INIntentLastParameterTag</key>

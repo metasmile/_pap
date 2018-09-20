@@ -104,7 +104,7 @@ extension CameraApp: IntentableApp {
             takeAPhotoIntent.appId = CameraApp.info.identifier
             takeAPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption.takePhoto.rawValue)
-            takeAPhotoIntent.suggestedInvocationPhrase = "Press The Shutter Button.".localized //TODO: run this intent while camera app is opened
+            takeAPhotoIntent.suggestedInvocationPhrase = "Let's take a photo.".localized //TODO: run this intent while camera app is opened
             
             let takeAStillPhotoIntent = TakeAPhotoIntent()
             takeAStillPhotoIntent.cameraMode = .photo
