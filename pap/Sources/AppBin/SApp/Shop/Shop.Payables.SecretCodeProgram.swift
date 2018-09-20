@@ -432,16 +432,19 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
     private static func expireCurrentCodeIfNeeded(){
         if P.shouldExpire, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
             let expiredDate = Date()
-            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue) { record, error in
-                if error == nil, let rExpiredDate = record[SecretCodeEntry.kExpiredAt] as? Date{
+            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
+            SecretCodeEntry.local.expiredCodeEntry[P.localStoreKey] = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+            { record, error in
+                if let e = error{
+                    papLog.error.recordedError(e, parameters: ["publicCloudDatabase":"expireCurrentCodeIfNeeded"])
 
-                    //final succeed
-                    assert(expiredDate == rExpiredDate, "Requested expire date is different with committed icloud expired date.")
-                    if expiredDate == rExpiredDate{
-
-                        SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
-                        SecretCodeEntry.local.expiredCodeEntry[P.localStoreKey] = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]
-                    }
+                }
+            }
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.privateCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+            { record, error in
+                if let e = error{
+                    papLog.error.recordedError(e, parameters: ["privateCloudDatabase": "expireCurrentCodeIfNeeded"])
                 }
             }
         }
