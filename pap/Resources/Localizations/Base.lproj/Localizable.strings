@@ -102,14 +102,18 @@
 "%d times" = "%d times";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1 Month Membership" = "1 Month Membership";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of All Apps and New" = "1-Month Use of All Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months Membership" = "6 Months Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of All Apps and New" = "6-Month Use of All Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "7 Day Use of All Apps and New";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "A Licence Is Required.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
@@ -282,6 +286,12 @@
 "Get Access" = "Get Access";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "Give A Rating" = "Give A Rating";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
@@ -604,6 +614,8 @@
 "Welcome Free Pack" = "Welcome Free Pack";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Welcome to our promotion license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

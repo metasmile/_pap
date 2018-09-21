@@ -134,7 +134,15 @@ private final class AppChargeManager: ChargeManager{
                     , payment: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self
                     , priceAmount: AmountObject(value:1)
                     , describable: AppChargeDescription(title:"Special Guest License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "1-Month Use of All Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "1-Month Use of Main Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self
+                    , priceAmount: AmountObject(value:(0.1/3)*14)
+                    , describable: AppChargeDescription(title:"Guest User License".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "14 Day Use of Main Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .secretCode
@@ -142,7 +150,7 @@ private final class AppChargeManager: ChargeManager{
                     , payment: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self
                     , priceAmount: AmountObject(value:(0.1/3)*7)
                     , describable: AppChargeDescription(title:"Promotion License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "7 Day Use of All Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "7 Day Use of Main Apps and New".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .instantAdsShowingAllowance
@@ -156,7 +164,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .urlVisiting
                     , reward: .timeOfUses
                     , payment: SNSEngagementPayment.self
-                    , priceAmount: AmountObject(value:0.1/3)
+                    , priceAmount: AmountObject(value:(0.1/3))
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
 

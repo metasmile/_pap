@@ -68,6 +68,39 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
     }
 }
 
+struct GuestUserSecretCodeProgram:SecretCodeProgram{
+    static var shouldExpire: Bool{
+        return true
+    }
+
+    static var title: String {
+        return "Guest User License Program".localized
+    }
+    static var grantedMessage: String {
+        return "Welcome to our guest user license program!".localized
+    }
+
+    static var program: String? {
+        return "guest_user"
+    }
+    static var defaultOwnerName: String {
+        return "\("Guest User".localized) \(UUID.fixedShortUUIDString)"
+    }
+
+    static var isEnable: Bool = false
+
+    static var currentAppIDStack:[String]?
+
+    static var passCodeAppIDStack:[String] {
+        return [
+            TransformApp.info.identifier,
+            FiltersApp.info.identifier,
+            PDFactoryApp.info.identifier,
+            ConverterApp.info.identifier
+        ]
+    }
+}
+
 struct PromotionSecretCodeProgram:SecretCodeProgram{
     static var shouldExpire: Bool{
         return true
