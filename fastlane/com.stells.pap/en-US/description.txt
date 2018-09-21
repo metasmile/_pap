@@ -104,8 +104,8 @@ Camera
 Robust Standard Built-In Camera for Capturing Live Photos.
 
 
-Restoration
-Restoration app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
+Restorer
+Restorer app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
 
 
 

@@ -29,7 +29,7 @@
         <!--Photo Apps-->
         <scene sceneID="f5k-qW-NGj">
             <objects>
-                <viewController storyboardIdentifier="PhotoPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lkB-fw-5jX" customClass="PhotoPickerViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoPickerViewController" useStoryboardIdentifierAsRestorerIdentifier="YES" id="lkB-fw-5jX" customClass="PhotoPickerViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fnk-hf-u1J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
         <!--Photo Edit View Controller-->
         <scene sceneID="TqP-bS-mpI">
             <objects>
-                <viewController storyboardIdentifier="PhotoEditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oyw-5W-GwR" customClass="PhotoEditViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoEditViewController" useStoryboardIdentifierAsRestorerIdentifier="YES" id="oyw-5W-GwR" customClass="PhotoEditViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="57g-e2-YJi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
         <!--AppUI Action Finalization View Controller-->
         <scene sceneID="vI5-Su-m2X">
             <objects>
-                <viewController storyboardIdentifier="PricingViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Q5-z5-Jl1" customClass="AppUIActionFinalizationViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PricingViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorerIdentifier="YES" id="8Q5-z5-Jl1" customClass="AppUIActionFinalizationViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fa-Aw-yip">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,7 +271,7 @@
         <!--Albums-->
         <scene sceneID="mI6-EF-rml">
             <objects>
-                <viewController storyboardIdentifier="PhotoAlbumViewController" title="Albums" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k8w-1J-pae" customClass="PhotoAlbumViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoAlbumViewController" title="Albums" useStoryboardIdentifierAsRestorerIdentifier="YES" id="k8w-1J-pae" customClass="PhotoAlbumViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBT-CA-IBh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

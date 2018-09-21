@@ -41,9 +41,9 @@ public class RevertApp: NSObject, PropertyWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: RevertApp.self
-            , displayName: "Restoration".localized
-            , description: "Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
-            , keywords: ["Restore","Repair","Revert","recovery", "Restoration"]
+            , displayName: "Restorer".localized
+            , description: "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
+            , keywords: ["Restore","Repair","Revert","recovery", "Restorer"]
             , iconBundleName: R.image.revertBAppIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
@@ -289,7 +289,7 @@ extension RevertApp: IntentableApp {
             let openAppIntent = OpenRevertIntent()
             openAppIntent.appId = RevertApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Restoration."
+            openAppIntent.suggestedInvocationPhrase = "Open Restorer."
             return [openAppIntent]
         } else {
             return []

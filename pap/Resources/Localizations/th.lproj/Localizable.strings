@@ -481,9 +481,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: Revert.BApp.swift#45 */
-"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
-"Restoration" = "การบูรณะ";
+"Restorer" = "การบูรณะ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */

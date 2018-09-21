@@ -481,9 +481,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeta";
 /* Generated from genl10n: Revert.BApp.swift#45 */
-"Restoration allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurarea permite restaurarea rapidă a unei cantități mari de fotografii editate la cea originală. În plus, vă ajută cu selecția automată!";
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurarea permite restaurarea rapidă a unei cantități mari de fotografii editate la cea originală. În plus, vă ajută cu selecția automată!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
-"Restoration" = "Restaurare";
+"Restorer" = "Restaurare";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurați toate achizițiile";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */

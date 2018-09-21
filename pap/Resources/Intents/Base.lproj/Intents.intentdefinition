@@ -612,7 +612,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Revert.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Restoration App</string>
+			<string>Open Restorer App</string>
 			<key>INIntentDescriptionID</key>
 			<string>lmZpL4</string>
 			<key>INIntentLastParameterTag</key>
@@ -709,7 +709,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open Restoration.</string>
+			<string>Open Restorer.</string>
 			<key>INIntentTitleID</key>
 			<string>DckJin</string>
 			<key>INIntentType</key>
