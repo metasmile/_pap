@@ -140,12 +140,16 @@
 "1 Month Membership" = "สมาชิก 1 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "การใช้แอปทั้งหมดและใหม่เป็นเวลา 1 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "สมาชิก 6 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "การใช้แอปทั้งหมดและใหม่ในอีก 6 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "ใช้งานแอพทั้งหมดและใหม่ 7 วัน";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "จำเป็นต้องมีใบอนุญาต";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "ได้รับการเข้าถึง";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "ให้คะแนน";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "สวัสดี %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "จำนวนที่เหลืออยู่ในช่วงเวลานี้";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "การบูรณะ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "ฟื้นฟู";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "การบูรณะ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "ย้อนกลับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "ยินดีต้อนรับแพ็คฟรี";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ยินดีต้อนรับสู่โปรแกรมอนุญาตวีไอพีของเรา";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตการส่งเสริมการขายของเรา!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

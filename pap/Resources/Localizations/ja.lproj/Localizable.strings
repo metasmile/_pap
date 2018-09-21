@@ -140,12 +140,16 @@
 "1 Month Membership" = "1ヶ月メンバーシップ";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1ヶ月間のメインアプリと新規アプリの使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "メインアプリと新アプリの14日間の使用";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6ヶ月間の会員";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "すべてのアプリと新機能の7日間使用";
+"7 Day Use of Main Apps and New" = "7日間のメインアプリと新規アプリの使用";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "ライセンスが必要です。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "アクセスを取得";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "ゲストユーザーライセンスプログラム";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "ゲストユーザライセンス";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "ゲストユーザ";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "この実行で残りのカウント";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "元に戻すアプリでは、編集した写真を元の写真にすぐ戻すことができます。更に、自動選択も可能で便利です！";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "復元";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "リストア";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "元に戻すアプリでは、編集した写真を元の写真にすぐ戻すことができます。更に、自動選択も可能で便利です！";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "復元";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "リバース";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "ウェルカムフリーパック";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIPライセンスプログラムへようこそ。";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "ゲストユーザライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "プロモーションライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

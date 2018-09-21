@@ -140,12 +140,16 @@
 "1 Month Membership" = "Miesięczne członkostwo";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "1-miesięczne korzystanie z wszystkich aplikacji i nowych";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 miesięcy członkostwa";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "6-miesięczne korzystanie z wszystkich aplikacji i nowych";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "7-dniowe korzystanie z wszystkich aplikacji i nowych";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Wymagana jest licencja.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "Uzyskać dostęp";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Huknąć";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Witaj, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "Pozostała liczba w tym biegu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Powtarzać";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Przywrócenie pozwala szybko przywrócić kilka edytowanych zdjęć do oryginalnego. Ponadto pomaga w automatycznym wyborze!";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "Przywrócenie";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Przywróć wszystkie zakupy";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Przywracać";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Przywrócenie pozwala szybko przywrócić kilka edytowanych zdjęć do oryginalnego. Ponadto pomaga w automatycznym wyborze!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "Przywrócenie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Rewers";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "Witamy bezpłatny pakiet";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Witamy w naszym programie licencji VIP.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Witamy w naszym programie licencyjnym!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

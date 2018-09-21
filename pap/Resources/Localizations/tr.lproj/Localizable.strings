@@ -140,12 +140,16 @@
 "1 Month Membership" = "1 Aylık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 1 Aylık Kullanım";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 Aylık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 6 Aylık Kullanım";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "Tüm Uygulamaların ve Yeni 7 Günlerin Kullanımı";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Bir Lisans Gerekir.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "Erişim Al";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Bir Derecelendirme Ver";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Merhaba, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "Bu Çalışmada Kalan Sayı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Tekrar et";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restorasyon, düzenlenmiş fotoğrafların bir miktarını orijinaline hızlıca geri yüklemeyi sağlar. Ayrıca, otomatik seçim ile size yardımcı olur!";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "restorasyon";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Tüm Satın Alma İşlemlerini Geri Yükle";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Restore";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restorasyon, düzenlenmiş fotoğrafların bir miktarını orijinaline hızlıca geri yüklemeyi sağlar. Ayrıca, otomatik seçim ile size yardımcı olur!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "restorasyon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Ters";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "Hoşgeldiniz ücretsiz paketi";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Tanıtım lisans programımıza hoş geldiniz!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

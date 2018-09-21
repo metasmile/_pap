@@ -140,12 +140,16 @@
 "1 Month Membership" = "1个月会员资格";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "所有应用程序和新应用程序的1个月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6个月会员资格";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "所有应用程序和新应用程序的6个月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "所有应用程序和新的7天使用";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "需要许可证。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "获得访问权限";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "给予评级";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "此次运行中的剩余计数";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "恢复允许快速将大量编辑过的照片恢复到原始照片。此外，它可以帮助您自动选择！";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "恢复";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢复所有购买";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "恢复";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "恢复允许快速将大量编辑过的照片恢复到原始照片。此外，它可以帮助您自动选择！";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "恢复";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "相反";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "欢迎免费包";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "欢迎来到我们的VIP许可计划。";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "欢迎来到我们的促销许可计划！";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

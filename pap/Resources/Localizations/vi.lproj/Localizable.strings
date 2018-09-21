@@ -140,12 +140,16 @@
 "1 Month Membership" = "1 tháng thành viên";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All Apps and New" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 tháng thành viên";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All Apps and New" = "Sử dụng 6 tháng của tất cả ứng dụng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of All Apps and New" = "Sử dụng 7 ngày của tất cả ứng dụng và mới";
+"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Giấy phép là bắt buộc.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -318,6 +322,12 @@
 "Get Access" = "Nhận quyền truy cập";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Guest User License";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Guest User" = "Guest User";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -480,14 +490,14 @@
 "Remaining Count In This Run" = "Số dư còn lại trong lần chạy này";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
-/* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Phục hồi cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!";
-/* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "Phục hồi";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
 /* Generated from genl10n: Shop.Payables.System.swift#11 */
 "Restore" = "Khôi phục";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Phục hồi cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "Phục hồi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Đảo ngược";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -640,6 +650,8 @@
 "Welcome Free Pack" = "Chào mừng gói miễn phí";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.";
+/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Chào mừng bạn đến với chương trình giấy phép quảng cáo của chúng tôi!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
