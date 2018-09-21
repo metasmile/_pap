@@ -31,7 +31,10 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
             guard let intent = userActivity.interaction?.intent, let appId = intent.intentableAppId else { return false }
             userActivity.isEligibleForSearch = true
             userActivity.isEligibleForPrediction = true
-            IntentsAppDelegate.launchAppIfNeededWithAppId(appId, launchOptions: intent.intentableLaunchOptions)
+
+            if IntentsAppDelegate.launchAppIfNeededWithAppId(appId, launchOptions: intent.intentableLaunchOptions){
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
+            }
         }
         return true
     }
@@ -44,7 +47,7 @@ extension IntentsAppDelegate {
             let appId = appId,
             let app = IntentsAppDelegate.findApp(by: appId)
             else { return false }
-        
+
         AppCenter.default.openApp(identifier: app.info.identifier, options: AppLaunchOptions(options: options))
         return true
     }

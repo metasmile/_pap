@@ -81,8 +81,13 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         self.dataSource.group.removeAll()
         
         if #available(iOS 12.0, *) {
-            let intentableApps = AppCenter.default.apps(by: .default).filter { $0 is IntentableApp.Type }
-            
+            let intentableApps = AppCenter.default.apps(by: .default)
+                    .compactMap { return $0 as? IntentableApp.Type}
+                    //INFO: sort by amount of intent
+                    .sorted { appType, appType2 in
+                        return appType.intents.count > appType2.intents.count
+                    }
+
             for section in intentableApps.map({ (app) -> IntentGroup in
                 IntentGroup(app: app)
             }) {
