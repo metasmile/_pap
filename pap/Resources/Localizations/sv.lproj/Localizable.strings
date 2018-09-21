@@ -592,7 +592,7 @@
 "Terms of Use" = "Villkor";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
-/* Generated from genl10n: Shop.StoreKit.swift#96 */
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Tack för ditt köp.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Det här enkla men stora batchbildtransformverktyget gör det möjligt att snabbt rotera och flipa många mediefiler, inklusive Live Photos. Det finns ingen gräns för antalet foton att redigera dem.";
@@ -644,7 +644,7 @@
 "Welcome to our promotion license program!" = "Välkommen till vårt program för främjande av licens!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Välkommen till vårt speciella gästlicensprogram!";
-/* Generated from genl10n: Shop.StoreKit.swift#132 */
+/* Generated from genl10n: Shop.Payables.Store.swift#132 */
 "Would you like to move to %@?" = "Vill du flytta till %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Skriva en recension";

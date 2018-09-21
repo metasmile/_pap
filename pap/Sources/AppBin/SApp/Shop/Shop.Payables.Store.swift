@@ -1,138 +1,491 @@
 //
-// Created by BLACKGENE on 8/9/18.
+// Created by BLACKGENE on 8/12/18.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
 import Foundation
+//INFO: SwiftyStoreKit's dependency is ONLY LOCATED in this file.
+import SwiftyStoreKit
+import StoreKit
+import UIKit
+
+//INFO: pap specific Aug 10, 2018
+private let papReceiptSecretKey = "791f81382c464b78803b22eba4fb2cde"
+private let papNonRenewingValidDuration:TimeInterval = 60
+#if DEBUG
+private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.sandbox
+#else
+private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.production
+#endif
+
+
+//INFO: StorePayableCenter: Not recommended to use in Charge-ChargeBank-ChargeBanker family directly.
+// Use in only in an ShopApp. When add Directory-Scoped access permission in swift?? huh.
+
+struct StoreKitPayableCenter {
+
+    //WARNING: Always must match with indicating status.
+    private static var productIdentifierFromAppStoreForTransaction:String?
+
+    static func configure() {
+
+        func _getLocalChargeableAppBy(storeProductIdentifier:String) -> ChargeableApp.Type?{
+            for app in AppCenter.default.apps() {
+                if let cApp = app as? ChargeableApp.Type, Set(cApp.localCharges.compactMap({ ($0.payment as? StorePayable.Type)?.product.identifier })).contains(storeProductIdentifier) {
+                    
+                    return cApp
+                }
+            }
+            return nil
+        }
+
+        /*
+        Test URL of Sandbox
+
+            Finder: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_com.stells.pap.finder_NC_P_owned
+            Converter: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_com.stells.pap.converter_NC_P_owned
+            1M: itms-services://?action=purchaseIntent&bundleId=com.stells.pap&productIdentifier=pap_xapp_NR_1M_rented
+        */
+
+        //INFO: Tap an IAP Product in AppStore -> App Download or Open -> Forwarding
+        SwiftyStoreKit.shouldAddStorePaymentHandler = { payment, product in
+            guard let charge = AppCenter.charge.getChargesHasStorePayable()[product.productIdentifier] else {
+                return false
+            }
+
+            let currentIsShop = AppCenter.default.current == ShopApp.self
+
+            DispatchQueue.main.async{
+                let localChargeableApp = _getLocalChargeableAppBy(storeProductIdentifier:product.productIdentifier)
+
+                if currentIsShop {
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType = localChargeableApp
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.reloadProductItems()
+
+                }else{
+                    var options:AppLaunchOptions?
+                    if localChargeableApp != nil{
+                        var o = [AppLaunchOptionsKey:Any]()
+                        o[.ShopAppCallerAppType] = localChargeableApp
+                        options = AppLaunchOptions(options: o)
+                    }
+                    AppCenter.default.openApp(identifier: ShopApp.info.identifier, options: options)
+                }
+            }
+
+            // if super payable already paid
+            if let superPayables = (charge.payment as? RelativePayable.Type)?.superPayables{
+                for p in superPayables where AppCenter.charge.isPaid(payable: p.element){
+                    return false
+                }
+            }
+
+            // if self payable already paid
+            if AppCenter.charge.isPaid(charge: charge){
+                return false
+            }
+
+            //reserve identifier if only unpaid product
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (currentIsShop ? 0.0 : 1.0)) {
+                AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: charge.payment, indicating:true)
+            }
+
+            productIdentifierFromAppStoreForTransaction = product.productIdentifier
+            return true
+        }
+
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            
+            //Pre-process with StoreKit
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                    case .purchased, .restored:
+                        let downloads = purchase.transaction.downloads
+                        if !downloads.isEmpty {
+                            SwiftyStoreKit.start(downloads)
+                        } else if purchase.needsFinishTransaction {
+                            // Deliver content from server, then:
+                            SwiftyStoreKit.finishTransaction(purchase.transaction)
+                        }
+                        print("\(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+
+                    case .failed, .purchasing, .deferred:
+                        print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
+                        break // do nothing
+                }
+            }
+            
+            //If user completes from App Store
+            if let idByAppStore = productIdentifierFromAppStoreForTransaction, let c = AppCenter.charge.getChargesHasStorePayable()[idByAppStore]{
+
+                for purchase in purchases where idByAppStore==purchase.productId{
+                    let state = purchase.transaction.transactionState
+                    guard state == .purchased || state == .restored else{
+                        continue
+                    }
+
+                    // Pay with ChargeBank
+                    if !AppCenter.charge.isPaid(payable: c.payment){
+                        AppCenter.charge.pay(for: c.payment, skipTransaction: true)
+                    }
+
+                    // Reload Shop Products
+                    DispatchQueue.main.async{
+                        AppCenter.default.currentInstanceAs(ShopApp.self)?.reloadProductItems()
+
+                        //Show alert for localCharge
+                        if let cApp = _getLocalChargeableAppBy(storeProductIdentifier:purchase.productId) {
+                            UIAlertController.alert("\n\("Would you like to move to %@?".localizedFormatted(cApp.info.displayName))\n", title: "Thank you for your purchase.".localized, buttonTitle: "OK".localized, cancelButtonTitle: "Cancel".localized) { action in
+
+                                AppCenter.default.openApp(identifier: cApp.info.identifier)
+                            }
+                        }
+                    }
+                    break
+                }
+
+
+                //Dispose first
+                productIdentifierFromAppStoreForTransaction = nil
+                DispatchQueue.main.async{
+                    AppCenter.default.currentInstanceAs(ShopApp.self)?.indicateProductItem(for: c.payment, indicating:false)
+                }
+            }
+
+        }
+
+        SwiftyStoreKit.updatedDownloadsHandler = { downloads in
+
+            // contentURL is not nil if downloadState == .finished
+            let contentURLs = downloads.compactMap {
+                $0.contentURL
+            }
+            if contentURLs.count == downloads.count {
+                print("Saving: \(contentURLs)")
+                SwiftyStoreKit.finishTransaction(downloads[0].transaction)
+            }
+        }
+    }
+
+    //INFO: RestoredProductId will be filled only after calling restore()
+    static private(set) var restoredProductIDs: Set<String>?
+
+    //INFO: return Product IDs
+    static func restore(_ signal: AsyncWaitSignalable) -> Set<String>? {
+        var purchases: [Purchase]?
+
+        signal.begin()
+
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+
+            purchases = [Purchase]()
+
+            for purchase in results.restoredPurchases {
+                let downloads = purchase.transaction.downloads
+                if !downloads.isEmpty {
+                    SwiftyStoreKit.start(downloads)
+                } else if purchase.needsFinishTransaction {
+                    // Deliver content from server, then:
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+                purchases?.append(purchase)
+            }
+            signal.end()
+        }
+
+        signal.waitUntilEnd()
+
+        guard let ids = purchases?.map({ $0.productId }) else {
+            return nil
+        }
+
+        restoredProductIDs = Set(ids)
+        return restoredProductIDs
+    }
+
+
+    //INFO: nil is Error
+    typealias StoreProductFetchResult = (products:Set<SKProduct>, invalidProductIDs:Set<String>)
+
+    //INFO: dont' directly access this without storeProductsFetchQueue
+    fileprivate static var fetchedStoreProducts = [String:SKProduct]()
+
+    @discardableResult
+    static func fetch(for payables:[StorePayable.Type], _ signal: AsyncWaitSignalable) -> StoreProductFetchResult?{
+        var resultProductInfo:StoreProductFetchResult?
+
+        let requestedPayablesProductIdSet = Set(payables.map{ $0.product.identifier })
+
+        //INFO: set already fetched info
+        let fetchedPayables = payables.filter { $0.storeProduct != nil }
+        var fetchedProductsSet = Set(fetchedPayables.compactMap{ $0.storeProduct })
+
+        let unfetchedPayables = payables.filter { $0.storeProduct == nil }
+
+        //not required fetch, return.
+        if unfetchedPayables.count == 0{
+            resultProductInfo = (products: fetchedProductsSet, invalidProductIDs: Set<String>())
+
+        }else{
+            let unfetchedPayablesProductIdSet = Set(unfetchedPayables.map { $0.product.identifier  })
+
+            signal.begin()
+            SwiftyStoreKit.retrieveProductsInfo(unfetchedPayablesProductIdSet) { (v: RetrieveResults) in
+                if let err = v.error{
+                    print("[!] ERROR \(#function): \(err.localizedDescription)")
+
+                }else{
+                    fetchedProductsSet = fetchedProductsSet.union(v.retrievedProducts)
+
+                    resultProductInfo = (products: fetchedProductsSet, invalidProductIDs: v.invalidProductIDs)
+
+                    for p in fetchedProductsSet {
+                        if requestedPayablesProductIdSet.contains(p.productIdentifier){
+                            StoreKitPayableCenter.fetchedStoreProducts[p.productIdentifier] = p
+                        }else{
+                            assert(false, "[!] WARNING: A product id: \(p.productIdentifier), localizedDescription: \(p.localizedDescription) is not registerd or unmatched.")
+                        }
+                    }
+
+                }
+                signal.end()
+            }
+            signal.waitUntilEnd()
+        }
+
+#if DEBUG
+        if let resultProductInfo = resultProductInfo {
+            //Validation
+            if resultProductInfo.invalidProductIDs.count > 0{
+                print("[!] WARNING: Following product ids: \(String(describing: resultProductInfo.invalidProductIDs)) is invalid products.")
+            }
+
+            let remainigProductIDs = requestedPayablesProductIdSet.subtracting(Set(resultProductInfo.products.map({ $0.productIdentifier })))
+            if remainigProductIDs.count > 0{
+                print("[!] WARNING: Following product ids: \(remainigProductIDs) was not fetched with In Store productIdentifers.")
+            }
+        }
+#endif
+        return resultProductInfo
+    }
+}
+
 /*
-WARNING: MUST use string literal-permanent, Avoid using Swift code literal to prevent changes from refactoring.
-
-- Rules of Product IDs
-        - Format:  pap
-                   _{bundle id | app class}
-                   _{PURCHASE CODE}
-                   _{PERIOD CODE}
-                   _{reward type}
-                   _{version (Int)}? (Optional)
-
-        - PURCHASE CODE
-            NC - NonConsumable
-            CC - Consumable
-            NR - NonRenewable
-            RN - Renewable
-
-        - PERIOD CODE
-            P: Purchase once
-            Y: Yearly
-            M: Monthly
-            W: Weekly
-            [1-N]Y: N year - nonRenewing
-            [1-11]M - N Month - nonRenewing
-
-        e.g. Converter specific -> pap_{com.stells.pap.converter}_*
-        e.g. All CApp class -> pap_capp_*
-
-- Rules of Subscription Group
-        - Format: pap
-                  _{bundle id | app class}
+    StoreKit Product Common Procedures
 */
+private extension StoreProduct {
+    func purchase(_ signal: AsyncWaitSignalable) -> Bool {
+        var paid = false
 
-// All Apps
-struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NC_P_owned", subscriptionPeriod: nil)
+        signal.begin()
 
-    static var superPayables: HashSet<Payable.Type> {
-        return [SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self].hashSet
+        SwiftyStoreKit.purchaseProduct(self.identifier, atomically: true) { result in
+
+            if case .success(let purchase) = result {
+                let downloads = purchase.transaction.downloads
+                if !downloads.isEmpty {
+                    SwiftyStoreKit.start(downloads)
+                }
+                // Deliver content from server, then:
+                if purchase.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+
+                paid = true
+            }
+            signal.end()
+        }
+
+        signal.waitUntilEnd()
+        return paid
+    }
+
+    func verifyReceipt(completion: @escaping (VerifyReceiptResult) -> Void) {
+        let appleValidator = AppleReceiptValidator(service: papVerificationType, sharedSecret: papReceiptSecretKey)
+        SwiftyStoreKit.verifyReceipt(using: appleValidator, completion: completion)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> (product: StoreProduct, receipt:ReceiptInfo)? {
+        var r:(product: StoreProduct, receipt:ReceiptInfo)?
+
+        signal.begin()
+        verifyReceipt { result in
+            switch result {
+            case .success(let receipt):
+                r = (product:self, receipt:receipt)
+
+            case .error:
+                print("[!] WARNING: verifyReceipt error:", result)
+                r = nil
+            }
+            signal.end()
+        }
+        signal.waitUntilEnd()
+        return r
+    }
+}
+
+extension StorePayable{
+    static var storeProduct: SKProduct? {
+        let storeProduct = StoreKitPayableCenter.fetchedStoreProducts[product.identifier]
+#if DEBUG
+        if #available(iOS 11.2, *) {
+            if let storeSubscriptionPeriod = storeProduct?.subscriptionPeriod, storeSubscriptionPeriod.numberOfUnits > 0{
+                assert(product.subscriptionPeriod != nil,"storeSubscriptionPeriod is existed, but local period not defined.")
+                if let localSubscriptionPeriod = product.subscriptionPeriod{
+                    assert(Int(localSubscriptionPeriod.numberOfUnits)==storeSubscriptionPeriod.numberOfUnits,"Not matched between Store Subscription Period Number.")
+                    assert(localSubscriptionPeriod.unit.rawValue==storeSubscriptionPeriod.unit.rawValue+Period.Unit.day.rawValue,"Not matched between Store Subscription Period Unit.")
+                }
+            }
+        }
+#endif
+        return storeProduct
+    }
+
+    static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
+        if storeProduct != nil{
+            return true
+        }
+
+        if let fetchedInfo = StoreKitPayableCenter.fetch(for: [self], signal){
+            for p in fetchedInfo.products where product.identifier == p.productIdentifier{
+                return true
+            }
+        }
+        return false
     }
 }
 
 
-struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
+/*
+    Payment & Verification
+*/
+extension StorePayable{
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+
+        #if DEBUG
+        if self is AutoRenewableSubscribingPayable {
+            guard let urlStr = type(of: self).product.termsURLString, let _ = URL(string: urlStr) else {
+                assert(false, "\(String(describing: AutoRenewableSubscribingPayable.self)) requires correct subscription terms url must be provided.")
+                return false
+            }
+        }
+        #endif
+
+        if let termsURL = type(of: self).product.termsURLString?.asURL{
+            signal.begin()
+            DispatchQueue.main.async{
+                UIApplication.openSafari(with: termsURL) {
+                    signal.end()
+                }
+            }
+            signal.waitUntilEnd()
+        }
+
+        return _pay(signal)
+    }
+
+    fileprivate func _pay(_ signal: AsyncWaitSignalable) -> Bool{
+        return type(of: self).product.purchase(signal)
+    }
+
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        assert(false, "Use specific Payable Type.")
+        return nil
     }
 }
 
-struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
+protocol NonConsumablePurchasingPayable:StorePayable{}
+extension NonConsumablePurchasingPayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return _verify(signal)
+    }
+
+    private func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).product.verify(signal) {
+
+            let p = SwiftyStoreKit.verifyPurchase(
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt)
+
+            switch p {
+                case .purchased( _):
+                    return true
+                default:
+                    return false
+            }
+        }
+        return nil
     }
 }
 
-struct OneMonthAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_1M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
+protocol AutoRenewableSubscribingPayable:StorePayable{}
+extension AutoRenewableSubscribingPayable {
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return _verify(signal)
+    }
+
+    private func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).product.verify(signal){
+
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .autoRenewable,
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
+
+            case .purchased( _, _):
+                return true
+
+            default:
+                return false
+            }
+        }
+        return nil
     }
 }
 
-struct ThreeMonthsAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_3M_rented", subscriptionPeriod: Period(numberOfUnits: 3, unit: .month))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
-    }
-}
+protocol NonRenewingSubscribingPayable:StorePayable{}
+extension NonRenewingSubscribingPayable {
+    fileprivate func _verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        if let r = type(of: self).product.verify(signal){
+            switch SwiftyStoreKit.verifySubscription(
+                    ofType: .nonRenewing(validDuration: papNonRenewingValidDuration),
+                    productId: r.product.identifier,
+                    inReceipt: r.receipt){
 
-struct SixMonthsAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_6M_rented", subscriptionPeriod: Period(numberOfUnits: 6, unit: .month))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
-    }
-}
-
-struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
-    }
-}
-
-
-// 1_App
-
-struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayable, RelativePayable{
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
-    }
-
-    static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil)
-    }
-
-    static var trialTimeLength: TimeInterval {
-        return papTimeInterval.ofAllTimeAppPaymentTrialTimeLength
-    }
-}
-
-struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
-    static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
-    }
-}
-
-struct YearlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
-    static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
-    }
-}
-
-struct OneMonthAppPayment<T:App>: NonRenewingSubscribingPayable{
-    static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month))
-    }
-}
-
-struct OneYearAppPayment<T:App>: NonRenewingSubscribingPayable{
-    static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_NR_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year))
+            case .purchased( _, _):
+                return true
+            default:
+                return false
+            }
+        }
+        return nil
     }
 }
 
 
-
-// https://developer.apple.com/documentation/storekit/in-app-purchase/offering-introductory-pricing-in-your-app
-// >= iOS 11.2
-// https://developer.apple.com/documentation/storekit/skproduct/2936878-introductoryprice?changes=latest-minor
-// Consider - 7day / 1 Month Free Trial
+/*
+    TrialablePayable & StorePayable
+*/
+extension StorePayable where Self:TrialablePayable{
+    func pay(_ signal: AsyncWaitSignalable) -> Bool {
+        return type(of: self).trial(or:{
+            return self._pay(signal)
+        })
+    }
+}
+extension NonConsumablePurchasingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return type(of: self).verifyTrial() ?? _verify(signal)
+    }
+}
+extension AutoRenewableSubscribingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return type(of: self).verifyTrial() ?? _verify(signal)
+    }
+}
+extension NonRenewingSubscribingPayable where Self:TrialablePayable{
+    func verify(_ signal: AsyncWaitSignalable) -> Bool? {
+        return type(of: self).verifyTrial() ?? _verify(signal)
+    }
+}

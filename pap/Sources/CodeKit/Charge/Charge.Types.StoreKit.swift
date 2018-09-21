@@ -18,6 +18,7 @@ protocol StorePayable: VerifiablePayable {
 struct StoreProduct {
     let identifier:String //INFO: Same as SKProduct\.productIdentifier
     let subscriptionPeriod: Period?
+    let termsURLString:String?
 }
 
 /*

@@ -174,7 +174,6 @@
 		4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */; };
 		4F71D9B4E8D299388E1A92B5 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBEC96C298669B35221A /* AppDockViewController.swift */; };
 		4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBC7B1677545F1FDFFBF /* PhoneCalls.BApp.swift */; };
-		4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */; };
 		4F71DA179B296DA438DF7F6D /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */; };
 		4F71DA17D09B551E38D1364A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B7895317B10D661C54 /* Object.swift */; };
 		4F71DA1A6FC8FCD009336391 /* Filters.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */; };
@@ -239,6 +238,7 @@
 		4F71DD60873341BE5272EABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D495C6A50C4C97D67231 /* GoogleService-Info.plist */; };
 		4F71DD6C85C869CEE3CEF3DD /* gifmaker_preview_frame_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1C5225AB9B239E0775A /* gifmaker_preview_frame_3.png */; };
 		4F71DDA1AEBC0351DA96F2E4 /* App.UI.AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */; };
+		4F71DDA82B21406D0E65557A /* Shop.Payables.Store.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDFEF0A7A0E0B9D5721D /* Shop.Payables.Store.Types.swift */; };
 		4F71DDD058DAFF2DB8A7A290 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCB43D9D3F8B1E8D1B3B /* Localizable.strings */; };
 		4F71DDE4E61BBA7D752D8E3C /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4244E62E40BB345C65F /* cell_icon_burst.png */; };
 		4F71DE0A2F73FBEA8A941558 /* CodeKit.OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2593153FA71D25C1A2D /* CodeKit.OptionSet.swift */; };
@@ -531,7 +531,6 @@
 		4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
 		4F71D93194BD75FB4B17AAC0 /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Filters.jpg; sourceTree = "<group>"; };
 		4F71D97ED9B2D6302113481F /* ImageIO.HEIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.HEIF.swift; sourceTree = "<group>"; };
-		4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.StoreKit.swift; sourceTree = "<group>"; };
 		4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.CameraView.swift; sourceTree = "<group>"; };
 		4F71D9C63117AE87507DC6A6 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4F71D9CF1BA37E2581B00326 /* Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
@@ -599,6 +598,7 @@
 		4F71DDE929B4653604C65996 /* cell_icon_depth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_depth.png; sourceTree = "<group>"; };
 		4F71DDE9A9CE37F16E753B80 /* Converter.Mov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mov.swift; sourceTree = "<group>"; };
 		4F71DDFBFF62BA2892846902 /* PDFactory.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.BApp.swift; sourceTree = "<group>"; };
+		4F71DDFEF0A7A0E0B9D5721D /* Shop.Payables.Store.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.Store.Types.swift; sourceTree = "<group>"; };
 		4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.Contents.swift; sourceTree = "<group>"; };
 		4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Tests.swift; sourceTree = "<group>"; };
@@ -1061,7 +1061,6 @@
 				4F71DCA57D6D9B5EE813EDD6 /* Shop.Payables.FreeCharge.swift */,
 				4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */,
 				4F71DFE9DE932092B856F772 /* Shop.Payables.Promotion.swift */,
-				4F71D99A4C7C3C805B2868E5 /* Shop.StoreKit.swift */,
 				4F71DCDF9029D4F588CE0C02 /* Shop.Payables.System.swift */,
 				4F71D4A6198F49AABD974472 /* Shop.Payables.FreeCharge.Ads.swift */,
 				4F71D3C0548D8733197A38CB /* Shop.Payables.FreeCharge.MailContactTypes.swift */,
@@ -1074,6 +1073,7 @@
 				4F71D755807389761F5F6A07 /* Shop.Payables.FreeCharge.SNSEngagement.swift */,
 				4F71DF0BEA72E5826716E912 /* Shop.Payables.SecretCodeProgram.swift */,
 				4F71D7E7AC4F4239A5BA1E2B /* Shop.Payables.SecretCodeProgram.Types.swift */,
+				4F71DDFEF0A7A0E0B9D5721D /* Shop.Payables.Store.Types.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2517,7 +2517,6 @@
 				4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Store.swift in Sources */,
 				4F71D89737C20E00DEE351B7 /* Shop.Payables.Promotion.swift in Sources */,
 				4F71DB405D8C9B7D90DE4C20 /* App.ManagerConfigurable.swift in Sources */,
-				4F71DA116BA91C21886EACEC /* Shop.StoreKit.swift in Sources */,
 				4F71DE646AD030DA9F28BE7E /* Charge.Types.StoreKit.swift in Sources */,
 				4F71DFC97A4B85CB0C7D686A /* CodeKit.SKProduct.swift in Sources */,
 				4F71D5DFBDF1442EE4CA2363 /* Charge.Manager.Macro.swift in Sources */,
@@ -2544,6 +2543,7 @@
 				4F71DF9410A5B3E55D25CD84 /* pap.Counts.swift in Sources */,
 				4F71DADC27E59D49F0739F93 /* Shop.Payables.SecretCodeProgram.swift in Sources */,
 				4F71D347788A2366C7A50B90 /* Shop.Payables.SecretCodeProgram.Types.swift in Sources */,
+				4F71DDA82B21406D0E65557A /* Shop.Payables.Store.Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

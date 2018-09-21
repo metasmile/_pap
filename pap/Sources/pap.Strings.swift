@@ -151,6 +151,9 @@ struct papStrings {
             static var url: String{
                 return "https://apps.photo/terms"
             }
+            static var urlForAutoRenewalSubscription: String{
+                return "https://apps.photo/terms#arp"
+            }
         }
     }
 
