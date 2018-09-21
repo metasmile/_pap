@@ -570,3 +570,50 @@ class UITableViewMultiplePickerCell: UITableViewCell, UITableViewExpandableCell,
         }
     }
 }
+
+public class UITableViewCustomViewAccessoryCellDescriber: UITableViewCellDescriber {
+    public override var cellClass:Swift.AnyClass { return UITableViewCustomViewAccessoryCell.self }
+
+    public var accessoryGenerator: (() -> UIView?)?
+}
+
+class UITableViewCustomViewAccessoryCell: UITableViewCell {
+    var customAccessoryView: UIView? {
+        didSet {
+            customAccessoryView?.removeFromSuperview()
+
+            if let view = customAccessoryView {
+                contentView.addSubview(view)
+            }
+
+            layoutIfNeeded()
+        }
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+
+        textLabel?.adjustsFontSizeToFitWidth = true
+        textLabel?.allowsDefaultTighteningForTruncation = true
+
+        detailTextLabel?.adjustsFontSizeToFitWidth = true
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+
+        let textContentWidth = contentView.bounds.width - (customAccessoryView?.frame.minX ?? 0) - 10
+        textLabel?.frame.size.width = textContentWidth
+        detailTextLabel?.frame.size.width = textContentWidth
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        layoutIfNeeded()
+    }
+}

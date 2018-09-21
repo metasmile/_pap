@@ -60,13 +60,12 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         return preferences
     }
     
-    var dataSource = SiriSettingsTableViewDataSource()
+    lazy var delegator = SiriSettingsTableViewContentDelegator()
     
     func willSetContentView(_ view: UIView, dock: AppDock) {
-        tableView.dataSource = self.dataSource
-//        tableView.delegate = self
+        tableView.dataSource = delegator
+        tableView.delegate = delegator
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 52
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         
@@ -78,7 +77,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     }
     
     private func reloadData() {
-        self.dataSource.group.removeAll()
+        delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
             let intentableApps = AppCenter.default.apps(by: .default)
@@ -94,13 +93,11 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                 var intentCellDescribers = [UITableViewCellDefaultDescribable]()
                 
                 for intent in section.intents {
-                    let cell = UITableViewAccessoryCellDescriber()
+                    let cell = UITableViewCustomViewAccessoryCellDescriber()
                     cell.itemIdentifier = "Intent".hashValue
                     cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
-                    cell.detailedLabel = section.app?.info.displayName
-                    cell.iconImage = section.app?.info.iconBundleName
                     cell.accessoryGenerator = {
-                        let button = intent.addToSiriButton(style: .whiteOutline)
+                        let button = intent.addToSiriButton(style: .white)
                         button?.delegate = self
                         return button
                     }
@@ -109,63 +106,26 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                     intent.donate()
                 }
 
-                let group = CellDescriberGroup(label: section.label, detailedLabel: section.detailedLabel, describers: intentCellDescribers)
-                self.dataSource.group.append(group)
+                let groupDescriber = UITableViewCellDescriber()
+                groupDescriber.itemIdentifier = "groupDescriber".hashValue
+                groupDescriber.label = section.app?.info.displayName ?? "Unknown App"
+                groupDescriber.iconImage = section.app?.info.iconBundleName
 
-                for intentCellDescriber in intentCellDescribers {
-                    tableView.register(describer: intentCellDescriber)
-                }
+                let group = CellDescriberGroup(label: section.label, detailedLabel: section.detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: intentCellDescribers)
+                delegator.group.append(group)
             }
         }
-        
+
+        for group in delegator.group{
+            if let groupDesc = group.groupHeaderCellDescriber{
+                tableView.register(describer: groupDesc)
+            }
+            for intentCellDescriber in group.itemCellDescribers {
+                tableView.register(describer: intentCellDescriber)
+            }
+        }
+
         tableView.reloadData()
-    }
-}
-
-public class UITableViewAccessoryCellDescriber: UITableViewCellDescriber {
-    public override var cellClass:Swift.AnyClass { return UITableViewCustomAccessoryCell.self }
-    
-    public var accessoryGenerator: (() -> UIView?)?
-}
-
-class UITableViewCustomAccessoryCell: UITableViewCell {
-    var customAccessoryView: UIView? {
-        didSet {
-            customAccessoryView?.removeFromSuperview()
-            
-            if let view = customAccessoryView {
-                contentView.addSubview(view)
-            }
-            
-            layoutIfNeeded()
-        }
-    }
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
-        textLabel?.adjustsFontSizeToFitWidth = true
-        textLabel?.allowsDefaultTighteningForTruncation = true
-        
-        detailTextLabel?.adjustsFontSizeToFitWidth = true
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
-        
-        let textContentWidth = contentView.bounds.width - (customAccessoryView?.frame.minX ?? 0) - 20
-        textLabel?.frame.size.width = textContentWidth
-        detailTextLabel?.frame.size.width = textContentWidth
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        layoutIfNeeded()
     }
 }
 
@@ -216,17 +176,15 @@ private struct IntentGroup: Hashable, Equatable, Section {
 private struct CellDescriberGroup: Section{
     fileprivate let label:String
     fileprivate var detailedLabel:String?
-    fileprivate var describers:[UITableViewCellDefaultDescribable]
+    fileprivate var groupHeaderCellDescriber:UITableViewCellDefaultDescribable?
+    fileprivate var itemCellDescribers:[UITableViewCellDefaultDescribable]
     
     var itemsOfSection: [Any] {
-        return describers
+        return itemCellDescribers
     }
 }
 
-// intents by apps
-// intents by app
-
-private class SiriSettingsTableViewDataSource: NSObject, UITableViewDataSource {
+private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSource, UITableViewDelegate {
     var group: [CellDescriberGroup] = []
     
     convenience init(group: [CellDescriberGroup]) {
@@ -245,22 +203,23 @@ private class SiriSettingsTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellDescriber = group[indexPath.section].describers[indexPath.row]
-        if let cellDescriber = cellDescriber as? UITableViewAccessoryCellDescriber
-        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewCustomAccessoryCell {
-            cell.imageView?.image = cellDescriber.iconImage?.asUIImage?.rounded()?.resize(aspectFit: CGSize(width: 40, height: 40))
+        let cellDescriber = group[indexPath.section].itemCellDescribers[indexPath.row]
+
+        if let cellDescriber = cellDescriber as? UITableViewCustomViewAccessoryCellDescriber
+        , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewCustomViewAccessoryCell {
+
             cell.textLabel?.text = cellDescriber.label
-//            cell.detailTextLabel?.text = cellDescriber.detailedLabel
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+            cell.detailTextLabel?.text = cellDescriber.detailedLabel
+            cell.textLabel?.font = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
             cell.detailTextLabel?.textColor = UIColor.gray
             
             if let button = cellDescriber.accessoryGenerator?() {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 cell.customAccessoryView = button
-                
-                button.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10).isActive = true
-                cell.contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 10).isActive = true
-                cell.contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 10).isActive = true
+
+                button.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 0).isActive = true
+                cell.contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 0).isActive = true
+                cell.contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
             }
             
             return cell
@@ -276,6 +235,35 @@ private class SiriSettingsTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return group[section].detailedLabel
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
+    private lazy var iconImageCache:NSCache = NSCache<NSString,UIImage>()
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        if let cellDescriber = group[section].groupHeaderCellDescriber,
+           let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier){
+
+            var iconImage = iconImageCache.object(forKey: cellDescriber.label as NSString)
+            if iconImage == nil{
+                if let image = cellDescriber.iconImage?.asUIImage?.rounded()?.resize(aspectFit: CGSize(width: 34, height: 34)){
+                    iconImage = image
+                    iconImageCache.setObject(image, forKey: cellDescriber.label as NSString)
+                }
+            }
+
+            cell.imageView?.image = iconImage
+            cell.textLabel?.text = cellDescriber.label
+            cell.textLabel?.textColor = UIColor.gray
+            cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            return cell
+        }
+
+        return nil
     }
 }
 
