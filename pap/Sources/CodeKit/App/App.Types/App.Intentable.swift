@@ -46,10 +46,10 @@ extension INIntent {
     
     var intentableLaunchOptions: [AppLaunchOptionsKey: Any]? {
         guard let value = value(forKey: "launchOption") else { return nil }
-        return [AppLaunchOptionsKey.Intent: value]
+        return [.IntentLaunchOptionValue: value]
     }
 }
 
 extension AppLaunchOptionsKey {
-    static var Intent:AppLaunchOptionsKey { return autoKey() }
+    static var IntentLaunchOptionValue:AppLaunchOptionsKey { return autoKey() }
 }

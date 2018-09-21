@@ -317,6 +317,8 @@ extension SiriSettingsDockContent: INUIEditVoiceShortcutViewControllerDelegate {
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
         controller.dismiss(animated: true, completion: nil)
+
+        tableView.reloadData()
     }
     
     func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {

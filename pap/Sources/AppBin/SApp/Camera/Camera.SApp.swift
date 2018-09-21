@@ -188,7 +188,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
             }
         }
         
-        if let optionValue = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.options?[AppLaunchOptionsKey.Intent] as? NSNumber {
+        if let optionValue = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.options?[AppLaunchOptionsKey.IntentLaunchOptionValue] as? NSNumber {
             let option = CameraApp.IntentLaunchOption(optionValue.intValue)
             if option.contains(.livePhoto) {
                 self.cameraView?.isLivePhotoEnabled = true
