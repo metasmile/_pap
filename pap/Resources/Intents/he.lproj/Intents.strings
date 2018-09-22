@@ -46,6 +46,10 @@
 "cOeR5u" = "פתח את ${appName}.";
 /*Translated from: Open Cleaner.*/
 "cyiLEU" = "פתח את 'מנקה'.";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "צלם סלפי";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "קח Selfie עם תמונה חיה";
 /*Translated from: Take A Live Photo.*/
 "ewGyLx-ZbogxE" = "צלם תמונה חיה.";
 /*Translated from: Take A Photo.*/
@@ -80,6 +84,10 @@
 "oHEX05" = "פתח את ${appName}.";
 /*Translated from: Open Auto Editor App.*/
 "wmUAoj" = "פתח את היישום 'עורך אוטומטי'.";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "בסדר. אתה יכול לקחת selfie עכשיו";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "בסדר. אתה יכול לקחת Selfie עם תמונה חיה עכשיו";
 /*Translated from: OK. You can take a Live Photo now.*/
 "xwyqoh-ZbogxE" = "בסדר. כעת תוכל לצלם תמונה חיה.";
 /*Translated from: OK. You can take a Photo now.*/

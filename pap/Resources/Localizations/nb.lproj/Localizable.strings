@@ -584,12 +584,8 @@
 "Submit" = "Sende inn";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Ta en levende bilde.";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Take A Photo" = "Ta et bilde";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Ta et bilde.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Tatt med innebygd kamera";
 /* Generated from genl10n: Cleaner.BApp.swift */

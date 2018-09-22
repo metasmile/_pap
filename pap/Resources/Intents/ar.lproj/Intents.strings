@@ -46,6 +46,10 @@
 "cOeR5u" = "افتح ${appName}.";
 /*Translated from: Open Cleaner.*/
 "cyiLEU" = "منظف ​​مفتوح.";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "خذ سيلفي";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "خذ سيلفي مع صورة حية";
 /*Translated from: Take A Live Photo.*/
 "ewGyLx-ZbogxE" = "خذ صورة حية.";
 /*Translated from: Take A Photo.*/
@@ -80,6 +84,10 @@
 "oHEX05" = "افتح ${appName}.";
 /*Translated from: Open Auto Editor App.*/
 "wmUAoj" = "فتح محرر السيارات التطبيق.";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "حسنا. يمكنك التقاط صورة شخصية الآن";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "حسنا. يمكنك أن تأخذ صورة شخصية مع صورة حية الآن";
 /*Translated from: OK. You can take a Live Photo now.*/
 "xwyqoh-ZbogxE" = "حسنا. يمكنك التقاط صورة حية الآن.";
 /*Translated from: OK. You can take a Photo now.*/

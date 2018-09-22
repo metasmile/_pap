@@ -584,12 +584,8 @@
 "Submit" = "podnijeti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će savršeno ostati ista.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Uzmi fotografiju uživo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
 "Take A Photo" = "Slikaj";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Slikaj.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Preuzeto s ugrađenim fotoaparatom";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */

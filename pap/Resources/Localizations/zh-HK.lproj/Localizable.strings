@@ -530,12 +530,8 @@
 "Submit" = "提交";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "拍攝現場照片。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#392, Finder.BApp.swift#1346 */
 "Take A Photo" = "拍個照";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "拍個照。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "採用內置攝像頭";
 /* Generated from genl10n: Cleaner.BApp.swift#565 */
