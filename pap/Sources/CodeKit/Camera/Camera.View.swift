@@ -8,8 +8,19 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
+import PropertyKit
 
-class CameraView: UIView {
+class CameraViewCapturedResult:NSObject{
+    let succeed:Bool
+    let results:CaptureProcessorResult?
+
+    init(succeed:Bool, result:CaptureProcessorResult?){
+        self.succeed = succeed
+        self.results = result
+    }
+}
+
+class CameraView: UIView, PropertyWatchable {
     private var captureSession: AVCaptureSession? {
         set {
             if let session = newValue {
@@ -31,7 +42,8 @@ class CameraView: UIView {
     private(set) lazy var deviceMotion = UIDeviceMotion()
 
     var configurationDidUpdate: (() -> Void)?
-    var capturedHandler:CaptureProcessorCompletionHandler?
+    @objc dynamic
+    var capturedResult:CameraViewCapturedResult?
     var captureMetadataComment:String?
 
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
@@ -138,7 +150,7 @@ class CameraView: UIView {
 
     var capturesInProgress = Set<CaptureProcessor>()
 
-    func takePhoto() {
+    func takePhoto(completion:CaptureProcessorCompletionHandler?=nil) {
         guard let _ = self.capturePhotoOutput.connection(with: .video) else { return }
         
         performShutterAnimation()
@@ -168,7 +180,8 @@ class CameraView: UIView {
         // Schedule for the capture delegate to be removed from the set after capture.
         captureProcessor.completionHandler = { [weak self] succeed, result in
             self?.capturesInProgress.remove(captureProcessor)
-            self?.capturedHandler?(succeed, succeed ? result : nil)
+            self?.capturedResult = CameraViewCapturedResult(succeed: succeed, result: result)
+            completion?(succeed, succeed ? result : nil)
         }
 
         sessionQueue.async {
@@ -193,7 +206,7 @@ class CameraView: UIView {
         return self.currentCaptureDeviceInput(for:.video)
     }
 
-    func switchCaptureDevicePosition(animated: Bool = true) {
+    func switchCaptureDevicePosition(animated: Bool = true, completion:((AVCaptureDevice.Position) -> ())?=nil) {
         guard let currentDevice = self.currentVideoDeviceInput else { return }
         let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
 
@@ -204,6 +217,8 @@ class CameraView: UIView {
                     UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve, animations: {
                         switchingView.removeFromSuperview()
                     }, completion: nil)
+
+                    completion?(position)
                 }
             }
         }

@@ -364,8 +364,6 @@
 "Landscape" = "가로";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
-/* Generated from genl10n: Camera.SApp.swift */
-"Let's take a photo." = "사진을 찍어 봅시다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */

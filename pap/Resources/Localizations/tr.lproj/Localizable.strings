@@ -364,8 +364,6 @@
 "Landscape" = "peyzaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "düzen";
-/* Generated from genl10n: Camera.SApp.swift */
-"Let's take a photo." = "Bir fotoğraf çekelim.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */

@@ -41,6 +41,26 @@
 					<key>INEnumValueName</key>
 					<string>LivePhoto</string>
 				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Selfie</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>IJ8sUB</string>
+					<key>INEnumValueIndex</key>
+					<integer>3</integer>
+					<key>INEnumValueName</key>
+					<string>SelfiePhoto</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Selfie With Live Photo</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>MNWfid</string>
+					<key>INEnumValueIndex</key>
+					<integer>4</integer>
+					<key>INEnumValueName</key>
+					<string>SelfieWithLivePhoto</string>
+				</dict>
 			</array>
 		</dict>
 	</array>
