@@ -139,17 +139,17 @@
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1ヶ月メンバーシップ";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All Apps and New" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
+"1-Month Use of All and New Apps" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main Apps and New" = "1ヶ月間のメインアプリと新規アプリの使用";
+"1-Month Use of Main and New Apps" = "1ヶ月間のメインアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14 Day Use of Main Apps and New" = "メインアプリと新アプリの14日間の使用";
+"14-Day Use of Main and New Apps" = "メインアプリと新しいアプリの14日間利用";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6ヶ月間の会員";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All Apps and New" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
+"6-Month Use of All and New Apps" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of Main Apps and New" = "7日間のメインアプリと新規アプリの使用";
+"7-Day Use of Main and New Apps" = "メインアプリと新しいアプリの7日間利用";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "ライセンスが必要です。";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -409,9 +409,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "待機";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All Apps and New" = "すべてのアプリの継続使用と新規";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Main Apps" = "すべてのメインアプリの継続使用";
+"Ongoing Use of All and New Apps" = "すべてのアプリの継続使用と新規";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "すべてのメインアプリケーションと新しいメインアプリケーションの継続的な使用";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
 "Open %@" = "%@を開く";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -437,7 +437,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "恒久的な使用とすべての新しいアップデート";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All Apps and New" = "すべてのアプリケーションと新規の恒久的な使用";
+"Permanent Use of All and New Apps" = "すべてのアプリケーションと新規の恒久的な使用";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "電話";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

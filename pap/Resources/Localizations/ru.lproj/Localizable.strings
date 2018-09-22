@@ -139,17 +139,17 @@
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 месяц Членство";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All Apps and New" = "1-месячное использование всех приложений и новых";
+"1-Month Use of All and New Apps" = "1-месячное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+"1-Month Use of Main and New Apps" = "1-месячное использование основных и новых приложений";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
+"14-Day Use of Main and New Apps" = "14-дневное использование основных и новых приложений";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 месяцев Членство";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All Apps and New" = "6-месячное использование всех приложений и новых";
+"6-Month Use of All and New Apps" = "6-месячное использование всех приложений и новых";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
+"7-Day Use of Main and New Apps" = "7-дневное использование основных и новых приложений";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Требуется лицензия.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -323,11 +323,11 @@
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "Guest User License Program";
+"Guest User License Program" = "Пользовательская лицензионная программа пользователя";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "Guest User License";
+"Guest User License" = "Пользовательская лицензия";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User" = "Guest User";
+"Guest User" = "Гость";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Привет, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -409,9 +409,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режиме ожидания";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All Apps and New" = "Постоянное использование всех приложений и новых";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Main Apps" = "Текущее использование всех основных приложений";
+"Ongoing Use of All and New Apps" = "Постоянное использование всех приложений и новых";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "Текущее использование всех и новых основных приложений";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
 "Open %@" = "Открыть %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -437,7 +437,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Постоянное использование и все новые обновления";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All Apps and New" = "Постоянное использование всех приложений и новых";
+"Permanent Use of All and New Apps" = "Постоянное использование всех приложений и новых";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -651,7 +651,7 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Добро пожаловать в нашу VIP-лицензионную программу.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
+"Welcome to our guest user license program!" = "Добро пожаловать в нашу гостевую лицензионную программу!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Добро пожаловать в нашу лицензионную программу продвижения!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

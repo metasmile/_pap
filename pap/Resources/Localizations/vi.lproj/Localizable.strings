@@ -139,17 +139,17 @@
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 tháng thành viên";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All Apps and New" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
+"1-Month Use of All and New Apps" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+"1-Month Use of Main and New Apps" = "Sử dụng 1 tháng của ứng dụng chính và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
+"14-Day Use of Main and New Apps" = "Sử dụng các ứng dụng chính và ứng dụng mới trong 14 ngày";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 tháng thành viên";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All Apps and New" = "Sử dụng 6 tháng của tất cả ứng dụng và mới";
+"6-Month Use of All and New Apps" = "Sử dụng 6 tháng của tất cả ứng dụng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
+"7-Day Use of Main and New Apps" = "Sử dụng các ứng dụng chính và mới trong 7 ngày";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Giấy phép là bắt buộc.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -323,11 +323,11 @@
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "Guest User License Program";
+"Guest User License Program" = "Chương trình cấp phép người dùng dành cho khách";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "Guest User License";
+"Guest User License" = "Giấy phép người dùng của khách";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User" = "Guest User";
+"Guest User" = "Tài khoản khách";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -409,9 +409,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All Apps and New" = "Đang sử dụng tất cả ứng dụng và mới";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Main Apps" = "Đang sử dụng tất cả ứng dụng chính";
+"Ongoing Use of All and New Apps" = "Đang sử dụng tất cả ứng dụng và mới";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "Sử dụng liên tục tất cả và ứng dụng chính mới";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
 "Open %@" = "Mở %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -437,7 +437,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Sử dụng vĩnh viễn và tất cả cập nhật mới";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All Apps and New" = "Sử dụng vĩnh viễn tất cả ứng dụng và mới";
+"Permanent Use of All and New Apps" = "Sử dụng vĩnh viễn tất cả ứng dụng và mới";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -651,7 +651,7 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
+"Welcome to our guest user license program!" = "Chào mừng bạn đến với chương trình giấy phép người dùng dành cho khách của chúng tôi!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Chào mừng bạn đến với chương trình giấy phép quảng cáo của chúng tôi!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */

@@ -139,17 +139,17 @@
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 měsíc členství";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All Apps and New" = "1-měsíční používání všech aplikací a nové";
+"1-Month Use of All and New Apps" = "1-měsíční používání všech aplikací a nové";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main Apps and New" = "1-Month Use of Main Apps and New";
+"1-Month Use of Main and New Apps" = "1-měsíční používání hlavních a nových aplikací";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14 Day Use of Main Apps and New" = "14 Day Use of Main Apps and New";
+"14-Day Use of Main and New Apps" = "14denní používání hlavních a nových aplikací";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 měsíců členství";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All Apps and New" = "6měsíční používání všech aplikací a nové";
+"6-Month Use of All and New Apps" = "6měsíční používání všech aplikací a nové";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7 Day Use of Main Apps and New" = "7 Day Use of Main Apps and New";
+"7-Day Use of Main and New Apps" = "7denní používání hlavních a nových aplikací";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Licence je vyžadována.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
@@ -323,11 +323,11 @@
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "Guest User License Program";
+"Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "Guest User License";
+"Guest User License" = "Uživatelská licence uživatele";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Guest User" = "Guest User";
+"Guest User" = "Host Guest";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý den, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
@@ -409,9 +409,9 @@
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostním režimu";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All Apps and New" = "Pokračující používání všech aplikací a nových";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Ongoing Use of All Main Apps" = "Probíhající používání všech hlavních aplikací";
+"Ongoing Use of All and New Apps" = "Pokračující používání všech aplikací a nových";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "Probíhající používání všech a nových hlavních aplikací";
 /* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
 "Open %@" = "Otevřete %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -437,7 +437,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Trvalé použití a všechny nové aktualizace";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All Apps and New" = "Trvalé používání všech aplikací a nové";
+"Permanent Use of All and New Apps" = "Trvalé používání všech aplikací a nové";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "Telefonní hovory";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -651,7 +651,7 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Vítejte v našem licenčním programu VIP.";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "Welcome to our guest user license program!";
+"Welcome to our guest user license program!" = "Vítejte v našem uživatelském licenčním programu!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Vítejte v našem licenčním programu!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
