@@ -42,9 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         DispatchQueue.global(qos: .background).async{
             self.spotlightSearchAppDelegate.indexDefaultSearchableItems()
-            self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
-            self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
-            self.intentsAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+
+            DispatchQueue.main.async{
+                self.spotlightSearchAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+                self.shortcutItemAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+                self.intentsAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+            }
         }
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

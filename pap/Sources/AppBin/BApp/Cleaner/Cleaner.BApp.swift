@@ -898,8 +898,7 @@ extension CleanerAppDockContent: PreheatableAppSubscribable{
 }
 
 import Intents
-
-extension CleanerApp: IntentableApp {
+extension CleanerApp: UIApplicationDelegatableApp {
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenCleanerIntent()
@@ -911,4 +910,12 @@ extension CleanerApp: IntentableApp {
             return []
         }
     }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    }
 }
+

@@ -397,7 +397,8 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
 
 import Intents
 
-extension AutoEditorApp: IntentableApp {
+extension AutoEditorApp:UIApplicationDelegatableApp{
+
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenAutoEditorIntent()
@@ -408,5 +409,12 @@ extension AutoEditorApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

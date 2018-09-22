@@ -283,7 +283,7 @@ fileprivate class RevertAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
 import Intents
 
-extension RevertApp: IntentableApp {
+extension RevertApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenRevertIntent()
@@ -294,5 +294,12 @@ extension RevertApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

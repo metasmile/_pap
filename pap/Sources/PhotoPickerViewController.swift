@@ -383,9 +383,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func cancelButtonDidTap(sender: Any) {
         super.cancelButtonDidTap(sender: sender)
 
-        let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.prepare()
-        generator.impactOccurred()
+        UIFeedback.impact(.medium)
 
         cancelAllInCurrentContext()
     }

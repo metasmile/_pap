@@ -4,6 +4,15 @@
 //
 
 import Foundation
+import Intents
+
+protocol LaunchableApp :App {
+    // didResign called after an other app assigned to AppManager.current, OR discard Self instance if needed when App.info.policy.lifeCycle.instance == .availability
+    // use this for a situation for example it should remove temp resources in current running cycle.
+    func didResign(current:App.Type?)
+
+    func didLaunch(previous:App.Type?, withOption: AppLaunchOptions?)
+}
 
 public struct AppLaunchOptionsKey: Hashable, Equatable, RawRepresentable {
     public typealias RawValue = Int
@@ -23,12 +32,4 @@ public struct AppLaunchOptions {
         self.options = options
     }
     var identifierToReturn:String?
-}
-
-protocol LaunchableApp :App {
-    // didResign called after an other app assigned to AppManager.current, OR discard Self instance if needed when App.info.policy.lifeCycle.instance == .availability
-    // use this for a situation for example it should remove temp resources in current running cycle.
-    func didResign(current:App.Type?)
-
-    func didLaunch(previous:App.Type?, withOption: AppLaunchOptions?)
 }

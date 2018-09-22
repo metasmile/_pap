@@ -20,7 +20,7 @@ class SiriApp: NSObject
     public static let info = AppInfo(
         identifier: "com.stells.pap.siri"
         , version: "1.0"
-        , phase: .develop
+        , phase: .release
         , appType: SiriApp.self
         , displayName: "Siri"
         , description: nil
@@ -80,14 +80,14 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
-            let intentableApps = AppCenter.default.apps(by: .default)
-                    .compactMap { return $0 as? IntentableApp.Type}
+            let apps = AppCenter.default.apps(by: .default)
+                    .compactMap { return $0 as? UIApplicationDelegatableApp.Type}
                     //INFO: sort by amount of intent
                     .sorted { appType, appType2 in
                         return appType.intents.count > appType2.intents.count
                     }
 
-            for section in intentableApps.map({ (app) -> IntentGroup in
+            for section in apps.map({ (app) -> IntentGroup in
                 IntentGroup(app: app)
             }) {
                 var intentCellDescribers = [UITableViewCellDefaultDescribable]()
@@ -163,7 +163,7 @@ private struct IntentGroup: Hashable, Equatable, Section {
     init(app: App.Type) {
         self.app = app
         self.title = ""
-        self.intents = (app as? IntentableApp.Type)?.intents ?? []
+        self.intents = (app as? UIApplicationDelegatableApp.Type)?.intents ?? []
     }
     
     init(title: String, intents: [INIntent]) {
@@ -277,7 +277,7 @@ extension INIntent {
     
     func donate() {
         let interaction = INInteraction(intent: self, response: nil)
-        if let appId = self.intentableAppId {
+        if let appId = self.appIdentifier {
             interaction.groupIdentifier = appId
         }
         interaction.identifier = String(describing: self)

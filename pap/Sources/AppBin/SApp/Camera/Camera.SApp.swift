@@ -11,6 +11,7 @@ import AVFoundation
 import Photos
 import PhotosUI
 import PropertyKit
+import Intents
 
 protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
     //INFO: extend app-specific properties if needed,
@@ -73,10 +74,24 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     }
 }
 
-import Intents
+extension CameraApp: UIApplicationDelegatableApp{
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+        guard let intent = userActivity.interaction?.intent else{
+            return
+        }
 
-extension CameraApp: IntentableApp {
-    struct IntentLaunchOption: OptionSet {
+        if #available(iOS 12.0, *) {
+            (self.content as? CameraAppDockContent)?.performWithIntent(intent)
+        }
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+
+    }
+}
+
+extension CameraApp{
+    fileprivate struct CameraAppIntentOption: OptionSet {
         public let rawValue: Int
         
         init(rawValue: Int) {
@@ -87,9 +102,9 @@ extension CameraApp: IntentableApp {
             self.rawValue = rawValue
         }
         
-        static let takePhoto = IntentLaunchOption(1 << 0)
-        static let livePhoto = IntentLaunchOption(1 << 1)
-        static let stillPhoto = IntentLaunchOption(1 << 2)
+        static let takePhoto = CameraAppIntentOption(1 << 0)
+        static let livePhoto = CameraAppIntentOption(1 << 1)
+        static let stillPhoto = CameraAppIntentOption(1 << 2)
     }
     
     static var intents: [INIntent] {
@@ -103,21 +118,21 @@ extension CameraApp: IntentableApp {
             let takeAPhotoIntent = TakeAPhotoIntent()
             takeAPhotoIntent.appId = CameraApp.info.identifier
             takeAPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeAPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption.takePhoto.rawValue)
+            takeAPhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption.takePhoto.rawValue)
             takeAPhotoIntent.suggestedInvocationPhrase = "Let's take a photo.".localized //TODO: run this intent while camera app is opened
             
             let takeAStillPhotoIntent = TakeAPhotoIntent()
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeAStillPhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .stillPhoto]).rawValue)
+            takeAStillPhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .stillPhoto]).rawValue)
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
             
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeALivePhotoIntent.launchOption = NSNumber(value: IntentLaunchOption([.takePhoto, .livePhoto]).rawValue)
+            takeALivePhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
             
             return [openAppIntent, takeAPhotoIntent, takeAStillPhotoIntent, takeALivePhotoIntent]
@@ -125,6 +140,8 @@ extension CameraApp: IntentableApp {
             return []
         }
     }
+
+
 }
 
 //@available(iOS 12.0, *)
@@ -174,29 +191,33 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
 
         cameraView?.capturedHandler = { succeed, results in
-            if let results = results{
+            if let results = results {
 
-                var data = [AppLaunchOptionsKey:Any]()
-                if let photoUrl = results[CaptureProcessorResultKey.photoURL]{
+                var data = [AppLaunchOptionsKey: Any]()
+                if let photoUrl = results[CaptureProcessorResultKey.photoURL] {
                     data[AppLaunchOptionsKey.PhotoURL] = photoUrl
                 }
-                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL]{
+                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL] {
                     data[AppLaunchOptionsKey.PairedVideoURL] = pairedVideoURL
                 }
 
-                self.didCaptured(with:data)
+                self.didCaptured(with: data)
             }
         }
-        
-        if let optionValue = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.options?[AppLaunchOptionsKey.IntentLaunchOptionValue] as? NSNumber {
-            let option = CameraApp.IntentLaunchOption(optionValue.intValue)
+    }
+
+    @available(iOS 12.0, *)
+    fileprivate func performWithIntent(_ intent:INIntent){
+        if let intent = intent as? TakeAPhotoIntent, let optionValue = intent.launchOption?.intValue {
+            
+            let option = CameraApp.CameraAppIntentOption(optionValue)
             if option.contains(.livePhoto) {
                 self.cameraView?.isLivePhotoEnabled = true
             }
             else if option.contains(.stillPhoto) {
                 self.cameraView?.isLivePhotoEnabled = false
             }
-            
+
             if option.contains(.takePhoto) {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
                     self.cameraView?.takePhoto()
@@ -204,7 +225,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
             }
         }
     }
-    
+
     func didCaptured(with data:[AppLaunchOptionsKey:Any]){
         if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
             , let id = option.identifierToReturn {

@@ -241,7 +241,7 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension ConverterApp: IntentableApp {
+extension ConverterApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenConverterIntent()
@@ -252,5 +252,12 @@ extension ConverterApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

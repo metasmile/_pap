@@ -576,7 +576,7 @@ extension AppDockView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         zoomOutAppCollectionView(delay: 0)
 
-        UISelectionFeedbackGenerator().selectionChanged()
+        UIFeedback.select()
         
         if let item = dataSource?.appDockView(self, itemAt: indexPath) {
             drawerView.setApp(item.app)

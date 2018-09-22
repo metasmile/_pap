@@ -10,6 +10,7 @@ import UIKit
 import Intents
 
 class IntentsAppDelegate: NSObject, UIApplicationDelegate {
+
     @discardableResult
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
@@ -28,12 +29,17 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
     @discardableResult
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if #available(iOS 12.0, *) {
-            guard let intent = userActivity.interaction?.intent, let appId = intent.intentableAppId else { return false }
+            guard let intent = userActivity.interaction?.intent, let appId = intent.appIdentifier else {
+                return false
+            }
+
             userActivity.isEligibleForSearch = true
             userActivity.isEligibleForPrediction = true
 
-            if IntentsAppDelegate.launchAppIfNeededWithAppId(appId, launchOptions: intent.intentableLaunchOptions){
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
+            if IntentsAppDelegate.launchAppIfNeededWithAppId(appId, userActivity: userActivity){
+                UIFeedback.notify(.success)
+            }else{
+                UIFeedback.impact(.heavy)
             }
         }
         return true
@@ -42,19 +48,13 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
 
 extension IntentsAppDelegate {
     @discardableResult
-    public static func launchAppIfNeededWithAppId(_ appId: String?, launchOptions options: [AppLaunchOptionsKey: Any]?) -> Bool {
-        guard
-            let appId = appId,
-            let app = IntentsAppDelegate.findApp(by: appId)
-            else { return false }
+    public static func launchAppIfNeededWithAppId(_ appId: String?, userActivity:NSUserActivity) -> Bool {
+        guard let appId = appId else {
+            return false
+        }
 
-        AppCenter.default.openApp(identifier: app.info.identifier, options: AppLaunchOptions(options: options))
-        return true
-    }
-
-    public static func findApp(by appIdentifier: String) -> App.Type? {
-        return AppCenter.default.apps().first (where:{ appType in
-            return appType.info.identifier == appIdentifier
-        })
+        return AppCenter.default.openApp(identifier: appId, options: AppLaunchOptions(options: [.NSUserActivity: userActivity])) { hasChanged in
+            AppCenter.default.currentInstanceAs(UIApplicationDelegatableApp.self)?.didFinishLaunchHandlingWith(userActivity:userActivity)
+        }
     }
 }

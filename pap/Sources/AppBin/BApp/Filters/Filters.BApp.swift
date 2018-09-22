@@ -66,7 +66,7 @@ public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttr
 public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
-PhotoEditorViewControllerDelegatableApp, ChargeableApp, IntentableApp {
+PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
@@ -142,18 +142,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp, IntentableApp {
             }
         }
     }
-    
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            let openAppIntent = OpenFiltersIntent()
-            openAppIntent.appId = FiltersApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FiltersApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Filters."
-            return [openAppIntent]
-        } else {
-            return []
-        }
-    }
 
     public var doneButtonTitle: String? {
         return "Apply".localized
@@ -194,6 +182,28 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp, IntentableApp {
         (content as? FiltersAppDockContent)?.selectItem(with: editStateValue)
     }
 }
+
+extension FiltersApp:UIApplicationDelegatableApp{
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenFiltersIntent()
+            openAppIntent.appId = FiltersApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FiltersApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Filters."
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    }
+}
+
 
 private extension FiltersApp {
     private func updateControllerView() {
@@ -346,3 +356,4 @@ private class _FiltersAppTask: AppTaskPrototype, AppTaskable {
         return result
     }
 }
+

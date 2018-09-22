@@ -1694,7 +1694,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
 import Intents
 
-extension FinderApp: IntentableApp {
+extension FinderApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenFinderIntent()
@@ -1705,6 +1705,13 @@ extension FinderApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }
 

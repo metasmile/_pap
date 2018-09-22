@@ -176,7 +176,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension TransformApp: IntentableApp {
+extension TransformApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenTransformIntent()
@@ -187,5 +187,12 @@ extension TransformApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

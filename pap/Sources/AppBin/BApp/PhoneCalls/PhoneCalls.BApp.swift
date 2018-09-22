@@ -628,7 +628,7 @@ extension PhoneCallsAppDockContent: PreheatableAppSubscribable{
 
 import Intents
 
-extension PhoneCallsApp: IntentableApp {
+extension PhoneCallsApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenPhoneCallsIntent()
@@ -639,5 +639,12 @@ extension PhoneCallsApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

@@ -275,7 +275,7 @@ class AppUICameraView: UIView {
 
     @objc func tapToCapture(sender: Any) {
         if isCompactMode || sender is CaptureButton {
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            UIFeedback.impact(.light)
             cameraView.takePhoto()
         }
         else if let gesture = sender as? UITapGestureRecognizer {
@@ -284,14 +284,13 @@ class AppUICameraView: UIView {
     }
 
     @objc func tapDownToCapture(sender: Any) {
-        UISelectionFeedbackGenerator().selectionChanged()
-        UIImpactFeedbackGenerator(style: .light).prepare()
+        UIFeedback.select()
     }
 
     @objc func switchDevicePosition(sender: Any) {
         cameraView.switchCaptureDevicePosition()
 
-        UISelectionFeedbackGenerator().selectionChanged()
+        UIFeedback.select()
     }
 
     @objc func switchFlash(sender: Any) {
@@ -301,7 +300,7 @@ class AppUICameraView: UIView {
             AVCaptureDevice.FlashMode.off:AVCaptureDevice.FlashMode.auto
         ][cameraView.currentFlashMode]!
 
-        UISelectionFeedbackGenerator().selectionChanged()
+        UIFeedback.select()
     }
 
     @objc func toggleLivePhotoEnabled(sender: Any) {
@@ -309,7 +308,7 @@ class AppUICameraView: UIView {
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
         cameraView.configurationDidUpdate?()
         
-        UISelectionFeedbackGenerator().selectionChanged()
+        UIFeedback.select()
     }
 
     var hasZeroOptionViewMargin:Bool{

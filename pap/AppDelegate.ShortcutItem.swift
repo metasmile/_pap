@@ -37,8 +37,10 @@ extension ShortcutItemAppDelegate {
             shortcutItem.type.hasPrefix(UIApplicationShortcutItem.prefix),
             let app = ShortcutItemAppDelegate.findApp(by: shortcutItem)
         else { return false }
-        
-        AppCenter.default.openApp(identifier: app.info.identifier)
+
+        AppCenter.default.openApp(identifier: app.info.identifier, options: AppLaunchOptions(options: [.UIApplicationShortcutItem: shortcutItem])) { _ in
+            AppCenter.default.currentInstanceAs(UIApplicationDelegatableApp.self)?.didFinishLaunchHandlingWith(shortcutItem:shortcutItem)
+        }
         return true
     }
     

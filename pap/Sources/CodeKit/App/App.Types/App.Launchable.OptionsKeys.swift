@@ -5,18 +5,16 @@
 
 import Foundation
 
-/*
-    App, AppInfo
-*/
 extension AppLaunchOptionsKey {
     //value type: App.Type
     static var SourceAppType:AppLaunchOptionsKey { return autoKey() }
-}
 
-/*
-    AVFoundation, PhotosKit
-*/
-extension AppLaunchOptionsKey {
+    //value type: UserActivity
+    static var NSUserActivity:AppLaunchOptionsKey { return autoKey() }
+
+    //value type: UserActivity
+    static var UIApplicationShortcutItem:AppLaunchOptionsKey { return autoKey() }
+
     //value type: PHAsset
     static var PHAsset:AppLaunchOptionsKey { return autoKey() }
 

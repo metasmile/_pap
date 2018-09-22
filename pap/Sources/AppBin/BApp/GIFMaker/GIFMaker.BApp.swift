@@ -834,7 +834,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
 
 import Intents
 
-extension GIFMakerApp: IntentableApp {
+extension GIFMakerApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenGIFMakerIntent()
@@ -845,5 +845,12 @@ extension GIFMakerApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }

@@ -32,9 +32,11 @@ extension AppCenter{
     /* INFO:
     When set "identifier" in App internal code, use string literal instead of reference.
     e.g. - AppCenter.default.openApp(identifier:"com.stells.pap.camera")
+
+    didOpen(Bool) - true: "changed", false: "did not changed"
     */
     @discardableResult
-    func openApp(identifier:String, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
+    func openApp(identifier:String, options: AppLaunchOptions?=nil, animation:Bool=false, didOpen:((Bool) -> ())?=nil) -> Bool{
         if identifier.trimmed.nilEmpty != nil
         , let matchedApp = AppCenter.default.apps().first(where:{ $0.info.identifier==identifier }){
 
@@ -49,13 +51,13 @@ extension AppCenter{
                 passingOption = mutableOption
             }
 
-            return self.selectApp(matchedApp, options:passingOption, animation: animation)
+            return self.selectApp(matchedApp, options:passingOption, animation: animation, didOpen:didOpen)
         }
         return false
     }
 
     @discardableResult
-    private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
+    private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false, didOpen:((Bool) -> ())?=nil) -> Bool{
         guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController else {
             return false
         }
@@ -85,6 +87,8 @@ extension AppCenter{
             if willChange{
                 appDockVc.appDidChange()
             }
+
+            didOpen?(willChange)
         }
         return true
     }

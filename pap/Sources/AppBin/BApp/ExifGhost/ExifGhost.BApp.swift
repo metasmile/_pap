@@ -146,7 +146,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension ExifGhostApp: IntentableApp {
+extension ExifGhostApp:UIApplicationDelegatableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenEXIFGhostIntent()
@@ -157,5 +157,12 @@ extension ExifGhostApp: IntentableApp {
         } else {
             return []
         }
+    }
+
+    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+
+    }
+
+    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
     }
 }
