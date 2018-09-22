@@ -634,7 +634,7 @@ extension PhoneCallsApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenPhoneCallsIntent()
             openAppIntent.appId = PhoneCallsApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Phone Calls."
+            openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized
             return [openAppIntent]
         } else {
             return []

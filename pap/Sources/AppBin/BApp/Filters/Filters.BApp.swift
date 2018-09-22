@@ -189,7 +189,7 @@ extension FiltersApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenFiltersIntent()
             openAppIntent.appId = FiltersApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FiltersApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Filters."
+            openAppIntent.suggestedInvocationPhrase = "Open Filters.".localized
             return [openAppIntent]
         } else {
             return []

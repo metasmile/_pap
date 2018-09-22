@@ -1,98 +1,49 @@
-/*Translated from: Open ${appName}.*/
-"0Xykha" = "Öppna ${appName}.";
-/*Translated from: Open ${appName}.*/
-"0mLqsX" = "Öppna ${appName}.";
-/*Translated from: Open Phone Calls App.*/
-"1SD5Py" = "Öppna telefonsamtal App.";
-/*Translated from: Open Rotation App.*/
-"1kqEcI" = "Öppna rotationsapp.";
-/*Translated from: Open Camera.*/
-"4I4kgH" = "Öppen kamera.";
-/*Translated from: Open ${appName}.*/
-"4TosMR" = "Öppna ${appName}.";
-/*Translated from: Open ${appName}.*/
-"6TT4Gp" = "Öppna ${appName}.";
-/*Translated from: Open Finder.*/
-"AReNv5" = "Öppna Finder.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Öppna filter.";
-/*Translated from: Open ${appName}.*/
-"DcHSN1" = "Öppna ${appName}.";
-/*Translated from: Open Restorer.*/
-"DckJin" = "Öppen restaurering.";
-/*Translated from: Take a photo with Camera app.*/
-"EOxZtc" = "Ta ett foto med kamerans app.";
-/*Translated from: Take A Photo.*/
-"FbRC9N" = "Ta ett foto.";
-/*Translated from: Open Camera To Take A Photo.*/
-"HYZy53" = "Öppna kamera för att ta ett foto.";
-/*Translated from: Take A Photo.*/
-"Jvx2bY" = "Ta ett foto.";
-/*Translated from: Open Cleaner App.*/
-"LjAsN8" = "Öppna Cleaner App.";
-/*Translated from: Open ${appName}.*/
-"QVrMHs" = "Öppna ${appName}.";
-/*Translated from: Open Converter App.*/
-"RxtDNx" = "Öppna Converter App.";
-/*Translated from: Open Photo Filters App.*/
-"UCP0Dw" = "Öppna fotofilter App.";
-/*Translated from: Open EXIF Ghost App.*/
-"ZrFxbp" = "Öppna EXIF ​​Ghost App.";
-/*Translated from: Open ${appName}.*/
-"aQECqy" = "Öppna ${appName}.";
-/*Translated from: Open EXIF Ghost.*/
-"cObTva" = "Öppna EXIF ​​Ghost.";
-/*Translated from: Open ${appName}.*/
-"cOeR5u" = "Öppna ${appName}.";
-/*Translated from: Open Cleaner.*/
-"cyiLEU" = "Öppna renare.";
-/*Translated from: Take A Selfie*/
-"ewGyLx-IJ8sUB" = "Ta en Selfie";
-/*Translated from: Take A Selfie With Live Photo*/
-"ewGyLx-MNWfid" = "Ta en Selfie med Live Photo";
-/*Translated from: Take A Live Photo.*/
-"ewGyLx-ZbogxE" = "Ta ett levande foto.";
-/*Translated from: Take A Photo.*/
-"ewGyLx-yQLzJM" = "Ta ett foto.";
-/*Translated from: Open Converter.*/
-"f8Abn1" = "Öppna konverterare.";
-/*Translated from: Open ${appName}.*/
-"gFHyMK" = "Öppna ${appName}.";
-/*Translated from: Open Phone Calls.*/
-"h99muL" = "Öppna telefonsamtal.";
-/*Translated from: Open GIF Maker App.*/
-"i5NdZE" = "Öppna GIF Maker App.";
-/*Translated from: Open ${appName}.*/
-"ibaGsc" = "Öppna ${appName}.";
-/*Translated from: Open PDFactory App.*/
-"jO8fwU" = "Öppna PDFactory App.";
-/*Translated from: Open Rotation.*/
-"kiRcMc" = "Öppna rotationen.";
-/*Translated from: Open Auto Editor.*/
-"klHFFj" = "Öppna Auto Editor.";
-/*Translated from: Open Restorer App.*/
-"lmZpL4" = "Öppna restaureringsapp.";
-/*Translated from: Open ${appName}.*/
-"n6SPLH" = "Öppna ${appName}.";
-/*Translated from: Open ${appName}.*/
-"nCro1h" = "Öppna ${appName}.";
-/*Translated from: Open Finder App.*/
-"nsPloR" = "Öppna Finder App.";
-/*Translated from: Open ${appName}.*/
-"oGM42K" = "Öppna ${appName}.";
-/*Translated from: Open ${appName}.*/
-"oHEX05" = "Öppna ${appName}.";
-/*Translated from: Open Auto Editor App.*/
-"wmUAoj" = "Öppna Auto Editor-appen.";
-/*Translated from: OK. You can take a Selfie now*/
-"xwyqoh-IJ8sUB" = "OK. Du kan ta en Selfie nu";
-/*Translated from: OK. You can take a Selfie With Live Photo now*/
-"xwyqoh-MNWfid" = "OK. Du kan ta ett Selfie With Live Photo nu";
-/*Translated from: OK. You can take a Live Photo now.*/
-"xwyqoh-ZbogxE" = "OK. Du kan ta ett Live-foto nu.";
-/*Translated from: OK. You can take a Photo now.*/
-"xwyqoh-yQLzJM" = "OK. Du kan ta ett foto nu.";
-/*Translated from: Open PDFactory.*/
-"xxih1X" = "Öppna PDFactory.";
-/*Translated from: Open GIF Maker.*/
-"zK6L2E" = "Öppna GIF Maker.";
+"0Xykha" = "Open ${appName}";
+"0mLqsX" = "Open ${appName}";
+"1SD5Py" = "Open Phone Calls App";
+"1kqEcI" = "Open Rotation App";
+"4I4kgH" = "Open Camera.";
+"4TosMR" = "Open ${appName}";
+"6TT4Gp" = "Open ${appName}";
+"AReNv5" = "Open Finder.";
+"AW925e" = "Open Filters.";
+"DcHSN1" = "Open ${appName}";
+"DckJin" = "Open Restorer.";
+"EOxZtc" = "Take a photo with Camera app.";
+"FbRC9N" = "Take A Photo";
+"HYZy53" = "Open Camera To Take A Photo";
+"Jvx2bY" = "Take A Photo.";
+"LjAsN8" = "Open Cleaner App";
+"QVrMHs" = "Open ${appName}";
+"RxtDNx" = "Open Converter App";
+"UCP0Dw" = "Open Photo Filters App";
+"ZrFxbp" = "Open EXIF Ghost App";
+"aQECqy" = "Open ${appName}.";
+"cObTva" = "Open EXIF Ghost.";
+"cOeR5u" = "Open ${appName}.";
+"cyiLEU" = "Open Cleaner.";
+"ewGyLx-IJ8sUB" = "Take A Selfie";
+"ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
+"ewGyLx-ZbogxE" = "Take A Live Photo";
+"ewGyLx-yQLzJM" = "Take A Photo";
+"f8Abn1" = "Open Converter.";
+"gFHyMK" = "Open ${appName}";
+"h99muL" = "Open Phone Calls.";
+"i5NdZE" = "Open GIF Maker App";
+"ibaGsc" = "Open ${appName}";
+"jO8fwU" = "Open PDFactory App";
+"kiRcMc" = "Open Rotation.";
+"klHFFj" = "Open Auto Editor.";
+"lmZpL4" = "Open Restorer App";
+"n6SPLH" = "Open ${appName}";
+"nCro1h" = "Open ${appName}";
+"nsPloR" = "Open Finder App";
+"oGM42K" = "Open ${appName}";
+"oHEX05" = "Open ${appName}.";
+"wmUAoj" = "Open Auto Editor App";
+"xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
+"xwyqoh-MNWfid" = "OK. You can take a Selfie With Live Photo now";
+"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
+"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
+"xxih1X" = "Open PDFactory.";
+"zK6L2E" = "Open GIF Maker.";

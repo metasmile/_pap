@@ -289,7 +289,7 @@ extension RevertApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenRevertIntent()
             openAppIntent.appId = RevertApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Restorer."
+            openAppIntent.suggestedInvocationPhrase = "Open Restorer.".localized
             return [openAppIntent]
         } else {
             return []

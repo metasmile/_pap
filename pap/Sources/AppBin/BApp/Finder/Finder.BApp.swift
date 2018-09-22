@@ -1700,7 +1700,7 @@ extension FinderApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenFinderIntent()
             openAppIntent.appId = FinderApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Finder."
+            openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized
             return [openAppIntent]
         } else {
             return []

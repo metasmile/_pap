@@ -115,35 +115,35 @@ extension CameraApp{
             openAppIntent.mode = .photo
             openAppIntent.appId = CameraApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Camera.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open Camera.".localized.localized
 
             let takeAStillPhotoIntent = TakeAPhotoIntent()
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAStillPhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .stillPhoto]).rawValue)
-            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo."
+            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
             
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeALivePhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto]).rawValue)
-            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo."
+            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
 
             let i_t_s = TakeAPhotoIntent()
             i_t_s.cameraMode = .selfiePhoto
             i_t_s.appId = CameraApp.info.identifier
             i_t_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             i_t_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .selfiePhoto]).rawValue)
-            i_t_s.suggestedInvocationPhrase = "Take A Selfie."
+            i_t_s.suggestedInvocationPhrase = "Take A Selfie.".localized
 
             let i_t_l_s = TakeAPhotoIntent()
             i_t_l_s.cameraMode = .selfieWithLivePhoto
             i_t_l_s.appId = CameraApp.info.identifier
             i_t_l_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             i_t_l_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
-            i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo."
+            i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
             
             return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,i_t_s,i_t_l_s]
         } else {

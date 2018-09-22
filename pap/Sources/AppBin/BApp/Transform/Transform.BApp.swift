@@ -182,7 +182,7 @@ extension TransformApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenTransformIntent()
             openAppIntent.appId = TransformApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: TransformApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Rotation."
+            openAppIntent.suggestedInvocationPhrase = "Open Rotation.".localized
             return [openAppIntent]
         } else {
             return []

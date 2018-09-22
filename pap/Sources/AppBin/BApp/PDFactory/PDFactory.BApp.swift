@@ -228,7 +228,7 @@ extension PDFactoryApp:UIApplicationDelegatableApp{
             let openAppIntent = OpenPDFactoryIntent()
             openAppIntent.appId = PDFactoryApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFactoryApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open PDF Maker."
+            openAppIntent.suggestedInvocationPhrase = "Open PDF Maker.".localized.localized
             return [openAppIntent]
         } else {
             return []

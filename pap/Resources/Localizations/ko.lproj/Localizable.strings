@@ -231,7 +231,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 사진, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 포토, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
 "Converter" = "컨버터";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
@@ -315,7 +315,7 @@
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
 "Free Use" = "무료 사용";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
-"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 사진에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 사진이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 포토에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 포토이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF 만들기";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
@@ -414,10 +414,32 @@
 "Open %@" = "%@ 열기";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple 지도 열기";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "자동 편집기 열기";
 /* Generated from genl10n: Camera.SApp.swift */
 "Open Camera." = "오픈 카메라.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "클리너 열기";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "변환기 열기";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "EXIF Ghost 열기";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "필터 열기";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Finder 열기";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "GIF Maker 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Google 지도 열기";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "PDF 작성기 열기";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Open Phone Calls." = "전화 통화 열기";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "복원 열기";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "회전 열기.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "웹 페이지 열기";
 /* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
@@ -584,10 +606,18 @@
 "Submit" = "제출";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "라이브 포토 찍기.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "사진촬영";
+"Take A Photo" = "사진 촬영";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "사진 찍어줘.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "라이프 포토로 셀카 찍어줘.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "셀카 찍어줘.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Taken With Built-in Camera" = "내장 카메라로 찍은";
+"Taken With Built-in Camera" = "내장 카메라로 찍음";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "타겟팅 됨";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -599,7 +629,7 @@
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "구입 주셔서 감사합니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 사진을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 포토을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "이 응용 프로그램을 사용하려면 해당 액세스 라이센스가 필요합니다. %@을 (를)여시겠습니까?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
