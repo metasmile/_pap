@@ -330,8 +330,8 @@
 "Guest User" = "Tài khoản khách";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "Chào! Tôi là %@, tôi cần trợ giúp.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "Xin chào %@ Nhóm, tôi là %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Ẩn giấu";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "Chào mừng bạn đến với chương trình giấy phép quảng cáo của chúng tôi!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Chào mừng bạn đến với chương trình giấy phép khách mời đặc biệt của chúng tôi!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "Bạn có muốn chuyển sang %@ không?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Bạn có muốn quay lại %@ không?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Viết đánh giá";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

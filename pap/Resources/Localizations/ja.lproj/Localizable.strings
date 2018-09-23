@@ -330,8 +330,8 @@
 "Guest User" = "ゲストユーザ";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "こんにちは！私は%@です。助けが必要です。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "こんにちは%@チーム、私は%@です。";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "隠す";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "プロモーションライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "スペシャルゲストライセンスプログラムへようこそ！";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "%@に移動しますか？";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "%@に戻りたいですか？";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "レビューを書く";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

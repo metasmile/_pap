@@ -330,8 +330,8 @@
 "Guest User" = "ผู้เยี่ยมชม";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "สวัสดี %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "Hi! ฉัน %@ ฉันต้องการความช่วยเหลือ";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "สวัสดี %@ ทีมฉัน %@";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตการส่งเสริมการขายของเรา!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตพิเศษสำหรับแขกของเรา!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "คุณต้องการย้ายไปที่ %@ หรือไม่?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "คุณต้องการกลับไปที่ %@ หรือไม่?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "แสดงความคิดเห็น";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

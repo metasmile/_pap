@@ -331,7 +331,7 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
 "Hello, %@!" = "Hei, %@!";
 /* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
-"Hi! I'm %@, I need some help." = "Hei! Jeg er %@, jeg trenger litt hjelp.";
+"Hi %@ Team, I'm %@." = "Hei %@ Team, jeg er %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Gjemme seg";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -681,7 +681,7 @@
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Velkommen til vårt spesielle gjestelisensprogram!";
 /* Generated from genl10n: Shop.Payables.Store.swift */
-"Would you like to move to %@?" = "Vil du flytte til %@?";
+"Would you like to go back to %@?" = "Vil du gå tilbake til %@?";
 /* Generated from genl10n: Shop.SApp.swift */
 "Write A Review" = "Skrive en omtale";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift, Shop.SApp.swift */

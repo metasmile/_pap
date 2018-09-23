@@ -330,8 +330,8 @@
 "Guest User" = "Gast gebruiker";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hallo, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "Hoi! Ik ben %@, ik heb hulp nodig.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "Hallo %@ Team, ik ben %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "Welkom bij ons promotie-licentieprogramma!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Welkom bij ons speciale gastlicentieprogramma!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "Wilt u verhuizen naar %@?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Wilt u teruggaan naar %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Schrijf een recensie";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

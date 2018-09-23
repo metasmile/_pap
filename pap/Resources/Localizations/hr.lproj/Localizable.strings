@@ -330,8 +330,8 @@
 "Guest User" = "Korisnik gosta";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Pozdrav, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "Bok! Ja sam %@, trebam pomoć.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "Hi %@ Momčad, ja sam %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Sakriti";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "Dobro došli u naš program promocije licence!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Dobro došli u naš specijalni program licenciranja gostiju!";
-/* Generated from genl10n: Shop.Payables.Store.swift#96 */
-"Would you like to move to %@?" = "Želite li se premjestiti na %@?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Želite li se vratiti na %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napišite svoje mišljenje";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

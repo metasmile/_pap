@@ -330,8 +330,8 @@
 "Guest User" = "حساب زائر";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "مرحبًا ، %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "مرحبا! أنا %@ ، أحتاج إلى بعض المساعدة.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "مرحبًا %@ فريق ، أنا %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "إخفاء";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "مرحبًا بك في برنامج ترخيصنا الترويجي!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "مرحبًا بك في برنامج ترخيص الضيوف الخاص بنا!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "هل تريد الانتقال إلى %@؟";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "هل تريد الرجوع إلى %@؟";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "أكتب مراجعة";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

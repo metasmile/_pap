@@ -276,8 +276,8 @@
 "Guest User" = "來賓用戶";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "嗨！我是%@，我需要一些幫助。";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "嗨%@團隊，我是%@。";
 /* Generated from genl10n: ExifGhost.BApp.swift#81 */
 "Hide" = "隱藏";
 /* Generated from genl10n: ExifGhost.BApp.swift#85 */
@@ -626,8 +626,8 @@
 "Welcome to our promotion license program!" = "歡迎來到我們的促銷許可計劃！";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "歡迎來到我們的特邀嘉賓計劃！";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "你想搬到%@嗎？";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "你想回到%@嗎？";
 /* Generated from genl10n: Shop.SApp.swift#576 */
 "Write A Review" = "寫評論";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#577 */

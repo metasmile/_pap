@@ -48,6 +48,20 @@ public extension UIAlertController{
     @discardableResult
     public static func alert(_ message:String
             , title:String?=nil
+            , cancelled:(() -> Swift.Void)?=nil
+            , completion:(() -> Swift.Void)?=nil) -> Bool{
+
+        return alert(message
+            , title:title
+            , buttonTitle:"OK".localized
+            , cancelButtonTitle:"Cancel".localized
+            , cancelled:cancelled
+            , completion:{ _ in completion?() })
+    }
+
+    @discardableResult
+    public static func alert(_ message:String
+            , title:String?=nil
             , buttonTitle:String="OK".localized
             , cancelButtonTitle:String?=nil
             , actions:[UIAlertAction]?=nil

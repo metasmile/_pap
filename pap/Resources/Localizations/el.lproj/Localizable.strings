@@ -330,8 +330,8 @@
 "Guest User" = "Επισκέπτης Χρήστης";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "Γεια! Είμαι %@, χρειάζομαι βοήθεια.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "Γεια σου %@ Ομάδα, είμαι %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Κρύβω";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "Καλωσορίσατε στο πρόγραμμα αδειών προώθησης!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Καλώς ήρθατε στο πρόγραμμα ειδικών αδειών επισκέπτη!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "Θέλετε να μετακινηθείτε στο %@;";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Θέλετε να επιστρέψετε στο %@;";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Γράψτε μια κριτική";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

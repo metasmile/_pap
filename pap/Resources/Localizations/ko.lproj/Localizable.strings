@@ -330,8 +330,8 @@
 "Guest User" = "게스트 사용자";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "안녕하세요, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "안녕! 나는 %@, 도움이 필요합니다.";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "안녕하세요 %@ 팀, 저는 %@입니다.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "숨기기";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -457,7 +457,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "영구 사용 및 모든 새 업데이트";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "모든 앱과 새로운 앱의 영구적 인 사용";
+"Permanent Use of All and New Apps" = "모든 앱과 새로운 앱의 영구적인 사용";
 /* Generated from genl10n: PhoneCalls.BApp.swift#57 */
 "Phone Calls" = "전화 통화";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "프로모션 라이센스 프로그램에 오신 것을 환영합니다!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "특별 게스트 라이센스 프로그램에 오신 것을 환영합니다!";
-/* Generated from genl10n: Shop.Payables.Store.swift#132 */
-"Would you like to move to %@?" = "%@ (으)로 이사 하시겠습니까?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "%@ (으)로 돌아가시겠습니까?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "리뷰를 작성";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

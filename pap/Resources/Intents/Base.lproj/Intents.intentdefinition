@@ -237,7 +237,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Filters.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Photo Filters App</string>
+			<string>Open Photo Filters</string>
 			<key>INIntentDescriptionID</key>
 			<string>UCP0Dw</string>
 			<key>INIntentLastParameterTag</key>
@@ -377,7 +377,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Finder.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Finder App</string>
+			<string>Open Finder</string>
 			<key>INIntentDescriptionID</key>
 			<string>nsPloR</string>
 			<key>INIntentLastParameterTag</key>
@@ -632,7 +632,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Revert.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Restorer App</string>
+			<string>Open Restorer</string>
 			<key>INIntentDescriptionID</key>
 			<string>lmZpL4</string>
 			<key>INIntentLastParameterTag</key>
@@ -745,7 +745,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>GIFMaker.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open GIF Maker App</string>
+			<string>Open GIF Maker</string>
 			<key>INIntentDescriptionID</key>
 			<string>i5NdZE</string>
 			<key>INIntentLastParameterTag</key>
@@ -858,7 +858,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Cleaner.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Cleaner App</string>
+			<string>Open Cleaner</string>
 			<key>INIntentDescriptionID</key>
 			<string>LjAsN8</string>
 			<key>INIntentLastParameterTag</key>
@@ -971,7 +971,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Transform.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Rotation App</string>
+			<string>Open Rotation</string>
 			<key>INIntentDescriptionID</key>
 			<string>1kqEcI</string>
 			<key>INIntentLastParameterTag</key>
@@ -1084,7 +1084,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>PhoneCalls.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Phone Calls App</string>
+			<string>Open Phone Calls</string>
 			<key>INIntentDescriptionID</key>
 			<string>1SD5Py</string>
 			<key>INIntentLastParameterTag</key>
@@ -1197,7 +1197,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Converter.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Converter App</string>
+			<string>Open Converter</string>
 			<key>INIntentDescriptionID</key>
 			<string>RxtDNx</string>
 			<key>INIntentLastParameterTag</key>
@@ -1310,7 +1310,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>PDFactory.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open PDFactory App</string>
+			<string>Open PDF Maker</string>
 			<key>INIntentDescriptionID</key>
 			<string>jO8fwU</string>
 			<key>INIntentLastParameterTag</key>
@@ -1407,7 +1407,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Open PDFactory.</string>
+			<string>Open PDF Maker.</string>
 			<key>INIntentTitleID</key>
 			<string>xxih1X</string>
 			<key>INIntentType</key>
@@ -1423,7 +1423,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>AutoEditor.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open Auto Editor App</string>
+			<string>Open Auto Editor</string>
 			<key>INIntentDescriptionID</key>
 			<string>wmUAoj</string>
 			<key>INIntentLastParameterTag</key>
@@ -1536,7 +1536,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>ExifGhost.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Open EXIF Ghost App</string>
+			<string>Open EXIF Ghost</string>
 			<key>INIntentDescriptionID</key>
 			<string>ZrFxbp</string>
 			<key>INIntentLastParameterTag</key>

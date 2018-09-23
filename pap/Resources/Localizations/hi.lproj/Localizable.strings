@@ -330,8 +330,8 @@
 "Guest User" = "अतिथि उपयेागकर्ता";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "हैलो, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift#36 */
-"Hi! I'm %@, I need some help." = "नमस्ते! मैं %@ हूं, मुझे कुछ मदद चाहिए।";
+/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+"Hi %@ Team, I'm %@." = "हाय %@ टीम, मैं %@ हूं।";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -680,8 +680,8 @@
 "Welcome to our promotion license program!" = "हमारे पदोन्नति लाइसेंस कार्यक्रम में आपका स्वागत है!";
 /* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "हमारे विशेष अतिथि लाइसेंस कार्यक्रम में आपका स्वागत है!";
-/* Generated from genl10n: Shop.Payables.Store.swift#96 */
-"Would you like to move to %@?" = "क्या आप %@ पर जाना चाहते हैं?";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "क्या आप वापस %@ पर जाना चाहते हैं?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "एक समीक्षा लिखे";
 /* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */

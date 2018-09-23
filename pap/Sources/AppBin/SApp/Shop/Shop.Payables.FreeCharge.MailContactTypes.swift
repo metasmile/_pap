@@ -33,7 +33,7 @@ struct MailContactHotlineType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         return (
                 addresses: [papStrings.contact.vip.email]
-                , subject: "Hi! I'm %@, I need some help.".localizedFormatted(SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.grantedOwnerName ?? PermanentVIPSecretCodeProgram.defaultOwnerName)
+                , subject: "Hi %@ Team, I'm %@.".localizedFormatted(papStrings.name, SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.grantedOwnerName ?? PermanentVIPSecretCodeProgram.defaultOwnerName)
         )
     }
 }
