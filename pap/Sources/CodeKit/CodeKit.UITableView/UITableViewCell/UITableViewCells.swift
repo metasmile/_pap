@@ -606,7 +606,7 @@ class UITableViewCustomViewAccessoryCell: UITableViewCell {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
 
-        let textContentWidth = contentView.bounds.width - (customAccessoryView?.frame.minX ?? 0) - 10
+        let textContentWidth = contentView.bounds.width - (customAccessoryView?.bounds.width ?? 0) - 10
         textLabel?.frame.size.width = textContentWidth
         detailTextLabel?.frame.size.width = textContentWidth
     }
