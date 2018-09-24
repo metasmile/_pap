@@ -58,17 +58,6 @@ struct URLOpenTypeReferenceGuide: URLOpenType {
     static var webUrl: URL?{ return papStrings.info.guide.url.asURL }
 }
 
-//TODO: YOU. app compaign - must check submit state - Typeform? PH Survey? hm
-struct URLOpenTypeProductHuntSurvey: URLOpenType {
-    static var webUrl: URL?{
-        return papStrings.youapp.url.asURL
-    }
-    static var label: String? {
-        return "Join".localized
-    }
-}
-
-
 struct URLOpenTypePrivacyPolicy: URLOpenType {
     static var webUrl: URL?{ return papStrings.info.privacy.url.asURL }
 }

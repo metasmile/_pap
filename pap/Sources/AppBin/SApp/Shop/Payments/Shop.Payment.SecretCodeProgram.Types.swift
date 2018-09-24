@@ -137,3 +137,37 @@ struct PromotionSecretCodeProgram:SecretCodeProgram{
         ]
     }
 }
+
+struct YouAppSecretCodeProgram:SecretCodeProgram{
+    static var maxValidPeriod: Period{
+        return Period(numberOfUnits: 1, unit: .year)
+    }
+
+    static var title: String {
+        return "%@ Membership Program".localizedFormatted("YOU.app")
+    }
+    static var grantedMessage: String {
+        return "Welcome to our %@ license program!".localizedFormatted("YOU.app")
+    }
+
+    static var program: String? {
+        return "youapp"
+    }
+
+    static var defaultOwnerName: String {
+        return "\("%@ Member".localizedFormatted("YOU.app")) \(UUID.fixedShortUUIDString)"
+    }
+
+    static var isEnable: Bool = false
+
+    static var currentAppIDStack:[String]?
+
+    static var passCodeAppIDStack:[String] {
+        return [
+            GIFMakerApp.info.identifier,
+            TransformApp.info.identifier,
+            ConverterApp.info.identifier,
+            AutoEditorApp.info.identifier
+        ]
+    }
+}

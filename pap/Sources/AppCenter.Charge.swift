@@ -153,6 +153,14 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "7-Day Use of Main and New Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self
+                    , priceAmount: AmountObject(value:1)
+                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "1-Year Reuse of Main Apps.".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
             , AppCharge(type: .instantAdsShowingAllowance
                     , reward: .blockOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
@@ -167,14 +175,6 @@ private final class AppChargeManager: ChargeManager{
                     , priceAmount: AmountObject(value:(0.1/3))
                     , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
             )
-
-//            , AppCharge(type: .dataSubmission
-//                    , reward: .timeOfUses
-//                    , payment: YouAppProgramPayment.self
-//                    , priceAmount: AmountObject(value:0.6)
-//                    , describable: AppChargeDescription(title:"Join %@ Program".localizedFormatted("YOU.app"), description: "Your Idea, Your App".localized, iconImage: nil)
-//                    , rewardDescribable:AppRewardDescription(title: "Free Use %@ Day, VIP License Opportunity".localizedFormatted(AmountObject(value:0.6).getDefaultUnit(for: .timeOfUses)?.asString(roundTo: 1) ?? "-"), shortTitle: "You.app Program Pass", description: "Your Idea, Your App".localized, unit: nil, iconImage: nil)
-//            )
 
             // Promotional
             , AppCharge(type: .secretCode

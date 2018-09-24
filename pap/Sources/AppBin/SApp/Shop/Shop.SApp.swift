@@ -290,9 +290,8 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
                     PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
                     PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
+                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
-//                    PayItem(payable: YouAppProgramPayment.self),
-//                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeTimeOfUses>.self),
                     PayItem(payable: FBShareTypeDownloadUrlPayment.self),
                     PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
                     PayItem(payable: SNSEngagementPayment.self)
@@ -487,7 +486,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if youAppCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Join %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent. We Will Give Each License If Adopted.".localized, describers: youAppCellDescribers))
+            s.append(CellDescriberGroup(label: "Join In %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent, Make Together. Get Each License If Adopted.".localized, describers: youAppCellDescribers))
         }
 
         if contactCellDescribers.count > 0{
@@ -576,10 +575,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
             let c2 = UITableViewButtonCellDescriber()
             c2.itemIdentifier = CellDescriber.Key.support.hashValue
-            c2.label = "Localization Correction".localized
-            c2.detailedLabel = "1-Month Use of Main and New Apps".localized
-            c2.buttonTitle = "Send".localized
-            c2.iconImage = R.image.cellIconContactUs.name
+            c2.label = "Translation Correction".localized
+            c2.detailedLabel = "1-Year Reuse of Main Apps.".localized
+            c2.buttonTitle = "Take Part".localized
+            c2.iconImage = R.image.cellIconYouAppL10N.name
             c2.valueHandler = { _ in
                 AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
             }
