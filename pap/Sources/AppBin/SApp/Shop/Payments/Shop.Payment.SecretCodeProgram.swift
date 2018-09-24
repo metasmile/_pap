@@ -510,7 +510,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
         Receipt Handlers
     */
     static func didInitializeReceipt() {
-        DispatchQueue.global(priority: .background).async{
+        DispatchQueue.global(qos: .background).async{
             self.expireCurrentCodeIfNeeded()
         }
     }

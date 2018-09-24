@@ -58,11 +58,12 @@ class MailContactPayment<Type: MailContactType>: NSObject, Payable, MFMailCompos
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        mailComposerCompletionBlock?(result == .sent)
+        let sent = result == .sent
+        mailComposerCompletionBlock?(sent)
         mailComposerCompletionBlock = nil
 
         controller.dismiss(animated: true, completion: {
-            if let afterMessage = Type.attributes.messageAfterSent{
+            if sent, let afterMessage = Type.attributes.messageAfterSent{
                 UIAlertController.alert(afterMessage, title:"Your Message Has Been Sent.".localized)
             }
         })

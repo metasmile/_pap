@@ -166,6 +166,7 @@
 		4F71D8E81E71777F00556F7D /* AutoEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1E0F894E66E552A5DA4 /* AutoEditor.BApp.Assets.xcassets */; };
 		4F71D8FE45FB5DF84DAFA370 /* CodeKit.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5DA389ADAB0369E3CE7 /* CodeKit.Contacts.swift */; };
 		4F71D90BF0D739892B5EFB04 /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D27A76BAB8CD67CEFCD6 /* CodeKit.UUID.swift */; };
+		4F71D915E6B18F1F4AB1E4F4 /* Intents.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D22FF33BD22F2AB27EEA /* Intents.strings */; };
 		4F71D9195CE73CB8133DDD7B /* CodeKit.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D42EE03DFE348225A61B /* CodeKit.UITableView.swift */; };
 		4F71D91CB5A830870082FEB4 /* Stabilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FAAE879A83729E9B7B /* Stabilizer.swift */; };
 		4F71D91F046985261E794AFB /* pap.TimerInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FA39CE8C435998C723 /* pap.TimerInterval.swift */; };
@@ -530,6 +531,7 @@
 		4F71D8D05F3DB92CF73E92C3 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		4F71D8D0CD35711021E28E23 /* PhotoPickerViewController.UICollectionView.CachingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.CachingImage.swift; sourceTree = "<group>"; };
 		4F71D901FA7E5CD05A976B67 /* Converter.LivePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.LivePhoto.swift; sourceTree = "<group>"; };
+		4F71D908D40B67CA88697A20 /* Base */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Intents.strings; sourceTree = "<group>"; };
 		4F71D92382932E62756DD454 /* cell_icon_gif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_gif.png; sourceTree = "<group>"; };
 		4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
 		4F71D93194BD75FB4B17AAC0 /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Filters.jpg; sourceTree = "<group>"; };
@@ -1583,6 +1585,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D412362153C1FD00FFE2EF /* Intents.intentdefinition */,
+				4F71D22FF33BD22F2AB27EEA /* Intents.strings */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -2087,6 +2090,7 @@
 				4F71DCE1B26B01F4BECF8276 /* Localizable.strings in Resources */,
 				4F71DDD058DAFF2DB8A7A290 /* Localizable.strings in Resources */,
 				4F71D36E953DFB8F5A8AFA0E /* Localizable.strings in Resources */,
+				4F71D915E6B18F1F4AB1E4F4 /* Intents.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2589,6 +2593,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4F71D22FF33BD22F2AB27EEA /* Intents.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F71D908D40B67CA88697A20 /* Base */,
+			);
+			name = Intents.strings;
+			sourceTree = "<group>";
+		};
 		4F71D424BC0AA7EAC6FB4DCD /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
