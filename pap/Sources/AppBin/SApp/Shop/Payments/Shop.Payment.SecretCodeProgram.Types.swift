@@ -7,6 +7,10 @@ import Foundation
 import UIKit
 
 struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
+    static var maxValidPeriod: Period?{
+        return nil
+    }
+
     static var title: String {
         return "VIP Membership Program".localized
     }
@@ -36,8 +40,8 @@ struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
 }
 
 struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
-    static var shouldExpire: Bool{
-        return true
+    static var maxValidPeriod: Period{
+        return Period.min
     }
 
     static var title: String {
@@ -69,8 +73,8 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
 }
 
 struct GuestUserSecretCodeProgram:SecretCodeProgram{
-    static var shouldExpire: Bool{
-        return true
+    static var maxValidPeriod: Period{
+        return Period.min
     }
 
     static var title: String {
@@ -102,8 +106,8 @@ struct GuestUserSecretCodeProgram:SecretCodeProgram{
 }
 
 struct PromotionSecretCodeProgram:SecretCodeProgram{
-    static var shouldExpire: Bool{
-        return true
+    static var maxValidPeriod: Period{
+        return Period.min
     }
 
     static var title: String {

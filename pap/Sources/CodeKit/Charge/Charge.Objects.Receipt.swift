@@ -165,6 +165,8 @@ extension Defaults: ChargeReceiptAccessorStorage {
 }
 
 protocol ChargeReceiptStorageDelegate{
+    func didInitialize(receipts:[String: ChargeableReceipt])
+
     func didAdd(receipt:ChargeableReceipt)
     func didUpdate(receipt:ChargeableReceipt)
     func willRemove(receipt:ChargeableReceipt)
@@ -191,6 +193,7 @@ final class ChargeReceiptStorage {
         receiptsStorage = Defaults(suiteName: identifier+String(describing: ChargeReceiptStorage.self))
         _receipts = receiptsStorage.receipts.dictionary { $0.uuid }
         _delegate = delegate
+        _delegate?.didInitialize(receipts: _receipts)
     }
 
     var balanceAmountValue:Double{

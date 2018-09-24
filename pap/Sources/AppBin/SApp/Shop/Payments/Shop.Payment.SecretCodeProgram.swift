@@ -143,12 +143,17 @@ protocol SecretCodeProgram {
 
     //INFO: if unspecified ownerName in CKRecord`
     static var defaultOwnerName:String{get}
+
     //INFO: key to store. Does NOT used by iCloud
     static var localStoreKey:String{get}
+
     //INFO: this used by SAC 'program' field
     static var program:String?{get}
 
-    static var shouldExpire:Bool {get}
+    //INFO: max period to reuse code since joinedAt.
+    // Set '0' or Period.min if synchronize with the moment of removing receipt.
+    // Set nil if permanently available.
+    static var maxValidPeriod:Period? {get}
 
     //temp value storage for operations.
     static var isEnable:Bool{set get}
@@ -157,8 +162,8 @@ protocol SecretCodeProgram {
 }
 
 extension SecretCodeProgram{
-    static var shouldExpire: Bool {
-        return false
+    static var maxValidPeriod: Period? {
+        return nil
     }
 
     static var localStoreKey: String {
@@ -430,18 +435,22 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
     }
 
     private static func expireCurrentCodeIfNeeded(){
-        if P.shouldExpire, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
-            let expiredDate = Date()
-            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = expiredDate
+        if let period = P.maxValidPeriod, let e = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey], e.expiredDate == nil{
+            let currentDate = Date()
+            if period.within(dueDate: currentDate, since: e.joinedDate) {
+                return
+            }
+
+            SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]?.expiredDate = currentDate
             SecretCodeEntry.local.expiredCodeEntry[P.localStoreKey] = SecretCodeEntry.local.secretCodeEntry[P.localStoreKey]
-            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: currentDate as __CKRecordObjCValue)
             { record, error in
                 if let e = error{
                     papLog.error.recordedError(e, parameters: ["publicCloudDatabase":"expireCurrentCodeIfNeeded"])
 
                 }
             }
-            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.privateCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: expiredDate as __CKRecordObjCValue)
+            SecretCodeEntry.commitValue(in: SecretCodeEntry.container.privateCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: currentDate as __CKRecordObjCValue)
             { record, error in
                 if let e = error{
                     papLog.error.recordedError(e, parameters: ["privateCloudDatabase": "expireCurrentCodeIfNeeded"])
@@ -500,6 +509,9 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
     /*
         Receipt Handlers
     */
+    static func didInitializeReceipt() {
+        expireCurrentCodeIfNeeded()
+    }
 
     static func didAddReceipt() {}
 

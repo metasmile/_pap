@@ -640,6 +640,14 @@ private final class AppChargeBanker: ChargeBanker {
 }
 
 extension AppChargeBanker:ChargeReceiptStorageDelegate{
+    internal func didInitialize(receipts: [String: ChargeableReceipt]) {
+        for receipt in receipts.values{
+            if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
+                (charge.payment as? ReceiptObservablePayable.Type)?.didInitializeReceipt()
+            }
+        }
+    }
+
     internal func didAdd(receipt: ChargeableReceipt) {
         if let charge = registeredChargesIdentifierSet[receipt.chargeableIdentifier]{
             (charge.payment as? ReceiptObservablePayable.Type)?.didAddReceipt()

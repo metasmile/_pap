@@ -159,6 +159,8 @@ protocol VerifiablePayable: Payable {
 }
 
 protocol ReceiptObservablePayable: Payable{
+    static func didInitializeReceipt()
+
     static func didAddReceipt()
     static func didUpdateReceipt()
     static func willRemoveReceipt()
