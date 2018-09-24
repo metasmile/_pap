@@ -138,8 +138,8 @@ struct PromotionSecretCodeProgram:SecretCodeProgram{
     }
 }
 
-struct YouAppSecretCodeProgram:SecretCodeProgram{
-    static var maxValidPeriod: Period{
+class YouAppSecretCodeProgram:SecretCodeProgram{
+    class var maxValidPeriod: Period{
         return Period(numberOfUnits: 1, unit: .year)
     }
 
@@ -150,7 +150,7 @@ struct YouAppSecretCodeProgram:SecretCodeProgram{
         return "Welcome to our %@ license program!".localizedFormatted("YOU.app")
     }
 
-    static var program: String? {
+    class var program: String? {
         return "youapp"
     }
 
@@ -162,12 +162,48 @@ struct YouAppSecretCodeProgram:SecretCodeProgram{
 
     static var currentAppIDStack:[String]?
 
-    static var passCodeAppIDStack:[String] {
+    class var passCodeAppIDStack:[String] {
         return [
             GIFMakerApp.info.identifier,
             TransformApp.info.identifier,
             ConverterApp.info.identifier,
             AutoEditorApp.info.identifier
+        ]
+    }
+}
+
+class YouAppSecretCodeProgram6M:YouAppSecretCodeProgram{
+    override class var maxValidPeriod: Period{
+        return Period(numberOfUnits: 6, unit: .month)
+    }
+    override class var program: String? {
+        return "youapp_6m"
+    }
+
+    override class var passCodeAppIDStack:[String] {
+        return [
+            ConverterApp.info.identifier,
+            TransformApp.info.identifier,
+            GIFMakerApp.info.identifier,
+            AutoEditorApp.info.identifier
+        ]
+    }
+}
+
+class YouAppSecretCodeProgram3M:YouAppSecretCodeProgram{
+    override class var maxValidPeriod: Period{
+        return Period(numberOfUnits: 3, unit: .month)
+    }
+    override class var program: String? {
+        return "youapp_3m"
+    }
+
+    override class var passCodeAppIDStack:[String] {
+        return [
+            ConverterApp.info.identifier,
+            TransformApp.info.identifier,
+            AutoEditorApp.info.identifier,
+            GIFMakerApp.info.identifier
         ]
     }
 }

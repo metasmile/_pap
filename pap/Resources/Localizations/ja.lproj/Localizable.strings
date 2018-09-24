@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1ヶ月間のメインアプリと新しいアプリの使用";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "メインアプリの1年間の再利用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "主なアプリケーションと新しいアプリケーションの1年間の使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "メインアプリと新しいアプリの14日間利用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3ヶ月間のメインアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6ヶ月間の会員";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "6ヶ月間のすべてのアプリと新しいアプリの使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6ヶ月間のメインアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "メインアプリと新しいアプリの7日間利用";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "GIFを作る";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "最大1年間、メインAppsライセンス";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "メモカム";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

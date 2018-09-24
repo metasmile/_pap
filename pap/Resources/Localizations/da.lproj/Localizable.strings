@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "1 måneders brug af alle apps og nyt";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-måneders brug af hoved- og nyheder";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "1 års genbrug af hovedapplikationer";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "1 års brug af hoved- og nyheder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14-dages brug af hoved- og nyheder";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3-måneders brug af hoved- og nyheder";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 måneders medlemskab";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "6-måneders brug af alle apps og nyt";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6-måneders brug af hoved- og nyheder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "7-dages brug af hoved- og nyheder";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "Lav GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Ringe op";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Maksimal 1-årig, Main Apps License";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

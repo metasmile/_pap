@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "การใช้แอปทั้งหมดและใหม่เป็นเวลา 1 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "การใช้งานหลักและแอปใหม่ 1 เดือน";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "การใช้ซ้ำของ Apps หลัก 1 ปี";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "การใช้แอปหลักและใหม่ 1 ปี";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "การใช้งานหลักและแอปใหม่ 14 วัน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "การใช้งานหลักและแอพใหม่ 3 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "สมาชิก 6 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "การใช้แอปทั้งหมดและใหม่ในอีก 6 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "การใช้งานหลักและแอพพลิเคชั่นใหม่ในระยะเวลา 6 เดือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "ใช้งานหลักและแอพใหม่ 7 วัน";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "ทำ GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "การโทรออก";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "ใบอนุญาต Apps หลัก 1 ปี";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

@@ -92,7 +92,7 @@
 "%@ Member" = "%@ Member";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Membership Program" = "%@ Membership Program";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift, AppCenter.Charge.swift, Shop.SApp.swift */
 "%@ Membership" = "%@ Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Ownership";
@@ -110,14 +110,18 @@
 "1-Month Use of All and New Apps" = "1-Month Use of All and New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-Month Use of Main and New Apps";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "1-Year Reuse of Main Apps";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "1-Year Use of Main And New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14-Day Use of Main and New Apps";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3-Month Use of Main And New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months Membership" = "6 Months Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of All and New Apps" = "6-Month Use of All and New Apps";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6-Month Use of Main And New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "7-Day Use of Main and New Apps";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -346,6 +350,8 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Making A Call";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Maximum 1-Year, Main Apps License";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "Az összes alkalmazás és az új hónap 1 hónapos használata";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1 hónapos fő és új alkalmazások használata";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "A fő alkalmazások 1 éves újrafelhasználása";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "A fő és az új alkalmazások 1 éves használata";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14 napos fő és új alkalmazások használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "A fő és új alkalmazások 3 hónapos használata";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 hónapos tagság";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "Minden alkalmazás 6 hónapos használata és új";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6 hónapos fő és új alkalmazások használata";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "7 napos fő és új alkalmazások használata";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Hívás kezdeményezése";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Legfeljebb 1 éves, fő alkalmazói licenc";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Emlékeztető Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

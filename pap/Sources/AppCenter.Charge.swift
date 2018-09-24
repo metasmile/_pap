@@ -158,7 +158,23 @@ private final class AppChargeManager: ChargeManager{
                     , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self
                     , priceAmount: AmountObject(value:1)
                     , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "1-Year Reuse of Main Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "1-Year Use of Main And New Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self
+                    , priceAmount: AmountObject(value:1)
+                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "6-Month Use of Main And New Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
+            )
+
+            , AppCharge(type: .secretCode
+                    , reward: .timeOfUses
+                    , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self
+                    , priceAmount: AmountObject(value:1)
+                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "3-Month Use of Main And New Apps".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .instantAdsShowingAllowance

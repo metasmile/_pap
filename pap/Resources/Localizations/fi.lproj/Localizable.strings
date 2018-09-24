@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "Kaikkien sovellusten 1 kuukauden käyttö ja uusi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1 kuukauden käyttö pää- ja uusiin sovelluksiin";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "Pääohjelmien 1 vuoden uudelleenkäyttö";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "1 vuoden käyttö tärkeimpien ja uusien sovellusten käyttöön";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14 päivän käyttö pää- ja uusiin sovelluksiin";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3 kuukauden käyttö tärkeimmistä ja uusista sovelluksista";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "6 kuukautta Jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "Kaikkien sovellusten 6 kuukauden käyttö ja uusi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6 kuukauden käyttö tärkeimmistä ja uusista sovelluksista";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "7-päivän Main- ja uusien sovellusten käyttö";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "Tee GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Enintään 1 vuoden pääsovelluslisenssi";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

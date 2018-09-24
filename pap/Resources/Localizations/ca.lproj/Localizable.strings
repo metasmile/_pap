@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "Ús d'1 mes de totes les aplicacions i novetats";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Ús de 1 mes d&#39;aplicacions principals i noves";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "Reutilització d&#39;aplicacions principals durant 1 any";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "Ús a 1 any d&#39;aplicacions principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "Ús de 14 dies d&#39;aplicacions principals i noves";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "Ús de 3 mesos d&#39;aplicacions principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "Membres de 6 mesos";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "Ús de 6 mesos de totes les aplicacions i novetats";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "Ús de 6 mesos d&#39;aplicacions principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "Ús de 7 dies d&#39;aplicacions principals i noves";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fer una trucada";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Llicència màxima d&#39;1 any, principal aplicació";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */

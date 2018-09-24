@@ -146,14 +146,18 @@
 "1-Month Use of All and New Apps" = "Penggunaan 1 Bulan Semua Semua dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Penggunaan 1 Bulan Penggunaan Utama dan Aplikasi Baru";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
-"1-Year Reuse of Main Apps" = "Penggunaan semula aplikasi utama 1 tahun";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "Penggunaan 1 Tahun Utama Dan Aplikasi Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "Penggunaan 14-Hari Aplikasi Utama dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "Penggunaan Bulan Tiga Apl Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
 "6 Months Membership" = "Keahlian 6 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift#192 */
 "6-Month Use of All and New Apps" = "Penggunaan 6 Bulan Semua Semua dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "Penggunaan 6 Bulan Aplikasi Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Apps" = "Penggunaan 7-Hari Aplikasi Utama dan Baru";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -382,6 +386,8 @@
 "Make GIF" = "Buat GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Membuat Panggilan";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum 1-Year, Main Apps License" = "Maksimum 1 Tahun, Lesen Apl Utama";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
