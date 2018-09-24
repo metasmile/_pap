@@ -152,11 +152,11 @@
 "7-Day Use of Main and New Apps" = "7denní používání hlavních a nových aplikací";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Licence je vyžadována.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
 "Access Denied." = "Přístup odepřen.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "Access Failed." = "Přístup se nezdařil.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Přístup umožněn.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akce";
@@ -182,7 +182,7 @@
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Aplikace, ale obsahuje mnoho fotografií Aplikace.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Při přijímání reklam došlo k chybě.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Animovaný GIF";
@@ -244,7 +244,7 @@
 "Could not detect any text." = "Nelze nalézt žádný text.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Nelze zjistit nic.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Nelze přijmout reklamy.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
@@ -278,7 +278,7 @@
 "E-mail Address" = "Emailová adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožní odstranit všechny druhy dat obsahující vaše fotografie, včetně soukromých informací.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
 "Email Address" = "Emailová adresa";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivovat rychlé akce";
@@ -312,25 +312,25 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Volné použití a všechny nové aktualizace";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Volné použití";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker umožňuje snadno a rychle vytvářet obrázky GIF z fotografií nebo živých fotografií s různými možnostmi! Potom můžete aplikaci konvertoru otevřít a převést na vše, jako jsou například živé fotografie nebo videa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Získat přístup";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Guest User License" = "Uživatelská licence uživatele";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Host Guest";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý den, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Hi %@ Team, I'm %@." = "Ahoj %@ tým, jsem %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Skrýt";
@@ -344,7 +344,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Informace o použití";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
 "Input Here" = "Vstupte zde";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Poptávka";
@@ -352,13 +352,13 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Zobrazuje poměr zbývajících bezplatných období přístupu k aplikacím.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Nemohl být uložen.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Vypadá to jako neplatný kód. Prosím zkuste to znovu.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Položky";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
 "Join" = "Připojit";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Krajina";
@@ -370,7 +370,7 @@
 "Lockscreens" = "Zámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Smyčka";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
 "Main Apps License" = "Hlavní licence pro aplikace";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Hlavní aplikace Použití %@ dne";
@@ -388,7 +388,7 @@
 "My Albums" = "Moje alba";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Moje zpětná vazba na %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
 "Name" = "název";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Nový kontakt";
@@ -410,7 +410,7 @@
 "Ongoing Use of All and New Apps" = "Pokračující používání všech aplikací a nových";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Apps" = "Probíhající používání všech a nových hlavních aplikací";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Otevřete %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otevřete Apple Maps";
@@ -464,13 +464,13 @@
 "Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Fotky";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Zadejte svůj tajný kód";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Zkontrolujte prosím a obnovte připojení k internetu nebo deaktivujte reklamy.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please try again with another code." = "Zkuste to prosím znovu s jiným kódem.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Vypněte následující možnost a resetujte identifikátor inzerce v Nastavení. Pak zkuste to znovu.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portrét";
@@ -486,11 +486,11 @@
 "Privacy" = "Soukromí";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "zpracovává se";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Program propagační licence";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Propagační licence";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion User" = "Uživatel propagace";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Řízení nákupu";
@@ -498,7 +498,7 @@
 "Purchase" = "Nákup";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kvalitní";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ohodnoť to";
 /* Generated from genl10n: Shop.SApp.swift#559 */
 "Rate Now" = "Hodnotit teď";
@@ -506,13 +506,13 @@
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.SApp.swift#637 */
 "Reference Guide" = "Referenční příručku";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Zbývající počet v tomto běhu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Opakovat";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Obnovit všechny nákupy";
-/* Generated from genl10n: Shop.Payables.System.swift#11 */
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Obnovit";
 /* Generated from genl10n: Revert.BApp.swift#45 */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Obnova umožňuje rychle obnovit velké množství upravených fotografií na původní. Kromě toho vám pomůže při automatickém výběru!";
@@ -542,7 +542,7 @@
 "Screenshots" = "Screenshoty";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhledat lety";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Vidět";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Vyberte formát pro převedení";
@@ -576,11 +576,11 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Některé kontakty byly uloženy, ale někteří nebyli.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Zvláštní program pro hosty";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Zvláštní licence pro hosty";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Speciální host";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Náměstí";
@@ -602,7 +602,7 @@
 "Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pobyt s námi";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
 "Submit" = "Předložit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapněte všechny položky, které chcete skrýt. Kvalita dokonale zůstane stejná.";
@@ -638,21 +638,21 @@
 "Too Slow Shutter Speed" = "Příliš nízká rychlost závěrky";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Režim transformace";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálně nelze ověřit kód. Zkuste to prosím později.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Použijte zkušební verzi";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Použití";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komunita uživatelů";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP Membership Program" = "Program VIP členství";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP členství";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ověření se nezdařilo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
@@ -664,7 +664,7 @@
 "Videos Without Sound" = "Videa bez zvuku";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Navštivte sociální stránky";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Návštěva";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čekání na výběr ...";
@@ -672,25 +672,25 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Vítejte balíček zdarma";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Vítejte v našem licenčním programu VIP.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our guest user license program!" = "Vítejte v našem uživatelském licenčním programu!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Vítejte v našem licenčním programu!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Vítejte v našem licenčním programu pro zvláštní hosty!";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "Chcete se vrátit k %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Napsat recenzi";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Napsat";
 /* Generated from genl10n: AppCenter.Charge.swift#181 */
 "Yearly Membership" = "Roční členství";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Můžete vybrat pouze fotografie nebo videa, které odpovídají výchozímu formátu.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Váš kód je neplatný. Prosím zkuste to znovu.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Váš kód vypršel.";

@@ -152,11 +152,11 @@
 "7-Day Use of Main and New Apps" = "7ήμερη χρήση βασικών και νέων εφαρμογών";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Απαιτείται άδεια χρήσης.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
 "Access Denied." = "Δεν επιτρέπεται η πρόσβαση.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "Access Failed." = "Η πρόσβαση απέτυχε.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Πρόσβαση επετράπη.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Ενέργειες";
@@ -182,7 +182,7 @@
 "All" = "Ολα";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Μια εφαρμογή, αλλά περιέχει πολλές εφαρμογές φωτογραφιών.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Παρουσιάστηκε σφάλμα κατά την παραλαβή διαφημίσεων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Κινούμενο GIF";
@@ -244,7 +244,7 @@
 "Could not detect any text." = "Δεν ήταν δυνατή η ανίχνευση κειμένου.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Δεν μπορούσε να ανιχνεύσει τίποτα.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Δεν ήταν δυνατή η λήψη διαφημίσεων.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
@@ -278,7 +278,7 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
 "Email Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
@@ -312,25 +312,25 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Δωρεάν χρήση και όλες τις νέες ενημερώσεις";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Δωρεάν χρήση";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Το GIF Maker επιτρέπει την εύκολη και γρήγορη δημιουργία εικόνων GIF από φωτογραφίες ή ζωντανές φωτογραφίες με διάφορες επιλογές! Και μετά μπορείτε να ανοίξετε την εφαρμογή μετατροπέα για να μετατρέψετε σε όλα, όπως Live Photos ή Βίντεο.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Απόκτησε πρόσβαση";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Δώστε μια βαθμολογία";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Πρόγραμμα Άδειας Χρήστη Guest";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Guest User License" = "Άδεια χρήσης χρήστη";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Επισκέπτης Χρήστης";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Hi %@ Team, I'm %@." = "Γεια σου %@ Ομάδα, είμαι %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Κρύβω";
@@ -344,7 +344,7 @@
 "Import" = "Εισαγωγή";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Πληροφορίες Χρήσης";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
 "Input Here" = "Είσοδος εδώ";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Ερευνα";
@@ -352,13 +352,13 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Εμφανίζει το λόγο των υπόλοιπων ελεύθερων περιόδων πρόσβασης σε εφαρμογές.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Δεν θα μπορούσε να αποθηκευτεί.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Εμφανίζεται μη έγκυρος κώδικας. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Στοιχεία";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
 "Join" = "Συμμετοχή";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";
@@ -370,7 +370,7 @@
 "Lockscreens" = "Κλειδαριές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Βρόχος";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
 "Main Apps License" = "Κύρια άδεια εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Βασικές εφαρμογές Χρήση %@ Ημέρας";
@@ -388,7 +388,7 @@
 "My Albums" = "Τα λευκώματά μου";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Τα σχόλιά μου σχετικά με %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
 "Name" = "Ονομα";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Νέα επαφή";
@@ -410,7 +410,7 @@
 "Ongoing Use of All and New Apps" = "Συνεχής χρήση όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Apps" = "Η συνεχής χρήση όλων και νέων βασικών εφαρμογών";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Άνοιγμα %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
@@ -464,13 +464,13 @@
 "Phone Number" = "Τηλεφωνικό νούμερο";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Φωτογραφίες";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Εισαγάγετε τον μυστικό κωδικό σας";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Ελέγξτε και επαναφέρετε τη σύνδεση στο διαδίκτυο ή απενεργοποιήστε τις Διαφημίσεις.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please try again with another code." = "Δοκιμάστε ξανά με άλλο κωδικό.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Απενεργοποιήστε την παρακάτω επιλογή και επαναφέρετε το αναγνωριστικό διαφήμισης στις Ρυθμίσεις. Στη συνέχεια προσπαθήστε ξανά.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Πορτρέτο";
@@ -486,11 +486,11 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Επεξεργασία";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Πρόγραμμα Άδειας Προώθησης";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Άδεια Προώθησης";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion User" = "Χρήστης προώθησης";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Διαχείριση αγορών";
@@ -498,7 +498,7 @@
 "Purchase" = "Αγορά";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Ποιότητα";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Βαθμολογήστε το";
 /* Generated from genl10n: Shop.SApp.swift#559 */
 "Rate Now" = "Βαθμολογήστε Τώρα";
@@ -506,13 +506,13 @@
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.SApp.swift#637 */
 "Reference Guide" = "Οδηγός αναφοράς";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Η εναπομένουσα μέτρηση σε αυτή την εκτέλεση";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Επαναφορά όλων των αγορών";
-/* Generated from genl10n: Shop.Payables.System.swift#11 */
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Επαναφέρω";
 /* Generated from genl10n: Revert.BApp.swift#45 */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Η αποκατάσταση επιτρέπει την γρήγορη επαναφορά μιας ποσότητας επεξεργασμένων φωτογραφιών στην αρχική. Επιπλέον, σας βοηθά με την αυτόματη επιλογή!";
@@ -542,7 +542,7 @@
 "Screenshots" = "Στιγμιότυπα οθόνης";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Αναζήτηση Πτήσεων";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Βλέπω";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Επιλέξτε Μορφή για να μετατρέψετε";
@@ -576,11 +576,11 @@
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Κάποιες επαφές σώθηκαν, αλλά κάποιοι δεν ήταν.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Ειδικό Πρόγραμμα Άδειας Χρήστη";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Ειδική Άδεια Χρήστη";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Ειδικός επισκέπτης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "τετράγωνο";
@@ -602,7 +602,7 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Μείνετε μαζί μας";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
 "Submit" = "υποβάλλουν";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
@@ -638,21 +638,21 @@
 "Too Slow Shutter Speed" = "Πολύ αργή ταχύτητα κλείστρου";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Λειτουργία μετασχηματισμού";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Δεν είναι δυνατή η επαλήθευση του κώδικα αυτήν τη στιγμή. Δοκιμάστε το αργότερα.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Χρήση";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP Membership Program" = "VIP Πρόγραμμα Συμμετοχής";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP Σύνθεση";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "βίντεο";
@@ -664,7 +664,7 @@
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Επισκεφτείτε τις κοινωνικές σελίδες";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Επίσκεψη";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Αναμονή για επιλογή ...";
@@ -672,25 +672,25 @@
 "Warp" = "Στημόνι";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Καλώς ήρθατε στο Πακέτο Δωρεάν";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our guest user license program!" = "Καλώς ήρθατε στο πρόγραμμα χρήσης των πελατών μας!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Καλωσορίσατε στο πρόγραμμα αδειών προώθησης!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Καλώς ήρθατε στο πρόγραμμα ειδικών αδειών επισκέπτη!";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "Θέλετε να επιστρέψετε στο %@;";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Γράψτε μια κριτική";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Γράφω";
 /* Generated from genl10n: AppCenter.Charge.swift#181 */
 "Yearly Membership" = "Ετήσια ιδιότητα μέλους";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Μπορείτε να επιλέξετε μόνο φωτογραφίες ή βίντεο που ταιριάζουν με την αρχική μορφή.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Ο κωδικός σας δεν είναι έγκυρος. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Ο κωδικός σας έληξε.";

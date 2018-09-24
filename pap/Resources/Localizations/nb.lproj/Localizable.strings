@@ -152,15 +152,15 @@
 "7-Day Use of Main and New Apps" = "7-dagers bruk av hoved og nye applikasjoner";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "En lisens er nødvendig.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Denied." = "Ingen tilgang.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Failed." = "Tilgang mislyktes.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Granted." = "Tilgang godkjent.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "handlinger";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Activate Ads" = "Aktiver annonser";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Activating Current Visible Items ..." = "Aktiverer nåværende synlige elementer ...";
@@ -182,7 +182,7 @@
 "All" = "Alle";
 /* Generated from genl10n: pap.Strings.swift */
 "An App, But Contains Many Photo Apps." = "En app, men inneholder mange fotoapps.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "En feil oppstod under mottak av annonser.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
 "Animated GIF" = "Animert GIF";
@@ -244,7 +244,7 @@
 "Could not detect any text." = "Kunne ikke oppdage tekst.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Could not detect anything." = "Kunne ikke oppdage noe.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Could not receive Ads." = "Kunne ikke motta annonser.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Skape";
@@ -278,7 +278,7 @@
 "E-mail Address" = "Epostadresse";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift */
+/* Generated from genl10n: Shop.Payment.YouApp.swift */
 "Email Address" = "Epostadresse";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Enable Quick Actions" = "Aktiver hurtige handlinger";
@@ -312,25 +312,25 @@
 "Frame Delay" = "Rammeforsinkelse";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Free Use And All New Updates" = "Fri bruk og alle nye oppdateringer";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift */
 "Free Use" = "Gratis bruk";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker gjør det enkelt og raskt å lage GIF-bilder fra bilder eller levende bilder med ulike alternativer! Og så kan du åpne konverteringsprogrammet for å konvertere til alt som Live Photos eller Videoer.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Få tilgang";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "Give A Rating" = "Gi en vurdering";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Guest User License" = "Gjestebruker Lisens";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gjestebruker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hei, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Hi %@ Team, I'm %@." = "Hei %@ Team, jeg er %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Gjemme seg";
@@ -344,7 +344,7 @@
 "Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift */
 "Information of Use" = "Informasjon om bruk";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Input Here" = "Input her";
 /* Generated from genl10n: Shop.SApp.swift */
 "Inquiry" = "Forespørsel";
@@ -352,13 +352,13 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Det viser en andel av gjenværende gratisapptilgangsperioder.";
 /* Generated from genl10n: Finder.BApp.swift */
 "It could not be stored." = "Det kunne ikke lagres.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "It looks invalid code. Please Try again." = "Det ser ut ugyldig kode. Vær så snill, prøv på nytt.";
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krever tillatelse til å få tilgang til kontaktene dine. Vennligst tillat kontakter på iOS-innstillinger.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Items" = "elementer";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift, Shop.Payables.FreeCharge.YouApp.swift */
+/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift, Shop.Payment.YouApp.swift */
 "Join" = "Bli med";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Landscape" = "Landskap";
@@ -370,7 +370,7 @@
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift, Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Apps License" = "Hovedapplikasjonslisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Main Apps Use of %@ Day" = "Hovedapplikasjoner Bruk av %@ Dag";
@@ -386,9 +386,9 @@
 "Monthly Membership" = "Månedlig medlemskap";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mine album";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "My Feedback on %@" = "Min tilbakemelding på %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift */
+/* Generated from genl10n: Shop.Payment.YouApp.swift */
 "Name" = "Navn";
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "New Contact" = "Ny kontakt";
@@ -410,7 +410,7 @@
 "Ongoing Use of All and New Apps" = "Pågående bruk av alle apper og nye";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Apps" = "Løpende bruk av alle og nye hovedapplikasjoner";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Open %@" = "Åpne %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Apple Maps" = "Åpne Apple Maps";
@@ -464,13 +464,13 @@
 "Phone Number" = "Telefonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Bilder";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please Input Your Secret Code" = "Vennligst skriv inn din hemmelige kode";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Kontroller og gjenopprett Internett-tilkoblingen din, eller deaktiver annonser.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please try again with another code." = "Vennligst prøv igjen med en annen kode.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Slå av følgende alternativ, og tilbakestill annonseringsidentifikator i Innstillinger. Prøv deretter igjen.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Portrait" = "Portrett";
@@ -486,11 +486,11 @@
 "Privacy" = "Personvern";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift */
 "Processing" = "Behandling";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotion License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Opprykkslisens";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion User" = "Promotion Bruker";
 /* Generated from genl10n: Shop.SApp.swift */
 "Purchase Management" = "Kjøpsstyring";
@@ -498,7 +498,7 @@
 "Purchase" = "Kjøp";
 /* Generated from genl10n: Converter.AppDockContent.swift, GIFMaker.BApp.swift */
 "Quality" = "Kvalitet";
-/* Generated from genl10n: Shop.Payables.Promotion.swift, Shop.Payables.Promotion.swift */
+/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rangere det";
 /* Generated from genl10n: Shop.SApp.swift */
 "Rate Now" = "Vurder nå";
@@ -506,13 +506,13 @@
 "Red-Eye Removal" = "Fjerning av røde øyne";
 /* Generated from genl10n: Shop.SApp.swift */
 "Reference Guide" = "Referansehåndbok";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Remaining Count In This Run" = "Resterende telle i dette løp";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Gjenta";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Gjenopprett alle kjøp";
-/* Generated from genl10n: Shop.Payables.System.swift */
+/* Generated from genl10n: Shop.Payment.System.swift */
 "Restore" = "Restaurere";
 /* Generated from genl10n: Revert.BApp.swift */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurering gjør det mulig å gjenopprette en mengde redigerte bilder raskt til den opprinnelige. Videre hjelper det deg med det automatiske valget!";
@@ -542,7 +542,7 @@
 "Screenshots" = "Skjerm";
 /* Generated from genl10n: Finder.BApp.swift */
 "Search Flights" = "Søk flyreiser";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payables.FreeCharge.Ads.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "See" = "Se";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Select Format To Convert" = "Velg Format for å konvertere";
@@ -564,7 +564,7 @@
 "Settings" = "innstillinger";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Del denne appen";
-/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payables.FreeCharge.Facebook.swift, Shop.Payables.FreeCharge.Facebook.swift, Shop.Payables.FreeCharge.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
@@ -576,11 +576,11 @@
 "Size" = "Størrelse";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Noen kontakter ble lagret, men noen var ikke.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Spesielt gjestelisensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Spesiell gjestelisens";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Spesiell gjest";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Torget";
@@ -602,7 +602,7 @@
 "Starting to check edited photos..." = "Begynner å sjekke redigerte bilder ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift, Shop.Payables.FreeCharge.YouApp.swift */
+/* Generated from genl10n: Shop.Payment.YouApp.swift, Shop.Payment.YouApp.swift */
 "Submit" = "Sende inn";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
@@ -638,21 +638,21 @@
 "Too Slow Shutter Speed" = "For lav lukkerhastighet";
 /* Generated from genl10n: Stabilizer.swift */
 "Transform Mode" = "Transform Mode";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Kan ikke bekrefte koden for øyeblikket. Vennligst prøv det senere.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
 "Use Trial" = "Bruk prøveversjon";
-/* Generated from genl10n: Shop.Payables.Promotion.swift */
+/* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Bruk";
 /* Generated from genl10n: Shop.SApp.swift */
 "User Community" = "Bruker fellesskap";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP Membership Program" = "VIP medlemskapsprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP Membership" = "VIP-medlemskap";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Bekreftelsen mislyktes.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
@@ -664,7 +664,7 @@
 "Videos Without Sound" = "Videoer uten lyd";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Besøk sosiale sider";
-/* Generated from genl10n: Shop.Payables.FreeCharge.SNSEngagement.swift, Shop.Payables.FreeCharge.swift, Shop.SApp.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.Payment.SNSEngagement.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Visit" = "Besøk";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Waiting To Select ..." = "Venter på å velge ...";
@@ -672,25 +672,25 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Welcome Free Pack" = "Velkommen Free Pack";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Velkommen til vårt VIP lisensprogram.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our guest user license program!" = "Velkommen til vårt gjestebruker lisensprogram!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Velkommen til vår kampanje lisensprogram!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Velkommen til vårt spesielle gjestelisensprogram!";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "Vil du gå tilbake til %@?";
 /* Generated from genl10n: Shop.SApp.swift */
 "Write A Review" = "Skrive en omtale";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift, Shop.SApp.swift */
 "Write" = "Skrive";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Yearly Membership" = "Årlig Medlemskap";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "You can select only photos or videos that matched with starting format." = "Du kan bare velge bilder eller videoer som samsvarer med startformat.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Koden din er ugyldig. Vær så snill, prøv på nytt.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Koden din var utløpt.";

@@ -152,11 +152,11 @@
 "7-Day Use of Main and New Apps" = "7 dagen gebruik van hoofd- en nieuwe apps";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Een licentie is vereist.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
 "Access Denied." = "Toegang geweigerd.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "Access Failed." = "Toegang mislukt.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Toegang verleend.";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Acties";
@@ -182,7 +182,7 @@
 "All" = "Alle";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "Een app, maar bevat veel foto-apps.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Er is een fout opgetreden tijdens het ontvangen van advertenties.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "Geanimeerde GIF";
@@ -244,7 +244,7 @@
 "Could not detect any text." = "Kon geen tekst vinden.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Kon niets vinden.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Kon geen advertenties ontvangen.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creëren";
@@ -278,7 +278,7 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Met EXIF ​​Ghost kunt u alle soorten gegevens verwijderen die uw foto's bevatten, inclusief privégegevens.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
 "Email Address" = "E-mailadres";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schakel Snelle acties in";
@@ -312,25 +312,25 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Gratis gebruik en alle nieuwe updates";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Gratis gebruik";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Met GIF Maker kun je eenvoudig en snel GIF-afbeeldingen maken van Foto's of Live Photos met verschillende opties! En dan kun je de converter-app openen om alles te converteren, zoals Live Photos of Video's.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Toegang krijgen";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Geef een beoordeling";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Gastgebruikerslicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Guest User License" = "Gastgebruikerslicentie";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gast gebruiker";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hallo, %@!";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Hi %@ Team, I'm %@." = "Hallo %@ Team, ik ben %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "Hide";
@@ -344,7 +344,7 @@
 "Import" = "Importeren";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "Gebruiksinformatie";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
 "Input Here" = "Voer hier in";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Onderzoek";
@@ -352,13 +352,13 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "Het geeft een verhouding weer van resterende vrije app-toegangsperioden.";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "Het kan niet worden opgeslagen.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Het ziet er ongeldige code uit. Probeer het opnieuw.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Items";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
 "Join" = "toetreden";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschap";
@@ -370,7 +370,7 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
 "Main Apps License" = "Hoofd Apps-licentie";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "Belangrijkste Apps Gebruik van %@ Dag";
@@ -388,7 +388,7 @@
 "My Albums" = "Mijn albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Mijn feedback over %@";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
 "Name" = "Naam";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "New Contact";
@@ -410,7 +410,7 @@
 "Ongoing Use of All and New Apps" = "Doorlopend gebruik van alle apps en nieuw";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Apps" = "Doorlopend gebruik van alle en nieuwe hoofd-apps";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Open %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Open Apple Maps";
@@ -464,13 +464,13 @@
 "Phone Number" = "Telefoonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "Foto's";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Voer uw geheime code in";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "Controleer en herstel uw internetconnectiviteit of deactiveer advertenties.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please try again with another code." = "Probeer het opnieuw met een andere code.";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Schakel de volgende optie uit en reset de advertentie-ID in Instellingen. Probeer het dan opnieuw.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portret";
@@ -486,11 +486,11 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "Verwerken";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotie Licentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "Promotielicentie";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion User" = "Promotie Gebruiker";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "Aankoopbeheer";
@@ -498,7 +498,7 @@
 "Purchase" = "Aankoop";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kwaliteit";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Beoordeel het";
 /* Generated from genl10n: Shop.SApp.swift#559 */
 "Rate Now" = "Beoordeel nu";
@@ -506,13 +506,13 @@
 "Red-Eye Removal" = "Rode-ogen-verwijdering";
 /* Generated from genl10n: Shop.SApp.swift#637 */
 "Reference Guide" = "Referentie gids";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Resterende telling in deze run";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaling";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Herstel van alle aankopen";
-/* Generated from genl10n: Shop.Payables.System.swift#11 */
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Herstellen";
 /* Generated from genl10n: Revert.BApp.swift#45 */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Met restauratie kunt u een groot aantal bewerkte foto's snel terugzetten naar de originele foto's. Bovendien helpt het u met de automatische selectie!";
@@ -542,7 +542,7 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Zoek vluchten";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Zien";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Selecteer Formaat om te converteren";
@@ -576,11 +576,11 @@
 "Size" = "Grootte";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "Sommige contacten zijn opgeslagen, maar iemands waren dat niet.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Speciaal gastlicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "Speciale gastlicentie";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Speciale gast";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
@@ -602,7 +602,7 @@
 "Starting to check edited photos..." = "Beginnen met het controleren van bewerkte foto's ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bij ons blijven";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
 "Submit" = "voorleggen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Schakel alle items in die u wilt verbergen. De kwaliteit blijft perfect hetzelfde.";
@@ -638,21 +638,21 @@
 "Too Slow Shutter Speed" = "Te lange sluitertijd";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Transformatiemodus";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Gebruik Trial";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gebruik";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Gebruikerscommunity";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP Membership Program" = "VIP-lidmaatschapsprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP-lidmaatschap";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificatie mislukt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
@@ -664,7 +664,7 @@
 "Videos Without Sound" = "Video's zonder geluid";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Bezoek sociale pagina's";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Bezoek";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
@@ -672,25 +672,25 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Welkom gratis pakket";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Welkom bij ons VIP-licentieprogramma.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our guest user license program!" = "Welkom bij ons gastgebruikerslicentieprogramma!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Welkom bij ons promotie-licentieprogramma!";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Welkom bij ons speciale gastlicentieprogramma!";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "Wilt u teruggaan naar %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "Schrijf een recensie";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Schrijven";
 /* Generated from genl10n: AppCenter.Charge.swift#181 */
 "Yearly Membership" = "Jaarlijks lidmaatschap";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Uw code is ongeldig Probeer het opnieuw.";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Uw code is verlopen.";

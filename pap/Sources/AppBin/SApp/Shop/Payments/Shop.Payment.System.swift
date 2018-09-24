@@ -6,6 +6,19 @@
 import Foundation
 import PropertyKit
 
+struct FreeAppPayment<T:App>: VerifiablePayable{
+    static var action: PayableAction {
+        return PayableAction(title: "Free Use".localized)
+    }
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        return true
+    }
+    func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return true
+    }
+}
+
 struct RestorePurchasesSystemPayment:VerifiablePayable{
     static var action: PayableAction {
         return PayableAction(title: "Restore".localized)

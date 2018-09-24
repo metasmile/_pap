@@ -152,11 +152,11 @@
 "7-Day Use of Main and New Apps" = "メインアプリと新しいアプリの7日間利用";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "ライセンスが必要です。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#228 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
 "Access Denied." = "アクセスが拒否されました。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "Access Failed." = "アクセスに失敗しました。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "アクション";
@@ -182,7 +182,7 @@
 "All" = "すべて";
 /* Generated from genl10n: pap.Strings.swift#33 */
 "An App, But Contains Many Photo Apps." = "一つのアプリに、多くのフォトアプリケーションが含まれています。";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#217 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "広告の受信中にエラーが発生しました。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "アニメーションGIF";
@@ -244,7 +244,7 @@
 "Could not detect any text." = "テキストを検出できませんでした。";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "何も検出できませんでした。";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#199 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "広告を受信できませんでした。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "作成";
@@ -278,7 +278,7 @@
 "E-mail Address" = "電子メールアドレス";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#127 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
 "Email Address" = "電子メールアドレス";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
@@ -312,25 +312,25 @@
 "Frame Delay" = "フレームディレイ";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "無料で使用し、すべての新しいアップデート";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#12 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "無料使用";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIFメーカーは、様々なオプションで写真やライブ写真からGIF画像を簡単かつ迅速に作成できます。そしてコンバータアプリを開いて、ライブ写真や動画に変換することができます。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIFメーカー";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#128 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "アクセスを取得";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "ゲストユーザーライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Guest User License" = "ゲストユーザライセンス";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "ゲストユーザ";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
-/* Generated from genl10n: Shop.Payables.FreeCharge.MailContactTypes.swift */
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Hi %@ Team, I'm %@." = "こんにちは%@チーム、私は%@です。";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hide" = "隠す";
@@ -344,7 +344,7 @@
 "Import" = "インポート";
 /* Generated from genl10n: Shop.SApp.swift#494 */
 "Information of Use" = "使用の情報";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#199 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
 "Input Here" = "ここに入力";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "問い合わせ";
@@ -352,13 +352,13 @@
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
 /* Generated from genl10n: AppStrings.swift#22 */
 "It could not be stored." = "保存することができませんでした。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#208 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "それは無効なコードに見えます。もう一度お試しください。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "あなたの連絡先にアクセスするための許可が必要です。 iOSの設定で連絡先を許可してください。";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "アイテム";
-/* Generated from genl10n: Shop.Payables.FreeCharge.URLVisitingTypes.swift#32, Shop.Payables.FreeCharge.YouApp.swift#54 */
+/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
 "Join" = "参加";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "風景";
@@ -370,7 +370,7 @@
 "Lockscreens" = "ロックスクリーン";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ループ";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payables.FreeCharge.Ads.swift#103 */
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
 "Main Apps License" = "メインアプリケーションライセンス";
 /* Generated from genl10n: AppCenter.Charge.swift#299 */
 "Main Apps Use of %@ Day" = "メインアプリの使用%@日";
@@ -388,7 +388,7 @@
 "My Albums" = "私のアルバム";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "%@に関する私のフィードバック";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#120 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
 "Name" = "名前";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "新しい連絡先";
@@ -410,7 +410,7 @@
 "Ongoing Use of All and New Apps" = "すべてのアプリの継続使用と新規";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Apps" = "すべてのメインアプリケーションと新しいメインアプリケーションの継続的な使用";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#209 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "%@を開く";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Mapsを開く";
@@ -464,13 +464,13 @@
 "Phone Number" = "電話番号";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Photos" = "写真";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#192 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "あなたの秘密のコードを入力してください";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#106 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
 "Please check and restore your internet connectivity, or deactivate Ads." = "インターネット接続を確認して復元するか、広告を無効にしてください。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please try again with another code." = "別のコードでもう一度お試しください。";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#216 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "以下のオプションをオフにし、設定で広告識別子をリセットしてください。その後、もう一度試してください。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "ポートレート";
@@ -486,11 +486,11 @@
 "Privacy" = "プライバシー";
 /* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
 "Processing" = "処理";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "プロモーションライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Promotion License" = "プロモーションライセンス";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion User" = "プロモーションユーザー";
 /* Generated from genl10n: Shop.SApp.swift#246 */
 "Purchase Management" = "購入管理";
@@ -498,7 +498,7 @@
 "Purchase" = "購入";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "品質";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#34, Shop.Payables.Promotion.swift#72 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評価";
 /* Generated from genl10n: Shop.SApp.swift#559 */
 "Rate Now" = "今すぐ評価する";
@@ -506,13 +506,13 @@
 "Red-Eye Removal" = "赤目除去";
 /* Generated from genl10n: Shop.SApp.swift#637 */
 "Reference Guide" = "リファレンスガイド";
-/* Generated from genl10n: Shop.Payables.FreeCharge.Ads.swift#107 */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "この実行で残りのカウント";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
-/* Generated from genl10n: Shop.Payables.System.swift#11 */
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "リストア";
 /* Generated from genl10n: Revert.BApp.swift#45 */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "元に戻すアプリでは、編集した写真を元の写真にすぐ戻すことができます。更に、自動選択も可能で便利です！";
@@ -542,7 +542,7 @@
 "Screenshots" = "スクリーンショット";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "フライト検索";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payables.FreeCharge.Ads.swift#102 */
+/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "見る";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "変換する書式を選択";
@@ -576,11 +576,11 @@
 "Size" = "サイズ";
 /* Generated from genl10n: Finder.BApp.swift#217 */
 "Some contacts were saved, but someones were not." = "一部の連絡先は保存されましたが、一部は保存されませんでした。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "特別ゲストライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Special Guest License" = "スペシャルゲストライセンス";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "特別ゲスト";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "正方形";
@@ -602,7 +602,7 @@
 "Starting to check edited photos..." = "編集した写真のチェックを開始しています...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
-/* Generated from genl10n: Shop.Payables.FreeCharge.YouApp.swift#100, Shop.Payables.FreeCharge.YouApp.swift#361 */
+/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
 "Submit" = "提出する";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
@@ -638,21 +638,21 @@
 "Too Slow Shutter Speed" = "遅すぎるシャッタースピード";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "変換モード";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "試用版を使用する";
-/* Generated from genl10n: Shop.Payables.Promotion.swift#13 */
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "ユーザーコミュニティ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP Membership Program" = "VIP会員プログラム";
 /* Generated from genl10n: AppCenter.Charge.swift#159 */
 "VIP Membership" = "VIP会員";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#224 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "動画";
@@ -664,7 +664,7 @@
 "Videos Without Sound" = "音がない動画";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "ソーシャルページを訪問する";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#104, Shop.SApp.swift#595 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "訪問";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "選択するのを待っています...";
@@ -672,25 +672,25 @@
 "Warp" = "ワープ";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ウェルカムフリーパック";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift#234 */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIPライセンスプログラムへようこそ。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our guest user license program!" = "ゲストユーザライセンスプログラムへようこそ！";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "プロモーションライセンスプログラムへようこそ！";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.Types.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "スペシャルゲストライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "%@に戻りたいですか？";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
 "Write A Review" = "レビューを書く";
-/* Generated from genl10n: Shop.Payables.FreeCharge.swift#57, Shop.SApp.swift#572 */
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "書く";
 /* Generated from genl10n: AppCenter.Charge.swift#181 */
 "Yearly Membership" = "年間会員数";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "最初のファイル形式と一致するアイテムのみ選択できます。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "あなたのコードは無効です。もう一度お試しください。";
-/* Generated from genl10n: Shop.Payables.SecretCodeProgram.swift */
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "あなたのコードは期限切れです。";
