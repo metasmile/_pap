@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Ngày";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Tải xuống miễn phí!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Thành viên";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Chương trình thành viên";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Tư cách thành viên";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Sử dụng 1 tháng của ứng dụng chính và mới";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "Tái sử dụng ứng dụng chính trong 1 năm";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "Sử dụng các ứng dụng chính và ứng dụng mới trong 14 ngày";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "Địa chỉ email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "Địa chỉ email";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Mặt hàng";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Tham gia";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Tham gia chương trình %@";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Album của tôi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Phản hồi của tôi về %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "Tên";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Địa chỉ liên lạc mới";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "Cài đặt";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Chia sẻ ứng dụng này";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận mỗi giấy phép nếu được chấp nhận.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ở lại với chúng tôi";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "Gửi đi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Tham gia";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Chụp với máy ảnh tích hợp";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Điều khoản sử dụng";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Bản văn";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Cảm ơn bạn %@. Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Cảm ơn tin nhắn của bạn. Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Cám ơn vì đã mua hàng.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Cảm ơn bạn rất nhiều thông tin phản hồi của bạn! Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "Tốc độ màn trập quá chậm";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Chế độ chuyển đổi";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Chỉnh sửa bản dịch";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Không thể xác minh mã hiện tại. Vui lòng thử lại sau.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Chào mừng gói miễn phí";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Chào mừng bạn đến với chương trình cấp phép %@ của chúng tôi!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Tư cách thành viên hàng năm";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Bạn chỉ có thể chọn ảnh hoặc video phù hợp với định dạng bắt đầu.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Tin nhắn của bạn đã được gửi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Mã của bạn không hợp lệ. Vui lòng thử lại.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

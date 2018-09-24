@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Tag";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Jetzt kostenlos herunterladen!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Mitglied";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Mitgliedschaftsprogramm";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Mitgliedschaft";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "1-Monats-Nutzung aller Apps und neu";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-monatige Verwendung von Haupt- und neuen Apps";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "Wiederverwendung der Haupt-Apps für ein Jahr";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14-tägige Nutzung von Haupt- und neuen Apps";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "E-Mail-Addresse";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Mit EXIF ​​Ghost können Sie alle Arten von Daten entfernen, die Ihre Fotos enthalten, einschließlich privater Informationen.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "E-Mail-Addresse";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schnellaktionen aktivieren";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Es erfordert eine Erlaubnis, auf Ihre Kontakte zuzugreifen. Bitte erlaube Kontakte in den iOS-Einstellungen.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Artikel";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Beitreten";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Beitreten %@ Programm";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschaft";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Meine Alben";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Mein Feedback zu %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "Name";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Neuer Kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "die Einstellungen";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Teile diese App";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Teilen Sie Ihr Talent, machen Sie zusammen. Erhalten Sie jede Lizenz, wenn sie angenommen wird.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Aktie";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Überprüfung der bearbeiteten Fotos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bei uns bleiben";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "einreichen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Schalten Sie alle Objekte ein, die Sie ausblenden möchten. Die Qualität wird perfekt gleich bleiben.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Teilnehmen";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Genommen mit eingebauter Kamera";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Nutzungsbedingungen";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Danke %@. Bald werden wir dich kontaktieren.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Danke für deine Nachricht. Bald werden wir dich kontaktieren.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Danke für Ihren Einkauf.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Vielen Dank für Ihr Feedback! Bald werden wir dich kontaktieren.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Mit diesem unkomplizierten Batch-Transformationswerkzeug können Sie viele Mediendateien, einschließlich Live-Fotos, schnell drehen und spiegeln. Es gibt keine Begrenzung für die Anzahl der Fotos, um sie zu bearbeiten.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "Zu lange Verschlusszeit";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Transformationsmodus";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Übersetzungskorrektur";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Der Code konnte zur Zeit nicht überprüft werden. Bitte versuchen Sie es später.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Willkommen Kostenloses Paket";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Willkommen zu unserem %@ Lizenzprogramm!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Willkommen zu unserem VIP-Lizenzprogramm.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Jährliche Mitgliedschaft";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Sie können nur Fotos oder Videos auswählen, die mit dem Startformat übereinstimmen.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Ihre Nachricht wurde gesendet.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Dein Code ist ungültig. Bitte versuche es erneut.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

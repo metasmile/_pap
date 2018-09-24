@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Gün";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Üye";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Üyelik Programı";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "Tüm Uygulamaların ve Yeni 1 Aylık Kullanım";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 1 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "Ana Uygulamaların 1 Yıllık Yeniden Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 14 Günlük Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "E";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost, özel bilgileri içeren fotoğraflarınızı içeren her türlü veriyi kaldırmanızı sağlar.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "E";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Öğeler";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Katılmak";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "%@ Programına Katıl";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "peyzaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Albümlerim";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "%@ İle ilgili görüşlerim";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "isim";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Yeni bağlantı";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Bu uygulamayı paylaş";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Yeteneğini Paylaş, Birlikte Yap. Kabul Edilirse Her Lisansı Alın.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Düzenlenmiş fotoğrafları kontrol etmeye başlıyor ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bizimle Kalmak";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "Gönder";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Gizlemek istediğiniz öğeleri açın. Kalite mükemmel olarak aynı kalacaktır.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Yer almak";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Dahili Kamera ile Çekildi";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Kullanım Şartları";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Metin";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Teşekkür ederim %@. Yakında sizinle iletişim kuracağız.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Mesajın için teşekkürler. Yakında sizinle iletişim kuracağız.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Satın aldığınız için teşekkür ederiz.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Geri bildiriminiz için teşekkürler! Yakında sizinle iletişim kuracağız.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "Çok Düşük Obtüratör Hızı";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Dönüş Modu";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Çeviri Düzeltme";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Şu anda kod doğrulanamadı. Lütfen daha sonra deneyin.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Hoşgeldiniz ücretsiz paketi";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "%@ Lisans programımıza hoş geldiniz!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Yıllık Üyelik";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Sadece başlangıç ​​formatıyla eşleşen fotoğrafları veya videoları seçebilirsiniz.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Mesajınız gönderildi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Kodunuz geçersiz. Lütfen tekrar deneyin.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

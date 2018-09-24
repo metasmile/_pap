@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Ahli";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Program Keahlian";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Keahlian";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "Penggunaan 1 Bulan Semua Semua dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Penggunaan 1 Bulan Penggunaan Utama dan Aplikasi Baru";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "Penggunaan semula aplikasi utama 1 tahun";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "Penggunaan 14-Hari Aplikasi Utama dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "Alamat emel";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost membolehkan anda mengeluarkan semua jenis data yang mengandungi foto anda termasuk maklumat peribadi.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "Alamat emel";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Dayakan Tindakan Pantas";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Item";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Sertai";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Sertai Dalam %@ Program";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Album saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Maklum balas saya mengenai %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "Nama";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Kenalan baru";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "Tetapan";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Kongsi Aplikasi ini";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Lesen Jika Dipercayai.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Bermula untuk menyemak foto yang diedit ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tinggal Dengan Kami";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "Hantar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tukar item yang anda ingin sembunyikan. Kualitinya tetap sama.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Ambil bahagian";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Terbina Dalam";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Syarat Penggunaan";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Teks";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Terima kasih %@. Tidak lama lagi kami akan menghubungi anda.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Terima kasih atas mesej anda. Tidak lama lagi kami akan menghubungi anda.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Terima kasih atas pembelian anda.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Terima kasih banyak atas maklum balas anda! Tidak lama lagi kami akan menghubungi anda.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Alat transformasi imej batch yang mudah tetapi berskala besar ini membolehkan anda memutar dan memutar banyak fail media termasuk Foto Langsung. Tiada had untuk bilangan foto untuk mengeditnya.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "Kelajuan pengatup yang terlalu perlahan";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Mod Transform";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Pembetulan Terjemahan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tidak dapat mengesahkan kod pada masa ini. Sila cuba kemudian.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Selamat Datang Pack Percuma";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Selamat datang ke program lesen %@ kami!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Selamat datang ke program lesen VIP kami.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Keahlian Tahunan";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya boleh memilih foto atau video yang dipadankan dengan format permulaan.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Mesej anda telah di hantar.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Kod anda tidak sah. Sila cuba lagi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

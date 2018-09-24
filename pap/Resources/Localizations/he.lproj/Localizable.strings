@@ -124,6 +124,10 @@
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ חבר";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ תוכנית חברות";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ חברות";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "1 חודש שימוש בכל היישומים חדשים";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1 חודש שימוש ביישומים ראשיים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "1 שנה שימוש חוזר של יישומים עיקריים";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "שימוש 14 יום של יישומים חדשים וחדשים";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "כתובת דוא'ל";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost מאפשר לך להסיר כל מיני נתונים המכילים את התמונות שלך, כולל מידע פרטי.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "כתובת דוא'ל";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "הפעל פעולות מהירות";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "זה דורש אישור לגשת לאנשי הקשר שלך. המתן אנשי קשר בהגדרות iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "פריטים";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "לְהִצְטַרֵף";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "הצטרף לתוכנית %@";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "נוֹף";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "האלבומים שלי";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "המשוב שלי ב- %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "שֵׁם";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "איש קשר חדש";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "הגדרות";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "שתף את זה App";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. קבל כל רישיון אם מאומץ.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "מתחיל לבדוק תמונות שנערכו ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "להישאר איתנו";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "שלח";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "הפעל את כל הפריטים שברצונך להסתיר. האיכות תהיה מושלמת.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "לקחת חלק";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "עם מצלמה מובנית";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "תנאי שימוש";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "טֶקסט";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "תודה %@. בקרוב ניצור איתך קשר.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "תודה לך על ההודעה שלך. בקרוב ניצור איתך קשר.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "תודה על רכישתך.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "תודה רבה על המשוב שלך! בקרוב ניצור איתך קשר.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "זה פשוט אבל בקנה מידה גדול אצווה התמונה להפוך כלי מאפשר לך לסובב במהירות להעיף הרבה קבצי מדיה כולל Live תמונות. אין הגבלה על מספר התמונות כדי לערוך אותן.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "מהירות תריס איטית מדי";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "שינוי צורה";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "תיקון תרגום";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "לא ניתן לאמת את הקוד כרגע. נסה את זה מאוחר יותר.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ברוכים הבאים חינם Pack";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Welcome to our %@ license program!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "חברות שנתית";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "ניתן לבחור רק תמונות או סרטונים שמתאימים לפורמט ההתחלה.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "הודעתך נשלחה.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

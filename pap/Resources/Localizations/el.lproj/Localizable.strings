@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Μέλος";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Πρόγραμμα μελών";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Σύνθεση";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "1 μήνας χρήσης όλων των εφαρμογών και νέων";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1 μήνας χρήσης των κύριων και των νέων εφαρμογών";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "1-Έτος επαναχρησιμοποίηση των κύριων εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14ήμερη χρήση βασικών και νέων εφαρμογών";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "Διεύθυνση ηλεκτρονικού ταχυδρομείου";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "Στοιχεία";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Συμμετοχή";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Συμμετοχή σε %@ Πρόγραμμα";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Τα λευκώματά μου";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Τα σχόλιά μου σχετικά με %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "Ονομα";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Νέα επαφή";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "Ρυθμίσεις";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Μοιραστείτε αυτήν την εφαρμογή";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Πάρτε κάθε άδεια αν υιοθετηθεί.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Μείνετε μαζί μας";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "υποβάλλουν";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Συμμετέχω";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Οροι χρήσης";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Κείμενο";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Σας ευχαριστώ %@. Σύντομα θα επικοινωνήσουμε μαζί σας.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Σας ευχαριστούμε για το μήνυμά σας. Σύντομα θα επικοινωνήσουμε μαζί σας.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Σας ευχαριστούμε για την αγορά σας.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Σας ευχαριστούμε πολύ για τα σχόλιά σας! Σύντομα θα επικοινωνήσουμε μαζί σας.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "Πολύ αργή ταχύτητα κλείστρου";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Λειτουργία μετασχηματισμού";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Διόρθωση μετάφρασης";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Δεν είναι δυνατή η επαλήθευση του κώδικα αυτήν τη στιγμή. Δοκιμάστε το αργότερα.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Στημόνι";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Καλώς ήρθατε στο Πακέτο Δωρεάν";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Καλώς ορίσατε στο %@ πρόγραμμα αδειών μας!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Καλώς ήλθατε στο πρόγραμμα VIP μας.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Ετήσια ιδιότητα μέλους";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Μπορείτε να επιλέξετε μόνο φωτογραφίες ή βίντεο που ταιριάζουν με την αρχική μορφή.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Το μήνυμα σας εστάλει.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Ο κωδικός σας δεν είναι έγκυρος. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */

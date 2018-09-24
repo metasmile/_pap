@@ -124,6 +124,10 @@
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Ladda ner nu GRATIS!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Medlem";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Medlemskapsprogram";
 /* Generated from genl10n: Shop.SApp.swift#272 */
 "%@ Membership" = "%@ Medlemskap";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
@@ -142,6 +146,8 @@
 "1-Month Use of All and New Apps" = "1 månaders användning av alla appar och nytt";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-månaders användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+"1-Year Reuse of Main Apps" = "1 års återanvändning av huvudapplikationer";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14-dagars användning av huvud- och nya appar";
 /* Generated from genl10n: AppCenter.Charge.swift#203 */
@@ -278,8 +284,6 @@
 "E-mail Address" = "E-postadress";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost kan du ta bort alla typer av data som innehåller dina foton, inklusive privat information.";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#127 */
-"Email Address" = "E-postadress";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivera snabba åtgärder";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -358,8 +362,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krävs ett tillstånd att komma åt dina kontakter. Vänligen tillåt Kontakter på IOS-inställningar.";
 /* Generated from genl10n: Finder.BApp.swift#1146 */
 "Items" = "artiklar";
-/* Generated from genl10n: Shop.Payment.URLOpen.Types.swift#32, Shop.Payment.YouApp.swift#54 */
-"Join" = "Ansluta sig";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Gå med i %@ Program";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -388,8 +392,6 @@
 "My Albums" = "Mina album";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
 "My Feedback on %@" = "Min feedback om %@";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#120 */
-"Name" = "namn";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
 "New Contact" = "Ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
@@ -564,6 +566,8 @@
 "Settings" = "inställningar";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Dela denna appen";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Get Each License If Adopted." = "Dela din talang, gör tillsammans. Få varje licens om det antas.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -602,8 +606,6 @@
 "Starting to check edited photos..." = "Börjar att kolla redigerade foton ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bo hos oss";
-/* Generated from genl10n: Shop.Payment.YouApp.swift#100, Shop.Payment.YouApp.swift#361 */
-"Submit" = "Lämna";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på några objekt du vill gömma. Kvaliteten kommer helt och hållet att förbli densamma.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -616,6 +618,8 @@
 "Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Ta del";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Ta med Inbyggd kamera";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
@@ -626,8 +630,14 @@
 "Terms of Use" = "Villkor";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Tack %@. Snart kommer vi att kontakta dig.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Tack för ditt meddelande. Snart kommer vi att kontakta dig.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Tack för ditt köp.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Tack så mycket för din feedback! Snart kommer vi att kontakta dig.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Det här enkla men stora batchbildtransformverktyget gör det möjligt att snabbt rotera och flipa många mediefiler, inklusive Live Photos. Det finns ingen gräns för antalet foton att redigera dem.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -638,6 +648,8 @@
 "Too Slow Shutter Speed" = "För långsam slutartid";
 /* Generated from genl10n: Stabilizer.swift#330 */
 "Transform Mode" = "Transformationsläge";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Översättningskorrigering";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Det går inte att verifiera koden för närvarande. Vänligen prova det senare.";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
@@ -672,6 +684,8 @@
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Välkommen Free Pack";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Välkommen till vårt %@ licensprogram!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Välkommen till vårt VIP-licensprogram.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -690,6 +704,8 @@
 "Yearly Membership" = "Årligt medlemskap";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Du kan bara välja foton eller videoklipp som matchade startformatet.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Ditt meddelande har skickats.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Din kod är ogiltig. Var god försök igen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
