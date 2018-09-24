@@ -59,6 +59,16 @@ struct papStrings {
         static var url: String{
             return "https://you.apps.photo"
         }
+
+        static var email: String{
+            return "you@apps.photo"
+        }
+
+        struct l10n {
+            static var email: String{
+                return "you.l10n@apps.photo"
+            }
+        }
     }
 
     struct contact{

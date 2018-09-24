@@ -475,6 +475,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private lazy var payGroups:[PayGroup] = PayGroup.Default
     private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
     private var freeChargeSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var youAppCellDescribers = [UITableViewCellDefaultDescribable]()
     private var informationOfUsetCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
@@ -483,6 +484,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if freeChargeSettingsCellDescribers.count > 0{
             let settings = CellDescriberGroup(label: "Settings for Main Apps License".localized, detailedLabel: "It Displays A Ratio of Remaining Free App Access Periods.".localized, describers: freeChargeSettingsCellDescribers)
             s.append(settings)
+        }
+
+        if youAppCellDescribers.count > 0{
+            s.append(CellDescriberGroup(label: "Join %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent. We Will Give Each License If Adopted.".localized, describers: youAppCellDescribers))
         }
 
         if contactCellDescribers.count > 0{
@@ -562,6 +567,24 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             self.payGroups = PayGroup.Default
         }
 
+    }
+
+    private func loadYouAppCellDescribers(){
+        youAppCellDescribers.removeAll()
+
+        if !AppCenter.isPaidAsOwnedInCurrentContext{
+
+            let c2 = UITableViewButtonCellDescriber()
+            c2.itemIdentifier = CellDescriber.Key.support.hashValue
+            c2.label = "Localization Correction".localized
+            c2.detailedLabel = "1-Month Use of Main and New Apps".localized
+            c2.buttonTitle = "Send".localized
+            c2.iconImage = R.image.cellIconContactUs.name
+            c2.valueHandler = { _ in
+                AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
+            }
+            youAppCellDescribers.append(c2)
+        }
     }
 
     private func loadShopSettingsCellDescribers(){
@@ -737,6 +760,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         loadShopSettingsCellDescribers()
         loadContactCellDescribers()
+        loadYouAppCellDescribers()
         loadInformationOfUsetCellDescribers()
         loadPayGroups()
 

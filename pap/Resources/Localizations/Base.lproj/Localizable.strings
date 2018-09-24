@@ -104,7 +104,7 @@
 "1 Month Membership" = "1 Month Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of All and New Apps" = "1-Month Use of All and New Apps";
-/* Generated from genl10n: AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "1-Month Use of Main and New Apps" = "1-Month Use of Main and New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Apps" = "14-Day Use of Main and New Apps";
@@ -322,6 +322,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Items" = "Items";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join %@ Program" = "Join %@ Program";
 /* Generated from genl10n: Shop.Payment.URLOpen.Types.swift, Shop.Payment.YouApp.swift */
 "Join" = "Join";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
@@ -330,6 +332,8 @@
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* Generated from genl10n: Shop.SApp.swift */
+"Localization Correction" = "Localization Correction";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -520,7 +524,7 @@
 "Selected" = "Selected";
 /* Generated from genl10n: Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: Shop.SApp.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift */
 "Send" = "Send";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Apps License" = "Settings for Main Apps License";
@@ -528,6 +532,8 @@
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Share This App";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent. We Will Give Each License If Adopted." = "Share Your Talent. We Will Give Each License If Adopted.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.SApp.swift, Shop.Payment.SocialShare.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -590,8 +596,14 @@
 "Terms of Use" = "Terms of Use";
 /* Generated from genl10n: Finder.BApp.swift */
 "Text" = "Text";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Thank you for your message. Soon we will contact you.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Thank you for your purchase." = "Thank you for your purchase.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Thank you very much for your feedback! Soon we will contact you.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -654,6 +666,8 @@
 "Yearly Membership" = "Yearly Membership";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Your Message Has Been Sent.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
