@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Ваш код недійсний. Будь ласка спробуйте ще раз.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Ваш код минув.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "місяць";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "рік";

@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Kod anda tidak sah. Sila cuba lagi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Kod anda telah tamat tempoh.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "bulan";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "tahun";

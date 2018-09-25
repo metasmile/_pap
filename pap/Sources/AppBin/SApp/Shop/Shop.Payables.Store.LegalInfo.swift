@@ -69,7 +69,7 @@ extension StorePayable{
         price.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
         price.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize), useUpperCase: false)
 
-        vc.view.backgroundColor = UIColor.black
+        vc.view.backgroundColor = UIColor.white
         vc.actionProgressView.visible = false
         vc.actionButton.setTitle("Purchase".localized, for: .normal)
         vc.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.buttonFontSize)

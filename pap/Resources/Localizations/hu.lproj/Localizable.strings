@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "A kód érvénytelen. Kérlek próbáld újra.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "A kód lejárt.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "hónap";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "év";

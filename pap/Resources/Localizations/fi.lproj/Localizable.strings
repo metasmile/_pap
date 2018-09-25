@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Sinun koodisi on virheellinen. Yritä uudelleen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Sinun koodisi on vanhentunut.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "kuukausi";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "vuosi";

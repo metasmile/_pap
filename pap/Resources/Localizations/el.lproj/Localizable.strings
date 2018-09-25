@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Ο κωδικός σας δεν είναι έγκυρος. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Ο κωδικός σας έληξε.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "μήνας";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "έτος";

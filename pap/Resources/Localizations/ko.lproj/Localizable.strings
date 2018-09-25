@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "코드가 만료되었습니다.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "달";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "년";

@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Mã của bạn không hợp lệ. Vui lòng thử lại.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Mã của bạn đã hết hạn.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "tháng";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "năm";

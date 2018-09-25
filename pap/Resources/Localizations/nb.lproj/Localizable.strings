@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Koden din er ugyldig. Vær så snill, prøv på nytt.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Koden din var utløpt.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "måned";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "år";

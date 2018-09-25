@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Codul dvs. este nevalid. Vă rugăm să încercați din nou.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Codul a expirat.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "lună";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "an";

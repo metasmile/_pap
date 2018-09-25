@@ -716,3 +716,7 @@
 "Your code is invalid. Please try again." = "Vaš kôd nije važeći. Molim te pokušaj ponovno.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Vaš je kôd istekao.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "mjesec";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "godina";
