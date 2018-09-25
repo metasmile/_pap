@@ -15,10 +15,12 @@ protocol StorePayable: VerifiablePayable {
     static func fetchStoreProduct(_ signal:AsyncWaitSignalable) -> Bool
 }
 
+typealias StoreProductExternalLinkInfo = (notice:String?, termsOfUse:URL?, privacyPolicy:URL?)
+
 struct StoreProduct {
     let identifier:String //INFO: Same as SKProduct\.productIdentifier
     let subscriptionPeriod: Period?
-    let termsURLString:String?
+    let legalInfo:StoreProductExternalLinkInfo?
 }
 
 /*

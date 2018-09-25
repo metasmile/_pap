@@ -268,6 +268,7 @@
 		4F71DEFBD69A417E85D0CBF2 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA8A996DE6E8643C88F5 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */; };
 		4F71DF2B89A23CEA353C4CC1 /* CodeKit.UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5EEA43ED3B362B03E4D /* CodeKit.UIActivityViewController.swift */; };
 		4F71DF36390CB1F5CDDC287B /* BApp.Chargeable.DefaultLocalCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1AA3EEE97024F2F4BCB /* BApp.Chargeable.DefaultLocalCharge.swift */; };
+		4F71DF3ACF8B250EADE99DFD /* Shop.Payables.Store.LegalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC7C576DE9FCD9B86B6A /* Shop.Payables.Store.LegalInfo.swift */; };
 		4F71DF3FE01E9F386E6D118C /* App.UI.CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */; };
 		4F71DF4C224C5BC8E9840351 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */; };
 		4F71DF5F97855FF3FD1F8A43 /* Shop.Payment.URLOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D12BF03BB77AE107D840 /* Shop.Payment.URLOpen.swift */; };
@@ -573,6 +574,7 @@
 		4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DC58EF662B297E81FB44 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		4F71DC59EDF3C2434748D74B /* ExifGhost.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExifGhost.BApp.Assets.xcassets; sourceTree = "<group>"; };
+		4F71DC7C576DE9FCD9B86B6A /* Shop.Payables.Store.LegalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.Store.LegalInfo.swift; sourceTree = "<group>"; };
 		4F71DC82553239CE9C10FA36 /* ExifGhost.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71DC86D21CEF245CBF82A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.AssetView.swift; sourceTree = "<group>"; };
@@ -1070,6 +1072,7 @@
 				4F71D0E0CDFF78F80323BC0A /* Shop.RelativePayable.Policy.swift */,
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 				4F71DCEF593DF87E9F119E0A /* Payments */,
+				4F71DC7C576DE9FCD9B86B6A /* Shop.Payables.Store.LegalInfo.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -2564,6 +2567,7 @@
 				4F71D133897C01681C50F6AE /* Shop.Payment.MailContact.Types.swift in Sources */,
 				4F71DF5F97855FF3FD1F8A43 /* Shop.Payment.URLOpen.swift in Sources */,
 				4F71D74C0AF53FC5C957C53D /* Shop.Payment.SNSEngagement.swift in Sources */,
+				4F71DF3ACF8B250EADE99DFD /* Shop.Payables.Store.LegalInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

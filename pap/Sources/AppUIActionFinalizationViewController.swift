@@ -68,12 +68,25 @@ internal class ActionFinalizationContentView: UIView {
     }
 }
 
+struct ActionFinalizationItemLabelStyle{
+    let textColor:UIColor?
+    let font:UIFont?
+    let useUpperCase:Bool
+}
+
 struct ActionFinalizationItem {
     var title: String?
+    var titleStyle:ActionFinalizationItemLabelStyle?
+
     var description: String?
+    var descriptionStyle: ActionFinalizationItemLabelStyle?
+
     var image: UIImage?
-    
+
+    var tappedHandler:(() -> ())?=nil
+
     init(title: String? = nil, description: String? = nil) {
+
         self.title = title
         self.description = description
     }
@@ -88,6 +101,8 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
     class var reuseIdentifier: String {
         return "PricingTableViewCell"
     }
+
+    fileprivate var tappedHandler:(() -> ())?=nil
     
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
@@ -163,6 +178,32 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         titleLabel.text = nil
         descriptionLabel.text = nil
         titleImageView.image = nil
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        if tappedHandler != nil{
+            setHighlighted(true, animated: false)
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+
+        if tappedHandler != nil{
+            setHighlighted(false, animated: true)
+        }
+
+        tappedHandler?()
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+
+        if tappedHandler != nil{
+            setHighlighted(false, animated: false)
+        }
     }
 }
 
@@ -261,17 +302,17 @@ class AppUIActionFinalizationViewController: UIViewController {
         
         let tapToCloseGesture = UITapGestureRecognizer(target: self, action: #selector(self.closeButtonDidTap))
         backgroundView.addGestureRecognizer(tapToCloseGesture)
-        
+
         contentView.contentView = tableView
         
         titleLabel.text = dataSource?.title(in: self)
         titleImageView.image = dataSource?.image(in: self)
         titleImageView.sizeToFit()
-        
+
         actionButton.setImage(dataSource?.imageForAction(in: self), for: .normal)
         actionTitleLabel.text = dataSource?.titleForAction(in: self)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -280,7 +321,7 @@ class AppUIActionFinalizationViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    @IBAction private func closeButtonDidTap(_ sender: Any) {
+    @IBAction func closeButtonDidTap(_ sender: Any) {
         close()
     }
     
@@ -314,9 +355,25 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
     }
     
     private func updateCell(_ cell: ActionFinalizationTableViewCell, forItem item: ActionFinalizationItem) {
-        cell.titleLabel.text = item.title?.localized.localizedUppercase
-        cell.descriptionLabel.text = item.description?.localized.localizedUppercase
+        cell.titleLabel.text = item.titleStyle?.useUpperCase == true ? item.title?.localizedUppercase : item.title
+
+        if let c = item.titleStyle?.textColor{
+            cell.titleLabel.textColor = c
+        }
+        if let f = item.titleStyle?.font{
+            cell.titleLabel.font = f
+        }
+
+        cell.descriptionLabel.text = item.descriptionStyle?.useUpperCase == true ? item.description?.localizedUppercase : item.description
+        if let c = item.descriptionStyle?.textColor{
+            cell.titleLabel.textColor = c
+        }
+        if let f = item.descriptionStyle?.font{
+            cell.titleLabel.font = f
+        }
+
         cell.titleImageView.image = item.image
+        cell.tappedHandler = item.tappedHandler
     }
     
     private func updateCellForItem(at indexPath: IndexPath) {

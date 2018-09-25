@@ -360,21 +360,13 @@ extension StorePayable{
     Payment & Verification
 */
 extension StorePayable{
+
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
 
-        #if DEBUG
-        if self is AutoRenewableSubscribingPayable {
-            guard let urlStr = type(of: self).product.termsURLString, let _ = URL(string: urlStr) else {
-                assert(false, "\(String(describing: AutoRenewableSubscribingPayable.self)) requires correct subscription terms url must be provided.")
-                return false
-            }
-        }
-        #endif
-
-        if let termsURL = type(of: self).product.termsURLString?.asURL{
+        if let _ = type(of: self).product.legalInfo{
             signal.begin()
             DispatchQueue.main.async{
-                UIApplication.openSafari(with: termsURL) {
+                self.displayLegalInfo() { succeed in
                     signal.end()
                 }
             }
