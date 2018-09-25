@@ -1,4 +1,7 @@
-Photo Apps(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own.
+Photo Apps(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own. 
+
+From now on, Do everything all you needed, with all your photos.
+
 
 
 Finder
@@ -104,12 +107,11 @@ Camera
 Robust Standard Built-In Camera for Capturing Live Photos.
 
 
-Restorer
-Restorer app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
+Restoration
+Restoration app allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
 
 
 
 Moreover, Finally..., Introducing "Auto Selection Bot (ASB)"
-ASB is a multi-purpose assistant engine for choosing the right items in the current context of an app. Currently, several apps, Finder, Cleaner, EXIF Ghost, Phone Calls, and Revery app are supporting it.
 
-Now switch on the control panel of each app!
+ASB is a multi-purpose assistant engine for choosing the right items in the current context of an app. Currently, several apps, Finder, Cleaner, EXIF Ghost, Phone Calls, and Restorer app are supporting it.

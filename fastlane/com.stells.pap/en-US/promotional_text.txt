@@ -1,7 +1,6 @@
-An App, But Contains Many Photo Apps.
+An App, But Contains Many Apps for Photos.
 
-Please send me a message of your hopes and ideas.
-Your idea will be an app soon.
+Photo Apps supports, of course, iOS 12 and Siri Shortcuts.
 
-Email: you@apps.photo
-Twitter: @AppsForPhoto
+Let's tell Siri,
+"Hey Siri, Take a selfie with Live Photo."
