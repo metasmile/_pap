@@ -20,7 +20,7 @@ struct URLOpenPayment<T: URLOpenType>: Payable {
         var paid = false
 
         //Phase 1 : local url with scheme
-        if let localUrl = T.localUrl, UIApplication.shared.canOpenURL(localUrl){
+        if let localUrl = T.localUrl{
             asyncSignal.begin()
 
             UIApplication.shared.open(localUrl, options: [:]) { b in
@@ -30,7 +30,9 @@ struct URLOpenPayment<T: URLOpenType>: Payable {
 
             asyncSignal.waitUntilEnd()
 
-            return paid
+            if paid{
+                return paid
+            }
         }
 
         //Phase 2 : remote url
