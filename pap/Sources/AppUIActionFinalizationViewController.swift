@@ -106,20 +106,30 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
     
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.textColor = UIColor(red: 0.55, green: 0.55, blue: 0.57, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = defaultTitleLabelStyle.textColor
+        label.font = defaultTitleLabelStyle.font
         label.textAlignment = .right
         return label
     }()
+
+    fileprivate let defaultTitleLabelStyle = (
+            textColor: UIColor(red: 0.55, green: 0.55, blue: 0.57, alpha: 1)
+            , font: UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    )
     
     fileprivate lazy var descriptionLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.textColor = UIColor.black
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = defaultDescriptionLabelStyle.textColor
+        label.font = defaultDescriptionLabelStyle.font
         label.textAlignment = .left
         label.numberOfLines = 0
         return label
     }()
+
+    fileprivate let defaultDescriptionLabelStyle = (
+            textColor: UIColor.black
+            ,font: UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    )
     
     fileprivate lazy var titleImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -153,6 +163,7 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         container.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.25).isActive = true
         
@@ -299,21 +310,21 @@ class AppUIActionFinalizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         let tapToCloseGesture = UITapGestureRecognizer(target: self, action: #selector(self.closeButtonDidTap))
         backgroundView.addGestureRecognizer(tapToCloseGesture)
 
         contentView.contentView = tableView
-        
+
         titleLabel.text = dataSource?.title(in: self)
         titleImageView.image = dataSource?.image(in: self)
         titleImageView.sizeToFit()
 
         actionButton.setImage(dataSource?.imageForAction(in: self), for: .normal)
         actionTitleLabel.text = dataSource?.titleForAction(in: self)
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -356,21 +367,12 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
     
     private func updateCell(_ cell: ActionFinalizationTableViewCell, forItem item: ActionFinalizationItem) {
         cell.titleLabel.text = item.titleStyle?.useUpperCase == true ? item.title?.localizedUppercase : item.title
-
-        if let c = item.titleStyle?.textColor{
-            cell.titleLabel.textColor = c
-        }
-        if let f = item.titleStyle?.font{
-            cell.titleLabel.font = f
-        }
+        cell.titleLabel.textColor = item.titleStyle?.textColor ?? cell.defaultTitleLabelStyle.textColor
+        cell.titleLabel.font = item.titleStyle?.font ?? cell.defaultTitleLabelStyle.font
 
         cell.descriptionLabel.text = item.descriptionStyle?.useUpperCase == true ? item.description?.localizedUppercase : item.description
-        if let c = item.descriptionStyle?.textColor{
-            cell.titleLabel.textColor = c
-        }
-        if let f = item.descriptionStyle?.font{
-            cell.titleLabel.font = f
-        }
+        cell.descriptionLabel.textColor = item.descriptionStyle?.textColor ?? cell.defaultDescriptionLabelStyle.textColor
+        cell.descriptionLabel.font = item.descriptionStyle?.font ?? cell.defaultDescriptionLabelStyle.font
 
         cell.titleImageView.image = item.image
         cell.tappedHandler = item.tappedHandler

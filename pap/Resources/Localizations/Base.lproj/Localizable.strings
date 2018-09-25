@@ -336,8 +336,6 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Layout";
-/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift, Shop.Payables.Store.LegalInfo.swift */
-"Learn More" = "Learn More";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -468,7 +466,7 @@
 "Promotion User" = "Promotion User";
 /* Generated from genl10n: Shop.SApp.swift */
 "Purchase Management" = "Purchase Management";
-/* Generated from genl10n: Charge.Types.StoreKit.swift */
+/* Generated from genl10n: Charge.Types.StoreKit.swift, Shop.Payables.Store.LegalInfo.swift */
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.AppDockContent.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
@@ -682,3 +680,7 @@
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Your code was expired.";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "month";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "year";

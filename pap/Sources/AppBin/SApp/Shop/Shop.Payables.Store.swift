@@ -362,18 +362,39 @@ extension StorePayable{
 extension StorePayable{
 
     func pay(_ signal: AsyncWaitSignalable) -> Bool {
-
         if let _ = type(of: self).product.legalInfo{
-            signal.begin()
-            DispatchQueue.main.async{
-                self.displayLegalInfo() { succeed in
-                    signal.end()
-                }
-            }
-            signal.waitUntilEnd()
-        }
+            return _payWithLegalInfo(signal)
 
-        return _pay(signal)
+        }else{
+            return _pay(signal)
+        }
+    }
+
+    private func _payWithLegalInfo(_ signal: AsyncWaitSignalable) -> Bool{
+        //INFO: fetch if needed.
+        _ = type(of: self).fetchStoreProduct(signal)
+
+        var proceeding = false
+        signal.begin()
+        DispatchQueue.main.async{
+            self.presentLegalInfo(payable:self) { succeed in
+                proceeding = succeed
+                signal.end()
+            }
+        }
+        signal.waitUntilEnd()
+
+        let paid = proceeding ? _pay(signal) : false
+
+        signal.begin()
+        DispatchQueue.main.async{
+            self.dismissLegalInfo {
+                signal.end()
+            }
+        }
+        signal.waitUntilEnd()
+
+        return paid
     }
 
     fileprivate func _pay(_ signal: AsyncWaitSignalable) -> Bool{

@@ -6,53 +6,111 @@
 import Foundation
 import UIKit
 
+private struct StorePayableLegalInfoStore{
+    static var viewController:AppUIActionFinalizationViewController?
+}
+
 extension StorePayable{
-    func displayLegalInfo(completionHandler:((Bool) -> ())?=nil) {
+
+    func dismissLegalInfo(completionHandler:(() -> ())?=nil) {
+        if StorePayableLegalInfoStore.viewController?.isBeingDismissed == true{
+            completionHandler?()
+            StorePayableLegalInfoStore.viewController = nil
+        }else{
+            StorePayableLegalInfoStore.viewController?.dismiss(animated: true, completion: {
+                completionHandler?()
+                StorePayableLegalInfoStore.viewController = nil
+            })
+        }
+    }
+
+    func presentLegalInfo(payable:StorePayable, completionHandler:((Bool) -> ())?=nil) {
         guard let vc = R.storyboard.appStoryboard.pricingViewController() else { return }
 
         var info = ActionFinalizationItem(title: "Information", description: type(of: self).product.legalInfo?.notice)
         info.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        info.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        info.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), useUpperCase: false)
 
-        var t = ActionFinalizationItem(title: "Learn More".localized, description: "Terms of Use".localized)
-        t.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        t.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        var terms = ActionFinalizationItem(title: "Notice", description: "Terms of Use".localized)
+        terms.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        terms.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: vc.view.tintColor, font: nil, useUpperCase: false)
         if let url = type(of: self).product.legalInfo?.termsOfUse{
-            t.tappedHandler = {
+            terms.tappedHandler = {
                 UIApplication.openSafari(with: url)
             }
         }
 
-        var p = ActionFinalizationItem(title: "Learn More".localized, description: "Privacy Policy".localized)
-        p.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        p.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        var privacyPolicy = ActionFinalizationItem(title: "Notice", description: "Privacy Policy".localized)
+        privacyPolicy.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        privacyPolicy.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: vc.view.tintColor, font: nil, useUpperCase: false)
         if let url = type(of: self).product.legalInfo?.privacyPolicy{
-            p.tappedHandler = {
+            privacyPolicy.tappedHandler = {
                 UIApplication.openSafari(with: url)
             }
         }
 
-        let delegator = StorePayableLegalInfoActionViewControllerDelegator()
-        delegator.completionHandler = completionHandler
-        vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        var product = ActionFinalizationItem(title: "Product", description: AppCenter.charge.getCharge(for: type(of: payable))?.rewardDescribable?.title)
+        product.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        product.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+
+        var unitString = ""
+        if let unit = type(of: payable).product.subscriptionPeriod?.unit{
+            switch (unit){
+                case .month:
+                    unitString = "month".localized
+                case .year:
+                    unitString = "year".localized
+                default:
+                    break
+            }
+        }
+
+        var price = ActionFinalizationItem(title: "Price", description: "\(type(of: payable).storeProduct?.localizedPrice ?? "-")/\(unitString)")
+        price.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
+        price.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize), useUpperCase: false)
+
+        vc.view.backgroundColor = UIColor.black
+        vc.actionProgressView.visible = false
+        vc.actionButton.setTitle("Purchase".localized, for: .normal)
+        vc.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.buttonFontSize)
         vc.setActionFinalizationItems([
             info
-            , t
-            , p
+            , terms
+            , privacyPolicy
+            , product
+            , price
         ])
+
+        let delegator = StorePayableLegalInfoActionViewControllerDelegator(payable:payable)
+        delegator.completionHandler = completionHandler
         vc.delegate = delegator
         vc.dataSource = delegator
 
+        StorePayableLegalInfoStore.viewController = vc
         UIViewController.present(vc, animated: true)
     }
 }
 
 
-private class StorePayableLegalInfoActionViewControllerDelegator: AppUIActionFinalizationViewControllerDataSource,AppUIActionFinalizationViewControllerDelegate {
+private class StorePayableLegalInfoActionViewControllerDelegator: AppUIActionFinalizationViewControllerDelegate, AppUIActionFinalizationViewControllerDataSource{
     var completionHandler:((Bool) -> ())?
 
+    let payable:StorePayable
+    init(payable:StorePayable){
+        self.payable=payable
+    }
+
+    func close(_ controller: AppUIActionFinalizationViewController) {
+        completionHandler?(false)
+    }
+
+    func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController) {
+        completionHandler?(true)
+    }
+
     func title(in controller: AppUIActionFinalizationViewController) -> String? {
-        return "Purchase"
+        return type(of: payable).storeProduct?.localizedTitle
+                ?? AppCenter.charge.getCharge(for: type(of: payable))?.describable.title
     }
 
     func image(in controller: AppUIActionFinalizationViewController) -> UIImage? {
@@ -72,18 +130,10 @@ private class StorePayableLegalInfoActionViewControllerDelegator: AppUIActionFin
     }
 
     func titleForAction(in controller: AppUIActionFinalizationViewController) -> String? {
-        return "Purchase"
+        return nil
     }
 
     func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage? {
         return nil
-    }
-
-    func close(_ controller: AppUIActionFinalizationViewController) {
-        completionHandler?(false)
-    }
-
-    func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController) {
-        completionHandler?(true)
     }
 }
