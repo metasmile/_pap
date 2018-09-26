@@ -133,7 +133,7 @@
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="r3c-Ti-4C4" secondAttribute="height" multiplier="1:1" id="hBO-Co-UAb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Apps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Photo Apps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
                                                 <rect key="frame" x="52" y="0.0" width="95" height="44"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -159,6 +159,7 @@
                                             <constraint firstAttribute="bottom" secondItem="0QC-6Q-hxt" secondAttribute="bottom" id="0pL-o8-pjr"/>
                                             <constraint firstItem="0QC-6Q-hxt" firstAttribute="top" secondItem="uiB-CN-Vwl" secondAttribute="top" id="3aA-Oi-xlF"/>
                                             <constraint firstItem="kvl-Kw-7bP" firstAttribute="top" secondItem="eB5-Hy-g7z" secondAttribute="bottom" id="9va-TM-R70"/>
+                                            <constraint firstItem="eB5-Hy-g7z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0QC-6Q-hxt" secondAttribute="trailing" constant="10" id="I33-a1-Mau"/>
                                             <constraint firstItem="kvl-Kw-7bP" firstAttribute="leading" secondItem="uiB-CN-Vwl" secondAttribute="leading" id="Njw-MO-Myi"/>
                                             <constraint firstAttribute="bottom" secondItem="kvl-Kw-7bP" secondAttribute="bottom" id="SgY-cY-wsm"/>
                                             <constraint firstItem="eB5-Hy-g7z" firstAttribute="top" secondItem="uiB-CN-Vwl" secondAttribute="top" id="Vqe-t6-waq"/>
