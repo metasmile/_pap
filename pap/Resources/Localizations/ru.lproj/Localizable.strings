@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Отключите следующий параметр и сбросьте идентификатор рекламы в настройках. Затем повторите попытку.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Портрет";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Подготовка";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресеты";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "политика конфиденциальности";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "обработка";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Программа поощрительных лицензий";

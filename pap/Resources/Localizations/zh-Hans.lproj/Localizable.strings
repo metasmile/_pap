@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "请关闭以下选项，并在“设置”中重置广告标识符。然后再试一次。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "肖像";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "准备";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "预置";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "隐私政策";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "隐私";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "处理";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "促销许可计划";

@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "다음 옵션을 사용 중지하고 설정에서 광고 식별자를 재설정하십시오. 그런 다음 다시 시도하십시오.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "세로";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "준비 중";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "프리셋";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "개인 정보 정책";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "프라이버시";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "프로세싱 중";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "프로모션 라이선스 프로그램";

@@ -1,5 +1,5 @@
 //
-//  AppUIActionFinalizationViewController.swift
+//  ActionViewController.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 7. 24..
@@ -8,43 +8,43 @@
 
 import UIKit
 
-extension AppUIActionFinalizationViewController {
+extension ActionViewController {
     enum ProcessingRepresentationType {
         case loading
         case progress
     }
 }
 
-protocol AppUIActionFinalizationViewControllerDataSource {
-    func title(in controller: AppUIActionFinalizationViewController) -> String?
-    func image(in controller: AppUIActionFinalizationViewController) -> UIImage?
+protocol ActionViewControllerDataSource {
+    func title(in controller: ActionViewController) -> String?
+    func image(in controller: ActionViewController) -> UIImage?
     
-    func titleForAction(in controller: AppUIActionFinalizationViewController) -> String?
-    func imageForAction(in controller: AppUIActionFinalizationViewController) -> UIImage?
+    func titleForAction(in controller: ActionViewController) -> String?
+    func imageForAction(in controller: ActionViewController) -> UIImage?
     
-    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String?
-    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String?
-    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String?
+    func titleForPreparing(in controller: ActionViewController) -> String?
+    func titleForProcessing(in controller: ActionViewController) -> String?
+    func titleForFinish(in controller: ActionViewController) -> String?
 }
 
-extension AppUIActionFinalizationViewControllerDataSource {
-    func title(in controller: AppUIActionFinalizationViewController) -> String? {
+extension ActionViewControllerDataSource {
+    func title(in controller: ActionViewController) -> String? {
         return Bundle.main.displayName
     }
     
-    func image(in controller: AppUIActionFinalizationViewController) -> UIImage? { return nil }
+    func image(in controller: ActionViewController) -> UIImage? { return nil }
     
-    func titleForPreparing(in controller: AppUIActionFinalizationViewController) -> String? { return "Preparing".localized }
-    func titleForProcessing(in controller: AppUIActionFinalizationViewController) -> String? { return "Processing".localized }
-    func titleForFinish(in controller: AppUIActionFinalizationViewController) -> String? { return "Done".localized }
+    func titleForPreparing(in controller: ActionViewController) -> String? { return "Preparing".localized }
+    func titleForProcessing(in controller: ActionViewController) -> String? { return "Processing".localized }
+    func titleForFinish(in controller: ActionViewController) -> String? { return "Done".localized }
 }
 
-protocol AppUIActionFinalizationViewControllerDelegate {
-    func close(_ controller: AppUIActionFinalizationViewController)
-    func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController)
+protocol ActionViewControllerDelegate {
+    func close(_ controller: ActionViewController)
+    func ActionViewViewControllerDidAction(_ controller: ActionViewController)
 }
 
-internal class ActionFinalizationContentView: UIView {
+internal class ActionViewContentView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -68,18 +68,18 @@ internal class ActionFinalizationContentView: UIView {
     }
 }
 
-struct ActionFinalizationItemLabelStyle{
+struct ActionViewItemLabelStyle{
     let textColor:UIColor?
     let font:UIFont?
     let useUpperCase:Bool
 }
 
-struct ActionFinalizationItem {
+struct ActionViewItem {
     var title: String?
-    var titleStyle:ActionFinalizationItemLabelStyle?
+    var titleStyle:ActionViewItemLabelStyle?
 
     var description: String?
-    var descriptionStyle: ActionFinalizationItemLabelStyle?
+    var descriptionStyle: ActionViewItemLabelStyle?
 
     var image: UIImage?
 
@@ -97,9 +97,9 @@ struct ActionFinalizationItem {
     }
 }
 
-internal class ActionFinalizationTableViewCell: UITableViewCell {
+internal class ActionViewTableViewCell: UITableViewCell {
     class var reuseIdentifier: String {
-        return String(describing: ActionFinalizationTableViewCell.self)
+        return String(describing: ActionViewTableViewCell.self)
     }
 
     var tappedHandler:(() -> ())?=nil
@@ -257,7 +257,7 @@ internal class SelfSizedTableView: UITableView {
     var maxIntrinsicContentSizeHeight:CGFloat?
 }
 
-class AppUICircleProgressView: DesignableView {
+class ActionCircleProgressView: DesignableView {
     lazy var trackLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = UIColor.lightGray.cgColor
@@ -300,25 +300,25 @@ class AppUICircleProgressView: DesignableView {
 }
 
 
-class AppUIActionFinalizationViewController: UIViewController {
+class ActionViewController: UIViewController {
     @IBOutlet weak var titleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak private var backgroundView: UIView!
     @IBOutlet weak private var cancelButton: UIButton!
     
-    @IBOutlet weak var contentView: ActionFinalizationContentView!
+    @IBOutlet weak var contentView: ActionViewContentView!
 
     @IBOutlet weak var actionView: UIView!
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var actionTitleLabel: UILabel!
     
-    @IBOutlet weak var actionProgressView: AppUICircleProgressView!
+    @IBOutlet weak var actionProgressView: ActionCircleProgressView!
     
-    private var items: [ActionFinalizationItem]?
-    var dataSource: AppUIActionFinalizationViewControllerDataSource?
-    var delegate: AppUIActionFinalizationViewControllerDelegate?
+    private var items: [ActionViewItem]?
+    var dataSource: ActionViewControllerDataSource?
+    var delegate: ActionViewControllerDelegate?
     
     private lazy var tableView: SelfSizedTableView = {
         let tableView = SelfSizedTableView(frame: .zero)
@@ -330,7 +330,7 @@ class AppUIActionFinalizationViewController: UIViewController {
         tableView.alwaysBounceHorizontal = false
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
-        tableView.register(ActionFinalizationTableViewCell.self, forCellReuseIdentifier: ActionFinalizationTableViewCell.reuseIdentifier)
+        tableView.register(ActionViewTableViewCell.self, forCellReuseIdentifier: ActionViewTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .clear
 
         let safeAreaFrame = UIViewController.root?.view.safeAreaLayoutGuide.layoutFrame ?? CGRect.zero
@@ -377,7 +377,7 @@ class AppUIActionFinalizationViewController: UIViewController {
     }
     
     @IBAction func actionButtonDidTap(_ sender: Any) {
-        delegate?.actionFinalizationViewControllerDidAction(self)
+        delegate?.ActionViewViewControllerDidAction(self)
     }
     
     func close() {
@@ -386,26 +386,26 @@ class AppUIActionFinalizationViewController: UIViewController {
     }
 }
 
-extension AppUIActionFinalizationViewController {
-    func setActionFinalizationItems(_ items: [ActionFinalizationItem]) {
+extension ActionViewController {
+    func setActionViewItems(_ items: [ActionViewItem]) {
         self.items = items
     }
 }
 
-extension AppUIActionFinalizationViewController: UITableViewDataSource {
+extension ActionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActionFinalizationTableViewCell.reuseIdentifier, for: indexPath) as! ActionFinalizationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActionViewTableViewCell.reuseIdentifier, for: indexPath) as! ActionViewTableViewCell
         if let item = items?[indexPath.row] {
             updateCell(cell, forItem: item)
         }
         return cell
     }
     
-    private func updateCell(_ cell: ActionFinalizationTableViewCell, forItem item: ActionFinalizationItem) {
+    private func updateCell(_ cell: ActionViewTableViewCell, forItem item: ActionViewItem) {
         cell.titleTextView.text = item.titleStyle?.useUpperCase == true ? item.title?.localizedUppercase : item.title
         cell.titleTextView.textColor = item.titleStyle?.textColor ?? cell.defaultTitleLabelStyle.textColor
         cell.titleTextView.font = item.titleStyle?.font ?? cell.defaultTitleLabelStyle.font
@@ -419,16 +419,16 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
     }
     
     private func updateCellForItem(at indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? ActionFinalizationTableViewCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? ActionViewTableViewCell else { return }
         if let item = items?[indexPath.row] {
             updateCell(cell, forItem: item)
         }
     }
 }
 
-extension AppUIActionFinalizationViewController: UITableViewDelegate {}
+extension ActionViewController: UITableViewDelegate {}
 
-extension AppUIActionFinalizationViewController {
+extension ActionViewController {
     func actionProgressDidBegin(actionTitle: String?) {
         actionTitleLabel.text = actionTitle
         

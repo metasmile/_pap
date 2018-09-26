@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Slå av følgende alternativ, og tilbakestill annonseringsidentifikator i Innstillinger. Prøv deretter igjen.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Portrait" = "Portrett";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift */
+/* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Forbereder";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "Personvernregler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Privacy" = "Personvern";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift */
+/* Generated from genl10n: ActionViewController.swift */
 "Processing" = "Behandling";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotion License Program";

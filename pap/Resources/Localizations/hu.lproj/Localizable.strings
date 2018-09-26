@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Kérjük, kapcsolja ki a következő lehetőséget, és állítsa alaphelyzetbe a hirdetési azonosítót a Beállítások menüpontban. Ezután próbálkozzon újra.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Portré";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Felkészülés";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "Adatvédelmi irányelvek";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Magánélet";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Feldolgozás";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promóciós engedély program";

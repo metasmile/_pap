@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "कृपया निम्न विकल्प बंद करें, और सेटिंग में विज्ञापन पहचानकर्ता को रीसेट करें। फिर पुन: प्रयास करें।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "चित्र";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "तैयार कर रहे हैं";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रीसेट";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "गोपनीयता नीति";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "एकांत";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "प्रसंस्करण";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "पदोन्नति लाइसेंस कार्यक्रम";

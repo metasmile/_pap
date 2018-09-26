@@ -432,7 +432,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "請關閉以下選項，並在“設置”中重置廣告標識符。然後再試一次。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Portrait" = "肖像";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "預置";
@@ -442,7 +442,7 @@
 "Privacy Policy" = "隱私政策";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */
 "Privacy" = "隱私";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "處理";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "促銷許可計劃";

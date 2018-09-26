@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Απενεργοποιήστε την παρακάτω επιλογή και επαναφέρετε το αναγνωριστικό διαφήμισης στις Ρυθμίσεις. Στη συνέχεια προσπαθήστε ξανά.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "Πορτρέτο";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Προετοιμασία";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Προεπιλογές";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "Πολιτική Απορρήτου";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Επεξεργασία";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Πρόγραμμα Άδειας Προώθησης";

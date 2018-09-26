@@ -486,7 +486,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "כבה את האפשרות הבאה, ואפס את מזהה הפרסום ב'הגדרות '. לאחר מכן נסה שוב.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Portrait" = "דְיוֹקָן";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#37 */
+/* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "מכין";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
@@ -496,7 +496,7 @@
 "Privacy Policy" = "מדיניות פרטיות";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
 "Privacy" = "פְּרָטִיוּת";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift#38 */
+/* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "מעבד";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "תוכנית רשיון קידום";

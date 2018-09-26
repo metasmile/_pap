@@ -450,7 +450,7 @@
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Portrait" = "Portrait";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift */
+/* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
@@ -460,7 +460,7 @@
 "Privacy Policy" = "Privacy Policy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Privacy" = "Privacy";
-/* Generated from genl10n: AppUIActionFinalizationViewController.swift */
+/* Generated from genl10n: ActionViewController.swift */
 "Processing" = "Processing";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotion License Program";
