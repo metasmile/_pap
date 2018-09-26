@@ -53,7 +53,7 @@ extension StorePayable{
         product.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
         product.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
 
-        let unitString = type(of: payable).product.subscriptionPeriod?.localizedUnitString
+        let unitString = type(of: payable).product.subscriptionPeriod?.localizedUnitString ?? "-"
 
         var price = ActionFinalizationItem(title: "Price", description: "\(type(of: payable).storeProduct?.localizedPrice ?? "-")/\(unitString)")
         price.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)

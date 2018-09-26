@@ -341,6 +341,7 @@ extension StorePayable{
         return storeProduct
     }
 
+    @discardableResult
     static func fetchStoreProduct(_ signal: AsyncWaitSignalable) -> Bool {
         if storeProduct != nil{
             return true
@@ -372,7 +373,9 @@ extension StorePayable{
 
     private func _payWithLegalInfo(_ signal: AsyncWaitSignalable) -> Bool{
         //INFO: fetch if needed.
-        _ = type(of: self).fetchStoreProduct(signal)
+        var fetched = false
+        fetched = type(of: self).fetchStoreProduct(signal)
+        assert(fetched)
 
         var proceeding = false
         signal.begin()
@@ -388,9 +391,8 @@ extension StorePayable{
 
         signal.begin()
         DispatchQueue.main.async{
-            self.dismissLegalInfo {
-                signal.end()
-            }
+            self.dismissLegalInfo()
+            signal.end()
         }
         signal.waitUntilEnd()
 
