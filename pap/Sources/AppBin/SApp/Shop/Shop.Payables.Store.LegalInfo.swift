@@ -29,7 +29,7 @@ extension StorePayable{
 
         var info = ActionFinalizationItem(title: "Information", description: type(of: self).product.legalInfo?.notice)
         info.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        info.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), useUpperCase: false)
+        info.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.systemFont(ofSize: UIFont.systemFontSize/1.5), useUpperCase: false)
 
         var terms = ActionFinalizationItem(title: "Notice", description: "Terms of Use".localized)
         terms.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)

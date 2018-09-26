@@ -133,9 +133,9 @@
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="r3c-Ti-4C4" secondAttribute="height" multiplier="1:1" id="hBO-Co-UAb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Apps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
-                                                <rect key="frame" x="52" y="0.0" width="100.5" height="44"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Apps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
+                                                <rect key="frame" x="52" y="0.0" width="95" height="44"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -254,6 +254,7 @@
                         <outlet property="actionButton" destination="LTW-O2-rvA" id="QHj-kh-py5"/>
                         <outlet property="actionProgressView" destination="qBS-vI-Qea" id="9Ro-G6-gnp"/>
                         <outlet property="actionTitleLabel" destination="J2n-UF-PKQ" id="WxG-CB-ll0"/>
+                        <outlet property="actionView" destination="emg-VV-Dwn" id="4sF-eZ-JmX"/>
                         <outlet property="backgroundView" destination="jFQ-ou-Wyr" id="6fw-qc-hVX"/>
                         <outlet property="cancelButton" destination="eB5-Hy-g7z" id="E8u-KU-AUy"/>
                         <outlet property="contentView" destination="oyg-Nz-atK" id="Dmi-C0-IBX"/>

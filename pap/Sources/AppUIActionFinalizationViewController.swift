@@ -99,11 +99,14 @@ struct ActionFinalizationItem {
 
 internal class ActionFinalizationTableViewCell: UITableViewCell {
     class var reuseIdentifier: String {
-        return "PricingTableViewCell"
+        return String(describing: ActionFinalizationTableViewCell.self)
     }
 
-    fileprivate var tappedHandler:(() -> ())?=nil
-    
+    var tappedHandler:(() -> ())?=nil
+    var titleDescriptionSeparationWidth:CGFloat = 10
+    var titleDescriptionAreaInset:UIEdgeInsets = UIEdgeInsets.init(top: 12, left: 10, bottom: 12, right: 10)
+    var titleLabelHorizontalMultiplier:CGFloat = 0.25
+
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textColor = defaultTitleLabelStyle.textColor
@@ -122,7 +125,8 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         label.textColor = defaultDescriptionLabelStyle.textColor
         label.font = defaultDescriptionLabelStyle.font
         label.textAlignment = .left
-
+        label.textContainer.maximumNumberOfLines = 0
+        label.textContainer.lineBreakMode = .byWordWrapping
         label.isScrollEnabled = false
         label.backgroundColor = UIColor.clear
         label.adjustsFontForContentSizeCategory = true
@@ -159,33 +163,34 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         
         let container = UIView(frame: .zero)
         contentView.addSubview(container)
-        
+
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
-        container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
-        container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 6).isActive = true
-        container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -6).isActive = true
+        container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: titleDescriptionAreaInset.top).isActive = true
+        container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -titleDescriptionAreaInset.bottom).isActive = true
+        container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: titleDescriptionAreaInset.left).isActive = true
+        container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -titleDescriptionAreaInset.right).isActive = true
         
         container.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.25).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: titleLabelHorizontalMultiplier).isActive = true
         
         container.addSubview(titleImageView)
         titleImageView.translatesAutoresizingMaskIntoConstraints = false
-        titleImageView.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        titleImageView.widthAnchor.constraint(equalTo: container.heightAnchor).isActive = true
         titleImageView.heightAnchor.constraint(greaterThanOrEqualTo: titleImageView.widthAnchor, multiplier: 1).isActive = true
-        titleImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 0).isActive = true
-        titleImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0).isActive = true
+
+        titleImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: titleDescriptionAreaInset.top).isActive = true
+        titleImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: titleDescriptionAreaInset.bottom).isActive = true
         titleImageView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
         
         container.addSubview(descriptionTextView)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         descriptionTextView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 12).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: titleDescriptionSeparationWidth).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
     }
     
     override func prepareForReuse() {
@@ -231,9 +236,12 @@ internal class SelfSizedTableView: UITableView {
     }
     
     override var intrinsicContentSize: CGSize {
-        let height = min(contentSize.height, UIScreen.main.bounds.size.height)
+
+        let height = min(contentSize.height, maxIntrinsicContentSizeHeight ?? UIScreen.main.bounds.size.height - (UIViewController.presentable?.safeAreaInsets.top ?? 0) + (UIViewController.presentable?.safeAreaInsets.bottom ?? 0))
         return CGSize(width: contentSize.width, height: height)
     }
+
+    var maxIntrinsicContentSizeHeight:CGFloat?
 }
 
 class AppUICircleProgressView: DesignableView {
@@ -278,7 +286,6 @@ class AppUICircleProgressView: DesignableView {
     }
 }
 
-// inspired by PKPaymentAuthorizationViewController
 
 class AppUIActionFinalizationViewController: UIViewController {
     @IBOutlet weak var titleImageView: UIImageView!
@@ -288,6 +295,8 @@ class AppUIActionFinalizationViewController: UIViewController {
     @IBOutlet weak private var cancelButton: UIButton!
     
     @IBOutlet weak var contentView: ActionFinalizationContentView!
+
+    @IBOutlet weak var actionView: UIView!
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var actionTitleLabel: UILabel!
@@ -310,6 +319,7 @@ class AppUIActionFinalizationViewController: UIViewController {
         tableView.estimatedRowHeight = 44
         tableView.register(ActionFinalizationTableViewCell.self, forCellReuseIdentifier: ActionFinalizationTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .clear
+        tableView.maxIntrinsicContentSizeHeight = self.view.height - (actionView.constraints.first { $0.firstAttribute == .height && $0.relation == .equal }?.constant ?? 0) - (safeAreaInsets.top + safeAreaInsets.bottom)
         return tableView
     }()
     
