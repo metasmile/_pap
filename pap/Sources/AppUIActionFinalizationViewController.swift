@@ -104,14 +104,21 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
 
     var tappedHandler:(() -> ())?=nil
     var titleDescriptionSeparationWidth:CGFloat = 10
-    var titleDescriptionAreaInset:UIEdgeInsets = UIEdgeInsets.init(top: 12, left: 10, bottom: 12, right: 10)
+    var titleDescriptionAreaInset:UIEdgeInsets = UIEdgeInsets.init(top: 11, left: 10, bottom: 11, right: 10)
     var titleLabelHorizontalMultiplier:CGFloat = 0.25
 
-    fileprivate lazy var titleLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    fileprivate lazy var titleTextView: UITextView = {
+        let label = UITextView(frame: .zero)
         label.textColor = defaultTitleLabelStyle.textColor
         label.font = defaultTitleLabelStyle.font
         label.textAlignment = .right
+        label.textContainer.maximumNumberOfLines = 0
+        label.textContainer.lineBreakMode = .byWordWrapping
+        label.isScrollEnabled = false
+        label.backgroundColor = UIColor.clear
+        label.adjustsFontForContentSizeCategory = true
+        label.isUserInteractionEnabled = false
+        label.textContainerInset = UIEdgeInsets.zero
         return label
     }()
 
@@ -170,11 +177,12 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: titleDescriptionAreaInset.left).isActive = true
         container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -titleDescriptionAreaInset.right).isActive = true
         
-        container.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: titleLabelHorizontalMultiplier).isActive = true
+        container.addSubview(titleTextView)
+        titleTextView.translatesAutoresizingMaskIntoConstraints = false
+        titleTextView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        titleTextView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        titleTextView.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        titleTextView.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: titleLabelHorizontalMultiplier).isActive = true
         
         container.addSubview(titleImageView)
         titleImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -183,20 +191,20 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
 
         titleImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: titleDescriptionAreaInset.top).isActive = true
         titleImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: titleDescriptionAreaInset.bottom).isActive = true
-        titleImageView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
+        titleImageView.trailingAnchor.constraint(equalTo: titleTextView.trailingAnchor).isActive = true
         
         container.addSubview(descriptionTextView)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         descriptionTextView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: titleDescriptionSeparationWidth).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: titleTextView.trailingAnchor, constant: titleDescriptionSeparationWidth).isActive = true
         descriptionTextView.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        titleLabel.text = nil
+        titleTextView.text = nil
         descriptionTextView.text = nil
         titleImageView.image = nil
     }
@@ -237,7 +245,12 @@ internal class SelfSizedTableView: UITableView {
     
     override var intrinsicContentSize: CGSize {
 
-        let height = min(contentSize.height, maxIntrinsicContentSizeHeight ?? UIScreen.main.bounds.size.height - (UIViewController.presentable?.safeAreaInsets.top ?? 0) + (UIViewController.presentable?.safeAreaInsets.bottom ?? 0))
+        var inset:CGFloat = 0
+        if let root = UIViewController.root{
+            inset += root.safeAreaInsets.bottom + root.safeAreaInsets.top
+            inset += root.additionalSafeAreaInsets.bottom + root.additionalSafeAreaInsets.top
+        }
+        let height = min(contentSize.height, maxIntrinsicContentSizeHeight ?? UIScreen.main.bounds.size.height - inset)
         return CGSize(width: contentSize.width, height: height)
     }
 
@@ -319,7 +332,9 @@ class AppUIActionFinalizationViewController: UIViewController {
         tableView.estimatedRowHeight = 44
         tableView.register(ActionFinalizationTableViewCell.self, forCellReuseIdentifier: ActionFinalizationTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .clear
-        tableView.maxIntrinsicContentSizeHeight = self.view.height - (actionView.constraints.first { $0.firstAttribute == .height && $0.relation == .equal }?.constant ?? 0) - (safeAreaInsets.top + safeAreaInsets.bottom)
+
+        let safeAreaFrame = UIViewController.root?.view.safeAreaLayoutGuide.layoutFrame ?? CGRect.zero
+        tableView.maxIntrinsicContentSizeHeight = safeAreaFrame.height - safeAreaFrame.origin.y*2.1 - (actionView.constraints.first { $0.firstAttribute == .height && $0.relation == .equal }?.constant ?? 0)
         return tableView
     }()
     
@@ -381,9 +396,9 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
     }
     
     private func updateCell(_ cell: ActionFinalizationTableViewCell, forItem item: ActionFinalizationItem) {
-        cell.titleLabel.text = item.titleStyle?.useUpperCase == true ? item.title?.localizedUppercase : item.title
-        cell.titleLabel.textColor = item.titleStyle?.textColor ?? cell.defaultTitleLabelStyle.textColor
-        cell.titleLabel.font = item.titleStyle?.font ?? cell.defaultTitleLabelStyle.font
+        cell.titleTextView.text = item.titleStyle?.useUpperCase == true ? item.title?.localizedUppercase : item.title
+        cell.titleTextView.textColor = item.titleStyle?.textColor ?? cell.defaultTitleLabelStyle.textColor
+        cell.titleTextView.font = item.titleStyle?.font ?? cell.defaultTitleLabelStyle.font
 
         cell.descriptionTextView.text = item.descriptionStyle?.useUpperCase == true ? item.description?.localizedUppercase : item.description
         cell.descriptionTextView.textColor = item.descriptionStyle?.textColor ?? cell.defaultDescriptionLabelStyle.textColor
