@@ -214,6 +214,7 @@
 		4F71DBC795D261C726708C90 /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */; };
 		4F71DBC8D36C8DA15A02C033 /* PhotoPickerViewController.UICollectionView.CachingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8D0CD35711021E28E23 /* PhotoPickerViewController.UICollectionView.CachingImage.swift */; };
 		4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D528E12644D0332ECCAF /* AssetIO.TimelapsVideoBuilder.swift */; };
+		4F71DBF7205CBB6757C6E933 /* CodeKit.UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5DEF668E489D8176162 /* CodeKit.UIButton.swift */; };
 		4F71DBF919091EE6E4126CF3 /* auto_crop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D5B3D16631A023BE8643 /* auto_crop.png */; };
 		4F71DC000A1FD35E151226BB /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
 		4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */; };
@@ -469,6 +470,7 @@
 		4F71D5D63852192CF4147FD5 /* warp.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = warp.metal; sourceTree = "<group>"; };
 		4F71D5D74325BC077BBABF30 /* FileIO.URL.File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.swift; sourceTree = "<group>"; };
 		4F71D5DA389ADAB0369E3CE7 /* CodeKit.Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Contacts.swift; sourceTree = "<group>"; };
+		4F71D5DEF668E489D8176162 /* CodeKit.UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIButton.swift; sourceTree = "<group>"; };
 		4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskPrototype.DefaultRestrictedConcurrency.swift; sourceTree = "<group>"; };
 		4F71D5EEA43ED3B362B03E4D /* CodeKit.UIActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIActivityViewController.swift; sourceTree = "<group>"; };
 		4F71D5F3167019D2C402CDC6 /* CodeKit.UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIApplication.swift; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 				4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */,
 				4F71D5F3167019D2C402CDC6 /* CodeKit.UIApplication.swift */,
 				4F71D09715944FAE99330335 /* CodeKit.UIFeedbackGenerator.swift */,
+				4F71D5DEF668E489D8176162 /* CodeKit.UIButton.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -2568,6 +2571,7 @@
 				4F71DF5F97855FF3FD1F8A43 /* Shop.Payment.URLOpen.swift in Sources */,
 				4F71D74C0AF53FC5C957C53D /* Shop.Payment.SNSEngagement.swift in Sources */,
 				4F71DF3ACF8B250EADE99DFD /* Shop.Payables.Store.LegalInfo.swift in Sources */,
+				4F71DBF7205CBB6757C6E933 /* CodeKit.UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

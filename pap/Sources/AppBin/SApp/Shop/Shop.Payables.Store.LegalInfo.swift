@@ -55,7 +55,7 @@ extension StorePayable{
 
         let unitString = type(of: payable).product.subscriptionPeriod?.localizedUnitString ?? "-"
 
-        var period = ActionFinalizationItem(title: "Renewal", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
+        var period = ActionFinalizationItem(title: "Renewal", description: "\("1 %@".localizedFormatted(unitString.localizedCapitalized)), \("Anytime free cancellation.".localized)")
         period.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
         period.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
 
@@ -79,7 +79,7 @@ extension StorePayable{
             , terms
             , privacyPolicy
             , product
-//            , period
+            , period
             , price
         ])
 
@@ -87,10 +87,6 @@ extension StorePayable{
         delegator.completionHandler = completionHandler
         vc.delegate = delegator
         vc.dataSource = delegator
-
-        vc.providesPresentationContextTransitionStyle = true
-        vc.definesPresentationContext = true
-        vc.modalPresentationStyle = .overFullScreen
 
         StorePayableLegalInfoStore.viewController = vc
 
@@ -107,10 +103,14 @@ private class StorePayableLegalInfoActionViewControllerDelegator: AppUIActionFin
     }
 
     func close(_ controller: AppUIActionFinalizationViewController) {
+        controller.actionButton.stopIndicating()
+
         completionHandler?(false)
     }
 
     func actionFinalizationViewControllerDidAction(_ controller: AppUIActionFinalizationViewController) {
+        controller.actionButton.startIndicating()
+
         completionHandler?(true)
     }
 
