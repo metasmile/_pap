@@ -361,15 +361,17 @@ class AppUIActionFinalizationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        UIView.transition(with: view, duration: 0.2, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 0.1, animations: {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         }, completion: nil)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        self.view.backgroundColor = UIColor.clear
     }
-    
+
     @IBAction func closeButtonDidTap(_ sender: Any) {
         close()
     }
