@@ -116,3 +116,13 @@ PDFactory使用各种页面选项从多个图像制作PDF文档。
 ASB是一个多用途辅助引擎，用于在应用程序的当前上下文中选择正确的项目。目前，有几个应用程序，Finder，Cleaner，EXIF Ghost，电话和Revery应用程序正在支持它。
 
 现在打开每个应用程序的控制面板！
+
+-
+
+
+The PA Membership Program (PA.m)
+
+This app includes two auto-renewal subscriptions ("Yearly/Monthly Membership") that provide to access all, and newly updating apps. This subscription auto-renews at the end of each 1-year term at $33.99 USD or 1-month term at $3.99 USD, unless canceled 24-hours in advance. The subscription fee is charged to your iTunes account at confirmation of purchase. You may manage your subscription and turn off auto-renewal by going to your Settings after purchase. No cancellation of the current subscription is allowed during the active period.
+
+• Terms of use: https://apps.photo/terms
+• Privacy policy:  https://apps.photo/privacy
