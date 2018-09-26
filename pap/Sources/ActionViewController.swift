@@ -19,7 +19,7 @@ class ActionViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
     var presented: Bool = true
     private lazy var dimmedView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.7)
         return view
     }()
     
