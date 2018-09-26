@@ -55,39 +55,14 @@ extension StorePayable{
 
         let unitString = type(of: payable).product.subscriptionPeriod?.localizedUnitString ?? "-"
 
-        var period = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
+        var period = ActionFinalizationItem(title: "Renewal", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
         period.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
         period.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period2 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period2.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period2.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period3 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period3.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period3.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period4 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period4.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period4.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period5 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period5.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period5.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period6 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period6.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period6.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-
-        var period7 = ActionFinalizationItem(title: "Renewal Period", description: "1 %@".localizedFormatted(unitString.localizedCapitalized))
-        period7.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
-        period7.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
 
         var price = ActionFinalizationItem(title: "Price", description: "\(type(of: payable).storeProduct?.localizedPrice ?? "-")/\(unitString)")
         price.titleStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: nil, useUpperCase: false)
         price.descriptionStyle = ActionFinalizationItemLabelStyle(textColor: nil, font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize), useUpperCase: false)
 
-//        vc.view.backgroundColor = UIColor.white
         vc.actionProgressView.visible = false
         vc.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
         vc.actionButton.titleLabel?.sizeToFit()
@@ -104,13 +79,7 @@ extension StorePayable{
             , terms
             , privacyPolicy
             , product
-            , period
-            , period2
-            , period3
-            , period4
-            , period5
-            , period6
-            , period7
+//            , period
             , price
         ])
 
@@ -118,13 +87,16 @@ extension StorePayable{
         delegator.completionHandler = completionHandler
         vc.delegate = delegator
         vc.dataSource = delegator
+
+        vc.providesPresentationContextTransitionStyle = true
+        vc.definesPresentationContext = true
         vc.modalPresentationStyle = .overFullScreen
 
         StorePayableLegalInfoStore.viewController = vc
+
         UIViewController.present(vc, animated: true)
     }
 }
-
 
 private class StorePayableLegalInfoActionViewControllerDelegator: AppUIActionFinalizationViewControllerDelegate, AppUIActionFinalizationViewControllerDataSource{
     var completionHandler:((Bool) -> ())?

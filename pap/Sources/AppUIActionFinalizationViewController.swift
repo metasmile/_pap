@@ -357,7 +357,15 @@ class AppUIActionFinalizationViewController: UIViewController {
 
         super.viewWillAppear(animated)
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        UIView.transition(with: view, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        }, completion: nil)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
