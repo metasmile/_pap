@@ -53,13 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
 #if DEBUG
-//        //INFO: Reset all receipt for testing
-//        for c in AppCenter.charge.getChargesHasReceipt(){
-//            if let r = AppCenter.charge.bank.getReceipt(for: c){
-//                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
-//            }
-//        }
-//        AppCenter.charge.synchronize()
+        //INFO: Reset all receipt for testing
+        for c in AppCenter.charge.getChargesHasReceipt(){
+            if let r = AppCenter.charge.bank.getReceipt(for: c){
+                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
+            }
+        }
+        AppCenter.charge.synchronize()
 //
 //
 //        //INFO: Unlock all for app testing.

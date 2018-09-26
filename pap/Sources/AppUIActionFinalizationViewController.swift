@@ -117,12 +117,18 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
             , font: UIFont.systemFont(ofSize: UIFont.systemFontSize)
     )
     
-    fileprivate lazy var descriptionLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    fileprivate lazy var descriptionTextView: UITextView = {
+        let label = UITextView(frame: .zero)
         label.textColor = defaultDescriptionLabelStyle.textColor
         label.font = defaultDescriptionLabelStyle.font
         label.textAlignment = .left
-        label.numberOfLines = 0
+
+        label.isScrollEnabled = false
+        label.backgroundColor = UIColor.clear
+        label.adjustsFontForContentSizeCategory = true
+        label.isUserInteractionEnabled = false
+        label.textContainerInset = UIEdgeInsets.zero
+
         return label
     }()
 
@@ -163,7 +169,6 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         container.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.25).isActive = true
         
@@ -175,19 +180,19 @@ internal class ActionFinalizationTableViewCell: UITableViewCell {
         titleImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0).isActive = true
         titleImageView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
         
-        container.addSubview(descriptionLabel)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 12).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
+        container.addSubview(descriptionTextView)
+        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionTextView.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 12).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         titleLabel.text = nil
-        descriptionLabel.text = nil
+        descriptionTextView.text = nil
         titleImageView.image = nil
     }
 
@@ -370,9 +375,9 @@ extension AppUIActionFinalizationViewController: UITableViewDataSource {
         cell.titleLabel.textColor = item.titleStyle?.textColor ?? cell.defaultTitleLabelStyle.textColor
         cell.titleLabel.font = item.titleStyle?.font ?? cell.defaultTitleLabelStyle.font
 
-        cell.descriptionLabel.text = item.descriptionStyle?.useUpperCase == true ? item.description?.localizedUppercase : item.description
-        cell.descriptionLabel.textColor = item.descriptionStyle?.textColor ?? cell.defaultDescriptionLabelStyle.textColor
-        cell.descriptionLabel.font = item.descriptionStyle?.font ?? cell.defaultDescriptionLabelStyle.font
+        cell.descriptionTextView.text = item.descriptionStyle?.useUpperCase == true ? item.description?.localizedUppercase : item.description
+        cell.descriptionTextView.textColor = item.descriptionStyle?.textColor ?? cell.defaultDescriptionLabelStyle.textColor
+        cell.descriptionTextView.font = item.descriptionStyle?.font ?? cell.defaultDescriptionLabelStyle.font
 
         cell.titleImageView.image = item.image
         cell.tappedHandler = item.tappedHandler
