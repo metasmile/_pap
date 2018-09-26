@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Gün";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kez";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 Aylık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Animasyonlu GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasyon";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Herzaman ücretsiz iptal.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "İstediğiniz tüm fotoğraflarınıza Yüksek Kaliteli filtreler uygulayın. Bu toplu işleme aracının, filtreleri uygulamak için fotoğraf sayısına sınırı yoktur.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Kodunuz geçersiz. Lütfen tekrar deneyin.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Kodunuzun süresi doldu.";
+/* Generated from genl10n: Period.swift */
+"day" = "gün";
+/* Generated from genl10n: Period.swift */
+"hour" = "saat";
+/* Generated from genl10n: Period.swift */
+"minute" = "dakika";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "ay";
+/* Generated from genl10n: Period.swift */
+"second" = "ikinci";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "yıl";

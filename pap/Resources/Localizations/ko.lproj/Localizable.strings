@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / 일";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 개월 회원";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "애니메이션 GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "에니메이션";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "언제든지 무료 취소.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "원하는 모든 사진에 고품질 필터를 적용하십시오. 이 일괄 처리 도구는 필터를 적용 할 사진 수에 제한이 없습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "코드가 만료되었습니다.";
+/* Generated from genl10n: Period.swift */
+"day" = "일";
+/* Generated from genl10n: Period.swift */
+"hour" = "시간";
+/* Generated from genl10n: Period.swift */
+"minute" = "분";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "달";
+/* Generated from genl10n: Period.swift */
+"second" = "둘째";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "년";

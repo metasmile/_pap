@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Nap";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d alkalommal";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 hónapos tagság";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Animált GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Élénkség";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Bármikor ingyenes lemondás.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Alkalmazzon kiváló minőségű szűrőket az összes kívánt fotóra. Ez a kötegelt feldolgozó eszköz nem korlátozza a szűrők alkalmazásához szükséges fotók számát.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "A kód érvénytelen. Kérlek próbáld újra.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "A kód lejárt.";
+/* Generated from genl10n: Period.swift */
+"day" = "nap";
+/* Generated from genl10n: Period.swift */
+"hour" = "óra";
+/* Generated from genl10n: Period.swift */
+"minute" = "perc";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "hónap";
+/* Generated from genl10n: Period.swift */
+"second" = "második";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "év";

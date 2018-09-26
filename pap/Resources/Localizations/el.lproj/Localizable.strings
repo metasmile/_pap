@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Ημέρα";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 Μήνας Σύνθεση";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Κινούμενο GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Οποιαδήποτε στιγμή δωρεάν ακύρωση.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Εφαρμόστε φίλτρα υψηλής ποιότητας σε όλες τις φωτογραφίες που θέλετε. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών για την εφαρμογή φίλτρων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Ο κωδικός σας δεν είναι έγκυρος. ΠΑΡΑΚΑΛΩ προσπαθησε ξανα.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Ο κωδικός σας έληξε.";
+/* Generated from genl10n: Period.swift */
+"day" = "ημέρα";
+/* Generated from genl10n: Period.swift */
+"hour" = "ώρα";
+/* Generated from genl10n: Period.swift */
+"minute" = "λεπτό";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "μήνας";
+/* Generated from genl10n: Period.swift */
+"second" = "δεύτερος";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "έτος";

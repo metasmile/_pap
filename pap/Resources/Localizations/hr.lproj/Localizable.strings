@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Dan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "Članstvo u mjesec dana";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Animirani GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animacija";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Anytime besplatno otkazivanje.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Primijenite filtre visoke kvalitete na sve željene fotografije. Ovaj alat za obradu serija nema ograničenja broja fotografija za primjenu filtara.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Vaš kôd nije važeći. Molim te pokušaj ponovno.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Vaš je kôd istekao.";
+/* Generated from genl10n: Period.swift */
+"day" = "dan";
+/* Generated from genl10n: Period.swift */
+"hour" = "sat";
+/* Generated from genl10n: Period.swift */
+"minute" = "minuta";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "mjesec";
+/* Generated from genl10n: Period.swift */
+"second" = "drugi";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "godina";

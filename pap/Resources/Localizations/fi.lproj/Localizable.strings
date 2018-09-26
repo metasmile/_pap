@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 kuukauden jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Animoitu GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "animaatio";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Aina vapaa peruutus.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Käytä laadukkaita suodattimia kaikkiin haluamiisi valokuviin. Tämä eräprosessointityökalu ei rajoita valokuvien määrää suodattimien käyttämiseen.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Sinun koodisi on virheellinen. Yritä uudelleen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Sinun koodisi on vanhentunut.";
+/* Generated from genl10n: Period.swift */
+"day" = "päivä";
+/* Generated from genl10n: Period.swift */
+"hour" = "tunnin";
+/* Generated from genl10n: Period.swift */
+"minute" = "minuutti";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "kuukausi";
+/* Generated from genl10n: Period.swift */
+"second" = "toinen";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "vuosi";

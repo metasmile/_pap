@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Den";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 měsíc členství";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "Animovaný GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animace";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Kdykoliv zrušení zdarma.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Aplikujte filtre vysoké kvality na všechny fotografie, které chcete. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotek, které mají použít filtry.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Váš kód je neplatný. Prosím zkuste to znovu.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Váš kód vypršel.";
+/* Generated from genl10n: Period.swift */
+"day" = "den";
+/* Generated from genl10n: Period.swift */
+"hour" = "hodina";
+/* Generated from genl10n: Period.swift */
+"minute" = "minuta";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "Měsíc";
+/* Generated from genl10n: Period.swift */
+"second" = "druhý";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "rok";

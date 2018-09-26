@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / يوم";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d مرة";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "عضوية شهر واحد";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "GIF متحرك";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "في أي وقت إلغاء مجاني.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "تطبيق مرشحات عالية الجودة على جميع الصور التي تريدها. لا تحتوي أداة معالجة الدفعات هذه على حد أقصى لعدد الصور لتطبيق المرشحات.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "رمزك غير صالح. حاول مرة اخرى.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "انتهت صلاحية شفرتك.";
+/* Generated from genl10n: Period.swift */
+"day" = "يوم";
+/* Generated from genl10n: Period.swift */
+"hour" = "ساعة";
+/* Generated from genl10n: Period.swift */
+"minute" = "اللحظة";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "شهر";
+/* Generated from genl10n: Period.swift */
+"second" = "ثانيا";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "عام";

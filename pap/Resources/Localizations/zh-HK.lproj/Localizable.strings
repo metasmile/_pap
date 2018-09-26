@@ -86,6 +86,8 @@
 "%@/Day" = "%@ /日";
 /* Generated from genl10n: GIFMaker.BApp.swift#592 */
 "%d times" = "%d次";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#185 */
@@ -144,6 +146,8 @@
 "Animated GIF" = "動畫GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift#603 */
 "Animation" = "動畫";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "隨時免費取消。";
 /* Generated from genl10n: Filters.BApp.swift#103 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "您選哪張照片，都可以應用高品質過濾器。此批處理工具對應用過濾器的照片數量沒有限制。";
 /* Generated from genl10n: GIFMaker.BApp.swift#494 */
@@ -662,7 +666,15 @@
 "Your code is invalid. Please try again." = "您的代碼無效。請再試一次。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "您的代碼已過期。";
+/* Generated from genl10n: Period.swift */
+"day" = "天";
+/* Generated from genl10n: Period.swift */
+"hour" = "小時";
+/* Generated from genl10n: Period.swift */
+"minute" = "分鐘";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "月";
+/* Generated from genl10n: Period.swift */
+"second" = "第二";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "年";

@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d פעמים";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 חודש חברות";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "GIF מונפש";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "אנימציה";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "ביטול חינם בכל עת.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "החל מסננים באיכות גבוהה על כל התמונות שאתה רוצה. זה כלי עיבוד אצווה אין להגביל את מספר התמונות להחיל מסננים.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "פג תוקפו של הקוד שלך.";
+/* Generated from genl10n: Period.swift */
+"day" = "יְוֹם";
+/* Generated from genl10n: Period.swift */
+"hour" = "שָׁעָה";
+/* Generated from genl10n: Period.swift */
+"minute" = "דַקָה";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "חוֹדֶשׁ";
+/* Generated from genl10n: Period.swift */
+"second" = "שְׁנִיָה";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "שָׁנָה";

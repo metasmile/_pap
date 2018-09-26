@@ -140,6 +140,8 @@
 "%@/Day" = "%@ / Hari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "Keahlian 1 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
@@ -198,6 +200,8 @@
 "Animated GIF" = "GIF animasi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animasi";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Bila-bila masa pembatalan percuma.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Gunakan penapis Berkualiti Tinggi pada semua foto yang anda mahu. Alat pemprosesan batch ini tidak mempunyai had kepada bilangan foto untuk memohon penapis.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -716,7 +720,15 @@
 "Your code is invalid. Please try again." = "Kod anda tidak sah. Sila cuba lagi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Kod anda telah tamat tempoh.";
+/* Generated from genl10n: Period.swift */
+"day" = "hari";
+/* Generated from genl10n: Period.swift */
+"hour" = "jam";
+/* Generated from genl10n: Period.swift */
+"minute" = "minit";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "month" = "bulan";
+/* Generated from genl10n: Period.swift */
+"second" = "kedua";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "tahun";
