@@ -370,7 +370,7 @@ class AppCharge: Charge {
         }
 
         var unit:String?{
-            return charge.priceAmount.getDefaultUnit(for: charge.reward)?.asString(roundTo: 1)
+            return charge.priceAmount.getDefaultUnit(for: charge.reward)?.numberOfUnitString(roundTo: 1)
         }
     }
 }

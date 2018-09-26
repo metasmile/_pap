@@ -5,6 +5,8 @@
 
 import Foundation
 
+//INFO: Human-readable type of TimeInterval
+
 struct Period:Equatable, Hashable, Codable {
     enum Unit : UInt, Codable {
         case second
@@ -22,7 +24,26 @@ struct Period:Equatable, Hashable, Codable {
         return Period(numberOfUnits: 0, unit: .second)
     }
 
-    func asString(roundTo places:Int, trimTrailingZeros:Bool=true) -> String{
+    var localizedUnitString:String{
+        switch (unit){
+            case .second:
+                return "second".localized
+            case .minute:
+                return "minute".localized
+            case .hour:
+                return "hour".localized
+            case .day:
+                return "day".localized
+            case .week:
+                return "week"
+            case .month:
+                return "month".localized
+            case .year:
+                return "year".localized
+        }
+    }
+
+    func numberOfUnitString(roundTo places:Int, trimTrailingZeros:Bool=true) -> String{
         return numberOfUnits.roundedString(toPlaces: places, trimTrailingZeros: trimTrailingZeros)
     }
 
@@ -32,6 +53,25 @@ struct Period:Equatable, Hashable, Codable {
 
     var hashValue: Int {
         return (String(describing: numberOfUnits)+String(describing: unit)).hashValue
+    }
+
+    var timeInterval:TimeInterval{
+        switch(unit) {
+            case .second:
+                return numberOfUnits
+            case .minute:
+                return numberOfUnits * 60*60
+            case .hour:
+                return numberOfUnits * 60*60
+            case .day:
+                return numberOfUnits * 60*60 * 24
+            case .week:
+                return numberOfUnits * 60*60 * 24 * 7
+            case .month:
+                return numberOfUnits * 60*60 * 24 * 30.436875
+            case .year:
+                return numberOfUnits * 60*60 * 24 * 30.436875 * 12
+        }
     }
 
     func within(since date:Date) -> Bool {
@@ -48,21 +88,6 @@ struct Period:Equatable, Hashable, Codable {
             return false
         }
 
-        switch(self.unit) {
-            case .second:
-                return interval < numberOfUnits
-            case .minute:
-                return interval < numberOfUnits * 60*60
-            case .hour:
-                return interval < numberOfUnits * 60*60
-            case .day:
-                return interval < numberOfUnits * 60*60 * 24
-            case .week:
-                return interval < numberOfUnits * 60*60 * 24 * 7
-            case .month:
-                return interval < numberOfUnits * 60*60 * 24 * 30.436875
-            case .year:
-                return interval < numberOfUnits * 60*60 * 24 * 30.436875 * 12
-        }
+        return interval < timeInterval
     }
 }
