@@ -15,6 +15,50 @@ extension ActionViewController {
     }
 }
 
+class ActionViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    var presented: Bool = true
+    private lazy var dimmedView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        return view
+    }()
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        
+        guard
+            let view = transitionContext.view(forKey: presented ? .to : .from)
+        else { return }
+        
+        if presented {
+            containerView.addSubview(dimmedView)
+            dimmedView.fitConstraints(to: containerView)
+            
+            dimmedView.alpha = 0
+            
+            view.frame.origin.y = view.bounds.height
+            containerView.addSubview(view)
+        }
+        
+        UIView.animate(withDuration: self.transitionDuration(using: transitionContext), delay: 0, options: [.curveEaseInOut], animations: {
+            if self.presented {
+                view.frame.origin.y = 0
+                self.dimmedView.alpha = 1
+            }
+            else {
+                view.frame.origin.y = view.bounds.height
+                self.dimmedView.alpha = 0
+            }
+        }) { (completed) in
+            transitionContext.completeTransition(completed)
+        }
+    }
+}
+
 protocol ActionViewControllerDataSource {
     func title(in controller: ActionViewController) -> String?
     func image(in controller: ActionViewController) -> UIImage?
@@ -299,7 +343,6 @@ class ActionCircleProgressView: DesignableView {
     }
 }
 
-
 class ActionViewController: UIViewController {
     @IBOutlet weak var titleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -320,6 +363,8 @@ class ActionViewController: UIViewController {
     var dataSource: ActionViewControllerDataSource?
     var delegate: ActionViewControllerDelegate?
     
+    fileprivate lazy var transitionAnimator = ActionViewTransitionAnimator()
+    
     private lazy var tableView: SelfSizedTableView = {
         let tableView = SelfSizedTableView(frame: .zero)
         tableView.dataSource = self
@@ -338,8 +383,11 @@ class ActionViewController: UIViewController {
         return tableView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        modalPresentationStyle = .custom
+        transitioningDelegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -356,20 +404,6 @@ class ActionViewController: UIViewController {
         actionTitleLabel.text = dataSource?.titleForAction(in: self)
 
         super.viewWillAppear(animated)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        UIView.transition(with: view, duration: 0.1, animations: {
-            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        }, completion: nil)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        self.view.backgroundColor = UIColor.clear
     }
 
     @IBAction func closeButtonDidTap(_ sender: Any) {
@@ -445,5 +479,17 @@ extension ActionViewController {
     
     func actionProgressDidFinish(actionTitle: String?) {
         actionTitleLabel.text = actionTitle
+    }
+}
+
+extension ActionViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionAnimator.presented = true
+        return transitionAnimator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionAnimator.presented = false
+        return transitionAnimator
     }
 }
