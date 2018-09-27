@@ -785,38 +785,17 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         let durationNeeded = TimeInterval(Double(frames) * self.defaults.frameDelay)
 
         if let imageView = cell.imageView, imageView.image?.duration != durationNeeded {
-            
-            let renderBounds = UIEdgeInsetsInsetRect(CGRect(x: 0, y: 0, width: 40, height: 40), UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
-            let renderPath = UIBezierPath(roundedRect: renderBounds, cornerRadius: renderBounds.height / 4)
-            
-            var images = [UIImage]()
-            for i in 0..<frames {
-                images.append(UIGraphicsImageRenderer(bounds: renderBounds).image { (ctx) in
-                    ctx.cgContext.setFillColor(view.tintColor.cgColor)
-                    
-                    ctx.cgContext.addPath(renderPath.cgPath)
-                    ctx.cgContext.fillPath()
 
-                    let attrString = NSAttributedString(string: "\(i + 1)", attributes: [
-                        NSAttributedStringKey.foregroundColor: UIColor.white,
-                        NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: 14)
-                    ])
-                    let stringSize = attrString.size()
-
-                    attrString.draw(at: CGPoint(x: 4 + max(0, (renderBounds.width - stringSize.width) / 2), y: 4 + max(0, (renderBounds.height - stringSize.height) / 2)))
-                })
-            }
-
-//            let images = [ // already cached by main bundle.
-//                R.image.gifmaker_preview_frame_0()!,
-//                R.image.gifmaker_preview_frame_1()!,
-//                R.image.gifmaker_preview_frame_2()!,
-//                R.image.gifmaker_preview_frame_3()!,
-//                R.image.gifmaker_preview_frame_4()!,
-//                R.image.gifmaker_preview_frame_5()!,
-//                R.image.gifmaker_preview_frame_6()!,
-//                R.image.gifmaker_preview_frame_7()!
-//            ]
+            let images = [ // already cached by main bundle.
+                R.image.gifmaker_preview_frame_0()!,
+                R.image.gifmaker_preview_frame_1()!,
+                R.image.gifmaker_preview_frame_2()!,
+                R.image.gifmaker_preview_frame_3()!,
+                R.image.gifmaker_preview_frame_4()!,
+                R.image.gifmaker_preview_frame_5()!,
+                R.image.gifmaker_preview_frame_6()!,
+                R.image.gifmaker_preview_frame_7()!
+            ]
             assert(images.count == frames)
             imageView.image = UIImage.animatedImage(with: images, duration: durationNeeded)
         }
