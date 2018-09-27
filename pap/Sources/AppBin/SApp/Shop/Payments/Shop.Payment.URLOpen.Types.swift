@@ -46,7 +46,7 @@ struct URLOpenTypeEngineeringNotes: URLOpenType {
     static var webUrl: URL?{ return papStrings.info.engineering.url.asURL }
 }
 
-struct URLOpenTypeYouTubeChannel: URLOpenType {
+struct URLOpenTypeVideoTutorials: URLOpenType {
     static var webUrl: URL?{ return papStrings.social.youtube.url.asURL }
 
     static var localUrl: URL? {

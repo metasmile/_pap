@@ -64,8 +64,6 @@
 "cs_keyword_11" = "家庭";
 "cs_keyword_12" = "朋友";
 "cs_keyword_13" = "情人";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@頻道";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
 /* Generated from genl10n: pap.Strings.swift#50 */
@@ -462,8 +460,6 @@
 "Rate Now" = "現在就評價吧";
 /* Generated from genl10n: AutoEditor.BApp.swift#176 */
 "Red-Eye Removal" = "消除紅眼";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "參考指南";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "此次運行中的剩餘計數";
 /* Generated from genl10n: GIFMaker.BApp.swift#571 */
@@ -614,6 +610,8 @@
 "Use" = "使用";
 /* Generated from genl10n: Shop.SApp.swift#612 */
 "User Community" = "用戶社區";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "用戶指南";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -622,6 +620,8 @@
 "VIP Membership" = "VIP會員資格";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "視頻教程";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

@@ -72,8 +72,11 @@ extension PHAsset {
             RemoteSourceFetchNotification.UserInfo.Key.asset: self
         ]
         NotificationCenter.default.post(name: RemoteSourceFetchNotification.Name.fetchBagan, object: self, userInfo: userInfo)
-        
-        async.waitUntilEnd()
+
+        if async.began{
+            async.waitUntilEnd()
+        }
+
         return (imageRequestID, result)
     }
 }

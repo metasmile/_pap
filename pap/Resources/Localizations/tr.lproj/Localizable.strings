@@ -118,8 +118,6 @@
 "cs_keyword_12" = "arkadaş";
 /*Translated from: lover*/
 "cs_keyword_13" = "lover";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Kanal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Gün";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "Şimdi oyla";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Kırmızı Göz Giderme";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Başvuru Kılavuzu";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Bu Çalışmada Kalan Sayı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "kullanım";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Kullanıcı Topluluğu";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Kullanici rehberi";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Yardım Hattı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP Üyeliği";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Doğrulama başarısız oldu.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video Öğreticiler";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

@@ -56,6 +56,12 @@ extension StateValueSet where T: ImageEditStateValue {
     }
 }
 
+extension StateValueSet where T: ImageEditStateValue {
+    var stabilizationMode: ImageAlignment.StabilizationMode? {
+        return imageEditStateValue?.stabilizationMode
+    }
+}
+
 extension AppAssetItem where StateValueType: ImageEditStateValue {}
 
 //TODO: separate later

@@ -34,11 +34,6 @@ public class StabilizerAppValue: ImageEditStateValue {
     }
 }
 
-public extension StateValueSet where T: ImageEditStateValue {
-    var stabilizationMode: ImageAlignment.StabilizationMode? {
-        return imageEditStateValue?.stabilizationMode
-    }
-}
 
 public class StabilizerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic

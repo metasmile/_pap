@@ -694,26 +694,25 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
         contactCellDescribers.append(c3)
 
-
-        let c345 = UITableViewButtonCellDescriber()
-        c345.itemIdentifier = CellDescriber.Key.support.hashValue
-        c345.label = "%@ Channel".localizedFormatted("YouTube")
-        c345.buttonTitle = "Visit".localized
-        c345.iconImage = R.image.cellIconYouTubeChannel.name
-        c345.iconImageTintColor = self.view.tintColor
-        c345.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeYouTubeChannel>.self)
-        }
-        contactCellDescribers.append(c345)
     }
 
     private func loadInformationOfUsetCellDescribers(){
         informationOfUsetCellDescribers.removeAll()
 
+        let c345 = UITableViewButtonCellDescriber()
+        c345.itemIdentifier = CellDescriber.Key.support.hashValue
+        c345.label = "Video Tutorials".localized
+        c345.buttonTitle = "Visit".localized
+        c345.iconImage = R.image.cellIconYouTubeChannel.name
+        c345.iconImageTintColor = self.view.tintColor
+        c345.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
+        }
+        informationOfUsetCellDescribers.append(c345)
 
         let c234 = UITableViewButtonCellDescriber()
         c234.itemIdentifier = CellDescriber.Key.support.hashValue
-        c234.label = "Reference Guide".localized
+        c234.label = "User Guide".localized
         c234.buttonTitle = "See".localized
         c234.iconImage = R.image.cellIconReferenceGuide.name
         c234.iconImageTintColor = self.view.tintColor

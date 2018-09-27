@@ -118,8 +118,6 @@
 "cs_keyword_12" = "prieten";
 /*Translated from: lover*/
 "cs_keyword_13" = "amant";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Canal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ziua";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "Evalueaza acum";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Eliminarea ochilor roșii";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Ghid de referință";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Numărul rămas în această alergare";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "Utilizare";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunitatea utilizatorilor";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Manualul utilizatorului";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP membru";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificare esuata.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutoriale video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

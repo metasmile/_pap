@@ -118,8 +118,6 @@
 "cs_keyword_12" = "친구";
 /*Translated from: lover*/
 "cs_keyword_13" = "연인";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ 채널";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "지금 평가";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "참조 가이드";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "이 실행에서 남은 카운트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "용도";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "사용자 커뮤니티";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "사용자 설명서";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP 회원";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "확인에 실패했습니다.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "비디오 자습서";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "비디오";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

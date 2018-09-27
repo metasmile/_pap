@@ -118,8 +118,6 @@
 "cs_keyword_12" = "ystävä";
 /*Translated from: lover*/
 "cs_keyword_13" = "rakastaja";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Kanava";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Päivä";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "Arvostele nyt";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Viiteopas";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Jäljellä oleva määrä tässä käynnissä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "Käyttää";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Käyttäjäyhteisö";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Käyttöohjeet";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP-jäsenyys";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Vahvistus epäonnistui.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Videoopetusohjelmat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

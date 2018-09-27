@@ -779,8 +779,8 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
         guard let indexPath = indexPath(with: Cells.frameDelay.hashValue) else { return }
         guard let cell = cell ?? (view as? UITableView)?.cellForRow(at: indexPath) else { return }
-        
-        let frames = 8
+
+        let frames = 4
 
         let durationNeeded = TimeInterval(Double(frames) * self.defaults.frameDelay)
 
@@ -790,11 +790,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
                 R.image.gifmaker_preview_frame_0()!,
                 R.image.gifmaker_preview_frame_1()!,
                 R.image.gifmaker_preview_frame_2()!,
-                R.image.gifmaker_preview_frame_3()!,
-                R.image.gifmaker_preview_frame_4()!,
-                R.image.gifmaker_preview_frame_5()!,
-                R.image.gifmaker_preview_frame_6()!,
-                R.image.gifmaker_preview_frame_7()!
+                R.image.gifmaker_preview_frame_3()!
             ]
             assert(images.count == frames)
             imageView.image = UIImage.animatedImage(with: images, duration: durationNeeded)

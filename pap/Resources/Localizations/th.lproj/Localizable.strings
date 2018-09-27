@@ -118,8 +118,6 @@
 "cs_keyword_12" = "เพื่อน";
 /*Translated from: lover*/
 "cs_keyword_13" = "คนรัก";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ แชแนล";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "อัตราในขณะนี้";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "การกำจัดตาแดง";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "คู่มืออ้างอิง";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "จำนวนที่เหลืออยู่ในช่วงเวลานี้";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "ใช้";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "ชุมชนผู้ใช้";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "คู่มือผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "สมาชิกวีไอพี";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "การยืนยันล้มเหลว";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "วิดีโอบทแนะนำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "วีดีโอ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

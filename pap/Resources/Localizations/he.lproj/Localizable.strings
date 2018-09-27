@@ -118,8 +118,6 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ ערוץ";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "דרג עכשיו";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "הסרת עיניים אדומות";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "מדריך עזר";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "ספירה שנותרה בריצה זו";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "להשתמש";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "קהילת המשתמשים";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "מדריך למשתמש";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "חברות VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "האימות נכשל.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "הדרכות וידאו";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

@@ -118,8 +118,6 @@
 "cs_keyword_12" = "teman";
 /*Translated from: lover*/
 "cs_keyword_13" = "kekasih";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Channel";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -516,8 +514,6 @@
 "Rate Now" = "Beri Nilai Sekarang";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Penghilang Mata Merah";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Panduan Referensi";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Jumlah yang Tersisa Dalam Proses Ini";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +664,8 @@
 "Use" = "Menggunakan";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Komunitas Pengguna";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Panduan pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,6 +674,8 @@
 "VIP Membership" = "Keanggotaan VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifikasi gagal.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutorial Video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
