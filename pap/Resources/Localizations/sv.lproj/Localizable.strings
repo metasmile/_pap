@@ -516,8 +516,6 @@
 "Rate Now" = "Betygsätt nu";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Röda ögonavlägsnande";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Referens guide";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Återstående räkning i denna körning";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Använda sig av";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Användargemenskap";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Användarguide";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

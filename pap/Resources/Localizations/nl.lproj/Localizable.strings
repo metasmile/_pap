@@ -516,8 +516,6 @@
 "Rate Now" = "Beoordeel nu";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rode-ogen-verwijdering";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Referentie gids";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Resterende telling in deze run";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Gebruik";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Gebruikerscommunity";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Gebruikershandleiding";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

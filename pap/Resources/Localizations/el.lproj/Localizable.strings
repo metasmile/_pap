@@ -516,8 +516,6 @@
 "Rate Now" = "Βαθμολογήστε Τώρα";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Οδηγός αναφοράς";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Η εναπομένουσα μέτρηση σε αυτή την εκτέλεση";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Χρήση";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Κοινότητα χρηστών";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "ΟΔΗΓΟΣ ΧΡΗΣΤΗ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

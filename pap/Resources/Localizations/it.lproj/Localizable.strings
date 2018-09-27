@@ -516,8 +516,6 @@
 "Rate Now" = "Vota adesso";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rimozione dell'effetto occhi rossi";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Guida di riferimento";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Conteggio rimanente in questa esecuzione";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Uso";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunità degli utenti";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Guida utente";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

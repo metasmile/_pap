@@ -516,8 +516,6 @@
 "Rate Now" = "Оценить сейчас";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Удаление красных глаз";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Справочное руководство";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Оставшееся количество в этом прогоне";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "использование";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Пользовательское сообщество";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Гид пользователя";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Горячая линия VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

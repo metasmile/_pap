@@ -516,8 +516,6 @@
 "Rate Now" = "อัตราในขณะนี้";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "การกำจัดตาแดง";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "คู่มืออ้างอิง";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "จำนวนที่เหลืออยู่ในช่วงเวลานี้";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "ใช้";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "ชุมชนผู้ใช้";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "คู่มือผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

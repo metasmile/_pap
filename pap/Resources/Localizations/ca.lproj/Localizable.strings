@@ -516,8 +516,6 @@
 "Rate Now" = "Qualifica ara";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Remoció d'ulls vermells";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Guia de referència";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Compte restant en aquesta operació";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Ús";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunitat d'usuaris";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Guia de l&#39;usuari";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línia directa VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

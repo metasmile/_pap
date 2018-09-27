@@ -516,8 +516,6 @@
 "Rate Now" = "Evalueaza acum";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Eliminarea ochilor roșii";
-/* Generated from genl10n: Shop.SApp.swift#637 */
-"Reference Guide" = "Ghid de referință";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Numărul rămas în această alergare";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -668,6 +666,8 @@
 "Use" = "Utilizare";
 /* Generated from genl10n: Shop.SApp.swift#592 */
 "User Community" = "Comunitatea utilizatorilor";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Guide" = "Manualul utilizatorului";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
