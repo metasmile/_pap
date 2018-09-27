@@ -694,6 +694,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
         contactCellDescribers.append(c3)
 
+    }
+
+    private func loadInformationOfUsetCellDescribers(){
+        informationOfUsetCellDescribers.removeAll()
 
         let c345 = UITableViewButtonCellDescriber()
         c345.itemIdentifier = CellDescriber.Key.support.hashValue
@@ -704,12 +708,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         c345.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
         }
-        contactCellDescribers.append(c345)
-    }
-
-    private func loadInformationOfUsetCellDescribers(){
-        informationOfUsetCellDescribers.removeAll()
-
+        informationOfUsetCellDescribers.append(c345)
 
         let c234 = UITableViewButtonCellDescriber()
         c234.itemIdentifier = CellDescriber.Key.support.hashValue
