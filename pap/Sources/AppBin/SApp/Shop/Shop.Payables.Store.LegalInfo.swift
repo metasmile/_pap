@@ -116,7 +116,7 @@ private class StorePayableLegalInfoActionViewControllerDelegator: ActionViewCont
     }
 
     func title(in controller: ActionViewController) -> String? {
-        return type(of: payable).storeProduct?.localizedTitle
+        return type(of: payable).storeProduct?.localizedTitle.nilEmpty
                 ?? AppCenter.charge.getCharge(for: type(of: payable))?.describable.title
     }
 
