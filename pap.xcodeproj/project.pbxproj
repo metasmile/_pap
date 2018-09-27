@@ -33,7 +33,6 @@
 		4F71D0CA5A875929714F0240 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBAB915631C3BFD4F1E /* NetworkReachabilityManager.swift */; };
 		4F71D0DD99556116A344D7E6 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D581C84B309D065C34B8 /* CodeKit.UIGraphicsImageRenderer.swift */; };
 		4F71D0DDBDE1464AF55CCCA9 /* PhoneCalls.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1DDBB0D44BFD85DA860 /* PhoneCalls.BApp.Assets.xcassets */; };
-		4F71D0EB9055327E97727DB5 /* gifmaker_preview_frame_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6463130DBC1725704C0 /* gifmaker_preview_frame_7.png */; };
 		4F71D11AB02A679866F5595C /* FileIO.UTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D05C5F9729D98015C194 /* FileIO.UTI.swift */; };
 		4F71D11BD15A4495C3C8AB4A /* ExifGhost.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC59EDF3C2434748D74B /* ExifGhost.BApp.Assets.xcassets */; };
 		4F71D1201AFD8D1AAB7C3F9D /* CodeKit.Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBB8908DF3CC41DA982B /* CodeKit.Math.swift */; };
@@ -108,7 +107,6 @@
 		4F71D58C2B40BC3B670A6A85 /* Transform.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D5366E28E479C8B0D7D4 /* Transform.BApp.Assets.xcassets */; };
 		4F71D5983139B58F7B26FB8F /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF0023CBC4BE3200C204 /* PHAsset.swift */; };
 		4F71D5BE8B0401C15C9DFB28 /* FirebaseMLVision.VisionText.Parser.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7D15E0EC1A44D1664AE /* FirebaseMLVision.VisionText.Parser.Contacts.swift */; };
-		4F71D5BEB80E3F3F2DD975C5 /* gifmaker_preview_frame_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D690F11CC993F3459F2A /* gifmaker_preview_frame_6.png */; };
 		4F71D5DC10EAC011D158E6FE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D402604D22D60E92ECB2 /* CustomView.swift */; };
 		4F71D5DF1F5B52FDC8E79376 /* PhotoPickerViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBE2FAD161C2D94D9CC6 /* PhotoPickerViewController.UICollectionView.swift */; };
 		4F71D5DFBDF1442EE4CA2363 /* Charge.Manager.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF066D29AD2D6EABE9A6 /* Charge.Manager.Macro.swift */; };
@@ -116,7 +114,6 @@
 		4F71D5F0A0E3A9E4B322FCBA /* CodeKit.Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDADBA3628FE8356C6EB /* CodeKit.Array.swift */; };
 		4F71D5F161048964DB4E1A65 /* Cleaner.GarbageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE632C5E5EA24ECFF6E6 /* Cleaner.GarbageDetector.swift */; };
 		4F71D5F73B696FE813AD2E79 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD84BB4BCEA896661F14 /* PhotoCollectionViewCell.swift */; };
-		4F71D5FE4AB1F246A5F2CAEE /* gifmaker_preview_frame_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3FE9C4F38D42855CF3D /* gifmaker_preview_frame_4.png */; };
 		4F71D603DD5AF2B6F3376A99 /* App.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC43B0DF0CCD376101D /* App.Launchable.OptionsKeys.swift */; };
 		4F71D60FB0179151280A754E /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFEDA5A22CEADE72D78D /* AppTask.swift */; };
 		4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */; };
@@ -220,7 +217,6 @@
 		4F71DC000E3D3F90D5A63A58 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */; };
 		4F71DC12735D96F79EAAEE0A /* Shop.RelativePayable.Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E0CDFF78F80323BC0A /* Shop.RelativePayable.Policy.swift */; };
 		4F71DC13E83C432C049C5399 /* App.PreviewProcessableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2363FDBBFC0BEE21FBE /* App.PreviewProcessableApp.swift */; };
-		4F71DC2A614FEAEC169E2958 /* gifmaker_preview_frame_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D663609573580EC7FBDB /* gifmaker_preview_frame_5.png */; };
 		4F71DC4C6539C8DFB2D2BC97 /* PDFactory.TPPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180AB8064C98AB2B778 /* PDFactory.TPPDF.swift */; };
 		4F71DC6066F5DE652D19626D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A052463FFF3B331002 /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.LaunchableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.LaunchableApp.swift */; };
@@ -427,7 +423,6 @@
 		4F71D3CDAC5D9C7C21B01F5B /* CodeKit.UITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UITableViewController.swift; sourceTree = "<group>"; };
 		4F71D3CF7C5B48D7CFC73BCC /* CodeKit.CMMotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CMMotionManager.swift; sourceTree = "<group>"; };
 		4F71D3DEBC7096177138684A /* pap.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.Defaults.swift; sourceTree = "<group>"; };
-		4F71D3FE9C4F38D42855CF3D /* gifmaker_preview_frame_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_4.png; sourceTree = "<group>"; };
 		4F71D402604D22D60E92ECB2 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71D41269FB4A5B8ED2BD5D /* CodeKit.PHPhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		4F71D41C4847EBAC34DB8853 /* ExifGhost.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExifGhost.BApp.swift; sourceTree = "<group>"; };
@@ -481,13 +476,10 @@
 		4F71D61975F96BAE2FA0BC93 /* CodeKit.CIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CIImage.swift; sourceTree = "<group>"; };
 		4F71D623E81A421C6B35DECB /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.MobileCoreSerivices.UTCoreTypes.swift; sourceTree = "<group>"; };
 		4F71D6262EC75C4CC6E4BDB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
-		4F71D6463130DBC1725704C0 /* gifmaker_preview_frame_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_7.png; sourceTree = "<group>"; };
 		4F71D660E9D0D9F31FE22592 /* FirebaseMLVision.VisionText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionText.swift; sourceTree = "<group>"; };
-		4F71D663609573580EC7FBDB /* gifmaker_preview_frame_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_5.png; sourceTree = "<group>"; };
 		4F71D67A89FFDA5EB4C46426 /* GIFMaker.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GIFMaker.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D67F5C4FCDA49041FCA8 /* App.AppDock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.AppDock.swift; sourceTree = "<group>"; };
 		4F71D68D61BC7066763398CD /* zh-HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = Localizable.strings; sourceTree = "<group>"; };
-		4F71D690F11CC993F3459F2A /* gifmaker_preview_frame_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_6.png; sourceTree = "<group>"; };
 		4F71D6B216749119C09120A9 /* Shop.Payment.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.Store.swift; sourceTree = "<group>"; };
 		4F71D6B4F7B9596C73A71004 /* Filters.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filters.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D6BAC08C8D83F26BC096 /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
@@ -1389,10 +1381,6 @@
 				4F71D86FB9BF4682C854417F /* gifmaker_preview_frame_1.png */,
 				4F71DA8CB1A1375BFBCDC477 /* gifmaker_preview_frame_2.png */,
 				4F71D1C5225AB9B239E0775A /* gifmaker_preview_frame_3.png */,
-				4F71D3FE9C4F38D42855CF3D /* gifmaker_preview_frame_4.png */,
-				4F71D663609573580EC7FBDB /* gifmaker_preview_frame_5.png */,
-				4F71D690F11CC993F3459F2A /* gifmaker_preview_frame_6.png */,
-				4F71D6463130DBC1725704C0 /* gifmaker_preview_frame_7.png */,
 			);
 			path = preview_frame_images;
 			sourceTree = "<group>";
@@ -2080,10 +2068,6 @@
 				4F71DE3C3763C0DAF5EC9707 /* gifmaker_preview_frame_1.png in Resources */,
 				4F71D74081724BE45AA4A767 /* gifmaker_preview_frame_2.png in Resources */,
 				4F71DD6C85C869CEE3CEF3DD /* gifmaker_preview_frame_3.png in Resources */,
-				4F71D5FE4AB1F246A5F2CAEE /* gifmaker_preview_frame_4.png in Resources */,
-				4F71DC2A614FEAEC169E2958 /* gifmaker_preview_frame_5.png in Resources */,
-				4F71D5BEB80E3F3F2DD975C5 /* gifmaker_preview_frame_6.png in Resources */,
-				4F71D0EB9055327E97727DB5 /* gifmaker_preview_frame_7.png in Resources */,
 				4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */,
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,

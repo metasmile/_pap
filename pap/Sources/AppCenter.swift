@@ -39,8 +39,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
         var config = AppManagerConfig()
 
         let defaultAppCollection:[App.Type] = [
-            MemoCamApp.self
-            , FinderApp.self
+            FinderApp.self
             , TransformApp.self
             , FiltersApp.self
             , PhoneCallsApp.self
@@ -53,9 +52,9 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , ShopApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
-            , Stabilizer.self
             , SiriApp.self
-
+//            , MemoCamApp.self
+//            , Stabilizer.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 

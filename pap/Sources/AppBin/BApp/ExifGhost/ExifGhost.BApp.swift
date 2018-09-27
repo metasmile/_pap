@@ -61,8 +61,9 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
                 purged = true == data?.getMetadata()?.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity)
                 async.end()
             }
-            async.waitUntilEnd()
-
+            if async.began{
+                async.waitUntilEnd()
+            }
             return purged ? nil : UICollectionViewPreheatableAppFinishAction.selectItem
         }
 
