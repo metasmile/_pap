@@ -118,8 +118,6 @@
 "cs_keyword_12" = "Vriend";
 /*Translated from: lover*/
 "cs_keyword_13" = "Minnaar";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Kanaal";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP-lidmaatschap";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificatie mislukt.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video uitleg";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

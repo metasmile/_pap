@@ -118,8 +118,6 @@
 "cs_keyword_12" = "kawan";
 /*Translated from: lover*/
 "cs_keyword_13" = "kekasih";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Saluran";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "Keahlian VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Pengesahan Gagal.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutorial Video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

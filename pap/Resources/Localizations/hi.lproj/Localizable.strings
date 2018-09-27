@@ -118,8 +118,6 @@
 "cs_keyword_12" = "दोस्त";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रेमी";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ चैनल";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "वीआईपी सदस्यता";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "वीडियो शिक्षण";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

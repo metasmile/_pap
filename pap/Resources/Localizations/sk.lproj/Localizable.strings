@@ -118,8 +118,6 @@
 "cs_keyword_12" = "priateľ";
 /*Translated from: lover*/
 "cs_keyword_13" = "milovník";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Kanál";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Deň";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP členstvo";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Overenie sa nepodarilo.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video Tutoriály";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

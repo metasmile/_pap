@@ -118,8 +118,6 @@
 "cs_keyword_12" = "Přítel";
 /*Translated from: lover*/
 "cs_keyword_13" = "Milenec";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Kanál";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Den";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP členství";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ověření se nezdařilo.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video tutoriály";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

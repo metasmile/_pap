@@ -118,8 +118,6 @@
 "cs_keyword_12" = "друг";
 /*Translated from: lover*/
 "cs_keyword_13" = "коханець";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Канал";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP членство";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Верифікація не вдалася.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Відео-підручники";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Відео";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

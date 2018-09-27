@@ -118,8 +118,6 @@
 "cs_keyword_12" = "เพื่อน";
 /*Translated from: lover*/
 "cs_keyword_13" = "คนรัก";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ แชแนล";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "สมาชิกวีไอพี";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "การยืนยันล้มเหลว";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "วิดีโอบทแนะนำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "วีดีโอ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

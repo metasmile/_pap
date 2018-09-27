@@ -118,8 +118,6 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ ערוץ";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "חברות VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "האימות נכשל.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "הדרכות וידאו";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "וִידֵאוֹ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

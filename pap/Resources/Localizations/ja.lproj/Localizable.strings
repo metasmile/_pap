@@ -118,8 +118,6 @@
 "cs_keyword_12" = "友人";
 /*Translated from: lover*/
 "cs_keyword_13" = "恋人";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@チャンネル";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@日";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "VIP会員";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "ビデオチュートリアル";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "動画";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

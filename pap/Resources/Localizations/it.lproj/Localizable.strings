@@ -118,8 +118,6 @@
 "cs_keyword_12" = "amico";
 /*Translated from: lover*/
 "cs_keyword_13" = "amante";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ Channel" = "%@ Canale";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Giorno";
 /* Generated from genl10n: pap.Strings.swift#41 */
@@ -676,6 +674,8 @@
 "VIP Membership" = "Iscrizione VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifica fallita.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutorial video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
