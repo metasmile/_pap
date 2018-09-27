@@ -103,13 +103,13 @@ private class StorePayableLegalInfoActionViewControllerDelegator: ActionViewCont
         self.payable=payable
     }
 
-    func close(_ controller: ActionViewController) {
+    func didCancel(_ controller: ActionViewController) {
         controller.actionButton.stopIndicating()
 
         completionHandler?(false)
     }
 
-    func ActionViewViewControllerDidAction(_ controller: ActionViewController) {
+    func didComplete(_ controller: ActionViewController) {
         controller.actionButton.startIndicating()
 
         completionHandler?(true)
@@ -120,7 +120,7 @@ private class StorePayableLegalInfoActionViewControllerDelegator: ActionViewCont
                 ?? AppCenter.charge.getCharge(for: type(of: payable))?.describable.title
     }
 
-    func image(in controller: ActionViewController) -> UIImage? {
+    func imageForTitle(in controller: ActionViewController) -> UIImage? {
         return nil
     }
 

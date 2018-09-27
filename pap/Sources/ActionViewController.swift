@@ -61,7 +61,7 @@ class ActionViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
 
 protocol ActionViewControllerDataSource {
     func title(in controller: ActionViewController) -> String?
-    func image(in controller: ActionViewController) -> UIImage?
+    func imageForTitle(in controller: ActionViewController) -> UIImage?
     
     func titleForAction(in controller: ActionViewController) -> String?
     func imageForAction(in controller: ActionViewController) -> UIImage?
@@ -76,7 +76,7 @@ extension ActionViewControllerDataSource {
         return Bundle.main.displayName
     }
     
-    func image(in controller: ActionViewController) -> UIImage? { return nil }
+    func imageForTitle(in controller: ActionViewController) -> UIImage? { return nil }
     
     func titleForPreparing(in controller: ActionViewController) -> String? { return "Preparing".localized }
     func titleForProcessing(in controller: ActionViewController) -> String? { return "Processing".localized }
@@ -84,8 +84,8 @@ extension ActionViewControllerDataSource {
 }
 
 protocol ActionViewControllerDelegate {
-    func close(_ controller: ActionViewController)
-    func ActionViewViewControllerDidAction(_ controller: ActionViewController)
+    func didCancel(_ controller: ActionViewController)
+    func didComplete(_ controller: ActionViewController)
 }
 
 internal class ActionViewContentView: UIView {
@@ -397,7 +397,7 @@ class ActionViewController: UIViewController {
         contentView.contentView = tableView
 
         titleLabel.text = dataSource?.title(in: self)
-        titleImageView.image = dataSource?.image(in: self)
+        titleImageView.image = dataSource?.imageForTitle(in: self)
         titleImageView.sizeToFit()
 
         actionButton.setImage(dataSource?.imageForAction(in: self), for: .normal)
@@ -411,12 +411,12 @@ class ActionViewController: UIViewController {
     }
     
     @IBAction func actionButtonDidTap(_ sender: Any) {
-        delegate?.ActionViewViewControllerDidAction(self)
+        delegate?.didComplete(self)
     }
     
     func close() {
         dismiss(animated: true, completion: nil)
-        delegate?.close(self)
+        delegate?.didCancel(self)
     }
 }
 
