@@ -263,28 +263,6 @@ extension AppDockViewController {
     func setViewControllerDisabled(_ disabled: Bool) {
         guard let dimmedView = appDockNavigationController?.dimmedView else { return }
         
-        if let appDockView = appDockNavigationController?.appDockContainerView,
-            let indexOfDimmedView = appDockNavigationController?.view.subviews.index(of: dimmedView),
-            let indexOfAppDockView = appDockNavigationController?.view.subviews.index(of: appDockView),
-            indexOfDimmedView > indexOfAppDockView {
-            appDockNavigationController?.view.exchangeSubview(at: indexOfDimmedView, withSubviewAt: indexOfAppDockView)
-        }
-        
-        UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            dimmedView.isHidden = !disabled
-        }, completion: nil)
-    }
-    
-    func setNavigationControllerDisabled(_ disabled: Bool) {
-        guard let dimmedView = appDockNavigationController?.dimmedView else { return }
-        
-        if let appDockView = appDockNavigationController?.appDockContainerView,
-            let indexOfDimmedView = appDockNavigationController?.view.subviews.index(of: dimmedView),
-            let indexOfAppDockView = appDockNavigationController?.view.subviews.index(of: appDockView),
-            indexOfDimmedView < indexOfAppDockView {
-            appDockNavigationController?.view.exchangeSubview(at: indexOfDimmedView, withSubviewAt: indexOfAppDockView)
-        }
-        
         UIView.transition(with: dimmedView, duration: 0.4, options: .transitionCrossDissolve, animations: {
             dimmedView.isHidden = !disabled
         }, completion: nil)
