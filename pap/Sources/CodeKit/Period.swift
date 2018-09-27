@@ -35,7 +35,7 @@ struct Period:Equatable, Hashable, Codable {
             case .day:
                 return "day".localized
             case .week:
-                return "week"
+                return "week".localized
             case .month:
                 return "month".localized
             case .year:
@@ -60,7 +60,7 @@ struct Period:Equatable, Hashable, Codable {
             case .second:
                 return numberOfUnits
             case .minute:
-                return numberOfUnits * 60*60
+                return numberOfUnits * 60
             case .hour:
                 return numberOfUnits * 60*60
             case .day:
