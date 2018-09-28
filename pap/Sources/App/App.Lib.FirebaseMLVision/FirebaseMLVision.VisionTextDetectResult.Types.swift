@@ -4,22 +4,10 @@
 //
 
 import Foundation
-import FirebaseMLVision
 import Photos
+import FirebaseMLVision
 
 //temp//temp//temp
-
-protocol VisionTextDetectResult {
-    var sourceVisionTexts:[VisionText]? {set get}
-
-    var plainText:String? {set get}
-
-    var contacts:[VisionTextContactParser.OutputType]? {set get}
-
-    var resultGroup: VisionTextResultGroup? {set get}
-}
-
-
 struct VisionTextPHAssetDetectResult: VisionTextDetectResult, AppTaskResultable {
     let asset:PHAsset
 

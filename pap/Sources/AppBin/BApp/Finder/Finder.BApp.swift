@@ -142,7 +142,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
             case SelectionPreset.contact.rawValue:
                 resultMessage = self.finalize_contact(items: items, asyncSignal)
             case SelectionPreset.action.rawValue:
-                resultMessage = self.finalize_action(items: items, asyncSignal)
+                resultMessage = items.handleAsAction(FinderApp.privateDefaults.quickActionOnly, asyncSignal)
             default:/**/
                 assert(false, "not supported preset \(String(describing: FinderApp.privateDefaults.selectionPreset))")
         }
@@ -300,7 +300,7 @@ extension FinderApp{
         return nil
     }
 
-    fileprivate func finalize_action(items: [VisionTextPHAssetDetectResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+    fileprivate func finalize_action(items: [VisionTextDetectResult], isQuickActionOnly:Bool, _ asyncSignal: AsyncWaitSignalable) -> String?{
         let currentQueue = DispatchQueue.current
 
         let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
@@ -308,8 +308,6 @@ extension FinderApp{
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
         })
-
-        let isQuickActionOnly = FinderApp.privateDefaults.quickActionOnly
 
         var StringSet = Set<String>()
         var DateSet = Set<Date>()
