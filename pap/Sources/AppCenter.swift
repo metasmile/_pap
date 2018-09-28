@@ -53,7 +53,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , AutoEditorApp.self
             , ExifGhostApp.self
             , SiriApp.self
-//            , MemoCamApp.self
+            , MemoCamApp.self
 //            , Stabilizer.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in

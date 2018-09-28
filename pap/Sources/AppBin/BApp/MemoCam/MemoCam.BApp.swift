@@ -19,10 +19,6 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
 }
 
 class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
-    class var isSupported: Bool {
-        return ARConfiguration.isSupported
-    }
-    
     static var taskType: AppTaskable.Type = _MemoCamAppTask.self
     static var paramType: AppTaskParamable.Type = AppAsset.self
     
@@ -117,19 +113,235 @@ fileprivate class PolygonLayer: CAShapeLayer {
     }
 }
 
-fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
-    lazy var view: UIView = {
-        let arView = AppUIARView(frame: .zero)
+private class ResultItemLayer: CAShapeLayer {
+    var result: VisionText?
+    
+    lazy var badgeLayer = CALayer()
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
+    }
+    
+    override init() {
+        super.init()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.arViewDidTap))
-        arView.addGestureRecognizer(tapGesture)
+        initialize()
+    }
+    
+    var highlighted: Bool = false {
+        didSet {
+            fillColor = highlighted ? UIColor(white: 1, alpha: 0.6).cgColor : UIColor.clear.cgColor
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private func initialize() {
+        strokeColor = UIColor.red.cgColor
+        fillColor = UIColor.clear.cgColor
+        lineWidth = 1
         
-        return arView
+        let badgeSize: CGFloat = 32
+        
+        addSublayer(badgeLayer)
+        badgeLayer.contentsGravity = kCAGravityResizeAspectFill
+        badgeLayer.cornerRadius = badgeSize / 2
+        badgeLayer.masksToBounds = true
+        badgeLayer.backgroundColor = UIColor.white.cgColor
+        badgeLayer.frame.size = CGSize(width: badgeSize, height: badgeSize)
+        badgeLayer.isHidden = true
+    }
+    
+    func showBadgeIcon(at point: CGPoint) {
+        badgeLayer.contents = R.image.finderBAppIcon()?.cgImage
+        badgeLayer.isHidden = false
+        badgeLayer.position = point
+    }
+}
+
+fileprivate protocol ResultPreviewViewDelegate {
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText)
+}
+
+fileprivate class ResultPreviewView: DesignableView {
+    lazy var imageView: UIImageView = UIImageView(frame: .zero)
+    var delegate: ResultPreviewViewDelegate?
+    
+    override func initialize() {
+        super.initialize()
+        
+        addSubview(imageView)
+        imageView.fitConstraints(to: self)
+        
+        imageView.contentMode = .scaleAspectFill
+        
+        layer.addSublayer(resultsLayer)
+    }
+    
+    lazy var resultsLayer: CALayer = {
+        let layer = CALayer()
+        return layer
     }()
     
-    private var arView: AppUIARView {
-        return view as! AppUIARView
+    var image: UIImage? {
+        set {
+            imageView.image = newValue
+            
+            if let _ = newValue {
+                
+            }
+            else {
+               resultsLayer.sublayers = nil
+            }
+        }
+        
+        get {
+            return imageView.image
+        }
     }
+    
+    func reloadResults(_ results: MemoCamAppResult) {
+        let visionTexts = results.sourceVisionTexts ?? []
+        
+        let async = AsyncSignal()
+        if let emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) {
+            
+        }
+        
+        DispatchQueue.main.async {
+            let disableActions = CATransaction.disableActions()
+            CATransaction.setDisableActions(true)
+            self.resultsLayer.sublayers = nil
+            
+            let previewSize = results.image.size.aspectFill(in: self.bounds.size)
+            self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
+            
+            for visionText in visionTexts {
+                self.drawResult(visionText, in: results.image.size)
+            }
+            CATransaction.setDisableActions(disableActions)
+        }
+    }
+    
+    private func drawResult(_ visionText: VisionText, in size: CGSize) {
+        let path = UIBezierPath()
+        for point in visionText.cornerPoints.map({ $0.cgPointValue }) {
+            if path.isEmpty {
+                path.move(to: point)
+            }
+            else {
+                path.addLine(to: point)
+            }
+        }
+        path.apply(CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height))
+        path.close()
+        
+        let layer = ResultItemLayer()
+        layer.result = visionText
+        layer.path = path.cgPath
+        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x, bounds.width - 30)), y: max(30, min(path.currentPoint.y, bounds.height - 30))))
+        
+        resultsLayer.addSublayer(layer)
+    }
+    
+    private var currentHitLayer: ResultItemLayer?
+    private func resultItemLayer(at point: CGPoint) -> ResultItemLayer? {
+        let layerLocation = layer.convert(point, to: resultsLayer)
+        for layer in resultsLayer.sublayers?.compactMap({ $0 as? ResultItemLayer }) ?? [] {
+            if layer.path?.contains(layerLocation) == true {
+//            if layer.path?.boundingBoxOfPath.contains(layerLocation) == true {
+                return layer
+            }
+        }
+        return nil
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let _ = resultItemLayer(at: point) {
+            return self
+        }
+        else {
+            return nil
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        guard let point = touches.first?.location(in: self) else { return }
+        
+        currentHitLayer = resultItemLayer(at: point)
+        currentHitLayer?.highlighted = true
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        guard let point = touches.first?.location(in: self), let boundingBoxOfPath = resultItemLayer(at: point)?.path?.boundingBoxOfPath else {
+            currentHitLayer?.highlighted = false
+            return
+        }
+        currentHitLayer?.highlighted = (currentHitLayer?.path?.boundingBoxOfPath.intersects(boundingBoxOfPath) == true)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
+        guard let point = touches.first?.location(in: self) else { return }
+        
+        guard currentHitLayer == resultItemLayer(at: point) else {
+            self.touchesCancelled(touches, with: event)
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIFeedback.select()
+        }
+        
+        if let visionText = currentHitLayer?.result {
+            delegate?.resultPreviewView(self, didSelectItemWith: visionText)
+        }
+        
+        currentHitLayer?.highlighted = false
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        
+        currentHitLayer?.highlighted = false
+        currentHitLayer = nil
+    }
+}
+
+fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
+    lazy var cameraView: CameraView = {
+        let cameraView = CameraView(frame: .zero)
+        cameraView.clipsToBounds = true
+        cameraView.contentMode = .scaleAspectFill
+        cameraView.setUp()
+        return cameraView
+    }()
+    
+    lazy var view: UIView = {
+        let view = UIView(frame: .zero)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cameraViewDidTap))
+        cameraView.addGestureRecognizer(tapGesture)
+        
+        view.addSubview(cameraView)
+        cameraView.fitConstraints(to: view)
+        
+        cameraView.capturePreset = .high
+        
+        return view
+    }()
+    
+    lazy var resultPreviewView: ResultPreviewView = {
+        let view = ResultPreviewView(frame: .zero)
+        return view
+    }()
     
     internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
         override func action(forKey event: String) -> CAAction? {
@@ -168,30 +380,24 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     func didSetContentView(_ view: UIView, dock: AppDock) {
         debugLayer.removeFromSuperlayer()
         
-        arView.previewView.layer.addSublayer(debugLayer)
-        
-        var previewSize = self.arView.previewSize
-        var aspectRatio = CGSize.zero
+        cameraView.layer.addSublayer(debugLayer)
         
         let detectTextRequest = VNDetectTextRectanglesRequest { (request, error) in
             guard let observations = request.results as? [VNTextObservation] else { return }
             
             DispatchQueue.main.async {
-                previewSize = aspectRatio.aspectFill(in: self.arView.previewSize)
+                let previewSize = self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size)
                 
                 let path = UIBezierPath()
                 for observation in observations {
-                    // Strange release build error on Xcode 9.4. but it works also with code 10.
-                    for box in observation.characterBoxes ?? []{
-                        let polygon = UIBezierPath()
-                        polygon.move(to: box.topLeft)
-                        polygon.addLine(to: box.topRight)
-                        polygon.addLine(to: box.bottomRight)
-                        polygon.addLine(to: box.bottomLeft)
-                        polygon.close()
-                        
-                        path.append(polygon)
-                    }
+                    let polygon = UIBezierPath()
+                    polygon.move(to: observation.topLeft)
+                    polygon.addLine(to: observation.topRight)
+                    polygon.addLine(to: observation.bottomRight)
+                    polygon.addLine(to: observation.bottomLeft)
+                    polygon.close()
+                    
+                    path.append(polygon)
                 }
                 
                 let transform = CGAffineTransform.identity
@@ -202,69 +408,43 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 path.apply(transform)
                 
                 self.debugLayer.path = path.cgPath
-                self.debugLayer.frame = CGRect(origin: CGPoint(x: (self.arView.previewSize.width - previewSize.width) / 2, y: (self.arView.previewSize.height - previewSize.height) / 2), size: previewSize)
+                self.debugLayer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
             }
         }
         
-        arView.startSession()
-        arView.updateRenderer = { renderer, frame in
-            autoreleasepool {
-                switch frame.camera.trackingState {
-                case .limited(let reason):
-                    switch reason {
-                    case .excessiveMotion:
-                        print("TRACKING LIMITED - EXCESSIVE MOTION")
-                    default: break
-                    }
-                    return
-                case .normal: break
-                default: return
+        cameraView.startSession()
+        cameraView.captureVideoDataDidUpdate = { sampleBuffer in
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            
+            let deviceOrientation = self.cameraView.deviceMotion.orientation
+            
+            if self.needsCaptureImage {
+                self.needsCaptureImage = false
+                
+                self.cameraView.performShutterAnimation()
+                
+                let ciImage = CIImage(cvPixelBuffer: pixelBuffer).oriented(forExifOrientation: Int32(deviceOrientation.exifOrientation(frontFacing: false).rawValue))
+                
+                var image: UIImage?
+                if let cgImage = CIContext(options: nil).createCGImage(ciImage, from: ciImage.extent) {
+                    image = UIImage(cgImage: cgImage)
                 }
                 
-                let deviceOrientation = self.arView.deviceMotion.orientation
-                if deviceOrientation.isPortrait {
-                    aspectRatio = CGSize(width: frame.camera.imageResolution.height, height: frame.camera.imageResolution.width)
-                }
-                else {
-                    aspectRatio = frame.camera.imageResolution
-                }
-                
-                //STEP 1 - find text rectangle when stable movement
-                
-                let options = [VNImageOption.cameraIntrinsics: frame.camera.intrinsics]
-                try? VNImageRequestHandler(cvPixelBuffer: frame.capturedImage, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
-                
-                //STEP 2 - find text 
-                
-                let image = renderer.snapshot(atTime: frame.timestamp, with: previewSize, antialiasingMode: .none)
-                guard let _ = self.detector.detectResult(image: image, AsyncSignal()) else { return }
-                
-                //STEP 3 - merge text with rect
-                
-//                result.sourceVisionTexts?.forEach {
-//                    let bounds = $0.frame
-//                    let normalizedBounds = bounds.normalized(by: image.size)
-//
-//                    let polygon = UIBezierPath()
-//
-//                    guard
-//                        let firstPoint = $0.cornerPoints.first?.cgPointValue,
-//                        normalizedBounds.width * normalizedBounds.height > 0.01
-//                    else { return }
-//
-//                    polygon.move(to: firstPoint)
-//                    $0.cornerPoints[1...].forEach {
-//                        polygon.addLine(to: $0.cgPointValue)
-//                    }
-//                    polygon.close()
-//                }
+                self.detect(with: image)
             }
+            
+            var options: [VNImageOption: Any] = [:]
+            if let cameraIntrinsicMatrix = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) {
+                options[VNImageOption.cameraIntrinsics] = cameraIntrinsicMatrix
+            }
+            
+            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
         }
     }
     
     func willRemoveContentView() {
-        arView.updateRenderer = nil
-        arView.stopSession()
+        cameraView.captureVideoDataDidUpdate = nil
+        cameraView.stopSession()
     }
     
     var delegate: AppDockDelegate? {
@@ -279,43 +459,73 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
     }
     
-    @objc private func arViewDidTap(sender: UITapGestureRecognizer) {
-        DispatchQueue(label: "nodeQueue", qos: .utility).async {
-            self.arView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
+    private var currentTargetImage: UIImage? {
+        didSet {
+            DispatchQueue.main.async {
+                self.resultPreviewView.image = self.currentTargetImage
+                
+                UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+                    if let _ = self.currentTargetImage {
+                        self.cameraView.stopSession()
+                        
+                        self.view.addSubview(self.resultPreviewView)
+                        self.resultPreviewView.fitConstraints(to: self.view)
+                        self.resultPreviewView.delegate = self
+                    }
+                    else {
+                        self.cameraView.startSession()
+                        self.resultPreviewView.removeFromSuperview()
+                        self.resultPreviewView.delegate = nil
+                    }
+                }) { (completed) in
+                    
+                }
+            }
         }
     }
     
-    func addPlane(_ rect: CGRect) {
-        let center = CGPoint(x: rect.midX, y: rect.midY)
-        let topLeft = CGPoint(x: rect.minX, y: rect.minY)
-        let topRight = CGPoint(x: rect.maxX, y: rect.minY)
-        let bottomLeft = CGPoint(x: rect.minX, y: rect.maxY)
-//        let bottomRight = CGPoint(x: rect.maxX, y: rect.maxY)
+    private var needsCaptureImage = false
+    private func setNeedsCaptureImage() {
+        needsCaptureImage = true
+    }
+    
+    @objc private func cameraViewDidTap(sender: UITapGestureRecognizer) {
+        UIFeedback.impact(.medium)
         
-        guard
-            let hitTestTopLeft = arView.hitTest(at: topLeft, types: .featurePoint),
-            let hitTestTopRight = arView.hitTest(at: topRight, types: .featurePoint),
-            let hitTestBottomLeft = arView.hitTest(at: bottomLeft, types: .featurePoint),
-//            let hitTestBottomRight = arView.hitTest(at: bottomRight, types: .featurePoint),
-            let hitTestCenter = arView.hitTest(at: center, types: .featurePoint)
-        else { return }
-        
-        let plane = SCNPlane(width: CGFloat(hitTestTopLeft.worldTransform.translation.x.distance(to: hitTestTopRight.worldTransform.translation.x).magnitude), height: CGFloat(hitTestBottomLeft.worldTransform.translation.y.distance(to: hitTestTopLeft.worldTransform.translation.y)).magnitude)
-        plane.firstMaterial?.diffuse.contents = UIColor.green
-        
-        let node = SCNNode(geometry: plane)
-        
-        if let anchor = arView.hitTest(at: center)?.anchor {
-            node.transform = SCNMatrix4(anchor.transform)
-            plane.firstMaterial?.diffuse.contents = UIColor.red
+        if let _ = currentTargetImage {
+            currentTargetImage = nil
         }
+        else {
+            setNeedsCaptureImage()
+        }
+    }
+    
+    private func detect(with image: UIImage?) {
+        currentTargetImage = image
         
-        node.eulerAngles.x = -.pi / 2
-        
-        let position = SCNVector3Make(hitTestCenter.worldTransform.columns.3.x, hitTestCenter.worldTransform.columns.3.y, hitTestCenter.worldTransform.columns.3.z)
-        node.position = position
-        
-        arView.scene.rootNode.addChildNode(node)
+        if let image = image {
+            let async = AsyncSignal()
+            if let results = detector.detectResult(image: image, async) {
+                resultPreviewView.reloadResults(results)
+            }
+        }
+    }
+}
+
+extension MemoCamAppDockContent: ResultPreviewViewDelegate {
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText) {
+        DispatchQueue.main.async{
+            let actionSheet = UIAlertController.actionSheet(title: nil, message: visionText.text.trimmed)
+            actionSheet.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
+                UIActivityViewController.share(activityItems: [visionText.text], excludedActivityTypes: nil) { _, _, _, _ in
+                    
+                }
+            }))
+            actionSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { (action) in
+                
+            }))
+            UIViewController.present(actionSheet, animated: true)
+        }
     }
 }
 
@@ -343,6 +553,14 @@ class AppUIARView: UIView {
         super.init(coder: aDecoder)
         initialize()
     }
+    
+    private lazy var orientationTrackingConfiguration: AROrientationTrackingConfiguration = {
+        let configuration = AROrientationTrackingConfiguration()
+        if #available(iOS 11.3, *) {
+            configuration.isAutoFocusEnabled = true
+        }
+        return configuration
+    }()
     
     private lazy var worldTrackingConfiguration: ARWorldTrackingConfiguration = {
         let configuration = ARWorldTrackingConfiguration()
@@ -389,7 +607,7 @@ extension AppUIARView {
         
         previewView.session.delegateQueue = renderQueue
         previewView.session.delegate = self
-        previewView.session.run(worldTrackingConfiguration, options: [.resetTracking, .removeExistingAnchors])
+        previewView.session.run(orientationTrackingConfiguration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     func stopSession() {

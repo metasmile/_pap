@@ -47,6 +47,9 @@ class CameraView: UIView, PropertyWatchable {
     var captureMetadataComment:String?
 
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    
+    private lazy var captureVideoDataQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    var captureVideoDataDidUpdate: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
 
     private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
     private var cameraPointOfInterestLayer: CAShapeLayer?
@@ -84,6 +87,22 @@ class CameraView: UIView, PropertyWatchable {
             self.configureSession()
         }
     }
+    
+    var capturePreset: AVCaptureSession.Preset = .photo {
+        didSet {
+            captureSession?.sessionPreset = capturePreset
+        }
+    }
+    
+    private var captureVideoDimension: CMVideoDimensions? {
+        guard let formatDescription = currentVideoDeviceInput?.device.activeFormat.formatDescription else { return nil }
+        return CMVideoFormatDescriptionGetDimensions(formatDescription)
+    }
+    
+    var captureVideoSize: CGSize {
+        guard let videoDimensions = captureVideoDimension else { return .zero }
+        return CGSize(width: Int(videoDimensions.height), height: Int(videoDimensions.width))
+    }
 
     private func configureSession() {
         captureSession = AVCaptureSession()
@@ -113,8 +132,17 @@ class CameraView: UIView, PropertyWatchable {
 
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
 
-        captureSession.sessionPreset = .photo
+        captureSession.sessionPreset = capturePreset
         captureSession.addOutput(capturePhotoOutput)
+        
+        let captureVideoDataOutput = AVCaptureVideoDataOutput()
+        captureVideoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
+        captureVideoDataOutput.setSampleBufferDelegate(self, queue: captureVideoDataQueue)
+        captureVideoDataOutput.alwaysDiscardsLateVideoFrames = true
+        
+        if captureSession.canAddOutput(captureVideoDataOutput) {
+            captureSession.addOutput(captureVideoDataOutput)
+        }
 
         commitConfiguration()
 
@@ -138,7 +166,7 @@ class CameraView: UIView, PropertyWatchable {
             self.captureSession?.stopRunning()
         }
     }
-
+    
     func beginConfiguration() {
         captureSession?.beginConfiguration()
     }
@@ -287,6 +315,16 @@ class CameraView: UIView, PropertyWatchable {
     }
 }
 
+extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        self.captureVideoDataDidUpdate?(sampleBuffer)
+    }
+}
+
 extension CameraView {
     var cameraPosition: AVCaptureDevice.Position {
         get {
@@ -379,6 +417,11 @@ extension CameraView {
 }
 
 extension CameraView {
+    func pointOfInterest(at location: CGPoint) -> CGPoint {
+        let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
+        return cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
+    }
+    
     func updatePointOfInterest(at location: CGPoint, showsGuide: Bool = true) {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         let pointOfInterest = cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
