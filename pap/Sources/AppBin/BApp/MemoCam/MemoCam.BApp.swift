@@ -53,39 +53,23 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
     }
 }
 
-private struct MemoCamAppResult: AppTaskResultable {
-    fileprivate let image: UIImage
-    
-    init(image: UIImage){
-        self.image = image
-    }
-    
-    fileprivate var sourceVisionTexts:[VisionText]?
-    
-    fileprivate var plainText:String?
-    
-    fileprivate var contacts:[VisionTextContactParser.OutputType]?
-    
-    fileprivate var resultGroup: VisionTextResultGroup?
-}
-
 
 import FirebaseMLVision
 
 private struct MemoCamAppDetector {
     private let vision = Vision.vision()
     private var textDetector: VisionTextDetector
-    
+
     init() {
         textDetector = vision.textDetector()
     }
-    
-    fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> MemoCamAppResult? {
+
+    fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
         guard let visionTexts = self.textDetector.detect(with: image, async) else {
             return nil
         }
         
-        var result = MemoCamAppResult(image: image)
+        var result = VisionTextImageDetectResult(image: image)
         result.sourceVisionTexts = visionTexts
         result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
         
@@ -202,7 +186,7 @@ fileprivate class ResultPreviewView: DesignableView {
         }
     }
     
-    func reloadResults(_ results: MemoCamAppResult) {
+    func reloadResults(_ results: VisionTextImageDetectResult) {
         let visionTexts = results.sourceVisionTexts ?? []
         
         let async = AsyncSignal()
@@ -515,6 +499,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText) {
         DispatchQueue.main.async{
+
             let actionSheet = UIAlertController.actionSheet(title: nil, message: visionText.text.trimmed)
             actionSheet.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
                 UIActivityViewController.share(activityItems: [visionText.text], excludedActivityTypes: nil) { _, _, _, _ in

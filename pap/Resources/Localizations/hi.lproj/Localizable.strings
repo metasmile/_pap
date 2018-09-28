@@ -312,7 +312,7 @@
 "Finding Contacts ... %@ " = "संपर्क ढूंढ रहा है ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "टॉर्च";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "विमान संख्या";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "प्रारूप";
@@ -404,7 +404,7 @@
 "New Contact" = "नया कॉन्ट्रैक्ट";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "नयी घटना";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "नया नंबर";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "नया फोन नंबर";

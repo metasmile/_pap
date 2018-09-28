@@ -312,7 +312,7 @@
 "Finding Contacts ... %@ " = "Find kontakter ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Lommelygte";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flynummer";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Formater";
@@ -404,7 +404,7 @@
 "New Contact" = "Ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Ny begivenhed";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Nyt nummer";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Nye telefonnumre";

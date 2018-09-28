@@ -312,7 +312,7 @@
 "Finding Contacts ... %@ " = "Pronalaženje kontakata ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "baterija";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Broj leta";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "formati";
@@ -404,7 +404,7 @@
 "New Contact" = "Novi kontakt";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Novi događaj";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Novi broj";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Novi telefonski brojevi";

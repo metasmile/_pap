@@ -312,7 +312,7 @@
 "Finding Contacts ... %@ " = "מציאת אנשי קשר ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "פנס";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "מספר טיסה";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "פורמטים";
@@ -404,7 +404,7 @@
 "New Contact" = "איש קשר חדש";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "אירוע חדש";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "מספר חדש";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "מספרי טלפון חדשים";

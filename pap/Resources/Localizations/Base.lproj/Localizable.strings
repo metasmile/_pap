@@ -142,7 +142,7 @@
 "Add New Contact" = "Add New Contact";
 /* Generated from genl10n: Finder.BApp.swift */
 "Add an Event" = "Add an Event";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
@@ -232,7 +232,7 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Custom";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -250,7 +250,7 @@
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift */
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
@@ -276,7 +276,7 @@
 "Finding Contacts ... %@ " = "Finding Contacts ... %@ ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Flashlight" = "Flashlight";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
 /* Generated from genl10n: Converter.AppDockContent.swift, Finder.BApp.swift */
 "Formats" = "Formats";
@@ -368,7 +368,7 @@
 "New Contact" = "New Contact";
 /* Generated from genl10n: Finder.BApp.swift */
 "New Event" = "New Event";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift */
 "New Number" = "New Number";
 /* Generated from genl10n: PhoneCalls.BApp.swift, PhoneCalls.BApp.swift */
 "New Phone Numbers" = "New Phone Numbers";

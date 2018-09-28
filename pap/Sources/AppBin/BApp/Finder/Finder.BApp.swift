@@ -83,7 +83,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
         return nil
     }
 
-    fileprivate var preheatCachedResults = [String:FinderAppResult]()
+    fileprivate var preheatCachedResults = [String:VisionTextPHAssetDetectResult]()
     private var preheatingFrontQueueLabel:String?
 
     func disposePreheatingCache(){
@@ -105,13 +105,13 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
 
         preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
 
-        var preheatedResult:FinderAppResult?
+        var preheatedResult:VisionTextPHAssetDetectResult?
 
         if let result = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
             preheatedResult = result
         }else{
             if let image = item.asset.asUIImage{
-                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? FinderAppResult(asset: item.asset)
+                preheatedResult = self.detector.detectResult(asset: item.asset, image: image, async) ?? VisionTextPHAssetDetectResult(asset: item.asset)
                 preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = preheatedResult
             }
         }
@@ -132,7 +132,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let items = result
                 .filter { $0.info.state == .completed }
-                .compactMap { $0.result as? FinderAppResult }
+                .compactMap { $0.result as? VisionTextPHAssetDetectResult }
 
         var resultMessage:String?
 
@@ -181,27 +181,10 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
 
 private typealias FinderAppParam = AppAsset
 
-private struct FinderAppResult: AppTaskResultable {
-    fileprivate let asset:PHAsset
-
-    init(asset:PHAsset){
-        self.asset = asset
-    }
-
-    fileprivate var sourceVisionTexts:[VisionText]?
-
-    fileprivate var plainText:String?
-
-    fileprivate var contacts:[VisionTextContactParser.OutputType]?
-
-    fileprivate var resultGroup: VisionTextResultGroup?
-}
-
-
 
 extension FinderApp{
 
-    fileprivate func finalize_plaintext(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+    fileprivate func finalize_plaintext(items: [VisionTextPHAssetDetectResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
         let strings = items.compactMap{ $0.plainText }
 
         if strings.count > 0 {
@@ -225,8 +208,8 @@ extension FinderApp{
         return "Could not detect any text.".localized
     }
 
-    fileprivate func finalize_contact(items _items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
-        let items = _items.filter { (item: FinderAppResult) -> Bool in
+    fileprivate func finalize_contact(items _items: [VisionTextPHAssetDetectResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+        let items = _items.filter { (item: VisionTextPHAssetDetectResult) -> Bool in
             if let contacts = item.contacts{
                 return contacts.count>0
             }
@@ -317,7 +300,7 @@ extension FinderApp{
         return nil
     }
 
-    fileprivate func finalize_action(items: [FinderAppResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
+    fileprivate func finalize_action(items: [VisionTextPHAssetDetectResult], _ asyncSignal: AsyncWaitSignalable) -> String?{
         let currentQueue = DispatchQueue.current
 
         let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
@@ -961,7 +944,7 @@ private struct FinderAppDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate static func isResultFilled(result:FinderAppResult?) -> Bool{
+    fileprivate static func isResultFilled(result:VisionTextPHAssetDetectResult?) -> Bool{
         let preset = FinderApp.privateDefaults.selectionPreset
 
         if preset == SelectionPreset.plaintext.rawValue{
@@ -980,7 +963,7 @@ private struct FinderAppDetector{
     }
 
 
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> FinderAppResult? {
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
         guard let visionTexts = vision.textDetector().detect(with: image, async) else {
             return nil
         }
@@ -989,7 +972,7 @@ private struct FinderAppDetector{
         var defaults = FinderApp.privateDefaults
         let selectedParserTypes = Set((defaults.selectedParserCollection.values).reduce([],+))
 
-        var result = FinderAppResult(asset: asset)
+        var result = VisionTextPHAssetDetectResult(asset: asset)
 
         result.sourceVisionTexts = visionTexts
 
