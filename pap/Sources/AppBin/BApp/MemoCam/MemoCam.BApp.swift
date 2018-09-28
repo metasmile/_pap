@@ -64,15 +64,30 @@ private struct MemoCamAppDetector {
         textDetector = vision.textDetector()
     }
 
+
     fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
         guard let visionTexts = self.textDetector.detect(with: image, async) else {
             return nil
         }
-        
+
         var result = VisionTextImageDetectResult(image: image)
         result.sourceVisionTexts = visionTexts
-        result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
-        
+
+        var resultGroup = VisionTextResultGroup()
+
+        resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+        resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+        if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
+            //excluding mail addresses
+            resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
+        }
+        resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+        resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
+        resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
+
+        result.resultGroup = resultGroup
+
+
         return result
     }
 }
@@ -498,19 +513,30 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText) {
-        DispatchQueue.main.async{
 
-            let actionSheet = UIAlertController.actionSheet(title: nil, message: visionText.text.trimmed)
-            actionSheet.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
-                UIActivityViewController.share(activityItems: [visionText.text], excludedActivityTypes: nil) { _, _, _, _ in
-                    
-                }
-            }))
-            actionSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { (action) in
-                
-            }))
-            UIViewController.present(actionSheet, animated: true)
+        guard let image = currentTargetImage else{
+            return
         }
+
+        DispatchQueue.global(qos: .userInteractive).async{
+            let asyncSignal = AsyncSignal()
+
+            if let results = self.detector.detectResult(image: image, asyncSignal) {
+
+                if let resultMessage = [results].handleAsAction(true, asyncSignal){
+
+                    asyncSignal.begin()
+                    DispatchQueue.main.async {
+                        UIAlertController.alert(resultMessage, completion:{ _ in
+                            asyncSignal.end()
+                        })
+                    }
+                    asyncSignal.waitUntilEnd()
+                }
+
+            }
+        }
+
     }
 }
 
