@@ -176,7 +176,7 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
             }
         }
 
-        return flightNumbers
+        return !flightNumbers.isEmpty ? flightNumbers : nil
     }
 
 }
