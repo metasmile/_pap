@@ -116,7 +116,7 @@ fileprivate class PolygonLayer: CAShapeLayer {
 }
 
 private class ResultItemLayer: CAShapeLayer {
-    var result: VisionText?
+    var result: ResultPreviewItem?
     
     lazy var badgeLayer = CALayer()
     
@@ -157,14 +157,37 @@ private class ResultItemLayer: CAShapeLayer {
     }
     
     func showBadgeIcon(at point: CGPoint) {
-        badgeLayer.contents = R.image.finderBAppIcon()?.cgImage
+        badgeLayer.contents = (result?.preferredParserIcon() ?? R.image.finderBAppIcon())?.cgImage
         badgeLayer.isHidden = false
         badgeLayer.position = point
     }
 }
 
 fileprivate protocol ResultPreviewViewDelegate {
-    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText)
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem)
+}
+
+fileprivate struct ResultPreviewItem {
+    var visionText: VisionText
+    var resultGroup: VisionTextResultGroup
+    
+    init(visionText: VisionText, resultGroup: VisionTextResultGroup) {
+        self.visionText = visionText
+        self.resultGroup = resultGroup
+    }
+    
+    func preferredParserIcon() -> UIImage? {
+        guard resultGroup.isFilled else { return nil }
+        
+        if resultGroup.phoneNumbers?.count ?? 0 > 0 { return R.image.ico_action_phonenumber() }
+        else if resultGroup.emails?.count ?? 0 > 0 { return R.image.ico_action_email() }
+        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.ico_action_address() }
+        else if resultGroup.dates?.count ?? 0 > 0 { return R.image.ico_action_date() }
+        else if resultGroup.urls?.count ?? 0 > 0 { return R.image.ico_action_url() }
+        else if resultGroup.flights?.count ?? 0 > 0 { return R.image.ico_action_flightnumber() }
+        
+        return nil
+    }
 }
 
 fileprivate class ResultPreviewView: DesignableView {
@@ -204,7 +227,7 @@ fileprivate class ResultPreviewView: DesignableView {
         }
     }
     
-    private var resultPreviewItems = [(visionText: VisionText, resultGroup: VisionTextResultGroup)]()
+    private var resultPreviewItems = [ResultPreviewItem]()
     
     func reloadResults(_ results: VisionTextImageDetectResult) {
         let visionTexts = results.sourceVisionTexts ?? []
@@ -217,7 +240,7 @@ fileprivate class ResultPreviewView: DesignableView {
             for visionText in visionTexts {
                 let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionText], async)
                 guard resultGroup.isFilled else { continue }
-                self.resultPreviewItems.append((visionText: visionText, resultGroup: resultGroup))
+                self.resultPreviewItems.append(ResultPreviewItem(visionText: visionText, resultGroup: resultGroup))
             }
             
             DispatchQueue.main.async {
@@ -229,16 +252,16 @@ fileprivate class ResultPreviewView: DesignableView {
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
                 for item in self.resultPreviewItems {
-                    self.drawResult(item.visionText, in: results.image.size)
+                    self.drawResult(item, in: results.image.size)
                 }
                 CATransaction.setDisableActions(disableActions)
             }
         }
     }
     
-    private func drawResult(_ visionText: VisionText, in size: CGSize) {
+    private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
         let path = UIBezierPath()
-        for point in visionText.cornerPoints.map({ $0.cgPointValue }) {
+        for point in resultPreviewItem.visionText.cornerPoints.map({ $0.cgPointValue }) {
             if path.isEmpty {
                 path.move(to: point)
             }
@@ -250,9 +273,9 @@ fileprivate class ResultPreviewView: DesignableView {
         path.close()
         
         let layer = ResultItemLayer()
-        layer.result = visionText
+        layer.result = resultPreviewItem
         layer.path = path.cgPath
-        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x, bounds.width - 30)), y: max(30, min(path.currentPoint.y, bounds.height - 30))))
+        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x - 10, bounds.width - 30)), y: max(30, min(path.currentPoint.y - 10, bounds.height - 30))))
         
         resultsLayer.addSublayer(layer)
     }
@@ -311,8 +334,8 @@ fileprivate class ResultPreviewView: DesignableView {
             UIFeedback.select()
         }
         
-        if let visionText = currentHitLayer?.result {
-            delegate?.resultPreviewView(self, didSelectItemWith: visionText)
+        if let item = currentHitLayer?.result {
+            delegate?.resultPreviewView(self, didSelectItemWith: item)
         }
         
         currentHitLayer?.highlighted = false
@@ -524,7 +547,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 }
 
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
-    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith visionText: VisionText) {
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem) {
 
         guard let image = currentTargetImage else{
             return
