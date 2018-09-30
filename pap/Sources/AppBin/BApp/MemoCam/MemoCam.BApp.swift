@@ -53,6 +53,23 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
     }
 }
 
+extension VisionTextResultGroup {
+    static func createResultGroup(with visionTexts: [VisionText], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
+        var resultGroup = VisionTextResultGroup()
+        
+        resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+        resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+        if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
+            //excluding mail addresses
+            resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
+        }
+        resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+        resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
+        resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
+        
+        return resultGroup
+    }
+}
 
 import FirebaseMLVision
 
@@ -72,21 +89,7 @@ private struct MemoCamAppDetector {
 
         var result = VisionTextImageDetectResult(image: image)
         result.sourceVisionTexts = visionTexts
-
-        var resultGroup = VisionTextResultGroup()
-
-        resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
-        resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
-        if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
-            //excluding mail addresses
-            resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
-        }
-        resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
-        resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
-        resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
-
-        result.resultGroup = resultGroup
-
+        result.resultGroup = VisionTextResultGroup.createResultGroup(with: visionTexts, async)
 
         return result
     }
@@ -201,26 +204,35 @@ fileprivate class ResultPreviewView: DesignableView {
         }
     }
     
+    private var resultPreviewItems = [(visionText: VisionText, resultGroup: VisionTextResultGroup)]()
+    
     func reloadResults(_ results: VisionTextImageDetectResult) {
         let visionTexts = results.sourceVisionTexts ?? []
         
         let async = AsyncSignal()
-        if let emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) {
-            
-        }
         
-        DispatchQueue.main.async {
-            let disableActions = CATransaction.disableActions()
-            CATransaction.setDisableActions(true)
-            self.resultsLayer.sublayers = nil
-            
-            let previewSize = results.image.size.aspectFill(in: self.bounds.size)
-            self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.resultPreviewItems.removeAll()
             
             for visionText in visionTexts {
-                self.drawResult(visionText, in: results.image.size)
+                let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionText], async)
+                guard resultGroup.isFilled else { continue }
+                self.resultPreviewItems.append((visionText: visionText, resultGroup: resultGroup))
             }
-            CATransaction.setDisableActions(disableActions)
+            
+            DispatchQueue.main.async {
+                let disableActions = CATransaction.disableActions()
+                CATransaction.setDisableActions(true)
+                self.resultsLayer.sublayers = nil
+                
+                let previewSize = results.image.size.aspectFill(in: self.bounds.size)
+                self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
+                
+                for item in self.resultPreviewItems {
+                    self.drawResult(item.visionText, in: results.image.size)
+                }
+                CATransaction.setDisableActions(disableActions)
+            }
         }
     }
     
