@@ -93,8 +93,8 @@ class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, Gif
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .stillImage
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .stillImage
     }
 }
 
@@ -151,8 +151,8 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay, cancellation: cancellation, progressHandler: progressHandler)
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video && source.asset.duration < 15
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaType == .video && asset.duration < 15
     }
 }
 
@@ -169,8 +169,8 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .livePhoto
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .livePhoto
     }
 }
 
@@ -185,8 +185,8 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }
 
@@ -204,8 +204,8 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, cancellation: cancellation, progressHandler: progressHandler)
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .burst
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .burst
     }
 }
 

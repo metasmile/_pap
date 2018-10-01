@@ -78,8 +78,8 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .animatedGIF
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .animatedGIF
     }
 }
 
@@ -97,8 +97,8 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .burst
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .burst
     }
 }
 
@@ -163,7 +163,7 @@ struct MovConverter_LivePhoto: MovConverter {
         return resultURL
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .livePhoto
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .livePhoto
     }
 }

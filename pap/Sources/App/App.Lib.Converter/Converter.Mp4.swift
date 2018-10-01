@@ -61,8 +61,8 @@ class MP4Converter_Mov: OptionableConverterBase<MP4ConverterOption>, MP4Converte
         return url
     }
     
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video && source.asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaType == .video && asset.uniformTypeIdentifier != (kUTTypeMPEG4 as String)
     }
 }
 
@@ -77,7 +77,7 @@ class MP4Converter_Timelapse: OptionableConverterBase<MP4ConverterOption>, MP4Co
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }

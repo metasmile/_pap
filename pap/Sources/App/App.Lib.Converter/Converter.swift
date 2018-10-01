@@ -93,7 +93,7 @@ protocol Converter {
 
     static var direction: ConvertingDirection {get}
 
-    static func canPerformWith(source:AppAsset) -> Bool
+    static func canPerformWith(asset: PHAsset) -> Bool
 
     func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any?
 }
@@ -114,7 +114,7 @@ struct ConverterSpec{
         let matchedConverters = collection.filter { $0.direction==direction }
         assert(matchedConverters.count==1, "Duplicated converter worker direction found. \(matchedConverters)")
 
-        if let worker = matchedConverters.first, worker.canPerformWith(source: asset) {
+        if let worker = matchedConverters.first, worker.canPerformWith(asset: asset.asset) {
             return worker.init()
         }
 
@@ -270,7 +270,7 @@ extension Converter{
                 var resultUrl: URL? = nil
                 if let image = response.1, let data = UIImageJPEGRepresentation(image, CGFloat(imageQuality)) {
 
-                    let identifier = "\(param.filenamePrefix)_\(source.asset.localIdentifierWithoutSplitter)_burst_\(idx)"
+                    let identifier = "\(param.filenamePrefix)_\(asset.localIdentifierWithoutSplitter)_burst_\(idx)"
                     let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
                     do {
                         try data.write(to: url)

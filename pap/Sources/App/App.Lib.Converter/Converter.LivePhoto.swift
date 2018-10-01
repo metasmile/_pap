@@ -42,8 +42,8 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .animatedGIF
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .animatedGIF
     }
 
 }
@@ -82,8 +82,8 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
         return nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.imageType == .burst
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .burst
     }
 }
 
@@ -116,8 +116,8 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
         return succeed ? ConverterVoidReturnValue : nil
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaType == .video && source.asset.duration < 15
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaType == .video && asset.duration < 15
     }
 }
 
@@ -131,7 +131,7 @@ struct LivePhotoConverter_Timelapse: LivePhotoConverter {
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaSubtypes.contains(.videoTimelapse)
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaSubtypes.contains(.videoTimelapse)
     }
 }

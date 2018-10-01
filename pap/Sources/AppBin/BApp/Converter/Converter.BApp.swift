@@ -46,6 +46,7 @@ public class ConverterApp: BApp,
         ConfigurableApp, _ConfigurableApp,
         ChargeableApp,
         FinalizableApp,
+        PreheatableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
@@ -91,7 +92,7 @@ public class ConverterApp: BApp,
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        return currentConverter?.canPerformWith(source: item) ?? true
+        return currentConverter?.canPerformWith(asset: item.asset) ?? true
     }
 
     public var numberOfItemsShouldSelect: Int? {
@@ -118,6 +119,10 @@ public class ConverterApp: BApp,
         self.presentUIAlertControllerAndWait(items: items, asyncSignal)
 
         return result
+    }
+
+    public func performPreheating(item: PHAssetParamable, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
+        return self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil)) ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 }
 

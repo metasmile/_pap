@@ -73,8 +73,8 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
         return result
     }
 
-    static func canPerformWith(source: AppAsset) -> Bool {
-        return source.asset.mediaSubtypes.contains(.photoScreenshot)
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.mediaSubtypes.contains(.photoScreenshot)
     }
 
 }
