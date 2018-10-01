@@ -72,6 +72,16 @@ class PHAssetGarbageDetector_Screenshots : PHAssetGarbageDetector{
     }
 }
 
+class PHAssetGarbageDetector_VideosFromScreenRecorder: PHAssetGarbageDetector{
+    override class var label:String{
+        return "Videos from Screen Recorder".localized
+    }
+
+    override func process(input: GarbageDetectorInput,_ asyncSignal: AsyncWaitSignalable) -> Bool? {
+        return input.asset.videoType == .screenRecordedVideo
+    }
+}
+
 class PHAssetGarbageDetector_Flashlight: PHAssetGarbageDetector{
     override class var label:String{
         return "Flashlight".localized

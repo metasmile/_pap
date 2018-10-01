@@ -646,6 +646,8 @@
 "Videos Shorter Than 1 Second" = "Videos Shorter Than 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos Without Sound" = "Videos Without Sound";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videos from Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Visit Social Pages";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */

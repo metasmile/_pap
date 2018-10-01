@@ -112,6 +112,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self
+        , PHAssetGarbageDetector_VideosFromScreenRecorder.self
         , PHAssetGarbageDetector_VideosWithoutSound.self
         , PHAssetGarbageDetector_VideosShorterThan1Sec.self
         , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self

@@ -65,6 +65,8 @@ for code_file in swift_files:
                 if loc_strs:
                     str = loc_strs.group()
 
+                    #TODO: fix for a case "Videos from \"Screen Recording\""
+
                     # unwrap overlapped quote "
                     str = '"'+str.split('"')[-2]+'"'
 

@@ -146,11 +146,18 @@ extension PHAsset {
 }
 
 public enum PHAssetImageType: Int {
-    case unknown
+    case notImage
     case stillImage
     case livePhoto
     case animatedGIF
     case burst
+}
+
+public enum PHAssetVideoType: Int {
+    case notVideo
+    case screenRecordedVideo
+    case mp4Video
+    case undefined
 }
 
 extension PHAsset {
@@ -159,7 +166,7 @@ extension PHAsset {
     }
     
     var imageType: PHAssetImageType {
-        guard mediaType == .image else { return .unknown }
+        guard mediaType == .image else { return .notImage }
 
         if uniformTypeIdentifier == UTCoreTypes.GIF {
             return .animatedGIF
@@ -173,6 +180,24 @@ extension PHAsset {
         else {
             return .stillImage
         }
+    }
+
+    var videoType: PHAssetVideoType {
+        guard mediaType == .video else { return .notVideo }
+
+        if uniformTypeIdentifier == UTCoreTypes.MPEG4{
+            let m = UIScreen.main
+            if Double(m.bounds.size.width/m.bounds.size.height).round(toPlaces: 2) == (Double(pixelWidth)/Double(pixelHeight)).round(toPlaces: 2)
+            , Int(m.bounds.size.width) < pixelWidth && pixelWidth < Int(m.nativeBounds.width) {
+                return .screenRecordedVideo
+
+            }else {
+                return .mp4Video
+            }
+        }
+
+        return .undefined
+
     }
 }
 
