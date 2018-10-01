@@ -24,6 +24,8 @@ public struct VisionTextResultGroup {
     var dates:[VisionTextDateParser.OutputType]?
     var urls:[VisionTextURLParser.OutputType]?
     var flights:[VisionTextFlightNumberParser.OutputType]?
+    
+    var barcodes:[VisionBarcode]?
 
     var isFilled:Bool{
         return self.phoneNumbers?.count ?? 0 > 0
@@ -33,6 +35,8 @@ public struct VisionTextResultGroup {
                 || self.dates?.count ?? 0 > 0
                 || self.urls?.count ?? 0 > 0
                 || self.flights?.count ?? 0 > 0
+        
+                || self.barcodes?.count ?? 0 > 0
     }
 }
 

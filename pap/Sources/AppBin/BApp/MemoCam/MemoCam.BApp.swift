@@ -57,15 +57,44 @@ extension VisionTextResultGroup {
     static func createResultGroup(with visionTexts: [VisionText], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
         var resultGroup = VisionTextResultGroup()
         
-        resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
-        resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
-        if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
-            //excluding mail addresses
-            resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
+        var emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
+        var phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
+        var urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
+        var addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
+        var flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
+        var dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
+        
+        let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
+        for barcode in barcodes {
+            switch barcode.valueType {
+            case .email:
+                guard let email = barcode.email?.address else { break }
+                emails.append([email])
+            case .phone:
+                guard let phone = barcode.phone?.number else { break }
+                phoneNumbers.append([phone])
+            case .URL:
+                guard let urlString = barcode.url?.url, let url = URL(string: urlString) else { break }
+                urls.append([url])
+            case .calendarEvent:
+                guard let event = barcode.calendarEvent?.start else { break }
+                dates.append([event])
+//            case .product:
+//                print("product", barcode.rawValue)
+            case .ISBN:
+                guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
+                urls.append([url])
+            default: break
+            }
         }
-        resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
-        resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
-        resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
+        resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
+        
+        resultGroup.emails = !emails.isEmpty ? emails : nil
+        resultGroup.phoneNumbers = !phoneNumbers.isEmpty ? phoneNumbers : nil
+        resultGroup.urls = !urls.isEmpty ? urls : nil
+        resultGroup.addresses = !addresses.isEmpty ? addresses : nil
+        resultGroup.flights = !flights.isEmpty ? flights : nil
+        resultGroup.dates = !dates.isEmpty ? dates : nil
         
         return resultGroup
     }
@@ -76,18 +105,24 @@ import FirebaseMLVision
 private struct MemoCamAppDetector {
     private let vision = Vision.vision()
     private var textDetector: VisionTextDetector
+    private var barcodeDetector: VisionBarcodeDetector
 
     init() {
         textDetector = vision.textDetector()
+        barcodeDetector = vision.barcodeDetector()
     }
 
-
     fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
-        guard let visionTexts = self.textDetector.detect(with: image, async) else {
+        guard var visionTexts = self.textDetector.detect(with: image, async) else {
             return nil
         }
 
         var result = VisionTextImageDetectResult(image: image)
+        
+        if let barcodes = self.barcodeDetector.detect(with: image, async) {
+            visionTexts.append(contentsOf: barcodes)
+        }
+        
         result.sourceVisionTexts = visionTexts
         result.resultGroup = VisionTextResultGroup.createResultGroup(with: visionTexts, async)
 
@@ -176,6 +211,10 @@ fileprivate struct ResultPreviewItem {
         self.resultGroup = resultGroup
     }
     
+    var cornerPoints: [CGPoint] {
+        return visionText.cornerPoints.map { $0.cgPointValue }
+    }
+    
     func preferredParserIcon() -> UIImage? {
         guard resultGroup.isFilled else { return nil }
         
@@ -234,15 +273,14 @@ fileprivate class ResultPreviewView: DesignableView {
     func reloadResults(_ result: VisionTextImageDetectResult) {
         self.detectResult = result
         
-        let visionTexts = result.sourceVisionTexts ?? []
-        
         let async = AsyncSignal()
         
         DispatchQueue.global(qos: .userInteractive).async {
             self.resultPreviewItems.removeAll()
             
-            for visionText in visionTexts {
+            for visionText in result.sourceVisionTexts ?? [] {
                 let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionText], async)
+                
                 guard resultGroup.isFilled else { continue }
                 self.resultPreviewItems.append(ResultPreviewItem(visionText: visionText, resultGroup: resultGroup))
             }
@@ -265,7 +303,7 @@ fileprivate class ResultPreviewView: DesignableView {
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
         let path = UIBezierPath()
-        for point in resultPreviewItem.visionText.cornerPoints.map({ $0.cgPointValue }) {
+        for point in resultPreviewItem.cornerPoints {
             if path.isEmpty {
                 path.move(to: point)
             }
@@ -279,7 +317,7 @@ fileprivate class ResultPreviewView: DesignableView {
         let layer = ResultItemLayer()
         layer.result = resultPreviewItem
         layer.path = path.cgPath
-        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x - 10, bounds.width - 30)), y: max(30, min(path.currentPoint.y - 10, bounds.height - 30))))
+        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x - 10, bounds.width - 30)), y: max(60, min(path.currentPoint.y - 10, bounds.height - 30))))
         
         resultsLayer.addSublayer(layer)
     }
@@ -479,10 +517,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         let detectBarcodesRequest = VNDetectBarcodesRequest { (request, error) in
             guard let observations = request.results as? [VNBarcodeObservation] else { return }
-            
-            for observation in observations {
-                print(observation.payloadStringValue)
-            }
             
             DispatchQueue.main.async {
                 self.drawPolygons(with: observations, to: detectBarcodesLayer)
