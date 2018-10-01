@@ -39,7 +39,7 @@ public class ConverterApp: BApp,
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.converter"
-            , version: "1.0"
+            , version: "1.0.1"
             , phase: .release
             , appType: ConverterApp.self
             , displayName: "Converter".localized
