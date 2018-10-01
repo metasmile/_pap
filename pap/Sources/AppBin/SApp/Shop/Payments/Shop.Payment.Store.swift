@@ -85,7 +85,7 @@ struct SixMonthsAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
 }
 
 struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo: nil)
+    static let product = StoreProduct(identifier: "pap_xapp_NR_1Y_rented_1", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo: nil)
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
