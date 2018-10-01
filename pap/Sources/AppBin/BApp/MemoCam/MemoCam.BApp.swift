@@ -229,8 +229,12 @@ fileprivate class ResultPreviewView: DesignableView {
     
     private var resultPreviewItems = [ResultPreviewItem]()
     
-    func reloadResults(_ results: VisionTextImageDetectResult) {
-        let visionTexts = results.sourceVisionTexts ?? []
+    private(set) var detectResult: VisionTextImageDetectResult?
+    
+    func reloadResults(_ result: VisionTextImageDetectResult) {
+        self.detectResult = result
+        
+        let visionTexts = result.sourceVisionTexts ?? []
         
         let async = AsyncSignal()
         
@@ -248,11 +252,11 @@ fileprivate class ResultPreviewView: DesignableView {
                 CATransaction.setDisableActions(true)
                 self.resultsLayer.sublayers = nil
                 
-                let previewSize = results.image.size.aspectFill(in: self.bounds.size)
+                let previewSize = result.image.size.aspectFill(in: self.bounds.size)
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
                 for item in self.resultPreviewItems {
-                    self.drawResult(item, in: results.image.size)
+                    self.drawResult(item, in: result.image.size)
                 }
                 CATransaction.setDisableActions(disableActions)
             }
@@ -521,7 +525,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             DispatchQueue.main.async {
                 self.resultPreviewView.image = self.currentTargetImage
                 
-                UIView.transition(with: self.view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+                UIView.transition(with: self.contentView, duration: 0.3, options: [.transitionCrossDissolve], animations: {
                     if let _ = self.currentTargetImage {
                         self.cameraView.stopSession()
                         
@@ -548,7 +552,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             toolBar.setItems([
                 UIBarButtonItem(title: "Retake".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.showActions)),
+                UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.actionButtonDidTap)),
 //                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
 //                UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.savePhoto))
                 ], animated: true)
@@ -568,18 +572,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     @objc private func cameraViewDidTap(sender: Any) {
-        UIFeedback.impact(.medium)
-        
         if let _ = currentTargetImage {
-            showActions()
+            UIFeedback.select()
+            actionButtonDidTap()
         }
         else {
+            UIFeedback.impact(.light)
             setNeedsCaptureImage()
         }
     }
     
     @objc private func cancelButtonDidTap(sender: Any) {
-        UIFeedback.notify(.warning)
+        UIFeedback.impact(.medium)
         
         if let _ = currentTargetImage {
             currentTargetImage = nil
@@ -599,33 +603,35 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 }
 
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
-    @objc fileprivate func showActions() {
-        guard let image = currentTargetImage else{
-            return
-        }
-        
+    fileprivate func showActions(with results: [VisionTextImageDetectResult]) {
         DispatchQueue.global(qos: .userInteractive).async{
             let asyncSignal = AsyncSignal()
-            
-            if let results = self.detector.detectResult(image: image, asyncSignal) {
-                
-                if let resultMessage = [results].handleAsAction(true, asyncSignal){
-                    
-                    asyncSignal.begin()
-                    DispatchQueue.main.async {
-                        UIAlertController.alert(resultMessage, completion:{ _ in
-                            asyncSignal.end()
-                        })
-                    }
-                    asyncSignal.waitUntilEnd()
+            if let resultMessage = results.handleAsAction(true, asyncSignal){
+                asyncSignal.begin()
+                DispatchQueue.main.async {
+                    UIAlertController.alert(resultMessage, completion:{ _ in
+                        asyncSignal.end()
+                    })
                 }
-                
+                asyncSignal.waitUntilEnd()
             }
         }
     }
     
+    @objc fileprivate func actionButtonDidTap() {
+        if let results = self.resultPreviewView.detectResult {
+            self.showActions(with: [results])
+        }
+    }
+    
     func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem) {
-        showActions()
+        guard let image = currentTargetImage else { return }
+        
+        var result = VisionTextImageDetectResult(image: image)
+        result.sourceVisionTexts = [resultPreviewItem.visionText]
+        result.resultGroup = resultPreviewItem.resultGroup
+        
+        showActions(with: [result])
     }
 }
 
