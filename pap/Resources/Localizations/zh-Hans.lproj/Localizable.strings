@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "立即参与并反复补充主要应用程序许可。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "工程笔记";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "导出选项";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "导出";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "短于1秒的视频";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "没有声音的视频";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "来自Screen Recorder的视频";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "访问社交页面";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "月";
 /* Generated from genl10n: Period.swift */
 "second" = "第二";
+/* Generated from genl10n: Period.swift */
+"week" = "周";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "年";

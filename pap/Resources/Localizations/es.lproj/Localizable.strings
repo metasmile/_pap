@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Comprometa ahora y recargue varias veces la licencia principal de aplicaciones.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notas de ingeniería";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Opciones de exportación";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportar";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videos más cortos que 1 segundo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videos sin sonido";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videos de la Grabadora de pantalla";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Visite las páginas sociales";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "mes";
 /* Generated from genl10n: Period.swift */
 "second" = "segundo";
+/* Generated from genl10n: Period.swift */
+"week" = "semana";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "año";

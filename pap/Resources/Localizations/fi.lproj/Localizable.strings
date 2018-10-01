@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Aktivoi nyt ja toistuvasti lataa pääohjelmistolisenssi.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Vientiasetukset";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videot lyhyempi kuin 1 sekunti";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videot ilman ääntä";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videot näytön tallentimesta";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Siirry sosiaalisiin sivuihin";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "kuukausi";
 /* Generated from genl10n: Period.swift */
 "second" = "toinen";
+/* Generated from genl10n: Period.swift */
+"week" = "viikko";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "vuosi";

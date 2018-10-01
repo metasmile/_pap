@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "มีส่วนร่วมในตอนนี้และโหลดใบอนุญาต Apps ซ้ำอีกครั้ง";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "วิศวกรรมหมายเหตุ";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "ตัวเลือกการส่งออก";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "วิดีโอสั้นกว่า 1 วินาที";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "วิดีโอจาก Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "ไปที่หน้าทางสังคม";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "เดือน";
 /* Generated from genl10n: Period.swift */
 "second" = "ที่สอง";
+/* Generated from genl10n: Period.swift */
+"week" = "สัปดาห์";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "ปี";

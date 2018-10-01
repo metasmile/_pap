@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Angajați acum și reîncărcați în mod repetat licența principală de aplicații.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Note tehnice";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Opțiuni de export";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videoclipuri mai scurte decât 1 secundă";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videoclipuri fără sunet";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videoclipuri de pe ecranul de înregistrare";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Vizitați paginile sociale";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "lună";
 /* Generated from genl10n: Period.swift */
 "second" = "al doilea";
+/* Generated from genl10n: Period.swift */
+"week" = "săptămână";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "an";

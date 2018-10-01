@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "अब व्यस्त रहें और बार-बार रिचार्ज मुख्य ऐप्स लाइसेंस।";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "इंजीनियरिंग नोट्स";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "निर्यात विकल्प";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "1 सेकंड से कम वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "स्क्रीन रिकॉर्डर से वीडियो";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "सोशल पेजेस पर जाएं";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "महीना";
 /* Generated from genl10n: Period.swift */
 "second" = "दूसरा";
+/* Generated from genl10n: Period.swift */
+"week" = "सप्ताह";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "साल";

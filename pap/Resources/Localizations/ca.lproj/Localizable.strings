@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Activa i repeteix la llicència d'aplicacions principals de manera repetida.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notes d'enginyeria";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Opcions d'exportació";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportació";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Vídeos més curts que 1 segon";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videos sense so";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Vídeos de Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Visiteu les pàgines socials";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "mes";
 /* Generated from genl10n: Period.swift */
 "second" = "segon";
+/* Generated from genl10n: Period.swift */
+"week" = "setmana";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "curs";

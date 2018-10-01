@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Uključite se sada i ponovo napunite licencu za glavne aplikacije.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Tehničke napomene";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Mogućnosti izvoza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Izvoz";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videozapisi kraći od 1 sekunde";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videozapisi bez zvuka";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Video snimke zaslona";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Posjetite društvene stranice";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "mjesec";
 /* Generated from genl10n: Period.swift */
 "second" = "drugi";
+/* Generated from genl10n: Period.swift */
+"week" = "tjedan";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "godina";

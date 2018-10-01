@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engedje el és ismételten töltse fel a fő alkalmazói licencet.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Mérnöki megjegyzések";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Export opciók";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videók rövidebb, mint 1 másodperc";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Hang nélküli videók";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videók a képernyőfelvevőből";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Látogassa meg a szociális oldalakat";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "hónap";
 /* Generated from genl10n: Period.swift */
 "second" = "második";
+/* Generated from genl10n: Period.swift */
+"week" = "hét";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "év";

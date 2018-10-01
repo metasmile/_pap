@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Ενεργοποιήστε τώρα και επαναφορτίζετε επανειλημμένα την κύρια άδεια χρήσης εφαρμογών.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Τεχνικές σημειώσεις";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Επιλογές εξαγωγής";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Βίντεο μικρότερη από 1 δευτερόλεπτο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Βίντεο από οθόνη εγγραφής";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Επισκεφτείτε τις κοινωνικές σελίδες";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "μήνας";
 /* Generated from genl10n: Period.swift */
 "second" = "δεύτερος";
+/* Generated from genl10n: Period.swift */
+"week" = "εβδομάδα";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "έτος";

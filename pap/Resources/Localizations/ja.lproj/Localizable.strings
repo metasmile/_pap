@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "今すぐ従事し、メインアプリケーションのライセンスを繰り返し申請します。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "エンジニアリングノート";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "エクスポートオプション";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "輸出する";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "1秒未満の動画";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "音がない動画";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "スクリーンレコーダーからのビデオ";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "ソーシャルページを訪問する";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "月";
 /* Generated from genl10n: Period.swift */
 "second" = "二番目";
+/* Generated from genl10n: Period.swift */
+"week" = "週間";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "年";

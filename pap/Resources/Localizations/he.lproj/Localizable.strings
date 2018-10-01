@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "עכשיו ולהפעיל מחדש שוב ושוב ראשי יישומים רישיון.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "הערות הנדסיות";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "אפשרויות ייצוא";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "יְצוּא";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "קטעי וידאו קצר יותר מ 1 Second";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "וידאו ללא קול";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "וידאו מתוך מקליט מסך";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "בקר בדפים חברתיים";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "חוֹדֶשׁ";
 /* Generated from genl10n: Period.swift */
 "second" = "שְׁנִיָה";
+/* Generated from genl10n: Period.swift */
+"week" = "שָׁבוּעַ";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "שָׁנָה";

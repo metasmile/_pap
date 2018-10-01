@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engasjere nå og gjentatte ganger lade hovedapplikasjonslisens.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Eksporteringsalternativer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
 /* Generated from genl10n: Filters.BApp.swift */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videoer kortere enn 1 sekund";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos Without Sound" = "Videoer uten lyd";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videoer fra skjermopptaker";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Besøk sosiale sider";
 /* Generated from genl10n: Shop.Payment.SNSEngagement.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Shop.SApp.swift */
@@ -730,5 +730,7 @@
 "month" = "måned";
 /* Generated from genl10n: Period.swift */
 "second" = "sekund";
+/* Generated from genl10n: Period.swift */
+"week" = "uke";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "år";

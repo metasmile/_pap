@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Tham gia ngay và liên tục nạp tiền cho giấy phép ứng dụng chính.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Ghi chú kỹ thuật";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Tùy chọn xuất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Video ngắn hơn 1 giây";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video không có âm thanh";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Video từ Trình ghi màn hình";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Truy cập trang xã hội";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "tháng";
 /* Generated from genl10n: Period.swift */
 "second" = "thứ hai";
+/* Generated from genl10n: Period.swift */
+"week" = "tuần";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "năm";

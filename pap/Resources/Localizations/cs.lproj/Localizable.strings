@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Zapojte nyní a opakovaně dobíjejte hlavní licenci Apps.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Technické poznámky";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Možnosti exportu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Vývozní";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Videa kratší než 1 sekunda";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Videa bez zvuku";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videa z obrazovky";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Navštivte sociální stránky";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "Měsíc";
 /* Generated from genl10n: Period.swift */
 "second" = "druhý";
+/* Generated from genl10n: Period.swift */
+"week" = "týden";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "rok";

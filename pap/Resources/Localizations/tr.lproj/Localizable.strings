@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Şimdi Kapatın ve Ana Uygulama Lisansını Sürekli Olarak Yeniden Şarj Edin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Mühendislik Notları";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "İhracat Seçenekleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "İhracat";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "1 saniyeden kısa videolar";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Sessiz Videolar";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Ekran Kaydediciden Videolar";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Sosyal sayfaları ziyaret et";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "ay";
 /* Generated from genl10n: Period.swift */
 "second" = "ikinci";
+/* Generated from genl10n: Period.swift */
+"week" = "hafta";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "yıl";

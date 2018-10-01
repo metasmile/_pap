@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Terlibat Sekarang Dan Berulang Kali Mengisi Ulang Lisensi Aplikasi Utama.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Catatan Teknik";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Opsi Ekspor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Ekspor";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Video Lebih Pendek Dari 1 Detik";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video Tanpa Suara";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Video dari Perekam Layar";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Kunjungi Halaman Sosial";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "bulan";
 /* Generated from genl10n: Period.swift */
 "second" = "kedua";
+/* Generated from genl10n: Period.swift */
+"week" = "minggu";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "tahun";

@@ -296,8 +296,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Займайте зараз і багаторазово підвищуйте ліцензію на основні програми.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Інженерні замітки";
-/* Generated from genl10n: Converter.AppDockContent.swift */
-"Export Options" = "Параметри експорту";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Експорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -684,6 +682,8 @@
 "Videos Shorter Than 1 Second" = "Відео коротше, ніж 1 секунда";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Відео без звуку";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Відео з запису на екрані";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Відвідайте соціальні сторінки";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
@@ -730,5 +730,7 @@
 "month" = "місяць";
 /* Generated from genl10n: Period.swift */
 "second" = "другий";
+/* Generated from genl10n: Period.swift */
+"week" = "тиждень";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "year" = "рік";
