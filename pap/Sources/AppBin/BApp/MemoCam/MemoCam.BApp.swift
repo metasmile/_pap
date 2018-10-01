@@ -416,13 +416,39 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
     }
     
-    private lazy var debugLayer: DisableImplicitAnimatableShapeLayer = {
+    private func createDebugLayer() -> DisableImplicitAnimatableShapeLayer {
         let layer = DisableImplicitAnimatableShapeLayer()
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = UIColor.red.cgColor
         layer.lineWidth = 1
         return layer
-    }()
+    }
+    
+    private func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
+        let previewSize = self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size)
+        
+        let path = UIBezierPath()
+        for observation in observations {
+            let polygon = UIBezierPath()
+            polygon.move(to: observation.topLeft)
+            polygon.addLine(to: observation.topRight)
+            polygon.addLine(to: observation.bottomRight)
+            polygon.addLine(to: observation.bottomLeft)
+            polygon.close()
+            
+            path.append(polygon)
+        }
+        
+        let transform = CGAffineTransform.identity
+            .scaledBy(x: 1, y: -1)
+            .translatedBy(x: 0, y: -previewSize.height)
+            .scaledBy(x: previewSize.width, y: previewSize.height)
+        
+        path.apply(transform)
+        
+        layer.path = path.cgPath
+        layer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
+    }
     
     private lazy var detector = MemoCamAppDetector()
     
@@ -437,39 +463,37 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        debugLayer.removeFromSuperlayer()
+        cameraView.layer.sublayers?.forEach {
+            if $0 is DisableImplicitAnimatableShapeLayer {
+                $0.removeFromSuperlayer()
+            }
+        }
         
         self.currentTargetImage = nil
         
-        cameraView.layer.addSublayer(debugLayer)
+        let detectTextLayer = createDebugLayer()
+        let detectBarcodesLayer = createDebugLayer()
+        
+        cameraView.layer.addSublayer(detectTextLayer)
+        cameraView.layer.addSublayer(detectBarcodesLayer)
+        
+        let detectBarcodesRequest = VNDetectBarcodesRequest { (request, error) in
+            guard let observations = request.results as? [VNBarcodeObservation] else { return }
+            
+            for observation in observations {
+                print(observation.payloadStringValue)
+            }
+            
+            DispatchQueue.main.async {
+                self.drawPolygons(with: observations, to: detectBarcodesLayer)
+            }
+        }
         
         let detectTextRequest = VNDetectTextRectanglesRequest { (request, error) in
             guard let observations = request.results as? [VNTextObservation] else { return }
             
             DispatchQueue.main.async {
-                let previewSize = self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size)
-                
-                let path = UIBezierPath()
-                for observation in observations {
-                    let polygon = UIBezierPath()
-                    polygon.move(to: observation.topLeft)
-                    polygon.addLine(to: observation.topRight)
-                    polygon.addLine(to: observation.bottomRight)
-                    polygon.addLine(to: observation.bottomLeft)
-                    polygon.close()
-                    
-                    path.append(polygon)
-                }
-                
-                let transform = CGAffineTransform.identity
-                    .scaledBy(x: 1, y: -1)
-                    .translatedBy(x: 0, y: -previewSize.height)
-                    .scaledBy(x: previewSize.width, y: previewSize.height)
-                
-                path.apply(transform)
-                
-                self.debugLayer.path = path.cgPath
-                self.debugLayer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
+                self.drawPolygons(with: observations, to: detectTextLayer)
             }
         }
         
@@ -499,7 +523,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 options[VNImageOption.cameraIntrinsics] = cameraIntrinsicMatrix
             }
             
-            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
+            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([
+                detectTextRequest,
+                detectBarcodesRequest
+            ])
         }
     }
     
