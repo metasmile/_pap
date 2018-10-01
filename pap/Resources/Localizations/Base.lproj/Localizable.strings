@@ -107,9 +107,13 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1 Month Membership" = "1 Month Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 Year Membership";
+/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of All and New Apps" = "1-Month Use of All and New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-Month Use of Main and New Apps";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1-Year Use of All and New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1-Year Use of Main And New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -463,7 +467,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates." = "Prices Are Including Every New Apps and Updates.";
+"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal.";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Privacy Policy" = "Privacy Policy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */

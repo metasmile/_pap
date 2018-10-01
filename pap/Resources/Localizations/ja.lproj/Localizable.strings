@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1ヶ月メンバーシップ";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1年間の会員";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1ヶ月間のすべてのアプリと新しいアプリの使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1ヶ月間のメインアプリと新しいアプリの使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "すべてのアプリと新しいアプリの1年間の使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "主なアプリケーションと新しいアプリケーションの1年間の使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "プリセット";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "価格には新しいアプリやアップデートがすべて含まれています。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "価格には新しいアプリケーションやアップデートが含まれ、自動更新もされていません。";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "個人情報保護方針";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

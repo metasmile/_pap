@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 mês de associação";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 ano de associação";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "Uso por um mês de todos os aplicativos e novos";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Uso por um mês dos principais e dos novos aplicativos";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 ano de uso de todos e de novos aplicativos";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1 ano de uso de aplicativos principais e novos";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "Preparando";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Predefinições";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Os preços estão incluindo todos os novos aplicativos e atualizações.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "Os preços estão incluindo todos os novos aplicativos e atualizações, e também não são de renovação automática.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Política de Privacidade";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

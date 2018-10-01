@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "Keanggotaan 1 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "Keanggotaan 1 Tahun";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "Penggunaan 1 Bulan Semua Aplikasi dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Penggunaan Aplikasi Utama dan Baru selama 1 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "Penggunaan 1 Tahun Semua dan Aplikasi Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "Penggunaan Aplikasi Utama Dan Baru Selama 1 Tahun";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "Mempersiapkan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Harga Sudah Termasuk Setiap Aplikasi Baru dan Pembaruan.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "Harga Sudah Termasuk Setiap Aplikasi Baru dan Pembaruan, Juga Tidak Pembaruan Otomatis.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Kebijakan pribadi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

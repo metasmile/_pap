@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1 Month Membership" = "1 måneders medlemskap";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 års medlemskap";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
 "1-Month Use of All and New Apps" = "1 måneders bruk av alle apper og ny";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-måneders bruk av hoved- og nye applikasjoner";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 års bruk av alle og nye apper";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1 års bruk av hoved og nye applikasjoner";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -499,7 +503,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates." = "Prisene inkluderer alle nye apper og oppdateringer.";
+"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "Prisene inkluderer alle nye apper og oppdateringer, ikke automatisk fornyelse.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Privacy Policy" = "Personvernregler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
