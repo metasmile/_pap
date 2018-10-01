@@ -336,6 +336,14 @@ class PhotoPickerViewController: AppDockViewController {
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
+
+            AppCenter.default.currentInstanceAs(ConverterApp.self)?.watch(\.autoSelect, id: "picker\(ConverterApp.info.identifier)") { (app, changed) in
+                print( app.autoSelect)
+                if app.autoSelect && !AppCenter.default.task.isRunning {
+                    self.cancelPreheatingIfNeeded()
+                    self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+                }
+            }
         }
     }
     

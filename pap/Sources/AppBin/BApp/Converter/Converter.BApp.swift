@@ -41,7 +41,8 @@ public class ConverterAppConfigValue: NSObject, PropertyWatchable, AppConfigValu
     public var convertingDirectionIdentifier:String = ConverterApp.defaultConverter.direction.identifier
 }
 
-public class ConverterApp: BApp,
+public class ConverterApp: NSObject, PropertyWatchable,
+        BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
         ChargeableApp,
@@ -68,7 +69,7 @@ public class ConverterApp: BApp,
 
     public static let info = AppInfo(
             identifier: "com.stells.pap.converter"
-            , version: "1.0.1"
+            , version: "1.1"
             , phase: .release
             , appType: ConverterApp.self
             , displayName: "Converter".localized
@@ -79,7 +80,8 @@ public class ConverterApp: BApp,
             , minOSVersion: nil
     )
 
-    required public init() {
+    override required public init() {
+        super.init()
         content = ConverterAppDockContent(app:self)
     }
 
@@ -122,7 +124,14 @@ public class ConverterApp: BApp,
     }
 
     public func performPreheating(item: PHAssetParamable, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
-        return self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil)) ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        var autoSelect = false
+        async.begin()
+        DispatchQueue.global(qos: .userInteractive).async{
+            autoSelect = self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil))
+            async.end()
+        }
+        async.waitUntilEnd()
+        return autoSelect ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 }
 
@@ -463,7 +472,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         cells = [
             ("Select Format To Convert".localized, [from_to_cell], ""),
-            ("Export Options".localized, [qualityCell, autoSelectCell], "")
+            ("Settings".localized, [qualityCell, autoSelectCell], "")
         ]
 
         return cellDescribers

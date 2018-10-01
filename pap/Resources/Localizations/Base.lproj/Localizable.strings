@@ -260,8 +260,6 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engage Now And Repeatedly Recharge Main Apps License.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* Generated from genl10n: Converter.BApp.swift */
-"Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift */
@@ -532,7 +530,7 @@
 "Send" = "Send";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Apps License" = "Settings for Main Apps License";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, Converter.BApp.swift */
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Share This App";
