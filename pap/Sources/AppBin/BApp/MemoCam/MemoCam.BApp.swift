@@ -604,8 +604,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 }) { (completed) in
                     
                 }
-                
-                self.updateToolBar()
             }
         }
     }
@@ -640,6 +638,15 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             actionButtonDidTap()
         }
         else {
+            let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            loadingView.startAnimating()
+            
+            toolBar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(customView: loadingView),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            ], animated: true)
+            
             UIFeedback.impact(.light)
             setNeedsCaptureImage()
         }
@@ -651,15 +658,23 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         if let _ = currentTargetImage {
             currentTargetImage = nil
         }
+        
+        updateToolBar()
     }
     
     private func detect(with image: UIImage?) {
         currentTargetImage = image
         
         if let image = image {
-            let async = AsyncSignal()
-            if let results = detector.detectResult(image: image, async) {
-                resultPreviewView.reloadResults(results)
+            DispatchQueue.global(qos: .userInteractive).async{
+                let async = AsyncSignal()
+                if let results = self.detector.detectResult(image: image, async) {
+                    self.resultPreviewView.reloadResults(results)
+                }
+                
+                DispatchQueue.main.async {
+                    self.updateToolBar()
+                }
             }
         }
     }
