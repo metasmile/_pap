@@ -510,6 +510,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
         
         self.currentTargetImage = nil
+        updateToolBar()
         
         let detectTextLayer = createDebugLayer()
         let detectBarcodesLayer = createDebugLayer()
