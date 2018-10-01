@@ -60,8 +60,8 @@ extension VisionTextResultGroup {
         var emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
         var phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
         var urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
-        var addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
-        var flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
+        let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
+        let flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
         var dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
         
         let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
@@ -74,7 +74,7 @@ extension VisionTextResultGroup {
                 guard let phone = barcode.phone?.number else { break }
                 phoneNumbers.append([phone])
             case .URL:
-                guard let urlString = barcode.url?.url, let url = URL(string: urlString) else { break }
+                guard let urlString = barcode.url?.url ?? barcode.rawValue, let url = URL(string: urlString) else { break }
                 urls.append([url])
             case .calendarEvent:
                 guard let event = barcode.calendarEvent?.start else { break }
@@ -84,6 +84,8 @@ extension VisionTextResultGroup {
             case .ISBN:
                 guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
                 urls.append([url])
+//            case .contactInfo:
+//                break
             default: break
             }
         }
