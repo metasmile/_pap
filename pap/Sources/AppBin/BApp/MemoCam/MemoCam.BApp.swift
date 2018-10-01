@@ -350,12 +350,18 @@ fileprivate class ResultPreviewView: DesignableView {
 }
 
 fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
-    lazy var cameraView: CameraView = {
+    fileprivate lazy var cameraView: CameraView = {
         let cameraView = CameraView(frame: .zero)
-        cameraView.clipsToBounds = true
+        cameraView.clipsToBounds = false
         cameraView.contentMode = .scaleAspectFill
         cameraView.setUp()
         return cameraView
+    }()
+    
+    fileprivate lazy var contentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.clipsToBounds = false
+        return view
     }()
     
     lazy var view: UIView = {
@@ -364,17 +370,37 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.cameraViewDidTap))
         cameraView.addGestureRecognizer(tapGesture)
         
-        view.addSubview(cameraView)
-        cameraView.fitConstraints(to: view)
+        view.addSubview(contentView)
+        view.addSubview(toolBar)
+        
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        toolBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        toolBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: toolBar.topAnchor).isActive = true
+        
+        contentView.addSubview(cameraView)
+        cameraView.fitConstraints(to: contentView)
         
         cameraView.capturePreset = .high
         
         return view
     }()
     
-    lazy var resultPreviewView: ResultPreviewView = {
+    fileprivate lazy var resultPreviewView: ResultPreviewView = {
         let view = ResultPreviewView(frame: .zero)
         return view
+    }()
+    
+    fileprivate lazy var toolBar: UIToolbar = {
+        let toolBar = UIToolbar(frame: .zero)
+        return toolBar
     }()
     
     internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
@@ -406,13 +432,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
     }
     
-    struct DetectedLabel {
-        var boundingRect: CGRect
-        var visionTexts: [VisionText]
-    }
-    
     func didSetContentView(_ view: UIView, dock: AppDock) {
         debugLayer.removeFromSuperlayer()
+        
+        self.currentTargetImage = nil
         
         cameraView.layer.addSublayer(debugLayer)
         
@@ -502,8 +525,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                     if let _ = self.currentTargetImage {
                         self.cameraView.stopSession()
                         
-                        self.view.addSubview(self.resultPreviewView)
-                        self.resultPreviewView.fitConstraints(to: self.view)
+                        self.contentView.addSubview(self.resultPreviewView)
+                        self.resultPreviewView.fitConstraints(to: self.contentView)
                         self.resultPreviewView.delegate = self
                     }
                     else {
@@ -514,7 +537,28 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 }) { (completed) in
                     
                 }
+                
+                self.updateToolBar()
             }
+        }
+    }
+    
+    private func updateToolBar() {
+        if let _ = self.currentTargetImage {
+            toolBar.setItems([
+                UIBarButtonItem(title: "Retake".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.showActions)),
+//                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+//                UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.savePhoto))
+                ], animated: true)
+        }
+        else {
+            toolBar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(title: "Tap To Detect".localized, style: .plain, target: self, action: #selector(self.cameraViewDidTap)),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            ], animated: true)
         }
     }
     
@@ -523,14 +567,22 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         needsCaptureImage = true
     }
     
-    @objc private func cameraViewDidTap(sender: UITapGestureRecognizer) {
+    @objc private func cameraViewDidTap(sender: Any) {
         UIFeedback.impact(.medium)
         
         if let _ = currentTargetImage {
-            currentTargetImage = nil
+            showActions()
         }
         else {
             setNeedsCaptureImage()
+        }
+    }
+    
+    @objc private func cancelButtonDidTap(sender: Any) {
+        UIFeedback.notify(.warning)
+        
+        if let _ = currentTargetImage {
+            currentTargetImage = nil
         }
     }
     
@@ -547,19 +599,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 }
 
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
-    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem) {
-
+    @objc fileprivate func showActions() {
         guard let image = currentTargetImage else{
             return
         }
-
+        
         DispatchQueue.global(qos: .userInteractive).async{
             let asyncSignal = AsyncSignal()
-
+            
             if let results = self.detector.detectResult(image: image, asyncSignal) {
-
+                
                 if let resultMessage = [results].handleAsAction(true, asyncSignal){
-
+                    
                     asyncSignal.begin()
                     DispatchQueue.main.async {
                         UIAlertController.alert(resultMessage, completion:{ _ in
@@ -568,10 +619,13 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
                     }
                     asyncSignal.waitUntilEnd()
                 }
-
+                
             }
         }
-
+    }
+    
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem) {
+        showActions()
     }
 }
 

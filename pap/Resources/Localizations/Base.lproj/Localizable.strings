@@ -490,6 +490,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: Revert.BApp.swift */
 "Restorer" = "Restorer";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "Retake";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -592,6 +594,8 @@
 "Take Part" = "Take Part";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Taken With Built-in Camera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Tap To Detect";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift */
