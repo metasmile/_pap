@@ -176,7 +176,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.AppDockContent.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -260,7 +260,7 @@
 "Engage Now And Repeatedly Recharge Main Apps License." = "Engage Now And Repeatedly Recharge Main Apps License.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* Generated from genl10n: Converter.AppDockContent.swift */
+/* Generated from genl10n: Converter.BApp.swift */
 "Export Options" = "Export Options";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
@@ -278,7 +278,7 @@
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
-/* Generated from genl10n: Converter.AppDockContent.swift, Finder.BApp.swift */
+/* Generated from genl10n: Converter.BApp.swift, Finder.BApp.swift */
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -470,7 +470,7 @@
 "Purchase Management" = "Purchase Management";
 /* Generated from genl10n: Charge.Types.StoreKit.swift, Shop.Payables.Store.LegalInfo.swift */
 "Purchase" = "Purchase";
-/* Generated from genl10n: Converter.AppDockContent.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
@@ -516,7 +516,7 @@
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "See" = "See";
-/* Generated from genl10n: Converter.AppDockContent.swift */
+/* Generated from genl10n: Converter.BApp.swift */
 "Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Select Photos To Delete." = "Select Photos To Delete.";
@@ -676,7 +676,7 @@
 "Write" = "Write";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Yearly Membership" = "Yearly Membership";
-/* Generated from genl10n: Converter.AppDockContent.swift */
+/* Generated from genl10n: Converter.BApp.swift */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
 "Your Message Has Been Sent." = "Your Message Has Been Sent.";
@@ -694,5 +694,7 @@
 "month" = "month";
 /* Generated from genl10n: Period.swift */
 "second" = "second";
+/* Generated from genl10n: Period.swift */
+"week" = "week";
 /* Generated from genl10n: Period.swift */
 "year" = "year";
