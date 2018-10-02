@@ -300,6 +300,8 @@
 "Export" = "יְצוּא";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "מסננים";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "מצא מספרי טלפון.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "למצוא";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "שחזור מאפשר שחזור כמות חבורה של תמונות ערוכות המקורי במהירות. יתר על כן, זה עוזר לך עם הבחירה האוטומטית!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "שִׁחזוּר";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "לְצַלֵם שׁוּב";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "לַהֲפוֹך";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "לקחת חלק";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "עם מצלמה מובנית";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "הקש כדי לזהות";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ממוקד";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

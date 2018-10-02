@@ -300,6 +300,8 @@
 "Export" = "輸出する";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "フィルタ";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "電話番号を見つける。";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "検索";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "元に戻すアプリでは、編集した写真を元の写真にすぐ戻すことができます。更に、自動選択も可能で便利です！";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "復元";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "リスターク";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "リバース";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "テイクパート";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "タップして検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

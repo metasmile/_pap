@@ -635,13 +635,27 @@ extension PhoneCallsApp:UIApplicationDelegatableApp{
             openAppIntent.appId = PhoneCallsApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized
-            return [openAppIntent]
+
+            let findPhoneNumber = FindPhoneNumbersIntent()
+            findPhoneNumber.appId = PhoneCallsApp.info.identifier
+            findPhoneNumber.suggestedInvocationPhrase = "Find Phone Numbers.".localized
+
+            return [openAppIntent, findPhoneNumber]
         } else {
             return []
         }
     }
 
     func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+        guard let intent = userActivity.interaction?.intent else{
+            return
+        }
+
+        if #available(iOS 12.0, *) {
+            if intent is FindPhoneNumbersIntent{
+                //
+            }
+        }
 
     }
 

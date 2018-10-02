@@ -300,6 +300,8 @@
 "Export" = "导出";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "过滤器";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "查找电话号码。";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "找";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "恢复允许快速将大量编辑过的照片恢复到原始照片。此外，它可以帮助您自动选择！";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "恢复";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "重拍";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "相反";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "参与";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "采用内置摄像头";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "点击“检测”";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "目标";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

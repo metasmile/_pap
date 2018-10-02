@@ -300,6 +300,8 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filtre";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Nájsť telefónne čísla.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Nájsť";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Obnova umožňuje rýchlo obnoviť veľké množstvo upravených fotografií na pôvodné fotografie. Okrem toho vám pomáha pri automatickom výbere!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "obnovenie";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "opakovanie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "reverse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Zúčastniť sa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Klepnite na položku Rozpoznať";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "cielená";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

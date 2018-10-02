@@ -300,6 +300,8 @@
 "Export" = "Експорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Фільтри";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Знайти телефонні номери.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Реставрація дозволяє швидко відновлювати купу відредагованих фотографій до оригіналу. Крім того, це допоможе вам з автоматичним вибором!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Реставрація";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "Повторювати";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Зворотний";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Брати участь";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Взятий з вбудованою камерою";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Натисніть &quot;Виявити&quot;";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Цілеспрямований";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

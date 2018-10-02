@@ -300,6 +300,8 @@
 "Export" = "ส่งออก";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ฟิลเตอร์";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "ค้นหาเบอร์โทรศัพท์";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "หา";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "การบูรณะ";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "เอาคืน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "ย้อนกลับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "มีส่วนร่วม";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "ถ่ายด้วยกล้องในตัว";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "แตะเพื่อตรวจหา";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "เป้าหมาย";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
