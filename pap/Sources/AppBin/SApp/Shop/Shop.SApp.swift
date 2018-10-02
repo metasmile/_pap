@@ -1044,9 +1044,9 @@ extension ShopAppDockContent{
         cell.imageView?.tintColor = self.view.tintColor
 
         if dataItem.rewardIconImageStyle.useTintColor {
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         }else{
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         }
         if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
             cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight*image.size.height/image.size.width, height: tableView.rowHeight))
@@ -1100,9 +1100,9 @@ extension ShopAppDockContent{
         //1st Image
         if let payingImage = dataItem.chargeIconImage?.asUIImage{
             if dataItem.chargeIconImageStyle.useTintColor {
-                cell.button.setImage(payingImage.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+                cell.button.setImage(payingImage.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
             }else{
-                cell.button.setImage(payingImage.withRenderingMode(UIImageRenderingMode.alwaysOriginal), for: .normal)
+                cell.button.setImage(payingImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
             }
             if dataItem.chargeIconImageStyle.beRound, let image = cell.button.image(for: .normal){
                 cell.imageView?.image = image.rounded(radius: image.size.height)

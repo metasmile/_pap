@@ -6,10 +6,10 @@
 import Foundation
 import UIKit
 
-extension UIActivityType {
-    static let addToReminder = UIActivityType("com.apple.reminders.RemindersEditorExtension")
-    static let addToNote = UIActivityType("com.apple.mobilenotes.SharingExtension")
-    static let addToiCloudDrive = UIActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
+extension UIActivity.ActivityType {
+    static let addToReminder = UIActivity.ActivityType("com.apple.reminders.RemindersEditorExtension")
+    static let addToNote = UIActivity.ActivityType("com.apple.mobilenotes.SharingExtension")
+    static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive") //TODO: not work excluding this
 }
 
 struct SocialSharePayment:Payable{

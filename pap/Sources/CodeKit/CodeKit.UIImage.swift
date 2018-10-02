@@ -25,7 +25,7 @@ public extension UIImage {
                 cgContext.setFillColor(color.cgColor)
                 cgContext.fill(renderBounds)
 
-                let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+                let attrString = NSAttributedString(string: "\(i + 1)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
                 let stringSize = attrString.size()
 
                 attrString.draw(at: CGPoint(x: max(0, (renderBounds.width - stringSize.width) / 2), y: max(0, (renderBounds.height - stringSize.height) / 2)))

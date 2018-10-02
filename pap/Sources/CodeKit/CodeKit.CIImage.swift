@@ -12,19 +12,19 @@ extension CIImage{
     }
 
     @discardableResult
-    public func writeJPEGRepresentationOriginally(to:URL, options:[AnyHashable : Any] = [:]) -> Bool{
+    public func writeJPEGRepresentationOriginally(to:URL, options:[CIImageRepresentationOption : Any] = [:]) -> Bool{
         var _options = options
-        _options[kCGImageDestinationLossyCompressionQuality] = 1.0
+        _options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
         return self.writeJPEGRepresentation(to: to, options: _options)
     }
 
     @discardableResult
-    public func writeJPEGRepresentation(to:URL, options:[AnyHashable : Any] = [:]) -> Bool{
+    public func writeJPEGRepresentation(to:URL, options:[CIImageRepresentationOption : Any] = [:]) -> Bool{
         do {
             try CIContext().writeJPEGRepresentation(of: self
                     , to:to
                     , colorSpace: defaultColorSpace
-                    , options: options)
+                , options: options)
 
             return true
 

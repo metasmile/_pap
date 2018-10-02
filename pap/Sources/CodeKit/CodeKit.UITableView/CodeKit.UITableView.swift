@@ -16,7 +16,7 @@ private class _UITextView: UITextView{
 
 extension UITableView{
 
-    private class func createHeaderFooterTextView(text:String, fontSize:CGFloat=UIFont.systemFontSize, fontColor:UIColor=UIColor.gray, inset:UIEdgeInsets=UIEdgeInsetsMake(10, 10, 10, 10)) -> UITextView{
+    private class func createHeaderFooterTextView(text:String, fontSize:CGFloat=UIFont.systemFontSize, fontColor:UIColor=UIColor.gray, inset:UIEdgeInsets=UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) -> UITextView{
         let textView = _UITextView()
         textView.autoresizingMask = [.flexibleWidth]
         textView.backgroundColor = UIColor.clear
@@ -39,7 +39,7 @@ extension UITableView{
                 text: text
                 , fontSize: UIFont.smallSystemFontSize
                 , fontColor: UIColor.gray
-                , inset: UIEdgeInsetsMake(10, 10, 15, 20)
+            , inset: UIEdgeInsets(top: 10, left: 10, bottom: 15, right: 20)
         )
     }
 }

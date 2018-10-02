@@ -121,7 +121,7 @@ private struct SecretCodeEntry: Codable, Equatable {
 }
 
 private extension CKDatabase{
-    func set(records:[CKRecord], policy:CKRecordSavePolicy=CKRecordSavePolicy.allKeys, completion:((CKRecord, Error?) -> Void)?=nil){
+    func set(records:[CKRecord], policy:CKModifyRecordsOperation.RecordSavePolicy=CKModifyRecordsOperation.RecordSavePolicy.allKeys, completion:((CKRecord, Error?) -> Void)?=nil){
         let o = CKModifyRecordsOperation()
         o.recordsToSave = records
         o.savePolicy = policy

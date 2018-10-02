@@ -118,7 +118,7 @@ internal class AppDockDrawerView: DesignableView {
         drawerShapeLayer.strokeColor = drawerStrokeColor.cgColor
         drawerShapeLayer.fillColor = UIColor.clear.cgColor
         drawerShapeLayer.lineWidth = 4.6
-        drawerShapeLayer.lineCap = kCALineCapRound
+        drawerShapeLayer.lineCap = CAShapeLayerLineCap.round
         layer.addSublayer(drawerShapeLayer)
         
         drawerShapePath.removeAllPoints()

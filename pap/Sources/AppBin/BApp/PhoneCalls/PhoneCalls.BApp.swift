@@ -495,7 +495,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             cell.textLabel?.text = item.label
 
             if let buttonAsImage = cellDescriber.buttonImage?.asUIImage{
-                cell.buttonFrameInset = UIEdgeInsetsMake(5, 5, 5, 5)
+                cell.buttonFrameInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
                 cell.button.setImage(buttonAsImage.withRenderingMode(.alwaysTemplate), for: .normal)
 
             }else if let buttonAsText = cellDescriber.buttonTitle {
@@ -578,7 +578,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             switchDidChange = nil
         }
 
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
 
             accessoryView = optionSwitch

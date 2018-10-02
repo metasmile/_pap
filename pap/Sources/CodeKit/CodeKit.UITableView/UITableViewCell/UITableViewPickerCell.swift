@@ -282,7 +282,7 @@ public class UITableViewPickerCell: UITableViewCell, UITableViewExpandableCell {
         initialize()
     }
 
-    override convenience init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override convenience init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.init(type: .default, reuseIdentifier: reuseIdentifier)
     }
 

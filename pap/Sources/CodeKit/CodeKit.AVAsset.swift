@@ -20,7 +20,7 @@ extension AVAsset {
         let audioTrack = tracks(withMediaType: .audio).first
         
         let transform = videoTrack.preferredTransform.concatenating(transform)
-        let timeRange = CMTimeRangeMake(kCMTimeZero, duration)
+        let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: duration)
         
         let composition = AVMutableComposition()
         guard let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
@@ -28,11 +28,11 @@ extension AVAsset {
         }
         let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         
-        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: kCMTimeZero)
+        try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: CMTime.zero)
         
         if let audioTrack = audioTrack {
             do {
-                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: kCMTimeZero)
+                try compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: CMTime.zero)
             } catch {
                 if let track = compositionAudioTrack {
                     composition.removeTrack(track)

@@ -12,12 +12,12 @@ import Intents
 class IntentsAppDelegate: NSObject, UIApplicationDelegate {
 
     @discardableResult
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { //Universal link
 
             for key in activityDictionary.keys {
                 if let userActivity = activityDictionary[key] as? NSUserActivity {
-                    self.application(application, continue: userActivity, restorationHandler: { _ in })
+                    self.application(application, userActivity: userActivity, restorationHandler: { _ in })
                     break
                 }
             }
@@ -27,7 +27,7 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
     }
 
     @discardableResult
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if #available(iOS 12.0, *) {
             guard let intent = userActivity.interaction?.intent, let appId = intent.appIdentifier else {
                 return false

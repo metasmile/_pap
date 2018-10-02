@@ -65,7 +65,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     func willSetContentView(_ view: UIView, dock: AppDock) {
         tableView.dataSource = delegator
         tableView.delegate = delegator
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         

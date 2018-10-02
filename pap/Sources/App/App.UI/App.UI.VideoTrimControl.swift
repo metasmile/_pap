@@ -11,11 +11,11 @@ import AVFoundation
 import Photos
 
 class AppUIVideoTrimControl: UIView {
-    private var duration: CMTime = kCMTimeZero
-    private var trimmingRange: CMTimeRange = kCMTimeRangeZero
+    private var duration: CMTime = CMTime.zero
+    private var trimmingRange: CMTimeRange = CMTimeRange.zero
     
-    var minimumDuration: CMTime = kCMTimeZero
-    var maximumDuration: CMTime = kCMTimeZero
+    var minimumDuration: CMTime = CMTime.zero
+    var maximumDuration: CMTime = CMTime.zero
     
     private lazy var timelineView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -45,9 +45,9 @@ class AppUIVideoTrimControl: UIView {
             self.timelineCellSize = AVMakeRect(aspectRatio: asset.pixelSize, insideRect: bounds).size
             let numberOfCells = timelineCellSize.width / bounds.width
             
-            let timePerCell = CMTimeMultiplyByFloat64(duration, 1 / Double(numberOfCells))
+            let timePerCell = CMTimeMultiplyByFloat64(duration, multiplier: 1 / Double(numberOfCells))
             
-            var insertTime = kCMTimeZero
+            var insertTime = CMTime.zero
             timeline.append(insertTime)
             
             while insertTime < duration {
@@ -63,7 +63,7 @@ class AppUIVideoTrimControl: UIView {
         didSet {
             guard let video = video else { return }
             duration = video.duration
-            trimmingRange = CMTimeRangeMake(kCMTimeZero, duration)
+            trimmingRange = CMTimeRangeMake(start:CMTime.zero, duration:duration)
         }
     }
     

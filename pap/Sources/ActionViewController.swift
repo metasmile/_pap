@@ -108,7 +108,7 @@ internal class ActionViewContentView: UIView {
     override var intrinsicContentSize: CGSize {
         contentView?.layoutIfNeeded()
         contentView?.invalidateIntrinsicContentSize()
-        return CGSize(width: UIViewNoIntrinsicMetric, height: contentView?.intrinsicContentSize.height ?? UIViewNoIntrinsicMetric)
+        return CGSize(width: UIView.noIntrinsicMetric, height: contentView?.intrinsicContentSize.height ?? UIView.noIntrinsicMetric)
     }
 }
 
@@ -199,7 +199,7 @@ internal class ActionViewTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         initialize()
     }
@@ -373,7 +373,7 @@ class ActionViewController: UIViewController {
         tableView.allowsMultipleSelection = false
         tableView.alwaysBounceVertical = false
         tableView.alwaysBounceHorizontal = false
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         tableView.register(ActionViewTableViewCell.self, forCellReuseIdentifier: ActionViewTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .clear

@@ -41,15 +41,15 @@ extension UIViewController{
     }
 
     func addContentViewController(_ contentViewController: UIViewController) {
-        self.addChildViewController(contentViewController)
+        self.addChild(contentViewController)
         self.view.addSubview(contentViewController.view)
-        contentViewController.didMove(toParentViewController: self)
+        contentViewController.didMove(toParent: self)
     }
 
     func removeContentViewController(_ contentViewController: UIViewController) {
-        contentViewController.willMove(toParentViewController: nil)
+        contentViewController.willMove(toParent: nil)
         contentViewController.view.removeFromSuperview()
-        contentViewController.removeFromParentViewController()
+        contentViewController.removeFromParent()
     }
     
     public class func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
