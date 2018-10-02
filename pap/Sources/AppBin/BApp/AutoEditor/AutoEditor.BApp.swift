@@ -173,22 +173,22 @@ private extension AutoEditorApp {
         static let Crop = CIImageAutoAdjustmentOption.crop
         static let Straighten = CIImageAutoAdjustmentOption.level
 
-        static func aliasName(_ filterName: String?) -> String? {
-            switch filterName {
-            case Enhance.rawValue?: return "Auto Enhance".localized
-            case RedEye.rawValue?: return "Red-Eye Removal".localized
-            case Crop.rawValue?: return "Auto Crop".localized
-            case Straighten.rawValue?: return "Auto Straighten".localized
+        static func aliasName(_ option: CIImageAutoAdjustmentOption) -> String? {
+            switch option {
+            case Enhance: return "Auto Enhance".localized
+            case RedEye: return "Red-Eye Removal".localized
+            case Crop: return "Auto Crop".localized
+            case Straighten: return "Auto Straighten".localized
             default: return nil
             }
         }
 
-        static func iconImage(_ filterName: String?) -> UIImage? {
-            switch filterName {
-            case Enhance.rawValue?: return R.image.auto_enhance()?.withRenderingMode(.alwaysTemplate)
-            case RedEye.rawValue?: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
-            case Crop.rawValue?: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
-            case Straighten.rawValue?: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
+        static func iconImage(_ option: CIImageAutoAdjustmentOption) -> UIImage? {
+            switch option {
+            case Enhance: return R.image.auto_enhance()?.withRenderingMode(.alwaysTemplate)
+            case RedEye: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
+            case Crop: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
+            case Straighten: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
             default: return nil
             }
         }
@@ -332,12 +332,12 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoEditorApp.info.identifier) as! Cell
         let filterName = autoAdjustmentOptionKeys[indexPath.row]
         
-        cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName.rawValue)
+        cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
         
         cell.imageView?.tintColor = AutoEditorAppDockContent.primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName.rawValue)
+        cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
         cell.optionSwitch.onTintColor = cell.imageView?.tintColor
         cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
