@@ -310,7 +310,7 @@
 "Finding Contacts ... %@ " = "Menemukan Kontak ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Senter";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nomor penerbangan";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Format";
@@ -402,7 +402,7 @@
 "New Contact" = "Kontak baru";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Acara baru";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Nomor baru";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Nomor Telepon Baru";

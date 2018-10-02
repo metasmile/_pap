@@ -1,5 +1,5 @@
 //
-//  App.PreviewProcessableApp.swift
+//  App.PreviewProcessable.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 5. 31..

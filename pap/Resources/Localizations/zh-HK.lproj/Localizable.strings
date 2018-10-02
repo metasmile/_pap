@@ -124,7 +124,7 @@
 "Add New Contact" = "添加新聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#572 */
 "Add an Event" = "添加活動";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#255, Finder.BApp.swift#1264 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#255, Finder.BApp.swift#1264 */
 "Address" = "地址";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
 "Albums" = "相冊";
@@ -214,7 +214,7 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我們的AI文本識別模型僅適用於字母數字和一些特殊字符，並且可能受當前系統語言的影響。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#184 */
 "Custom" = "自定義";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */
 "Date" = "日期";
 /* Generated from genl10n: Cleaner.BApp.swift#560 */
 "Deleting Targets" = "刪除目標";
@@ -232,7 +232,7 @@
 "Download now for FREE at %@" = "立即免費下載%@";
 /* Generated from genl10n: PhotoPickerViewController.swift#874 */
 "Downloading..." = "下載...";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#202, Finder.BApp.swift#697, Finder.BApp.swift#1263 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#202, Finder.BApp.swift#697, Finder.BApp.swift#1263 */
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
@@ -256,7 +256,7 @@
 "Finding Contacts ... %@ " = "查找聯繫人... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#77 */
 "Flashlight" = "手電筒";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#265, Finder.BApp.swift#1267 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#265, Finder.BApp.swift#1267 */
 "Flight Number" = "航班號";
 /* Generated from genl10n: Converter.AppDockContent.swift#96, Finder.BApp.swift#1359 */
 "Formats" = "格式";
@@ -348,7 +348,7 @@
 "New Contact" = "新聯繫人";
 /* Generated from genl10n: Finder.BApp.swift#538 */
 "New Event" = "新事件";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "新號碼";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "新電話號碼";

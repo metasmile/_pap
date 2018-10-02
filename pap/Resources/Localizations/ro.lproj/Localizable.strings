@@ -310,7 +310,7 @@
 "Finding Contacts ... %@ " = "Găsirea contactelor ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Lanternă";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#254, Finder.BApp.swift#1153 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Numărul zborului";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "formate";
@@ -402,7 +402,7 @@
 "New Contact" = "Contact nou";
 /* Generated from genl10n: Finder.BApp.swift#435 */
 "New Event" = "Eveniment nou";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift#210 */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Numar nou";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Noile numere de telefon";

@@ -7,6 +7,7 @@ target 'pap' do
   pod 'Firebase/Core', '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/MLVisionBarcodeModel'
   pod 'Fabric'
   pod 'Crashlytics'
 
@@ -34,7 +35,7 @@ target 'pap' do
   # com.stells.pap.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
 
-  # com.stells.pap.finder,phonecall - FirebaseMLVision.VisionText.Parser.Contacts.swift
+  # com.stells.pap.finder,phonecall - FirebaseMLVision.VisionText.Parser.Types.swift
   pod 'PhoneNumberKit', '~> 2.1'
 
   target 'papTests' do

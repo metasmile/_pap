@@ -178,7 +178,7 @@
 "Add New Contact" = "Legg til ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift */
 "Add an Event" = "Legg til en hendelse";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Adresse";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "album";
@@ -268,7 +268,7 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "For øyeblikket er vår AI-tekstgjenkjenningsmodell kun tilgjengelig for alfanumeriske og noen spesialtegn, og det kan bli påvirket av det nåværende systemspråket.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Tilpasset";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Date" = "Dato";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Slette mål";
@@ -286,7 +286,7 @@
 "Download now for FREE at %@" = "Last ned nå GRATIS på %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Nedlasting av ...";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift */
 "E-mail Address" = "Epostadresse";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
@@ -310,7 +310,7 @@
 "Finding Contacts ... %@ " = "Finne kontakter ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Flashlight" = "Lommelykt";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift, Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flightnummer";
 /* Generated from genl10n: Converter.AppDockContent.swift, Finder.BApp.swift */
 "Formats" = "formater";
@@ -402,7 +402,7 @@
 "New Contact" = "Ny kontakt";
 /* Generated from genl10n: Finder.BApp.swift */
 "New Event" = "Ny begivenhet";
-/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Contacts.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift */
 "New Number" = "Nytt nummer";
 /* Generated from genl10n: PhoneCalls.BApp.swift, PhoneCalls.BApp.swift */
 "New Phone Numbers" = "Nye telefonnumre";
