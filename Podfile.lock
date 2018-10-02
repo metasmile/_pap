@@ -170,7 +170,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Armchair:
-    :commit: f7ed2b2063ef40028e3916c43db9b0df7b15ad55
+    :commit: 7f05ad9ef68c2130e1a2418044c0bb0e02f99697
     :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
     :commit: cb1ecc794ff8bdf1fd75bad08a33209d9eae4237
@@ -210,6 +210,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: bdabb677b3ad622e2a32a49e18988b764884b012
+PODFILE CHECKSUM: b290b32a97eb49a99b991542dbb68e79ac7dd505
 
 COCOAPODS: 1.5.3
