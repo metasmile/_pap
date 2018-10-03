@@ -142,6 +142,7 @@
 		<string>OpenPhoneCallsIntent</string>
 		<string>OpenRevertIntent</string>
 		<string>OpenTransformIntent</string>
+		<string>TakeAGIFWithLivePhotoIntent</string>
 		<string>TakeAPhotoIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

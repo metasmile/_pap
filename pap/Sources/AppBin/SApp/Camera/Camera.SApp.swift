@@ -74,30 +74,14 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     }
 }
 
-extension CameraApp: UIApplicationDelegateLaunchableApp{
-    func didLaunchHandling(with userActivity: NSUserActivity) {
-        guard let intent = userActivity.interaction?.intent else{
-            return
-        }
-
-        if #available(iOS 12.0, *) {
-            (self.content as? CameraAppDockContent)?.performWithIntent(intent)
-        }
-    }
-
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-
-    }
-}
-
 extension CameraApp{
     struct CaptureOption: OptionSet {
         public let rawValue: Int
-        
+
         init(rawValue: Int) {
             self.rawValue = rawValue
         }
-        
+
         init(_ rawValue: Int) {
             self.rawValue = rawValue
         }
@@ -108,7 +92,10 @@ extension CameraApp{
         static let selfiePhoto = CaptureOption(1 << 3)
         static let selfieWithLivePhoto = CaptureOption(1 << 4)
     }
-    
+}
+
+extension CameraApp:UIApplicationDelegateLaunchableApp{
+
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenCameraIntent()
@@ -131,24 +118,42 @@ extension CameraApp{
             takeALivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
 
-            let i_t_s = TakeAPhotoIntent()
-            i_t_s.cameraMode = .selfiePhoto
-            i_t_s.appId = CameraApp.info.identifier
-            i_t_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_s.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
-            i_t_s.suggestedInvocationPhrase = "Take A Selfie.".localized
+            let takeASelfieIntent = TakeAPhotoIntent()
+            takeASelfieIntent.cameraMode = .selfiePhoto
+            takeASelfieIntent.appId = CameraApp.info.identifier
+            takeASelfieIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeASelfieIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
+            takeASelfieIntent.suggestedInvocationPhrase = "Take A Selfie.".localized
 
-            let i_t_l_s = TakeAPhotoIntent()
-            i_t_l_s.cameraMode = .selfieWithLivePhoto
-            i_t_l_s.appId = CameraApp.info.identifier
-            i_t_l_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_l_s.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
-            i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
+            let takeASelfieWithLivePhotoIntent = TakeAPhotoIntent()
+            takeASelfieWithLivePhotoIntent.cameraMode = .selfieWithLivePhoto
+            takeASelfieWithLivePhotoIntent.appId = CameraApp.info.identifier
+            takeASelfieWithLivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeASelfieWithLivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
+            takeASelfieWithLivePhotoIntent.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
 
-            return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,i_t_s,i_t_l_s]
+            let takeAGIFWithLivePhoto = TakeAGIFWithLivePhotoIntent()
+            takeAGIFWithLivePhoto.appId = CameraApp.info.identifier
+            takeAGIFWithLivePhoto.suggestedInvocationPhrase = "Take A GIF With Live Photo.".localized
+
+            return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,takeASelfieIntent,takeASelfieWithLivePhotoIntent, takeAGIFWithLivePhoto]
         } else {
             return []
         }
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        guard let intent = userActivity.interaction?.intent else{
+            return
+        }
+
+        if #available(iOS 12.0, *) {
+            (self.content as? CameraAppDockContent)?.performWithIntent(intent)
+        }
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+
     }
 
 
@@ -205,10 +210,18 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
     @available(iOS 12.0, *)
     fileprivate func performWithIntent(_ intent:INIntent){
-        if let intent = intent as? TakeAPhotoIntent
-        , let optionValue = intent.captureOption?.intValue {
+
+        if let intent = intent as? TakeAPhotoIntent, let optionValue = intent.captureOption?.intValue {
 
             capture(with: CameraApp.CaptureOption(optionValue))
+
+        }else if let intent = intent as? TakeAGIFWithLivePhotoIntent{
+
+            var launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
+            launchOption?.identifierToReturn = ConverterApp.info.identifier
+            AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption = launchOption
+
+            capture(with: [.livePhoto, .takePhoto])
         }
     }
 

@@ -581,6 +581,8 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Take A GIF With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Take A Photo" = "Take A Photo";

@@ -189,6 +189,7 @@
 		4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */; };
 		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
 		4F71DA2CB847CDE6C625F38A /* FirebaseMLVision.VisionText.Parser.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39AF9319E3068946B49 /* FirebaseMLVision.VisionText.Parser.Types.swift */; };
+		4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
 		4F71DA63CF4EC022E2499107 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC767D0046648A03D16 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		4F71DA7A0F669E8D04C3A1BF /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF99D1C0C9B33AED58E7 /* Camera.View.swift */; };
@@ -415,6 +416,7 @@
 		4F71D2BECCF1365F71189DAC /* AppDockDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockDrawerView.swift; sourceTree = "<group>"; };
 		4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D2C6AC6415B946CC4677 /* App.LifecycleManagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.LifecycleManagable.swift; sourceTree = "<group>"; };
+		4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.BApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		4F71D2EAC77729BCB56102B4 /* CodeKit.String.NSDataDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSDataDetector.swift; sourceTree = "<group>"; };
 		4F71D2EF0D764F7706A76694 /* AppKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitTests.swift; sourceTree = "<group>"; };
 		4F71D3070A5FEF2A41795CA0 /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
@@ -871,6 +873,7 @@
 			children = (
 				4F71D549D18017A01CC206C4 /* Converter.BApp.Assets.xcassets */,
 				4F71D7C64A2CCB9FC98CFF2D /* Converter.BApp.swift */,
+				4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -2572,6 +2575,7 @@
 				4F71D939F5E726A7551A4C00 /* Shop.SApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71DB86DEAFE1C117072DE2 /* Camera.SApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */,
+				4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
