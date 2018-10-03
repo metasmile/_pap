@@ -91,7 +91,7 @@ extension CameraApp: UIApplicationDelegateLaunchableApp{
 }
 
 extension CameraApp{
-    fileprivate struct CameraAppIntentOption: OptionSet {
+    struct Intent: OptionSet {
         public let rawValue: Int
         
         init(rawValue: Int) {
@@ -101,12 +101,12 @@ extension CameraApp{
         init(_ rawValue: Int) {
             self.rawValue = rawValue
         }
-        
-        static let takePhoto = CameraAppIntentOption(1 << 0)
-        static let livePhoto = CameraAppIntentOption(1 << 1)
-        static let stillPhoto = CameraAppIntentOption(1 << 2)
-        static let selfiePhoto = CameraAppIntentOption(1 << 3)
-        static let selfieWithLivePhoto = CameraAppIntentOption(1 << 4)
+
+        static let takePhoto = Intent(1 << 0)
+        static let livePhoto = Intent(1 << 1)
+        static let stillPhoto = Intent(1 << 2)
+        static let selfiePhoto = Intent(1 << 3)
+        static let selfieWithLivePhoto = Intent(1 << 4)
     }
     
     static var intents: [INIntent] {
@@ -121,30 +121,30 @@ extension CameraApp{
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeAStillPhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .stillPhoto]).rawValue)
+            takeAStillPhotoIntent.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .stillPhoto]).rawValue)
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
-            
+
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeALivePhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto]).rawValue)
+            takeALivePhotoIntent.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
 
             let i_t_s = TakeAPhotoIntent()
             i_t_s.cameraMode = .selfiePhoto
             i_t_s.appId = CameraApp.info.identifier
             i_t_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .selfiePhoto]).rawValue)
+            i_t_s.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .selfiePhoto]).rawValue)
             i_t_s.suggestedInvocationPhrase = "Take A Selfie.".localized
 
             let i_t_l_s = TakeAPhotoIntent()
             i_t_l_s.cameraMode = .selfieWithLivePhoto
             i_t_l_s.appId = CameraApp.info.identifier
             i_t_l_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_l_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
+            i_t_l_s.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
             i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
-            
+
             return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,i_t_s,i_t_l_s]
         } else {
             return []
@@ -199,41 +199,46 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
     @available(iOS 12.0, *)
     fileprivate func performWithIntent(_ intent:INIntent){
-        if let cameraView = self.cameraView
-        , let intent = intent as? TakeAPhotoIntent
+        if let intent = intent as? TakeAPhotoIntent
         , let optionValue = intent.launchOption?.intValue {
-            
-            let option = CameraApp.CameraAppIntentOption(optionValue)
-            if option.contains(.livePhoto) {
-                cameraView.isLivePhotoEnabled = true
-            }
-            else if option.contains(.stillPhoto) {
-                cameraView.isLivePhotoEnabled = false
-            }
 
-            if option.contains(.takePhoto) {
+            capture(with: CameraApp.Intent(optionValue))
+        }
+    }
 
-                if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
-                    let capturedResultId = "capturedResult"
-                    cameraView.watch(\.capturedResult, id: capturedResultId) {
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                            self.cameraView?.switchCaptureDevicePosition()
-                        }
-                        cameraView.unwatch(forIds: [capturedResultId])
+    private func capture(with option:CameraApp.Intent){
+        guard let cameraView = cameraView else{
+            assert(false, "cameraView is nil")
+            return
+        }
+
+        if option.contains(.livePhoto) {
+            cameraView.isLivePhotoEnabled = true
+        }
+        else if option.contains(.stillPhoto) {
+            cameraView.isLivePhotoEnabled = false
+        }
+
+        if option.contains(.takePhoto) {
+
+            if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
+                let capturedResultId = "capturedResult"
+                cameraView.watch(\.capturedResult, id: capturedResultId) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        cameraView.switchCaptureDevicePosition()
                     }
+                    cameraView.unwatch(forIds: [capturedResultId])
+                }
 
-                    self.cameraView?.switchCaptureDevicePosition { position in
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                            cameraView.takePhoto()
-                        }
-                    }
-                }else{
-
+                cameraView.switchCaptureDevicePosition { position in
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                         cameraView.takePhoto()
                     }
                 }
-
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    cameraView.takePhoto()
+                }
             }
         }
     }
