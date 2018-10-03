@@ -7,14 +7,16 @@ import Foundation
 import UIKit
 import Intents
 
-//INFO: Should call with directly related functions.
-protocol UIApplicationDelegateLaunchableApp: App {
-    static var intents:[INIntent] {get}
-
-    //INFO: instance function are meaning that all required pre-processes are finished and current app has existed as an instance.
+//INFO: instance function are meaning that all required pre-processes are finished and current app has existed as an instance.
+protocol UIApplicationDelegateLaunchableAppHandler {
     func didLaunchHandling(with userActivity:NSUserActivity)
 
     func didLaunchHandling(with shortcutItem:UIApplicationShortcutItem)
+}
+
+//INFO: Should call with directly related functions.
+protocol UIApplicationDelegateLaunchableApp: App, UIApplicationDelegateLaunchableAppHandler {
+    static var intents:[INIntent] {get}
 }
 
 extension INIntent {

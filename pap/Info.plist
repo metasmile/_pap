@@ -129,6 +129,7 @@
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertIntent</string>
 		<string>FindPhoneNumbersIntent</string>
+		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenAutoEditorIntent</string>
 		<string>OpenCameraIntent</string>
 		<string>OpenCleanerIntent</string>

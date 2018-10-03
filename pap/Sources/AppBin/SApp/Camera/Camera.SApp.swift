@@ -154,24 +154,6 @@ extension CameraApp{
 
 }
 
-//@available(iOS 12.0, *)
-//class IntentHandler: INExtension {
-//    override func handler(for intent: INIntent) -> Any? {
-//        guard intent is TakeAPhotoIntent else { return nil }
-//        return TakeAPhotoIntentHandler()
-//    }
-//}
-//
-//@available(iOS 12.0, *)
-//public class TakeAPhotoIntentHandler: NSObject, TakeAPhotoIntentHandling {
-//    public func handle(intent: TakeAPhotoIntent, completion: @escaping (TakeAPhotoIntentResponse) -> Void) {
-//        let response = TakeAPhotoIntentResponse(code: .success, userActivity: nil)
-//        response.mode = intent.mode
-//        response.userActivity = NSUserActivity(activityType: NSStringFromClass(TakeAPhotoIntent.self))
-//        completion(response)
-//    }
-//}
-
 class CameraAppView: AppUICameraView {}
 
 fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {

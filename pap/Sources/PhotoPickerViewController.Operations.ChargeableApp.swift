@@ -84,6 +84,7 @@ extension PhotoPickerViewController{
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenDeselected)
         navigationItem.setRightBarButton(rightButtonItem, animated: false)
+
         return false
     }
 
