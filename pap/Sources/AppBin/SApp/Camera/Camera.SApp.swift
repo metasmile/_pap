@@ -176,8 +176,9 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        cameraView?.captureMetadataComment = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.identifierToReturn
+        let launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
 
+        cameraView?.captureMetadataComment = launchOption?.identifierToReturn
         cameraView?.startSession()
 
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
@@ -195,6 +196,11 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
                 self.didCaptured(with: data)
             }
         }
+
+        // .CameraAppCaptureOption
+        if let captureOption = launchOption?.options?[.CameraAppCaptureOption] as? CameraApp.CaptureOption{
+            self.capture(with: captureOption)
+        }
     }
 
     @available(iOS 12.0, *)
@@ -206,6 +212,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }
     }
 
+    //TODO: queueing with multiple capture commands
     private func capture(with option:CameraApp.CaptureOption){
         guard let cameraView = cameraView else{
             assert(false, "cameraView is nil")

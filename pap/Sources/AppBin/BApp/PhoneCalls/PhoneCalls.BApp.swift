@@ -409,12 +409,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         cell_b.label = "Take A Photo".localized
         cell_b.buttonImage = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
-            var option = AppLaunchOptions()
-            option.identifierToReturn = PhoneCallsApp.info.identifier
-            AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
-
-            papLog.app.userCalledCameraInApp()
-
+            AppCenter.default.openCamera()
         }
         settingCellDescribers.append(cell_b)
 
@@ -651,8 +646,7 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                     AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.reservedToPerformInCurrentContextWithSelectedItems = true
 
                     //Open Camera App -> Take A photo
-                    describer.valueHandler?(true)
-
+                    AppCenter.default.openCamera(captureOption: [.stillPhoto, .takePhoto])
                 }
             }
         }
