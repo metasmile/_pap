@@ -42,14 +42,14 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         return false
     }
     
-    func didResign(current: App.Type?) {
-        
-    }
-    
     fileprivate var importedLaunchOption: AppLaunchOptions? = nil
     
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
+    }
+
+    func didResign(current: App.Type?) {
+
     }
 }
 

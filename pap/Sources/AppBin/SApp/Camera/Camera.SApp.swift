@@ -208,6 +208,8 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }
     }
 
+    private var reservedLaunchOptionsToOpenOtherApp:AppLaunchOptions?
+
     @available(iOS 12.0, *)
     fileprivate func performWithIntent(_ intent:INIntent){
 
@@ -215,11 +217,12 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
             capture(with: CameraApp.CaptureOption(optionValue))
 
-        }else if let intent = intent as? TakeAGIFWithLivePhotoIntent{
+        }else if let _ = intent as? TakeAGIFWithLivePhotoIntent{
 
-            var launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
-            launchOption?.identifierToReturn = ConverterApp.info.identifier
-            AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption = launchOption
+            var launchOption = AppLaunchOptions(options:[.ConverterConvertingDirection: ConvertingDirection(from: .livephoto, to: .gif)])
+            launchOption.identifierToReturn = ConverterApp.info.identifier
+
+            reservedLaunchOptionsToOpenOtherApp = launchOption
 
             capture(with: [.livePhoto, .takePhoto])
         }
@@ -263,11 +266,25 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }
     }
 
-    func didCaptured(with data:[AppLaunchOptionsKey:Any]){
-        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
-            , let id = option.identifierToReturn {
+    func didCaptured(with options:[AppLaunchOptionsKey:Any]){
 
-            AppCenter.default.openApp(identifier: id, options: AppLaunchOptions(options: data), animation:true)
+        //INFO: App X? -> Camera -> App ?
+        if let reservedLaunchOptions = reservedLaunchOptionsToOpenOtherApp, let id = reservedLaunchOptions.identifierToReturn{
+
+            //merge with captured options
+            var _reservedLaunchOptions = reservedLaunchOptions
+            _reservedLaunchOptions.set(other: options)
+
+            AppCenter.default.openApp(identifier: id, options: _reservedLaunchOptions, animation:true)
+
+            //dismiss
+            reservedLaunchOptionsToOpenOtherApp = nil
+        }
+        //INFO: App X -> Camera -> Return App X
+        else if let importedLaunchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
+            , let id = importedLaunchOption.identifierToReturn {
+
+            AppCenter.default.openApp(identifier: id, options: AppLaunchOptions(options: options), animation:true)
         }
     }
 
