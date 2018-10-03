@@ -91,7 +91,7 @@ extension CameraApp: UIApplicationDelegateLaunchableApp{
 }
 
 extension CameraApp{
-    struct Intent: OptionSet {
+    struct CaptureOption: OptionSet {
         public let rawValue: Int
         
         init(rawValue: Int) {
@@ -102,11 +102,11 @@ extension CameraApp{
             self.rawValue = rawValue
         }
 
-        static let takePhoto = Intent(1 << 0)
-        static let livePhoto = Intent(1 << 1)
-        static let stillPhoto = Intent(1 << 2)
-        static let selfiePhoto = Intent(1 << 3)
-        static let selfieWithLivePhoto = Intent(1 << 4)
+        static let takePhoto = CaptureOption(1 << 0)
+        static let livePhoto = CaptureOption(1 << 1)
+        static let stillPhoto = CaptureOption(1 << 2)
+        static let selfiePhoto = CaptureOption(1 << 3)
+        static let selfieWithLivePhoto = CaptureOption(1 << 4)
     }
     
     static var intents: [INIntent] {
@@ -121,28 +121,28 @@ extension CameraApp{
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeAStillPhotoIntent.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .stillPhoto]).rawValue)
+            takeAStillPhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .stillPhoto]).rawValue)
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
 
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeALivePhotoIntent.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .livePhoto]).rawValue)
+            takeALivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
 
             let i_t_s = TakeAPhotoIntent()
             i_t_s.cameraMode = .selfiePhoto
             i_t_s.appId = CameraApp.info.identifier
             i_t_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_s.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .selfiePhoto]).rawValue)
+            i_t_s.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
             i_t_s.suggestedInvocationPhrase = "Take A Selfie.".localized
 
             let i_t_l_s = TakeAPhotoIntent()
             i_t_l_s.cameraMode = .selfieWithLivePhoto
             i_t_l_s.appId = CameraApp.info.identifier
             i_t_l_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_l_s.launchOption = NSNumber(value: CameraApp.Intent([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
+            i_t_l_s.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
             i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
 
             return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,i_t_s,i_t_l_s]
@@ -200,13 +200,13 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
     @available(iOS 12.0, *)
     fileprivate func performWithIntent(_ intent:INIntent){
         if let intent = intent as? TakeAPhotoIntent
-        , let optionValue = intent.launchOption?.intValue {
+        , let optionValue = intent.captureOption?.intValue {
 
-            capture(with: CameraApp.Intent(optionValue))
+            capture(with: CameraApp.CaptureOption(optionValue))
         }
     }
 
-    private func capture(with option:CameraApp.Intent){
+    private func capture(with option:CameraApp.CaptureOption){
         guard let cameraView = cameraView else{
             assert(false, "cameraView is nil")
             return

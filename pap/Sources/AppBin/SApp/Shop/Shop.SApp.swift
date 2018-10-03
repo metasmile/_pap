@@ -15,10 +15,6 @@ import UIKit
 import SafariServices
 import StoreKit
 
-extension AppLaunchOptionsKey {
-    //value type: App.Type
-    static var ShopAppCallerAppType:AppLaunchOptionsKey{ return autoKey() }
-}
 
 public class ShopApp: NSObject
         , PropertyWatchable

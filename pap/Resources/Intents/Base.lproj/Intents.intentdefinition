@@ -538,7 +538,7 @@
 			<string>TakeAPhoto</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>appId,launchOption,appName</key>
+				<key>appId,captureOption,appName</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
@@ -553,7 +553,7 @@
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>FbRC9N</string>
 				</dict>
-				<key>launchOption,appName,appId,cameraMode</key>
+				<key>captureOption,appName,appId,cameraMode</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<false/>
@@ -599,7 +599,7 @@
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>3</integer>
 					<key>INIntentParameterName</key>
-					<string>launchOption</string>
+					<string>captureOption</string>
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
