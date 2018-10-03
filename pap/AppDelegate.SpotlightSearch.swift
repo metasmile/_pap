@@ -127,7 +127,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
         }
 
         AppCenter.default.openApp(identifier: app.info.identifier, options: AppLaunchOptions(options: [.NSUserActivity: activity])) { _ in
-            AppCenter.default.currentInstanceAs(UIApplicationDelegatableApp.self)?.didFinishLaunchHandlingWith(userActivity:activity)
+            AppCenter.default.currentInstanceAs(UIApplicationDelegateLaunchableApp.self)?.didLaunchHandling(with:activity)
         }
 
         return true

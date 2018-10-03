@@ -39,7 +39,7 @@ extension ShortcutItemAppDelegate {
         else { return false }
 
         AppCenter.default.openApp(identifier: app.info.identifier, options: AppLaunchOptions(options: [.UIApplicationShortcutItem: shortcutItem])) { _ in
-            AppCenter.default.currentInstanceAs(UIApplicationDelegatableApp.self)?.didFinishLaunchHandlingWith(shortcutItem:shortcutItem)
+            AppCenter.default.currentInstanceAs(UIApplicationDelegateLaunchableApp.self)?.didLaunchHandling(with:shortcutItem)
         }
         return true
     }

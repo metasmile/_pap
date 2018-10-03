@@ -81,7 +81,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
         if #available(iOS 12.0, *) {
             let apps = AppCenter.default.apps(by: .default)
-                    .compactMap { return $0 as? UIApplicationDelegatableApp.Type}
+                    .compactMap { return $0 as? UIApplicationDelegateLaunchableApp.Type}
                     //INFO: sort by amount of intent
                     .sorted { appType, appType2 in
                         return appType.intents.count > appType2.intents.count
@@ -163,7 +163,7 @@ private struct IntentGroup: Hashable, Equatable, Section {
     init(app: App.Type) {
         self.app = app
         self.title = ""
-        self.intents = (app as? UIApplicationDelegatableApp.Type)?.intents ?? []
+        self.intents = (app as? UIApplicationDelegateLaunchableApp.Type)?.intents ?? []
     }
     
     init(title: String, intents: [INIntent]) {

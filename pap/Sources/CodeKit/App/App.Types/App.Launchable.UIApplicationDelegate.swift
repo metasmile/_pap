@@ -1,5 +1,5 @@
 //
-// Created by BLACKGENE on 2018-09-22.
+// Created by BLACKGENE on 2018-10-03.
 // Copyright (c) 2018 Stells. All rights reserved.
 //
 
@@ -8,14 +8,13 @@ import UIKit
 import Intents
 
 //INFO: Should call with directly related functions.
-
-protocol UIApplicationDelegatableApp: App {
+protocol UIApplicationDelegateLaunchableApp: App {
     static var intents:[INIntent] {get}
 
     //INFO: instance function are meaning that all required pre-processes are finished and current app has existed as an instance.
-    func didFinishLaunchHandlingWith(userActivity:NSUserActivity)
+    func didLaunchHandling(with userActivity:NSUserActivity)
 
-    func didFinishLaunchHandlingWith(shortcutItem:UIApplicationShortcutItem)
+    func didLaunchHandling(with shortcutItem:UIApplicationShortcutItem)
 }
 
 extension INIntent {

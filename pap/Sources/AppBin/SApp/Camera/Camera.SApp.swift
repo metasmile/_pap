@@ -74,8 +74,8 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     }
 }
 
-extension CameraApp: UIApplicationDelegatableApp{
-    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+extension CameraApp: UIApplicationDelegateLaunchableApp{
+    func didLaunchHandling(with userActivity: NSUserActivity) {
         guard let intent = userActivity.interaction?.intent else{
             return
         }
@@ -85,7 +85,7 @@ extension CameraApp: UIApplicationDelegatableApp{
         }
     }
 
-    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
 
     }
 }
