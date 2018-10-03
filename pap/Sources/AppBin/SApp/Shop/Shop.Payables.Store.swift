@@ -66,7 +66,7 @@ struct StoreKitPayableCenter {
                     var options:AppLaunchOptions?
                     if localChargeableApp != nil{
                         var o = [AppLaunchOptionsKey:Any]()
-                        o[.ShopAppCallerAppType] = localChargeableApp
+                        o[.ShopCallerAppType] = localChargeableApp
                         options = AppLaunchOptions(options: o)
                     }
                     AppCenter.default.openApp(identifier: ShopApp.info.identifier, options: options)

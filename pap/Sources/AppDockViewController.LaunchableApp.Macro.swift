@@ -13,7 +13,7 @@ extension AppCenter{
         var option = AppLaunchOptions()
 
         var options = [AppLaunchOptionsKey:Any]()
-        options[.CameraAppCaptureOption] = captureOption
+        options[.CameraCaptureOption] = captureOption
 
         option.options = options
         option.identifierToReturn = returningIdentifier

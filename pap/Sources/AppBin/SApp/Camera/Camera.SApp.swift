@@ -203,7 +203,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }
 
         // .CameraAppCaptureOption
-        if let captureOption = launchOption?.options?[.CameraAppCaptureOption] as? CameraApp.CaptureOption{
+        if let captureOption = launchOption?.options?[.CameraCaptureOption] as? CameraApp.CaptureOption{
             self.capture(with: captureOption)
         }
     }

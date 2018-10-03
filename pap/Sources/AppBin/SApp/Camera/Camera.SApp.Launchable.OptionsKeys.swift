@@ -7,5 +7,5 @@ import Foundation
 
 extension AppLaunchOptionsKey {
     //value type: CameraApp.CaptureOption
-    static var CameraAppCaptureOption:AppLaunchOptionsKey{ return autoKey() }
+    static var CameraCaptureOption:AppLaunchOptionsKey{ return autoKey() }
 }

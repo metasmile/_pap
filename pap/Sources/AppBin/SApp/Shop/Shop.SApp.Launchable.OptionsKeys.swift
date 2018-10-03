@@ -7,5 +7,5 @@ import Foundation
 
 extension AppLaunchOptionsKey {
     //value type: App.Type
-    static var ShopAppCallerAppType:AppLaunchOptionsKey{ return autoKey() }
+    static var ShopCallerAppType:AppLaunchOptionsKey{ return autoKey() }
 }

@@ -187,7 +187,7 @@ extension PhotoPickerViewController{
         option.identifierToReturn = currentApp.info.identifier
 
         var options = [AppLaunchOptionsKey:Any]()
-        options[.ShopAppCallerAppType] = currentApp
+        options[.ShopCallerAppType] = currentApp
         option.options = options
 
         if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
