@@ -1678,7 +1678,7 @@ import Intents
 extension FinderApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenFinderIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = FinderApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized

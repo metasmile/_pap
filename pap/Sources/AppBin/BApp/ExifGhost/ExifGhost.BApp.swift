@@ -150,7 +150,7 @@ import Intents
 extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenEXIFGhostIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = ExifGhostApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open EXIF Ghost.".localized

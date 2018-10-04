@@ -902,7 +902,7 @@ import Intents
 extension CleanerApp: UIApplicationDelegateLaunchableApp {
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenCleanerIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = CleanerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Cleaner.".localized

@@ -833,7 +833,7 @@ import Intents
 extension GIFMakerApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenGIFMakerIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = GIFMakerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: GIFMakerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open GIF Maker.".localized

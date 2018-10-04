@@ -661,7 +661,8 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
 extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenPhoneCallsIntent()
+            let openAppIntent = OpenIntent()
+            
             openAppIntent.appId = PhoneCallsApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized

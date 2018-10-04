@@ -330,7 +330,7 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
 
             var intents = [INIntent]()
 
-            let openAppIntent = OpenConverterIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = ConverterApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Converter.".localized
