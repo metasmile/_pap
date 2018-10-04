@@ -1,70 +1,79 @@
 "4I4kgH" = "Open Camera.";
 "AW925e" = "Open Filters.";
-"AReNv5" = "Open Finder.";
 "Jvx2bY" = "Take A Photo.";
 "DckJin" = "Open Restorer.";
-"zK6L2E" = "Open GIF Maker.";
-"cyiLEU" = "Open Cleaner.";
-"kiRcMc" = "Open Rotation.";
-"h99muL" = "Open Phone Calls.";
-"f8Abn1" = "Open Converter.";
-"xxih1X" = "Open PDF Maker.";
-"klHFFj" = "Open Auto Editor.";
-"cObTva" = "Open EXIF Ghost.";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "電話番号を探す";
-/*Translated from: Convert*/
-"8tUOtZ" = "変換";
 /*Translated from: Choose To Delete.*/
 "TIJEu1" = "削除を選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"yM8RqU" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"ZUWAEC" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into another.*/
+"p7qwJF" = "最後のライブ写真を別のライブ写真に変換します。";
+/*Translated from: Convert the last Video into another.*/
+"SMLHhI" = "最後のビデオを別のビデオに変換します。";
+/*Translated from: Enable Auto Selection Bot.*/
+"UQnvTr" = "自動選択ボットを有効にする。";
 "HYZy53" = "Open Camera To Take A Photo";
 "UCP0Dw" = "Open Photo Filters";
-"nsPloR" = "Open Finder";
 "EOxZtc" = "Take a photo with Camera app.";
 "lmZpL4" = "Open Restorer";
-"i5NdZE" = "Open GIF Maker";
-"LjAsN8" = "Open Cleaner";
-"1kqEcI" = "Open Rotation";
-"1SD5Py" = "Open Phone Calls";
-"RxtDNx" = "Open Converter";
-"jO8fwU" = "Open PDF Maker";
-"wmUAoj" = "Open Auto Editor";
-"ZrFxbp" = "Open EXIF Ghost";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "電話番号を探す";
-/*Translated from: Convert*/
-"tPya3V" = "変換";
 /*Translated from: Open Cleaner And Then Choose To Delete.*/
 "ZOPazv" = "クリーナーを開き、次に削除を選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"jRmXDB" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"gBOghJ" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into another.*/
+"PhXLyO" = "最後のライブ写真を別のライブ写真に変換します。";
+/*Translated from: Convert the last Video into another.*/
+"wiPuF4" = "最後のビデオを別のビデオに変換します。";
+/*Translated from: Enable Auto Selection Bot.*/
+"IMAD8C" = "自動選択ボットを有効にする。";
 "oGM42K" = "Open ${appName}";
 "6TT4Gp" = "Open ${appName}";
 "gFHyMK" = "Open ${appName}";
 "ibaGsc" = "Open ${appName}";
-"QVrMHs" = "Open ${appName}";
+"FbRC9N" = "Take A Photo";
 "ewGyLx-yQLzJM" = "Take A Photo";
 "ewGyLx-ZbogxE" = "Take A Live Photo";
 "ewGyLx-IJ8sUB" = "Take A Selfie";
 "ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
-"FbRC9N" = "Take A Photo";
 "DcHSN1" = "Open ${appName}";
-"0Xykha" = "Open ${appName}";
-"oHEX05" = "Open ${appName}.";
-"cOeR5u" = "Open ${appName}.";
-"aQECqy" = "Open ${appName}.";
-"n6SPLH" = "Open ${appName}";
-"0mLqsX" = "Open ${appName}";
-"4TosMR" = "Open ${appName}";
-"nCro1h" = "Open ${appName}";
 /*Translated from: Find Phone Numbers*/
 "oMVwAV" = "電話番号を探す";
-/*Translated from: Convert from ${from} to ${to}*/
-"6P3378" = "${from} to ${to}から変換する";
 /*Translated from: Choose unknown To Delete.*/
 "yI4SHf-OdqORs" = "削除するには不明を選択します。";
 /*Translated from: Choose Screenshots To Delete.*/
 "yI4SHf-HlgytX" = "削除するスクリーンショットを選択します。";
 /*Translated from: Choose Lockscreen Shots To Delete.*/
 "yI4SHf-BI7avK" = "削除する画面をロックするを選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"9fanUE" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"tP4mFl" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into unknown*/
+"QmvYfr-wlS6k3" = "最後のライブ写真を不明に変換する";
+/*Translated from: Convert the last Live Photo into Live Photo*/
+"QmvYfr-6qTqFL" = "最後のライブフォトをライブフォトに変換する";
+/*Translated from: Convert the last Live Photo into MP4*/
+"QmvYfr-z5soyq" = "最後のライブ写真をMP4に変換する";
+/*Translated from: Convert the last Live Photo into GIF*/
+"QmvYfr-VSOU19" = "最後のライブフォトをGIFに変換する";
+/*Translated from: Convert the last Video into unknown*/
+"hvJmlA-wlS6k3" = "最後のビデオを未知のものに変換する";
+/*Translated from: Convert the last Video into Live Photo*/
+"hvJmlA-6qTqFL" = "最後のビデオをライブ写真に変換する";
+/*Translated from: Convert the last Video into MP4*/
+"hvJmlA-z5soyq" = "最後のビデオをMP4に変換する";
+/*Translated from: Convert the last Video into GIF*/
+"hvJmlA-VSOU19" = "最後のビデオをGIFに変換する";
+/*Translated from: Enable ASB on ${appName}.*/
+"A569zA" = "${appName}でASBを有効にします。";
 "xwyqoh-yQLzJM" = "OK. You can take a Photo now";
 "xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
 "xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";

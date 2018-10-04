@@ -242,6 +242,16 @@
 "Contact Us Now" = "Contacteer ons nu";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Contacten";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Converteer de laatste Live Photo naar GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Converteer de laatste Live Photo Into Video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Converteer de laatste video naar GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Converteer de laatste video naar Live Photo.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Converteer de laatste video naar MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter stelt u in staat om elke media-indeling zoals video's, live-foto's, GIF's in elkaar om te zetten.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Met EXIF ​​Ghost kunt u alle soorten gegevens verwijderen die uw foto's bevatten, inclusief privégegevens.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Schakel ASB in op %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schakel Snelle acties in";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "Exporteren";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filters";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Zoek telefoonnummers.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Vind";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "Toegang krijgen";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Geef een beoordeling";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Geef me dat telefoonnummer.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Gastgebruikerslicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Zoek vluchten";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Zoeken naar %@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Zien";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Bij ons blijven";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Schakel alle items in die u wilt verbergen. De kwaliteit blijft perfect hetzelfde.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Neem een ​​GIF met Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

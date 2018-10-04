@@ -2,66 +2,46 @@
 "4I4kgH" = "카메라 열기.";
 /*Translated from: Open Filters.*/
 "AW925e" = "필터 열기.";
-/*Translated from: Open Finder.*/
-"AReNv5" = "Finder 열기.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "사진 찍기.";
 /*Translated from: Open Restorer.*/
 "DckJin" = "복원 열기.";
-/*Translated from: Open GIF Maker.*/
-"zK6L2E" = "GIF Maker 열기.";
-/*Translated from: Open Cleaner.*/
-"cyiLEU" = "클리너 열기.";
-/*Translated from: Open Rotation.*/
-"kiRcMc" = "회전 열기.";
-/*Translated from: Open Phone Calls.*/
-"h99muL" = "전화 통화 열기.";
-/*Translated from: Open Converter.*/
-"f8Abn1" = "변환기 열기.";
-/*Translated from: Open PDFactory.*/
-"xxih1X" = "PDF 열기.";
-/*Translated from: Open Auto Editor.*/
-"klHFFj" = "자동 편집기 열기.";
-/*Translated from: Open EXIF Ghost.*/
-"cObTva" = "EXIF Ghost 열기.";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "전화 번호 찾기";
-/*Translated from: Convert*/
-"8tUOtZ" = "변하게 하다";
 /*Translated from: Choose To Delete.*/
 "TIJEu1" = "삭제를 선택합니다.";
+/*Translated from: Give Me That Phone Number.*/
+"yM8RqU" = "그 전화 번호를 알려줘.";
+/*Translated from: Take A GIF With Live Photo*/
+"ZUWAEC" = "라이브 사진으로 GIF 찍기";
+/*Translated from: Convert the last Live Photo into another.*/
+"p7qwJF" = "마지막 라이브 사진을 다른 라이브 사진으로 변환하십시오.";
+/*Translated from: Convert the last Video into another.*/
+"SMLHhI" = "마지막 비디오를 다른 비디오로 변환하십시오.";
+/*Translated from: Enable Auto Selection Bot.*/
+"UQnvTr" = "자동 선택 봇 사용.";
 /*Translated from: Open Camera To Take A Photo.*/
 "HYZy53" = "카메라를 열어 사진을 찍어줘.";
 /*Translated from: Open Photo Filters App.*/
 "UCP0Dw" = "필터 열기.";
-/*Translated from: Open Finder App.*/
-"nsPloR" = "Finder 열기";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "카메라 앱으로 사진을 찍어줘.";
 /*Translated from: Open Restorer App.*/
 "lmZpL4" = "복구 열기.";
-/*Translated from: Open GIF Maker App.*/
-"i5NdZE" = "GIF Maker 열기.";
-/*Translated from: Open Cleaner App.*/
-"LjAsN8" = "클리너 열기.";
-/*Translated from: Open Rotation App.*/
-"1kqEcI" = "로테이션 열기.";
-/*Translated from: Open Phone Calls App.*/
-"1SD5Py" = "전화 통화 열기.";
-/*Translated from: Open Converter App.*/
-"RxtDNx" = "변환기 열기.";
-/*Translated from: Open PDFactory App.*/
-"jO8fwU" = "PDF 열기.";
-/*Translated from: Open Auto Editor App.*/
-"wmUAoj" = "자동 편집기 열기.";
-/*Translated from: Open EXIF Ghost App.*/
-"ZrFxbp" = "EXIF Ghost App 열기.";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "전화 번호 찾기";
-/*Translated from: Convert*/
-"tPya3V" = "변하게 하다";
 /*Translated from: Open Cleaner And Then Choose To Delete.*/
 "ZOPazv" = "클리너를 열고 삭제를 선택하십시오.";
+/*Translated from: Give Me That Phone Number.*/
+"jRmXDB" = "그 전화 번호를 알려줘.";
+/*Translated from: Take A GIF With Live Photo*/
+"gBOghJ" = "라이브 사진으로 GIF 찍기";
+/*Translated from: Convert the last Live Photo into another.*/
+"PhXLyO" = "마지막 라이브 사진을 다른 라이브 사진으로 변환하십시오.";
+/*Translated from: Convert the last Video into another.*/
+"wiPuF4" = "마지막 비디오를 다른 비디오로 변환하십시오.";
+/*Translated from: Enable Auto Selection Bot.*/
+"IMAD8C" = "자동 선택 봇 사용.";
 /*Translated from: Open ${appName}.*/
 "oGM42K" = "${appName} 열기.";
 /*Translated from: Open ${appName}.*/
@@ -70,8 +50,8 @@
 "gFHyMK" = "${appName} 열기.";
 /*Translated from: Open ${appName}.*/
 "ibaGsc" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"QVrMHs" = "${appName} 열기.";
+/*Translated from: Take A Photo.*/
+"FbRC9N" = "사진을 찍다.";
 /*Translated from: Take A Photo.*/
 "ewGyLx-yQLzJM" = "사진 찍어줘.";
 /*Translated from: Take A Live Photo.*/
@@ -80,36 +60,38 @@
 "ewGyLx-IJ8sUB" = "셀카를 찍어줘.";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "라이브 포토로 셀카를 찍어줘.";
-/*Translated from: Take A Photo.*/
-"FbRC9N" = "사진을 찍다.";
 /*Translated from: Open ${appName}.*/
 "DcHSN1" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"0Xykha" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"oHEX05" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"cOeR5u" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"aQECqy" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"n6SPLH" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"0mLqsX" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"4TosMR" = "${appName} 열기.";
-/*Translated from: Open ${appName}.*/
-"nCro1h" = "${appName} 열기.";
 /*Translated from: Find Phone Numbers*/
 "oMVwAV" = "전화 번호 찾기";
-/*Translated from: Convert from ${from} to ${to}*/
-"6P3378" = "${from} to ${to}에서 변환";
 /*Translated from: Choose unknown To Delete.*/
 "yI4SHf-OdqORs" = "삭제할 알 수 없음을 선택하십시오.";
 /*Translated from: Choose Screenshots To Delete.*/
 "yI4SHf-HlgytX" = "삭제할 스크린 샷을 선택하십시오.";
 /*Translated from: Choose Lockscreen Shots To Delete.*/
 "yI4SHf-BI7avK" = "삭제할 화면 잠금을 선택하십시오.";
+/*Translated from: Give Me That Phone Number.*/
+"9fanUE" = "그 전화 번호를 알려줘.";
+/*Translated from: Take A GIF With Live Photo*/
+"tP4mFl" = "라이브 사진으로 GIF 찍기";
+/*Translated from: Convert the last Live Photo into unknown*/
+"QmvYfr-wlS6k3" = "마지막 라이브 사진을 알 수 없음으로 변환하십시오.";
+/*Translated from: Convert the last Live Photo into Live Photo*/
+"QmvYfr-6qTqFL" = "마지막 라이브 사진을 라이브 사진으로 변환하십시오.";
+/*Translated from: Convert the last Live Photo into MP4*/
+"QmvYfr-z5soyq" = "마지막 라이브 사진을 MP4로 변환하십시오.";
+/*Translated from: Convert the last Live Photo into GIF*/
+"QmvYfr-VSOU19" = "마지막 라이브 사진을 GIF로 변환";
+/*Translated from: Convert the last Video into unknown*/
+"hvJmlA-wlS6k3" = "마지막 비디오를 알 수없는 비디오로 변환하십시오.";
+/*Translated from: Convert the last Video into Live Photo*/
+"hvJmlA-6qTqFL" = "마지막 비디오를 라이브 사진으로 변환하십시오.";
+/*Translated from: Convert the last Video into MP4*/
+"hvJmlA-z5soyq" = "마지막 비디오를 MP4로 변환하십시오.";
+/*Translated from: Convert the last Video into GIF*/
+"hvJmlA-VSOU19" = "마지막 비디오를 GIF로 변환";
+/*Translated from: Enable ASB on ${appName}.*/
+"A569zA" = "${appName}에서 ASB를 사용하도록 설정합니다.";
 /*Translated from: OK. You can take a Photo now.*/
 "xwyqoh-yQLzJM" = "승인. 지금 사진을 찍을 수 있습니다.";
 /*Translated from: OK. You can take a Live Photo now.*/

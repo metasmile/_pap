@@ -293,7 +293,8 @@ extension RevertApp:UIApplicationDelegateLaunchableApp{
 
             let asb = EnableASBIntent()
             asb.appId = info.identifier
-            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
 
             return [openAppIntent, asb]
         } else {

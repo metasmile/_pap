@@ -243,6 +243,16 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontakt";
 /* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Konverter det siste Live-bildet til GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Konverter den siste Live Photo Into Video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Konverter den siste videoen til GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Konverter den siste videoen til Live Photo.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Konverter den siste videoen til MP4.";
+/* Generated from genl10n: Converter.BApp.swift */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter gjør at du kan konvertere alle medieformater som Videoer, Live Bilder, GIFer til hverandre.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Converter" = "Converter";
@@ -290,6 +300,8 @@
 "E-mail Address" = "Epostadresse";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Aktiver ASB på %@.";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Enable Quick Actions" = "Aktiver hurtige handlinger";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -300,8 +312,6 @@
 "Export" = "Eksport";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "filtre";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Finn telefonnumre.";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Find" = "Finne";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -332,6 +342,8 @@
 "Get Access" = "Få tilgang";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "Give A Rating" = "Gi en vurdering";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Gi meg det telefonnummeret.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Skjerm";
 /* Generated from genl10n: Finder.BApp.swift */
 "Search Flights" = "Søk flyreiser";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Søk etter %@";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "See" = "Se";
 /* Generated from genl10n: Converter.AppDockContent.swift */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Bor hos oss";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Ta en GIF med Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */

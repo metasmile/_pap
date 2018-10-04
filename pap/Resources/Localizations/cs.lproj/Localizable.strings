@@ -242,6 +242,16 @@
 "Contact Us Now" = "Kontaktujte nás";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Kontakty";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Převede poslední fotku Live do GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Převedení posledního videa v režimu Live Photo Into.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Převede poslední video do formátu GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Převést poslední video do živé fotografie.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Převést poslední video do formátu MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter umožňuje konvertovat všechny formáty médií, jako jsou Videa, živé fotografie a GIF.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "Emailová adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožní odstranit všechny druhy dat obsahující vaše fotografie, včetně soukromých informací.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Povolit ASB na %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivovat rychlé akce";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "Vývozní";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtry";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Najděte telefonní čísla.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Nalézt";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "Získat přístup";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Dej mi to telefonní číslo.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Screenshoty";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhledat lety";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Vyhledat %@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Vidět";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Pobyt s námi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapněte všechny položky, které chcete skrýt. Kvalita dokonale zůstane stejná.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Take GIF s živou fotkou.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

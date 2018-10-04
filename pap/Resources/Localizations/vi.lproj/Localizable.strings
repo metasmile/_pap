@@ -242,6 +242,16 @@
 "Contact Us Now" = "Liên lạc với chúng tôi ngay";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "Danh bạ";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Chuyển đổi ảnh Live thành GIF cuối cùng.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Chuyển đổi ảnh trực tiếp cuối cùng thành video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Chuyển đổi video cuối cùng thành GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Chuyển đổi video cuối cùng thành ảnh trực tiếp.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Chuyển đổi video cuối cùng thành MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Chuyển đổi cho phép bạn chuyển đổi mọi định dạng phương tiện như Video, Live Photos, GIF thành mỗi định dạng khác.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "Địa chỉ email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Bật ASB trên %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "Xuất khẩu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Tìm số điện thoại.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "Nhận quyền truy cập";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Cho tôi số điện thoại đó.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Chương trình cấp phép người dùng dành cho khách";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Ảnh chụp màn hình";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Tìm kiếm chuyến bay";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Tìm kiếm %@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Xem";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Ở lại với chúng tôi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Chụp ảnh GIF bằng Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

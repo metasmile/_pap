@@ -188,6 +188,16 @@
 "Contact Us Now" = "現在就聯繫我們";
 /* Generated from genl10n: Shop.SApp.swift#478, Finder.BApp.swift#1363 */
 "Contacts" = "往來";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "將最後一張Live Photo轉換為GIF。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "將上一張實時照片轉換為視頻。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "將最後一個視頻轉換為GIF。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "將最後一個視頻轉換為實時照片。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "將最後一個視頻轉換為MP4。";
 /* Generated from genl10n: Converter.BApp.swift#46 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "轉換器使您可以將每種媒體格式（如視頻、現場照片、GIFS）轉換為彼此。";
 /* Generated from genl10n: Converter.BApp.swift#45 */
@@ -236,6 +246,8 @@
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "在%@上啟用ASB。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -246,8 +258,6 @@
 "Export" = "導出";
 /* Generated from genl10n: Filters.BApp.swift#102 */
 "Filters" = "過濾器";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "查找電話號碼。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#250, Finder.BApp.swift#177 */
 "Find" = "找";
 /* Generated from genl10n: Finder.BApp.swift#45 */
@@ -278,6 +288,8 @@
 "Get Access" = "獲得訪問權限";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
 "Give A Rating" = "給予評級";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "給我那個電話號碼。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "訪客用戶許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,6 +510,8 @@
 "Screenshots" = "截圖";
 /* Generated from genl10n: Finder.BApp.swift#883 */
 "Search Flights" = "搜索航班";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "搜索%@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "看到";
 /* Generated from genl10n: Converter.AppDockContent.swift#158 */
@@ -562,6 +576,8 @@
 "Staying With Us" = "和我們在一起";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "用現場照片拍攝GIF。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#392, Finder.BApp.swift#1346 */

@@ -265,7 +265,7 @@
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
 /* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable Auto Selection Bot." = "Enable Auto Selection Bot.";
+"Enable ASB on %@." = "Enable ASB on %@.";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift */

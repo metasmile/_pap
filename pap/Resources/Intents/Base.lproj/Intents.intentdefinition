@@ -1335,25 +1335,25 @@
 			<key>INIntentDescriptionID</key>
 			<string>IMAD8C</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>INIntentName</key>
 			<string>EnableASB</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>appId</key>
+				<key>appName</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string></string>
 					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>GKMz1s</string>
+					<string>RRRdqV</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Enable Auto Selection Bot.</string>
+					<string>Enable ASB on ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>x6zMhj</string>
+					<string>A569zA</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -1367,6 +1367,18 @@
 					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
+					<key>INIntentParameterType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterName</key>
+					<string>appName</string>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<false/>
+					<key>INIntentParameterTag</key>
+					<integer>2</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
 				</dict>

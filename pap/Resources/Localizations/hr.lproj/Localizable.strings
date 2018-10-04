@@ -242,6 +242,16 @@
 "Contact Us Now" = "Kontaktirajte nas sada";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "kontakti";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Pretvorite posljednju fotografiju uživo u GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Pretvorite posljednju fotografiju uživo u video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Pretvorite zadnji videozapis u GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Pretvori posljednji videozapis u Live Photo.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Pretvorite zadnji video u MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter vam omogućuje pretvorbu svakog medijskog formata kao što su videozapisi, žive fotografije, GIF-ovi u svaki drugi.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "Email adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogućuje uklanjanje svih vrsta podataka koji sadrže vaše fotografije, uključujući privatne podatke.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Omogući ASB na %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "Izvoz";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filteri";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Pronađite telefonske brojeve.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Pronaći";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "Dobiti pristup";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Daj mi taj telefonski broj.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program korisnika licence korisnika";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Slike";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pretraži letove";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Potražite %@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Vidjeti";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Ostati s nama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će savršeno ostati ista.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Uzmi GIF fotografiju uživo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */
