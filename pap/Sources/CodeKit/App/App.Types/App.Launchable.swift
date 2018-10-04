@@ -38,4 +38,10 @@ public struct AppLaunchOptions {
             self.options?.updateValue(value, forKey:key)
         }
     }
+
+    static func options(from otherOption:AppLaunchOptions) -> AppLaunchOptions{
+        var options = AppLaunchOptions(options: otherOption.options)
+        options.identifierToReturn = otherOption.identifierToReturn
+        return options
+    }
 }

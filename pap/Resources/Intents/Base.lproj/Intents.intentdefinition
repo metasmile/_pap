@@ -2257,7 +2257,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Converter.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Convert the Latest Live Photo into another.</string>
+			<string>Convert the last Live Photo into another.</string>
 			<key>INIntentDescriptionID</key>
 			<string>PhXLyO</string>
 			<key>INIntentLastParameterTag</key>
@@ -2277,7 +2277,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Convert the latest Live Photo into ${into}</string>
+					<string>Convert the last Live Photo into ${into}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>QmvYfr</string>
 				</dict>
@@ -2344,7 +2344,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Convert the Latest Live Photo into another.</string>
+			<string>Convert the last Live Photo into another.</string>
 			<key>INIntentTitleID</key>
 			<string>p7qwJF</string>
 			<key>INIntentType</key>
@@ -2360,7 +2360,7 @@
 			<key>INIntentDefaultImageName</key>
 			<string>Converter.BApp.Icon</string>
 			<key>INIntentDescription</key>
-			<string>Convert the Latest Video into another.</string>
+			<string>Convert the last Video into another.</string>
 			<key>INIntentDescriptionID</key>
 			<string>wiPuF4</string>
 			<key>INIntentLastParameterTag</key>
@@ -2380,7 +2380,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Convert the latest Video into ${into}</string>
+					<string>Convert the last Video into ${into}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>hvJmlA</string>
 				</dict>
@@ -2447,7 +2447,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Convert the Latest Video into another.</string>
+			<string>Convert the last Video into another.</string>
 			<key>INIntentTitleID</key>
 			<string>SMLHhI</string>
 			<key>INIntentType</key>

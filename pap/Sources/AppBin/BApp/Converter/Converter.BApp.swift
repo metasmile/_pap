@@ -63,7 +63,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
     @objc dynamic
     public private(set) lazy var config: ConverterAppConfigValue? = type(of:self).defaultConfigValue as? ConverterAppConfigValue
 
-    public private(set) var content: AppDockContent?
+    public private(set) lazy var content: AppDockContent? = ConverterAppDockContent(app:self)
 
     @objc dynamic
     public lazy var autoSelect: Bool = false
@@ -83,7 +83,6 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     override required public init() {
         super.init()
-        content = ConverterAppDockContent(app:self)
     }
 
     static var localCharges: [Charge] {
@@ -106,14 +105,19 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     }
 
-    private var importedLaunchOption: AppLaunchOptions?
-    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
-        importedLaunchOption = withOption
 
-        if let convertingDirection = withOption?.options?[.ConverterConvertingDirection] as? ConvertingDirection{
-            var mutableDefaults = self.defaults
-            mutableDefaults.autoSelect = false
-            mutableDefaults.convertingDirection = convertingDirection
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
+        currentLaunchOption = withOption
+    }
+
+    fileprivate var currentLaunchOption: AppLaunchOptions?{
+        didSet {
+
+            if let convertingDirection = currentLaunchOption?.options?[.ConverterConvertingDirection] as? ConvertingDirection{
+                var mutableDefaults = self.defaults
+                mutableDefaults.autoSelect = false
+                mutableDefaults.convertingDirection = convertingDirection
+            }
         }
     }
 
@@ -153,14 +157,14 @@ public class ConverterApp: NSObject, PropertyWatchable,
     }
 
     func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
-        if let _ = importedLaunchOption{
+        if let _ = currentLaunchOption{
             return indexPaths
         }
         return nil
     }
 
     func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
-        if let _ = importedLaunchOption, let callee = callee{
+        if let _ = currentLaunchOption, let callee = callee{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                 callee.performInCurrentContextWithSelectedItems()
             }
@@ -315,7 +319,7 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension ConverterApp:UIApplicationDelegateLaunchableApp{
+extension ConverterApp:UIApplicationDelegateLaunchableApp {
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
 
@@ -330,32 +334,32 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp{
             let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()
             convertLatestLivePhotoIntent_gif.appId = ConverterApp.info.identifier
             convertLatestLivePhotoIntent_gif.into = ConvertLatestLivePhotoLivePhotoConvertingType.gif
-            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the latest Live Photo Into GIF.".localized
-            intents.append(openAppIntent)
+            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the last Live Photo Into GIF.".localized
+            intents.append(convertLatestLivePhotoIntent_gif)
 
             let convertLatestLivePhotoIntent_video = ConvertLatestLivePhotoIntent()
             convertLatestLivePhotoIntent_video.appId = ConverterApp.info.identifier
             convertLatestLivePhotoIntent_video.into = ConvertLatestLivePhotoLivePhotoConvertingType.video
-            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the latest Live Photo Into Video.".localized
-            intents.append(openAppIntent)
+            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the last Live Photo Into Video.".localized
+            intents.append(convertLatestLivePhotoIntent_video)
 
-            let ConvertLatestVideoIntent_into_livephoto = ConvertLatestVideoIntent()
-            ConvertLatestVideoIntent_into_livephoto.appId = ConverterApp.info.identifier
-            ConvertLatestVideoIntent_into_livephoto.into = ConvertLatestVideoVideoConvertingType.livephoto
-            ConvertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the latest Video Into Live Photo.".localized
-            intents.append(openAppIntent)
+            let convertLatestVideoIntent_into_livephoto = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_livephoto.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_livephoto.into = ConvertLatestVideoVideoConvertingType.livephoto
+            convertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the last Video Into Live Photo.".localized
+            intents.append(convertLatestVideoIntent_into_livephoto)
 
-            let ConvertLatestVideoIntent_into_mp4 = ConvertLatestVideoIntent()
-            ConvertLatestVideoIntent_into_mp4.appId = ConverterApp.info.identifier
-            ConvertLatestVideoIntent_into_mp4.into = ConvertLatestVideoVideoConvertingType.mp4
-            ConvertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the latest Video Into MP4.".localized
-            intents.append(openAppIntent)
+            let convertLatestVideoIntent_into_mp4 = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_mp4.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_mp4.into = ConvertLatestVideoVideoConvertingType.mp4
+            convertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the last Video Into MP4.".localized
+            intents.append(convertLatestVideoIntent_into_mp4)
 
-            let ConvertLatestVideoIntent_into_gif = ConvertLatestVideoIntent()
-            ConvertLatestVideoIntent_into_gif.appId = ConverterApp.info.identifier
-            ConvertLatestVideoIntent_into_gif.into = ConvertLatestVideoVideoConvertingType.gif
-            ConvertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the latest Video Into GIF.".localized
-            intents.append(openAppIntent)
+            let convertLatestVideoIntent_into_gif = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_gif.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_gif.into = ConvertLatestVideoVideoConvertingType.gif
+            convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into GIF.".localized
+            intents.append(convertLatestVideoIntent_into_gif)
 
             return intents
         } else {
@@ -365,11 +369,52 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp{
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
 
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else{
+                return
+            }
+
+            var convertingDirection:ConvertingDirection?
+
+            if let intentForLivePhoto = intent as? ConvertLatestLivePhotoIntent{
+
+                switch(intentForLivePhoto.into){
+                    case .gif:
+                        convertingDirection = ConvertingDirection(from: .livephoto, to: .gif)
+                    case .video:
+                        convertingDirection = ConvertingDirection(from: .livephoto, to: .mov)
+                    default:
+                        convertingDirection = nil
+                }
+
+            }
+            else if let intentForVideo = intent as? ConvertLatestVideoIntent{
+
+                switch(intentForVideo.into){
+                    case .livephoto:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .livephoto)
+                    case .mp4:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .mp4)
+                    case .gif:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .gif)
+                    default:
+                        convertingDirection = nil
+                }
+            }
+
+            if let direction = convertingDirection{
+                (self.content as! ConverterAppDockContent).reloadData(reset: true)
+
+                //TODO:
+//                callee.performInCurrentContextWithSelectedItems()
+            }
+        }
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }
+
 
 
 
@@ -430,18 +475,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         view.tintColor = UIColor(red:0.99, green:0.51, blue:0.15, alpha:1)
 
         if cellDescribers.count==0{
-            cellDescribers = createCellDescribers()
-
-            if let view = view as? UITableView{
-                view.dataSource = self
-                view.delegate = self
-                view.rowHeight = 44
-                view.allowsMultipleSelection = false
-
-                for item in cellDescribers {
-                    view.register(describer: item)
-                }
-            }
+            reloadCellDescribers()
         }
     }
 
@@ -546,6 +580,28 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
+        reloadData()
+    }
+
+    func reloadCellDescribers(){
+        cellDescribers = createCellDescribers()
+
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.allowsMultipleSelection = false
+
+            for item in cellDescribers {
+                view.register(describer: item)
+            }
+        }
+    }
+
+    func reloadData(reset:Bool=false){
+        if reset{
+            reloadCellDescribers()
+        }
         (view as? UITableView)?.reloadData()
     }
 
@@ -690,8 +746,6 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     }
                 }
             }
-
-
 
             return cell
         }

@@ -640,7 +640,7 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
             }
 
             if intent is GiveMeThatPhoneNumberIntent{
-                if let describer = settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }){
+                if let _ = settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }){
 
                     // set reservedToPerformInCurrentContextWithSelectedItems to true
                     AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.reservedToPerformInCurrentContextWithSelectedItems = true
