@@ -300,6 +300,8 @@
 "Export" = "Εξαγωγή";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Φίλτρα";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Βρείτε αριθμούς τηλεφώνου.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Εύρημα";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Η αποκατάσταση επιτρέπει την γρήγορη επαναφορά μιας ποσότητας επεξεργασμένων φωτογραφιών στην αρχική. Επιπλέον, σας βοηθά με την αυτόματη επιλογή!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Αποκατάσταση";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "Ξαναπαίρνω";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "ΑΝΤΙΣΤΡΟΦΗ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Συμμετέχω";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Πατήστε για εντοπισμό";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Στοχοθετημένη";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

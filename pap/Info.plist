@@ -126,6 +126,10 @@
 	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ChooseToDeleteIntent</string>
+		<string>ConvertIntent</string>
+		<string>FindPhoneNumbersIntent</string>
+		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenAutoEditorIntent</string>
 		<string>OpenCameraIntent</string>
 		<string>OpenCleanerIntent</string>
@@ -138,6 +142,7 @@
 		<string>OpenPhoneCallsIntent</string>
 		<string>OpenRevertIntent</string>
 		<string>OpenTransformIntent</string>
+		<string>TakeAGIFWithLivePhotoIntent</string>
 		<string>TakeAPhotoIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

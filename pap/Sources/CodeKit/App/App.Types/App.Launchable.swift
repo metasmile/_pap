@@ -32,4 +32,10 @@ public struct AppLaunchOptions {
         self.options = options
     }
     var identifierToReturn:String?
+
+    mutating func set(other options:[AppLaunchOptionsKey:Any]) {
+        for (key,value) in options {
+            self.options?.updateValue(value, forKey:key)
+        }
+    }
 }

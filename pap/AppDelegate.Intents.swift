@@ -54,7 +54,7 @@ extension IntentsAppDelegate {
         }
 
         return AppCenter.default.openApp(identifier: appId, options: AppLaunchOptions(options: [.NSUserActivity: userActivity])) { hasChanged in
-            AppCenter.default.currentInstanceAs(UIApplicationDelegatableApp.self)?.didFinishLaunchHandlingWith(userActivity:userActivity)
+            AppCenter.default.currentInstanceAs(UIApplicationDelegateLaunchableApp.self)?.didLaunchHandling(with:userActivity)
         }
     }
 }

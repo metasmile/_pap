@@ -74,41 +74,28 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     }
 }
 
-extension CameraApp: UIApplicationDelegatableApp{
-    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
-        guard let intent = userActivity.interaction?.intent else{
-            return
-        }
-
-        if #available(iOS 12.0, *) {
-            (self.content as? CameraAppDockContent)?.performWithIntent(intent)
-        }
-    }
-
-    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
-
-    }
-}
-
 extension CameraApp{
-    fileprivate struct CameraAppIntentOption: OptionSet {
+    struct CaptureOption: OptionSet {
         public let rawValue: Int
-        
+
         init(rawValue: Int) {
             self.rawValue = rawValue
         }
-        
+
         init(_ rawValue: Int) {
             self.rawValue = rawValue
         }
-        
-        static let takePhoto = CameraAppIntentOption(1 << 0)
-        static let livePhoto = CameraAppIntentOption(1 << 1)
-        static let stillPhoto = CameraAppIntentOption(1 << 2)
-        static let selfiePhoto = CameraAppIntentOption(1 << 3)
-        static let selfieWithLivePhoto = CameraAppIntentOption(1 << 4)
+
+        static let takePhoto = CaptureOption(1 << 0)
+        static let livePhoto = CaptureOption(1 << 1)
+        static let stillPhoto = CaptureOption(1 << 2)
+        static let selfiePhoto = CaptureOption(1 << 3)
+        static let selfieWithLivePhoto = CaptureOption(1 << 4)
     }
-    
+}
+
+extension CameraApp:UIApplicationDelegateLaunchableApp{
+
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenCameraIntent()
@@ -121,56 +108,56 @@ extension CameraApp{
             takeAStillPhotoIntent.cameraMode = .photo
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeAStillPhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .stillPhoto]).rawValue)
+            takeAStillPhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .stillPhoto]).rawValue)
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
-            
+
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            takeALivePhotoIntent.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto]).rawValue)
+            takeALivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
 
-            let i_t_s = TakeAPhotoIntent()
-            i_t_s.cameraMode = .selfiePhoto
-            i_t_s.appId = CameraApp.info.identifier
-            i_t_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .selfiePhoto]).rawValue)
-            i_t_s.suggestedInvocationPhrase = "Take A Selfie.".localized
+            let takeASelfieIntent = TakeAPhotoIntent()
+            takeASelfieIntent.cameraMode = .selfiePhoto
+            takeASelfieIntent.appId = CameraApp.info.identifier
+            takeASelfieIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeASelfieIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
+            takeASelfieIntent.suggestedInvocationPhrase = "Take A Selfie.".localized
 
-            let i_t_l_s = TakeAPhotoIntent()
-            i_t_l_s.cameraMode = .selfieWithLivePhoto
-            i_t_l_s.appId = CameraApp.info.identifier
-            i_t_l_s.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            i_t_l_s.launchOption = NSNumber(value: CameraAppIntentOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
-            i_t_l_s.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
-            
-            return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,i_t_s,i_t_l_s]
+            let takeASelfieWithLivePhotoIntent = TakeAPhotoIntent()
+            takeASelfieWithLivePhotoIntent.cameraMode = .selfieWithLivePhoto
+            takeASelfieWithLivePhotoIntent.appId = CameraApp.info.identifier
+            takeASelfieWithLivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+            takeASelfieWithLivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
+            takeASelfieWithLivePhotoIntent.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
+
+            let takeAGIFWithLivePhoto = TakeAGIFWithLivePhotoIntent()
+            takeAGIFWithLivePhoto.appId = CameraApp.info.identifier
+            takeAGIFWithLivePhoto.suggestedInvocationPhrase = "Take A GIF With Live Photo.".localized
+
+            return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,takeASelfieIntent,takeASelfieWithLivePhotoIntent, takeAGIFWithLivePhoto]
         } else {
             return []
         }
     }
 
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        guard let intent = userActivity.interaction?.intent else{
+            return
+        }
+
+        if #available(iOS 12.0, *) {
+            (self.content as? CameraAppDockContent)?.performWithIntent(intent)
+        }
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+
+    }
+
 
 }
-
-//@available(iOS 12.0, *)
-//class IntentHandler: INExtension {
-//    override func handler(for intent: INIntent) -> Any? {
-//        guard intent is TakeAPhotoIntent else { return nil }
-//        return TakeAPhotoIntentHandler()
-//    }
-//}
-//
-//@available(iOS 12.0, *)
-//public class TakeAPhotoIntentHandler: NSObject, TakeAPhotoIntentHandling {
-//    public func handle(intent: TakeAPhotoIntent, completion: @escaping (TakeAPhotoIntentResponse) -> Void) {
-//        let response = TakeAPhotoIntentResponse(code: .success, userActivity: nil)
-//        response.mode = intent.mode
-//        response.userActivity = NSUserActivity(activityType: NSStringFromClass(TakeAPhotoIntent.self))
-//        completion(response)
-//    }
-//}
 
 class CameraAppView: AppUICameraView {}
 
@@ -194,8 +181,9 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        cameraView?.captureMetadataComment = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption?.identifierToReturn
+        let launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
 
+        cameraView?.captureMetadataComment = launchOption?.identifierToReturn
         cameraView?.startSession()
 
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
@@ -213,54 +201,90 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
                 self.didCaptured(with: data)
             }
         }
+
+        // .CameraAppCaptureOption
+        if let captureOption = launchOption?.options?[.CameraCaptureOption] as? CameraApp.CaptureOption{
+            self.capture(with: captureOption)
+        }
     }
+
+    private var reservedLaunchOptionsToOpenOtherApp:AppLaunchOptions?
 
     @available(iOS 12.0, *)
     fileprivate func performWithIntent(_ intent:INIntent){
-        if let cameraView = self.cameraView
-        , let intent = intent as? TakeAPhotoIntent
-        , let optionValue = intent.launchOption?.intValue {
-            
-            let option = CameraApp.CameraAppIntentOption(optionValue)
-            if option.contains(.livePhoto) {
-                cameraView.isLivePhotoEnabled = true
-            }
-            else if option.contains(.stillPhoto) {
-                cameraView.isLivePhotoEnabled = false
-            }
 
-            if option.contains(.takePhoto) {
+        if let intent = intent as? TakeAPhotoIntent, let optionValue = intent.captureOption?.intValue {
 
-                if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
-                    let capturedResultId = "capturedResult"
-                    cameraView.watch(\.capturedResult, id: capturedResultId) {
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                            self.cameraView?.switchCaptureDevicePosition()
-                        }
-                        cameraView.unwatch(forIds: [capturedResultId])
+            capture(with: CameraApp.CaptureOption(optionValue))
+
+        }else if let _ = intent as? TakeAGIFWithLivePhotoIntent{
+
+            var launchOption = AppLaunchOptions(options:[.ConverterConvertingDirection: ConvertingDirection(from: .livephoto, to: .gif)])
+            launchOption.identifierToReturn = ConverterApp.info.identifier
+
+            reservedLaunchOptionsToOpenOtherApp = launchOption
+
+            capture(with: [.livePhoto, .takePhoto])
+        }
+    }
+
+    //TODO: queueing with multiple capture commands
+    private func capture(with option:CameraApp.CaptureOption){
+        guard let cameraView = cameraView else{
+            assert(false, "cameraView is nil")
+            return
+        }
+
+        if option.contains(.livePhoto) {
+            cameraView.isLivePhotoEnabled = true
+        }
+        else if option.contains(.stillPhoto) {
+            cameraView.isLivePhotoEnabled = false
+        }
+
+        if option.contains(.takePhoto) {
+
+            if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
+                let capturedResultId = "capturedResult"
+                cameraView.watch(\.capturedResult, id: capturedResultId) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        cameraView.switchCaptureDevicePosition()
                     }
+                    cameraView.unwatch(forIds: [capturedResultId])
+                }
 
-                    self.cameraView?.switchCaptureDevicePosition { position in
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                            cameraView.takePhoto()
-                        }
-                    }
-                }else{
-
+                cameraView.switchCaptureDevicePosition { position in
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                         cameraView.takePhoto()
                     }
                 }
-
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    cameraView.takePhoto()
+                }
             }
         }
     }
 
-    func didCaptured(with data:[AppLaunchOptionsKey:Any]){
-        if let option = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
-            , let id = option.identifierToReturn {
+    func didCaptured(with options:[AppLaunchOptionsKey:Any]){
 
-            AppCenter.default.openApp(identifier: id, options: AppLaunchOptions(options: data), animation:true)
+        //INFO: App X? -> Camera -> App ?
+        if let reservedLaunchOptions = reservedLaunchOptionsToOpenOtherApp, let id = reservedLaunchOptions.identifierToReturn{
+
+            //merge with captured options
+            var _reservedLaunchOptions = reservedLaunchOptions
+            _reservedLaunchOptions.set(other: options)
+
+            AppCenter.default.openApp(identifier: id, options: _reservedLaunchOptions, animation:true)
+
+            //dismiss
+            reservedLaunchOptionsToOpenOtherApp = nil
+        }
+        //INFO: App X -> Camera -> Return App X
+        else if let importedLaunchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
+            , let id = importedLaunchOption.identifierToReturn {
+
+            AppCenter.default.openApp(identifier: id, options: AppLaunchOptions(options: options), animation:true)
         }
     }
 

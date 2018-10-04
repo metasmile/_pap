@@ -300,6 +300,8 @@
 "Export" = "تصدير";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "مرشحات";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "البحث عن أرقام الهاتف.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "تجد";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "تسمح عملية الاستعادة باستعادة كمية حفنة من الصور التي تم تعديلها إلى الصورة الأصلية بسرعة. وعلاوة على ذلك ، فإنه يساعدك على الاختيار التلقائي!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "استعادة";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "استعادة";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "عكسي";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "خذ جزء";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "تؤخذ مع كاميرا مدمجة";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "اضغط على كشف";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "المستهدفة";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

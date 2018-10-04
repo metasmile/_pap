@@ -222,7 +222,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension PDFactoryApp:UIApplicationDelegatableApp{
+extension PDFactoryApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenPDFactoryIntent()
@@ -235,10 +235,10 @@ extension PDFactoryApp:UIApplicationDelegatableApp{
         }
     }
 
-    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+    func didLaunchHandling(with userActivity: NSUserActivity) {
 
     }
 
-    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }

@@ -15,10 +15,6 @@ import UIKit
 import SafariServices
 import StoreKit
 
-extension AppLaunchOptionsKey {
-    //value type: App.Type
-    static var ShopAppCallerAppType:AppLaunchOptionsKey{ return autoKey() }
-}
 
 public class ShopApp: NSObject
         , PropertyWatchable
@@ -70,7 +66,7 @@ public class ShopApp: NSObject
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         launchedOption = withOption
-        sourceAppType = launchedOption?.options?[.ShopAppCallerAppType] as? App.Type
+        sourceAppType = launchedOption?.options?[.ShopCallerAppType] as? App.Type
     }
 
     public private(set) static var fixedContentLayout: Bool = true

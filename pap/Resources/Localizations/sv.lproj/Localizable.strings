@@ -300,6 +300,8 @@
 "Export" = "Exportera";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filter";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Hitta telefonnummer.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Hitta";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurering gör det möjligt att snabbt återställa en massa mängd redigerade foton till originalet. Dessutom hjälper det dig med det automatiska valet!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Restaurering";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "Ta om";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Omvänd";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Ta del";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Ta med Inbyggd kamera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Tryck på för att upptäcka";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Målinriktad";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

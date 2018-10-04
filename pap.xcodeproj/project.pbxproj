@@ -120,6 +120,7 @@
 		4F71D6312B59A48079207438 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */; };
 		4F71D63D52977EA265390EC7 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2BECCF1365F71189DAC /* AppDockDrawerView.swift */; };
 		4F71D643BB59507D676B439D /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9CF1BA37E2581B00326 /* Period.swift */; };
+		4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */; };
 		4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3BE56AF451D39D5CFC8 /* PDFactory.BApp.Assets.xcassets */; };
 		4F71D66634CD95028F859696 /* CodeKit.UIFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09715944FAE99330335 /* CodeKit.UIFeedbackGenerator.swift */; };
 		4F71D668912265DF36A9783F /* pap.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC1C2C056A342534A2DC /* pap.Log.swift */; };
@@ -153,9 +154,11 @@
 		4F71D86FB1073AC3D8405B9C /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D755AF5A2605FB683A5E /* CodeKit.FileManager.swift */; };
 		4F71D87185DBD1B878C1F91A /* AppTaskRespondable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D85980FE87C2FB5A2398 /* AppTaskRespondable.swift */; };
 		4F71D8884473F49CA4EB7385 /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD16B2C03570CA5164E4 /* HashSet.swift */; };
+		4F71D897A85EBAA8EAC39FC2 /* PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5B1AE758CB5C42DBD66 /* PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift */; };
 		4F71D89BD0DF08370F62CC4E /* Charge.Objects.Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE8F4B1CDC7E1A15BC63 /* Charge.Objects.Amount.swift */; };
 		4F71D89E45DC410C14B06DFD /* PhotoPickerViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE2155C124D630681B16 /* PhotoPickerViewController.Operations.swift */; };
 		4F71D8AC9945010089E895A3 /* Cleaner.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB6BC0E1B494B609A42A /* Cleaner.BApp.swift */; };
+		4F71D8C39926FF2A9931EB9A /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D69AAEA245B9F24FB259 /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71D8CD4C379C163BCA16EC /* auto_enhance.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D79674AEB1D8005F45DF /* auto_enhance.png */; };
 		4F71D8CF0E55B5F5514525EB /* Charge.Types.Trialable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF661D46904595814EED /* Charge.Types.Trialable.swift */; };
 		4F71D8E81E71777F00556F7D /* AutoEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D1E0F894E66E552A5DA4 /* AutoEditor.BApp.Assets.xcassets */; };
@@ -167,6 +170,7 @@
 		4F71D91CB5A830870082FEB4 /* Stabilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FAAE879A83729E9B7B /* Stabilizer.swift */; };
 		4F71D91F046985261E794AFB /* pap.TimerInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FA39CE8C435998C723 /* pap.TimerInterval.swift */; };
 		4F71D92E81D81872641B5772 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DECC1D4250520B24DDE3 /* Sourceable.swift */; };
+		4F71D939F5E726A7551A4C00 /* Shop.SApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5691704669B88EED813 /* Shop.SApp.Launchable.OptionsKeys.swift */; };
 		4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */; };
 		4F71D95D6387B6BEA989F5EE /* ImageIO.Metadata.Properties.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8AD81A7900470EF8D1E /* ImageIO.Metadata.Properties.Collection.swift */; };
 		4F71D95F393063F1D620196C /* AppTaskPrototype.DefaultRestrictedConcurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */; };
@@ -177,7 +181,6 @@
 		4F71D9AD0D07B03569A06D55 /* App.PhotoPickerViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerDelegatable.swift */; };
 		4F71D9B103E4D9E617FDB8A5 /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */; };
 		4F71D9B4E8D299388E1A92B5 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBEC96C298669B35221A /* AppDockViewController.swift */; };
-		4F71D9CE878BBE63E1F23E2F /* App.UIApplicationDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9726EF4C44135F67D82 /* App.UIApplicationDelegatable.swift */; };
 		4F71D9D105E57684D4CA140C /* FirebaseMLVision.VisionTextDetectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D13CBE60C9D77D1B9B26 /* FirebaseMLVision.VisionTextDetectResult.swift */; };
 		4F71D9E5D61B97FC1DF1F479 /* PhoneCalls.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBC7B1677545F1FDFFBF /* PhoneCalls.BApp.swift */; };
 		4F71DA179B296DA438DF7F6D /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88756315BEB67DAEDB2 /* ImageIO.Metadata.Dictionary.swift */; };
@@ -186,6 +189,7 @@
 		4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */; };
 		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
 		4F71DA2CB847CDE6C625F38A /* FirebaseMLVision.VisionText.Parser.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39AF9319E3068946B49 /* FirebaseMLVision.VisionText.Parser.Types.swift */; };
+		4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
 		4F71DA63CF4EC022E2499107 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC767D0046648A03D16 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		4F71DA7A0F669E8D04C3A1BF /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF99D1C0C9B33AED58E7 /* Camera.View.swift */; };
@@ -206,6 +210,7 @@
 		4F71DB53632696002E0077B2 /* FirebaseMLVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7E95CB7CF5A53BA9B46 /* FirebaseMLVision.swift */; };
 		4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D63852192CF4147FD5 /* warp.metal */; };
 		4F71DB7E0B0C52577EC3D7D0 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC58EF662B297E81FB44 /* Version.swift */; };
+		4F71DB86DEAFE1C117072DE2 /* Camera.SApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D84D40A552DEE27C42AF /* Camera.SApp.Launchable.OptionsKeys.swift */; };
 		4F71DB8751248946212A908C /* SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D560E1FB6A785B514D8F /* SApp.swift */; };
 		4F71DBB61D645367E3ED362A /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF2BA1EF2662C299D170 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71DBBFF98A9E9798923CF3 /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D53963FE84DB6837A9BD /* App.Editable.swift */; };
@@ -410,6 +415,7 @@
 		4F71D2BECCF1365F71189DAC /* AppDockDrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockDrawerView.swift; sourceTree = "<group>"; };
 		4F71D2C256B7B8430A721FAF /* Sourceable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D2C6AC6415B946CC4677 /* App.LifecycleManagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.LifecycleManagable.swift; sourceTree = "<group>"; };
+		4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.BApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		4F71D2EAC77729BCB56102B4 /* CodeKit.String.NSDataDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSDataDetector.swift; sourceTree = "<group>"; };
 		4F71D2EF0D764F7706A76694 /* AppKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitTests.swift; sourceTree = "<group>"; };
 		4F71D3070A5FEF2A41795CA0 /* App.Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Configurable.swift; sourceTree = "<group>"; };
@@ -454,6 +460,7 @@
 		4F71D53F0A7FD6B2CD5F9AE7 /* Charge.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Types.swift; sourceTree = "<group>"; };
 		4F71D549D18017A01CC206C4 /* Converter.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Converter.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D560E1FB6A785B514D8F /* SApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SApp.swift; sourceTree = "<group>"; };
+		4F71D5691704669B88EED813 /* Shop.SApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.SApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		4F71D57DA15E2931006D080E /* Selectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		4F71D581C84B309D065C34B8 /* CodeKit.UIGraphicsImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIGraphicsImageRenderer.swift; sourceTree = "<group>"; };
 		4F71D5824B6B11743968A078 /* CodeKit.Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Misc.swift; sourceTree = "<group>"; };
@@ -461,6 +468,7 @@
 		4F71D5A902C8A1223C286310 /* App.Chargeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Chargeable.swift; sourceTree = "<group>"; };
 		4F71D5ACD3F74B3B759BD54E /* App.Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Asset.swift; sourceTree = "<group>"; };
 		4F71D5B00151402B775F469B /* App.Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Persistable.swift; sourceTree = "<group>"; };
+		4F71D5B1AE758CB5C42DBD66 /* PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift; sourceTree = "<group>"; };
 		4F71D5B3D16631A023BE8643 /* auto_crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_crop.png; sourceTree = "<group>"; };
 		4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIViewController.swift; sourceTree = "<group>"; };
 		4F71D5BE3EC7986FCBEDA9B4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -483,6 +491,7 @@
 		4F71D67A89FFDA5EB4C46426 /* GIFMaker.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GIFMaker.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D67F5C4FCDA49041FCA8 /* App.AppDock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.AppDock.swift; sourceTree = "<group>"; };
 		4F71D68D61BC7066763398CD /* zh-HK */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = Localizable.strings; sourceTree = "<group>"; };
+		4F71D69AAEA245B9F24FB259 /* App.Launchable.UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Launchable.UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		4F71D6B216749119C09120A9 /* Shop.Payment.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.Store.swift; sourceTree = "<group>"; };
 		4F71D6B4F7B9596C73A71004 /* Filters.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Filters.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D6BAC08C8D83F26BC096 /* UITableViewCellDescribable.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellDescribable.UITableView.swift; sourceTree = "<group>"; };
@@ -513,6 +522,7 @@
 		4F71D82693811867D6242765 /* StateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateValue.swift; sourceTree = "<group>"; };
 		4F71D842AC616FE4F150ABBE /* Converter.Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Gif.swift; sourceTree = "<group>"; };
 		4F71D8432FF35FE7D9C633CC /* CodeKit.UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.swift; sourceTree = "<group>"; };
+		4F71D84D40A552DEE27C42AF /* Camera.SApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.SApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.Counts.swift; sourceTree = "<group>"; };
 		4F71D850917CA806926DC874 /* Charge.Objects.Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Objects.Receipt.swift; sourceTree = "<group>"; };
 		4F71D85980FE87C2FB5A2398 /* AppTaskRespondable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTaskRespondable.swift; sourceTree = "<group>"; };
@@ -532,7 +542,6 @@
 		4F71D92382932E62756DD454 /* cell_icon_gif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_gif.png; sourceTree = "<group>"; };
 		4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
 		4F71D93194BD75FB4B17AAC0 /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Filters.jpg; sourceTree = "<group>"; };
-		4F71D9726EF4C44135F67D82 /* App.UIApplicationDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UIApplicationDelegatable.swift; sourceTree = "<group>"; };
 		4F71D97ED9B2D6302113481F /* ImageIO.HEIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.HEIF.swift; sourceTree = "<group>"; };
 		4F71D9B7F2FA7E5A8E504B61 /* App.UI.CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.CameraView.swift; sourceTree = "<group>"; };
 		4F71D9C63117AE87507DC6A6 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -577,6 +586,7 @@
 		4F71DC86D21CEF245CBF82A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		4F71DC9B1E3F0901394FC91B /* App.UI.AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.AssetView.swift; sourceTree = "<group>"; };
 		4F71DCC6064610129707F675 /* Converter.Jpeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Jpeg.swift; sourceTree = "<group>"; };
+		4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.LaunchableApp.Macro.swift; sourceTree = "<group>"; };
 		4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
 		4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Launchable.swift; sourceTree = "<group>"; };
 		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
@@ -861,6 +871,7 @@
 			children = (
 				4F71D549D18017A01CC206C4 /* Converter.BApp.Assets.xcassets */,
 				4F71D7C64A2CCB9FC98CFF2D /* Converter.BApp.swift */,
+				4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -889,6 +900,7 @@
 			children = (
 				4F71DD6C6B1ACFE87B3EA0CA /* Camera.SApp.swift */,
 				4F71D769EEF518D4DAECEDDC /* Camera.SApp.Assets.xcassets */,
+				4F71D84D40A552DEE27C42AF /* Camera.SApp.Launchable.OptionsKeys.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -1068,6 +1080,7 @@
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 				4F71DCEF593DF87E9F119E0A /* Payments */,
 				4F71DC7C576DE9FCD9B86B6A /* Shop.Payables.Store.LegalInfo.swift */,
+				4F71D5691704669B88EED813 /* Shop.SApp.Launchable.OptionsKeys.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -1373,6 +1386,8 @@
 				4F71D1FA39CE8C435998C723 /* pap.TimerInterval.swift */,
 				4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */,
 				512774C12149F3F0001602BD /* ColorThemeManager.swift */,
+				4F71D5B1AE758CB5C42DBD66 /* PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift */,
+				4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1448,7 +1463,7 @@
 				4F71D5A902C8A1223C286310 /* App.Chargeable.swift */,
 				4F71D0D4A558289AE568C6E7 /* App.ManagerConfigurable.swift */,
 				4F71DD9C96790E3F76498562 /* App.AVCaptureDevice.swift */,
-				4F71D9726EF4C44135F67D82 /* App.UIApplicationDelegatable.swift */,
+				4F71D69AAEA245B9F24FB259 /* App.Launchable.UIApplicationDelegate.swift */,
 			);
 			path = App.Types;
 			sourceTree = "<group>";
@@ -2533,7 +2548,6 @@
 				4F71DECF871E7474BE4B23B3 /* CodeKit.UIApplication.swift in Sources */,
 				4F71DF9410A5B3E55D25CD84 /* pap.Counts.swift in Sources */,
 				4F71D66634CD95028F859696 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
-				4F71D9CE878BBE63E1F23E2F /* App.UIApplicationDelegatable.swift in Sources */,
 				4F71D0A6EED5B6FF62B09202 /* Shop.Payment.Promotion.swift in Sources */,
 				4F71DEEF19EE08A0F5BC0AB7 /* Shop.Payment.URLOpen.Types.swift in Sources */,
 				4F71D7D5690F67169C70F5BD /* Shop.Payment.SocialShare.swift in Sources */,
@@ -2553,6 +2567,12 @@
 				4F71D83B058192F1C73292A3 /* FirebaseMLVision.VisionTextDetectResult.Types.swift in Sources */,
 				4F71D9D105E57684D4CA140C /* FirebaseMLVision.VisionTextDetectResult.swift in Sources */,
 				4F71D90E48CE186094D37BB6 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift in Sources */,
+				4F71D8C39926FF2A9931EB9A /* App.Launchable.UIApplicationDelegate.swift in Sources */,
+				4F71D897A85EBAA8EAC39FC2 /* PhotoPickerViewController.Operations.DisplayableAppSelectActionCallee.swift in Sources */,
+				4F71D939F5E726A7551A4C00 /* Shop.SApp.Launchable.OptionsKeys.swift in Sources */,
+				4F71DB86DEAFE1C117072DE2 /* Camera.SApp.Launchable.OptionsKeys.swift in Sources */,
+				4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */,
+				4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -300,6 +300,8 @@
 "Export" = "Eksport";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Penapis";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Cari Nombor Telefon.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "Cari";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Pemulihan membolehkan memulihkan sejumlah besar gambar yang diedit kepada yang asal dengan cepat. Tambahan pula, ia membantu anda dengan pemilihan automatik!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Pemulihan";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "Ambil semula";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Songsang";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Ambil bahagian";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Terbina Dalam";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Ketik untuk mengesan";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Disasarkan";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

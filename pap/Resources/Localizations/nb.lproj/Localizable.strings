@@ -300,6 +300,8 @@
 "Export" = "Eksport";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "filtre";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Find Phone Numbers." = "Finn telefonnumre.";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Find" = "Finne";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -524,6 +526,8 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurering gjør det mulig å gjenopprette en mengde redigerte bilder raskt til den opprinnelige. Videre hjelper det deg med det automatiske valget!";
 /* Generated from genl10n: Revert.BApp.swift */
 "Restorer" = "Restaurering";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Retake" = "gjenerobre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Omvendt";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -626,6 +630,8 @@
 "Take Part" = "Delta";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Tatt med innebygd kamera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Trykk på for å oppdage";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targeted" = "målrettet";
 /* Generated from genl10n: Cleaner.BApp.swift */

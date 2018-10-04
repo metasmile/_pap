@@ -9,6 +9,7 @@ import FirebaseMLVision
 import PropertyKit
 import Contacts
 import ContactsUI
+import Intents
 
 private typealias PhoneCallsAppParam = AppAsset
 private struct PhoneCallsAppResult: AppTaskResultable {
@@ -62,7 +63,6 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
             , keywords: ["Phone", "Call", "Numbers", "Address", "Contacts"]
             , iconBundleName: R.image.phoneCallsBAppIcon.name
             , policy: AppPolicy.default
-//            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
@@ -91,6 +91,17 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
             return indexPaths
         }
         return nil
+    }
+
+    //FIXME: find better way (fire and then default)
+    fileprivate var reservedToPerformInCurrentContextWithSelectedItems: Bool = false
+
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+        if reservedToPerformInCurrentContextWithSelectedItems{
+            reservedToPerformInCurrentContextWithSelectedItems = false
+
+            callee?.performInCurrentContextWithSelectedItems()
+        }
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -398,12 +409,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         cell_b.label = "Take A Photo".localized
         cell_b.buttonImage = R.image.systemIconCamera.name
         cell_b.valueHandler = { _ in
-            var option = AppLaunchOptions()
-            option.identifierToReturn = PhoneCallsApp.info.identifier
-            AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
-
-            papLog.app.userCalledCameraInApp()
-
+            AppCenter.default.openCamera()
         }
         settingCellDescribers.append(cell_b)
 
@@ -623,28 +629,58 @@ extension PhoneCallsAppDockContent: PreheatableAppSubscribable{
         prepareStatusDisplaying(label: self.autoSelect ? "On Standby".localized : nil)
         self.stopSelectionBotIconAnimation(self.settingCellDescribers, PhoneCallsAppCells.autoSelect.hashValue)
     }
-
 }
 
-import Intents
+extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
 
-extension PhoneCallsApp:UIApplicationDelegatableApp{
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else{
+                return
+            }
+
+            if intent is GiveMeThatPhoneNumberIntent{
+                if let describer = settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }){
+
+                    // set reservedToPerformInCurrentContextWithSelectedItems to true
+                    AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.reservedToPerformInCurrentContextWithSelectedItems = true
+
+                    //Open Camera App -> Take A photo
+                    AppCenter.default.openCamera(captureOption: [.stillPhoto, .takePhoto])
+                }
+            }
+        }
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+
+    }
+}
+
+
+extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenPhoneCallsIntent()
             openAppIntent.appId = PhoneCallsApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized
-            return [openAppIntent]
+
+            let giveMeThatPhoneNumberIntent = GiveMeThatPhoneNumberIntent()
+            giveMeThatPhoneNumberIntent.appId = PhoneCallsApp.info.identifier
+            giveMeThatPhoneNumberIntent.suggestedInvocationPhrase = "Give Me That Phone Number.".localized
+
+            return [openAppIntent, giveMeThatPhoneNumberIntent]
         } else {
             return []
         }
     }
 
-    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
-
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        (self.content as? PhoneCallsAppDockContent)?.didLaunchHandling(with: userActivity)
     }
 
-    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+        (self.content as? PhoneCallsAppDockContent)?.didLaunchHandling(with: shortcutItem)
     }
 }

@@ -65,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let paymentsToTest = [
             AllTimeAllAppsPayment.self
         ]
-        for _ in paymentsToTest{
-//            AppCenter.charge.pay(for: p, skipTransaction: true)
+        for p in paymentsToTest{
+            AppCenter.charge.pay(for: p, skipTransaction: true)
         }
 #endif
         return true

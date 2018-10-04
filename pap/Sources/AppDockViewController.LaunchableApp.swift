@@ -24,6 +24,7 @@ private extension AppDockViewController {
 }
 
 extension AppCenter{
+
     @discardableResult
     func openCurrentApp(options: AppLaunchOptions?=nil, animation:Bool=false) -> Bool{
         return self.openApp(identifier: AppCenter.default.current?.info.identifier ?? "", options: options, animation: animation)

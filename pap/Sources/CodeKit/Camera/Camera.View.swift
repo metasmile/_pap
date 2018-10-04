@@ -150,13 +150,15 @@ class CameraView: UIView, PropertyWatchable {
         updateVideoOrientation()
     }
 
-    func startSession() {
+    func startSession(completion:(() -> Void)?=nil) {
         deviceMotion.startUpdates(interval: 0.6)
         sessionQueue.async {
             if self.captureSession == nil {
                 self.configureSession()
             }
             self.captureSession?.startRunning()
+
+            completion?()
         }
     }
 

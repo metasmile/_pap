@@ -48,6 +48,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
         ChargeableApp,
         FinalizableApp,
         PreheatableApp,
+        LaunchableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
         PhotoPickerCollectionViewDisplayableApp,
         PhotoPickerViewControllerDelegatableApp {
@@ -101,6 +102,21 @@ public class ConverterApp: NSObject, PropertyWatchable,
         return nil
     }
 
+    func didResign(current: App.Type?) {
+
+    }
+
+    private var importedLaunchOption: AppLaunchOptions?
+    func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
+        importedLaunchOption = withOption
+
+        if let convertingDirection = withOption?.options?[.ConverterConvertingDirection] as? ConvertingDirection{
+            var mutableDefaults = self.defaults
+            mutableDefaults.autoSelect = false
+            mutableDefaults.convertingDirection = convertingDirection
+        }
+    }
+
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
 
     }
@@ -130,11 +146,27 @@ public class ConverterApp: NSObject, PropertyWatchable,
             autoSelect = self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil))
             async.end()
         }
-        async.waitUntilEnd()
+        if async.began{
+            async.waitUntilEnd()
+        }
         return autoSelect ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
-}
 
+    func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
+        if let _ = importedLaunchOption{
+            return indexPaths
+        }
+        return nil
+    }
+
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+        if let _ = importedLaunchOption, let callee = callee{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                callee.performInCurrentContextWithSelectedItems()
+            }
+        }
+    }
+}
 
 extension ConverterApp{
     fileprivate var defaults:ConverterAppDefaults{
@@ -283,7 +315,7 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension ConverterApp:UIApplicationDelegatableApp{
+extension ConverterApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenConverterIntent()
@@ -296,11 +328,11 @@ extension ConverterApp:UIApplicationDelegatableApp{
         }
     }
 
-    func didFinishLaunchHandlingWith(userActivity: NSUserActivity) {
+    func didLaunchHandling(with userActivity: NSUserActivity) {
 
     }
 
-    func didFinishLaunchHandlingWith(shortcutItem: UIApplicationShortcutItem) {
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }
 
