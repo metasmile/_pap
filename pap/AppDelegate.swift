@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let shortcutItemAppDelegate = ShortcutItemAppDelegate()
     let intentsAppDelegate = IntentsAppDelegate()
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Defaults.shared.initVersionInfo()
         print("Version: ", Bundle.main.shortVersionString ?? "No version info")
         print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 #if !DEBUG
         Fabric.with([Crashlytics.self])
 #endif
@@ -72,14 +72,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
 
-        spotlightSearchAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
-        intentsAppDelegate.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        spotlightSearchAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
+        intentsAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
         return false
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
 
         let handledFBSDK = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
         return handledFBSDK

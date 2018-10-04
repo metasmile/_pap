@@ -117,7 +117,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }),
                         UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                            UIActivityViewController.share(activityItems: [phoneNumber], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                 asyncSignal.end()
                             }
                         })
@@ -201,7 +201,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }),
                         UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                            UIActivityViewController.share(activityItems: [url], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                 asyncSignal.end()
                             }
                         })
@@ -290,7 +290,7 @@ extension Array where Element:VisionTextDetectResult {
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [dateString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -387,7 +387,7 @@ extension Array where Element:VisionTextDetectResult {
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [email], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -505,7 +505,7 @@ extension Array where Element:VisionTextDetectResult {
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [addressString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [addressString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })
@@ -602,7 +602,7 @@ extension Array where Element:VisionTextDetectResult {
 
                     _actions.append(
                             UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivityType.copyToPasteboard]) { type, b, anies, error in
+                                UIActivityViewController.share(activityItems: [flightString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
                                     asyncSignal.end()
                                 }
                             })

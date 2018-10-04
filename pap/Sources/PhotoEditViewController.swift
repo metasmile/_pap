@@ -181,7 +181,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             boundingInsets.bottom += safeAreaInsets.bottom
         }
         
-        let boundingBox = UIEdgeInsetsInsetRect(photoZoomingView.bounds, boundingInsets)
+        let boundingBox = photoZoomingView.bounds.inset(by: boundingInsets)
 
         let actualContentSize = preferredSize.applying(editItem.transform).magnitude.aspectFit(in: boundingBox.size)
         let contentSize = actualContentSize.applying(editItem.transform.inverted()).magnitude

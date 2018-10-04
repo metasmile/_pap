@@ -49,7 +49,7 @@ class AppUIAssetView: AssetView {
     private lazy var processingView: UIView = {
         let view = UIView(frame: bounds)
         
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.light))
         view.addSubview(blurView)
         blurView.fitConstraints(to: view)
         
@@ -275,7 +275,8 @@ extension AppUIAssetView {
             
             let composition = AVMutableComposition()
             let compositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-            try? compositionTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, video.duration), of: videoTrack, at: kCMTimeZero)
+            
+            try? compositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)
             compositionTrack?.preferredTransform = videoTrack.preferredTransform
             
             if let filter = editState?.ciFilter {

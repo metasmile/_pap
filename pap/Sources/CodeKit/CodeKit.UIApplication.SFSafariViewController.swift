@@ -22,14 +22,14 @@ private final class SFSafariViewControllerDelegator: Object, PropertyWatchable, 
         return []
     }
 
-    /*! @abstract Allows you to exclude certain UIActivityTypes from the UIActivityViewController presented when the user taps the action button.
+    /*! @abstract Allows you to exclude certain UIActivity.ActivityTypes from the UIActivityViewController presented when the user taps the action button.
         @discussion Called when the view controller is about to show a UIActivityViewController after the user taps the action button.
         @param URL the URL of the current web page.
         @param title the title of the current web page.
-        @result Returns an array of any UIActivityType that you want to be excluded from the UIActivityViewController.
+        @result Returns an array of any UIActivity.ActivityType that you want to be excluded from the UIActivityViewController.
      */
     @available(iOS 11.0, *)
-    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivityType]{
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType]{
         return []
     }
 

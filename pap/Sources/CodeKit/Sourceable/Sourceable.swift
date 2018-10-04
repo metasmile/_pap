@@ -50,7 +50,7 @@ public protocol StringSourceable:Sourceable {
 extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, StringSourceable {
     public var asUIImage:UIImage? { get { return self } }
     public var asData:Data? {
-        return UIImageJPEGRepresentation(self, 1)
+        return self.jpegData(compressionQuality: 1)
     }
     public var asURL:URL? { get { return nil } }
 

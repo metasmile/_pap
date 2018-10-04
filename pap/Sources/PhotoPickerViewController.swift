@@ -72,7 +72,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //photos collection
         photoCollectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: PhotoCollectionViewCell.self))
-        photoCollectionView.register(PhotoPickerFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PhotoPickerFooterView")
+        photoCollectionView.register(PhotoPickerFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PhotoPickerFooterView")
         photoCollectionView.allowsMultipleSelection = true
         
         //peek and pop
@@ -558,7 +558,7 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     private func updateAllPhotosTitle() {
-        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter).last as? PhotoPickerFooterView {
+        if let footer = self.photoCollectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionFooter).last as? PhotoPickerFooterView {
             footer.text = self.formattedStringForAllPhotos
         }
     }
@@ -685,7 +685,7 @@ class PhotoPickerViewController: AppDockViewController {
             
             if let indexPathToScroll = indexPathToScroll {
                 //TODO: test for scroll inserted items instead of restore previous selections
-                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionViewScrollPosition.bottom, animated: true)
+                self.photoCollectionView.scrollToItem(at: indexPathToScroll, at: UICollectionView.ScrollPosition.bottom, animated: true)
             }
             
             if needsToRestoreSelection {
@@ -855,7 +855,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
-        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let loadingIndicator = UIActivityIndicatorView(style: .gray)
         loadingIndicator.startAnimating()
         navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
 

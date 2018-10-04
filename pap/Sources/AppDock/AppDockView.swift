@@ -127,7 +127,7 @@ class AppDockView: CustomView {
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
-        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
+        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
@@ -153,7 +153,7 @@ class AppDockView: CustomView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
     }
 
     private var bottomAccesoryViewSafeHeight: CGFloat{
@@ -839,9 +839,9 @@ extension AppDockView: UIGestureRecognizerDelegate {
         }
 
         if reloadDockContentViews {
-            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: accessoryLayoutConstant))
+            (accessory?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIView.noIntrinsicMetric, height: accessoryLayoutConstant))
 
-            (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIViewNoIntrinsicMetric, height: controllerLayoutConstant))
+            (controller?.view as? AppDockContentView)?.reloadContentThatFits(size:CGSize(width: UIView.noIntrinsicMetric, height: controllerLayoutConstant))
         }
         
         delegate?.appDockView(self, didOpenDrawer: true)
@@ -1099,7 +1099,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
             if section < numberOfSections - 1 {
                 //add section footer
                 let indexPath = IndexPath(item: 0, section: section)
-                let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, with: indexPath)
+                let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, with: indexPath)
                 let itemSize = self.itemSize(with: layoutMetrics)
                 let footerSize = CGSize(width: 2, height: itemSize.height * (layoutMetrics == .prominent ? 0.7 : 0.6))
                 

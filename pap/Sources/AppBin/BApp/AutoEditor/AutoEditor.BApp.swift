@@ -150,9 +150,12 @@ class CIAutoAdjustmentFilter: CIFilter {
     @objc dynamic var inputImage : CIImage?
     
     override var outputImage: CIImage? {
+
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
-        
-        for filter in image.autoAdjustmentFilters(options: options) {
+        let optionsDict = options?.dictionary(transform: { o -> (key: CIImageAutoAdjustmentOption, value: Any) in
+            return (CIImageAutoAdjustmentOption(rawValue: o.key), o.value)
+        })
+        for filter in image.autoAdjustmentFilters(options: optionsDict) {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
@@ -165,27 +168,27 @@ class CIAutoAdjustmentFilter: CIFilter {
 
 private extension AutoEditorApp {
     struct AutoAdjustments {
-        static let Enhance = kCIImageAutoAdjustEnhance
-        static let RedEye = kCIImageAutoAdjustRedEye
-        static let Crop = kCIImageAutoAdjustCrop
-        static let Straighten = kCIImageAutoAdjustLevel
+        static let Enhance = CIImageAutoAdjustmentOption.enhance
+        static let RedEye = CIImageAutoAdjustmentOption.redEye
+        static let Crop = CIImageAutoAdjustmentOption.crop
+        static let Straighten = CIImageAutoAdjustmentOption.level
 
-        static func aliasName(_ filterName: String?) -> String? {
-            switch filterName {
-            case Enhance?: return "Auto Enhance".localized
-            case RedEye?: return "Red-Eye Removal".localized
-            case Crop?: return "Auto Crop".localized
-            case Straighten?: return "Auto Straighten".localized
+        static func aliasName(_ option: CIImageAutoAdjustmentOption) -> String? {
+            switch option {
+            case Enhance: return "Auto Enhance".localized
+            case RedEye: return "Red-Eye Removal".localized
+            case Crop: return "Auto Crop".localized
+            case Straighten: return "Auto Straighten".localized
             default: return nil
             }
         }
 
-        static func iconImage(_ filterName: String?) -> UIImage? {
-            switch filterName {
-            case Enhance?: return R.image.auto_enhance()?.withRenderingMode(.alwaysTemplate)
-            case RedEye?: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
-            case Crop?: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
-            case Straighten?: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
+        static func iconImage(_ option: CIImageAutoAdjustmentOption) -> UIImage? {
+            switch option {
+            case Enhance: return R.image.auto_enhance()?.withRenderingMode(.alwaysTemplate)
+            case RedEye: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
+            case Crop: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
+            case Straighten: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
             default: return nil
             }
         }
@@ -258,7 +261,7 @@ private protocol AutoEditorAppDefaults: AppDefaults{
 extension Defaults: AutoEditorAppDefaults {
     fileprivate var autoAdjustmentOptions: [String:Bool] {
         set{ set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
-        get{ return get(or: AutoEditorApp.AutoAdjustmentsKeys.dictionary { ($0, true) } ) }
+        get{ return get(or: AutoEditorApp.AutoAdjustmentsKeys.dictionary { ($0.rawValue, true) } ) }
     }
 }
 
@@ -312,7 +315,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         }
 
         for (index, cell) in tableView.visibleCells.enumerated() {
-            let option = (options?[self.autoAdjustmentOptionKeys[index]] as? Bool) ?? false
+            let option = (options?[self.autoAdjustmentOptionKeys[index].rawValue] as? Bool) ?? false
             (cell as? Cell)?.optionSwitch.setOn(option, animated: animated)
         }
     }
@@ -336,9 +339,9 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
         cell.optionSwitch.onTintColor = cell.imageView?.tintColor
-        cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] as? Bool) == true, animated: false)
+        cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] as? Bool) == true, animated: false)
         cell.switchDidChange = { on in
-            self.options?[self.autoAdjustmentOptionKeys[indexPath.row]] = on ? true : false
+            self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] = on ? true : false
         }
         
         return cell
@@ -363,7 +366,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
             switchDidChange = nil
         }
         
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             accessoryView = optionSwitch

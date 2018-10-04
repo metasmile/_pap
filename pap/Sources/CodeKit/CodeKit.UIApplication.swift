@@ -8,6 +8,6 @@ import UIKit
 
 extension UIApplication{
     func openSettings(completionHandler completion: ((Bool) -> Void)? = nil){
-        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: completion)
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: completion)
     }
 }

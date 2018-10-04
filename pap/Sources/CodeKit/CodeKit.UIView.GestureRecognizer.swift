@@ -97,13 +97,13 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
     func panAutomatically(_ panBlock: (() -> Void)?) {
         if autoPanningTimer == nil {
             autoPanningTimer = CADisplayLink(target: self, selector: #selector(self.autoPanningTimerDidChange))
-            autoPanningTimer?.add(to: .main, forMode: .commonModes)
+            autoPanningTimer?.add(to: .main, forMode: .common)
         }
         panHandler = panBlock
     }
 
     func stopAutoPanning() {
-        autoPanningTimer?.remove(from: .main, forMode: .commonModes)
+        autoPanningTimer?.add(to: .main, forMode: .common)
         autoPanningTimer = nil
         panHandler = nil
     }

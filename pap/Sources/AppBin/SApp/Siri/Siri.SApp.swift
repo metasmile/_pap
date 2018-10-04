@@ -89,7 +89,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     func willSetContentView(_ view: UIView, dock: AppDock) {
         tableView.dataSource = delegator
         tableView.delegate = delegator
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         
@@ -98,15 +98,15 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
         searchBar.delegate = self
         
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
-            guard let frameValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
+            guard let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
             let frame = frameValue.cgRectValue
             
             self.tableView.contentInset.bottom = frame.height - (UIScreen.main.bounds.height - dock.contentInsets.bottom)
             self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }
         
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillHide, object: nil, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
             self.tableView.contentInset.bottom = 0
             self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }

@@ -185,7 +185,7 @@ private class ResultItemLayer: CAShapeLayer {
         let badgeSize: CGFloat = 32
         
         addSublayer(badgeLayer)
-        badgeLayer.contentsGravity = kCAGravityResizeAspectFill
+        badgeLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
         badgeLayer.cornerRadius = badgeSize / 2
         badgeLayer.masksToBounds = true
         badgeLayer.backgroundColor = UIColor.white.cgColor
@@ -556,7 +556,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
             
             var options: [VNImageOption: Any] = [:]
-            if let cameraIntrinsicMatrix = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) {
+            if let cameraIntrinsicMatrix = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) {
                 options[VNImageOption.cameraIntrinsics] = cameraIntrinsicMatrix
             }
             
@@ -639,7 +639,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             actionButtonDidTap()
         }
         else {
-            let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            let loadingView = UIActivityIndicatorView(style: .gray)
             loadingView.startAnimating()
             
             toolBar.setItems([

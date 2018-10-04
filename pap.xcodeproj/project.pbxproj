@@ -303,7 +303,6 @@
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
-		A0885A7120AC71BE00A469C1 /* Transform.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
 		A0885A7320AC71CA00A469C1 /* IMG_0679.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DD4724459BA191CAECC3 /* IMG_0679.JPG */; };
 		A0956BBA2095005200E680B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956A8C2095004700E680B9 /* Localizable.strings */; };
@@ -617,7 +616,6 @@
 		4F71DDFBFF62BA2892846902 /* PDFactory.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.BApp.swift; sourceTree = "<group>"; };
 		4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.Contents.swift; sourceTree = "<group>"; };
 		4F71DE10A0F93AC7DE2F34C5 /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.App.Tests.swift; sourceTree = "<group>"; };
 		4F71DE2155C124D630681B16 /* PhotoPickerViewController.Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.swift; sourceTree = "<group>"; };
 		4F71DE345B1BE37A7D9B2BE5 /* AppDockViewController.LaunchableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.LaunchableApp.swift; sourceTree = "<group>"; };
 		4F71DE4061C997C8A012BC74 /* GIFMaker.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFMaker.BApp.swift; sourceTree = "<group>"; };
@@ -1150,7 +1148,6 @@
 			isa = PBXGroup;
 			children = (
 				4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */,
-				4F71DE20A7DE6585F1DB3246 /* Transform.App.Tests.swift */,
 				4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */,
 				4F71DE78E969F349EB0EB06A /* Test.App.swift */,
 			);
@@ -2587,7 +2584,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0885A7120AC71BE00A469C1 /* Transform.App.Tests.swift in Sources */,
 				A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */,
 				A0F086CB20AC6CD700E74025 /* AppKitTests.swift in Sources */,
 				A0F086CA20AC6CD700E74025 /* ApplicationTests.swift in Sources */,
@@ -2991,7 +2987,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -3045,7 +3041,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3072,7 +3068,7 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3098,7 +3094,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.pap AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3121,7 +3117,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap.papTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pap.app/pap";
 			};
@@ -3145,7 +3141,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap.papTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pap.app/pap";
 			};

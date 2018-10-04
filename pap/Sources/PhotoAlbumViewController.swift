@@ -131,7 +131,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16
         
-        collectionView.register(PhotoAlbumCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PhotoAlbumCollectionTitleView")
+        collectionView.register(PhotoAlbumCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PhotoAlbumCollectionTitleView")
     }
     
     override func viewWillLayoutSubviews() {
@@ -291,7 +291,7 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
         let interitemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.item)
         
         let scaleTransform = CGAffineTransform(scaleX: 1 / UIScreen.main.nativeScale, y: 1 / UIScreen.main.nativeScale)
-        let width = (UIEdgeInsetsInsetRect(UIScreen.main.nativeBounds.applying(scaleTransform), collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
+        let width = (UIScreen.main.nativeBounds.applying(scaleTransform).inset(by: collectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
         return CGSize(width: width, height: width + 50)
     }
     

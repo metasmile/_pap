@@ -84,7 +84,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.fitConstraints(to: self)
     }
     
-    func selectItem(at indexPath: IndexPath?, animated: Bool, scrollPosition: UICollectionViewScrollPosition = .centeredHorizontally) {
+    func selectItem(at indexPath: IndexPath?, animated: Bool, scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally) {
         DispatchQueue.main.async {
             self.collectionView.selectItem(at: indexPath, animated: animated, scrollPosition: scrollPosition)
         }
