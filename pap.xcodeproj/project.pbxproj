@@ -187,7 +187,7 @@
 		4F71DA17D09B551E38D1364A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B7895317B10D661C54 /* Object.swift */; };
 		4F71DA1A6FC8FCD009336391 /* Filters.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */; };
 		4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */; };
-		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */; };
+		4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDelegatable.swift */; };
 		4F71DA2CB847CDE6C625F38A /* FirebaseMLVision.VisionText.Parser.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39AF9319E3068946B49 /* FirebaseMLVision.VisionText.Parser.Types.swift */; };
 		4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2CEFBBED362C5EB2953 /* Converter.BApp.Launchable.OptionsKeys.swift */; };
 		4F71DA55751D3743CE82BFB5 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D23CA70B4177B7B400CD /* CodeKit.URL.swift */; };
@@ -553,7 +553,7 @@
 		4F71D9EA18038DC26B0CDC6A /* CodeKit.EventKitUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.EventKitUI.swift; sourceTree = "<group>"; };
 		4F71D9F99FBAD774C0050948 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		4F71D9FAAE879A83729E9B7B /* Stabilizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stabilizer.swift; sourceTree = "<group>"; };
-		4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerCollectionViewDisplayable.swift; sourceTree = "<group>"; };
+		4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerCollectionViewDelegatable.swift; sourceTree = "<group>"; };
 		4F71DA25079F23C2E3097538 /* Defaults.Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.Version.swift; sourceTree = "<group>"; };
 		4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F71DA3C273565A6E320B6AF /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
@@ -1306,7 +1306,7 @@
 				4F71D7E9C4F489674C83A285 /* App.UI */,
 				4F71D3155A0D884209F72E2D /* App.Lib.Converter */,
 				4F71D67F5C4FCDA49041FCA8 /* App.AppDock.swift */,
-				4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDisplayable.swift */,
+				4F71DA10E97AC3BD6F9BEB5F /* App.PhotoPickerCollectionViewDelegatable.swift */,
 				4F71D756451C76841F34DEF7 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */,
 				4F71D03709F50D8869D69AE7 /* App.PhotoEditorViewControllerDelegatable.swift */,
 				4F71D7E3C18F3D98C13E34A1 /* App.Finalizable.UIActivity.PHAsset.swift */,
@@ -2341,7 +2341,7 @@
 				4F71D6F706B03B7D0A69F404 /* Converter.Mov.swift in Sources */,
 				4F71DCE64C6D9C7248A5B47F /* Converter.LivePhoto.swift in Sources */,
 				4F71DC9B2ADE5634C4478801 /* App.AppDock.swift in Sources */,
-				4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDisplayable.swift in Sources */,
+				4F71DA266388F7C0E58F0159 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71D9AD0D07B03569A06D55 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
 				4F71D6A901FB2081A06E9E43 /* App.swift in Sources */,
 				4F71DE6DDDD0BC4FB5B79F6D /* App.Finalizable.swift in Sources */,

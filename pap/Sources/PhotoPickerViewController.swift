@@ -262,7 +262,9 @@ class PhotoPickerViewController: AppDockViewController {
 
         // interrupt preheating.
         cancelPreheatingIfNeeded()
-        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didAppear(callee: self)
+
+        // didAppear
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didLoad(callee: self)
 
         // restart preheating.
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)

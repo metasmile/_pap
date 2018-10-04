@@ -5,11 +5,20 @@
 
 import Foundation
 import UIKit
+import Photos
 
 extension PhotoPickerViewController:PhotoPickerCollectionViewDelegatableCallee{
     func performInCurrentContextWithSelectedItems() {
         if let currentRightBarButtonAction = navigationItem.rightBarButtonItem?.action{
             perform(currentRightBarButtonAction, with:"")
         }
+    }
+
+    func selectInCurrentContext(with asset: PHAsset, animated: Bool=true) -> Bool {
+        return self.selectCollectionViewItem(by: asset, scrollPosition: [.centeredVertically])
+    }
+
+    func selectInCurrentContext(at indexPath: IndexPath, animated: Bool=true) -> Bool {
+        return self.selectCollectionViewItem(at: indexPath, animated: animated, scrollPosition: [.centeredVertically])
     }
 }

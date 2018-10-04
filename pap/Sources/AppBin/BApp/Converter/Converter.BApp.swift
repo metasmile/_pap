@@ -105,7 +105,6 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     }
 
-
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         currentLaunchOption = withOption
     }
@@ -169,6 +168,12 @@ public class ConverterApp: NSObject, PropertyWatchable,
                 callee.performInCurrentContextWithSelectedItems()
             }
         }
+    }
+
+    var photoPickerCallee:PhotoPickerCollectionViewDelegatableCallee?
+
+    func didLoad(callee: PhotoPickerCollectionViewDelegatableCallee) {
+        self.photoPickerCallee = callee
     }
 }
 
@@ -402,11 +407,35 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
                 }
             }
 
-            if let direction = convertingDirection{
+            if let direction = convertingDirection, let converter = ConverterApp.getAvailableConverters(by: direction).first{
+
+                //reload direction
+                var mutableDefaults = self.defaults
+                mutableDefaults.convertingDirection = direction
                 (self.content as! ConverterAppDockContent).reloadData(reset: true)
 
-                //TODO:
-//                callee.performInCurrentContextWithSelectedItems()
+                //find latest asset with matched converter
+                DispatchQueue.global(qos: .userInteractive).async{
+                    var latestAvailableAsset:PHAsset?
+                    for r in PHAssets.fetched.results?.reversed() ?? [] where latestAvailableAsset == nil{
+                        for i in (0 ..< r.count).reversed() where converter.canPerformWith(asset: r[i]){
+                            latestAvailableAsset = r[i]
+                            break
+                        }
+                    }
+
+                    if let targetAsset = latestAvailableAsset{
+                        DispatchQueue.main.async{
+                            assert(self.photoPickerCallee != nil)
+                            self.photoPickerCallee?.selectInCurrentContext(with: targetAsset, animated: true)
+                            self.photoPickerCallee?.performInCurrentContextWithSelectedItems()
+                        }
+                    }
+                }
+
+            }else{
+
+                //TODO: alert with not supported converter direction.
             }
         }
     }
@@ -414,10 +443,6 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }
-
-
-
-
 
 private enum Cells {
     case convertingDirection

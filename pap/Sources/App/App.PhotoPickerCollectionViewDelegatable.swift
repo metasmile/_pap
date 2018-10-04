@@ -4,9 +4,16 @@
 //
 
 import Foundation
+import Photos
 
 protocol PhotoPickerCollectionViewDelegatableCallee {
     func performInCurrentContextWithSelectedItems()
+
+    @discardableResult
+    func selectInCurrentContext(with asset: PHAsset, animated:Bool) -> Bool
+
+    @discardableResult
+    func selectInCurrentContext(at indexPath: IndexPath, animated:Bool) -> Bool
 }
 
 // PhotoPickerCollectionView -> App
@@ -21,7 +28,8 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
     //INFO: if [shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?] returns nil, this method will not be called.
     func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee, indexPaths:[IndexPath])
 
-    func didAppear(callee:PhotoPickerCollectionViewDelegatableCallee)
+    //INFO: app did change -> reloaded all collections with current context -> called.
+    func didLoad(callee:PhotoPickerCollectionViewDelegatableCallee)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -33,7 +41,7 @@ extension PhotoPickerCollectionViewDelegatableApp{
         return nil
     }
 
-    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {}
+    func didLoad(callee: PhotoPickerCollectionViewDelegatableCallee) {}
 
     func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {}
 }
