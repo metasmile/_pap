@@ -419,8 +419,12 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        searchBar.text = nil
-        updateFilteredItems(by:nil)
+
+        let textHasExisted = searchBar.text?.trimmed.count ?? 0 > 0
+        if textHasExisted{
+            searchBar.text = nil
+            updateFilteredItems(by:nil)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -430,10 +434,11 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         updateFilteredItems(by: searchText)
     }
-    
+
     private func updateFilteredItems(by searchText: String?) {
-        guard searchText?.isEmpty == false else {
-            reloadData(); return
+        guard searchText?.trimmed.count ?? 0 > 0 else {
+            reloadData()
+            return
         }
 
         Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.5) { timer in

@@ -7,5 +7,5 @@ import Foundation
 
 extension AppLaunchOptionsKey {
     //value type: ConvertingDirection
-    static var ConverterConvertingDirection:AppLaunchOptionsKey{ return autoKey() }
+    static var ConvertingDirection:AppLaunchOptionsKey{ return autoKey() }
 }

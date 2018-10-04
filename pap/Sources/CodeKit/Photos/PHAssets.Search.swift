@@ -8,12 +8,12 @@ import Photos
 
 extension PHAssets{
 
-    public func search(reverse:Bool=false, searchHandler:((Int, PHAsset, inout Bool) -> Bool)) -> [PHAsset]{
+    public func search(reverse:Bool=false, `where`:((Int, PHAsset, inout Bool) -> Bool)) -> [PHAsset]{
         var searchedResult = [PHAsset]()
         var shouldBreak = false
         for r in (reverse ? results?.reversed() : results) ?? [] where shouldBreak == false{
             let indexes = Array((0 ..< r.count))
-            for i in (reverse ? indexes.reversed() : indexes) where searchHandler(i, r[i], &shouldBreak){
+            for i in (reverse ? indexes.reversed() : indexes) where `where`(i, r[i], &shouldBreak){
                 searchedResult.append(r[i])
                 if shouldBreak{
                     break
@@ -23,17 +23,17 @@ extension PHAssets{
         return searchedResult
     }
 
-    public func searchFirst(searchHandler:((Int, PHAsset) -> Bool)) -> PHAsset?{
-        return self.search(reverse: false, searchHandler:{ i, asset, shouldBreak in
-            let searched = searchHandler(i, asset)
+    public func searchFirst(`where`:((Int, PHAsset) -> Bool)) -> PHAsset?{
+        return self.search(reverse: false, where:{ i, asset, shouldBreak in
+            let searched = `where`(i, asset)
             shouldBreak = searched
             return searched
         }).nilEmpty?.first
     }
 
-    public func searchLast(searchHandler:((Int, PHAsset) -> Bool)) -> PHAsset?{
-        return self.search(reverse: true, searchHandler:{ i, asset, shouldBreak in
-            let searched = searchHandler(i, asset)
+    public func searchLast(`where`:((Int, PHAsset) -> Bool)) -> PHAsset?{
+        return self.search(reverse: true, where:{ i, asset, shouldBreak in
+            let searched = `where`(i, asset)
             shouldBreak = searched
             return searched
         }).nilEmpty?.first

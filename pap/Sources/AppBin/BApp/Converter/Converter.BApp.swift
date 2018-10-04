@@ -112,7 +112,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
     fileprivate var currentLaunchOption: AppLaunchOptions?{
         didSet {
 
-            if let convertingDirection = currentLaunchOption?.options?[.ConverterConvertingDirection] as? ConvertingDirection{
+            if let convertingDirection = currentLaunchOption?.options?[.ConvertingDirection] as? ConvertingDirection{
                 var mutableDefaults = self.defaults
                 mutableDefaults.autoSelect = false
                 mutableDefaults.convertingDirection = convertingDirection
