@@ -639,7 +639,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             actionButtonDidTap()
         }
         else {
-            let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            let loadingView = UIActivityIndicatorView(style: .gray)
             loadingView.startAnimating()
             
             toolBar.setItems([
