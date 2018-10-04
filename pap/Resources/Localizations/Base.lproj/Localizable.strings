@@ -516,6 +516,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search Flights" = "Search Flights";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Search for %@";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "See" = "See";
 /* Generated from genl10n: Converter.BApp.swift */

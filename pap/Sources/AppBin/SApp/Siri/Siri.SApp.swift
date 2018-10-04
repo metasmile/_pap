@@ -95,7 +95,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
         tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 22)))
         
-        searchBar.placeholder = "Siri Shortcuts"
+        searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
         searchBar.delegate = self
         
         NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
@@ -117,51 +117,80 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     func didSetContentView(_ view:UIView, dock:AppDock) {
         
     }
-    
+
+    private lazy var appsCapatibleWithIntent = AppCenter.default.apps(by: .default)
+            .compactMap { return $0 as? UIApplicationDelegateLaunchableApp.Type}
+            .sorted { appType, appType2 in
+                return appType.intents.count > appType2.intents.count
+            }
+
+    private var intentCellDescribersDict = [String:UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
+    private var tempIntentCellDescribers = [UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
+
+    private var intentGroups = [String:IntentGroup]() // App.info.identifier: IntentGroup
+    private var intentCellDescriberGroups = [IntentGroup:CellDescriberGroup]() // IntentGroup: UITableViewCellDescriber
+
     private func reloadData(with searchText: String? = nil) {
         delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
-            let apps = AppCenter.default.apps(by: .default)
-                    .compactMap { return $0 as? UIApplicationDelegateLaunchableApp.Type}
-                    //INFO: sort by amount of intent
-                    .sorted { appType, appType2 in
-                        return appType.intents.count > appType2.intents.count
+
+            for app in appsCapatibleWithIntent{
+                let intentGroup:IntentGroup
+                if let _intentGroup = intentGroups[app.info.identifier]{
+                    intentGroup = _intentGroup
+                }else{
+                    intentGroup = IntentGroup(app: app)
+                    intentGroups[app.info.identifier] = intentGroup
+                }
+
+                tempIntentCellDescribers.removeAll()
+
+                for intent in intentGroup.intents {
+                    if let searchText = searchText?.lowercased(), !searchText.isEmpty {
+                        guard intent.suggestedInvocationPhrase?.lowercased().contains(searchText) == true else {
+                            continue
+                        }
                     }
 
-            for section in apps.map({ (app) -> IntentGroup in
-                IntentGroup(app: app)
-            }) {
-                var intentCellDescribers = [UITableViewCellDefaultDescribable]()
-                
-                for intent in section.intents {
-                    if let searchText = searchText?.lowercased(), !searchText.isEmpty {
-                        guard
-                            intent.suggestedInvocationPhrase?.lowercased().contains(searchText) == true
-                        else { continue }
+                    let describerKey = intent.identifier ?? "\"\(intent.suggestedInvocationPhrase ?? "")\""
+
+                    let cell:UITableViewCustomViewAccessoryCellDescriber
+                    if let _cell = intentCellDescribersDict[describerKey]{
+                        cell = _cell
+                    }else{
+                        cell = UITableViewCustomViewAccessoryCellDescriber()
+                        cell.itemIdentifier = "Intent".hashValue
+                        cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
+                        cell.accessoryGenerator = {
+                            let button = intent.addToSiriButton(style: .white)
+                            button?.delegate = self
+                            return button
+                        }
+                        intentCellDescribersDict[describerKey] = cell
                     }
-                    
-                    let cell = UITableViewCustomViewAccessoryCellDescriber()
-                    cell.itemIdentifier = "Intent".hashValue
-                    cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
-                    cell.accessoryGenerator = {
-                        let button = intent.addToSiriButton(style: .white)
-                        button?.delegate = self
-                        return button
-                    }
-                    intentCellDescribers.append(cell)
-                    
+                    tempIntentCellDescribers.append(cell)
+
                     intent.donate()
                 }
-                
-                guard !intentCellDescribers.isEmpty else { continue }
 
-                let groupDescriber = UITableViewCellDescriber()
-                groupDescriber.itemIdentifier = "groupDescriber".hashValue
-                groupDescriber.label = section.app?.info.displayName ?? "Unknown App"
-                groupDescriber.iconImage = section.app?.info.iconBundleName
+                guard !tempIntentCellDescribers.isEmpty else { continue }
 
-                let group = CellDescriberGroup(label: section.label, detailedLabel: section.detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: intentCellDescribers)
+                let group:CellDescriberGroup
+                if let _group = intentCellDescriberGroups[intentGroup]{
+                    group = _group
+
+                } else{
+                    let groupDescriber = UITableViewCellDescriber()
+                    groupDescriber.itemIdentifier = "IntentGroup".hashValue
+                    groupDescriber.label = intentGroup.app?.info.displayName ?? "Unknown App"
+                    groupDescriber.iconImage = intentGroup.app?.info.iconBundleName
+
+                    group = CellDescriberGroup(label: intentGroup.label, detailedLabel: intentGroup.detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: tempIntentCellDescribers)
+
+                    intentCellDescriberGroups[intentGroup] = group
+                }
+
                 delegator.group.append(group)
             }
         }
@@ -203,7 +232,7 @@ private struct IntentGroup: Hashable, Equatable, Section {
     }
     
     var hashValue: Int{
-        return app?.info.hashValue ?? title.hash
+        return app?.info.identifier.hashValue ?? title.hashValue
     }
     
     static func == (lhs: IntentGroup, rhs: IntentGroup) -> Bool{
@@ -389,6 +418,8 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchBar.text = nil
+        updateFilteredItems(by:nil)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -401,6 +432,7 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     
     private func updateFilteredItems(by searchText: String?) {
         guard searchText?.isEmpty == false else { reloadData(); return }
+
         reloadData(with: searchText)
     }
 }
