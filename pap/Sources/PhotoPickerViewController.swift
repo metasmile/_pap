@@ -241,7 +241,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func appDidChange() {
         super.appDidChange()
-        
+
         AppAssets.selected.reloadAll()
         
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
@@ -260,10 +260,12 @@ class PhotoPickerViewController: AppDockViewController {
         updateUIDisplays()
         showAndRevertTitleByCurrentAppIfNeeded() //INFO: show app name after update title
 
+        // interrupt preheating.
         cancelPreheatingIfNeeded()
-        performPrefetchIfNeeded(includingCurrentVisibleItems: true)
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didAppear(callee: self)
 
-        //TODO: for iPad - popoverPresentation sourceView is not works - see u at next update
+        // restart preheating.
+        performPrefetchIfNeeded(includingCurrentVisibleItems: true)
     }
     
     override func registerWatchingAppConfig() {

@@ -96,11 +96,11 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
     //FIXME: find better way (fire and then default)
     fileprivate var reservedToPerformInCurrentContextWithSelectedItems: Bool = false
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee?, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {
         if reservedToPerformInCurrentContextWithSelectedItems{
             reservedToPerformInCurrentContextWithSelectedItems = false
 
-            callee?.performInCurrentContextWithSelectedItems()
+            callee.performInCurrentContextWithSelectedItems()
         }
     }
 

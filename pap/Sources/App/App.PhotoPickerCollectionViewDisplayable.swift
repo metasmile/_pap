@@ -19,7 +19,9 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
     func shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?
 
     //INFO: if [shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?] returns nil, this method will not be called.
-    func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee?, indexPaths:[IndexPath])
+    func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee, indexPaths:[IndexPath])
+
+    func didAppear(callee:PhotoPickerCollectionViewDelegatableCallee)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -31,7 +33,7 @@ extension PhotoPickerCollectionViewDelegatableApp{
         return nil
     }
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee?, indexPaths: [IndexPath]) {
+    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {}
 
-    }
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {}
 }
