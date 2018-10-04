@@ -416,18 +416,12 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
 
                 //find latest asset with matched converter
                 DispatchQueue.global(qos: .userInteractive).async{
-                    var latestAvailableAsset:PHAsset?
-                    for r in PHAssets.fetched.results?.reversed() ?? [] where latestAvailableAsset == nil{
-                        for i in (0 ..< r.count).reversed() where converter.canPerformWith(asset: r[i]){
-                            latestAvailableAsset = r[i]
-                            break
-                        }
-                    }
 
-                    if let targetAsset = latestAvailableAsset{
+                    let foundAsset = PHAssets.fetched.searchLast{ i, asset in converter.canPerformWith(asset: asset) }
+                    if let foundAsset = foundAsset{
                         DispatchQueue.main.async{
                             assert(self.photoPickerCallee != nil)
-                            self.photoPickerCallee?.selectInCurrentContext(with: targetAsset, animated: true)
+                            self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
                             self.photoPickerCallee?.performInCurrentContextWithSelectedItems()
                         }
                     }
