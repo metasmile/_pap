@@ -178,6 +178,13 @@ class AppDockViewController: UIViewController {
     func appDidChange() {
         
     }
+
+    //INFO: this function always called. for botch case
+    // 1. appDidChange -> appDidAppear
+    // 2. [Didn't change] -> appDidAppear
+    func appDidAppear(){
+
+    }
     
     var appDockItems: [AppDockItem] {
         return []

@@ -172,7 +172,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     var photoPickerCallee:PhotoPickerCollectionViewDelegatableCallee?
 
-    func didLoad(callee: PhotoPickerCollectionViewDelegatableCallee) {
+    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {
         self.photoPickerCallee = callee
     }
 }

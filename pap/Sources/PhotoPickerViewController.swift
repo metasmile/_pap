@@ -263,13 +263,16 @@ class PhotoPickerViewController: AppDockViewController {
         // interrupt preheating.
         cancelPreheatingIfNeeded()
 
-        // didAppear
-        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didLoad(callee: self)
-
         // restart preheating.
         performPrefetchIfNeeded(includingCurrentVisibleItems: true)
     }
-    
+
+    override func appDidAppear() {
+        super.appDidAppear()
+
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didAppear(callee: self)
+    }
+
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options: [.new, .old, .initial]) { (appCenter, dict) in
 
@@ -995,6 +998,8 @@ extension PhotoPickerViewController: AppDockViewDelegate{
                 scrollToBottomIfNeeded(animated: true)
             }
         }
+
+        appDidAppear()
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {

@@ -88,6 +88,7 @@ extension AppCenter{
             if willChange{
                 appDockVc.appDidChange()
             }
+            appDockVc.appDidAppear()
 
             didOpen?(willChange)
         }

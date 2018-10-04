@@ -29,7 +29,7 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
     func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee, indexPaths:[IndexPath])
 
     //INFO: app did change -> reloaded all collections with current context -> called.
-    func didLoad(callee:PhotoPickerCollectionViewDelegatableCallee)
+    func didAppear(callee:PhotoPickerCollectionViewDelegatableCallee)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -41,7 +41,7 @@ extension PhotoPickerCollectionViewDelegatableApp{
         return nil
     }
 
-    func didLoad(callee: PhotoPickerCollectionViewDelegatableCallee) {}
+    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {}
 
     func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {}
 }
