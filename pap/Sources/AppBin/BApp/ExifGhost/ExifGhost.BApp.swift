@@ -11,8 +11,8 @@ private typealias ParamType = AppAsset
 
 public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
         PHAssetFinalizableApp,
-        PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp,
+        PhotoPickerViewControllerAppearanceDelegatableApp,
+        PhotoPickerCollectionViewDelegatableApp,
         AppDockApp,
         PreheatableApp {
 

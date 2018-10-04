@@ -473,7 +473,7 @@ class PhotoPickerViewController: AppDockViewController {
         }else{
             doneButton?.isEnabled = true
 
-            let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
+            let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)?.doneButtonTitle
             doneButton?.title = definedTitle ?? "Start".localized
         }
 
@@ -689,7 +689,7 @@ class PhotoPickerViewController: AppDockViewController {
             self.appDockView?.reloadKeepingDrawerOpened()
 
             // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
-            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)
             if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
                 Timer.scheduledTimer(identifier: #file+#function, withTimeInterval: 0) { timer in
                     for indexPath in allowedSelectionIndexPaths {
@@ -825,9 +825,9 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 }
 
 extension PhotoPickerViewController: PreviewViewDelegate {
-    var currentDisplayableApp: PhotoPickerViewControllerDelegatableApp?{
-        if AppCenter.default.current is PhotoPickerViewControllerDelegatableApp.Type{
-            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)
+    var currentDisplayableApp: PhotoPickerViewControllerAppearanceDelegatableApp?{
+        if AppCenter.default.current is PhotoPickerViewControllerAppearanceDelegatableApp.Type{
+            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)
         }
         return nil
     }

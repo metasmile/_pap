@@ -17,8 +17,8 @@ import SafariServices
 public class FinderApp: NSObject, PropertyWatchable, BApp
         , FinalizableApp
         , AppDockApp
-        , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , LaunchableApp
         , ChargeableApp {

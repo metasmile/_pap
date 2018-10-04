@@ -28,8 +28,8 @@ extension Defaults: RevertAppDefaults {
 public class RevertApp: NSObject, PropertyWatchable, BApp
         , AppDockApp
         , FinalizableApp
-        , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , ChargeableApp {
     public static let taskType: AppTaskable.Type = _RevertAppTask.self

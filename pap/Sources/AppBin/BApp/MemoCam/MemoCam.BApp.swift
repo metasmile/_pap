@@ -18,7 +18,7 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
+class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {
     static var taskType: AppTaskable.Type = _MemoCamAppTask.self
     static var paramType: AppTaskParamable.Type = AppAsset.self
     

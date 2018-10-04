@@ -242,8 +242,8 @@ public class GIFMakerApp: BApp,
         ConfigurableApp, _ConfigurableApp
         , AppDockApp
         , FinalizableApp
-        , PhotoPickerCollectionViewDisplayableApp
-        , PhotoPickerViewControllerDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
         , PreheatableApp
         , PHAssetUIAlertControllerSynchronizablePresenter
          {

@@ -50,8 +50,8 @@ public class ConverterApp: NSObject, PropertyWatchable,
         PreheatableApp,
         LaunchableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
-        PhotoPickerCollectionViewDisplayableApp,
-        PhotoPickerViewControllerDelegatableApp {
+        PhotoPickerCollectionViewDelegatableApp,
+        PhotoPickerViewControllerAppearanceDelegatableApp {
 
     public static let taskType: AppTaskable.Type = ConverterAppTask.self
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -163,7 +163,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
         return nil
     }
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee?, indexPaths: [IndexPath]) {
         if let _ = currentLaunchOption, let callee = callee{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                 callee.performInCurrentContextWithSelectedItems()

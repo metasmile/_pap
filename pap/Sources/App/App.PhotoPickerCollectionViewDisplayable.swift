@@ -5,12 +5,12 @@
 
 import Foundation
 
-protocol PhotoPickerCollectionViewDisplayableAppSelectActionCallee {
+protocol PhotoPickerCollectionViewDelegatableCallee {
     func performInCurrentContextWithSelectedItems()
 }
 
 // PhotoPickerCollectionView -> App
-protocol PhotoPickerCollectionViewDisplayableApp: App {
+protocol PhotoPickerCollectionViewDelegatableApp: App {
     func shouldSelect(item:AppAsset) -> Bool
 
     var numberOfItemsShouldSelect: Int? {get}
@@ -19,10 +19,10 @@ protocol PhotoPickerCollectionViewDisplayableApp: App {
     func shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?
 
     //INFO: if [shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?] returns nil, this method will not be called.
-    func didSelectWhenInserted(callee:PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths:[IndexPath])
+    func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee?, indexPaths:[IndexPath])
 }
 
-extension PhotoPickerCollectionViewDisplayableApp{
+extension PhotoPickerCollectionViewDelegatableApp{
     public var numberOfItemsShouldSelect: Int? {
         return nil
     }
@@ -31,7 +31,7 @@ extension PhotoPickerCollectionViewDisplayableApp{
         return nil
     }
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee?, indexPaths: [IndexPath]) {
 
     }
 }

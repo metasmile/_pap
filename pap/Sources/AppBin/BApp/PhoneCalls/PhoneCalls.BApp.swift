@@ -36,8 +36,8 @@ extension Defaults: PhoneCallsAppDefaults {
 public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
         , FinalizableApp
         , AppDockApp
-        , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , EditableApp
         , LaunchableApp {
@@ -96,7 +96,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
     //FIXME: find better way (fire and then default)
     fileprivate var reservedToPerformInCurrentContextWithSelectedItems: Bool = false
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee?, indexPaths: [IndexPath]) {
         if reservedToPerformInCurrentContextWithSelectedItems{
             reservedToPerformInCurrentContextWithSelectedItems = false
 
@@ -640,7 +640,7 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
             }
 
             if intent is GiveMeThatPhoneNumberIntent{
-                if let _ = settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }){
+                if nil != settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }) {
 
                     // set reservedToPerformInCurrentContextWithSelectedItems to true
                     AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.reservedToPerformInCurrentContextWithSelectedItems = true
