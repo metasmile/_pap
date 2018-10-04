@@ -649,6 +649,14 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                     AppCenter.default.openCamera(captureOption: [.stillPhoto, .takePhoto])
                 }
             }
+
+            if intent is EnableASBIntent{
+                let d = settingCellDescribers.first { describable in
+                    describable.itemIdentifier == PhoneCallsAppCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (view as? UITableView)?.reloadData()
+            }
         }
     }
 
@@ -663,7 +671,7 @@ extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenIntent()
             
-            openAppIntent.appId = PhoneCallsApp.info.identifier
+            openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized
 
@@ -671,7 +679,11 @@ extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
             giveMeThatPhoneNumberIntent.appId = PhoneCallsApp.info.identifier
             giveMeThatPhoneNumberIntent.suggestedInvocationPhrase = "Give Me That Phone Number.".localized
 
-            return [openAppIntent, giveMeThatPhoneNumberIntent]
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+
+            return [openAppIntent, giveMeThatPhoneNumberIntent, asb]
         } else {
             return []
         }

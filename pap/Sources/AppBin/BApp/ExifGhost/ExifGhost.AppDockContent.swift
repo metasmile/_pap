@@ -493,13 +493,25 @@ private class Cell: UITableViewCell {
     }
 }
 
-//
-//extension ExifGhostAppDockContent: PreheatableAppSubscribable{
-//    func didStartPreheating() {
-//        self.startSelectionBotIconAnimation(self.cellDescribers, Cells.autoSelect.hashValue)
-//    }
-//
-//    func didStopPreheating() {
-//        self.stopSelectionBotIconAnimation(self.cellDescribers, Cells.autoSelect.hashValue)
-//    }
-//}
+extension ExifGhostAppDockContent: UIApplicationDelegateLaunchableAppHandler{
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else{
+                return
+            }
+
+            if intent is EnableASBIntent{
+                let d = cellDescribers.first { describable in
+                    describable.itemIdentifier == Cells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (view as? UITableView)?.reloadData()
+            }
+        }
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+
+    }
+}

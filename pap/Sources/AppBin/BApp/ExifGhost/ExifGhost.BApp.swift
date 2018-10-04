@@ -154,16 +154,23 @@ extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
             openAppIntent.appId = ExifGhostApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open EXIF Ghost.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
-
+        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: userActivity)
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: shortcutItem)
     }
 }
+

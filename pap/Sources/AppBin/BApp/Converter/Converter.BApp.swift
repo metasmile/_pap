@@ -366,6 +366,11 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into GIF.".localized
             intents.append(convertLatestVideoIntent_into_gif)
 
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+            intents.append(asb)
+
             return intents
         } else {
             return []
@@ -378,6 +383,10 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             guard let intent = userActivity.interaction?.intent else{
                 return
             }
+
+            /*
+            ConvertIntent
+            */
 
             var convertingDirection:ConvertingDirection?
 
@@ -430,6 +439,18 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             }else{
 
                 //TODO: alert with not supported converter direction.
+            }
+
+            /*
+                EnableASBIntent
+            */
+
+            if intent is EnableASBIntent{
+                let d = (self.content as? ConverterAppDockContent)?.cellDescribers.first { describable in
+                    describable.itemIdentifier == Cells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
             }
         }
     }

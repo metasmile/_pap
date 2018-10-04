@@ -290,13 +290,30 @@ extension RevertApp:UIApplicationDelegateLaunchableApp{
             openAppIntent.appId = RevertApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Restorer.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is EnableASBIntent{
+                var mutableDefaults = self.appDefaults
+                mutableDefaults.autoSelect = true
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
 
     }
 

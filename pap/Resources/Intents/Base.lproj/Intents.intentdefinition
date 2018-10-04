@@ -1329,7 +1329,7 @@
 			<key>INIntentCategory</key>
 			<string>generic</string>
 			<key>INIntentDefaultImageName</key>
-			<string>CommonCellIcon.Robot</string>
+			<string>SystemIcon.SiriShortcut.ASB</string>
 			<key>INIntentDescription</key>
 			<string>Enable Auto Selection Bot.</string>
 			<key>INIntentDescriptionID</key>

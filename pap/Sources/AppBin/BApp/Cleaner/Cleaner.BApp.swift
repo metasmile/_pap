@@ -906,13 +906,32 @@ extension CleanerApp: UIApplicationDelegateLaunchableApp {
             openAppIntent.appId = CleanerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Cleaner.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is EnableASBIntent{
+                let d = (self.content as? CleanerAppDockContent)?.settingCellDescribers.first { describable in
+                    describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
 
     }
 

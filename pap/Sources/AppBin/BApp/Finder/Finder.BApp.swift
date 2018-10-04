@@ -1679,10 +1679,15 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenIntent()
-            openAppIntent.appId = FinderApp.info.identifier
+            openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.suggestedInvocationPhrase = "Enable Auto Selection Bot.".localized
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
@@ -1690,6 +1695,19 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
 
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is EnableASBIntent{
+                let d = (self.content as? FinderAppDockContent)?.settingCellDescribers.first { describable in
+                    describable.itemIdentifier == FinderAppSettingCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
