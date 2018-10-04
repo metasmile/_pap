@@ -95,7 +95,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
         tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 22)))
         
-        searchBar.placeholder = "Siri Shortcuts"
+        searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
         searchBar.delegate = self
         
         NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
