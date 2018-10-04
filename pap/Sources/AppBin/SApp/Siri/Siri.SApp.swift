@@ -118,7 +118,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
     }
 
-    private lazy var appsCapatibleWithIntent = AppCenter.default.apps(by: .default)
+    private lazy var appsWithIntent = AppCenter.default.apps(by: .default)
             .compactMap { return $0 as? UIApplicationDelegateLaunchableApp.Type}
             .sorted { appType, appType2 in
                 return appType.intents.count > appType2.intents.count
@@ -135,7 +135,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
         if #available(iOS 12.0, *) {
 
-            for app in appsCapatibleWithIntent{
+            for app in appsWithIntent{
                 let intentGroup:IntentGroup
                 if let _intentGroup = intentGroups[app.info.identifier]{
                     intentGroup = _intentGroup
@@ -176,9 +176,10 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
 
                 guard !tempIntentCellDescribers.isEmpty else { continue }
 
-                let group:CellDescriberGroup
+                var group:CellDescriberGroup
                 if let _group = intentCellDescriberGroups[intentGroup]{
                     group = _group
+                    group.itemCellDescribers = tempIntentCellDescribers
 
                 } else{
                     let groupDescriber = UITableViewCellDescriber()
@@ -431,8 +432,14 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     }
     
     private func updateFilteredItems(by searchText: String?) {
-        guard searchText?.isEmpty == false else { reloadData(); return }
+        guard searchText?.isEmpty == false else {
+            reloadData(); return
+        }
 
-        reloadData(with: searchText)
+        Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.5) { timer in
+            DispatchQueue.main.asyncAfter(deadline: .now()){
+                self.reloadData(with: searchText)
+            }
+        }
     }
 }
