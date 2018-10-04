@@ -12,6 +12,7 @@ public protocol AppDock {
     var contentLayoutState: AppDockContentLayoutState {get}
     func expandDockIfNeeded(reloadContents:Bool?) // nil means it should act with default behavior
     func contractDockIfNeeded(reloadContents:Bool?)
+    var contentInsets: UIEdgeInsets {get}
 }
 
 public protocol AppDockDelegate {

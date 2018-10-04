@@ -382,6 +382,12 @@ class AppDockView: CustomView {
 
 //AppDock
 extension AppDockView: AppDock{
+    var contentInsets: UIEdgeInsets {
+        var insets = safeAreaInsets
+        insets.bottom = self.bounds.height - safeAreaInsets.bottom
+        return insets
+    }
+    
     func expandDockIfNeeded(reloadContents: Bool?=nil) {
         self.setDrawerDisplay(forState: .maximized, reloadDockContentViews: reloadContents)
     }

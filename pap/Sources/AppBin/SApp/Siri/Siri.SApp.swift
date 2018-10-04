@@ -44,9 +44,33 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
+        
         view.addSubview(tableView)
-        tableView.fitConstraints(to: view)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        let navigationBar = UINavigationBar(frame: .zero)
+        view.addSubview(navigationBar)
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        navigationBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
+        
+        let navigationItem = UINavigationItem()
+        navigationItem.titleView = searchBar
+        navigationBar.items = [navigationItem]
+        
         return view
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.sizeToFit()
+        return searchBar
     }()
     
     private lazy var tableView: UITableView = {
@@ -69,6 +93,24 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         
+        tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 22)))
+        
+        searchBar.placeholder = "Siri Shortcuts"
+        searchBar.delegate = self
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
+            guard let frameValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+            let frame = frameValue.cgRectValue
+            
+            self.tableView.contentInset.bottom = frame.height - (UIScreen.main.bounds.height - dock.contentInsets.bottom)
+            self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
+        }
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIKeyboardWillHide, object: nil, queue: nil) { (notification) in
+            self.tableView.contentInset.bottom = 0
+            self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
+        }
+        
         reloadData()
     }
     
@@ -76,7 +118,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
     }
     
-    private func reloadData() {
+    private func reloadData(with searchText: String? = nil) {
         delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
@@ -93,6 +135,12 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                 var intentCellDescribers = [UITableViewCellDefaultDescribable]()
                 
                 for intent in section.intents {
+                    if let searchText = searchText?.lowercased(), !searchText.isEmpty {
+                        guard
+                            intent.suggestedInvocationPhrase?.lowercased().contains(searchText) == true
+                        else { continue }
+                    }
+                    
                     let cell = UITableViewCustomViewAccessoryCellDescriber()
                     cell.itemIdentifier = "Intent".hashValue
                     cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
@@ -105,6 +153,8 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                     
                     intent.donate()
                 }
+                
+                guard !intentCellDescribers.isEmpty else { continue }
 
                 let groupDescriber = UITableViewCellDescriber()
                 groupDescriber.itemIdentifier = "groupDescriber".hashValue
@@ -216,7 +266,7 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             if let button = cellDescriber.accessoryGenerator?() {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 cell.customAccessoryView = button
-
+                
                 button.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 0).isActive = true
                 cell.contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 0).isActive = true
                 cell.contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
@@ -323,5 +373,34 @@ extension SiriSettingsDockContent: INUIEditVoiceShortcutViewControllerDelegate {
     
     func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SiriSettingsDockContent: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        
+        updateFilteredItems(by: searchBar.text)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateFilteredItems(by: searchText)
+    }
+    
+    private func updateFilteredItems(by searchText: String?) {
+        guard searchText?.isEmpty == false else { reloadData(); return }
+        reloadData(with: searchText)
     }
 }
