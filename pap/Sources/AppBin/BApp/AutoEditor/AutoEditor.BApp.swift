@@ -12,7 +12,7 @@ class _AutoEditorAppAsset: _FiltersAppAsset {}
 
 public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
-        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp, PhotoEditorViewControllerDelegatableApp {
+        PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
     public static let paramType: AppTaskParamable.Type = _AutoEditorAppAsset.self
@@ -404,7 +404,7 @@ extension AutoEditorApp:UIApplicationDelegateLaunchableApp{
 
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenAutoEditorIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = AutoEditorApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: AutoEditorApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Auto Editor.".localized

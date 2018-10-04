@@ -242,6 +242,16 @@
 "Contact Us Now" = "お問い合わせ";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "連絡先";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "最後のライブ写真をGIFに変換します。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "最後のライブフォトをビデオに変換します。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "最後のビデオをGIFに変換します。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "最後のビデオをライブ写真に変換します。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "最後のビデオをMP4に変換します。";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "コンバーターを使用すると、ビデオ、ライブフォト、GIFなどのすべてのメディア形式をお互いに変換することができます。";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "電子メールアドレス";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "%@でASBを有効にします。";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "輸出する";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "フィルタ";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "電話番号を見つける。";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "検索";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "アクセスを取得";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "その電話番号を教えてください。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "ゲストユーザーライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "スクリーンショット";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "フライト検索";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "%@を検索";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "見る";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "私たちと一緒に過ごす";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "ライブ写真でGIFを撮る";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

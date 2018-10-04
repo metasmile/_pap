@@ -242,6 +242,16 @@
 "Contact Us Now" = "지금 문의";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "연락처";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "마지막 라이브 사진을 GIF로 변환하십시오.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "마지막 라이브 사진을 비디오로 변환하십시오.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "마지막 비디오를 GIF로 변환하십시오.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "마지막 비디오를 라이브 사진으로 변환하십시오.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "마지막 비디오를 MP4로 변환하십시오.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 포토, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "이메일 주소";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "%@에서 ASB를 사용하도록 설정합니다.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "내보내기";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "필터";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "전화 번호 찾기.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "발견";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "접근 권한 얻기";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "평가하기";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "그 전화 번호를 알려줘.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "게스트 사용자 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "%@ 검색";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "보기";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "우리와 함께 지내기";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "라이브 사진으로 GIF 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "라이브 포토 찍기.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

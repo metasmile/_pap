@@ -9,11 +9,11 @@ import Photos
 
 extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    private var collectionViewDisplayableApp:PhotoPickerCollectionViewDisplayableApp?{
-        guard AppCenter.default.current is PhotoPickerCollectionViewDisplayableApp.Type else{
+    private var collectionViewDisplayableApp:PhotoPickerCollectionViewDelegatableApp?{
+        guard AppCenter.default.current is PhotoPickerCollectionViewDelegatableApp.Type else{
             return nil
         }
-        return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+        return AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)
     }
     
     // MARK: - UICollectionViewDataSource

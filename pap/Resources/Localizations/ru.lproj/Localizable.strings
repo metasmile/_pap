@@ -242,6 +242,16 @@
 "Contact Us Now" = "Свяжитесь с нами";
 /* Generated from genl10n: Finder.BApp.swift#1228 */
 "Contacts" = "контакты";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Преобразование последнего Live Photo в GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Преобразуйте последнее видео в Live Photo Into.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Преобразование последнего видео в GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Преобразуйте последнее видео в живое фото.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Преобразуйте последнее видео в MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Конвертер позволяет конвертировать все медиаформаты, такие как видео, живые фотографии, GIF-файлы друг в друга.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -290,6 +300,8 @@
 "E-mail Address" = "Адрес электронной почты";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost позволяет удалять все виды данных, содержащих ваши фотографии, включая личную информацию.";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Enable ASB on %@." = "Включить ASB на %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Включить быстрые действия";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -300,8 +312,6 @@
 "Export" = "экспорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "фильтры";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Find Phone Numbers." = "Найдите номера телефонов.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Find" = "найти";
 /* Generated from genl10n: Finder.BApp.swift#44 */
@@ -332,6 +342,8 @@
 "Get Access" = "Получить доступ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Дайте мне этот номер телефона.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Пользовательская лицензионная программа пользователя";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -552,6 +564,8 @@
 "Screenshots" = "Скриншоты";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Поиск рейсов";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Найти %@";
 /* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
 "See" = "Видеть";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
@@ -616,6 +630,8 @@
 "Staying With Us" = "Пребывание с нами";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Включите все элементы, которые вы хотите скрыть. Качество отлично сохранится.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Возьмите GIF с помощью Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift#1273 */

@@ -65,7 +65,7 @@ public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttr
 
 public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
-        PhotoPickerCollectionViewDisplayableApp, PhotoPickerViewControllerDelegatableApp,
+        PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
 PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self

@@ -6,7 +6,7 @@
 import Foundation
 
 // PhotoPicker -> App
-public protocol PhotoPickerViewControllerDelegatableApp: App {
+public protocol PhotoPickerViewControllerAppearanceDelegatableApp: App {
     var doneButtonTitle:String? {get}
     var titleWillBegin:String? {get}
     func titleDidUpdate(progress: Float) -> String?
@@ -14,7 +14,7 @@ public protocol PhotoPickerViewControllerDelegatableApp: App {
     var titleWillFinalize:String? {get}
 }
 
-extension PhotoPickerViewControllerDelegatableApp {
+extension PhotoPickerViewControllerAppearanceDelegatableApp {
     public var doneButtonTitle: String? {
         return type(of: self).info.displayName
     }

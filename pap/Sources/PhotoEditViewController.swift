@@ -279,6 +279,8 @@ extension PhotoEditViewController: AppDockViewDelegate{
                 appDockView?.openDrawer()
             }
         }
+
+        appDidAppear()
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {

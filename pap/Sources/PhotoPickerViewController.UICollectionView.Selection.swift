@@ -9,18 +9,18 @@ import Photos
 
 extension PhotoPickerViewController{
     @discardableResult
-    func selectCollectionViewItem(by asset: PHAsset) -> Bool {
+    func selectCollectionViewItem(by asset: PHAsset, animated:Bool=false, scrollPosition: UICollectionView.ScrollPosition?=nil) -> Bool {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return false }
-        return selectCollectionViewItem(at: indexPath)
+        return selectCollectionViewItem(at: indexPath, animated:animated, scrollPosition:scrollPosition)
     }
 
     @discardableResult
-    func selectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false) -> Bool {
+    func selectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false, scrollPosition: UICollectionView.ScrollPosition?=nil) -> Bool {
         if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
             return false
         }
         
-        photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: [])
+        photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: scrollPosition ?? [])
         collectionView(photoCollectionView, didSelectItemAt: indexPath)
 
         return true

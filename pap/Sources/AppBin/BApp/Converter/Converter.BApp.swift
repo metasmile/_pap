@@ -50,8 +50,8 @@ public class ConverterApp: NSObject, PropertyWatchable,
         PreheatableApp,
         LaunchableApp,
         PHAssetUIAlertControllerSynchronizablePresenter,
-        PhotoPickerCollectionViewDisplayableApp,
-        PhotoPickerViewControllerDelegatableApp {
+        PhotoPickerCollectionViewDelegatableApp,
+        PhotoPickerViewControllerAppearanceDelegatableApp {
 
     public static let taskType: AppTaskable.Type = ConverterAppTask.self
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -63,7 +63,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
     @objc dynamic
     public private(set) lazy var config: ConverterAppConfigValue? = type(of:self).defaultConfigValue as? ConverterAppConfigValue
 
-    public private(set) var content: AppDockContent?
+    public private(set) lazy var content: AppDockContent? = ConverterAppDockContent(app:self)
 
     @objc dynamic
     public lazy var autoSelect: Bool = false
@@ -83,7 +83,6 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     override required public init() {
         super.init()
-        content = ConverterAppDockContent(app:self)
     }
 
     static var localCharges: [Charge] {
@@ -106,14 +105,18 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     }
 
-    private var importedLaunchOption: AppLaunchOptions?
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
-        importedLaunchOption = withOption
+        currentLaunchOption = withOption
+    }
 
-        if let convertingDirection = withOption?.options?[.ConverterConvertingDirection] as? ConvertingDirection{
-            var mutableDefaults = self.defaults
-            mutableDefaults.autoSelect = false
-            mutableDefaults.convertingDirection = convertingDirection
+    fileprivate var currentLaunchOption: AppLaunchOptions?{
+        didSet {
+
+            if let convertingDirection = currentLaunchOption?.options?[.ConvertingDirection] as? ConvertingDirection{
+                var mutableDefaults = self.defaults
+                mutableDefaults.autoSelect = false
+                mutableDefaults.convertingDirection = convertingDirection
+            }
         }
     }
 
@@ -153,18 +156,24 @@ public class ConverterApp: NSObject, PropertyWatchable,
     }
 
     func shouldSelectWhenInserted(indexPaths: [IndexPath]?) -> [IndexPath]? {
-        if let _ = importedLaunchOption{
+        if let _ = currentLaunchOption{
             return indexPaths
         }
         return nil
     }
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
-        if let _ = importedLaunchOption, let callee = callee{
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {
+        if let _ = currentLaunchOption{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                 callee.performInCurrentContextWithSelectedItems()
             }
         }
+    }
+
+    var photoPickerCallee:PhotoPickerCollectionViewDelegatableCallee?
+
+    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {
+        self.photoPickerCallee = callee
     }
 }
 
@@ -315,14 +324,55 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension ConverterApp:UIApplicationDelegateLaunchableApp{
+extension ConverterApp:UIApplicationDelegateLaunchableApp {
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenConverterIntent()
+
+            var intents = [INIntent]()
+
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = ConverterApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Converter.".localized
-            return [openAppIntent]
+            intents.append(openAppIntent)
+
+            let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()
+            convertLatestLivePhotoIntent_gif.appId = ConverterApp.info.identifier
+            convertLatestLivePhotoIntent_gif.into = ConvertLatestLivePhotoLivePhotoConvertingType.gif
+            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the last Live Photo Into GIF.".localized
+            intents.append(convertLatestLivePhotoIntent_gif)
+
+            let convertLatestLivePhotoIntent_video = ConvertLatestLivePhotoIntent()
+            convertLatestLivePhotoIntent_video.appId = ConverterApp.info.identifier
+            convertLatestLivePhotoIntent_video.into = ConvertLatestLivePhotoLivePhotoConvertingType.video
+            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the last Live Photo Into Video.".localized
+            intents.append(convertLatestLivePhotoIntent_video)
+
+            let convertLatestVideoIntent_into_livephoto = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_livephoto.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_livephoto.into = ConvertLatestVideoVideoConvertingType.livephoto
+            convertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the last Video Into Live Photo.".localized
+            intents.append(convertLatestVideoIntent_into_livephoto)
+
+            let convertLatestVideoIntent_into_mp4 = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_mp4.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_mp4.into = ConvertLatestVideoVideoConvertingType.mp4
+            convertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the last Video Into MP4.".localized
+            intents.append(convertLatestVideoIntent_into_mp4)
+
+            let convertLatestVideoIntent_into_gif = ConvertLatestVideoIntent()
+            convertLatestVideoIntent_into_gif.appId = ConverterApp.info.identifier
+            convertLatestVideoIntent_into_gif.into = ConvertLatestVideoVideoConvertingType.gif
+            convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into GIF.".localized
+            intents.append(convertLatestVideoIntent_into_gif)
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+            intents.append(asb)
+
+            return intents
         } else {
             return []
         }
@@ -330,14 +380,85 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp{
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
 
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else{
+                return
+            }
+
+            /*
+            ConvertIntent
+            */
+
+            var convertingDirection:ConvertingDirection?
+
+            if let intentForLivePhoto = intent as? ConvertLatestLivePhotoIntent{
+
+                switch(intentForLivePhoto.into){
+                    case .gif:
+                        convertingDirection = ConvertingDirection(from: .livephoto, to: .gif)
+                    case .video:
+                        convertingDirection = ConvertingDirection(from: .livephoto, to: .mov)
+                    default:
+                        convertingDirection = nil
+                }
+
+            }
+            else if let intentForVideo = intent as? ConvertLatestVideoIntent{
+
+                switch(intentForVideo.into){
+                    case .livephoto:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .livephoto)
+                    case .mp4:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .mp4)
+                    case .gif:
+                        convertingDirection = ConvertingDirection(from: .mov, to: .gif)
+                    default:
+                        convertingDirection = nil
+                }
+            }
+
+            if let direction = convertingDirection, let converter = ConverterApp.getAvailableConverters(by: direction).first{
+
+                //reload direction
+                var mutableDefaults = self.defaults
+                mutableDefaults.convertingDirection = direction
+                (self.content as! ConverterAppDockContent).reloadData(reset: true)
+
+                //find latest asset with matched converter
+                DispatchQueue.global(qos: .userInteractive).async{
+
+                    let foundAsset = PHAssets.fetched.searchLast{ i, asset in converter.canPerformWith(asset: asset) }
+                    if let foundAsset = foundAsset{
+                        DispatchQueue.main.async{
+                            assert(self.photoPickerCallee != nil)
+                            self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
+                            self.photoPickerCallee?.performInCurrentContextWithSelectedItems()
+                        }
+                    }
+                }
+
+            }else{
+
+                //TODO: alert with not supported converter direction.
+            }
+
+            /*
+                EnableASBIntent
+            */
+
+            if intent is EnableASBIntent{
+                let d = (self.content as? ConverterAppDockContent)?.cellDescribers.first { describable in
+                    describable.itemIdentifier == Cells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }
-
-
-
 
 private enum Cells {
     case convertingDirection
@@ -379,7 +500,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return nil
         }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.rowHeight * 5
+        preferences.preferredHeight = tableView.rowHeight * 6
         return preferences
     }
 
@@ -395,18 +516,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
         view.tintColor = UIColor(red:0.99, green:0.51, blue:0.15, alpha:1)
 
         if cellDescribers.count==0{
-            cellDescribers = createCellDescribers()
-
-            if let view = view as? UITableView{
-                view.dataSource = self
-                view.delegate = self
-                view.rowHeight = 44
-                view.allowsMultipleSelection = false
-
-                for item in cellDescribers {
-                    view.register(describer: item)
-                }
-            }
+            reloadCellDescribers()
         }
     }
 
@@ -511,6 +621,28 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
+        reloadData()
+    }
+
+    func reloadCellDescribers(){
+        cellDescribers = createCellDescribers()
+
+        if let view = view as? UITableView{
+            view.dataSource = self
+            view.delegate = self
+            view.rowHeight = 44
+            view.allowsMultipleSelection = false
+
+            for item in cellDescribers {
+                view.register(describer: item)
+            }
+        }
+    }
+
+    func reloadData(reset:Bool=false){
+        if reset{
+            reloadCellDescribers()
+        }
         (view as? UITableView)?.reloadData()
     }
 
@@ -655,8 +787,6 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
                     }
                 }
             }
-
-
 
             return cell
         }

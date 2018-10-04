@@ -35,7 +35,7 @@ extension Defaults: CameraAppDefaults {
     }
 }
 
-class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDisplayableApp, AVCaptureDeviceApp {
+class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -219,7 +219,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
         }else if let _ = intent as? TakeAGIFWithLivePhotoIntent{
 
-            var launchOption = AppLaunchOptions(options:[.ConverterConvertingDirection: ConvertingDirection(from: .livephoto, to: .gif)])
+            var launchOption = AppLaunchOptions(options:[.ConvertingDirection: ConvertingDirection(from: .livephoto, to: .gif)])
             launchOption.identifierToReturn = ConverterApp.info.identifier
 
             reservedLaunchOptionsToOpenOtherApp = launchOption

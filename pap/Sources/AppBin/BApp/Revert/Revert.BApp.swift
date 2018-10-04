@@ -28,8 +28,8 @@ extension Defaults: RevertAppDefaults {
 public class RevertApp: NSObject, PropertyWatchable, BApp
         , AppDockApp
         , FinalizableApp
-        , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , ChargeableApp {
     public static let taskType: AppTaskable.Type = _RevertAppTask.self
@@ -286,17 +286,35 @@ import Intents
 extension RevertApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenRevertIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = RevertApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Restorer.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is EnableASBIntent{
+                var mutableDefaults = self.appDefaults
+                mutableDefaults.autoSelect = true
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
 
     }
 

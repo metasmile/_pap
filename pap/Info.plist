@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -127,21 +127,14 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ChooseToDeleteIntent</string>
-		<string>ConvertIntent</string>
+		<string>ConvertLatestLivePhotoIntent</string>
+		<string>ConvertLatestVideoIntent</string>
+		<string>EnableASBIntent</string>
 		<string>FindPhoneNumbersIntent</string>
 		<string>GiveMeThatPhoneNumberIntent</string>
-		<string>OpenAutoEditorIntent</string>
 		<string>OpenCameraIntent</string>
-		<string>OpenCleanerIntent</string>
-		<string>OpenConverterIntent</string>
-		<string>OpenEXIFGhostIntent</string>
 		<string>OpenFiltersIntent</string>
-		<string>OpenFinderIntent</string>
-		<string>OpenGIFMakerIntent</string>
-		<string>OpenPDFactoryIntent</string>
-		<string>OpenPhoneCallsIntent</string>
-		<string>OpenRevertIntent</string>
-		<string>OpenTransformIntent</string>
+		<string>OpenIntent</string>
 		<string>TakeAGIFWithLivePhotoIntent</string>
 		<string>TakeAPhotoIntent</string>
 	</array>

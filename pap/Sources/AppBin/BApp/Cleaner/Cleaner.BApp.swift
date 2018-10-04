@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp, PreheatableApp, ChargeableApp {
+public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, PreheatableApp, ChargeableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -902,17 +902,37 @@ import Intents
 extension CleanerApp: UIApplicationDelegateLaunchableApp {
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenCleanerIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = CleanerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Cleaner.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is EnableASBIntent{
+                let d = (self.content as? CleanerAppDockContent)?.settingCellDescribers.first { describable in
+                    describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
+            }
+        }
 
     }
 

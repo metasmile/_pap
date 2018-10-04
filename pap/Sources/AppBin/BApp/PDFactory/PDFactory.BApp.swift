@@ -16,8 +16,8 @@ private struct PDFactoryAppPHAssetResult: AppTaskResultable {
     public var imageMetadata: [String: Any]?
 }
 
-public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp , AppDockApp {
+public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
+        PhotoPickerCollectionViewDelegatableApp , AppDockApp {
 
     public static let taskType: AppTaskable.Type = _PDFactoryAppTask.self
 
@@ -225,7 +225,7 @@ import Intents
 extension PDFactoryApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenPDFactoryIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = PDFactoryApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFactoryApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open PDF Maker.".localized.localized

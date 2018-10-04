@@ -11,8 +11,8 @@ private typealias ParamType = AppAsset
 
 public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
         PHAssetFinalizableApp,
-        PhotoPickerViewControllerDelegatableApp,
-        PhotoPickerCollectionViewDisplayableApp,
+        PhotoPickerViewControllerAppearanceDelegatableApp,
+        PhotoPickerCollectionViewDelegatableApp,
         AppDockApp,
         PreheatableApp {
 
@@ -150,20 +150,28 @@ import Intents
 extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenEXIFGhostIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = ExifGhostApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open EXIF Ghost.".localized
-            return [openAppIntent]
+
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+
+            return [openAppIntent, asb]
         } else {
             return []
         }
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
-
+        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: userActivity)
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: shortcutItem)
     }
 }
+

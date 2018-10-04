@@ -36,8 +36,8 @@ extension Defaults: PhoneCallsAppDefaults {
 public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
         , FinalizableApp
         , AppDockApp
-        , PhotoPickerViewControllerDelegatableApp
-        , PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp
+        , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , EditableApp
         , LaunchableApp {
@@ -96,11 +96,11 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
     //FIXME: find better way (fire and then default)
     fileprivate var reservedToPerformInCurrentContextWithSelectedItems: Bool = false
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDisplayableAppSelectActionCallee?, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {
         if reservedToPerformInCurrentContextWithSelectedItems{
             reservedToPerformInCurrentContextWithSelectedItems = false
 
-            callee?.performInCurrentContextWithSelectedItems()
+            callee.performInCurrentContextWithSelectedItems()
         }
     }
 
@@ -640,7 +640,7 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
             }
 
             if intent is GiveMeThatPhoneNumberIntent{
-                if let describer = settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }){
+                if nil != settingCellDescribers.first(where:{ $0.itemIdentifier == PhoneCallsAppCells.takePhoto.hashValue }) {
 
                     // set reservedToPerformInCurrentContextWithSelectedItems to true
                     AppCenter.default.currentInstanceAs(PhoneCallsApp.self)?.reservedToPerformInCurrentContextWithSelectedItems = true
@@ -648,6 +648,14 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                     //Open Camera App -> Take A photo
                     AppCenter.default.openCamera(captureOption: [.stillPhoto, .takePhoto])
                 }
+            }
+
+            if intent is EnableASBIntent{
+                let d = settingCellDescribers.first { describable in
+                    describable.itemIdentifier == PhoneCallsAppCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (view as? UITableView)?.reloadData()
             }
         }
     }
@@ -661,8 +669,9 @@ extension PhoneCallsAppDockContent: UIApplicationDelegateLaunchableAppHandler{
 extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenPhoneCallsIntent()
-            openAppIntent.appId = PhoneCallsApp.info.identifier
+            let openAppIntent = OpenIntent()
+            
+            openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PhoneCallsApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Phone Calls.".localized
 
@@ -670,7 +679,12 @@ extension PhoneCallsApp:UIApplicationDelegateLaunchableApp{
             giveMeThatPhoneNumberIntent.appId = PhoneCallsApp.info.identifier
             giveMeThatPhoneNumberIntent.suggestedInvocationPhrase = "Give Me That Phone Number.".localized
 
-            return [openAppIntent, giveMeThatPhoneNumberIntent]
+            let asb = EnableASBIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+
+            return [openAppIntent, giveMeThatPhoneNumberIntent, asb]
         } else {
             return []
         }

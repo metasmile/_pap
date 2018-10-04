@@ -30,7 +30,7 @@ public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAt
 
 public class TransformApp: NSObject, BApp, PropertyWatchable
         , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
-        , PhotoPickerViewControllerDelegatableApp, PhotoPickerCollectionViewDisplayableApp
+        , PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp
         , PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _TransfromAppTask.self
@@ -179,7 +179,7 @@ import Intents
 extension TransformApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenTransformIntent()
+            let openAppIntent = OpenIntent()
             openAppIntent.appId = TransformApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: TransformApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Rotation.".localized

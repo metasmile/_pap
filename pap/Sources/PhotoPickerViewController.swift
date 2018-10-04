@@ -241,7 +241,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     override func appDidChange() {
         super.appDidChange()
-        
+
         AppAssets.selected.reloadAll()
         
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
@@ -260,12 +260,19 @@ class PhotoPickerViewController: AppDockViewController {
         updateUIDisplays()
         showAndRevertTitleByCurrentAppIfNeeded() //INFO: show app name after update title
 
+        // interrupt preheating.
         cancelPreheatingIfNeeded()
-        performPrefetchIfNeeded(includingCurrentVisibleItems: true)
 
-        //TODO: for iPad - popoverPresentation sourceView is not works - see u at next update
+        // restart preheating.
+        performPrefetchIfNeeded(includingCurrentVisibleItems: true)
     }
-    
+
+    override func appDidAppear() {
+        super.appDidAppear()
+
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didAppear(callee: self)
+    }
+
     override func registerWatchingAppConfig() {
         AppCenter.default.watch(\.currentIdentifier, options: [.new, .old, .initial]) { (appCenter, dict) in
 
@@ -473,7 +480,7 @@ class PhotoPickerViewController: AppDockViewController {
         }else{
             doneButton?.isEnabled = true
 
-            let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)?.doneButtonTitle
+            let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)?.doneButtonTitle
             doneButton?.title = definedTitle ?? "Start".localized
         }
 
@@ -689,7 +696,7 @@ class PhotoPickerViewController: AppDockViewController {
             self.appDockView?.reloadKeepingDrawerOpened()
 
             // PhotoPickerCollectionViewDisplayableApp.shouldSelectWhenInserted
-            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDisplayableApp.self)
+            let collectionViewDelegatableApp = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)
             if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
                 Timer.scheduledTimer(identifier: #file+#function, withTimeInterval: 0) { timer in
                     for indexPath in allowedSelectionIndexPaths {
@@ -825,9 +832,9 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 }
 
 extension PhotoPickerViewController: PreviewViewDelegate {
-    var currentDisplayableApp: PhotoPickerViewControllerDelegatableApp?{
-        if AppCenter.default.current is PhotoPickerViewControllerDelegatableApp.Type{
-            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerDelegatableApp.self)
+    var currentDisplayableApp: PhotoPickerViewControllerAppearanceDelegatableApp?{
+        if AppCenter.default.current is PhotoPickerViewControllerAppearanceDelegatableApp.Type{
+            return AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)
         }
         return nil
     }
@@ -991,6 +998,8 @@ extension PhotoPickerViewController: AppDockViewDelegate{
                 scrollToBottomIfNeeded(animated: true)
             }
         }
+
+        appDidAppear()
     }
 
     func appDockView(_ view: AppDockView, didOpenDrawer isOpened: Bool) {
