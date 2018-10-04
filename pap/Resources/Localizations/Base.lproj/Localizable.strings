@@ -207,6 +207,16 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contacts";
 /* Generated from genl10n: Converter.BApp.swift */
+"Convert the latest Live Photo Into GIF." = "Convert the latest Live Photo Into GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the latest Live Photo Into Video." = "Convert the latest Live Photo Into Video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the latest Video Into GIF." = "Convert the latest Video Into GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the latest Video Into Live Photo." = "Convert the latest Video Into Live Photo.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the latest Video Into MP4." = "Convert the latest Video Into MP4.";
+/* Generated from genl10n: Converter.BApp.swift */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Converter" = "Converter";

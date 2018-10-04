@@ -128,6 +128,8 @@
 	<array>
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertIntent</string>
+		<string>ConvertLatestLivePhotoIntent</string>
+		<string>ConvertLatestVideoIntent</string>
 		<string>FindPhoneNumbersIntent</string>
 		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenAutoEditorIntent</string>

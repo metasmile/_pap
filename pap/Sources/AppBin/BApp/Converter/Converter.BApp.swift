@@ -318,11 +318,46 @@ import Intents
 extension ConverterApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
+
+            var intents = [INIntent]()
+
             let openAppIntent = OpenConverterIntent()
             openAppIntent.appId = ConverterApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Converter.".localized
-            return [openAppIntent]
+            intents.append(openAppIntent)
+
+            let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()
+            convertLatestLivePhotoIntent_gif.appId = ConverterApp.info.identifier
+            convertLatestLivePhotoIntent_gif.into = ConvertLatestLivePhotoLivePhotoConvertingType.gif
+            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the latest Live Photo Into GIF.".localized
+            intents.append(openAppIntent)
+
+            let convertLatestLivePhotoIntent_video = ConvertLatestLivePhotoIntent()
+            convertLatestLivePhotoIntent_video.appId = ConverterApp.info.identifier
+            convertLatestLivePhotoIntent_video.into = ConvertLatestLivePhotoLivePhotoConvertingType.video
+            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the latest Live Photo Into Video.".localized
+            intents.append(openAppIntent)
+
+            let ConvertLatestVideoIntent_into_livephoto = ConvertLatestVideoIntent()
+            ConvertLatestVideoIntent_into_livephoto.appId = ConverterApp.info.identifier
+            ConvertLatestVideoIntent_into_livephoto.into = ConvertLatestVideoVideoConvertingType.livephoto
+            ConvertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the latest Video Into Live Photo.".localized
+            intents.append(openAppIntent)
+
+            let ConvertLatestVideoIntent_into_mp4 = ConvertLatestVideoIntent()
+            ConvertLatestVideoIntent_into_mp4.appId = ConverterApp.info.identifier
+            ConvertLatestVideoIntent_into_mp4.into = ConvertLatestVideoVideoConvertingType.mp4
+            ConvertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the latest Video Into MP4.".localized
+            intents.append(openAppIntent)
+
+            let ConvertLatestVideoIntent_into_gif = ConvertLatestVideoIntent()
+            ConvertLatestVideoIntent_into_gif.appId = ConverterApp.info.identifier
+            ConvertLatestVideoIntent_into_gif.into = ConvertLatestVideoVideoConvertingType.gif
+            ConvertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the latest Video Into GIF.".localized
+            intents.append(openAppIntent)
+
+            return intents
         } else {
             return []
         }
@@ -379,7 +414,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             return nil
         }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.rowHeight * 5
+        preferences.preferredHeight = tableView.rowHeight * 6
         return preferences
     }
 
