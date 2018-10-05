@@ -74,7 +74,7 @@ class AppDockView: CustomView {
             static let compactTopMargin = prominentHeight - compactHeight
 
             static let topMargin: CGFloat = 5
-            static let prominentHeight: CGFloat = 49
+            static let prominentHeight: CGFloat = compactHeight
         }
 
         static let Accessory = AppDockContentPreferences(preferredHeight: 44)

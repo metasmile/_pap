@@ -175,8 +175,8 @@ internal class AppDockDrawerView: DesignableView {
     }
     
     func setApp(_ app: App.Type) {
-        appTitleLabel.text = app.info.displayName
-        appIconImageView.image = app.info.iconBundleName?.asUIImage
+//        appTitleLabel.text = app.info.displayName
+//        appIconImageView.image = app.info.iconBundleName?.asUIImage
         
         setNeedsLayout()
     }
