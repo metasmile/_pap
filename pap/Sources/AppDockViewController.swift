@@ -247,10 +247,11 @@ extension AppDockViewController: AppDockViewDataSource {
     }
     
     private var numberOfAppGroups: Int {
-        var numberOfGroups = 0
-        numberOfGroups += appDockItems.contains(where: { $0.app is SApp.Type }) ? 1 : 0
-        numberOfGroups += appDockItems.contains(where: { $0.app is BApp.Type }) ? 1 : 0
-        return max(numberOfGroups, 1)
+        return 1
+//        var numberOfGroups = 0
+//        numberOfGroups += appDockItems.contains(where: { $0.app is SApp.Type }) ? 1 : 0
+//        numberOfGroups += appDockItems.contains(where: { $0.app is BApp.Type }) ? 1 : 0
+//        return max(numberOfGroups, 1)
     }
     
     func numberOfSections(in view: AppDockView) -> Int {

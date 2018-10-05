@@ -468,7 +468,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        if dataSource?.numberOfSections(in: self) ?? 0 > 1 {
+        if dataSource?.numberOfSections(in: self) ?? 0 >= 1 {
             switch dockBarStyle {
             case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
             case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
