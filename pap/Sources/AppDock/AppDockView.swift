@@ -1257,7 +1257,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             showsInfoView = true
             
             appIconViewWidthLayout.constant = layoutAttributes.frame.width - 28
-            appIconViewTopLayout.constant = 4
+            appIconViewTopLayout.constant = 5
             
             iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
@@ -1324,7 +1324,6 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
     func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
         iconImage = app.info.iconBundleName?.asUIImage
-        appTitleLabel.adjustsFontSizeToFitWidth = true
         appTitleLabel.text = app.info.displayName.localized
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
