@@ -155,7 +155,8 @@ fileprivate class PolygonLayer: CAShapeLayer {
 private class ResultItemLayer: CAShapeLayer {
     var result: ResultPreviewItem?
     
-    lazy var badgeLayer = CALayer()
+    lazy var badgeLayer = CAShapeLayer()
+    lazy var badgeIconLayer = CALayer()
     
     override init(layer: Any) {
         super.init(layer: layer)
@@ -178,25 +179,35 @@ private class ResultItemLayer: CAShapeLayer {
     }
     
     private func initialize() {
-        strokeColor = UIColor.red.cgColor
+        strokeColor = UIColor.white.cgColor
         fillColor = UIColor.clear.cgColor
         lineWidth = 1
+        shadowOpacity = 0.5
+        shadowColor = UIColor.black.cgColor
+        shadowOffset = .zero
+        shadowRadius = 2
         
         let badgeSize: CGFloat = 32
         
         addSublayer(badgeLayer)
-        badgeLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
-        badgeLayer.cornerRadius = badgeSize / 2
-        badgeLayer.masksToBounds = true
-        badgeLayer.backgroundColor = UIColor.white.cgColor
         badgeLayer.frame.size = CGSize(width: badgeSize, height: badgeSize)
+        badgeLayer.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: badgeLayer.frame.size)).cgPath
+        badgeLayer.fillColor = UIColor.white.cgColor
         badgeLayer.isHidden = true
+        
+        badgeLayer.addSublayer(badgeIconLayer)
+        badgeIconLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
+        badgeIconLayer.cornerRadius = (badgeSize * 0.8) / 2
+        badgeIconLayer.masksToBounds = true
+        badgeIconLayer.frame.size = CGSize(width: badgeSize * 0.8, height: badgeSize * 0.8)
     }
     
     func showBadgeIcon(at point: CGPoint) {
-        badgeLayer.contents = (result?.preferredParserIcon() ?? R.image.finderBAppIcon())?.cgImage
         badgeLayer.isHidden = false
         badgeLayer.position = point
+        
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.finderBAppIcon())?.cgImage
+        badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
     }
 }
 
@@ -240,11 +251,19 @@ fileprivate class ResultPreviewView: DesignableView {
         
         addSubview(imageView)
         imageView.fitConstraints(to: self)
-        
         imageView.contentMode = .scaleAspectFill
         
+        layer.addSublayer(dimmedLayer)
         layer.addSublayer(resultsLayer)
+        
+        dimmedPath.usesEvenOddFillRule = true
+        
+        dimmedLayer.fillRule = .evenOdd
+        dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.4).cgColor
     }
+    
+    private lazy var dimmedLayer = CAShapeLayer()
+    private lazy var dimmedPath = UIBezierPath()
     
     lazy var resultsLayer: CALayer = {
         let layer = CALayer()
@@ -259,7 +278,10 @@ fileprivate class ResultPreviewView: DesignableView {
                 
             }
             else {
-               resultsLayer.sublayers = nil
+                resultsLayer.sublayers = nil
+                
+                dimmedPath.removeAllPoints()
+                dimmedLayer.path = nil
             }
         }
         
@@ -295,26 +317,69 @@ fileprivate class ResultPreviewView: DesignableView {
                 let previewSize = result.image.size.aspectFill(in: self.bounds.size)
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
+                self.dimmedLayer.frame = self.resultsLayer.frame
+                
+                self.dimmedPath.removeAllPoints()
+                self.dimmedLayer.path = nil
+                
+                self.dimmedPath.append(UIBezierPath(rect: self.dimmedLayer.bounds))
+                
                 for item in self.resultPreviewItems {
                     self.drawResult(item, in: result.image.size)
                 }
+                
+                self.dimmedLayer.path = self.dimmedPath.cgPath
+                self.dimmedLayer.opacity = 0
+                
                 CATransaction.setDisableActions(disableActions)
+                
+                self.dimmedLayer.opacity = 1
             }
         }
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
         let path = UIBezierPath()
-        for point in resultPreviewItem.cornerPoints {
-            if path.isEmpty {
-                path.move(to: point)
-            }
-            else {
-                path.addLine(to: point)
+        if resultPreviewItem.cornerPoints.count == 4 {
+            let padding: CGFloat = 8
+            var topLeft = resultPreviewItem.cornerPoints[0]
+            topLeft.x -= padding
+            topLeft.y -= padding
+            
+            path.move(to: topLeft)
+            
+            var topRight = resultPreviewItem.cornerPoints[1]
+            topRight.x += padding
+            topRight.y -= padding
+            
+            path.addLine(to: topRight)
+            
+            var bottomRight = resultPreviewItem.cornerPoints[2]
+            bottomRight.x += padding
+            bottomRight.y += padding
+            
+            path.addLine(to: bottomRight)
+            
+            var bottomLeft = resultPreviewItem.cornerPoints[3]
+            bottomLeft.x -= padding
+            bottomLeft.y += padding
+            
+            path.addLine(to: bottomLeft)
+        }
+        else {
+            for point in resultPreviewItem.cornerPoints {
+                if path.isEmpty {
+                    path.move(to: point)
+                }
+                else {
+                    path.addLine(to: point)
+                }
             }
         }
         path.apply(CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height))
         path.close()
+        
+        self.dimmedPath.append(path)
         
         let layer = ResultItemLayer()
         layer.result = resultPreviewItem
@@ -459,8 +524,12 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     private func createDebugLayer() -> DisableImplicitAnimatableShapeLayer {
         let layer = DisableImplicitAnimatableShapeLayer()
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.red.cgColor
+        layer.strokeColor = UIColor.white.cgColor
         layer.lineWidth = 1
+        layer.shadowOpacity = 0.5
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 2
         return layer
     }
     
