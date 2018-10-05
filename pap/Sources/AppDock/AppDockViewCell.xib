@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVK-cO-V0c" customClass="RoundedView" customModule="pap" customModuleProvider="target">
-                    <rect key="frame" x="4" y="4" width="157" height="149"/>
+                    <rect key="frame" x="0.0" y="4" width="165" height="149"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -38,39 +38,39 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCP-jh-aet">
-                    <rect key="frame" x="4" y="4" width="157" height="149"/>
+                    <rect key="frame" x="0.0" y="4" width="165" height="149"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
-                            <rect key="frame" x="0.0" y="76" width="157" height="20"/>
+                            <rect key="frame" x="0.0" y="76" width="165" height="22"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="68.5" y="8" width="8" height="8"/>
+                                    <rect key="frame" x="77.5" y="9" width="4" height="4"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="8" id="PgV-ZN-Qud"/>
+                                        <constraint firstAttribute="width" constant="4" id="PgV-ZN-Qud"/>
                                         <constraint firstAttribute="width" secondItem="kRa-PA-hEW" secondAttribute="height" multiplier="1:1" id="WwA-h2-nix"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIe-oe-nYa">
-                                    <rect key="frame" x="78.5" y="0.0" width="0.0" height="24"/>
+                                    <rect key="frame" x="82.5" y="0.0" width="0.0" height="22"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="3T6-MZ-Jtz"/>
+                                <constraint firstAttribute="height" constant="22" id="3T6-MZ-Jtz"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerX" secondItem="Ves-sw-8ql" secondAttribute="centerX" id="9Bt-z9-VUA"/>
-                                <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="2" id="Gqo-vM-LWH"/>
+                                <constraint firstItem="WIe-oe-nYa" firstAttribute="leading" secondItem="kRa-PA-hEW" secondAttribute="trailing" constant="1" id="Gqo-vM-LWH"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="top" secondItem="Ves-sw-8ql" secondAttribute="top" id="XYy-rk-aDq"/>
-                                <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" constant="2" id="oSD-eF-9U4"/>
+                                <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="Ves-sw-8ql" secondAttribute="centerY" id="oSD-eF-9U4"/>
                                 <constraint firstItem="WIe-oe-nYa" firstAttribute="centerY" secondItem="kRa-PA-hEW" secondAttribute="centerY" id="tFG-nE-Xo1"/>
                                 <constraint firstItem="kRa-PA-hEW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ves-sw-8ql" secondAttribute="leading" constant="2" id="tZc-9X-hCe"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" constant="2" id="ygl-6z-AO0"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WIe-oe-nYa" secondAttribute="trailing" constant="1" id="ygl-6z-AO0"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-pi-RuU" customClass="AppIconRoundedView" customModule="pap" customModuleProvider="target">
-                            <rect key="frame" x="28.5" y="3" width="100" height="75"/>
+                            <rect key="frame" x="32.5" y="3" width="100" height="75"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-sf-iia">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
@@ -101,10 +101,10 @@
                 <constraint firstItem="eVK-cO-V0c" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" id="C7j-5T-nX7"/>
                 <constraint firstItem="eVK-cO-V0c" firstAttribute="leading" secondItem="UCP-jh-aet" secondAttribute="leading" id="EW5-JJ-ncf"/>
                 <constraint firstItem="UCP-jh-aet" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="MRO-Rq-uXq"/>
-                <constraint firstItem="UCP-jh-aet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="cFG-U7-jcT"/>
+                <constraint firstItem="UCP-jh-aet" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cFG-U7-jcT"/>
                 <constraint firstItem="eVK-cO-V0c" firstAttribute="bottom" secondItem="UCP-jh-aet" secondAttribute="bottom" id="lrK-8t-lxu"/>
                 <constraint firstItem="eVK-cO-V0c" firstAttribute="trailing" secondItem="UCP-jh-aet" secondAttribute="trailing" id="q24-fQ-jQt"/>
-                <constraint firstAttribute="trailing" secondItem="UCP-jh-aet" secondAttribute="trailing" constant="4" id="xl2-wi-meo"/>
+                <constraint firstAttribute="trailing" secondItem="UCP-jh-aet" secondAttribute="trailing" id="xl2-wi-meo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="86.5" y="6.5"/>

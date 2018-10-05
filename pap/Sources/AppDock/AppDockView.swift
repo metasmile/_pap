@@ -1068,7 +1068,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     }
     
     struct LayoutConstants {
-        static let defaultHeight: CGFloat = 60
+        static let defaultHeight: CGFloat = 64
         static let compactHeight: CGFloat = 44
         static let prominentHeight: CGFloat = 75
     }
@@ -1112,7 +1112,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         let size: CGSize
         switch layoutMetrics {
         case .default:
-            size = CGSize(width: LayoutConstants.defaultHeight * 1.1, height: LayoutConstants.defaultHeight)
+            size = CGSize(width: LayoutConstants.defaultHeight, height: LayoutConstants.defaultHeight)
         case .compact:
             size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
         case .prominent:
@@ -1256,8 +1256,8 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         if AppCollectionViewLayout.LayoutConstants.defaultHeight == layoutAttributes.frame.height {
             showsInfoView = true
             
-            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 28
-            appIconViewTopLayout.constant = 5
+            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 22
+            appIconViewTopLayout.constant = 6
             
             iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
         }
