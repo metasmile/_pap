@@ -53,6 +53,13 @@ internal class AppDockVoidableLayoutConatraint: NSLayoutConstraint {
     }
 }
 
+enum AppDockBarStyle {
+    case `default` // icon and title
+    case minimized // icon only
+    case maximized // icon and title
+    case magnifying // minimum > maximum
+}
+
 class AppDockView: CustomView {
     private struct DefaultPreferences{
         struct AppDockView {
@@ -98,6 +105,7 @@ class AppDockView: CustomView {
     private var reorderAppGesture: UILongPressGestureRecognizer?
     
     func reloadData() {
+        updateDockBarStyle()
         layoutDockView()
         
         reloadAppDock()
@@ -109,6 +117,12 @@ class AppDockView: CustomView {
         }
     }
     
+    var dockBarStyle: AppDockBarStyle = AppDockBarStyle.default {
+        didSet {
+            updateDockBarStyle()
+        }
+    }
+    
     private func updateBackgroundColors() {
         let color = hasAnyContentAsLayout ? (barStyle == .black ? UIColor(red:0.11, green:0.11, blue:0.11, alpha:1) : .white) : .clear
         backgroundView.backgroundColor = color
@@ -116,6 +130,21 @@ class AppDockView: CustomView {
         controllerView.backgroundColor = color
         drawerView.tintColor = color
         bottomAccessoryView.backgroundColor = color
+    }
+    
+    private func updateDockBarStyle() {
+        let layout: AppCollectionViewLayout
+        switch dockBarStyle {
+        case .default:
+            layout = AppCollectionViewLayout(layoutMetrics: .default)
+        case .maximized:
+            layout = AppCollectionViewLayout(layoutMetrics: .prominent)
+        case .minimized, .magnifying:
+            layout = AppCollectionViewLayout(layoutMetrics: .compact)
+        }
+        
+        appCollectionView.setCollectionViewLayout(layout, animated: false)
+        appCollectionViewHeightLayout.constant = preferredDockViewHeight
     }
 
     override func initialize() {
@@ -439,7 +468,16 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        return dataSource?.numberOfSections(in: self) ?? 0 > 1 ? DefaultPreferences.AppDockView.compactHeight : AppDockView.VoidLayoutValue
+        if dataSource?.numberOfSections(in: self) ?? 0 > 1 {
+            switch dockBarStyle {
+            case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
+            case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
+            case .maximized: return AppCollectionViewLayout.LayoutConstants.prominentHeight
+            }
+        }
+        else {
+            return AppDockView.VoidLayoutValue
+        }
     }
     
     fileprivate var preferredAccessoryViewHeight: CGFloat {
@@ -469,7 +507,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredAppContentViewMaximumHeight: CGFloat {
-        let topOffset = DefaultPreferences.DrawerView.prominentHeight + DefaultPreferences.AppDockView.compactHeight + bottomAccesoryViewSafeHeight
+        let topOffset = DefaultPreferences.DrawerView.prominentHeight + max(DefaultPreferences.AppDockView.compactHeight, preferredDockViewHeight) + bottomAccesoryViewSafeHeight
 
         if let rvc = UIViewController.root{
             return (rvc.view.bounds.height - rvc.safeAreaInsets.top - rvc.additionalSafeAreaInsets.top) - topOffset
@@ -918,6 +956,8 @@ extension AppDockView: UIGestureRecognizerDelegate {
 
 extension AppDockView {
     func zoomInAppCollectionView() {
+        guard dockBarStyle == .magnifying else { return }
+        
         guard let fromLayout = appCollectionView.collectionViewLayout as? AppCollectionViewLayout, fromLayout.layoutMetrics == .compact else { return }
         
         let toLayout = AppCollectionViewLayout(layoutMetrics: .prominent)
@@ -951,6 +991,8 @@ extension AppDockView {
     }
     
     func zoomOutAppCollectionView(delay: Double = 1.5) {
+        guard dockBarStyle == .magnifying else { return }
+        
         guard (appCollectionView.collectionViewLayout as? AppCollectionViewLayout)?.layoutMetrics == .prominent else { return }
         
         let timerId = "app_dock_bar_magnifying_timer"
@@ -1014,17 +1056,19 @@ extension AppDockView: UIScrollViewDelegate {
 
 class AppCollectionViewLayout: UICollectionViewLayout {
     enum LayoutMetrics {
+        case `default`
         case compact
         case prominent
     }
     
-    var layoutMetrics: LayoutMetrics = .compact {
+    var layoutMetrics: LayoutMetrics = .default {
         didSet {
             invalidateLayout()
         }
     }
     
     struct LayoutConstants {
+        static let defaultHeight: CGFloat = 60
         static let compactHeight: CGFloat = 44
         static let prominentHeight: CGFloat = 75
     }
@@ -1043,7 +1087,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
     }
     
-    init(layoutMetrics: LayoutMetrics = .compact) {
+    init(layoutMetrics: LayoutMetrics = .default) {
         super.init()
         self.layoutMetrics = layoutMetrics
     }
@@ -1067,6 +1111,8 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     private func itemSize(with layoutMetrics: LayoutMetrics) -> CGSize {
         let size: CGSize
         switch layoutMetrics {
+        case .default:
+            size = CGSize(width: LayoutConstants.defaultHeight * 1.1, height: LayoutConstants.defaultHeight)
         case .compact:
             size = CGSize(width: LayoutConstants.compactHeight * 1.333, height: LayoutConstants.compactHeight)
         case .prominent:
@@ -1207,7 +1253,15 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         super.apply(layoutAttributes)
         
         let iconBorderColor: UIColor
-        if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
+        if AppCollectionViewLayout.LayoutConstants.defaultHeight == layoutAttributes.frame.height {
+            showsInfoView = true
+            
+            appIconViewWidthLayout.constant = layoutAttributes.frame.width - 28
+            appIconViewTopLayout.constant = 4
+            
+            iconBorderColor = UIColor(red: 218 / 255.0, green: 218 / 255.0, blue: 218 / 255.0, alpha: 1)
+        }
+        else if AppCollectionViewLayout.LayoutConstants.compactHeight == layoutAttributes.frame.height {
             showsInfoView = false
             
             appIconViewWidthLayout.constant = layoutAttributes.frame.width - 20

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +41,7 @@
                     <rect key="frame" x="4" y="4" width="157" height="149"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-sw-8ql">
-                            <rect key="frame" x="0.0" y="78" width="157" height="20"/>
+                            <rect key="frame" x="0.0" y="76" width="157" height="20"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
                                     <rect key="frame" x="68.5" y="8" width="8" height="8"/>
@@ -88,7 +88,7 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="bottom" id="GyF-Mk-pDR"/>
+                        <constraint firstItem="Ves-sw-8ql" firstAttribute="top" secondItem="Qed-pi-RuU" secondAttribute="bottom" constant="-2" id="GyF-Mk-pDR"/>
                         <constraint firstItem="Qed-pi-RuU" firstAttribute="centerX" secondItem="UCP-jh-aet" secondAttribute="centerX" id="Pqt-ZO-g7F"/>
                         <constraint firstAttribute="trailing" secondItem="Ves-sw-8ql" secondAttribute="trailing" id="bL9-ak-KmJ"/>
                         <constraint firstItem="Qed-pi-RuU" firstAttribute="top" secondItem="UCP-jh-aet" secondAttribute="top" constant="3" id="gnc-la-ytS"/>
