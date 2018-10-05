@@ -44,10 +44,10 @@
                             <rect key="frame" x="0.0" y="76" width="165" height="22"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-PA-hEW" customClass="AppStatusIconView" customModule="pap" customModuleProvider="target">
-                                    <rect key="frame" x="77.5" y="9" width="4" height="4"/>
+                                    <rect key="frame" x="81.5" y="11" width="0.0" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="4" id="PgV-ZN-Qud"/>
+                                        <constraint firstAttribute="width" id="PgV-ZN-Qud"/>
                                         <constraint firstAttribute="width" secondItem="kRa-PA-hEW" secondAttribute="height" multiplier="1:1" id="WwA-h2-nix"/>
                                     </constraints>
                                 </view>
