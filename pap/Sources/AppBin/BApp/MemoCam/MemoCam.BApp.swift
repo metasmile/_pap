@@ -246,6 +246,8 @@ fileprivate class ResultPreviewView: DesignableView {
     lazy var imageView: UIImageView = UIImageView(frame: .zero)
     var delegate: ResultPreviewViewDelegate?
     
+    var showsPlainText: Bool = false
+    
     override func initialize() {
         super.initialize()
         
@@ -305,7 +307,7 @@ fileprivate class ResultPreviewView: DesignableView {
             for visionText in result.sourceVisionTexts ?? [] {
                 let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionText], async)
                 
-                guard resultGroup.isFilled else { continue }
+                guard self.showsPlainText || resultGroup.isFilled else { continue }
                 self.resultPreviewItems.append(ResultPreviewItem(visionText: visionText, resultGroup: resultGroup))
             }
             
@@ -683,6 +685,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             toolBar.setItems([
                 UIBarButtonItem(title: "Retake".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(title: "Show All Texts".localized, style: .plain, target: self, action: #selector(self.toggleResultPreviewMode)),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.actionButtonDidTap)),
 //                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
 //                UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.savePhoto))
@@ -730,6 +734,13 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
         
         updateToolBar()
+    }
+    
+    @objc private func toggleResultPreviewMode(sender: Any) {
+        resultPreviewView.showsPlainText = !resultPreviewView.showsPlainText
+        if let results = self.resultPreviewView.detectResult {
+            resultPreviewView.reloadResults(results)
+        }
     }
     
     private func detect(with image: UIImage?) {
