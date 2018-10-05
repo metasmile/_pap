@@ -1395,8 +1395,9 @@ internal class DockCollectionBackgroundView: UIView {
         ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
-        ctx?.move(to: CGPoint(x: 0, y: rect.height))
-        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+
+//        ctx?.move(to: CGPoint(x: 0, y: rect.height))
+//        ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
         ctx?.strokePath()
     }
 }
