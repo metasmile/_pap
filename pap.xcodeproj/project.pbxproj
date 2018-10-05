@@ -114,7 +114,7 @@
 		4F71D5F73B696FE813AD2E79 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD84BB4BCEA896661F14 /* PhotoCollectionViewCell.swift */; };
 		4F71D603DD5AF2B6F3376A99 /* App.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC43B0DF0CCD376101D /* App.Launchable.OptionsKeys.swift */; };
 		4F71D60FB0179151280A754E /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFEDA5A22CEADE72D78D /* AppTask.swift */; };
-		4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */; };
+		4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Position.swift */; };
 		4F71D615732AB957EA406477 /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D61975F96BAE2FA0BC93 /* CodeKit.CIImage.swift */; };
 		4F71D61FF630D40F790FB6E7 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9F99FBAD774C0050948 /* PhotosManager.swift */; };
 		4F71D6312B59A48079207438 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */; };
@@ -593,7 +593,7 @@
 		4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.LaunchableApp.Macro.swift; sourceTree = "<group>"; };
 		4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
 		4F71DCE3A0EB7D65562E4AA8 /* App.Launchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Launchable.swift; sourceTree = "<group>"; };
-		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Property.swift; sourceTree = "<group>"; };
+		4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.Position.swift; sourceTree = "<group>"; };
 		4F71DD0573CFB93A8F794768 /* App.Finalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.swift; sourceTree = "<group>"; };
 		4F71DD16B2C03570CA5164E4 /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
 		4F71DD2A1BFEA35153058A40 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift; sourceTree = "<group>"; };
@@ -939,7 +939,7 @@
 				4F71D773FC46EC6E276E5D44 /* CodeKit.Collection.swift */,
 				4F71DBCD5F4393C1B49479A2 /* CodeKit.CoreGraphics.swift */,
 				4F71D333058F5CDA9A8C83D0 /* CodeKit.DispatchQueue.swift */,
-				4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Property.swift */,
+				4F71DCF49BB6EB7CCC7FBF86 /* CodeKit.UIView.Position.swift */,
 				4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */,
 				4F71D5BC4E62AAE070D85B69 /* CodeKit.UIViewController.swift */,
 				4F71D8033E59EAB278D35495 /* CodeKit.UIAlertController.swift */,
@@ -2400,7 +2400,7 @@
 				4F71DAB78D600D44DC0CB2CC /* CodeKit.Collection.swift in Sources */,
 				4F71D977BEC450768BF59183 /* CodeKit.CoreGraphics.swift in Sources */,
 				4F71D1FF041181D0AD2BE1AE /* CodeKit.DispatchQueue.swift in Sources */,
-				4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Property.swift in Sources */,
+				4F71D6144CC058D3A9309E96 /* CodeKit.UIView.Position.swift in Sources */,
 				4F71DE92ECA4FA18D5E02F33 /* CodeKit.UIView.Animation.swift in Sources */,
 				4F71D863880D161FF681C642 /* CodeKit.UIViewController.swift in Sources */,
 				4F71D22321E67D59611079CC /* CodeKit.UIAlertController.swift in Sources */,

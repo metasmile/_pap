@@ -9,6 +9,50 @@
 import Foundation
 import UIKit
 
+//INFO: x(horizontal) -> y(vertical) arrangement (e.g. left(x)Top(y))
+enum UIViewFrameAlignment {
+    case leftTop
+    case rightTop
+    case rightBottom
+    case leftBottom
+    case center
+    case rightCenter
+    case leftCenter
+    case centerTop
+    case centerBottom
+
+    func alignFrame(view:UIView, for containerView:UIView){
+        switch (self){
+            case .leftTop:
+                view.left = containerView.left
+                view.top = containerView.top
+            case .rightTop:
+                view.right = containerView.right
+                view.top = containerView.top
+            case .rightBottom:
+                view.right = containerView.right
+                view.bottom = containerView.bottom
+            case .leftBottom:
+                view.left = containerView.left
+                view.bottom = containerView.bottom
+            case .center:
+                view.center = containerView.center
+            case .rightCenter:
+                view.right = containerView.right
+                view.centerY = containerView.centerY
+            case .leftCenter:
+                view.left = containerView.left
+                view.centerY = containerView.centerY
+            case .centerTop:
+                view.centerX = containerView.centerX
+                view.top = containerView.top
+            case .centerBottom:
+                view.centerX = containerView.centerX
+                view.bottom = containerView.bottom
+        }
+    }
+}
+
 public extension UIView {
     // MARK: - Basic Properties
 

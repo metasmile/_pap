@@ -7,11 +7,12 @@ import Foundation
 import UIKit
 
 extension UIView{
+
     private var loadingIndicatorTag:Int {
         return UIActivityIndicatorView.self.hash()
     }
 
-    func startIndicating(targetSubview:UIView){
+    func startIndicating(targetSubview:UIView, position:UIViewFrameAlignment = .center){
         if targetSubview.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
             let loadingIndicator = UIActivityIndicatorView(style: .gray)
             loadingIndicator.hidesWhenStopped = false
@@ -21,8 +22,8 @@ extension UIView{
 
             self.layoutIfNeeded()
 
-            loadingIndicator.centerY = targetSubview.centerY
-            loadingIndicator.right = targetSubview.right
+            position.alignFrame(view:loadingIndicator, for:targetSubview)
+
             loadingIndicator.startAnimating()
         }
     }

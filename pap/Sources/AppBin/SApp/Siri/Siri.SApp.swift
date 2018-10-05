@@ -303,6 +303,12 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
                 cell.contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 0).isActive = true
                 cell.contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
             }
+
+            if cellDescriber.indicating{
+                cell.startIndicating(targetSubview: cell.contentView)
+            }else{
+                cell.stopIndicating(targetSubview: cell.contentView)
+            }
             
             return cell
         }
@@ -404,14 +410,16 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
     }
 
     private func willAddShortcut(with voiceShortcut: INVoiceShortcut) {
-        if let cell = getCellInfo(with: voiceShortcut){
-            tableView.reloadRows(at: [cell.indexPath], with: .none)
+        if let cellInfo = getCellInfo(with: voiceShortcut){
+            cellInfo.describer.indicating = true
+            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
         }
     }
 
     private func didAddShortcut(with voiceShortcut: INVoiceShortcut) {
-        if let cell = getCellInfo(with: voiceShortcut){
-            tableView.reloadRows(at: [cell.indexPath], with: .none)
+        if let cellInfo = getCellInfo(with: voiceShortcut){
+            cellInfo.describer.indicating = false
+            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
         }
     }
 
@@ -441,8 +449,8 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
         controller.dismiss(animated: true)
 
-        if let voiceShortcut = voiceShortcut, let cell = getCellInfo(with: voiceShortcut){
-            tableView.reloadRows(at: [cell.indexPath], with: .none)
+        if let voiceShortcut = voiceShortcut, let cellInfo = getCellInfo(with: voiceShortcut){
+            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
         }
     }
 

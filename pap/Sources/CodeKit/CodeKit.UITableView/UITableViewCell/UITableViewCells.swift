@@ -34,7 +34,7 @@ class UITableViewIndicatorCell: UITableViewCell {
 
     func startIndicating(){
         if let view = self.accessoryView{
-            self.startIndicating(targetSubview: view)
+            self.startIndicating(targetSubview: view, position: .rightCenter)
         }
     }
 
