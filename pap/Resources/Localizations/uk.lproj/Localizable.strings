@@ -212,6 +212,8 @@
 "Auto Editor" = "Авторедактор";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Автоматичне покращення";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Автоматично вибрати на %@.";
 /* Generated from genl10n: Revert.BApp.swift#189 */
 "Auto Selection Bot" = "Автоматичний відбір ботів";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
@@ -300,8 +302,6 @@
 "E-mail Address" = "Адреса електронної пошти";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "Увімкнути ASB на %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Увімкнути швидкі дії";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "Надання доступу до Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Обмін на Facebook";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "Показати всі тексти";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -1,7 +1,11 @@
-"4I4kgH" = "Open Camera.";
-"AW925e" = "Open Filters.";
-"Jvx2bY" = "Take A Photo.";
-"DckJin" = "Open Restorer.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "开放式摄像头。";
+/*Translated from: Open Filters.*/
+"AW925e" = "打开过滤器。";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "拍个照。";
+/*Translated from: Open App*/
+"DckJin" = "打开应用程序";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "查找电话号码";
 /*Translated from: Choose To Delete.*/
@@ -14,16 +18,20 @@
 "p7qwJF" = "将最后一张Live Photo转换为另一张。";
 /*Translated from: Convert the last Video into another.*/
 "SMLHhI" = "将最后一个视频转换为另一个";
-/*Translated from: Enable Auto Selection Bot.*/
-"UQnvTr" = "启用自动选择机器人。";
-"HYZy53" = "Open Camera To Take A Photo";
-"UCP0Dw" = "Open Photo Filters";
-"EOxZtc" = "Take a photo with Camera app.";
-"lmZpL4" = "Open Restorer";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "自动选择。";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "打开相机拍照";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "打开照片滤镜";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "使用相机应用拍照。";
+/*Translated from: Open App*/
+"lmZpL4" = "打开应用程序";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "查找电话号码";
-/*Translated from: Open Cleaner And Then Choose To Delete.*/
-"ZOPazv" = "打开清洁然后选择删除。";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "打开清洁然后选择要删除的项目。";
 /*Translated from: Give Me That Phone Number.*/
 "jRmXDB" = "给我那个电话号码。";
 /*Translated from: Take A GIF With Live Photo*/
@@ -32,18 +40,28 @@
 "PhXLyO" = "将最后一张Live Photo转换为另一张。";
 /*Translated from: Convert the last Video into another.*/
 "wiPuF4" = "将最后一个视频转换为另一个";
-/*Translated from: Enable Auto Selection Bot.*/
-"IMAD8C" = "启用自动选择机器人。";
-"oGM42K" = "Open ${appName}";
-"6TT4Gp" = "Open ${appName}";
-"gFHyMK" = "Open ${appName}";
-"ibaGsc" = "Open ${appName}";
-"FbRC9N" = "Take A Photo";
-"ewGyLx-yQLzJM" = "Take A Photo";
-"ewGyLx-ZbogxE" = "Take A Live Photo";
-"ewGyLx-IJ8sUB" = "Take A Selfie";
-"ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
-"DcHSN1" = "Open ${appName}";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "自动选择。";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "打开${appName}";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "打开${appName}";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "打开${appName}";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "打开${appName}";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "拍个照";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "拍个照";
+/*Translated from: Take A Live Photo*/
+"ewGyLx-ZbogxE" = "拍摄现场照片";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "自拍吧";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "用现场照片拍摄自拍照";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "打开${appName}";
 /*Translated from: Find Phone Numbers*/
 "oMVwAV" = "查找电话号码";
 /*Translated from: Choose unknown To Delete.*/
@@ -72,9 +90,13 @@
 "hvJmlA-z5soyq" = "将最后一个视频转换为MP4";
 /*Translated from: Convert the last Video into GIF*/
 "hvJmlA-VSOU19" = "将最后一个视频转换为GIF";
-/*Translated from: Enable ASB on ${appName}.*/
-"A569zA" = "在${appName}上启用ASB。";
-"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
-"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
-"xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
-"xwyqoh-MNWfid" = "OK. You can take a Selfie With Live Photo now";
+/*Translated from: Auto Select on ${appName}.*/
+"A569zA" = "在${appName}上自动选择。";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "好。你现在可以拍照";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "好。你现在可以拍摄现场照片";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "好。你现在可以自拍吧";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "好。你现在可以带一张带现场照片的自拍照";

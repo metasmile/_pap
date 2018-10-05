@@ -212,6 +212,8 @@
 "Auto Editor" = "Automatski uređivač";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "Automatsko popravljanje";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Auto Select na %@.";
 /* Generated from genl10n: Revert.BApp.swift#189 */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
@@ -300,8 +302,6 @@
 "E-mail Address" = "Email adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogućuje uklanjanje svih vrsta podataka koji sadrže vaše fotografije, uključujući privatne podatke.";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "Omogući ASB na %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "Dijeljenje na Facebook Messengeru";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Dijeljenje na Facebooku";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "Prikaži sve tekstove";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */

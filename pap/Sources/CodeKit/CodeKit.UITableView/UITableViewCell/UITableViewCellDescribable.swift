@@ -79,6 +79,8 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public var valueGetter: () -> Any? = { nil }
     public var valueHandler: ((Any) -> ())?
 
+    public var indicating:Bool = false
+
     convenience public init(label:String, iconImage:ImageSourceable?=nil){
         self.init()
         self.label = label

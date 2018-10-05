@@ -212,6 +212,8 @@
 "Auto Editor" = "محرر تلقائي";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "تحسين تلقائي";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "تحديد تلقائي في %@.";
 /* Generated from genl10n: Revert.BApp.swift#189 */
 "Auto Selection Bot" = "اختيار السيارات بوت";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
@@ -300,8 +302,6 @@
 "E-mail Address" = "عنوان البريد الإلكتروني";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "يتيح لك EXIF ​​Ghost إزالة جميع أنواع البيانات التي تحتوي على صورك بما في ذلك المعلومات الخاصة.";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "تمكين ASB في %@.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "تمكين الإجراءات السريعة";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "المشاركة على Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "المشاركة على Facebook";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "عرض جميع النصوص";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "تشابه";
 /* Generated from genl10n: GIFMaker.BApp.swift */

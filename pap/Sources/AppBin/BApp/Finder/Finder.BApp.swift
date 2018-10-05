@@ -1047,10 +1047,10 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized
 
-            let asb = EnableASBIntent()
+            let asb = AutoSelectIntent()
             asb.appId = info.identifier
             asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
 
             return [openAppIntent, asb]
         } else {
@@ -1065,7 +1065,7 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
                 return
             }
 
-            if intent is EnableASBIntent{
+            if intent is AutoSelectIntent{
                 let d = (self.content as? FinderAppDockContent)?.settingCellDescribers.first { describable in
                     describable.itemIdentifier == FinderAppSettingCells.autoSelect.hashValue
                 }

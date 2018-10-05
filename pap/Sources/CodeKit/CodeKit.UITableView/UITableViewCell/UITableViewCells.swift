@@ -26,10 +26,6 @@ class UITableViewCellWithInclusiveHitTestSubview:UITableViewCell {
 }
 
 class UITableViewIndicatorCell: UITableViewCell {
-    private var loadingIndicatorTag:Int {
-        return UIActivityIndicatorView.self.hash()
-    }
-
     override open func prepareForReuse() {
         super.prepareForReuse()
 
@@ -37,29 +33,14 @@ class UITableViewIndicatorCell: UITableViewCell {
     }
 
     func startIndicating(){
-        if let accessoryView = self.accessoryView
-        , accessoryView.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
-            let loadingIndicator = UIActivityIndicatorView(style: .gray)
-            loadingIndicator.hidesWhenStopped = false
-            loadingIndicator.tag = loadingIndicatorTag
-            accessoryView.superview?.addSubview(loadingIndicator)
-            accessoryView.isHidden = true
-
-            self.layoutIfNeeded()
-
-            loadingIndicator.centerY = accessoryView.centerY
-            loadingIndicator.right = accessoryView.right
-            loadingIndicator.startAnimating()
+        if let view = self.accessoryView{
+            self.startIndicating(targetSubview: view, position: .rightCenter)
         }
     }
 
     func stopIndicating(){
-        if let indicatorView = accessoryView?.superview?.viewWithTag(loadingIndicatorTag) as? UIActivityIndicatorView{
-            accessoryView?.isHidden = false
-
-            indicatorView.stopAnimating()
-            indicatorView.removeFromSuperview()
-            self.layoutIfNeeded()
+        if let view = self.accessoryView{
+            self.stopIndicating(targetSubview: view)
         }
     }
 }

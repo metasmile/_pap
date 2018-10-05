@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -126,10 +126,10 @@
 	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>AutoSelectIntent</string>
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertLatestLivePhotoIntent</string>
 		<string>ConvertLatestVideoIntent</string>
-		<string>EnableASBIntent</string>
 		<string>FindPhoneNumbersIntent</string>
 		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenCameraIntent</string>

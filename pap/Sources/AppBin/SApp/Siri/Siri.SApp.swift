@@ -125,13 +125,15 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                 return appType.intents.count > appType2.intents.count
             }
 
-    private var intentCellDescribersDict = [String:UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
-    private var tempIntentCellDescribers = [UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
+    fileprivate var intentCellDescribersDict = [String:UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
+    fileprivate var tempIntentCellDescribers = [UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
 
-    private var intentGroups = [String:IntentGroup]() // App.info.identifier: IntentGroup
-    private var intentCellDescriberGroups = [IntentGroup:CellDescriberGroup]() // IntentGroup: UITableViewCellDescriber
+    fileprivate var intentGroups = [String:IntentGroup]() // App.info.identifier: IntentGroup
+    fileprivate var intentCellDescriberGroups = [IntentGroup:CellDescriberGroup]() // IntentGroup: UITableViewCellDescriber
 
     private func reloadData(with searchText: String? = nil) {
+        assert(DispatchQueue.currentIsMain)
+
         delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
@@ -161,8 +163,8 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                         cell = _cell
                     }else{
                         cell = UITableViewCustomViewAccessoryCellDescriber()
-                        cell.itemIdentifier = "Intent".hashValue
                         cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
+                        cell.itemIdentifier = (intent.identifier ?? cell.label).hashValue
                         cell.accessoryGenerator = {
                             let button = intent.addToSiriButton(style: .white)
                             button?.delegate = self
@@ -184,7 +186,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
 
                 } else{
                     let groupDescriber = UITableViewCellDescriber()
-                    groupDescriber.itemIdentifier = "IntentGroup".hashValue
+                    groupDescriber.itemIdentifier = intentGroup.hashValue
                     groupDescriber.label = intentGroup.app?.info.displayName ?? "Unknown App"
                     groupDescriber.iconImage = intentGroup.app?.info.iconBundleName
 
@@ -293,7 +295,8 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             cell.detailTextLabel?.text = cellDescriber.detailedLabel
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
             cell.detailTextLabel?.textColor = UIColor.gray
-            
+
+            //FIXME: later: INUIAddVoiceShortcutButton is displays after hugely delayed. skip currently.
             if let button = cellDescriber.accessoryGenerator?() {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 cell.customAccessoryView = button
@@ -302,7 +305,13 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
                 cell.contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 0).isActive = true
                 cell.contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
             }
-            
+
+            if cellDescriber.indicating{
+                cell.startIndicating(targetSubview: cell.contentView)
+            }else{
+                cell.stopIndicating(targetSubview: cell.contentView)
+            }
+
             return cell
         }
         else {
@@ -380,26 +389,59 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutButtonDelegate {
 }
 
 @available(iOS 12.0, *)
-extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate {
+extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, INUIEditVoiceShortcutViewControllerDelegate {
+
+    private func getCellInfo(with voiceShortcut:INVoiceShortcut) -> (indexPath:IndexPath, describer:UITableViewCustomViewAccessoryCellDescriber)?{
+
+        for e in intentCellDescriberGroups{
+            guard let intent = voiceShortcut.shortcut.intent
+            , let intentId = intent.identifier
+            , let _ = e.key.intents.first(where:{ intentId == $0.identifier }) else{
+                continue
+            }
+
+            if let describer = intentCellDescribersDict[intentId]
+            , let index = e.value.itemCellDescribers.firstIndex(where:{ $0.itemIdentifier == describer.itemIdentifier })
+            , let gIndex = delegator.group.firstIndex(where:{ $0.label == e.value.label }) {
+
+                return (indexPath:IndexPath(row: index, section: gIndex), describer:describer)
+            }
+        }
+
+        return nil
+    }
+
+    private func didAddShortcut(with voiceShortcut: INVoiceShortcut) {
+        if let cellInfo = getCellInfo(with: voiceShortcut){
+            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
+        }
+    }
+
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+
+        if let shortcut = voiceShortcut{
+            self.didAddShortcut(with: shortcut)
+        }
+
+        controller.dismiss(animated: true)
     }
     
     func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
-}
 
-@available(iOS 12.0, *)
-extension SiriSettingsDockContent: INUIEditVoiceShortcutViewControllerDelegate {
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true)
 
-        tableView.reloadData()
+        if let voiceShortcut = voiceShortcut, let cellInfo = getCellInfo(with: voiceShortcut){
+            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
+        }
+    }
+
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+        controller.dismiss(animated: true){
+            self.reloadData()
+        }
     }
     
     func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {

@@ -292,10 +292,10 @@ extension RevertApp:UIApplicationDelegateLaunchableApp{
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: RevertApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Restorer.".localized
 
-            let asb = EnableASBIntent()
+            let asb = AutoSelectIntent()
             asb.appId = info.identifier
             asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
 
             return [openAppIntent, asb]
         } else {
@@ -310,7 +310,7 @@ extension RevertApp:UIApplicationDelegateLaunchableApp{
                 return
             }
 
-            if intent is EnableASBIntent{
+            if intent is AutoSelectIntent{
                 var mutableDefaults = self.appDefaults
                 mutableDefaults.autoSelect = true
                 (self.content?.view as? UITableView)?.reloadData()
