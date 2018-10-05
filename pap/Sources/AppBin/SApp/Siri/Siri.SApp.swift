@@ -430,7 +430,8 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
 
             INVoiceShortcutCenter.shared.getVoiceShortcut(with: shortcut.identifier) { _shortcut, error in
                 if error == nil, _shortcut == shortcut{
-                    DispatchQueue.main.async{
+                    //FIXME: later: shortcut button has some bug it displays with huge delay.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                         self.didAddShortcut(with: shortcut)
                     }
                 }else{
