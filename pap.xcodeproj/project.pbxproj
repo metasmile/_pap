@@ -122,6 +122,7 @@
 		4F71D643BB59507D676B439D /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9CF1BA37E2581B00326 /* Period.swift */; };
 		4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */; };
 		4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3BE56AF451D39D5CFC8 /* PDFactory.BApp.Assets.xcassets */; };
+		4F71D65E67976A62A7E442C5 /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC2DFB18E030A0778419 /* CodeKit.UIView.UIActivityIndicatorView.swift */; };
 		4F71D66634CD95028F859696 /* CodeKit.UIFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09715944FAE99330335 /* CodeKit.UIFeedbackGenerator.swift */; };
 		4F71D668912265DF36A9783F /* pap.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC1C2C056A342534A2DC /* pap.Log.swift */; };
 		4F71D67BA8C170D6E09CCD92 /* ImageIO.Metadata.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB4D5CDB2550372D4509 /* ImageIO.Metadata.Data.swift */; };
@@ -580,6 +581,7 @@
 		4F71DBE2FAD161C2D94D9CC6 /* PhotoPickerViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		4F71DBEC96C298669B35221A /* AppDockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDockViewController.swift; sourceTree = "<group>"; };
 		4F71DC1C2C056A342534A2DC /* pap.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.Log.swift; sourceTree = "<group>"; };
+		4F71DC2DFB18E030A0778419 /* CodeKit.UIView.UIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.UIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		4F71DC428EEA88994C64FF8F /* CodeKit.UIView.GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIView.GestureRecognizer.swift; sourceTree = "<group>"; };
 		4F71DC58EF662B297E81FB44 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		4F71DC59EDF3C2434748D74B /* ExifGhost.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExifGhost.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -975,6 +977,7 @@
 				4F71D5F3167019D2C402CDC6 /* CodeKit.UIApplication.swift */,
 				4F71D09715944FAE99330335 /* CodeKit.UIFeedbackGenerator.swift */,
 				4F71D5DEF668E489D8176162 /* CodeKit.UIButton.swift */,
+				4F71DC2DFB18E030A0778419 /* CodeKit.UIView.UIActivityIndicatorView.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -2577,6 +2580,7 @@
 				4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */,
 				4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71DAB2334BB6CB0B9C94FE /* PHAssets.Search.swift in Sources */,
+				4F71D65E67976A62A7E442C5 /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
