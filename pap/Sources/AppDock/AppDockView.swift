@@ -1316,6 +1316,12 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     override var isSelected: Bool {
         didSet {
             selectedStateView.isHidden = !isSelected
+
+            if isSelected{
+                appIconView.layer.borderWidth = 0
+            }else{
+                appIconView.layer.borderWidth = 1 / UIScreen.main.scale
+            }
         }
     }
 
@@ -1332,6 +1338,8 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             AppDockViewCell.persistedStatusDict[app.info.identifier] = status
         }
         appStatusIconView.backgroundColor = status?.statusColor
+
+        selectedStateView.backgroundColor = (app.info.themeColor ?? UIColor.gray).withAlphaComponent(0.2)
     }
 }
 

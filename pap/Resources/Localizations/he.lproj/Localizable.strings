@@ -272,7 +272,7 @@
 "Create" = "לִיצוֹר";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "חתוך לפיט";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "יְבוּל";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "נכון לעכשיו, מודל זיהוי הטקסט AI שלנו זמין רק עבור אלפאנומריים וכמה תווים מיוחדים, וזה יכול להיות מושפע שפת המערכת הנוכחית.";
@@ -420,7 +420,7 @@
 "New Number" = "מספר חדש";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "מספרי טלפון חדשים";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ללא לולאה";
@@ -610,13 +610,13 @@
 "Special Guest" = "אורח מיוחד";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "כיכר";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "מצב ייצוב";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Stabilize";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "Stabilizer";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "גם פנים תקריב";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "מהירות תריס איטית מדי";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "שינוי צורה";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "תיקון תרגום";
@@ -712,7 +712,7 @@
 "Visit" = "לְבַקֵר";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "ממתין לבחירה ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ברוכים הבאים חינם Pack";

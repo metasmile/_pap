@@ -152,7 +152,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
             
-            appCenter.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id:"editor\(Stabilizer.info.identifier)") { (config, changed) in
+            appCenter.currentInstanceAs(StabilizerApp.self)?.config?.watch(\.stabilizationMode, id:"editor\(StabilizerApp.info.identifier)") { (config, changed) in
                 if let value = config.stabilizationMode {
                     self.setAppValue(value)
                 }
@@ -167,7 +167,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["editor\(FiltersApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(Stabilizer.info.identifier)"])
+        AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(StabilizerApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     // MARK: - Layout

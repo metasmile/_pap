@@ -272,7 +272,7 @@
 "Create" = "创建";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "裁剪";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "裁剪";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我们的AI文本识别模型仅适用于字母数字和一些特殊字符，并且可能受当前系统语言的影响。";
@@ -420,7 +420,7 @@
 "New Number" = "新号码";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "新电话号码";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "没有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "没有循环";
@@ -610,13 +610,13 @@
 "Special Guest" = "特邀嘉宾";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "广场";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "稳定";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "稳定剂";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "稳定所选项目...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "开始";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "太近距离的脸";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "快门速度太慢";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "变换模式";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻译更正";
@@ -712,7 +712,7 @@
 "Visit" = "访问";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "等待选择...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "欢迎免费包";

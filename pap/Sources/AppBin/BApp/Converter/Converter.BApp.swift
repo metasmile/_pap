@@ -77,6 +77,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
             , description: "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.".localized
             , keywords: ["GIF Converter", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Mp4", "MOV", "Movie File", "Video Quality","Burst Photos","Animated GIF", "Animation"]
             , iconBundleName: R.image.converterBAppIcon.name
+            , themeColor: UIColor(red:0.99, green:0.51, blue:0.15, alpha:1)
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
@@ -513,7 +514,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
     func willSetContentView(_ view:UIView, dock:AppDock) {
         appDock = dock
 
-        view.tintColor = UIColor(red:0.99, green:0.51, blue:0.15, alpha:1)
+        view.tintColor = ConverterApp.info.themeColor
 
         if cellDescribers.count==0{
             reloadCellDescribers()

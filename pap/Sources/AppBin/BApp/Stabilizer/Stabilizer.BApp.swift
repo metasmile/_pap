@@ -53,7 +53,7 @@ public class StabilizerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIA
     }
 }
 
-public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp
+public class StabilizerApp: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp
         , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = StabilizerTask.self
 
@@ -74,9 +74,10 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
             identifier: "com.stells.pap.stabilizer"
             , version: "0.1"
             , phase: .develop
-            , appType: Stabilizer.self
+            , appType: StabilizerApp.self
             , displayName: "Stabilizer".localized, description:nil, keywords:nil
             , iconBundleName: nil
+            , themeColor: UIColor(red: 0, green: 0, blue: 128 / 255.0, alpha: 1)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -84,7 +85,7 @@ public class Stabilizer: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, Phot
     required public override init() {
         super.init()
         
-        self.defaultEditStateValue = StabilizerAppValue(ImageAlignment.StabilizationMode(rawValue: (Stabilizer.defaults as! StabilizerAppDefaults).stabilizationMode))
+        self.defaultEditStateValue = StabilizerAppValue(ImageAlignment.StabilizationMode(rawValue: (StabilizerApp.defaults as! StabilizerAppDefaults).stabilizationMode))
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -341,11 +342,11 @@ private enum Cells {
 }
 
 class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
-    private var defaults = Stabilizer.defaults as! StabilizerAppDefaults
+    private var defaults = StabilizerApp.defaults as! StabilizerAppDefaults
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red: 0, green: 0, blue: 128 / 255.0, alpha: 1)
+        tableView.tintColor = StabilizerApp.info.themeColor
         return tableView
     }()
     
@@ -409,7 +410,7 @@ class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, App
                 }
                 
                 self.defaults.stabilizationMode = options.rawValue
-                AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.stabilizationMode = StabilizerAppValue(options)
+                AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.stabilizationMode = StabilizerAppValue(options)
             }
         }
         cellDescribers.append(modeCell)
@@ -432,7 +433,7 @@ class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, App
                 }
                 
                 self.defaults.stabilizationMode = options.rawValue
-                AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.stabilizationMode = StabilizerAppValue(options)
+                AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.stabilizationMode = StabilizerAppValue(options)
             }
         }
         cellDescribers.append(cropCell)

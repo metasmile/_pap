@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol App {
 
@@ -42,6 +43,10 @@ public protocol AppInfoPresentableSchemeValues {
     var keywords:[String]? {get}
 }
 
+public protocol AppInfoAppearanceSchemeValues {
+    var themeColor: UIColor? {get}
+}
+
 public protocol AppInfoLocalizedPresentableSchemeValues{
     var localizableDisplayName: String? {get}
     var localizableDescription: String? {get}
@@ -68,10 +73,8 @@ extension AppInfoLocalizedPresentableSchemeValues where Self:AppInfoPresentableS
     }
 }
 
-public typealias AppInfoScheme = AppInfoSchemeKey & AppInfoSchemeValues
-
 //TODO: Auto-generate from own App class
-public struct AppInfo: Hashable, AppInfoScheme, AppInfoPresentableSchemeValues {
+public struct AppInfo: Hashable, AppInfoSchemeKey, AppInfoSchemeValues, AppInfoAppearanceSchemeValues, AppInfoPresentableSchemeValues {
     public let identifier:String
     public let version:String
     public let phase: AppProductPhase
@@ -80,6 +83,7 @@ public struct AppInfo: Hashable, AppInfoScheme, AppInfoPresentableSchemeValues {
     public var description: String?
     public var keywords:[String]?
     public var iconBundleName:String?
+    public let themeColor:UIColor?
     public let policy:AppPolicy
     public let minOSVersion:OperatingSystemVersion?
 

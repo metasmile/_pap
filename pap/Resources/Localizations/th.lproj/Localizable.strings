@@ -272,7 +272,7 @@
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "ครอบตัดให้พอดี";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้ใช้งานเฉพาะสำหรับตัวอักษรและตัวเลขและอักขระพิเศษบางตัวเท่านั้นและอาจได้รับผลกระทบจากภาษาระบบปัจจุบัน";
@@ -420,7 +420,7 @@
 "New Number" = "หมายเลขใหม่";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "เบอร์โทรศัพท์ใหม่";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ไม่มีลูป";
@@ -610,13 +610,13 @@
 "Special Guest" = "แขกพิเศษ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "สี่เหลี่ยม";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "โหมดเสถียรภาพ";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "ทำให้มีเสถียรภาพ";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "Stabilizer";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "Too Close-up Face";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "ความเร็วชัตเตอร์ต่ำเกินไป";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "โหมดการแปลง";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "การแก้ไขการแปล";
@@ -712,7 +712,7 @@
 "Visit" = "เยือน";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "กำลังรอให้เลือก ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "วิปริต";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "ยินดีต้อนรับแพ็คฟรี";

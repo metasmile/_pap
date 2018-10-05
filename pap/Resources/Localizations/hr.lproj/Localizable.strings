@@ -272,7 +272,7 @@
 "Create" = "Stvoriti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Obreži na Fit";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Usjev";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove, a na njega bi moglo utjecati trenutačni jezik sustava.";
@@ -420,7 +420,7 @@
 "New Number" = "Novi broj";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Novi telefonski brojevi";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "Ne usjeva";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
@@ -610,13 +610,13 @@
 "Special Guest" = "Poseban gost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Kvadrat";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Način stabilizacije";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Stabilizirati";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "Stabilizator";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "Stabilizacija odabranih stavki ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Početak";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "Previše izbliza lice";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Premala brzina zatvarača";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Način pretvorbe";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Ispravak prevođenja";
@@ -712,7 +712,7 @@
 "Visit" = "Posjetiti";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čeka se odabir ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Dobrodošli besplatni paket";

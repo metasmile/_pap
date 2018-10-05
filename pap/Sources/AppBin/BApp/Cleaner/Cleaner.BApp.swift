@@ -45,8 +45,8 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
             , description: "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!".localized
             , keywords: ["Clean","Remove","Instagram Video","Screenshot", "Flashlight", "Close-up", "Similar Photos", "Duplicate", "Capacity", "Memory", "Volume", "Saving"]
             , iconBundleName: R.image.cleanerBAppIcon.name
+            , themeColor: UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
             , policy: AppPolicy.default
-//            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
 
@@ -450,7 +450,7 @@ private struct SettingsItem {
 }
 
 fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
-    private lazy var tintColor = UIColor(red:0.31, green:0.44, blue:0.84, alpha:1)
+    private lazy var tintColor = CleanerApp.info.themeColor
 
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 

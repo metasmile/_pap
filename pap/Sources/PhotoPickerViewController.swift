@@ -294,7 +294,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.watch(\.stabilizationMode, id: "picker\(Stabilizer.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.watch(\.stabilizationMode, id: "picker\(StabilizerApp.info.identifier)") { (config, changed) in
                 if let value = config.stabilizationMode, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
@@ -368,7 +368,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["picker\(FiltersApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoEditorApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(Stabilizer.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(Stabilizer.info.identifier)"])
+        AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(StabilizerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMakerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ConverterApp.self)?.config?.unwatch(\.convertingDirectionIdentifier, forIds:["picker\(ConverterApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])

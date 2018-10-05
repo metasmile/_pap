@@ -272,7 +272,7 @@
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "फिट करने के लिए फसल";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "वर्तमान में, हमारे एआई टेक्स्ट मान्यता मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है, और यह वर्तमान सिस्टम भाषा से प्रभावित हो सकता है।";
@@ -420,7 +420,7 @@
 "New Number" = "नया नंबर";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "नया फोन नंबर";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
@@ -610,13 +610,13 @@
 "Special Guest" = "विशेष अतिथि";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Square";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "स्थिरीकरण मोड";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "स्थिर";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "स्टेबलाइजर";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "चयनित वस्तुओं को स्थिर करना ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "प्रारंभ";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "बहुत बंद चेहरा";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "बहुत धीमी शटर गति";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "ट्रांसफॉर्म मोड";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "अनुवाद सुधार";
@@ -712,7 +712,7 @@
 "Visit" = "पर जाएँ";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "चुनने की प्रतीक्षा कर रहा है ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "ताना";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "आपका स्वागत है मुफ्त पैक";

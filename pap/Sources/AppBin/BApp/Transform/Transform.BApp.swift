@@ -39,7 +39,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
 
     public static var defaultConfigValue: AppConfigValuable {
         let config = TransformAppConfigValue()
-        config.tintColor = UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
+        config.tintColor = TransformApp.info.themeColor
         return config
     }
 
@@ -58,6 +58,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
             , description: "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.".localized
             , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppIcon.name
+            , themeColor: UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )

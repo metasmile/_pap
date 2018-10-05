@@ -218,7 +218,7 @@
 "Create" = "創建";
 /* Generated from genl10n: GIFMaker.BApp.swift#508 */
 "Crop to Fit" = "裁剪";
-/* Generated from genl10n: Stabilizer.swift#337, GIFMaker.BApp.swift#142 */
+/* Generated from genl10n: Stabilizer.BApp.swift#337, GIFMaker.BApp.swift#142 */
 "Crop" = "裁剪";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我們的AI文本識別模型僅適用於字母數字和一些特殊字符，並且可能受當前系統語言的影響。";
@@ -366,7 +366,7 @@
 "New Number" = "新號碼";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "新電話號碼";
-/* Generated from genl10n: Stabilizer.swift#338, GIFMaker.BApp.swift#141 */
+/* Generated from genl10n: Stabilizer.BApp.swift#338, GIFMaker.BApp.swift#141 */
 "No Crop" = "沒有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift#589 */
 "No loop" = "沒有循環";
@@ -504,7 +504,7 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "保存結果...";
-/* Generated from genl10n: Stabilizer.swift#424, PDFactory.AppDockContent.swift#146 */
+/* Generated from genl10n: Stabilizer.BApp.swift#424, PDFactory.AppDockContent.swift#146 */
 "Scale To Fit" = "縮放以適應";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
 "Screenshots" = "截圖";
@@ -556,13 +556,13 @@
 "Special Guest" = "特邀嘉賓";
 /* Generated from genl10n: GIFMaker.BApp.swift#108 */
 "Square" = "廣場";
-/* Generated from genl10n: Stabilizer.swift#393 */
+/* Generated from genl10n: Stabilizer.BApp.swift#393 */
 "Stabilization Mode" = "Stabilization Mode";
-/* Generated from genl10n: Stabilizer.swift#103 */
+/* Generated from genl10n: Stabilizer.BApp.swift#103 */
 "Stabilize" = "穩定";
-/* Generated from genl10n: Stabilizer.swift#83, Stabilizer.swift#469 */
+/* Generated from genl10n: Stabilizer.BApp.swift#83, Stabilizer.BApp.swift#469 */
 "Stabilizer" = "穩定劑";
-/* Generated from genl10n: Stabilizer.swift#100 */
+/* Generated from genl10n: Stabilizer.BApp.swift#100 */
 "Stabilizing Selected Items..." = "穩定所選項目...";
 /* Generated from genl10n: PhotoPickerViewController.swift#470 */
 "Start" = "開始";
@@ -618,7 +618,7 @@
 "Too Close-up Face" = "太近距離的臉";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "快門速度太慢";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "變換模式";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻譯更正";
@@ -658,7 +658,7 @@
 "Visit" = "訪問";
 /* Generated from genl10n: PhoneCalls.BApp.swift#242, Finder.BApp.swift#169 */
 "Waiting To Select ..." = "等待選擇...";
-/* Generated from genl10n: Stabilizer.swift#331 */
+/* Generated from genl10n: Stabilizer.BApp.swift#331 */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "歡迎免費包";

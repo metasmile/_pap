@@ -272,7 +272,7 @@
 "Create" = "vytvoriť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Crop to Fit";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Plodina";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V súčasnosti je náš model rozpoznávania textu AI dostupný iba pre alfanumerické a niektoré špeciálne znaky a môže to byť ovplyvnené aktuálnym systémovým jazykom.";
@@ -420,7 +420,7 @@
 "New Number" = "Nové číslo";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Nové telefónne čísla";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
@@ -610,13 +610,13 @@
 "Special Guest" = "Špeciálny hosť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Námestie";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Režim stabilizácie";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "stabilizovať";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "stabilizátor";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "Stabilizácia vybratých položiek ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "štart";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "Príliš tvár na detail";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Príliš pomalá rýchlosť uzávierky";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Režim transformácie";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Korekcia prekladu";
@@ -712,7 +712,7 @@
 "Visit" = "návšteva";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "Čakanie na výber ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Vitajte zadarmo balíček";

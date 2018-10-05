@@ -271,6 +271,7 @@ public class GIFMakerApp: BApp,
         , description: "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.".localized
         , keywords: ["GIF Maker", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Burst Photos","Animated GIF", "Animation", "Aspect Ratio","Repeatation"]
         , iconBundleName: R.image.gifMakerBAppIcon.name
+        , themeColor: UIColor(red:0.22, green:0.75, blue:0.31, alpha:1)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -399,7 +400,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
     
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.tintColor = UIColor(red:0.22, green:0.75, blue:0.31, alpha:1)
+        tableView.tintColor = GIFMakerApp.info.themeColor
         return tableView
     }()
     

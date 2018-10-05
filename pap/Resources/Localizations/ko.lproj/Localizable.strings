@@ -464,7 +464,7 @@
 "Open Rotation." = "회전 열기.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "웹 페이지 열기";
-/* Generated from genl10n: Stabilizer.swift, Filters.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, Filters.BApp.swift */
 "Original" = "원본";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory는 다양한 페이지 옵션으로 여러 이미지에서 PDF 문서를 만듭니다.";
@@ -610,13 +610,13 @@
 "Special Guest" = "특별 손님";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "1:1";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "안정화 모드";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "안정화";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "Stabilizer";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "선택한 항목 안정화 중 ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "시작";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "너무 근접 촬영 얼굴";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "너무 느린 셔터 속도";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "변환 모드";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "번역 교정";
@@ -712,7 +712,7 @@
 "Visit" = "방문";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "선택 대기 중 ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "환영 프리 팩";

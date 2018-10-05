@@ -272,7 +272,7 @@
 "Create" = "Crear";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Crop to Fit" = "Tallar a Fit";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actualment, el nostre model de reconeixement de text AI només està disponible per a Alphanumeric i alguns caràcters especials, i es pot veure afectat per l'idioma del sistema actual.";
@@ -420,7 +420,7 @@
 "New Number" = "Nou número";
 /* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
 "New Phone Numbers" = "Nous números de telèfon";
-/* Generated from genl10n: Stabilizer.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "Sense cultiu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
@@ -610,13 +610,13 @@
 "Special Guest" = "Convidat especial";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Square" = "Quadrat";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Mode d'estabilització";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Estabilitzar";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizer" = "Estabilitzador";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "Estabilització d'elements seleccionats ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Començar";
@@ -672,7 +672,7 @@
 "Too Close-up Face" = "Massa cara de primer pla";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
 "Too Slow Shutter Speed" = "Massa lenta velocitat de l'obturador";
-/* Generated from genl10n: Stabilizer.swift#330 */
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Mode de transformació";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Correcció de la traducció";
@@ -712,7 +712,7 @@
 "Visit" = "Visita";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Waiting To Select ..." = "S'està esperant per seleccionar ...";
-/* Generated from genl10n: Stabilizer.swift */
+/* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Paquet gratuït de benvinguda";
