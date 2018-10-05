@@ -437,6 +437,7 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
 
     private func updateFilteredItems(by searchText: String?) {
         guard searchText?.trimmed.count ?? 0 > 0 else {
+            Timer.removeScheduledTimer(identifier: #function)
             reloadData()
             return
         }
