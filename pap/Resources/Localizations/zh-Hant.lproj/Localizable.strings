@@ -158,6 +158,8 @@
 "Auto Editor" = "自動編輯器";
 /* Generated from genl10n: AutoEditor.BApp.swift#175 */
 "Auto Enhance" = "自動增強";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "在%@上自動選擇。";
 /* Generated from genl10n: Revert.BApp.swift#218, PhoneCalls.BApp.swift#379, ExifGhost.AppDockContent.swift#167, Finder.BApp.swift#1335, Cleaner.BApp.swift#541 */
 "Auto Selection Bot" = "自動選擇機器人";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
@@ -246,8 +248,6 @@
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "在%@上啟用ASB。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -542,6 +542,8 @@
 "Sharing on Facebook Messenger" = "在Facebook Messenger上分享";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "在Facebook上分享";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "顯示所有文本";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: GIFMaker.BApp.swift#477, GIFMaker.BApp.swift#680, GIFMaker.BApp.swift#692, GIFMaker.BApp.swift#829 */

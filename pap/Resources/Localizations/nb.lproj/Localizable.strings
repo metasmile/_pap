@@ -212,6 +212,8 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Autoforbedre";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Automatisk velg på %@.";
 /* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Auto Selection Bot" = "Automatisk valg Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
@@ -300,8 +302,6 @@
 "E-mail Address" = "Epostadresse";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "Aktiver ASB på %@.";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Enable Quick Actions" = "Aktiver hurtige handlinger";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook" = "Deling på Facebook";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "Vis alle tekstene";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */

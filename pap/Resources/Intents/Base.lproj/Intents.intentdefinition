@@ -1331,13 +1331,13 @@
 			<key>INIntentDefaultImageName</key>
 			<string>SystemIcon.SiriShortcut.ASB</string>
 			<key>INIntentDescription</key>
-			<string>Enable Auto Selection Bot.</string>
+			<string>Auto Select.</string>
 			<key>INIntentDescriptionID</key>
 			<string>IMAD8C</string>
 			<key>INIntentLastParameterTag</key>
 			<integer>2</integer>
 			<key>INIntentName</key>
-			<string>EnableASB</string>
+			<string>AutoSelect</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
 				<key>appName</key>
@@ -1351,7 +1351,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Enable ASB on ${appName}.</string>
+					<string>Auto Select on ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>A569zA</string>
 				</dict>
@@ -1416,7 +1416,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Enable Auto Selection Bot.</string>
+			<string>Auto Select.</string>
 			<key>INIntentTitleID</key>
 			<string>UQnvTr</string>
 			<key>INIntentType</key>
@@ -1424,7 +1424,7 @@
 			<key>INIntentUserConfirmationRequired</key>
 			<false/>
 			<key>INIntentVerb</key>
-			<string>Do</string>
+			<string>Run</string>
 		</dict>
 	</array>
 </dict>

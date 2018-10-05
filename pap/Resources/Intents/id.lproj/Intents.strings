@@ -1,7 +1,11 @@
-"4I4kgH" = "Open Camera.";
-"AW925e" = "Open Filters.";
-"Jvx2bY" = "Take A Photo.";
-"DckJin" = "Open Restorer.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "Buka kamera.";
+/*Translated from: Open Filters.*/
+"AW925e" = "Buka Filter.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "Mengambil foto.";
+/*Translated from: Open App*/
+"DckJin" = "Buka Aplikasi";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "Temukan Nomor Telepon";
 /*Translated from: Choose To Delete.*/
@@ -14,16 +18,20 @@
 "p7qwJF" = "Konversikan Foto Hidup terakhir ke yang lain.";
 /*Translated from: Convert the last Video into another.*/
 "SMLHhI" = "Konversikan Video terakhir ke yang lain.";
-/*Translated from: Enable Auto Selection Bot.*/
-"UQnvTr" = "Aktifkan Bot Pemilihan Otomatis.";
-"HYZy53" = "Open Camera To Take A Photo";
-"UCP0Dw" = "Open Photo Filters";
-"EOxZtc" = "Take a photo with Camera app.";
-"lmZpL4" = "Open Restorer";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "Pilih Otomatis.";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "Buka Kamera Untuk Mengambil Foto";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "Buka Filter Foto";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "Ambil foto dengan aplikasi Kamera.";
+/*Translated from: Open App*/
+"lmZpL4" = "Buka Aplikasi";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "Temukan Nomor Telepon";
-/*Translated from: Open Cleaner And Then Choose To Delete.*/
-"ZOPazv" = "Buka Cleaner Dan Kemudian Pilih Untuk Menghapus.";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "Buka Cleaner Dan Kemudian Pilih Item Untuk Menghapus.";
 /*Translated from: Give Me That Phone Number.*/
 "jRmXDB" = "Berikan Saya Nomor Telepon Itu.";
 /*Translated from: Take A GIF With Live Photo*/
@@ -32,18 +40,28 @@
 "PhXLyO" = "Konversikan Foto Hidup terakhir ke yang lain.";
 /*Translated from: Convert the last Video into another.*/
 "wiPuF4" = "Konversikan Video terakhir ke yang lain.";
-/*Translated from: Enable Auto Selection Bot.*/
-"IMAD8C" = "Aktifkan Bot Pemilihan Otomatis.";
-"oGM42K" = "Open ${appName}";
-"6TT4Gp" = "Open ${appName}";
-"gFHyMK" = "Open ${appName}";
-"ibaGsc" = "Open ${appName}";
-"FbRC9N" = "Take A Photo";
-"ewGyLx-yQLzJM" = "Take A Photo";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "Pilih Otomatis.";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "Buka ${appName}";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "Buka ${appName}";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "Buka ${appName}";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "Buka ${appName}";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "Mengambil foto";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "Mengambil foto";
+/*Translated from: Take A Live Photo*/
 "ewGyLx-ZbogxE" = "Take A Live Photo";
-"ewGyLx-IJ8sUB" = "Take A Selfie";
-"ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
-"DcHSN1" = "Open ${appName}";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "Ambil Selfie";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "Ambil A Selfie Dengan Foto Live";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "Buka ${appName}";
 /*Translated from: Find Phone Numbers*/
 "oMVwAV" = "Temukan Nomor Telepon";
 /*Translated from: Choose unknown To Delete.*/
@@ -72,9 +90,13 @@
 "hvJmlA-z5soyq" = "Konversi Video terakhir menjadi MP4";
 /*Translated from: Convert the last Video into GIF*/
 "hvJmlA-VSOU19" = "Konversikan Video terakhir ke GIF";
-/*Translated from: Enable ASB on ${appName}.*/
-"A569zA" = "Enable ASB on ${appName}.";
-"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
-"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
-"xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
-"xwyqoh-MNWfid" = "OK. You can take a Selfie With Live Photo now";
+/*Translated from: Auto Select on ${appName}.*/
+"A569zA" = "Auto Select on ${appName}.";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "BAIK. Anda dapat mengambil Foto sekarang";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "BAIK. Anda dapat mengambil Foto Live sekarang";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "BAIK. Anda dapat mengambil Selfie sekarang";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "BAIK. Anda dapat mengambil Foto Selfie With Live sekarang";

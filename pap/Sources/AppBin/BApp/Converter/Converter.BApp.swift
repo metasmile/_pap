@@ -366,10 +366,10 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into GIF.".localized
             intents.append(convertLatestVideoIntent_into_gif)
 
-            let asb = EnableASBIntent()
+            let asb = AutoSelectIntent()
             asb.appId = info.identifier
             asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
             intents.append(asb)
 
             return intents
@@ -443,10 +443,10 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             }
 
             /*
-                EnableASBIntent
+                AutoSelectIntent
             */
 
-            if intent is EnableASBIntent{
+            if intent is AutoSelectIntent{
                 let d = (self.content as? ConverterAppDockContent)?.cellDescribers.first { describable in
                     describable.itemIdentifier == Cells.autoSelect.hashValue
                 }

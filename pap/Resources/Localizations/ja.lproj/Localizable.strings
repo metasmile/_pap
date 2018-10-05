@@ -212,6 +212,8 @@
 "Auto Editor" = "自動エディタ";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "自動強化";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "%@で自動選択します。";
 /* Generated from genl10n: Revert.BApp.swift#189 */
 "Auto Selection Bot" = "自動選択ボット";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
@@ -300,8 +302,6 @@
 "E-mail Address" = "電子メールアドレス";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "%@でASBを有効にします。";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "Facebook Messengerでの共有";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Facebookでの共有";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "すべてのテキストを表示";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "類似性";
 /* Generated from genl10n: GIFMaker.BApp.swift */

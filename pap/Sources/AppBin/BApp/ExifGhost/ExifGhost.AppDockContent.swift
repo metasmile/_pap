@@ -501,7 +501,7 @@ extension ExifGhostAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                 return
             }
 
-            if intent is EnableASBIntent{
+            if intent is AutoSelectIntent{
                 let d = cellDescribers.first { describable in
                     describable.itemIdentifier == Cells.autoSelect.hashValue
                 }

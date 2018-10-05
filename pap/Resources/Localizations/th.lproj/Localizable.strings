@@ -212,6 +212,8 @@
 "Auto Editor" = "ตัวแก้ไขอัตโนมัติ";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
 "Auto Enhance" = "เพิ่มประสิทธิภาพอัตโนมัติ";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "เลือกอัตโนมัติใน %@";
 /* Generated from genl10n: Revert.BApp.swift#189 */
 "Auto Selection Bot" = "บอทเลือกอัตโนมัติ";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
@@ -300,8 +302,6 @@
 "E-mail Address" = "ที่อยู่อีเมล";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ช่วยให้คุณลบข้อมูลทุกประเภทที่มีรูปภาพของคุณรวมถึงข้อมูลส่วนตัว";
-/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Enable ASB on %@." = "เปิดใช้ ASB ใน %@";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
 /* Generated from genl10n: Shop.SApp.swift#287 */
@@ -596,6 +596,8 @@
 "Sharing on Facebook Messenger" = "การแบ่งปันบน Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "แบ่งปันบน Facebook";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Show All Texts" = "แสดงข้อความทั้งหมด";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */

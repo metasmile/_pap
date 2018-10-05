@@ -1,7 +1,11 @@
-"4I4kgH" = "Open Camera.";
-"AW925e" = "Open Filters.";
-"Jvx2bY" = "Take A Photo.";
-"DckJin" = "Open Restorer.";
+/*Translated from: Open Camera.*/
+"4I4kgH" = "افتح الكاميرا.";
+/*Translated from: Open Filters.*/
+"AW925e" = "فتح الفلاتر.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "التقاط صورة.";
+/*Translated from: Open App*/
+"DckJin" = "افتح التطبيق";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "البحث عن أرقام الهاتف";
 /*Translated from: Choose To Delete.*/
@@ -14,16 +18,20 @@
 "p7qwJF" = "تحويل آخر صورة حية إلى أخرى.";
 /*Translated from: Convert the last Video into another.*/
 "SMLHhI" = "قم بتحويل الفيديو الأخير إلى آخر.";
-/*Translated from: Enable Auto Selection Bot.*/
-"UQnvTr" = "تمكين اختيار السيارات بوت.";
-"HYZy53" = "Open Camera To Take A Photo";
-"UCP0Dw" = "Open Photo Filters";
-"EOxZtc" = "Take a photo with Camera app.";
-"lmZpL4" = "Open Restorer";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "اختيار تلقائي.";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "افتح الكاميرا لالتقاط صورة";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "فتح مرشحات الصور";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "التقاط صورة باستخدام تطبيق الكاميرا.";
+/*Translated from: Open App*/
+"lmZpL4" = "افتح التطبيق";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "البحث عن أرقام الهاتف";
-/*Translated from: Open Cleaner And Then Choose To Delete.*/
-"ZOPazv" = "منظف ​​مفتوح ثم اختر للحذف.";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "منظف ​​مفتوح ثم اختر عناصر للحذف.";
 /*Translated from: Give Me That Phone Number.*/
 "jRmXDB" = "أعطني رقم الهاتف هذا.";
 /*Translated from: Take A GIF With Live Photo*/
@@ -32,18 +40,28 @@
 "PhXLyO" = "تحويل آخر صورة حية إلى أخرى.";
 /*Translated from: Convert the last Video into another.*/
 "wiPuF4" = "قم بتحويل الفيديو الأخير إلى آخر.";
-/*Translated from: Enable Auto Selection Bot.*/
-"IMAD8C" = "تمكين اختيار السيارات بوت.";
-"oGM42K" = "Open ${appName}";
-"6TT4Gp" = "Open ${appName}";
-"gFHyMK" = "Open ${appName}";
-"ibaGsc" = "Open ${appName}";
-"FbRC9N" = "Take A Photo";
-"ewGyLx-yQLzJM" = "Take A Photo";
-"ewGyLx-ZbogxE" = "Take A Live Photo";
-"ewGyLx-IJ8sUB" = "Take A Selfie";
-"ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
-"DcHSN1" = "Open ${appName}";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "اختيار تلقائي.";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "فتح ${appName}";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "فتح ${appName}";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "فتح ${appName}";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "فتح ${appName}";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "التقاط صورة";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "التقاط صورة";
+/*Translated from: Take A Live Photo*/
+"ewGyLx-ZbogxE" = "خذ صورة حية";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "خذ سيلفي";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "خذ سيلفي مع صورة حية";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "فتح ${appName}";
 /*Translated from: Find Phone Numbers*/
 "oMVwAV" = "البحث عن أرقام الهاتف";
 /*Translated from: Choose unknown To Delete.*/
@@ -72,9 +90,13 @@
 "hvJmlA-z5soyq" = "تحويل الفيديو الأخير إلى MP4";
 /*Translated from: Convert the last Video into GIF*/
 "hvJmlA-VSOU19" = "قم بتحويل الفيديو الأخير إلى GIF";
-/*Translated from: Enable ASB on ${appName}.*/
-"A569zA" = "تمكين ASB في ${appName}.";
-"xwyqoh-yQLzJM" = "OK. You can take a Photo now";
-"xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
-"xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
-"xwyqoh-MNWfid" = "OK. You can take a Selfie With Live Photo now";
+/*Translated from: Auto Select on ${appName}.*/
+"A569zA" = "تحديد تلقائي في ${appName}.";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "حسنا. يمكنك التقاط صورة الآن";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "حسنا. يمكنك التقاط صورة حية الآن";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "حسنا. يمكنك التقاط صورة شخصية الآن";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "حسنا. يمكنك أن تأخذ صورة شخصية مع صورة حية الآن";

@@ -907,10 +907,10 @@ extension CleanerApp: UIApplicationDelegateLaunchableApp {
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Cleaner.".localized
 
-            let asb = EnableASBIntent()
+            let asb = AutoSelectIntent()
             asb.appId = info.identifier
             asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Enable ASB on %@.".localizedFormatted(info.displayName)
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
 
             return [openAppIntent, asb]
         } else {
@@ -925,7 +925,7 @@ extension CleanerApp: UIApplicationDelegateLaunchableApp {
                 return
             }
 
-            if intent is EnableASBIntent{
+            if intent is AutoSelectIntent{
                 let d = (self.content as? CleanerAppDockContent)?.settingCellDescribers.first { describable in
                     describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
                 }
