@@ -294,7 +294,8 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             cell.detailTextLabel?.text = cellDescriber.detailedLabel
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
             cell.detailTextLabel?.textColor = UIColor.gray
-            
+
+            //FIXME: later: INUIAddVoiceShortcutButton is displays after hugely delayed. skip currently.
             if let button = cellDescriber.accessoryGenerator?() {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 cell.customAccessoryView = button
@@ -309,7 +310,7 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             }else{
                 cell.stopIndicating(targetSubview: cell.contentView)
             }
-            
+
             return cell
         }
         else {
@@ -409,16 +410,8 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
         return nil
     }
 
-    private func willAddShortcut(with voiceShortcut: INVoiceShortcut) {
-        if let cellInfo = getCellInfo(with: voiceShortcut){
-            cellInfo.describer.indicating = true
-            tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
-        }
-    }
-
     private func didAddShortcut(with voiceShortcut: INVoiceShortcut) {
         if let cellInfo = getCellInfo(with: voiceShortcut){
-            cellInfo.describer.indicating = false
             tableView.reloadRows(at: [cellInfo.indexPath], with: .none)
         }
     }
@@ -426,18 +419,7 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
 
         if let shortcut = voiceShortcut{
-            self.willAddShortcut(with: shortcut)
-
-            INVoiceShortcutCenter.shared.getVoiceShortcut(with: shortcut.identifier) { _shortcut, error in
-                if error == nil, _shortcut == shortcut{
-                    //FIXME: later: shortcut button has some bug it displays with huge delay.
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 4){
-                        self.didAddShortcut(with: shortcut)
-                    }
-                }else{
-                    //TODO: Alert for failing
-                }
-            }
+            self.didAddShortcut(with: shortcut)
         }
 
         controller.dismiss(animated: true)
