@@ -30,8 +30,12 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             self.current = starterApp
 
         }else{
-            self.current = apps.first
+            self.current = initialApp
         }
+    }
+
+    private var initialApp:App.Type{
+        return FinderApp.self
     }
 
     func configure() -> AppManagerConfig? {
@@ -66,7 +70,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
                 return true
             }
 
-            if appType1 is BApp.Type && appType2 is SApp.Type{
+            if appType1 is SApp.Type && appType2 is BApp.Type {
                 return true
             }
 
