@@ -1,4 +1,5 @@
 platform :ios, '11.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'pap' do
   use_frameworks!
