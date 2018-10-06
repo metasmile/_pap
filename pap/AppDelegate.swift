@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         spotlightSearchAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
         intentsAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
         return true
