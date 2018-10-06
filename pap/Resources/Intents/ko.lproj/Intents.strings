@@ -9,9 +9,9 @@
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "전화 번호 찾기";
 /*Translated from: Choose To Delete.*/
-"TIJEu1" = "삭제를 선택합니다.";
+"TIJEu1" = "삭제 선택.";
 /*Translated from: Give Me That Phone Number.*/
-"yM8RqU" = "사진을 찍어서 전화 번호를 알려줘.";
+"yM8RqU" = "사진을 찍어서 전화 번호 알려줘.";
 /*Translated from: Take A GIF With Live Photo*/
 "ZUWAEC" = "라이브 포토로 GIF 찍기";
 /*Translated from: Convert the last Live Photo into another.*/
@@ -21,11 +21,11 @@
 /*Translated from: Enable Auto Selection Bot.*/
 "UQnvTr" = "자동 선택 봇 사용.";
 /*Translated from: Open Camera To Take A Photo.*/
-"HYZy53" = "카메라를 열어 사진을 찍어줘.";
+"HYZy53" = "카메라를 열어 사진을 찍기.";
 /*Translated from: Open Photo Filters App.*/
 "UCP0Dw" = "필터 열기.";
 /*Translated from: Take a photo with Camera app.*/
-"EOxZtc" = "카메라 앱으로 사진을 찍어줘.";
+"EOxZtc" = "카메라 앱으로 사진을 찍기.";
 /*Translated from: Open Restorer App.*/
 "lmZpL4" = "복구 열기.";
 /*Translated from: Find Phone Numbers*/
@@ -51,15 +51,15 @@
 /*Translated from: Open ${appName}.*/
 "ibaGsc" = "${appName} 열기.";
 /*Translated from: Take A Photo.*/
-"FbRC9N" = "사진을 찍다.";
+"FbRC9N" = "사진 찍기.";
 /*Translated from: Take A Photo.*/
-"ewGyLx-yQLzJM" = "사진 찍어줘.";
+"ewGyLx-yQLzJM" = "사진 찍기.";
 /*Translated from: Take A Live Photo.*/
-"ewGyLx-ZbogxE" = "라이브 포토 찍어줘.";
+"ewGyLx-ZbogxE" = "라이브 포토 찍기.";
 /*Translated from: Take A Selfie*/
-"ewGyLx-IJ8sUB" = "셀카를 찍어줘.";
+"ewGyLx-IJ8sUB" = "셀카 찍기.";
 /*Translated from: Take A Selfie With Live Photo*/
-"ewGyLx-MNWfid" = "라이브 포토로 셀카를 찍어줘.";
+"ewGyLx-MNWfid" = "라이브 포토로 셀카 찍기.";
 /*Translated from: Open ${appName}.*/
 "DcHSN1" = "${appName} 열기.";
 /*Translated from: Find Phone Numbers*/
@@ -71,7 +71,7 @@
 /*Translated from: Choose Lockscreen Shots To Delete.*/
 "yI4SHf-BI7avK" = "삭제할 화면 잠금을 선택.";
 /*Translated from: Give Me That Phone Number.*/
-"9fanUE" = "그 전화 번호를 알려줘.";
+"9fanUE" = "저기 있는 전화번호 알려줘.";
 /*Translated from: Take A GIF With Live Photo*/
 "tP4mFl" = "라이브 포토로 GIF 찍기";
 /*Translated from: Convert the last Live Photo into unknown*/
