@@ -1155,8 +1155,11 @@ class AppCollectionViewLayout: UICollectionViewLayout {
                 footerPosition.x -= footerSize.width / 2
                 footerPosition.y += (itemSize.height - footerSize.height) / 2
                 attributes.frame = CGRect(origin: footerPosition, size: footerSize)
+                //FIXME: (setObject nil) exception in DEBUG mode. it may relate with "forSupplementaryViewOfKind"
+                #if !DEBUG
                 cache[.footer]?[indexPath] = attributes
-                
+                #endif
+
                 itemPosition.x += sectionSpacing
             }
         }

@@ -24,6 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let intentsAppDelegate = IntentsAppDelegate()
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        #if DEBUG
+        NSSetUncaughtExceptionHandler { (exception) in
+            print(String(describing: exception))
+            for s in exception.callStackSymbols{
+                print(s)
+            }
+        }
+        #endif
+
         Defaults.shared.initVersionInfo()
         print("Version: ", Bundle.main.shortVersionString ?? "No version info")
         print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
