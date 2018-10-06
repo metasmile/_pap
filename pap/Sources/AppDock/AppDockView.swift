@@ -156,7 +156,7 @@ class AppDockView: CustomView {
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
-        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
+//        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
@@ -468,7 +468,7 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        if dataSource?.numberOfSections(in: self) ?? 0 >= 1 {
+        if dataSource?.numberOfSections(in: self) ?? 0 > 1 {
             switch dockBarStyle {
             case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
             case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
@@ -604,10 +604,10 @@ extension AppDockView: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self), for: indexPath)
-        return view
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self), for: indexPath)
+//        return view
+//    }
 }
 
 extension AppDockView: UICollectionViewDelegate {
@@ -1123,7 +1123,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     
     private var minimumSpacing: CGFloat = 1
     private var sectionSpacing: CGFloat {
-        return layoutMetrics == .prominent ? 10 : 5
+        return 1 // layoutMetrics == .prominent ? 10 : 5
     }
     
     override func prepare() {
