@@ -27,7 +27,7 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
     }
 
     @discardableResult
-    func application(_ application: UIApplication, userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         if #available(iOS 12.0, *) {
             guard let intent = userActivity.interaction?.intent, let appId = intent.appIdentifier else {
                 return false
@@ -48,11 +48,7 @@ class IntentsAppDelegate: NSObject, UIApplicationDelegate {
 
 extension IntentsAppDelegate {
     @discardableResult
-    public static func launchAppIfNeededWithAppId(_ appId: String?, userActivity:NSUserActivity) -> Bool {
-        guard let appId = appId else {
-            return false
-        }
-
+    public static func launchAppIfNeededWithAppId(_ appId: String, userActivity:NSUserActivity) -> Bool {
         return AppCenter.default.openApp(identifier: appId, options: AppLaunchOptions(options: [.NSUserActivity: userActivity])) { hasChanged in
             AppCenter.default.currentInstanceAs(UIApplicationDelegateLaunchableApp.self)?.didLaunchHandling(with:userActivity)
         }

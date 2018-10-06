@@ -24,6 +24,8 @@ extension INIntent {
     static let kAppIdentifier = "appId"
 
     var appIdentifier:String?{
-        return value(forKey: INIntent.kAppIdentifier) as? String
+        let id = value(forKey: INIntent.kAppIdentifier) as? String
+        assert(id?.nilEmpty != nil, "\(INIntent.kAppIdentifier) is missing in this intent \(self)")
+        return id
     }
 }

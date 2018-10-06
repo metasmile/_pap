@@ -106,7 +106,7 @@ class SpotlightSearchAppDelegate: NSObject, UIApplicationDelegate{
     }
 
     @discardableResult
-    func application(_ application: UIApplication, userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         SpotlightSearchAppDelegate.selectedUserActivity = userActivity
         SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
         return true

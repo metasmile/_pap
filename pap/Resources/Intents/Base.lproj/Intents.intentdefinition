@@ -1340,20 +1340,20 @@
 			<string>AutoSelect</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>appName</key>
+				<key>appId,appName</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
+					<false/>
 					<key>INIntentParameterCombinationSubtitle</key>
 					<string></string>
 					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>RRRdqV</string>
+					<string>WjO6TF</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
 					<string>Auto Select on ${appName}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>A569zA</string>
+					<string>Tz3aEP</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>

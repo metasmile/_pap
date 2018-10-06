@@ -72,11 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         spotlightSearchAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
         intentsAppDelegate.application(application, userActivity: userActivity, restorationHandler: restorationHandler)
-        return false
+        return true
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
