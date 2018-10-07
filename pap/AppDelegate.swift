@@ -70,13 +70,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         AppCenter.charge.synchronize()
 
-//        //INFO: Unlock all for app testing.
-//        let paymentsToTest = [
-//            AllTimeAllAppsPayment.self
-//        ]
-//        for p in paymentsToTest{
-//            AppCenter.charge.pay(for: p, skipTransaction: true)
-//        }
+        //INFO: Unlock all for app testing.
+        let paymentsToTest = [
+            AllTimeAllAppsPayment.self
+        ]
+        for p in paymentsToTest{
+            AppCenter.charge.pay(for: p, skipTransaction: true)
+        }
 #endif
         return true
     }

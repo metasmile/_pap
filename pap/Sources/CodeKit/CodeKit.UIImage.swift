@@ -110,11 +110,16 @@ public extension UIImage {
         let resize = self.size.aspectFill(in: size)
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        draw(in: CGRect(origin: CGPoint(x: min(0, (resize.width - size.width) / 2), y: min(0, (resize.height - size.height) / 2)), size: resize))
+        draw(in: CGRect(origin: CGPoint(x: min(0, (size.width - resize.width) / 2), y: min(0, (size.height - resize.height) / 2)), size: resize))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return scaledImage
+    }
+
+    func crop(aspectFillInset inset: CGPoint) -> UIImage? {
+        let scale = UIScreen.main.scale
+        return self.crop(aspectFill: CGSize(width: size.width-inset.x*scale,height: size.height-inset.y*scale))
     }
 }
 

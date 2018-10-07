@@ -166,8 +166,6 @@
 "Anytime free cancellation." = "Anytime free cancellation.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
-/* Generated from genl10n: Shop.SApp.swift */
-"Apps and License Index" = "Apps and License Index";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift */
@@ -254,10 +252,6 @@
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: Shop.SApp.swift */
-"Display Remaining Level" = "Display Remaining Level";
-/* Generated from genl10n: Shop.SApp.swift */
-"Display Remaining Percentage." = "Display Remaining Percentage.";
 /* Generated from genl10n: pap.Strings.swift */
 "Do Everything With Photos." = "Do Everything With Photos.";
 /* Generated from genl10n: pap.Strings.swift */
@@ -494,6 +488,10 @@
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Remaining Count In This Run" = "Remaining Count In This Run";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Remaining Level";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Remaining Percentage";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: AppCenter.Charge.swift */
