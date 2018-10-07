@@ -594,6 +594,12 @@ extension AppDockView: UICollectionViewDataSource {
             cell.setAppInfo(item.app, at: indexPath)
         }
 
+        let horizontalInset = cell.appIconViewTopLayoutConstant/2
+        if collectionView.contentInset.left != horizontalInset{
+            collectionView.contentInset.left = horizontalInset
+            collectionView.contentInset.right = horizontalInset
+        }
+
         switch barStyle {
         case .black:
             cell.iconViewTintColor = .white
@@ -1249,6 +1255,10 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     @IBOutlet weak var appInfoViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var appStatusIconView: AppStatusIconView!
     @IBOutlet weak var appTitleLabel: UILabel!
+
+    fileprivate var appIconViewTopLayoutConstant:CGFloat{
+        return appIconViewTopLayout.constant
+    }
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
