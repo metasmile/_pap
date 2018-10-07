@@ -165,9 +165,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {
         if let _ = currentLaunchOption{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                callee.performInCurrentContextWithSelectedItems()
-            }
+            callee.performInCurrentContextWithSelectedItems()
         }
     }
 

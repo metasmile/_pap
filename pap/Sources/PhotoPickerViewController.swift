@@ -712,9 +712,9 @@ class PhotoPickerViewController: AppDockViewController {
                         self.viewDidLayoutSubviews()
                         self.setNeedsScrollToBottom()
                         self.scrollToBottomIfNeeded(animated: true)
-
-                        collectionViewDelegatableApp?.didSelectWhenInserted(callee:self, indexPaths:allowedSelectionIndexPaths)
                     }
+
+                    collectionViewDelegatableApp?.didSelectWhenInserted(callee:self, indexPaths:allowedSelectionIndexPaths)
                 }
             }
         })
