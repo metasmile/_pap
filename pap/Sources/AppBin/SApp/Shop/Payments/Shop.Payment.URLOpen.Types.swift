@@ -54,6 +54,10 @@ struct URLOpenTypeVideoTutorials: URLOpenType {
     }
 }
 
+struct URLOpenTypeAppsIndex: URLOpenType {
+    static var webUrl: URL?{ return papStrings.info.appsIndex.url.asURL }
+}
+
 struct URLOpenTypeReferenceGuide: URLOpenType {
     static var webUrl: URL?{ return papStrings.info.guide.url.asURL }
 }

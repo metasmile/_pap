@@ -139,6 +139,12 @@ struct papStrings {
             }
         }
 
+        struct appsIndex {
+            static var url: String{
+                return "https://apps.photo/list"
+            }
+        }
+
         struct guide {
             static var url: String{
                 return "https://apps.photo/guide"

@@ -696,6 +696,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadInformationOfUsetCellDescribers(){
         informationOfUsetCellDescribers.removeAll()
 
+        let c42343 = UITableViewButtonCellDescriber()
+        c42343.itemIdentifier = CellDescriber.Key.support.hashValue
+        c42343.label = "Photo Apps Index"
+        c42343.buttonTitle = "Open".localized
+        c42343.iconImage = R.image.cellIconAppsIndex.name
+        c42343.iconImageTintColor = self.view.tintColor
+        c42343.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeAppsIndex>.self)
+        }
+        informationOfUsetCellDescribers.append(c42343)
+
         let c345 = UITableViewButtonCellDescriber()
         c345.itemIdentifier = CellDescriber.Key.support.hashValue
         c345.label = "Video Tutorials".localized
