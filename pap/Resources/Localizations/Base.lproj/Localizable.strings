@@ -166,6 +166,8 @@
 "Anytime free cancellation." = "Anytime free cancellation.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Apps and License Index" = "Apps and License Index";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift */
@@ -365,7 +367,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maximum 1-Year, Main Apps License";
+"Membership or Main Apps License" = "Membership or Main Apps License";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -428,7 +430,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Shop.SApp.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open" = "Open";
 /* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift */
 "Original" = "Original";
@@ -486,10 +488,8 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
-/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
-/* Generated from genl10n: Shop.SApp.swift */
-"Rate Now" = "Rate Now";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -532,8 +532,6 @@
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Search for %@";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"See" = "See";
 /* Generated from genl10n: Converter.BApp.swift */
 "Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift */
@@ -596,6 +594,8 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Staying With Us";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Stories Behind the Apps";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -646,14 +646,12 @@
 "Translation Correction" = "Translation Correction";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Usage Guide";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
 "Use Trial" = "Use Trial";
 /* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Use";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "User Community";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "User Guide";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -676,7 +674,7 @@
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";

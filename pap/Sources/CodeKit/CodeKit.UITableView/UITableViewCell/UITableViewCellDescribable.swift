@@ -69,7 +69,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
 
     public var cellClass:Swift.AnyClass { return UITableViewCell.self }
 
-    public lazy var itemIdentifier:Int = Int.max
+    public lazy var itemIdentifier:Int = label.hashValue
 
     public var label: String = "Untitled"
     public var detailedLabel:String?

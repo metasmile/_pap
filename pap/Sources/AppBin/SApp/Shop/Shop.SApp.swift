@@ -573,9 +573,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if !AppCenter.isPaidAsOwnedInCurrentContext{
 
             let c2 = UITableViewButtonCellDescriber()
-            c2.itemIdentifier = CellDescriber.Key.support.hashValue
             c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Maximum 1-Year, Main Apps License".localized
+            c2.detailedLabel = "Membership or Main Apps License".localized
             c2.buttonTitle = "Take Part".localized
             c2.iconImage = R.image.cellIconYouAppL10N.name
             c2.valueHandler = { _ in
@@ -591,7 +590,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if !AppCenter.isPaidAsOwnedInCurrentContext{
 
             let c3 = UITableViewSwitchSubtitleCellDescriber()
-            c3.itemIdentifier = CellDescriber.Key.displayRemainingLevel.hashValue
             c3.label = "Display Remaining Level".localized
             c3.detailedLabel = "Color And Reminder for Each Phases".localized
             c3.iconImageTintColor = ChargeLevel(rawValue: ChargeLevel.low.rawValue)?.representativeColor
@@ -603,7 +601,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             freeChargeSettingsCellDescribers.append(c3)
 
             let c4 = UITableViewSwitchSubtitleCellDescriber()
-            c4.itemIdentifier = CellDescriber.Key.displayRemainingPercentage.hashValue
             c4.label = "Display Remaining Percentage.".localized
             c4.iconImage = ChargeableBadgeIcon.portraitBadgeIcon(ChargeableImage(balance:0.64, tintColor: self.view.tintColor, appearanceDelegate: ChargeButtonAppearance(charge: nil)), title: String(format: "%d%%", 64), tintColor: self.view.tintColor)
             c4.valueGetter = { return Defaults.shared.showChargeButtonPercentageInNavigationBar }
@@ -618,9 +615,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.removeAll()
 
         let c0 = UITableViewButtonCellDescriber()
-        c0.itemIdentifier = CellDescriber.Key.reviewRatingInApp.hashValue
         c0.label = "Give A Rating".localized
-        c0.buttonTitle = "Rate Now".localized
+        c0.buttonTitle = "Rate It".localized
         c0.iconImage = R.image.cellIconGiveARating.name
         c0.iconImageTintColor = self.view.tintColor
         c0.valueHandler = { _ in
@@ -631,7 +627,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
-        c1.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
         c1.label = "Write A Review".localized
         c1.buttonTitle = "Write".localized
         c1.iconImage = R.image.cellIconWriteAReview.name
@@ -644,7 +639,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c1)
 
         let c123 = UITableViewButtonCellDescriber()
-        c123.itemIdentifier = CellDescriber.Key.reviewRatingInAppStore.hashValue
         c123.label = "Share This App".localized
         c123.buttonTitle = "Share".localized
         c123.iconImage = R.image.commonCellIconShare()
@@ -657,7 +651,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c123)
 
         let c2 = UITableViewButtonCellDescriber()
-        c2.itemIdentifier = CellDescriber.Key.support.hashValue
         c2.label = "Contact Us Now".localized
         c2.buttonTitle = "Send".localized
         c2.iconImage = R.image.cellIconContactUs.name
@@ -668,7 +661,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         if AppCenter.isPaidAsVIPInCurrentContext {
             let c6 = UITableViewButtonCellDescriber()
-            c6.itemIdentifier = CellDescriber.Key.vipHotline.hashValue
             c6.label = "VIP Hotline".localized
             c6.buttonTitle = "Inquiry".localized
             c6.iconImage = R.image.cellIconVIPHotline.name
@@ -680,16 +672,26 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             contactCellDescribers.append(c6)
         }
 
-        let c3 = UITableViewButtonCellDescriber()
-        c3.itemIdentifier = CellDescriber.Key.support.hashValue
-        c3.label = "User Community".localized
-        c3.buttonTitle = "Visit".localized
-        c3.iconImage = R.image.cellIconUserGroup.name
-        c3.iconImageTintColor = self.view.tintColor
-        c3.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+        //open later.
+//        let c3 = UITableViewButtonCellDescriber()
+//        c3.label = "User Community".localized
+//        c3.buttonTitle = "Visit".localized
+//        c3.iconImage = R.image.cellIconUserGroup.name
+//        c3.iconImageTintColor = self.view.tintColor
+//        c3.valueHandler = { _ in
+//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+//        }
+//        contactCellDescribers.append(c3)
+
+        let c322 = UITableViewButtonCellDescriber()
+        c322.label = "Stories Behind the Apps".localized
+        c322.buttonTitle = "Visit".localized
+        c322.iconImage = R.image.cellIconReferenceGuide.name
+        c322.iconImageTintColor = self.view.tintColor
+        c322.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
         }
-        contactCellDescribers.append(c3)
+        contactCellDescribers.append(c322)
 
     }
 
@@ -697,7 +699,6 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.removeAll()
 
         let c42343 = UITableViewButtonCellDescriber()
-        c42343.itemIdentifier = CellDescriber.Key.support.hashValue
         c42343.label = "Photo Apps Index"
         c42343.buttonTitle = "Open".localized
         c42343.iconImage = R.image.cellIconAppsIndex.name
@@ -708,9 +709,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.append(c42343)
 
         let c345 = UITableViewButtonCellDescriber()
-        c345.itemIdentifier = CellDescriber.Key.support.hashValue
         c345.label = "Video Tutorials".localized
-        c345.buttonTitle = "Visit".localized
+        c345.buttonTitle = "Open".localized
         c345.iconImage = R.image.cellIconYouTubeChannel.name
         c345.iconImageTintColor = self.view.tintColor
         c345.valueHandler = { _ in
@@ -719,9 +719,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.append(c345)
 
         let c234 = UITableViewButtonCellDescriber()
-        c234.itemIdentifier = CellDescriber.Key.support.hashValue
-        c234.label = "User Guide".localized
-        c234.buttonTitle = "See".localized
+        c234.label = "Usage Guide".localized
+        c234.buttonTitle = "Open".localized
         c234.iconImage = R.image.cellIconReferenceGuide.name
         c234.iconImageTintColor = self.view.tintColor
         c234.valueHandler = { _ in
@@ -730,9 +729,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.append(c234)
 
         let c3243 = UITableViewButtonCellDescriber()
-        c3243.itemIdentifier = CellDescriber.Key.support.hashValue
         c3243.label = "Engineering Notes".localized
-        c3243.buttonTitle = "See".localized
+        c3243.buttonTitle = "Open".localized
         c3243.iconImage = R.image.cellIconReferenceGuide.name
         c3243.iconImageTintColor = self.view.tintColor
         c3243.valueHandler = { _ in
@@ -741,9 +739,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.append(c3243)
 
         let c3 = UITableViewButtonCellDescriber()
-        c3.itemIdentifier = CellDescriber.Key.support.hashValue
         c3.label = "Privacy Policy".localized
-        c3.buttonTitle = "See".localized
+        c3.buttonTitle = "Open".localized
         c3.iconImage = R.image.commonCellIconInfo()
         c3.iconImageTintColor = self.view.tintColor
         c3.valueHandler = { _ in
@@ -752,9 +749,8 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.append(c3)
 
         let c7 = UITableViewButtonCellDescriber()
-        c7.itemIdentifier = CellDescriber.Key.support.hashValue
         c7.label = "Terms of Use".localized
-        c7.buttonTitle = "See".localized
+        c7.buttonTitle = "Open".localized
         c7.iconImage = R.image.commonCellIconInfo()
         c7.iconImageTintColor = self.view.tintColor
         c7.valueHandler = { _ in

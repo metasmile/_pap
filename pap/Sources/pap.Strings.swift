@@ -97,6 +97,12 @@ struct papStrings {
 
     struct social {
 
+        struct blog {
+            static var url: String{
+                return "https://apps.photo/blog"
+            }
+        }
+
         struct twitter{
             static var accountName:String{
                 return "AppsForPhotos"

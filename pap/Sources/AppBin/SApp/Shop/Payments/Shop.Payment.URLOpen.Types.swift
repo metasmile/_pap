@@ -42,6 +42,10 @@ struct URLOpenTypeUserCommunity: URLOpenType {
     }
 }
 
+struct URLOpenTypeBlog: URLOpenType {
+    static var webUrl: URL?{ return papStrings.social.blog.url.asURL }
+}
+
 struct URLOpenTypeEngineeringNotes: URLOpenType {
     static var webUrl: URL?{ return papStrings.info.engineering.url.asURL }
 }

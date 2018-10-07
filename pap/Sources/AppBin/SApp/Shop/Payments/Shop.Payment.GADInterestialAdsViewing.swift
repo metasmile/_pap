@@ -150,7 +150,7 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
     }
 
     static var action: PayableAction{
-        return PayableAction(title: "See".localized)
+        return PayableAction(title: "Open".localized)
     }
 
     func interestialDidReceiveAd() {
