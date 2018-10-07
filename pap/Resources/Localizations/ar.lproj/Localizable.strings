@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "جارٍ اكتشاف ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "اتجاه";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "عرض المستوى المتبقي";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "عرض النسبة المتبقية.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "تفعل كل شيء مع الصور.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "إجراء مكالمة";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "الحد الأقصى لمدة عام واحد ، ترخيص الرئيسية التطبيقات";
+"Membership or Main Apps License" = "عضوية أو ترخيص التطبيقات الرئيسية";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "مذكرة كام";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "افتح صفحة الويب";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "افتح";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "جودة";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "قيمه";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "قيم الآن";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "إزالة العين الحمراء";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "العد المتبقي في هذا المدى";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "المستوى المتبقي";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "النسبة الباقية";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "كرر";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "البحث عن الرحلات الجوية";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "البحث عن %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "نرى";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "حدد تنسيق لتحويل";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "شارك هذا التطبيق";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "تبادل موهبتك ، وجعل معا. الحصول على كل ترخيص إذا اعتمد.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "تبادل موهبتك ، وجعل معا. الحصول على كل مكافأة إذا اعتمدت.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "البدء في التحقق من الصور التي تم تعديلها ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "البقاء معنا";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "قصص وراء التطبيقات";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "قم بتشغيل أي عناصر تريد إخفاءها. ستبقى الجودة على ما هي عليه تمامًا.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "تصحيح الترجمة";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "غير قادر على التحقق من الرمز حاليًا. يرجى المحاولة لاحقا.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "دليل الاستخدام";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "استخدام المحاكمة";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "استعمال";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "مجتمع المستخدم";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "دليل المستخدم";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "خط ساخن لكبار الشخصيات";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

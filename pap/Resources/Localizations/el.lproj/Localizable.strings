@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Ανίχνευση ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Εμφανίζει το υπόλοιπο επίπεδο";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Εμφάνιση υπολοίπου ποσοστού.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Κάνετε τα πάντα με φωτογραφίες.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Πραγματοποίηση κλήσης";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Μέγιστη 1ετής, κύρια άδεια εφαρμογών";
+"Membership or Main Apps License" = "Μέλη ή κύρια άδεια χρήσης εφαρμογών";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Ανοίξτε την ιστοσελίδα";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Ανοιξε";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Ποιότητα";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Βαθμολογήστε το";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Βαθμολογήστε Τώρα";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Η εναπομένουσα μέτρηση σε αυτή την εκτέλεση";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Το υπόλοιπο επίπεδο";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Υπολειπόμενο ποσοστό";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Αναζήτηση Πτήσεων";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Αναζήτηση για %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Βλέπω";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Επιλέξτε Μορφή για να μετατρέψετε";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Μοιραστείτε αυτήν την εφαρμογή";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Πάρτε κάθε άδεια αν υιοθετηθεί.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Μείνετε μαζί μας";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Ιστορίες πίσω από τις εφαρμογές";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Διόρθωση μετάφρασης";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Δεν είναι δυνατή η επαλήθευση του κώδικα αυτήν τη στιγμή. Δοκιμάστε το αργότερα.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Οδηγός χρήσης";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Χρήση";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Κοινότητα χρηστών";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "ΟΔΗΓΟΣ ΧΡΗΣΤΗ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

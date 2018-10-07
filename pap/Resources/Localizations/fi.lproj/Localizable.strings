@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Havaitsemalla ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Näytä jäljellä oleva taso";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Näytä jäljellä oleva prosenttiosuus.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Tee kaikki valokuvilla.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Enintään 1 vuoden pääsovelluslisenssi";
+"Membership or Main Apps License" = "Jäsenyyden tai tärkein sovelluslisenssi";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Avaa Web-sivu";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Avata";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Alkuperäinen";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Laatu";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Arvioi se";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Arvostele nyt";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Jäljellä oleva määrä tässä käynnissä";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Jäljellä oleva taso";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Jäljellä oleva prosenttiosuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Etsi lennot";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Hae %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "nähdä";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Valitse Muotoon muunnettava";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Jaa lahjakkuutesi, tee yhdessä. Hanki jokainen lisenssi, jos se hyväksytään.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Jaa lahjakkuutesi, tee yhdessä. Hanki jokainen palkkio, jos se hyväksytään.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pysy kanssamme";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Tarinoita sovellusten takana";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Käännöskorjaus";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tällä hetkellä koodia ei voi tarkistaa. Yritä myöhemmin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Käyttöopas";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Käytä kokeilua";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Käyttää";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Käyttäjäyhteisö";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Käyttöohjeet";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

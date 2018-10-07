@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Bezig met detecteren ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Geeft het resterende niveau weer";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Geef het resterende percentage weer.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Alles doen met foto's.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Een telefoontje plegen";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maximaal 1 jaar, hoofd-app-licentie";
+"Membership or Main Apps License" = "Licentie voor lidmaatschap of hoofdtoepassing";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Open Web Page";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Open";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Origineel";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Kwaliteit";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Beoordeel het";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Beoordeel nu";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rode-ogen-verwijdering";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Resterende telling in deze run";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Resterende niveau";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Restpercentage";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaling";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Zoek vluchten";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Zoeken naar %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Zien";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Selecteer Formaat om te converteren";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Deel deze app";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Deel uw talent, maak samen. Krijg elke licentie indien aangenomen.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Deel uw talent, maak samen. Verkrijg elke beloning indien aangenomen.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Beginnen met het controleren van bewerkte foto's ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bij ons blijven";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Verhalen achter de apps";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Schakel alle items in die u wilt verbergen. De kwaliteit blijft perfect hetzelfde.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Vertaalcorrectie";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Gebruikshandleiding";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Gebruik Trial";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gebruik";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Gebruikerscommunity";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Gebruikershandleiding";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP-hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

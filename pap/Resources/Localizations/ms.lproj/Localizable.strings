@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Mengesan ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Paparkan Tahap Ketara";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Peratusan Baki Paparkan.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Lakukan Semuanya Dengan Foto.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Membuat Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maksimum 1 Tahun, Lesen Apl Utama";
+"Membership or Main Apps License" = "Keahlian atau Lesen Apl Utama";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Buka Halaman Web";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Buka";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asal";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Kualiti";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Menilainya";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Nilai sekarang";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Bilangan Remeh Dalam Jalan Ini";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Tahap yang tinggal";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Peratusan yang tinggal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Penerbangan Penerbangan";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Cari %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Lihat";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Pilih Format Untuk Tukar";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Kongsi Aplikasi ini";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Lesen Jika Dipercayai.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Ganjaran Jika Dipercayai.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Bermula untuk menyemak foto yang diedit ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tinggal Dengan Kami";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Cerita Di Sebalik Aplikasi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tukar item yang anda ingin sembunyikan. Kualitinya tetap sama.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Pembetulan Terjemahan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tidak dapat mengesahkan kod pada masa ini. Sila cuba kemudian.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Panduan Penggunaan";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Gunakan Percubaan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gunakan";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Komuniti Pengguna";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Panduan pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

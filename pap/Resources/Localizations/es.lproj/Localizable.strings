@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Detectando ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Mostrar el nivel restante";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Muestra el porcentaje restante.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Haz todo con fotos";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Haciendo una llamada";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Máximo de 1 año, licencia principal de aplicaciones";
+"Membership or Main Apps License" = "Membresía o licencia de aplicaciones principales";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Abrir página web";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Abierto";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Calidad";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Puntúalo";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Califica ahora";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Eliminación de ojos rojos";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Recuento restante en esta ejecución";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Nivel restante";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Porcentaje restante";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repetir";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Búsqueda de vuelos";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Búsqueda de %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Ver";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Seleccionar formato para convertir";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Comparte esta aplicación";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Comparte tu talento, hazlo juntos. Obtenga cada licencia si se adopta.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Comparte tu talento, hazlo juntos. Obtener cada recompensa si se adopta.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Comenzando a revisar fotos editadas ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Quedarse con nosotros";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Historias detrás de las aplicaciones";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Enciende cualquier artículo que quieras esconder. La calidad seguirá siendo la misma.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Corrección de traducción";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "No se puede verificar el código actualmente. Por favor intente más tarde.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Guía de uso";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Usa prueba";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilizar";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Comunidad de usuario";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Guía del usuario";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línea VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

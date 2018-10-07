@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Đang phát hiện ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Hiển thị mức độ còn lại";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Hiển thị phần trăm còn lại.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Làm mọi thứ với hình ảnh.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Thực hiện cuộc gọi";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Giấy phép ứng dụng chính 1 năm, tối đa";
+"Membership or Main Apps License" = "Giấy phép thành viên hoặc ứng dụng chính";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Mở trang web";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Mở";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Nguyên";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Phẩm chất";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Xếp hạng";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Bình chọn bây giờ";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Loại bỏ mắt đỏ";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Số dư còn lại trong lần chạy này";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Mức còn lại";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Phần trăm còn lại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Tìm kiếm chuyến bay";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Tìm kiếm %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Xem";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Chọn định dạng để chuyển đổi";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận mỗi giấy phép nếu được chấp nhận.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận được mỗi phần thưởng nếu được chấp nhận.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ở lại với chúng tôi";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Câu chuyện đằng sau ứng dụng";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Chỉnh sửa bản dịch";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Không thể xác minh mã hiện tại. Vui lòng thử lại sau.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Hướng dẫn sử dụng";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Dùng thử";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Sử dụng";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Cộng đồng người dùng";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Hướng dẫn sử dụng";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

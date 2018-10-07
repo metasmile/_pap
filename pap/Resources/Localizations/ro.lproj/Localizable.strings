@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Detectarea ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direcţie";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Afișați nivelul rămas";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Afișați procentul rămas.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Faceți totul cu fotografii.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Efectuarea unui apel";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maxim 1 an, principala licență de aplicații";
+"Membership or Main Apps License" = "Membru sau Licență principală pentru aplicații";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Deschideți o pagină Web";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Deschis";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Calitate";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Acorda-i o nota";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Evalueaza acum";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Eliminarea ochilor roșii";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Numărul rămas în această alergare";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Nivelul rămas";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Procentul rămas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeta";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Căutați bilete";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Căutați %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Vedea";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Selectați Format pentru a converti";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Distribuie aceasta aplicatie";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Împărtășește-ți talentul, fă Împreună. Obțineți fiecare licență dacă este adoptată.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Împărtășește-ți talentul, fă Împreună. Obțineți fiecare recompensă dacă este adoptată.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Începând să verificați fotografiile editate ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Rămâi cu noi";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Povestiri din spatele aplicațiilor";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne perfect aceeași.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Traducerea corectă";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Codul nu a putut fi verificat în prezent. Încercați mai târziu.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Ghid de utilizare";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Utilizați procesul";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilizare";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Comunitatea utilizatorilor";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Manualul utilizatorului";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

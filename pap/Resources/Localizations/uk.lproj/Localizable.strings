@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Показати залишковий рівень";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Відображення залишкового відсотка.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Робити все з фотографіями.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Зателефонувати";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Максимальна 1-річна ліцензія на основні програми";
+"Membership or Main Apps License" = "Членство або Ліцензія на основні програми";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Відкрита веб-сторінка";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "ВІДЧИНЕНО";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Оригінал";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Якість";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Оцініть це";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Оцінити зараз";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Видалення 'червоних очей'";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Залишається граф у цьому запуску";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Залишковий рівень";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Залишок у відсотках";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Повторити";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Пошук авіарейсів";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Пошук за %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Побачити";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Виберіть формат для перетворення";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Поділитися цим додатком";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Поділіться своїм талантом, зробіть разом. Отримайте кожну ліцензію, якщо вона прийнята.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Поділіться своїм талантом, зробіть разом. Отримати кожну нагороду, якщо вона буде прийнята.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Починаючи перевірку відредагованих фотографій ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Залишайтеся з нами";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Історії за програмами";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде абсолютно незмінним.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Переклад корекції";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Неможливо перевірити код в даний час. Будь ласка, спробуйте це пізніше.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Керівництво з використання";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Використовуйте Trial";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Використовуйте";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Користувацька спільнота";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Керівництво користувача";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

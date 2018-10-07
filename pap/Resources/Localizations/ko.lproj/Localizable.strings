@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "감지 중 ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "남은 레벨 표시";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "남은 백분율을 표시";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "사진으로 모든 것을하십시오.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "전화 걸기";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "최대 1 년 기본 Apps 라이선스";
+"Membership or Main Apps License" = "회원 자격 또는 메인 앱스 라이선스";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "메모 캠";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "회전 열기.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "웹 페이지 열기";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "열기";
 /* Generated from genl10n: Stabilizer.BApp.swift, Filters.BApp.swift */
 "Original" = "원본";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "품질";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "평점";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "지금 평가";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "이 실행에서 남은 카운트";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "남은 레벨";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "남은 백분율";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "항공편 검색";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@ 검색";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "보기";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "변환 할 형식 선택";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "이 앱 공유";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택 된 경우 각 라이센스를 취득하십시오.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "우리와 함께 지내기";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "앱 뒤의 이야기";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "번역 교정";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "현재 코드를 확인할 수 없습니다. 나중에 다시 시도하십시오.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "사용 안내서";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "평가판 사용";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "용도";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "사용자 커뮤니티";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "사용자 설명서";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

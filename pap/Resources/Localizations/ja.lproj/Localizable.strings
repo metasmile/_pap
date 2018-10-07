@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "残りのレベルを表示";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "残りのパーセントを表示します。";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "写真ですべてを行う。";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "最大1年間、メインAppsライセンス";
+"Membership or Main Apps License" = "メンバーシップまたはメインAppsライセンス";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "メモカム";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "ウェブページを開く";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "開いた";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "オリジナル";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "品質";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評価";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "今すぐ評価する";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "赤目除去";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "この実行で残りのカウント";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "残りのレベル";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "残りのパーセンテージ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "フライト検索";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@を検索";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "見る";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "変換する書式を選択";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "このアプリを共有する";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "あなたの才能を共有し、一緒に作る。採択された場合、各ライセンスを取得する。";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "あなたの才能を共有し、一緒に作る。採用された場合、各報酬を得る。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "共有";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "編集した写真のチェックを開始しています...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "アプリの背後にあるストーリー";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "翻訳訂正";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "利用ガイド";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "試用版を使用する";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "ユーザーコミュニティ";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "ユーザーガイド";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

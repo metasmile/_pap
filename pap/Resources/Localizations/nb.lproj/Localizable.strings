@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Oppdager ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
-/* Generated from genl10n: Shop.SApp.swift */
-"Display Remaining Level" = "Vis gjenværende nivå";
-/* Generated from genl10n: Shop.SApp.swift */
-"Display Remaining Percentage." = "Vis gjenstående prosentandel.";
 /* Generated from genl10n: pap.Strings.swift */
 "Do Everything With Photos." = "Gjør alt med bilder.";
 /* Generated from genl10n: pap.Strings.swift */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Ringe";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maksimum 1 år, hovedapplikasjonslisens";
+"Membership or Main Apps License" = "Medlemskap eller hovedapplikasjonslisens";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Web Page" = "Åpne webside";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Åpen";
 /* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift */
 "Original" = "Opprinnelig";
 /* Generated from genl10n: PDFactory.BApp.swift */
@@ -522,12 +520,14 @@
 "Quality" = "Kvalitet";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rangere det";
-/* Generated from genl10n: Shop.SApp.swift */
-"Rate Now" = "Vurder nå";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Fjerning av røde øyne";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Remaining Count In This Run" = "Resterende telle i dette løp";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Resterende nivå";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Resterende prosentandel";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Gjenta";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -566,8 +566,6 @@
 "Search Flights" = "Søk flyreiser";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Søk etter %@";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"See" = "Se";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "Select Format To Convert" = "Velg Format for å konvertere";
 /* Generated from genl10n: Cleaner.BApp.swift */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Del denne appen";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Del talentet ditt, gjør sammen. Få hver lisens hvis vedtatt.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Del talentet ditt, gjør sammen. Få hver belønning hvis vedtatt.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Begynner å sjekke redigerte bilder ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Historier bak Apps";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Oversettelseskorreksjon";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Kan ikke bekrefte koden for øyeblikket. Vennligst prøv det senere.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Brukerhåndbok";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
 "Use Trial" = "Bruk prøveversjon";
 /* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Bruk";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Bruker fellesskap";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Brukerhåndboken";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

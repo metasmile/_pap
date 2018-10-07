@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "Opdage ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "Vis resterende niveau";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "Vis resterende procentdel.";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Gør alt med fotos.";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Ringe op";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "Maksimal 1-årig, Main Apps License";
+"Membership or Main Apps License" = "Medlemskab eller Main Apps License";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Åbne webside";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Åben";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "Kvalitet";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Bedøm det";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "Vurder nu";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Fjernelse af røde øjne";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "Resterende antal i dette løb";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Resterende niveau";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Resterende procentdel";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Gentage";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "Søg fly";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Søg efter %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "Se";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Vælg Format til Konverter";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Del denne app";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "Del dit talent, lav sammen. Få hver licens, hvis vedtaget.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Del dit talent, lav sammen. Få hver belønning, hvis vedtaget.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "Begynder at kontrollere redigerede fotos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Opholder sig hos os";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Historier bag apps";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tænd eventuelle elementer, du vil skjule. Kvaliteten vil perfekt forblive den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "Oversættelse Korrektion";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kan ikke bekræfte koden i øjeblikket. Prøv det senere.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Usage Guide";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Brug prøveversion";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Brug";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "Bruger Fællesskab";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "Brugervejledning";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

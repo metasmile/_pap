@@ -485,7 +485,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if youAppCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Join In %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent, Make Together. Get Each License If Adopted.".localized, describers: youAppCellDescribers))
+            s.append(CellDescriberGroup(label: "Join In %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent, Make Together. Obtain Each Reward If Adopted.".localized, describers: youAppCellDescribers))
         }
 
         if contactCellDescribers.count > 0{

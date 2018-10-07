@@ -288,10 +288,6 @@
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
-/* Generated from genl10n: Shop.SApp.swift#531 */
-"Display Remaining Level" = "แสดงระดับที่เหลืออยู่";
-/* Generated from genl10n: Shop.SApp.swift#543 */
-"Display Remaining Percentage." = "แสดงเปอร์เซ็นต์ที่เหลือ";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "ทำทุกอย่างด้วยภาพถ่าย";
 /* Generated from genl10n: pap.Strings.swift#45 */
@@ -401,7 +397,7 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "การโทรออก";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum 1-Year, Main Apps License" = "ใบอนุญาต Apps หลัก 1 ปี";
+"Membership or Main Apps License" = "ใบอนุญาตเป็นสมาชิกหรือ Apps หลัก";
 /* Generated from genl10n: MemoCam.BApp.swift#36 */
 "Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -464,6 +460,8 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "เปิดเว็บเพจ";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "เปิด";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
 /* Generated from genl10n: PDFactory.BApp.swift#32 */
@@ -522,12 +520,14 @@
 "Quality" = "คุณภาพ";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "ให้คะแนนมัน";
-/* Generated from genl10n: Shop.SApp.swift#559 */
-"Rate Now" = "อัตราในขณะนี้";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "การกำจัดตาแดง";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
 "Remaining Count In This Run" = "จำนวนที่เหลืออยู่ในช่วงเวลานี้";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "ระดับที่เหลือ";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "เปอร์เซ็นต์ที่เหลือ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
@@ -566,8 +566,6 @@
 "Search Flights" = "ค้นหาเที่ยวบิน";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "ค้นหา %@";
-/* Generated from genl10n: Shop.SApp.swift#638, Shop.Payment.GADInterestialAdsViewing.swift#102 */
-"See" = "ดู";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "เลือกรูปแบบการแปลง";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -589,7 +587,7 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "แชร์แอปนี้";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Get Each License If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน รับใบอนุญาตแต่ละใบหากนำมาใช้";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -630,6 +628,8 @@
 "Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "อยู่กับเรา";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "เรื่องราวเบื้องหลัง Apps";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะสมบูรณ์เหมือนเดิม";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -680,14 +680,12 @@
 "Translation Correction" = "การแก้ไขการแปล";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "ไม่สามารถยืนยันรหัสได้ในขณะนี้ โปรดลองภายหลัง";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "คู่มือการใช้งาน";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "ใช้การทดลองใช้";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "ใช้";
-/* Generated from genl10n: Shop.SApp.swift#592 */
-"User Community" = "ชุมชนผู้ใช้";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Guide" = "คู่มือผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
