@@ -299,6 +299,7 @@
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
+		5174B00F216ACB1D00177999 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */; };
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		518BAE962161B5F600D68BF4 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAE952161B5F600D68BF4 /* VisionBarcodeDetector.swift */; };
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
@@ -661,6 +662,7 @@
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
+		5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Quadrilateral.swift; sourceTree = "<group>"; };
 		518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CGGeometry.swift; sourceTree = "<group>"; };
 		518BAE952161B5F600D68BF4 /* VisionBarcodeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionBarcodeDetector.swift; sourceTree = "<group>"; };
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -978,6 +980,7 @@
 				4F71D09715944FAE99330335 /* CodeKit.UIFeedbackGenerator.swift */,
 				4F71D5DEF668E489D8176162 /* CodeKit.UIButton.swift */,
 				4F71DC2DFB18E030A0778419 /* CodeKit.UIView.UIActivityIndicatorView.swift */,
+				5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -2408,6 +2411,7 @@
 				4F71DC9F7775B12598E39F35 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				4F71D0DD99556116A344D7E6 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				4F71D9820AE66A8CBC6B9535 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
+				5174B00F216ACB1D00177999 /* CodeKit.Quadrilateral.swift in Sources */,
 				4F71DEB236685AB6222E02C7 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				4F71DB6DFA22872615C35AB0 /* warp.metal in Sources */,
 				4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */,

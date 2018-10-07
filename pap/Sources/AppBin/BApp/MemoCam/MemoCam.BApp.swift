@@ -225,8 +225,8 @@ fileprivate struct ResultPreviewItem {
         self.resultGroup = resultGroup
     }
     
-    var cornerPoints: [CGPoint] {
-        return visionText.cornerPoints.map { $0.cgPointValue }
+    var quad: CGQuad {
+        return CGQuad(visionText.cornerPoints.map { $0.cgPointValue })
     }
     
     func preferredParserIcon() -> UIImage? {
@@ -262,7 +262,7 @@ fileprivate class ResultPreviewView: DesignableView {
         dimmedPath.usesEvenOddFillRule = true
         
         dimmedLayer.fillRule = .evenOdd
-        dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.4).cgColor
+        dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
     }
     
     private lazy var dimmedLayer = CAShapeLayer()
@@ -343,42 +343,31 @@ fileprivate class ResultPreviewView: DesignableView {
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
         let path = UIBezierPath()
-        if resultPreviewItem.cornerPoints.count == 4 {
-            let padding: CGFloat = 8
-            var topLeft = resultPreviewItem.cornerPoints[0]
-            topLeft.x -= padding
-            topLeft.y -= padding
-            
-            path.move(to: topLeft)
-            
-            var topRight = resultPreviewItem.cornerPoints[1]
-            topRight.x += padding
-            topRight.y -= padding
-            
-            path.addLine(to: topRight)
-            
-            var bottomRight = resultPreviewItem.cornerPoints[2]
-            bottomRight.x += padding
-            bottomRight.y += padding
-            
-            path.addLine(to: bottomRight)
-            
-            var bottomLeft = resultPreviewItem.cornerPoints[3]
-            bottomLeft.x -= padding
-            bottomLeft.y += padding
-            
-            path.addLine(to: bottomLeft)
-        }
-        else {
-            for point in resultPreviewItem.cornerPoints {
-                if path.isEmpty {
-                    path.move(to: point)
-                }
-                else {
-                    path.addLine(to: point)
-                }
-            }
-        }
+        
+        let padding: CGFloat = 8
+        var topLeft = resultPreviewItem.quad.topLeft
+        topLeft.x -= padding
+        topLeft.y -= padding
+        
+        path.move(to: topLeft)
+        
+        var topRight = resultPreviewItem.quad.topRight
+        topRight.x += padding
+        topRight.y -= padding
+        
+        path.addLine(to: topRight)
+        
+        var bottomRight = resultPreviewItem.quad.bottomRight
+        bottomRight.x += padding
+        bottomRight.y += padding
+        
+        path.addLine(to: bottomRight)
+        
+        var bottomLeft = resultPreviewItem.quad.bottomLeft
+        bottomLeft.x -= padding
+        bottomLeft.y += padding
+        
+        path.addLine(to: bottomLeft)
         path.apply(CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height))
         path.close()
         
