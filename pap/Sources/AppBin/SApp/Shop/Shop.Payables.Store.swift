@@ -18,6 +18,15 @@ private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.san
 private let papVerificationType = AppleReceiptValidator.VerifyReceiptURLType.production
 #endif
 
+//INFO: Fake implementation for App Store Connect's bug
+//"These in-app purchases can’t be promoted on the App Store because your latest app binary doesn’t include the SKPaymentTransactionObserver method."
+//https://stackoverflow.com/questions/46672653/skpaymenttransactionobserver-in-app-purchases-can-t-be-promoted-on-the-app-stor
+public class __SKPaymentTransactionObserver: NSObject, SKPaymentTransactionObserver{
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {}
+    public func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool{
+        return true
+    }
+}
 
 //INFO: StorePayableCenter: Not recommended to use in Charge-ChargeBank-ChargeBanker family directly.
 // Use in only in an ShopApp. When add Directory-Scoped access permission in swift?? huh.
