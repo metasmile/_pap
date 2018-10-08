@@ -304,7 +304,7 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
-/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
+/* Generated from genl10n: AppCenter.Charge.swift */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Give Me That Phone Number." = "Give Me That Phone Number.";
@@ -486,7 +486,7 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
-/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
+/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
