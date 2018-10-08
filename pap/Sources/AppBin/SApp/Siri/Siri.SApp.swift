@@ -22,7 +22,7 @@ class SiriApp: NSObject
         , version: "1.0"
         , phase: .release
         , appType: SiriApp.self
-        , displayName: "Siri"
+        , displayName: "Add To Siri"
         , description: nil
         , keywords: nil
         , iconBundleName: R.image.siriSAppIcon.name
