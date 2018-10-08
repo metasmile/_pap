@@ -153,9 +153,7 @@ fileprivate class PolygonLayer: CAShapeLayer {
     }
 }
 
-private class ResultItemLayer: CAShapeLayer {
-    var result: ResultPreviewItem?
-    
+private class BadgeIconLayer: ResultItemLayer {
     lazy var badgeLayer = CAShapeLayer()
     lazy var badgeIconLayer = CALayer()
     
@@ -169,26 +167,12 @@ private class ResultItemLayer: CAShapeLayer {
         initialize()
     }
     
-    var highlighted: Bool = false {
-        didSet {
-            fillColor = highlighted ? UIColor(white: 1, alpha: 0.6).cgColor : UIColor.clear.cgColor
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func initialize() {
-        strokeColor = UIColor.white.cgColor
-        fillColor = UIColor.clear.cgColor
-        lineWidth = 1
-        shadowOpacity = 0.5
-        shadowColor = UIColor.black.cgColor
-        shadowOffset = .zero
-        shadowRadius = 2
-        
-        let badgeSize: CGFloat = 32
+    override func initialize() {
+        super.initialize()
         
         addSublayer(badgeLayer)
         badgeLayer.frame.size = CGSize(width: badgeSize, height: badgeSize)
@@ -203,12 +187,62 @@ private class ResultItemLayer: CAShapeLayer {
         badgeIconLayer.frame.size = CGSize(width: badgeSize * 0.8, height: badgeSize * 0.8)
     }
     
-    func showBadgeIcon(at point: CGPoint) {
-        badgeLayer.isHidden = false
-        badgeLayer.position = point
+    let badgeSize: CGFloat = 24
+    
+    func showBadgeIcon(with quad: CGQuad, in bounds: CGRect) {
+        let point = quad.topLeft.applying(previewTransform)
         
-        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.finderBAppIcon())?.cgImage
+        badgeLayer.isHidden = false
+        badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: badgeSize / 2 ... bounds.height - badgeSize / 2))
+        
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? {
+            return UIGraphicsImageRenderer(bounds: badgeLayer.bounds).imageWithCurrentContext { (cgContext) in
+                cgContext.setFillColor(UIColor.clear.cgColor)
+                cgContext.fill(self.badgeLayer.bounds)
+                
+                let attrString = NSAttributedString(string: "T", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                let stringSize = attrString.size()
+                
+                attrString.draw(at: CGPoint(x: max(0, (self.badgeLayer.bounds.width - stringSize.width) / 2), y: max(0, (self.badgeLayer.bounds.height - stringSize.height) / 2)))
+            }
+            }())?.cgImage
         badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
+    }
+}
+
+private class ResultItemLayer: CAShapeLayer {
+    var result: ResultPreviewItem?
+    
+    var previewTransform: CGAffineTransform = .identity
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
+    }
+    
+    override init() {
+        super.init()
+        
+        initialize()
+    }
+    
+    var highlighted: Bool = false {
+        didSet {
+            fillColor = highlighted ? UIColor(white: 1, alpha: 0.7).cgColor : UIColor.clear.cgColor
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func initialize() {
+        strokeColor = UIColor.white.cgColor
+        fillColor = UIColor.clear.cgColor
+        lineWidth = 1
+        shadowOpacity = 0.5
+        shadowColor = UIColor.black.cgColor
+        shadowOffset = .zero
+        shadowRadius = 2
     }
 }
 
@@ -258,6 +292,7 @@ fileprivate class ResultPreviewView: DesignableView {
         
         layer.addSublayer(dimmedLayer)
         layer.addSublayer(resultsLayer)
+        layer.addSublayer(resultsUILayer)
         
         dimmedPath.usesEvenOddFillRule = true
         
@@ -267,6 +302,11 @@ fileprivate class ResultPreviewView: DesignableView {
     
     private lazy var dimmedLayer = CAShapeLayer()
     private lazy var dimmedPath = UIBezierPath()
+    
+    lazy var resultsUILayer: CALayer = {
+        let layer = CALayer()
+        return layer
+    }()
     
     lazy var resultsLayer: CALayer = {
         let layer = CALayer()
@@ -282,6 +322,7 @@ fileprivate class ResultPreviewView: DesignableView {
             }
             else {
                 resultsLayer.sublayers = nil
+                resultsUILayer.sublayers = nil
                 
                 dimmedPath.removeAllPoints()
                 dimmedLayer.path = nil
@@ -316,11 +357,13 @@ fileprivate class ResultPreviewView: DesignableView {
                 let disableActions = CATransaction.disableActions()
                 CATransaction.setDisableActions(true)
                 self.resultsLayer.sublayers = nil
+                self.resultsUILayer.sublayers = nil
                 
                 let previewSize = result.image.size.aspectFill(in: self.bounds.size)
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
                 self.dimmedLayer.frame = self.resultsLayer.frame
+                self.resultsUILayer.frame = self.resultsLayer.frame
                 
                 self.dimmedPath.removeAllPoints()
                 self.dimmedLayer.path = nil
@@ -344,41 +387,32 @@ fileprivate class ResultPreviewView: DesignableView {
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
         let path = UIBezierPath()
         
+        let renderScaleTransform = CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height)
+        
         let padding: CGFloat = 8
-        var topLeft = resultPreviewItem.quad.topLeft
-        topLeft.x -= padding
-        topLeft.y -= padding
+        let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
         
-        path.move(to: topLeft)
-        
-        var topRight = resultPreviewItem.quad.topRight
-        topRight.x += padding
-        topRight.y -= padding
-        
-        path.addLine(to: topRight)
-        
-        var bottomRight = resultPreviewItem.quad.bottomRight
-        bottomRight.x += padding
-        bottomRight.y += padding
-        
-        path.addLine(to: bottomRight)
-        
-        var bottomLeft = resultPreviewItem.quad.bottomLeft
-        bottomLeft.x -= padding
-        bottomLeft.y += padding
-        
-        path.addLine(to: bottomLeft)
-        path.apply(CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height))
+        path.move(to: quad.topLeft)
+        path.addLine(to: quad.topRight)
+        path.addLine(to: quad.bottomRight)
+        path.addLine(to: quad.bottomLeft)
+        path.apply(renderScaleTransform)
         path.close()
         
         self.dimmedPath.append(path)
         
         let layer = ResultItemLayer()
         layer.result = resultPreviewItem
+        layer.previewTransform = renderScaleTransform
         layer.path = path.cgPath
-        layer.showBadgeIcon(at: CGPoint(x: max(20, min(path.currentPoint.x - 10, bounds.width - 30)), y: max(60, min(path.currentPoint.y - 10, bounds.height - 30))))
+        
+        let iconLayer = BadgeIconLayer()
+        iconLayer.result = resultPreviewItem
+        iconLayer.previewTransform = renderScaleTransform
+        iconLayer.showBadgeIcon(with: resultPreviewItem.quad, in: resultsLayer.bounds)
         
         resultsLayer.addSublayer(layer)
+        resultsUILayer.addSublayer(iconLayer)
     }
     
     private var currentHitLayer: ResultItemLayer?
