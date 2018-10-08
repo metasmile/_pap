@@ -339,7 +339,7 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
 
             var iconImage = iconImageCache.object(forKey: cellDescriber.label as NSString)
             if iconImage == nil{
-                if let image = cellDescriber.iconImage?.asUIImage?.rounded()?.resize(aspectFit: CGSize(width: 34, height: 34)){
+                if let image = cellDescriber.iconImage?.asUIImage?/*.rounded()?*/.resize(aspectFit: CGSize(width: 34, height: 34)){
                     iconImage = image
                     iconImageCache.setObject(image, forKey: cellDescriber.label as NSString)
                 }
