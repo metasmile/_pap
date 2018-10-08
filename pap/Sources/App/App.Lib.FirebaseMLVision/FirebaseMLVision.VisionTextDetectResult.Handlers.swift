@@ -627,6 +627,55 @@ extension Array where Element:VisionTextDetectResult {
                 }
 
             }// END OF AN ACTION
+            
+            
+            if let plainText = item.plainText?.trimmed {
+                var action:UIAlertAction?
+                
+                //sub actions
+                let _quickAction = { (t: String) -> UIAlertAction? in
+                    return UIAlertAction(title: t, style: .default, handler: { action in
+                        UIActivityViewController.share(activityItems: [plainText], excludedActivityTypes: nil) { type, b, anies, error in
+                            asyncSignal.end()
+                        }
+                    })
+                }
+                
+                if isQuickActionOnly{
+                    action = _quickAction(plainText.components(separatedBy: .newlines).joined())
+                    
+                }else{
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
+                    
+                    var _actions = [defaultCancelSubAction]
+                    
+                    if let q = _quickAction("Share".localized){
+                        _actions.append(q)
+                    }
+                    
+                    _actions.append(
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.string = plainText
+                            asyncSignal.end()
+                        })
+                    )
+                    
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+                    
+                    //root action
+                    action = UIAlertAction(title: plainText.components(separatedBy: .newlines).joined(), style: . default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.present(_alert, animated: true)
+                        }
+                    })
+                }
+                
+                if let action = action{
+                    alert.addAction(action)
+                }
+            }// END OF AN ACTION
 
 
 

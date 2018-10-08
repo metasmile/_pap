@@ -133,26 +133,6 @@ private struct MemoCamAppDetector {
     }
 }
 
-fileprivate class PolygonLayer: CAShapeLayer {
-    init(points: [CGPoint]) {
-        super.init()
-        
-        guard let firstPoint = points.first else { return }
-        let polygon = UIBezierPath()
-        polygon.move(to: firstPoint)
-        points[1...].forEach {
-            polygon.addLine(to: $0)
-        }
-        polygon.close()
-        
-        self.path = polygon.cgPath
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 private class BadgeIconLayer: ResultItemLayer {
     lazy var badgeLayer = CAShapeLayer()
     lazy var badgeIconLayer = CALayer()
@@ -193,14 +173,16 @@ private class BadgeIconLayer: ResultItemLayer {
         let point = quad.topLeft.applying(previewTransform)
         
         badgeLayer.isHidden = false
-        badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: badgeSize / 2 ... bounds.height - badgeSize / 2))
+        badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: bounds.origin.x + badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: bounds.origin.y + badgeSize / 2 ... bounds.height - badgeSize / 2))
         
         badgeIconLayer.contents = (result?.preferredParserIcon() ?? {
             return UIGraphicsImageRenderer(bounds: badgeLayer.bounds).imageWithCurrentContext { (cgContext) in
                 cgContext.setFillColor(UIColor.clear.cgColor)
                 cgContext.fill(self.badgeLayer.bounds)
                 
-                let attrString = NSAttributedString(string: "T", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                let attrString = NSAttributedString(string: "T", attributes: [
+                    NSAttributedString.Key.foregroundColor: self.tintColor ?? UIColor.black
+                ])
                 let stringSize = attrString.size()
                 
                 attrString.draw(at: CGPoint(x: max(0, (self.badgeLayer.bounds.width - stringSize.width) / 2), y: max(0, (self.badgeLayer.bounds.height - stringSize.height) / 2)))
@@ -214,6 +196,7 @@ private class ResultItemLayer: CAShapeLayer {
     var result: ResultPreviewItem?
     
     var previewTransform: CGAffineTransform = .identity
+    var tintColor: UIColor?
     
     override init(layer: Any) {
         super.init(layer: layer)
@@ -236,6 +219,10 @@ private class ResultItemLayer: CAShapeLayer {
     }
     
     func initialize() {
+        rasterizationScale = UIScreen.main.scale
+        shouldRasterize = true
+        drawsAsynchronously = true
+        
         strokeColor = UIColor.white.cgColor
         fillColor = UIColor.clear.cgColor
         lineWidth = 1
@@ -402,14 +389,16 @@ fileprivate class ResultPreviewView: DesignableView {
         self.dimmedPath.append(path)
         
         let layer = ResultItemLayer()
+        layer.tintColor = tintColor
         layer.result = resultPreviewItem
         layer.previewTransform = renderScaleTransform
         layer.path = path.cgPath
         
         let iconLayer = BadgeIconLayer()
+        iconLayer.tintColor = tintColor
         iconLayer.result = resultPreviewItem
         iconLayer.previewTransform = renderScaleTransform
-        iconLayer.showBadgeIcon(with: resultPreviewItem.quad, in: resultsLayer.bounds)
+        iconLayer.showBadgeIcon(with: resultPreviewItem.quad, in: CGRect(origin: CGPoint(x: (resultsLayer.bounds.width - bounds.width) / 2, y: (resultsLayer.bounds.height - bounds.height) / 2), size: size))
         
         resultsLayer.addSublayer(layer)
         resultsUILayer.addSublayer(iconLayer)
@@ -549,13 +538,15 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     private func createDebugLayer() -> DisableImplicitAnimatableShapeLayer {
         let layer = DisableImplicitAnimatableShapeLayer()
+        
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
+        
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = UIColor.white.cgColor
         layer.lineWidth = 1
-        layer.shadowOpacity = 0.5
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 2
+        
         return layer
     }
     
@@ -802,7 +793,10 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     }
     
     @objc fileprivate func actionButtonDidTap() {
-        if let results = self.resultPreviewView.detectResult {
+        if var results = self.resultPreviewView.detectResult {
+            if resultPreviewView.showsPlainText {
+                results.plainText = results.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
+            }
             self.showActions(with: [results])
         }
     }
@@ -812,6 +806,9 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         
         var result = VisionTextImageDetectResult(image: image)
         result.sourceVisionTexts = [resultPreviewItem.visionText]
+        if view.showsPlainText {
+            result.plainText = result.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
+        }
         result.resultGroup = resultPreviewItem.resultGroup
         
         showActions(with: [result])
