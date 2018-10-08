@@ -617,17 +617,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadContactCellDescribers(){
         contactCellDescribers.removeAll()
 
-        let c0 = UITableViewButtonCellDescriber()
-        c0.label = "Give A Rating".localized
-        c0.buttonTitle = "Rate It".localized
-        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-        c0.iconImageTintColor = self.view.tintColor
-        c0.valueHandler = { _ in
-            DispatchQueue.global().async{
-                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
-            }
-        }
-        contactCellDescribers.append(c0)
+//        let c0 = UITableViewButtonCellDescriber()
+//        c0.label = "Give A Rating".localized
+//        c0.buttonTitle = "Rate It".localized
+//        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c0.iconImageTintColor = self.view.tintColor
+//        c0.valueHandler = { _ in
+//            DispatchQueue.global().async{
+//                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+//            }
+//        }
+//        contactCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
         c1.label = "Write A Review".localized
