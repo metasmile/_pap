@@ -695,12 +695,20 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
     }
     
+    private lazy var switchShowAllTexts: UISwitch = {
+        let view = UISwitch(frame: .zero)
+        view.sizeToFit()
+        view.addTarget(self, action: #selector(self.toggleResultPreviewMode), for: .valueChanged)
+        return view
+    }()
+    
     private func updateToolBar() {
         if let _ = self.currentTargetImage {
             toolBar.setItems([
-                UIBarButtonItem(title: "Retake".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap)),
+                UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(self.cancelButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(title: "Show All Texts".localized, style: .plain, target: self, action: #selector(self.toggleResultPreviewMode)),
+                UIBarButtonItem(title: "Show All Texts".localized, style: .plain, target: self, action: #selector(self.toggleResultPreviewModeSwitch)),
+                UIBarButtonItem(customView: switchShowAllTexts),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.actionButtonDidTap)),
 //                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -751,11 +759,16 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         updateToolBar()
     }
     
-    @objc private func toggleResultPreviewMode(sender: Any) {
-        resultPreviewView.showsPlainText = !resultPreviewView.showsPlainText
+    @objc private func toggleResultPreviewMode(sender: UISwitch) {
+        resultPreviewView.showsPlainText = sender.isOn
         if let results = self.resultPreviewView.detectResult {
             resultPreviewView.reloadResults(results)
         }
+    }
+    
+    @objc private func toggleResultPreviewModeSwitch(sender: UIBarButtonItem) {
+        switchShowAllTexts.setOn(!switchShowAllTexts.isOn, animated: true)
+        toggleResultPreviewMode(sender: switchShowAllTexts)
     }
     
     private func detect(with image: UIImage?) {

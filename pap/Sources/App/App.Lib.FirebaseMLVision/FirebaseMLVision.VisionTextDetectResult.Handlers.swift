@@ -673,6 +673,7 @@ extension Array where Element:VisionTextDetectResult {
                 }
                 
                 if let action = action{
+                    action.accessoryImage = R.image.commonCellIconShare()
                     alert.addAction(action)
                 }
             }// END OF AN ACTION
