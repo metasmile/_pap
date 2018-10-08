@@ -62,8 +62,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
             , description:"Phone Calls lets you grab phone numbers accurately in your numerous photos. Then you merely start calling!"
             , keywords: ["Phone", "Call", "Numbers", "Address", "Contacts"]
             , iconBundleName: R.image.phoneCallsBAppIcon.name
-            , themeColor:UIColor(red:0.27, green:0.82, blue:0.35, alpha:1)
-            , policy: AppPolicy.default
+            , themeColor:UIColor(red:0.27, green:0.82, blue:0.35, alpha:1), embossIconBundleName: R.image.phoneCallsBAppEmbossIcon.name             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 

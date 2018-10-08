@@ -59,6 +59,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
             , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppIcon.name
             , themeColor: UIColor(red:0.75, green:0.31, blue:0.8, alpha:1)
+            , embossIconBundleName: R.image.transformBAppEmbossIcon.name
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
