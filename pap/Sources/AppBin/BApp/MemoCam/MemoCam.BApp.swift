@@ -281,8 +281,6 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.addSublayer(resultsLayer)
         layer.addSublayer(resultsUILayer)
         
-        dimmedPath.usesEvenOddFillRule = true
-        
         dimmedLayer.fillRule = .evenOdd
         dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
     }
@@ -717,9 +715,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
         else {
             toolBar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(title: "Tap To Detect".localized, style: .plain, target: self, action: #selector(self.cameraViewDidTap)),
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)
         }
     }
@@ -769,6 +769,14 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     @objc private func toggleResultPreviewModeSwitch(sender: UIBarButtonItem) {
         switchShowAllTexts.setOn(!switchShowAllTexts.isOn, animated: true)
         toggleResultPreviewMode(sender: switchShowAllTexts)
+    }
+    
+    @objc private func selectLanguageOption(sender: Any) {
+        let alert = UIAlertController.alert(title: MemoCamApp.info.displayName, message: "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.".localized)
+        alert.addAction(UIAlertAction(title: "OK".localized, style: .cancel, handler: { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        UIViewController.present(alert, animated: true)
     }
     
     private func detect(with image: UIImage?) {
