@@ -94,7 +94,7 @@ extension ShopApp{
                     var items = payGroup.items
                     items.append(contentsOf:localCharges.map ({
                             let pay = PayItem(payable: $0.payment)
-                            pay.rewardIconImageStyle.beRound = true
+//                            pay.rewardIconImageStyle.beRound = true
                             pay.rewardIconImageStyle.useTintColor = false
                             return pay
                         })

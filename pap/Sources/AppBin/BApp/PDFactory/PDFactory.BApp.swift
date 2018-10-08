@@ -31,7 +31,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppear
             , displayName: "PDFactory"
             , description:"PDFactory makes PDF document from multiple images with various page options.".localized
             , keywords:["PDF","PDF Builder","Documents","PDF Editor","Margin","Layout","Pages"]
-            , iconBundleName: R.image.pdFactoryBAppIcon.name
+            , iconBundleName: R.image.pdFactoryBAppEmbossIcon.name
             , themeColor: .red, embossIconBundleName:  R.image.pdFactoryBAppEmbossIcon.name             , policy: AppPolicy.default
             , minOSVersion: nil
     )

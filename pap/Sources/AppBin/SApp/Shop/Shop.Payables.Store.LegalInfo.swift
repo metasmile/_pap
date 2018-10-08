@@ -67,10 +67,10 @@ extension StorePayable{
         vc.actionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
         vc.actionButton.titleLabel?.sizeToFit()
         vc.actionButton.setTitle("Purchase".localized.localizedUppercase, for: .normal)
-        let oh = vc.actionButton.height
+//        let oh = vc.actionButton.height
         vc.actionButton.sizeToFit()
         vc.actionButton.clipsToBounds = true
-        vc.actionButton.layer.cornerRadius = oh/2
+//        vc.actionButton.layer.cornerRadius = oh/2
         vc.actionButton.backgroundColor = vc.view.tintColor
         vc.actionButton.tintColor = .white
         vc.actionButton.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: vc.actionButton.height/2, bottom: 0, right: vc.actionButton.height/2)
