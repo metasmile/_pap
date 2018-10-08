@@ -503,7 +503,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресеты";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "Цены включают в себя все новые приложения и обновления, а также не автообновление.";
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Цены включают в себя все новые приложения и обновления, также он не будет автоматически обновляться.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "политика конфиденциальности";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

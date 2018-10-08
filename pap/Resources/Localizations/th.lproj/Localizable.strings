@@ -503,7 +503,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "ค่าที่ตั้งไว้";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, Also Not Auto-Renewal." = "ราคาจะรวมถึงแอพพลิเคชันและการอัปเดตทุกครั้งและยังไม่สามารถต่ออายุโดยอัตโนมัติได้";
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "ราคาจะรวมถึงแอพพลิเคชันและการอัปเดตทุกครั้งและจะไม่มีการต่ออายุโดยอัตโนมัติ";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "นโยบายส่วนบุคคล";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
