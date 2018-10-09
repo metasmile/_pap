@@ -38,9 +38,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
         if let options = (editStateValue?.ciFilter as? CIAutoAdjustmentFilter)?.options {
             var optionsToStore = [String:Bool]()
             for (k,v) in options{
-                if let v = v as? Bool{
-                    optionsToStore[k] = v
-                }
+                optionsToStore[k] = v
             }
             
             defaults.autoAdjustmentOptions = optionsToStore
@@ -136,9 +134,9 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
 }
 
 class CIAutoAdjustmentFilter: CIFilter {
-    var options: [String: Any]?
+    var options: [String: Bool]?
     
-    init(options: [String: Any]? = nil) {
+    init(options: [String: Bool]? = nil) {
         super.init()
         
         self.options = options
@@ -153,10 +151,24 @@ class CIAutoAdjustmentFilter: CIFilter {
     override var outputImage: CIImage? {
 
         guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
-        let optionsDict = options?.dictionary(transform: { o -> (key: CIImageAutoAdjustmentOption, value: Any) in
+        guard let optionsDict = options?.dictionary(transform: { o -> (key: CIImageAutoAdjustmentOption, value: Bool) in
             return (CIImageAutoAdjustmentOption(rawValue: o.key), o.value)
-        })
-        for filter in image.autoAdjustmentFilters(options: optionsDict) {
+            
+        }) else{
+            return nil
+        }
+
+        //First priority - system filter
+        var targetFilters = image.autoAdjustmentFilters(options: optionsDict)
+
+        //Second priority - exclusive filter
+        for (option, enable) in optionsDict where enable{
+            if let exclusiveFilter = option.exclusiveFilter{
+                targetFilters.append(exclusiveFilter)
+            }
+        }
+        
+        for filter in targetFilters {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
@@ -167,7 +179,19 @@ class CIAutoAdjustmentFilter: CIFilter {
     }
 }
 
+import YUCIHighPassSkinSmoothing
+
 extension CIImageAutoAdjustmentOption {
+
+    public var exclusiveFilter:CIFilter?{
+        switch (self){
+            case type(of: self).skinSmoothing:
+                return YUCIHighPassSkinSmoothing()
+            default:
+                return nil
+        }
+    }
+
     public static var skinSmoothing: CIImageAutoAdjustmentOption{
         return CIImageAutoAdjustmentOption(rawValue: "skinSmoothing")
     }
@@ -206,6 +230,7 @@ private extension AutoEditorApp {
     }
 
     static let AutoAdjustmentsKeys = [
+        AutoEditorApp.AutoAdjustments.SkinSmoothing,
         AutoEditorApp.AutoAdjustments.Enhance,
         AutoEditorApp.AutoAdjustments.Straighten,
         AutoEditorApp.AutoAdjustments.Crop,
@@ -318,15 +343,15 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
     }
     
     @objc dynamic
-    var options:[String: Any]? // Bool may be other custom Codable type instead of Any
+    var options:[String: Bool]? // Bool may be other custom Codable type instead of Any
     
-    func switchOptions(_ options: [String: Any]?, animated: Bool) {
+    func switchOptions(_ options: [String: Bool]?, animated: Bool) {
         guard let tableView = self.view as? UITableView else{
             return
         }
 
         for (index, cell) in tableView.visibleCells.enumerated() {
-            let option = (options?[self.autoAdjustmentOptionKeys[index].rawValue] as? Bool) ?? false
+            let option = options?[self.autoAdjustmentOptionKeys[index].rawValue] ?? false
             (cell as? Cell)?.optionSwitch.setOn(option, animated: animated)
         }
     }
@@ -350,7 +375,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
         cell.optionSwitch.onTintColor = cell.imageView?.tintColor
-        cell.optionSwitch.setOn((self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] as? Bool) == true, animated: false)
+        cell.optionSwitch.setOn(self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] == true, animated: false)
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] = on ? true : false
         }
