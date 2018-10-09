@@ -359,6 +359,7 @@
 		A0DE0117216CFD4D00F99365 /* FNS-The-Scream.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0108216CFD4D00F99365 /* FNS-The-Scream.mlmodel */; };
 		A0DE0118216CFD4D00F99365 /* FNS-Mosaic.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0109216CFD4D00F99365 /* FNS-Mosaic.mlmodel */; };
 		A0DE0119216CFD4D00F99365 /* MLArtFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE010A216CFD4D00F99365 /* MLArtFilter.swift */; };
+		A0DE011B216D027000F99365 /* YouArt.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DE011A216D027000F99365 /* YouArt.BApp.Assets.xcassets */; };
 		A0F086C320AC6C9B00E74025 /* papTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F086C220AC6C9B00E74025 /* papTests.swift */; };
 		A0F086CA20AC6CD700E74025 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */; };
 		A0F086CB20AC6CD700E74025 /* AppKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2EF0D764F7706A76694 /* AppKitTests.swift */; };
@@ -773,6 +774,7 @@
 		A0DE0108216CFD4D00F99365 /* FNS-The-Scream.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "FNS-The-Scream.mlmodel"; sourceTree = "<group>"; };
 		A0DE0109216CFD4D00F99365 /* FNS-Mosaic.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "FNS-Mosaic.mlmodel"; sourceTree = "<group>"; };
 		A0DE010A216CFD4D00F99365 /* MLArtFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLArtFilter.swift; sourceTree = "<group>"; };
+		A0DE011A216D027000F99365 /* YouArt.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YouArt.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A0F086C020AC6C9B00E74025 /* papTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = papTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F086C220AC6C9B00E74025 /* papTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = papTests.swift; sourceTree = "<group>"; };
 		B9FEB7C489AB9EE273CB64D9 /* Pods-pap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.release.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.release.xcconfig"; sourceTree = "<group>"; };
@@ -955,6 +957,7 @@
 				A0DE00F9216CFD4D00F99365 /* MLArtFilter */,
 				4F71DC9B5D87685C85D4E68A /* YouArt.BApp.Contents.swift */,
 				4F71D871437CF205392DD62C /* YouArt.BApp.swift */,
+				A0DE011A216D027000F99365 /* YouArt.BApp.Assets.xcassets */,
 			);
 			path = YouArt;
 			sourceTree = "<group>";
@@ -2182,6 +2185,7 @@
 				4F71D74081724BE45AA4A767 /* gifmaker_preview_frame_2.png in Resources */,
 				4F71DD6C85C869CEE3CEF3DD /* gifmaker_preview_frame_3.png in Resources */,
 				4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */,
+				A0DE011B216D027000F99365 /* YouArt.BApp.Assets.xcassets in Resources */,
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,
 				4F71D4A97BBD774069AC6E31 /* Revert.BApp.Assets.xcassets in Resources */,

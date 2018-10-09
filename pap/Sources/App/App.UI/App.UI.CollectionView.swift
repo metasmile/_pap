@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     struct CollectionItem {
         var title: String?
@@ -15,7 +16,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         var action: (() -> Void)?
     }
     
-    private var items = [CollectionItem]()
+    private(set) var items = [CollectionItem]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +37,13 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         
         self.items = items
         
+        collectionView.reloadData()
+    }
+
+    func reloadData(items:[CollectionItem]?=nil){
+        if let items = items{
+            self.items = items
+        }
         collectionView.reloadData()
     }
     

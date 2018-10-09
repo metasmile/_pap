@@ -289,7 +289,38 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        
+        loadPreview()
+    }
+
+
+    private func loadPreview(){
+        DispatchQueue.global().async{ [weak self] in
+            guard let s = self else{
+                return
+            }
+
+            let renderedItems = s.items.enumerated().map { (i:Int, item:AppUICollectionView.CollectionItem) -> AppUICollectionView.CollectionItem in
+                return autoreleasepool{
+                    if i == 0{
+                        return item
+                    }else{
+                        var mutableItem = item
+                        mutableItem.image = item.image?.applyFilter(ciFilter: CIFilters.filters[safe: i-1])
+                        return mutableItem
+                    }
+                }
+            }
+
+            DispatchQueue.main.async{
+                UIView.transition(with: s.view,
+                        duration: 0.35,
+                        options: .transitionCrossDissolve,
+                        animations: {
+                            (s.view as? AppUICollectionView)?.reloadData(items:renderedItems)
+                        })
+
+            }
+        }
     }
     
     @objc dynamic var filterItem: CIFilterItem?

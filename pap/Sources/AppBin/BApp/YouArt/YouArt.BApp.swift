@@ -84,7 +84,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , displayName: "YouArt"
         , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
         , keywords: ["YouArt", "Color", "Effect", "High-Quality"]
-        , iconBundleName: R.image.filtersBAppIcon.name
+        , iconBundleName: R.image.youArtBAppIcon.name
         , themeColor: nil
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
@@ -203,7 +203,9 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         CIMLArtFilter(style: MLArtStyle.Udanie),
         CIMLArtFilter(style: MLArtStyle.Scream)
     ]
-    
+
+    @objc dynamic var filterItem: CIFilterItem?
+
     private lazy var items: [AppUICollectionView.CollectionItem] = {
         let image = R.image.filtersJpg()
         
@@ -214,7 +216,7 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }))
         
         items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
-            return AppUICollectionView.CollectionItem(title: filter.name, image: image?.applyFilter(ciFilter: filter), action: {
+            return AppUICollectionView.CollectionItem(title: filter.name, image: image, action: {
                 let filterItem = CIFilterItem(filter)
                 self.filterItem = filterItem
             })
@@ -264,10 +266,39 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        
+
+        loadPreview()
     }
-    
-    @objc dynamic var filterItem: CIFilterItem?
+
+    private func loadPreview(){
+        DispatchQueue.global().async{ [weak self] in
+            guard let s = self else{
+                return
+            }
+
+            let renderedItems = s.items.enumerated().map { (i:Int, item:AppUICollectionView.CollectionItem) -> AppUICollectionView.CollectionItem in
+                return autoreleasepool{
+                    if i == 0{
+                        return item
+                    }else{
+                        var mutableItem = item
+                        mutableItem.image = item.image?.applyFilter(ciFilter: s.filters[safe: i-1])
+                        return mutableItem
+                    }
+                }
+            }
+
+            DispatchQueue.main.async{
+                UIView.transition(with: s.view,
+                        duration: 0.35,
+                        options: .transitionCrossDissolve,
+                        animations: {
+                            (s.view as? AppUICollectionView)?.reloadData(items:renderedItems)
+                        })
+
+            }
+        }
+    }
 }
 
 private class _YouArtAppTask: AppTaskPrototype, AppTaskable {
