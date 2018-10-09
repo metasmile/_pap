@@ -11,76 +11,45 @@ import CoreML
 import UIKit
 
 ///ArtStyle enum defines the number of styles present in StyleArt
-enum ArtStyle:Int {
-    
-    case Mosaic = 0
-    case scream = 1
-    case Muse   = 2
-    case Udanie = 3
-    case Candy  = 4
-    case Feathers = 5
+enum StyleArtStyle:Int {
+    case Mosaic
+    case Scream
+    case Muse
+    case Udanie
+    case Candy
+    case Feathers
 }
 
 ///Style Art class process images using COREML on a set of pre trained machine learning models and convert them to Art style.
 class StyleArt{
     
     //MARK:- Properties
-    var models:[MLModel]=[]
-    //CoremL model instance
-    var museModel: FNS_La_Muse_1!
-    var candy:FNS_Candy_1!
-    var Feathers:FNS_Feathers_1!
-    var udanieModel:FNS_Udnie_1!
-    var mosaic:FNS_Mosaic_1!
-    var screamModel:FNS_The_Scream_1!
+    let models:[StyleArtStyle:MLModel] = [
+        .Muse: FNS_La_Muse_1().model
+        , .Candy: FNS_Candy_1().model
+        , .Feathers: FNS_Feathers_1().model
+        , .Udanie: FNS_Udnie_1().model
+        , .Mosaic: FNS_Mosaic_1().model
+        , .Scream: FNS_The_Scream_1().model
+    ]
+    
     //Height constant for image processing
-    let imageSize = 720
+    let definedImageSize = 720
     
     //MARK:- Shared singleton
     ///Shared Instance of StyleArt class
     static let shared = StyleArt()
-    
-    
-    //MARK:- Private Initializer
-    private init() {
-        //load all style models from bundle.
-        do {
-            let pathMuse = Bundle.main.path(forResource: "FNS-La-Muse", ofType: "mlmodelc")
-            let pathCandy = Bundle.main.path(forResource: "FNS-Candy", ofType: "mlmodelc")
-            let pathFeathers = Bundle.main.path(forResource: "FNS-Feathers", ofType: "mlmodelc")
-            let pathUdanie = Bundle.main.path(forResource: "FNS-Udnie", ofType: "mlmodelc")
-            let pathMosaic = Bundle.main.path(forResource: "FNS-Mosaic", ofType: "mlmodelc")
-            let pathScream = Bundle.main.path(forResource: "FNS-The-Scream", ofType: "mlmodelc")
-            
-            museModel = try FNS_La_Muse_1(contentsOf:URL(fileURLWithPath: pathMuse!) )
-            candy = try FNS_Candy_1(contentsOf:URL(fileURLWithPath: pathCandy!) )
-            Feathers = try FNS_Feathers_1(contentsOf:URL(fileURLWithPath: pathFeathers!) )
-            udanieModel = try FNS_Udnie_1(contentsOf:URL(fileURLWithPath: pathUdanie!) )
-            mosaic = try FNS_Mosaic_1(contentsOf:URL(fileURLWithPath: pathMosaic!) )
-            screamModel = try FNS_The_Scream_1(contentsOf:URL(fileURLWithPath: pathScream!) )
-            
-            models.append(mosaic.model)
-            models.append(screamModel.model)
-            models.append(museModel.model)
-            models.append(udanieModel.model)
-            models.append(candy.model)
-            models.append(Feathers.model)
-            
-        } catch let error {
-            print(error)
-        }
-    }
     
     //MARK:- Image Processing
     ///Process method performs the style art transfer of the given image based on the style chosen and returns the result in closure.
     /// - parameter image:          The Image on which styles are applied.
     /// - parameter ArtStyle:       The styles present in ArtStyle enum.
     /// - parameter compeletion:    The closure which return the final processed image,if the   operation is failed it will return nil.
-    func process(image:UIImage,style:ArtStyle,compeletion:(_ result:UIImage?)->()){
+    func process(image:UIImage,style:StyleArtStyle,compeletion:(_ result:UIImage?)->()){
         
-        let model = models[style.rawValue]
-        
-        if let pixelBufferd = image.pixelBuffer(width: 720, height: 720) {
+        if let model = models[style]
+            , let pixelBufferd = image.pixelBuffer(width: definedImageSize, height: definedImageSize) {
+            
             let input = StyleArtInput(input:pixelBufferd)
             let outFeatures = try! model.prediction(from: input)
             let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
@@ -96,7 +65,7 @@ class StyleArt{
     }
     //MARK:- Private Helper Functions
     private func stylizeImage(cgImage: CGImage, model: MLModel) -> CGImage {
-        let input = StyleArtInput(input: pixelBuffer(cgImage: cgImage, width: imageSize, height: imageSize))
+        let input = StyleArtInput(input: pixelBuffer(cgImage: cgImage, width: definedImageSize, height: definedImageSize))
         let outFeatures = try! model.prediction(from: input)
         let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
         CVPixelBufferLockBaseAddress(output, .readOnly)
