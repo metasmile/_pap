@@ -83,7 +83,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , appType: YouArtApp.self
         , displayName: "YouArt"
         , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
-        , keywords: ["YouArt", "Color", "Effect", "High-Quality"] + YouArtAppDockContent.CIFilters.filters.compactMap({ YouArtAppDockContent.PhotosYouArtNames.aliasName($0.name) })
+        , keywords: ["YouArt", "Color", "Effect", "High-Quality"]
         , iconBundleName: R.image.filtersBAppIcon.name
         , themeColor: nil
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -195,38 +195,14 @@ private extension YouArtApp {
 }
 
 fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockContent {
-    fileprivate struct PhotosYouArtNames {
-        static let CIPhotoEffectChrome = "CIPhotoEffectChrome"
-        static let CIPhotoEffectFade = "CIPhotoEffectFade"
-        static let CIPhotoEffectInstant = "CIPhotoEffectInstant"
-        static let CIPhotoEffectNoir = "CIPhotoEffectNoir"
-        static let CIPhotoEffectProcess = "CIPhotoEffectProcess"
-        static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
-
-        static func aliasName(_ filterName: String) -> String? {
-            return CIFilter.localizedName(forFilterName: filterName)?.remove("Photo Effect")
-        }
-    }
-    
-    struct CIFilters {
-        static let CIPhotoEffectChrome = CIFilter(name: PhotosYouArtNames.CIPhotoEffectChrome)
-        static let CIPhotoEffectFade = CIFilter(name: PhotosYouArtNames.CIPhotoEffectFade)
-        static let CIPhotoEffectInstant = CIFilter(name: PhotosYouArtNames.CIPhotoEffectInstant)
-        static let CIPhotoEffectNoir = CIFilter(name: PhotosYouArtNames.CIPhotoEffectNoir)
-        static let CIPhotoEffectProcess = CIFilter(name: PhotosYouArtNames.CIPhotoEffectProcess)
-        static let CIPhotoEffectTonal = CIFilter(name: PhotosYouArtNames.CIPhotoEffectTonal)
-
-        static var filters: [CIFilter] {
-            return [
-                CIPhotoEffectChrome,
-                CIPhotoEffectFade,
-                CIPhotoEffectInstant,
-                CIPhotoEffectProcess,
-                CIPhotoEffectTonal,
-                CIPhotoEffectNoir
-                ].compactMap({ $0 })
-        }
-    }
+    private lazy var filters: [CIFilter] = [
+        CIMLArtFilter(style: MLArtStyle.Mosaic),
+        CIMLArtFilter(style: MLArtStyle.Candy),
+        CIMLArtFilter(style: MLArtStyle.Feathers),
+        CIMLArtFilter(style: MLArtStyle.Muse),
+        CIMLArtFilter(style: MLArtStyle.Udanie),
+        CIMLArtFilter(style: MLArtStyle.Scream)
+    ]
     
     private lazy var items: [AppUICollectionView.CollectionItem] = {
         let image = R.image.filtersJpg()
@@ -237,8 +213,8 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
             self.filterItem = CIFilterItem()
         }))
         
-        items += CIFilters.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
-            return AppUICollectionView.CollectionItem(title: PhotosYouArtNames.aliasName(filter.name), image: image?.applyFilter(ciFilter: filter), action: {
+        items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
+            return AppUICollectionView.CollectionItem(title: filter.name, image: image?.applyFilter(ciFilter: filter), action: {
                 let filterItem = CIFilterItem(filter)
                 self.filterItem = filterItem
             })
@@ -259,7 +235,7 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
     var selectedEditStateValue: ImageEditStateValue?
     
     fileprivate func selectItem(by filterName: String?) {
-        let index = items.index(where: { $0.title == PhotosYouArtNames.aliasName(filterName ?? "") }) ?? 0
+        let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
         (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
     
@@ -268,8 +244,8 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     fileprivate func getYouArtItem(by filterName: String?) -> CIFilterItem? {
-        let index = items.index(where: { $0.title == PhotosYouArtNames.aliasName(filterName ?? "") }) ?? 0
-        return CIFilterItem(CIFilters.filters[safe: index - 1])
+        let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
+        return CIFilterItem(self.filters[safe: index - 1])
     }
     
     var contentScrollable: AppDockContentScrollable? {

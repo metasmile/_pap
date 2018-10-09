@@ -2,20 +2,25 @@ import Foundation
 import CoreML
 import UIKit
 
-enum CoreMLArtStyle: Int, Codable{
+enum MLArtStyle: Int, Codable{
     case Mosaic
     case Scream
     case Muse
     case Udanie
     case Candy
     case Feathers
+
+    var name:String{
+        return String(describing: self)
+    }
 }
 
-class CICoreMLArtFilter: CIFilter {
-    var style: CoreMLArtStyle = .Mosaic
+class CIMLArtFilter: CIFilter {
+    var style: MLArtStyle = .Mosaic
 
-    init(style: CoreMLArtStyle) {
+    init(style: MLArtStyle) {
         super.init()
+        self.name = style.name
         self.style = style
     }
 
@@ -33,7 +38,7 @@ class CICoreMLArtFilter: CIFilter {
             }
 
             //TODO: directly process CIImage
-            if let resultImage = StyleArt().process(image: uiImage, style: style){
+            if let resultImage = MLArtProcessor().process(image: uiImage, style: style){
                 return CIImage(image: resultImage)
             }
 
@@ -42,11 +47,11 @@ class CICoreMLArtFilter: CIFilter {
     }
 }
 
-class StyleArt {
+class MLArtProcessor {
 
     static let definedImageSize = CGSize(width:720, height:720)
     
-    private func acquireModel(style:CoreMLArtStyle) -> MLModel{
+    private func acquireModel(style:MLArtStyle) -> MLModel{
         return autoreleasepool {
             switch(style){
             case .Muse:
@@ -65,14 +70,14 @@ class StyleArt {
         }
     }
 
-    func process(image: UIImage, style: CoreMLArtStyle) -> UIImage? {
+    func process(image: UIImage, style: MLArtStyle) -> UIImage? {
 
         let model = acquireModel(style:style)
         let imageSize = type(of: self).definedImageSize
         
         if let pixelBufferd = image.pixelBuffer(width: Int(imageSize.width), height: Int(imageSize.height)) {
 
-            let input = StyleArtInput(input: pixelBufferd)
+            let input = MLArtProcessorInput(input: pixelBufferd)
             let outFeatures = try! model.prediction(from: input)
             let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
 
@@ -84,7 +89,7 @@ class StyleArt {
 
     private func stylizeImage(cgImage: CGImage, model: MLModel) -> CGImage {
         let imageSize = type(of:self).definedImageSize
-        let input = StyleArtInput(input: pixelBuffer(cgImage: cgImage, width: Int(imageSize.width), height: Int(imageSize.height)))
+        let input = MLArtProcessorInput(input: pixelBuffer(cgImage: cgImage, width: Int(imageSize.width), height: Int(imageSize.height)))
         let outFeatures = try! model.prediction(from: input)
         let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
         CVPixelBufferLockBaseAddress(output, .readOnly)
@@ -126,7 +131,7 @@ class StyleArt {
 }
 
 
-private class StyleArtInput : MLFeatureProvider {
+private class MLArtProcessorInput: MLFeatureProvider {
 
     /// input as color (kCVPixelFormatType_32BGRA) image buffer, 720 pixels wide by 720 pixels high
     var input: CVPixelBuffer
