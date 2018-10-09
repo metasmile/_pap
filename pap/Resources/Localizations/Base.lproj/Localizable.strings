@@ -164,7 +164,7 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime free cancellation.";
-/* Generated from genl10n: Filters.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift, YouArt.BApp.swift */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Aspect Ratio";
@@ -426,7 +426,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open" = "Open";
-/* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift */
+/* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift, YouArt.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "PDFactory makes PDF document from multiple images with various page options." = "PDFactory makes PDF document from multiple images with various page options.";
@@ -698,6 +698,8 @@
 "Yearly Membership" = "Yearly Membership";
 /* Generated from genl10n: Converter.BApp.swift */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
+/* Generated from genl10n: YouArt.BApp.swift */
+"YouArt" = "YouArt";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
 "Your Message Has Been Sent." = "Your Message Has Been Sent.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
