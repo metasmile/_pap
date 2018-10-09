@@ -38,6 +38,7 @@ class CIMLArtFilter: CIFilter {
             }
 
             //TODO: directly process CIImage
+            //FIXME: filter preview is correct but original image is wrong. (maybe max 700)
             if let resultImage = MLArtProcessor().process(image: uiImage, style: style){
                 return CIImage(image: resultImage)
             }
@@ -49,7 +50,7 @@ class CIMLArtFilter: CIFilter {
 
 class MLArtProcessor {
 
-    static let definedImageSize = CGSize(width:720, height:720)
+    static let emulatedImageSize = CGSize(width:720, height:720) //Pixel size
     
     private func acquireModel(style:MLArtStyle) -> MLModel{
         return autoreleasepool {
@@ -73,41 +74,48 @@ class MLArtProcessor {
     func process(image: UIImage, style: MLArtStyle) -> UIImage? {
 
         let model = acquireModel(style:style)
-        let imageSize = type(of: self).definedImageSize
+
+        let imageSize = type(of: self).emulatedImageSize
         
         if let pixelBufferd = image.pixelBuffer(width: Int(imageSize.width), height: Int(imageSize.height)) {
 
             let input = MLArtProcessorInput(input: pixelBufferd)
-            let outFeatures = try! model.prediction(from: input)
-            let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
+            let output = try? model.prediction(from: input)
 
-            return UIImage(pixelBuffer: output)
+            if let output = output?.featureValue(for: "outputImage")?.imageBufferValue{
+                return UIImage(pixelBuffer: output)
+            }
         }
 
         return nil
     }
 
-    private func stylizeImage(cgImage: CGImage, model: MLModel) -> CGImage {
-        let imageSize = type(of:self).definedImageSize
+    func process(cgImage: CGImage, style: MLArtStyle) -> CGImage? {
+        let model = acquireModel(style: style)
+        let imageSize = type(of: self).emulatedImageSize
         let input = MLArtProcessorInput(input: pixelBuffer(cgImage: cgImage, width: Int(imageSize.width), height: Int(imageSize.height)))
-        let outFeatures = try! model.prediction(from: input)
-        let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
-        CVPixelBufferLockBaseAddress(output, .readOnly)
-        let width = CVPixelBufferGetWidth(output)
-        let height = CVPixelBufferGetHeight(output)
-        let data = CVPixelBufferGetBaseAddress(output)!
 
-        let outContext = CGContext(data: data,
-                width: width,
-                height: height,
-                bitsPerComponent: 8,
-                bytesPerRow: CVPixelBufferGetBytesPerRow(output),
-                space: CGColorSpaceCreateDeviceRGB(),
-                bitmapInfo: CGImageByteOrderInfo.order32Little.rawValue | CGImageAlphaInfo.noneSkipFirst.rawValue)!
-        let outImage = outContext.makeImage()!
-        CVPixelBufferUnlockBaseAddress(output, .readOnly)
+        if let outFeatures = try? model.prediction(from: input){
+            let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
+            CVPixelBufferLockBaseAddress(output, .readOnly)
+            let width = CVPixelBufferGetWidth(output)
+            let height = CVPixelBufferGetHeight(output)
+            let data = CVPixelBufferGetBaseAddress(output)!
 
-        return outImage
+            let outContext = CGContext(data: data,
+                    width: width,
+                    height: height,
+                    bitsPerComponent: 8,
+                    bytesPerRow: CVPixelBufferGetBytesPerRow(output),
+                    space: CGColorSpaceCreateDeviceRGB(),
+                    bitmapInfo: CGImageByteOrderInfo.order32Little.rawValue | CGImageAlphaInfo.noneSkipFirst.rawValue)!
+            let outImage = outContext.makeImage()!
+            CVPixelBufferUnlockBaseAddress(output, .readOnly)
+
+            return outImage
+        }
+
+        return nil
     }
 
     private func pixelBuffer(cgImage: CGImage, width: Int, height: Int) -> CVPixelBuffer {
