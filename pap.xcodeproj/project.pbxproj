@@ -206,6 +206,7 @@
 		4F71DAE10F4E26297F3E111C /* Sourceable.Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7FDE29513C1EFD5A18B /* Sourceable.Vision.swift */; };
 		4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D6B4F7B9596C73A71004 /* Filters.BApp.Assets.xcassets */; };
 		4F71DB1F125860DF9BD97E4F /* Shop.Payment.SocialShare.Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E647E8464B3406E5D /* Shop.Payment.SocialShare.Facebook.swift */; };
+		4F71DB229ECAE9C2B1631E07 /* Reader.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DADBAF507D7B76080383 /* Reader.BApp.swift */; };
 		4F71DB290F5341308FA26963 /* App.AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD9C96790E3F76498562 /* App.AVCaptureDevice.swift */; };
 		4F71DB2B9DF220FBD8CBB497 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D47F20EC723F99C7D8F4 /* PhotoEditViewController.swift */; };
 		4F71DB405D8C9B7D90DE4C20 /* App.ManagerConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0D4A558289AE568C6E7 /* App.ManagerConfigurable.swift */; };
@@ -566,6 +567,7 @@
 		4F71DA8CB1A1375BFBCDC477 /* gifmaker_preview_frame_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_2.png; sourceTree = "<group>"; };
 		4F71DABA565AF8CCD87462E4 /* CodeKit.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.swift; sourceTree = "<group>"; };
 		4F71DACE8C9EB0DE3FC5446E /* FirebaseMLVision.VisionTextDetectResult.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionTextDetectResult.Types.swift; sourceTree = "<group>"; };
+		4F71DADBAF507D7B76080383 /* Reader.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.BApp.swift; sourceTree = "<group>"; };
 		4F71DAF79F3B9E82509B651C /* Converter.Png.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Png.swift; sourceTree = "<group>"; };
 		4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		4F71DB4244A2621CAD3749BA /* PHAssets.Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.Search.swift; sourceTree = "<group>"; };
@@ -868,6 +870,7 @@
 				4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */,
 				4F71D76065E035A54AE614D3 /* MemoCam */,
 				4F71D1AA3EEE97024F2F4BCB /* BApp.Chargeable.DefaultLocalCharge.swift */,
+				4F71DA698AAB3FCF12FF1A59 /* Reader */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -1342,6 +1345,14 @@
 				4F71D42EE03DFE348225A61B /* CodeKit.UITableView.swift */,
 			);
 			path = CodeKit.UITableView;
+			sourceTree = "<group>";
+		};
+		4F71DA698AAB3FCF12FF1A59 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DADBAF507D7B76080383 /* Reader.BApp.swift */,
+			);
+			path = Reader;
 			sourceTree = "<group>";
 		};
 		4F71DA7F937706A5BC576A94 /* App.Lib.FirebaseMLVision */ = {
@@ -2248,6 +2259,8 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TPPDF/TPPDF.framework",
+				"${BUILT_PRODUCTS_DIR}/Vivid/Vivid.framework",
+				"${BUILT_PRODUCTS_DIR}/YUCIHighPassSkinSmoothing/YUCIHighPassSkinSmoothing.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2268,6 +2281,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPPDF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vivid.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUCIHighPassSkinSmoothing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2298,6 +2313,8 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TPPDF/TPPDF.framework",
+				"${BUILT_PRODUCTS_DIR}/Vivid/Vivid.framework",
+				"${BUILT_PRODUCTS_DIR}/YUCIHighPassSkinSmoothing/YUCIHighPassSkinSmoothing.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -2318,6 +2335,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPPDF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vivid.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUCIHighPassSkinSmoothing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2585,6 +2604,7 @@
 				4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71DAB2334BB6CB0B9C94FE /* PHAssets.Search.swift in Sources */,
 				4F71D65E67976A62A7E442C5 /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */,
+				4F71DB229ECAE9C2B1631E07 /* Reader.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

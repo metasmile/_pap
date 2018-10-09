@@ -167,12 +167,19 @@ class CIAutoAdjustmentFilter: CIFilter {
     }
 }
 
+extension CIImageAutoAdjustmentOption {
+    public static var skinSmoothing: CIImageAutoAdjustmentOption{
+        return CIImageAutoAdjustmentOption(rawValue: "skinSmoothing")
+    }
+}
+
 private extension AutoEditorApp {
     struct AutoAdjustments {
         static let Enhance = CIImageAutoAdjustmentOption.enhance
         static let RedEye = CIImageAutoAdjustmentOption.redEye
         static let Crop = CIImageAutoAdjustmentOption.crop
         static let Straighten = CIImageAutoAdjustmentOption.level
+        static let SkinSmoothing = CIImageAutoAdjustmentOption.skinSmoothing
 
         static func aliasName(_ option: CIImageAutoAdjustmentOption) -> String? {
             switch option {
@@ -180,6 +187,7 @@ private extension AutoEditorApp {
             case RedEye: return "Red-Eye Removal".localized
             case Crop: return "Auto Crop".localized
             case Straighten: return "Auto Straighten".localized
+            case SkinSmoothing: return "Auto Skin Smoothing".localized
             default: return nil
             }
         }
@@ -190,6 +198,8 @@ private extension AutoEditorApp {
             case RedEye: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
             case Crop: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
             case Straighten: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
+                //
+            case SkinSmoothing: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
             default: return nil
             }
         }

@@ -106,6 +106,9 @@ PODS:
   - SwiftyStoreKit (0.13.3)
   - TPPDF (1.2.0):
     - SwiftLint
+  - Vivid (0.9)
+  - YUCIHighPassSkinSmoothing (1.4):
+    - Vivid
 
 DEPENDENCIES:
   - Armchair (from `https://github.com/UrbanApps/Armchair`)
@@ -128,6 +131,7 @@ DEPENDENCIES:
   - SwiftyGif
   - SwiftyStoreKit
   - TPPDF
+  - YUCIHighPassSkinSmoothing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -161,6 +165,8 @@ SPEC REPOS:
     - SwiftyGif
     - SwiftyStoreKit
     - TPPDF
+    - Vivid
+    - YUCIHighPassSkinSmoothing
 
 EXTERNAL SOURCES:
   Armchair:
@@ -209,7 +215,9 @@ SPEC CHECKSUMS:
   SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
+  Vivid: 0fde7409beac71224deb151dd78f98a5bb860497
+  YUCIHighPassSkinSmoothing: 8418fd1bf605ec22b647c57745b863b352f72097
 
-PODFILE CHECKSUM: 9d22ab97f45b48e6a043d83b72f3a76d4f81bc21
+PODFILE CHECKSUM: 138a7986f58a255218adf136ead0f00667364f81
 
 COCOAPODS: 1.5.3
