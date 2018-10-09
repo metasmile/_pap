@@ -327,6 +327,10 @@ private struct PayGroup:Hashable, Equatable, Section {
 }
 
 private extension ChargeableImage{
+    static var estimatedMaxSizeLength:CGFloat{
+        return 32
+    }
+
     static func create(for charge:Charge?, tintColor:UIColor, appearance:ChargeableButtonAppearance) -> UIImage{
         let image = ChargeableImage(balance: charge?.priceAmount.value ?? 0, fillMode: .fill, tintColor: tintColor, appearanceDelegate: appearance)
         return image.withAlignmentRectInsets(UIEdgeInsets(top: -6, left: -6, bottom: -6, right: -6))
@@ -401,8 +405,16 @@ private class PayItem: Hashable, Equatable {
                 }
             }
 
-            if let iconImage = iconImage{
-                iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
+            if let _iconImage = iconImage{
+                if _iconImage.size.height > ChargeableImage.estimatedMaxSizeLength{
+                    iconImage = _iconImage.resize(aspectFit: ChargeableImage.estimatedMaxSizeLength.size) ?? _iconImage
+                }else{
+                    iconImage = _iconImage
+                }
+            }
+
+            if let _iconImage = iconImage{
+                iconImageCache?.setObject(_iconImage, forKey: charge.identifier as NSString)
             }
             return iconImage
         }
@@ -1050,13 +1062,18 @@ extension ShopAppDockContent{
         // Cell.ImageView: Reward
         cell.imageView?.tintColor = self.view.tintColor
 
-        if dataItem.rewardIconImageStyle.useTintColor {
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        }else{
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        }
-        if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
-            cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight*image.size.height/image.size.width, height: tableView.rowHeight))
+        if let image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage{
+            var cellImage:UIImage = image
+
+            if dataItem.rewardIconImageStyle.beRound{
+                cellImage = cellImage.rounded(radius: cellImage.size.height) ?? cellImage
+            }
+
+            if dataItem.rewardIconImageStyle.useTintColor {
+                cell.imageView?.image = cellImage.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            }else{
+                cell.imageView?.image = cellImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+            }
         }
 
         if dataItem.isIndicating{
