@@ -296,6 +296,7 @@
 		511D20D8214B2CEC00056AD3 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */; };
 		512774C22149F3F0001602BD /* ColorThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512774C12149F3F0001602BD /* ColorThemeManager.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
+		5151792C216D737D0085612C /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */; };
 		515AB1632106C029005E1997 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* ActionViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
@@ -660,6 +661,7 @@
 		512774C12149F3F0001602BD /* ColorThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManager.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.ShortcutItem.swift; sourceTree = "<group>"; };
+		5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		515AB1622106C029005E1997 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
@@ -1278,6 +1280,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
+				5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */,
 			);
 			path = MemoCam;
 			sourceTree = "<group>";
@@ -2075,6 +2078,7 @@
 				A0956C022095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF32095005200E680B9 /* Localizable.strings in Resources */,
 				4F71D6B8B6B9C21F6BB43A57 /* PreviewView.xib in Resources */,
+				5151792C216D737D0085612C /* MemoCam.BApp.Assets.xcassets in Resources */,
 				4F71D2A169A523C841ED63B8 /* PhotoCollectionViewCell.xib in Resources */,
 				4F71D1712188A2D31BBE3AFE /* PreviewCollectionViewCell.xib in Resources */,
 				4F71D5EEC984FAED85297905 /* AppDockView.xib in Resources */,

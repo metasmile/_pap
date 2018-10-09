@@ -159,8 +159,9 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: badgeLayer.frame.size)).cgPath
         badgeLayer.fillColor = UIColor.white.cgColor
         badgeLayer.isHidden = true
-        
+        badgeLayer.opacity = 0.9
         badgeLayer.addSublayer(badgeIconLayer)
+        
         badgeIconLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
         badgeIconLayer.cornerRadius = (badgeSize * 0.8) / 2
         badgeIconLayer.masksToBounds = true
@@ -175,19 +176,7 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.isHidden = false
         badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: bounds.origin.x + badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: bounds.origin.y + badgeSize / 2 ... bounds.height - badgeSize / 2))
         
-        badgeIconLayer.contents = (result?.preferredParserIcon() ?? {
-            return UIGraphicsImageRenderer(bounds: badgeLayer.bounds).imageWithCurrentContext { (cgContext) in
-                cgContext.setFillColor(UIColor.clear.cgColor)
-                cgContext.fill(self.badgeLayer.bounds)
-                
-                let attrString = NSAttributedString(string: "T", attributes: [
-                    NSAttributedString.Key.foregroundColor: self.tintColor ?? UIColor.black
-                ])
-                let stringSize = attrString.size()
-                
-                attrString.draw(at: CGPoint(x: max(0, (self.badgeLayer.bounds.width - stringSize.width) / 2), y: max(0, (self.badgeLayer.bounds.height - stringSize.height) / 2)))
-            }
-            }())?.cgImage
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.ico_action_text())?.cgImage
         badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
     }
 }
@@ -198,7 +187,7 @@ private class ResultItemLayer: CAShapeLayer {
     var previewTransform: CGAffineTransform = .identity
     var tintColor: UIColor?
     
-    var hitPath: UIBezierPath?
+    var hitTestPath: UIBezierPath?
     
     override init(layer: Any) {
         super.init(layer: layer)
@@ -221,10 +210,6 @@ private class ResultItemLayer: CAShapeLayer {
     }
     
     func initialize() {
-        rasterizationScale = UIScreen.main.scale
-        shouldRasterize = true
-        drawsAsynchronously = true
-        
         strokeColor = UIColor.white.cgColor
         fillColor = UIColor.clear.cgColor
         lineWidth = 1
@@ -292,11 +277,17 @@ fileprivate class ResultPreviewView: DesignableView {
     
     lazy var resultsUILayer: CALayer = {
         let layer = CALayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
         return layer
     }()
     
     lazy var resultsLayer: CALayer = {
         let layer = CALayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
         return layer
     }()
     
@@ -393,7 +384,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.result = resultPreviewItem
         layer.previewTransform = renderScaleTransform
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
-        layer.hitPath = path
+        layer.hitTestPath = path
         layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding).cgPath
         layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
@@ -411,8 +402,7 @@ fileprivate class ResultPreviewView: DesignableView {
     private func resultItemLayer(at point: CGPoint) -> ResultItemLayer? {
         let layerLocation = layer.convert(point, to: resultsLayer)
         for layer in resultsLayer.sublayers?.compactMap({ $0 as? ResultItemLayer }) ?? [] {
-            if layer.hitPath?.contains(layerLocation) == true {
-//            if layer.path?.boundingBoxOfPath.contains(layerLocation) == true {
+            if layer.hitTestPath?.contains(layerLocation) == true {
                 return layer
             }
         }
@@ -541,9 +531,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     private func createDebugLayer() -> DisableImplicitAnimatableShapeLayer {
         let layer = DisableImplicitAnimatableShapeLayer()
-        
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.shouldRasterize = true
         layer.drawsAsynchronously = true
         
         layer.fillColor = UIColor.clear.cgColor
