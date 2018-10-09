@@ -37,9 +37,6 @@ target 'pap' do
   # com.stells.pap.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
 
-  # com.stells.pap.autoeditor
-  pod 'YUCIHighPassSkinSmoothing', inhibit_warnings: true #TODO: use this temporarily, but something alternative found, trash this
-
   # com.stells.pap.finder,phonecall - FirebaseMLVision.VisionText.Parser.Types.swift
   pod 'PhoneNumberKit', '~> 2.1'
 

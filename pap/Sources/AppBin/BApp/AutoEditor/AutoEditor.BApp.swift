@@ -163,7 +163,7 @@ class CIAutoAdjustmentFilter: CIFilter {
 
         //Second priority - exclusive filter
         for (option, enable) in optionsDict where enable{
-            if let exclusiveFilter = option.exclusiveFilter{
+            if let exclusiveFilter = option.acquireExclusiveFilter(){
                 targetFilters.append(exclusiveFilter)
             }
         }
@@ -179,22 +179,20 @@ class CIAutoAdjustmentFilter: CIFilter {
     }
 }
 
-import YUCIHighPassSkinSmoothing
-
 extension CIImageAutoAdjustmentOption {
 
-    public var exclusiveFilter:CIFilter?{
-        switch (self){
-            case type(of: self).skinSmoothing:
-                return YUCIHighPassSkinSmoothing()
+    public func acquireExclusiveFilter(with options:[String:Any]?=nil) -> CIFilter?{
+        return autoreleasepool { //can't believe cifilter's constructor.
+            switch (self){
+                case type(of: self).someOtherAutoEditorOption:
+                return nil
             default:
                 return nil
+            }
         }
     }
 
-    public static var skinSmoothing: CIImageAutoAdjustmentOption{
-        return CIImageAutoAdjustmentOption(rawValue: "skinSmoothing")
-    }
+    public static let someOtherAutoEditorOption = CIImageAutoAdjustmentOption(rawValue: "skinSmoothing")
 }
 
 private extension AutoEditorApp {
@@ -203,7 +201,6 @@ private extension AutoEditorApp {
         static let RedEye = CIImageAutoAdjustmentOption.redEye
         static let Crop = CIImageAutoAdjustmentOption.crop
         static let Straighten = CIImageAutoAdjustmentOption.level
-        static let SkinSmoothing = CIImageAutoAdjustmentOption.skinSmoothing
 
         static func aliasName(_ option: CIImageAutoAdjustmentOption) -> String? {
             switch option {
@@ -211,7 +208,6 @@ private extension AutoEditorApp {
             case RedEye: return "Red-Eye Removal".localized
             case Crop: return "Auto Crop".localized
             case Straighten: return "Auto Straighten".localized
-            case SkinSmoothing: return "Auto Skin Smoothing".localized
             default: return nil
             }
         }
@@ -222,15 +218,12 @@ private extension AutoEditorApp {
             case RedEye: return R.image.auto_redeye()?.withRenderingMode(.alwaysTemplate)
             case Crop: return R.image.auto_crop()?.withRenderingMode(.alwaysTemplate)
             case Straighten: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
-                //
-            case SkinSmoothing: return R.image.auto_straighten()?.withRenderingMode(.alwaysTemplate)
             default: return nil
             }
         }
     }
 
     static let AutoAdjustmentsKeys = [
-        AutoEditorApp.AutoAdjustments.SkinSmoothing,
         AutoEditorApp.AutoAdjustments.Enhance,
         AutoEditorApp.AutoAdjustments.Straighten,
         AutoEditorApp.AutoAdjustments.Crop,
@@ -320,7 +313,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
             return nil
         }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.rowHeight * CGFloat(autoAdjustmentOptionKeys.count)
+        preferences.preferredHeight = tableView.rowHeight * min(CGFloat(autoAdjustmentOptionKeys.count), 4.5)
         return preferences
     }
 
