@@ -158,7 +158,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["transform": NSCoder.string(for: assetItem.editState.transform)], from: asset)
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: TransformApp.self, editInfo: ["transform": NSCoder.string(for: assetItem.editState.transform)], from: asset)
                     
                     result = PHAssetResultItem(
                             asset: asset,
