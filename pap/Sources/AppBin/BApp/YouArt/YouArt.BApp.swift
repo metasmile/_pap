@@ -12,11 +12,11 @@ import PropertyKit
 import Intents
 
 protocol YouArtAppDefaults: AppDefaults {
-    var style: String? { get set }
+    var youArtFilterName: String? { get set }
 }
 
 extension Defaults: YouArtAppDefaults {
-    var style: String? {
+    var youArtFilterName: String? {
         get {
             return get(or: nil)
         }
@@ -73,7 +73,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         defaultEditStateValue = editStateValue
         
         var defaults = type(of: self).defaults as! YouArtAppDefaults
-        defaults.style = editStateValue?.ciFilter?.name
+        defaults.youArtFilterName = editStateValue?.ciFilter?.name
     }
 
     public static let info = AppInfo(
@@ -104,7 +104,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
                 }
                 else {
                     var defaults = type(of: self).defaults as! YouArtAppDefaults
-                    let filterItem = controllerContent.getYouArtItem(by: defaults.style)
+                    let filterItem = controllerContent.getYouArtItem(by: defaults.youArtFilterName)
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -118,7 +118,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
                 }
                 else {
                     var defaults = type(of: self).defaults as! YouArtAppDefaults
-                    let filterItem = controllerContent.getYouArtItem(by: defaults.style)
+                    let filterItem = controllerContent.getYouArtItem(by: defaults.youArtFilterName)
                     self.config?.filter = filterItem
                 }
             }
@@ -202,8 +202,7 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         static let CIPhotoEffectNoir = "CIPhotoEffectNoir"
         static let CIPhotoEffectProcess = "CIPhotoEffectProcess"
         static let CIPhotoEffectTonal = "CIPhotoEffectTonal"
-        static let CIPhotoEffectTransfer = "CIPhotoEffectTransfer"
-        
+
         static func aliasName(_ filterName: String) -> String? {
             return CIFilter.localizedName(forFilterName: filterName)?.remove("Photo Effect")
         }
@@ -216,14 +215,13 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         static let CIPhotoEffectNoir = CIFilter(name: PhotosYouArtNames.CIPhotoEffectNoir)
         static let CIPhotoEffectProcess = CIFilter(name: PhotosYouArtNames.CIPhotoEffectProcess)
         static let CIPhotoEffectTonal = CIFilter(name: PhotosYouArtNames.CIPhotoEffectTonal)
-        static let CIPhotoEffectTransfer = CIFilter(name: PhotosYouArtNames.CIPhotoEffectTransfer)
+
         static var filters: [CIFilter] {
             return [
                 CIPhotoEffectChrome,
                 CIPhotoEffectFade,
                 CIPhotoEffectInstant,
                 CIPhotoEffectProcess,
-                CIPhotoEffectTransfer,
                 CIPhotoEffectTonal,
                 CIPhotoEffectNoir
                 ].compactMap({ $0 })

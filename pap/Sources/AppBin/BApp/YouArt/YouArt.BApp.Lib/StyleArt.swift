@@ -2,7 +2,7 @@ import Foundation
 import CoreML
 import UIKit
 
-enum StyleArtStyle: Int, Codable{
+enum CoreMLArtStyle: Int, Codable{
     case Mosaic
     case Scream
     case Muse
@@ -11,11 +11,42 @@ enum StyleArtStyle: Int, Codable{
     case Feathers
 }
 
+class CICoreMLArtFilter: CIFilter {
+    var style: CoreMLArtStyle = .Mosaic
+
+    init(style: CoreMLArtStyle) {
+        super.init()
+        self.style = style
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    @objc dynamic var inputImage : CIImage?
+
+    override var outputImage: CIImage? {
+        return autoreleasepool {
+            guard let image = value(forKey: kCIInputImageKey) as? CIImage
+            , let uiImage = image.asUIImage else {
+                return nil
+            }
+
+            //TODO: directly process CIImage
+            if let resultImage = StyleArt().process(image: uiImage, style: style){
+                return CIImage(image: resultImage)
+            }
+
+            return nil
+        }
+    }
+}
+
 class StyleArt {
 
     static let definedImageSize = CGSize(width:720, height:720)
     
-    private func acquireModel(style:StyleArtStyle) -> MLModel{
+    private func acquireModel(style:CoreMLArtStyle) -> MLModel{
         return autoreleasepool {
             switch(style){
             case .Muse:
@@ -34,7 +65,7 @@ class StyleArt {
         }
     }
 
-    func process(image: UIImage, style: StyleArtStyle, completion: (_ result: UIImage?) -> ()) {
+    func process(image: UIImage, style: CoreMLArtStyle) -> UIImage? {
 
         let model = acquireModel(style:style)
         let imageSize = type(of: self).definedImageSize
@@ -44,13 +75,11 @@ class StyleArt {
             let input = StyleArtInput(input: pixelBufferd)
             let outFeatures = try! model.prediction(from: input)
             let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
-            if let result = UIImage(pixelBuffer: output) {
-                completion(result)
-            } else {
-                completion(nil)
-            }
 
+            return UIImage(pixelBuffer: output)
         }
+
+        return nil
     }
 
     private func stylizeImage(cgImage: CGImage, model: MLModel) -> CGImage {
