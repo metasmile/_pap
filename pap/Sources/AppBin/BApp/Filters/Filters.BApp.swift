@@ -25,26 +25,6 @@ extension Defaults: FilterAppDefaults {
     }
 }
 
-public class CIFilterItem: ImageEditStateValue {
-    override var ciFilter: CIFilter? {
-        return _filter
-    }
-    
-    private var _filter: CIFilter?
-    
-    init(_ filter: CIFilter? = nil) {
-        super.init()
-        
-        _filter = filter
-    }
-}
-
-public extension StateValueSet where T: ImageEditStateValue {
-    var ciFilter: CIFilter? {
-        return imageEditStateValue?.ciFilter
-    }
-}
-
 public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?

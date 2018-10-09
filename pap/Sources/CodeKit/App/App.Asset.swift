@@ -80,6 +80,26 @@ public class ImageEditStateValue: Object {
     }
 }
 
+public class CIFilterItem: ImageEditStateValue {
+    override var ciFilter: CIFilter? {
+        return _filter
+    }
+
+    private var _filter: CIFilter?
+
+    init(_ filter: CIFilter? = nil) {
+        super.init()
+
+        _filter = filter
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var ciFilter: CIFilter? {
+        return imageEditStateValue?.ciFilter
+    }
+}
+
 //TODO: internal / locally collect
 public final class AppAssets: NSObject {
     public static let selected = AppAssets()
