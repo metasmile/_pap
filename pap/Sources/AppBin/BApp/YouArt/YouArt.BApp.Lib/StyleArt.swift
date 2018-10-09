@@ -13,23 +13,31 @@ enum StyleArtStyle: Int {
 
 class StyleArt {
 
-    private let models: [StyleArtStyle: MLModel] = [
-        .Muse: FNS_La_Muse_1().model
-        , .Candy: FNS_Candy_1().model
-        , .Feathers: FNS_Feathers_1().model
-        , .Udanie: FNS_Udnie_1().model
-        , .Mosaic: FNS_Mosaic_1().model
-        , .Scream: FNS_The_Scream_1().model
-    ]
-
-    let definedImageSize = 720
-
-    static let shared = StyleArt()
-
+    static let definedImageSize = CGSize(width:720.0, height:720.0)
+    
+    private func acquireModel(style:StyleArtStyle) -> MLModel{
+        switch(style){
+            case .Muse:
+                return FNS_La_Muse_1().model
+            case .Candy:
+                return FNS_Candy_1().model
+            case  .Feathers:
+                return FNS_Feathers_1().model
+            case  .Udanie:
+                return FNS_Udnie_1().model
+            case  .Mosaic:
+                return FNS_Mosaic_1().model
+            case  .Scream:
+                return FNS_The_Scream_1().model
+        }
+    }
+    
     func process(image: UIImage, style: StyleArtStyle, compeletion: (_ result: UIImage?) -> ()) {
 
-        if let model = models[style]
-        , let pixelBufferd = image.pixelBuffer(width: definedImageSize, height: definedImageSize) {
+        let model = acquireModel(style:style)
+        let imageSize = type(of: self).definedImageSize
+        
+        if let pixelBufferd = image.pixelBuffer(width: imageSize.width, height: imageSize.height) {
 
             let input = StyleArtInput(input: pixelBufferd)
             let outFeatures = try! model.prediction(from: input)
@@ -46,7 +54,8 @@ class StyleArt {
     }
 
     private func stylizeImage(cgImage: CGImage, model: MLModel) -> CGImage {
-        let input = StyleArtInput(input: pixelBuffer(cgImage: cgImage, width: definedImageSize, height: definedImageSize))
+        let imageSize = type(of:self).definedImageSize
+        let input = StyleArtInput(input: pixelBuffer(cgImage: cgImage, width: imageSize.width, height: imageSize.height))
         let outFeatures = try! model.prediction(from: input)
         let output = outFeatures.featureValue(for: "outputImage")!.imageBufferValue!
         CVPixelBufferLockBaseAddress(output, .readOnly)
