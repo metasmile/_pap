@@ -198,6 +198,8 @@ private class ResultItemLayer: CAShapeLayer {
     var previewTransform: CGAffineTransform = .identity
     var tintColor: UIColor?
     
+    var hitPath: UIBezierPath?
+    
     override init(layer: Any) {
         super.init(layer: layer)
     }
@@ -374,7 +376,7 @@ fileprivate class ResultPreviewView: DesignableView {
         
         let renderScaleTransform = CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height)
         
-        let padding: CGFloat = 8
+        let padding: CGFloat = 12
         let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
         
         path.move(to: quad.topLeft)
@@ -390,7 +392,10 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.tintColor = tintColor
         layer.result = resultPreviewItem
         layer.previewTransform = renderScaleTransform
-        layer.path = path.cgPath
+        layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
+        layer.hitPath = path
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding).cgPath
+        layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
         let iconLayer = BadgeIconLayer()
         iconLayer.tintColor = tintColor
@@ -406,7 +411,7 @@ fileprivate class ResultPreviewView: DesignableView {
     private func resultItemLayer(at point: CGPoint) -> ResultItemLayer? {
         let layerLocation = layer.convert(point, to: resultsLayer)
         for layer in resultsLayer.sublayers?.compactMap({ $0 as? ResultItemLayer }) ?? [] {
-            if layer.path?.contains(layerLocation) == true {
+            if layer.hitPath?.contains(layerLocation) == true {
 //            if layer.path?.boundingBoxOfPath.contains(layerLocation) == true {
                 return layer
             }
