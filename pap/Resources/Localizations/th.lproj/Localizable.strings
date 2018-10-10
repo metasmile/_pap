@@ -538,8 +538,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "การบูรณะ";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "เอาคืน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "ย้อนกลับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */

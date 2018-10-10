@@ -538,8 +538,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Phục hồi cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Phục hồi";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "Làm lại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Đảo ngược";
 /* Generated from genl10n: GIFMaker.BApp.swift */

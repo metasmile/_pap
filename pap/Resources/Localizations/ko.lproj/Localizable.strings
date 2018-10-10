@@ -538,8 +538,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "복원을 사용하면 여러 장의 사진을 원본 사진으로 신속하게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "복구";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "다시 잡다";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "역방향";
 /* Generated from genl10n: GIFMaker.BApp.swift */

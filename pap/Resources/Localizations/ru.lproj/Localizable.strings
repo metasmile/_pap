@@ -538,8 +538,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Восстановление позволяет быстро восстановить количество отредактированных фотографий в исходное. Кроме того, это поможет вам с автоматическим выбором!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "восстановление";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "пересдавать";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Задний ход";
 /* Generated from genl10n: GIFMaker.BApp.swift */
