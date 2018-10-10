@@ -10,10 +10,27 @@ import ContactsUI
 import EventKit
 import EventKitUI
 import SafariServices
+import MessageUI
 
 //TODO: MUST separate each actions
 
 extension Array where Element:VisionTextDetectResult {
+    class MailComposerDelegator: NSObject, MFMailComposeViewControllerDelegate {
+        var completion: (() -> Void)?
+        
+        convenience init(completion: (() -> Void)?) {
+            self.init()
+            
+            self.completion = completion
+        }
+        
+        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            print(#function, self)
+            controller.dismiss(animated: true, completion: nil)
+            
+            completion?()
+        }
+    }
 
     func handleAsAction(_ isQuickActionOnly:Bool, _ asyncSignal: AsyncWaitSignalable) -> String?{
 
@@ -25,6 +42,10 @@ extension Array where Element:VisionTextDetectResult {
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
         })
+        
+        let defaultMailComposerDelegator = MailComposerDelegator {
+            asyncSignal.end()
+        }
 
         var StringSet = Set<String>()
         var DateSet = Set<Date>()
@@ -688,6 +709,28 @@ extension Array where Element:VisionTextDetectResult {
             for barcode in resultGroup.barcodes ?? [] {
                 switch barcode.valueType {
                 case .URL: break
+                case .email:
+                    guard let email = barcode.email, let address = email.address else { break }
+                    let action = UIAlertAction(title: address, style: .default, handler: { action in
+                        if MFMailComposeViewController.canSendMail() {
+                            let mailComposer = MFMailComposeViewController()
+                            mailComposer.mailComposeDelegate = defaultMailComposerDelegator
+                            mailComposer.setToRecipients([address])
+                            mailComposer.setSubject(email.subject ?? "")
+                            mailComposer.setMessageBody(email.body ?? "", isHTML: false)
+                            
+                            DispatchQueue.main.async{
+                                UIViewController.present(mailComposer, animated: true)
+                            }
+                        }
+                        else if let url = URL(string: "mailto://\(email)"), UIApplication.shared.canOpenURL(url) {
+                            asyncSignal.end()
+                            UIApplication.shared.open(url)
+                        }
+                    })
+                    
+                    action.accessoryImage = R.image.ico_action_email()
+                    alert.addAction(action)
                 case .text, .unknown:
                     let plainText = barcode.rawValue ?? ""
                     var action:UIAlertAction?

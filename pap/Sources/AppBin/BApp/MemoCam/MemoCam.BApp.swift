@@ -58,39 +58,39 @@ extension VisionTextResultGroup {
     static func createResultGroup(with visionTexts: [VisionText], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
         var resultGroup = VisionTextResultGroup()
         
-        var emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
-        var phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
-        var urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
+        let emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
+        let phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
+        let urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
         let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
         let flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
-        var dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
+        let dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
         
         let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
-        for barcode in barcodes {
-            switch barcode.valueType {
-            case .email:
-                guard let email = barcode.email?.address else { break }
-                emails.append([email])
-            case .phone:
-                guard let phone = barcode.phone?.number else { break }
-                phoneNumbers.append([phone])
-            case .URL:
-                guard let urlString = barcode.url?.url ?? barcode.rawValue, let url = URL(string: urlString) else { break }
-                urls.append([url])
-            case .calendarEvent:
-                guard let event = barcode.calendarEvent?.start else { break }
-                dates.append([event])
-            case .product:
-                guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
-                urls.append([url])
-            case .ISBN:
-                guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
-                urls.append([url])
-//            case .contactInfo:
-//                break
-            default: break
-            }
-        }
+//        for barcode in barcodes {
+//            switch barcode.valueType {
+//            case .email:
+//                guard let email = barcode.email?.address else { break }
+//                emails.append([email])
+//            case .phone:
+//                guard let phone = barcode.phone?.number else { break }
+//                phoneNumbers.append([phone])
+//            case .URL:
+//                guard let urlString = barcode.url?.url ?? barcode.rawValue, let url = URL(string: urlString) else { break }
+//                urls.append([url])
+//            case .calendarEvent:
+//                guard let event = barcode.calendarEvent?.start else { break }
+//                dates.append([event])
+//            case .product:
+//                guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
+//                urls.append([url])
+//            case .ISBN:
+//                guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
+//                urls.append([url])
+////            case .contactInfo:
+////                break
+//            default: break
+//            }
+//        }
         resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
         
         resultGroup.emails = !emails.isEmpty ? emails : nil
@@ -241,11 +241,13 @@ fileprivate struct ResultPreviewItem {
     func preferredParserIcon() -> UIImage? {
         guard resultGroup.isFilled else { return nil }
         
-        if resultGroup.phoneNumbers?.count ?? 0 > 0 { return R.image.ico_action_phonenumber() }
-        else if resultGroup.emails?.count ?? 0 > 0 { return R.image.ico_action_email() }
-        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.ico_action_address() }
-        else if resultGroup.dates?.count ?? 0 > 0 { return R.image.ico_action_date() }
-        else if resultGroup.urls?.count ?? 0 > 0 { return R.image.ico_action_url() }
+        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true { return R.image.ico_action_phonenumber() }
+        else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true { return R.image.ico_action_email() }
+        else if resultGroup.addresses?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.ico_action_address() }
+        else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true { return R.image.ico_action_date() }
+        else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: {
+            $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product
+        }) == true { return R.image.ico_action_url() }
         else if resultGroup.flights?.count ?? 0 > 0 { return R.image.ico_action_flightnumber() }
         
         return nil
