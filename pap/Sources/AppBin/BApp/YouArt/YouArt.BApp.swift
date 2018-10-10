@@ -195,6 +195,27 @@ private extension YouArtApp {
     }
 }
 
+fileprivate extension CIFilter{
+
+    private var cacheFileURL:URL{
+        return FileURL.document(name, UTI.png, group: CodeFileName())
+    }
+
+    var processedImage:UIImage?{
+        set{
+            DispatchQueue.global(qos: .background).async{
+                try? newValue?.pngData()?.write(to: self.cacheFileURL)
+            }
+        }
+        get{
+            if FileManager.default.fileExists(atPath: self.cacheFileURL.path){
+                return UIImage(contentsOfFile: self.cacheFileURL.path)
+            }
+            return nil
+        }
+    }
+}
+
 fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIFilter] = [
         CIMLArtFilter(style: MLArtStyle.Mosaic),
@@ -217,7 +238,7 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         }))
         
         items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
-            return AppUICollectionView.CollectionItem(title: filter.name, image: image, action: {
+            return AppUICollectionView.CollectionItem(title: filter.name, image: filter.processedImage ?? image, action: {
                 let filterItem = CIFilterItem(filter)
                 self.filterItem = filterItem
             })
@@ -277,26 +298,41 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
                 return
             }
 
+            var newlyProcessedAtLeastOne = false
             let renderedItems = s.items.enumerated().map { (i:Int, item:AppUICollectionView.CollectionItem) -> AppUICollectionView.CollectionItem in
                 return autoreleasepool{
                     if i == 0{
                         return item
                     }else{
                         var mutableItem = item
-                        mutableItem.image = item.image?.applyFilter(ciFilter: s.filters[safe: i-1])
+                        if let filter = s.filters[safe: i-1]{
+
+                            if filter.processedImage == nil{
+                                let appliedImage = item.image?.applyFilter(ciFilter: filter)
+                                mutableItem.image = appliedImage
+
+                                filter.processedImage = appliedImage
+
+                                if newlyProcessedAtLeastOne == false{
+                                    newlyProcessedAtLeastOne = true
+                                }
+                            }
+                        }
                         return mutableItem
                     }
                 }
             }
 
-            DispatchQueue.main.async{
-                UIView.transition(with: s.view,
-                        duration: 0.35,
-                        options: .transitionCrossDissolve,
-                        animations: {
-                            (s.view as? AppUICollectionView)?.reloadData(items:renderedItems)
-                        })
+            if newlyProcessedAtLeastOne{
+                DispatchQueue.main.async{
+                    UIView.transition(with: s.view,
+                            duration: 0.35,
+                            options: .transitionCrossDissolve,
+                            animations: {
+                                (s.view as? AppUICollectionView)?.reloadData(items:renderedItems)
+                            })
 
+                }
             }
         }
     }

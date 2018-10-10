@@ -475,7 +475,9 @@ extension PreviewView {
             }
         }
     }
-    
+
+    //TODO: fix a case of cached but reprocessing, it appears when the process performs with heavy filters.
+    //TODO: fix a case of first item is reprocessing once more.
     fileprivate func performPreviewProcessing() {
         guard let app = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) else {
             cancelPreviewProcessing()
