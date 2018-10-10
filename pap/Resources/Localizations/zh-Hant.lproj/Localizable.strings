@@ -88,10 +88,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1個月會員資格";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1年會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift#185 */
 "1-Month Use of All and New Apps" = "所有應用程序和新應用程序的1個月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "主要和新應用程序的1個月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1年使用全部和新應用程序";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "主要和新應用程序的1年使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -444,8 +448,8 @@
 "Preparing" = "準備";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "預置";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "價格包括每個新的應用程序和更新。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "價格包含每個新的應用和更新，也不會自動續訂。";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "隱私政策";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */

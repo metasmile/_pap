@@ -103,9 +103,8 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , displayName: "Filters".localized
         , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
         , keywords: ["Filters", "Color", "Effect", "High-Quality"] + FiltersAppDockContent.CIFilters.filters.compactMap({ FiltersAppDockContent.PhotosFilterNames.aliasName($0.name) })
-        , iconBundleName: R.image.filtersBAppIcon.name
-        , themeColor: nil
-        , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
+        , iconBundleName: R.image.filtersBAppEmbossIcon.name
+        , themeColor: nil, embossIconBundleName: R.image.filtersBAppEmbossIcon.name         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
     

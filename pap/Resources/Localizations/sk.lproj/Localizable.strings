@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 mesiac členstvo";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 rok členstva";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1-mesačné používanie všetkých aplikácií a nové";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-mesačné používanie hlavných a nových aplikácií";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1-ročné používanie všetkých a nových aplikácií";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1-ročné používanie hlavných a nových aplikácií";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "príprava";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Ceny zahŕňajú všetky nové aplikácie a aktualizácie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Ceny zahŕňajú všetky nové aplikácie a aktualizácie, tiež sa automaticky neobnovia.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Zásady ochrany osobných údajov";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

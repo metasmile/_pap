@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 tháng thành viên";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "Thành viên 1 năm";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "Sử dụng tất cả các ứng dụng trong 1 tháng và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Sử dụng 1 tháng của ứng dụng chính và mới";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "Sử dụng 1 năm của tất cả và ứng dụng mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "Sử dụng 1 năm của các ứng dụng chính và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "Đang chuẩn bị";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Giá được bao gồm mọi ứng dụng và bản cập nhật mới.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Giá được bao gồm tất cả các ứng dụng và bản cập nhật mới, cũng sẽ không tự động gia hạn.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Chính sách bảo mật";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "عضوية شهر واحد";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "عضوية سنة واحدة";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1-شهر استخدام جميع التطبيقات والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-شهر من استخدام التطبيقات الرئيسية والجديدة";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "استخدام 1 سنة من الكل وتطبيقات جديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1-استخدام العام من التطبيقات الرئيسية والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "خطة";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "المسبقة";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "الأسعار تشمل كل التطبيقات والتحديثات الجديدة.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "الأسعار تشمل كل التطبيقات والتحديثات الجديدة ، كما لن يتم تجديدها تلقائيًا.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "سياسة الخصوصية";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

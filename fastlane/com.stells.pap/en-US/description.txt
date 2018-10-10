@@ -1,4 +1,4 @@
-Photo Apps(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own. 
+Photo Apps(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own.
 
 From now on, Do everything all you needed, with all your photos.
 
@@ -93,13 +93,3 @@ Robust Standard Built-In Camera for Capturing Live Photos.
 Auto Selection Bot (ASB System)
 
 ASB is a multi-purpose assistant engine for choosing the right items in the current context for each app.
-
-- 
-
-
-The PA Membership Program (PA.m)
-
-This app includes two auto-renewal subscriptions ("Yearly/Monthly Membership") that provide to access all and newly updated apps. This subscription auto-renews at the end of each 1-year term at $33.99 USD or 1-month term at $3.99 USD, unless canceled 24-hours in advance. The subscription fee is charged to your iTunes account at confirmation of purchase. You may manage your subscription and turn off auto-renewal by going to your Settings after purchase. No cancellation of the current subscription is allowed during the active period.
-
-• Terms of use: https://apps.photo/terms
-• Privacy policy:  https://apps.photo/privacy

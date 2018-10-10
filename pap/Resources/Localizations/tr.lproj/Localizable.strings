@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 Aylık Üyelik";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 Yıllık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "Tüm Uygulamaların ve Yeni 1 Aylık Kullanım";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 1 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "Tüm ve Yeni Uygulamaların 1 Yıllık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "Ana ve Yeni Uygulamaların 1 Yıllık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "hazırlama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Hazır ayarlar";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Fiyatlar Her Yeni Uygulama ve Güncellemeyi İçeriyor.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Fiyatlar Her Yeni Uygulama ve Güncellemeyi İçeriyor, ayrıca otomatik olarak yenilenmeyecek.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Gizlilik Politikası";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */

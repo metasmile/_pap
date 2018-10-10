@@ -45,6 +45,7 @@ public protocol AppInfoPresentableSchemeValues {
 
 public protocol AppInfoAppearanceSchemeValues {
     var themeColor: UIColor? {get}
+    var embossIconBundleName:String? {get}
 }
 
 public protocol AppInfoLocalizedPresentableSchemeValues{
@@ -84,6 +85,7 @@ public struct AppInfo: Hashable, AppInfoSchemeKey, AppInfoSchemeValues, AppInfoA
     public var keywords:[String]?
     public var iconBundleName:String?
     public let themeColor:UIColor?
+    public var embossIconBundleName:String?
     public let policy:AppPolicy
     public let minOSVersion:OperatingSystemVersion?
 

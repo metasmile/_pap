@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "Članstvo u mjesec dana";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 godina članstva";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1-mjesečna upotreba svih aplikacija i novo";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-mjesečna upotreba glavnih i novih aplikacija";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1-godišnja upotreba svih i novih aplikacija";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1-godišnja upotreba glavnih i novih aplikacija";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "priprema";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Cijene uključuju svaku novu aplikaciju i ažuriranja.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Cijene uključuju svaku novu aplikaciju i ažuriranja, ali se neće automatski obnoviti.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Pravila o privatnosti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
