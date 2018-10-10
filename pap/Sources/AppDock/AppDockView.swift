@@ -1346,6 +1346,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         self.app = app
 
         appTitleLabel.text = app.info.displayName.localized
+        appTitleLabel.textColor = app.info.themeColor ?? UIColor.gray
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
         if status == nil{
