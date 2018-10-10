@@ -929,7 +929,7 @@ extension Array where Element:VisionTextDetectResult {
                     }
                     
                     if let action = action{
-                        action.accessoryImage = R.image.commonCellIconShare()
+                        action.accessoryImage = R.image.appActionIconCode()
                         alert.addAction(action)
                     }
                     default: break

@@ -212,20 +212,28 @@ fileprivate struct ResultPreviewItem {
     var quad: CGQuad {
         return CGQuad(visionText.cornerPoints.map { $0.cgPointValue })
     }
-    
+
     func preferredParserIcon() -> UIImage? {
-        guard resultGroup.isFilled else { return nil }
-        
-        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true { return R.image.appActionIconEmbossPhoneCall() }
-        else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true { return R.image.appActionIconEmail() }
-        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.appActionIconLocation() }
-        else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.appActionIconContact() }
-        else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true { return R.image.appActionIconEmbossDate() }
-        else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: {
-            $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product || $0.format != .qrCode
-        }) == true { return R.image.appActionIconEmbossURL() }
-        else if resultGroup.flights?.count ?? 0 > 0 { return R.image.appActionIconEmbossFlight() }
-        
+        guard resultGroup.isFilled else {
+            return nil
+        }
+
+        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true {
+            return R.image.appActionIconEmbossPhoneCall()
+        } else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true {
+            return R.image.appActionIconEmail()
+        } else if resultGroup.addresses?.count ?? 0 > 0 {
+            return R.image.appActionIconLocation()
+        } else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true {
+            return R.image.appActionIconContact()
+        } else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true {
+            return R.image.appActionIconEmbossDate()
+        } else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product || $0.format != .qrCode }) == true {
+            return R.image.appActionIconEmbossURL()
+        } else if resultGroup.flights?.count ?? 0 > 0 {
+            return R.image.appActionIconEmbossFlight()
+        }
+
         return nil
     }
 }
