@@ -1279,8 +1279,8 @@
 		4F71D76065E035A54AE614D3 /* MemoCam */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
 				5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */,
+				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
 			);
 			path = MemoCam;
 			sourceTree = "<group>";

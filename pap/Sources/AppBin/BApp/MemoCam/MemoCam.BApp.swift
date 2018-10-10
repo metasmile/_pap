@@ -218,7 +218,8 @@ fileprivate struct ResultPreviewItem {
         
         if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true { return R.image.ico_action_phonenumber() }
         else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true { return R.image.ico_action_email() }
-        else if resultGroup.addresses?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.ico_action_address() }
+        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.ico_action_address() }
+        else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.ico_action_contact() }
         else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true { return R.image.ico_action_date() }
         else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: {
             $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product || $0.format != .qrCode

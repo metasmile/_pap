@@ -740,6 +740,26 @@ extension Array where Element:VisionTextDetectResult {
                 }
                 
                 switch barcode.valueType {
+                case .contactInfo:
+                    guard let contactInfo = barcode.contactInfo else { break }
+                    
+                    let action = UIAlertAction(title: contactInfo.name?.formattedName ?? "Add New Contact".localized, style: .default, handler: { action in
+                        if let vCard = barcode.rawValue?.data(using: String.Encoding.utf8), let contacts = try? CNContactVCardSerialization.contacts(with: vCard), let contact = contacts.first {
+                            
+                            currentQueue.async{
+                                if ContactsUtil.shared.requestAuthorizationAndWait(asyncSignal){
+                                    CNContactViewController.presentDialog(newContact: contact, didDismiss: {
+                                        asyncSignal.end()
+                                    })
+                                    
+                                } else{
+                                    asyncSignal.end()
+                                }
+                            }
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_contact()
+                    alert.addAction(action)
                 case .calendarEvent:
                     guard let calendarEvent = barcode.calendarEvent else { break }
                     

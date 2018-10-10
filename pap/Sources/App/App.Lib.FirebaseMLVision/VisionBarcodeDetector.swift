@@ -42,21 +42,3 @@ extension VisionBarcodeDetector{
         return result
     }
 }
-
-import EventKit
-
-extension VisionBarcode {
-    var event: EKEvent? {
-        guard valueType == .calendarEvent else { return nil }
-        
-        let event = EKEvent()
-        
-        event.title = calendarEvent?.summary
-        event.startDate = calendarEvent?.start
-        event.endDate = calendarEvent?.end
-        event.notes = calendarEvent?.eventDescription
-        event.location = calendarEvent?.location
-        
-        return event
-    }
-}
