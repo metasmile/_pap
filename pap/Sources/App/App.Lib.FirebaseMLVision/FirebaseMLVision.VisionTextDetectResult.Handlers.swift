@@ -726,8 +726,52 @@ extension Array where Element:VisionTextDetectResult {
              Barcodes
              */
             for barcode in resultGroup.barcodes ?? [] {
+                guard barcode.format == .qrCode else {
+                    guard let code = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(code)") else { break }
+                    
+                    let action = UIAlertAction(title: code, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_url()
+                    alert.addAction(action)
+                    continue
+                }
                 switch barcode.valueType {
-                case .URL: break
+                case .product:
+                    guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
+                    
+                    let action = UIAlertAction(title: product, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_url()
+                    alert.addAction(action)
+                case .ISBN:
+                    guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
+                    
+                    let action = UIAlertAction(title: isbn, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_url()
+                    alert.addAction(action)
+                case .URL:
+                    guard
+                        let urlString = barcode.rawValue,
+                        let url = URL(string: urlString)
+                    else { break }
+                    
+                    let action = UIAlertAction(title: urlString, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_url()
+                    alert.addAction(action)
                 case .SMS:
                     guard let sms = barcode.sms, let phone = sms.phoneNumber else { break }
                     let action = UIAlertAction(title: phone, style: .default, handler: { action in
