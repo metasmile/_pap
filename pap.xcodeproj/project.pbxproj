@@ -296,7 +296,6 @@
 		511D20D8214B2CEC00056AD3 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */; };
 		512774C22149F3F0001602BD /* ColorThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512774C12149F3F0001602BD /* ColorThemeManager.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
-		5151792C216D737D0085612C /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */; };
 		515AB1632106C029005E1997 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* ActionViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
@@ -305,6 +304,7 @@
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		518BAE962161B5F600D68BF4 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAE952161B5F600D68BF4 /* VisionBarcodeDetector.swift */; };
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
+		A07CD82B216E0A3D003DFD75 /* App.Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07CD82A216E0A3D003DFD75 /* App.Resources.xcassets */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
@@ -661,7 +661,6 @@
 		512774C12149F3F0001602BD /* ColorThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeManager.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.ShortcutItem.swift; sourceTree = "<group>"; };
-		5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		515AB1622106C029005E1997 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
@@ -680,6 +679,7 @@
 		A05987C6215401FC0011077B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Intents.strings; sourceTree = "<group>"; };
 		A05987C7215402050011077B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Intents.strings"; sourceTree = "<group>"; };
 		A05987C8215402080011077B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
+		A07CD82A216E0A3D003DFD75 /* App.Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.Resources.xcassets; sourceTree = "<group>"; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956A962095004700E680B9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956AA52095004700E680B9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1279,7 +1279,6 @@
 		4F71D76065E035A54AE614D3 /* MemoCam */ = {
 			isa = PBXGroup;
 			children = (
-				5151792B216D737D0085612C /* MemoCam.BApp.Assets.xcassets */,
 				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
 			);
 			path = MemoCam;
@@ -1315,6 +1314,7 @@
 		4F71D80B973041669F583333 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A07CD82A216E0A3D003DFD75 /* App.Resources.xcassets */,
 				4F71D7E9C4F489674C83A285 /* App.UI */,
 				4F71D3155A0D884209F72E2D /* App.Lib.Converter */,
 				4F71D67F5C4FCDA49041FCA8 /* App.AppDock.swift */,
@@ -2047,6 +2047,7 @@
 				A0956BC22095005200E680B9 /* Localizable.strings in Resources */,
 				A096E7E421307942003C8E70 /* Shop.SApp.Assets.xcassets in Resources */,
 				A0956C102095005200E680B9 /* Localizable.strings in Resources */,
+				A07CD82B216E0A3D003DFD75 /* App.Resources.xcassets in Resources */,
 				A0956BF22095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C21209501B500E680B9 /* Localizable.strings in Resources */,
 				A0956C1A2095005200E680B9 /* Localizable.strings in Resources */,
@@ -2078,7 +2079,6 @@
 				A0956C022095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF32095005200E680B9 /* Localizable.strings in Resources */,
 				4F71D6B8B6B9C21F6BB43A57 /* PreviewView.xib in Resources */,
-				5151792C216D737D0085612C /* MemoCam.BApp.Assets.xcassets in Resources */,
 				4F71D2A169A523C841ED63B8 /* PhotoCollectionViewCell.xib in Resources */,
 				4F71D1712188A2D31BBE3AFE /* PreviewCollectionViewCell.xib in Resources */,
 				4F71D5EEC984FAED85297905 /* AppDockView.xib in Resources */,

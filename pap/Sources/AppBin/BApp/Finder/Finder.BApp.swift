@@ -615,12 +615,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
                 items: [
-                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
-                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
-                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.ico_action_address.name)
-                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.ico_action_date.name)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.ico_action_url.name)
-                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.ico_action_flightnumber.name)
+                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.appActionIconPhoneNumber.name)
+                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.appActionIconEmail.name)
+                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.appActionIconLocation.name)
+                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.appActionIconDate.name)
+                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.appActionIconURL.name)
+                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.appActionIconFlight.name)
                 ])
     ]
 

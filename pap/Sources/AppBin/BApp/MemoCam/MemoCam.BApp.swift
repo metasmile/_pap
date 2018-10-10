@@ -152,7 +152,7 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.isHidden = false
         badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: bounds.origin.x + badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: bounds.origin.y + badgeSize / 2 ... bounds.height - badgeSize / 2))
         
-        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.ico_action_text())?.cgImage
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.appActionIconText())?.cgImage
         badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
     }
 }
@@ -216,15 +216,15 @@ fileprivate struct ResultPreviewItem {
     func preferredParserIcon() -> UIImage? {
         guard resultGroup.isFilled else { return nil }
         
-        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true { return R.image.ico_action_phonenumber() }
-        else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true { return R.image.ico_action_email() }
-        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.ico_action_address() }
-        else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.ico_action_contact() }
-        else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true { return R.image.ico_action_date() }
+        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true { return R.image.appActionIconEmbossPhoneCall() }
+        else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true { return R.image.appActionIconEmail() }
+        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.appActionIconLocation() }
+        else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true { return R.image.appActionIconContact() }
+        else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true { return R.image.appActionIconEmbossDate() }
         else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: {
             $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product || $0.format != .qrCode
-        }) == true { return R.image.ico_action_url() }
-        else if resultGroup.flights?.count ?? 0 > 0 { return R.image.ico_action_flightnumber() }
+        }) == true { return R.image.appActionIconEmbossURL() }
+        else if resultGroup.flights?.count ?? 0 > 0 { return R.image.appActionIconEmbossFlight() }
         
         return nil
     }

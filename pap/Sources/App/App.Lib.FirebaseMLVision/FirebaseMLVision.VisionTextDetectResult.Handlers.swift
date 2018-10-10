@@ -175,7 +175,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
 
-                action.accessoryImage = R.image.ico_action_phonenumber()
+                action.accessoryImage = R.image.appActionIconPhoneNumber()
 
                 alert.addAction(action)
 
@@ -257,7 +257,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
 
-                action.accessoryImage = R.image.ico_action_url()
+                action.accessoryImage = R.image.appActionIconURL()
 
                 alert.addAction(action)
             }
@@ -348,7 +348,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
 
-                action.accessoryImage = R.image.ico_action_date()
+                action.accessoryImage = R.image.appActionIconDate()
 
                 alert.addAction(action)
             }
@@ -466,7 +466,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
 
-                action?.accessoryImage = R.image.ico_action_email()
+                action?.accessoryImage = R.image.appActionIconEmail()
 
                 if let action = action{
                     alert.addAction(action)
@@ -587,7 +587,7 @@ extension Array where Element:VisionTextDetectResult {
 
                 }
 
-                action?.accessoryImage = R.image.ico_action_address()
+                action?.accessoryImage = R.image.appActionIconLocation()
 
                 if let action = action{
                     alert.addAction(action)
@@ -660,7 +660,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
 
-                action?.accessoryImage = R.image.ico_action_flightnumber()
+                action?.accessoryImage = R.image.appActionIconFlight()
 
                 if let action = action{
                     alert.addAction(action)
@@ -734,7 +734,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_url()
+                    action.accessoryImage = R.image.appActionIconURL()
                     alert.addAction(action)
                     continue
                 }
@@ -758,7 +758,7 @@ extension Array where Element:VisionTextDetectResult {
                             }
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_contact()
+                    action.accessoryImage = R.image.appActionIconContact()
                     alert.addAction(action)
                 case .calendarEvent:
                     guard let calendarEvent = barcode.calendarEvent else { break }
@@ -788,7 +788,7 @@ extension Array where Element:VisionTextDetectResult {
                         }
 
                     })
-                    action.accessoryImage = R.image.ico_action_date()
+                    action.accessoryImage = R.image.appActionIconDate()
                     alert.addAction(action)
                 case .phone:
                     guard let phone = barcode.phone?.number else { break }
@@ -806,7 +806,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_url()
+                    action.accessoryImage = R.image.appActionIconURL()
                     alert.addAction(action)
                 case .product:
                     guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
@@ -816,7 +816,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_url()
+                    action.accessoryImage = R.image.appActionIconURL()
                     alert.addAction(action)
                 case .ISBN:
                     guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
@@ -826,7 +826,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_url()
+                    action.accessoryImage = R.image.appActionIconURL()
                     alert.addAction(action)
                 case .URL:
                     guard
@@ -839,7 +839,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.ico_action_url()
+                    action.accessoryImage = R.image.appActionIconURL()
                     alert.addAction(action)
                 case .SMS:
                     guard let sms = barcode.sms, let phone = sms.phoneNumber else { break }
@@ -860,7 +860,7 @@ extension Array where Element:VisionTextDetectResult {
                         }
                     })
                     
-                    action.accessoryImage = R.image.ico_action_email()
+                    action.accessoryImage = R.image.appActionIconEmail()
                     alert.addAction(action)
                 case .email:
                     guard let email = barcode.email, let address = email.address else { break }
@@ -882,7 +882,7 @@ extension Array where Element:VisionTextDetectResult {
                         }
                     })
                     
-                    action.accessoryImage = R.image.ico_action_email()
+                    action.accessoryImage = R.image.appActionIconEmail()
                     alert.addAction(action)
                 case .text, .unknown:
                     let plainText = barcode.rawValue ?? ""
