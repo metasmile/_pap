@@ -152,7 +152,7 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.isHidden = false
         badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: bounds.origin.x + badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: bounds.origin.y + badgeSize / 2 ... bounds.height - badgeSize / 2))
         
-        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.appActionIconText())?.cgImage
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.appActionIconEmbossText())?.cgImage
         badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
     }
 }

@@ -708,7 +708,7 @@ extension Array where Element:VisionTextDetectResult {
                     }
                     
                     //root action
-                    action = UIAlertAction(title: plainText.components(separatedBy: .newlines).joined(), style: . default, handler: { action in
+                    action = UIAlertAction(title: "Share Entire Text".localized, style: . default, handler: { action in
                         DispatchQueue.main.async{
                             UIViewController.present(_alert, animated: true)
                         }
@@ -716,7 +716,7 @@ extension Array where Element:VisionTextDetectResult {
                 }
                 
                 if let action = action{
-                    action.accessoryImage = R.image.commonCellIconShare()
+                    action.accessoryImage = R.image.appActionIconText()
                     alert.addAction(action)
                 }
             }// END OF AN ACTION
