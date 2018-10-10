@@ -738,7 +738,26 @@ extension Array where Element:VisionTextDetectResult {
                     alert.addAction(action)
                     continue
                 }
+                
                 switch barcode.valueType {
+                case .phone:
+                    guard let phone = barcode.phone?.number else { break }
+                    
+                    let action = UIAlertAction(title: phone, style: .default, handler: { action in
+                        if let url = URL(string: "tel://\(phone)")
+                            , ContactsUtil.shared.isCapableToCall
+                            , UIApplication.shared.canOpenURL(url) {
+                            
+                            asyncSignal.end()
+                            
+                            UIApplication.shared.open(url)
+                            
+                        }else{
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = R.image.ico_action_url()
+                    alert.addAction(action)
                 case .product:
                     guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
                     
