@@ -32,8 +32,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , appType: MemoCamApp.self
         , displayName: "Memo Cam".localized, description:nil, keywords:nil
         , iconBundleName: nil
-            , themeColor: nil
-        , policy: AppPolicy.default
+            , themeColor: nil, embossIconBundleName: nil        , policy: AppPolicy.default
         , minOSVersion: nil
     )
     
@@ -58,38 +57,14 @@ extension VisionTextResultGroup {
     static func createResultGroup(with visionTexts: [VisionText], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
         var resultGroup = VisionTextResultGroup()
         
-        var emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
-        var phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
-        var urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
+        let emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
+        let phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
+        let urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
         let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
         let flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
-        var dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
+        let dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
         
         let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
-        for barcode in barcodes {
-            switch barcode.valueType {
-            case .email:
-                guard let email = barcode.email?.address else { break }
-                emails.append([email])
-            case .phone:
-                guard let phone = barcode.phone?.number else { break }
-                phoneNumbers.append([phone])
-            case .URL:
-                guard let urlString = barcode.url?.url ?? barcode.rawValue, let url = URL(string: urlString) else { break }
-                urls.append([url])
-            case .calendarEvent:
-                guard let event = barcode.calendarEvent?.start else { break }
-                dates.append([event])
-//            case .product:
-//                print("product", barcode.rawValue)
-            case .ISBN:
-                guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
-                urls.append([url])
-//            case .contactInfo:
-//                break
-            default: break
-            }
-        }
         resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
         
         resultGroup.emails = !emails.isEmpty ? emails : nil
@@ -159,8 +134,9 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: badgeLayer.frame.size)).cgPath
         badgeLayer.fillColor = UIColor.white.cgColor
         badgeLayer.isHidden = true
-        
+        badgeLayer.opacity = 0.9
         badgeLayer.addSublayer(badgeIconLayer)
+        
         badgeIconLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
         badgeIconLayer.cornerRadius = (badgeSize * 0.8) / 2
         badgeIconLayer.masksToBounds = true
@@ -175,19 +151,7 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.isHidden = false
         badgeLayer.position = CGPoint(x: (point.x - badgeSize * 0.35).clamped(to: bounds.origin.x + badgeSize / 2 ... bounds.width - badgeSize / 2), y: (point.y - badgeSize * 0.35).clamped(to: bounds.origin.y + badgeSize / 2 ... bounds.height - badgeSize / 2))
         
-        badgeIconLayer.contents = (result?.preferredParserIcon() ?? {
-            return UIGraphicsImageRenderer(bounds: badgeLayer.bounds).imageWithCurrentContext { (cgContext) in
-                cgContext.setFillColor(UIColor.clear.cgColor)
-                cgContext.fill(self.badgeLayer.bounds)
-                
-                let attrString = NSAttributedString(string: "T", attributes: [
-                    NSAttributedString.Key.foregroundColor: self.tintColor ?? UIColor.black
-                ])
-                let stringSize = attrString.size()
-                
-                attrString.draw(at: CGPoint(x: max(0, (self.badgeLayer.bounds.width - stringSize.width) / 2), y: max(0, (self.badgeLayer.bounds.height - stringSize.height) / 2)))
-            }
-            }())?.cgImage
+        badgeIconLayer.contents = (result?.preferredParserIcon() ?? R.image.appActionIconEmbossText())?.cgImage
         badgeIconLayer.position = CGPoint(x: badgeLayer.bounds.midX, y: badgeLayer.bounds.midY)
     }
 }
@@ -197,6 +161,8 @@ private class ResultItemLayer: CAShapeLayer {
     
     var previewTransform: CGAffineTransform = .identity
     var tintColor: UIColor?
+    
+    var hitTestPath: UIBezierPath?
     
     override init(layer: Any) {
         super.init(layer: layer)
@@ -219,10 +185,6 @@ private class ResultItemLayer: CAShapeLayer {
     }
     
     func initialize() {
-        rasterizationScale = UIScreen.main.scale
-        shouldRasterize = true
-        drawsAsynchronously = true
-        
         strokeColor = UIColor.white.cgColor
         fillColor = UIColor.clear.cgColor
         lineWidth = 1
@@ -249,17 +211,28 @@ fileprivate struct ResultPreviewItem {
     var quad: CGQuad {
         return CGQuad(visionText.cornerPoints.map { $0.cgPointValue })
     }
-    
+
     func preferredParserIcon() -> UIImage? {
-        guard resultGroup.isFilled else { return nil }
-        
-        if resultGroup.phoneNumbers?.count ?? 0 > 0 { return R.image.ico_action_phonenumber() }
-        else if resultGroup.emails?.count ?? 0 > 0 { return R.image.ico_action_email() }
-        else if resultGroup.addresses?.count ?? 0 > 0 { return R.image.ico_action_address() }
-        else if resultGroup.dates?.count ?? 0 > 0 { return R.image.ico_action_date() }
-        else if resultGroup.urls?.count ?? 0 > 0 { return R.image.ico_action_url() }
-        else if resultGroup.flights?.count ?? 0 > 0 { return R.image.ico_action_flightnumber() }
-        
+        guard resultGroup.isFilled else {
+            return nil
+        }
+
+        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true {
+            return R.image.appActionIconEmbossPhoneCall()
+        } else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true {
+            return R.image.appActionIconEmail()
+        } else if resultGroup.addresses?.count ?? 0 > 0 {
+            return R.image.appActionIconLocation()
+        } else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true {
+            return R.image.appActionIconContact()
+        } else if resultGroup.dates?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .calendarEvent }) == true {
+            return R.image.appActionIconEmbossDate()
+        } else if resultGroup.urls?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .URL || $0.valueType == .ISBN || $0.valueType == .product || $0.format != .qrCode }) == true {
+            return R.image.appActionIconEmbossURL()
+        } else if resultGroup.flights?.count ?? 0 > 0 {
+            return R.image.appActionIconEmbossFlight()
+        }
+
         return nil
     }
 }
@@ -290,11 +263,17 @@ fileprivate class ResultPreviewView: DesignableView {
     
     lazy var resultsUILayer: CALayer = {
         let layer = CALayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
         return layer
     }()
     
     lazy var resultsLayer: CALayer = {
         let layer = CALayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
         return layer
     }()
     
@@ -374,7 +353,7 @@ fileprivate class ResultPreviewView: DesignableView {
         
         let renderScaleTransform = CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height)
         
-        let padding: CGFloat = 8
+        let padding: CGFloat = 12
         let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
         
         path.move(to: quad.topLeft)
@@ -390,7 +369,10 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.tintColor = tintColor
         layer.result = resultPreviewItem
         layer.previewTransform = renderScaleTransform
-        layer.path = path.cgPath
+        layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
+        layer.hitTestPath = path
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding).cgPath
+        layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
         let iconLayer = BadgeIconLayer()
         iconLayer.tintColor = tintColor
@@ -406,8 +388,7 @@ fileprivate class ResultPreviewView: DesignableView {
     private func resultItemLayer(at point: CGPoint) -> ResultItemLayer? {
         let layerLocation = layer.convert(point, to: resultsLayer)
         for layer in resultsLayer.sublayers?.compactMap({ $0 as? ResultItemLayer }) ?? [] {
-            if layer.path?.contains(layerLocation) == true {
-//            if layer.path?.boundingBoxOfPath.contains(layerLocation) == true {
+            if layer.hitTestPath?.contains(layerLocation) == true {
                 return layer
             }
         }
@@ -536,9 +517,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     private func createDebugLayer() -> DisableImplicitAnimatableShapeLayer {
         let layer = DisableImplicitAnimatableShapeLayer()
-        
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.shouldRasterize = true
         layer.drawsAsynchronously = true
         
         layer.fillColor = UIColor.clear.cgColor
@@ -801,7 +779,14 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     fileprivate func showActions(with results: [VisionTextImageDetectResult]) {
         DispatchQueue.global(qos: .userInteractive).async{
             let asyncSignal = AsyncSignal()
-            if let resultMessage = results.handleAsAction(true, asyncSignal){
+
+            let quickMode = self.switchShowAllTexts.isOn == false
+            var previewTexts:String?
+            if !quickMode{
+                previewTexts = results.compactMap{ $0.plainText }.joined().trimmed.nilEmpty
+            }
+
+            if let resultMessage = results.handleAsAction(quickMode, message: previewTexts, asyncSignal){
                 asyncSignal.begin()
                 DispatchQueue.main.async {
                     UIAlertController.alert(resultMessage, completion:{ _ in

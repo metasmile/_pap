@@ -1213,7 +1213,7 @@ class AppIconRoundedView: RoundedView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        cornerRadius = bounds.height / 2
+
     }
 }
 
@@ -1288,9 +1288,10 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             
             iconBorderColor = UIColor(red: 208 / 255.0, green: 208 / 255.0, blue: 208 / 255.0, alpha: 1)
         }
-        
+
+        appIconView.isOpaque = false
+        appIconView.backgroundColor = UIColor.clear
         appIconView.layer.borderColor = iconBorderColor.cgColor
-        appIconView.layer.borderWidth = 1 / UIScreen.main.scale
     }
 
     //32 x 24 (1x)
@@ -1308,7 +1309,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             return appIconImageView.tintColor
         }
         set {
-            appIconImageView.tintColor = newValue
+            appIconImageView.tintColor = UIColor.clear
         }
     }
 
@@ -1327,21 +1328,25 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     override var isSelected: Bool {
         didSet {
             selectedStateView.isHidden = !isSelected
-
-            if isSelected{
-                appIconView.layer.borderWidth = 0
-            }else{
-                appIconView.layer.borderWidth = 1 / UIScreen.main.scale
-            }
+            setIconImage()
+//            if isSelected{
+//                appIconView.layer.borderWidth = 0
+//            }else{
+//                appIconView.layer.borderWidth = 1 / UIScreen.main.scale
+//            }
         }
     }
 
     //persistedStatus display will be maintained on runtime.
     private static var persistedStatusDict = [String:AppPersistedStatus]()
 
+    private var app:App.Type?
+
     func setAppInfo(_ app: App.Type, at indexPath: IndexPath) {
-        iconImage = app.info.iconBundleName?.asUIImage
+        self.app = app
+
         appTitleLabel.text = app.info.displayName.localized
+        appTitleLabel.textColor = app.info.themeColor ?? UIColor.gray
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
         if status == nil{
@@ -1350,8 +1355,26 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         }
         appStatusIconView.backgroundColor = status?.statusColor
 
+        setIconImage()
+        selectedStateView.layer.cornerRadius = selectedStateView.height/6
         selectedStateView.backgroundColor = (app.info.themeColor ?? UIColor.gray).withAlphaComponent(0.2)
     }
+
+    func setIconImage(){
+
+//        if let iconName = app?.info.iconBundleName{
+//            if isSelected{
+//                iconImage = iconName.asUIImage
+//                appIconView.cornerRadius = appIconView.height / 2
+//            }else{
+//                iconImage = app?.info.embossIconBundleName?.asUIImage ?? iconName.asUIImage
+//                appIconView.cornerRadius = 0
+//            }
+//        }
+        iconImage = app?.info.embossIconBundleName?.asUIImage
+        appIconView.cornerRadius = 0
+    }
+
 }
 
 extension AppPersistedStatus {

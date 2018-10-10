@@ -74,6 +74,9 @@ struct ChargeButtonAppearance: ChargeableButtonAppearance{
             case .owned:
                 return R.image.systemIconChargeOwned()
 
+            case .rented where charge.payment is OneYearAllAppsPayment.Type:
+                return R.image.systemIconChargeRentedOneYear()
+
             case .rented where charge.payment is SixMonthsAllAppsPayment.Type:
                 return R.image.systemIconChargeRentedSixMonth()
 

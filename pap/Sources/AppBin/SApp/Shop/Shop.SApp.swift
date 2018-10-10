@@ -36,8 +36,7 @@ public class ShopApp: NSObject
             , description: nil
             , keywords: nil
             , iconBundleName: R.image.shopSAppIcon.name
-            , themeColor: UIColor(red:0.08, green:0.49, blue:0.98, alpha:1)
-            , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+            , themeColor: UIColor(red:0.08, green:0.49, blue:0.98, alpha:1), embossIconBundleName: R.image.shopSAppEmbossIcon.name             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
 
@@ -95,7 +94,7 @@ extension ShopApp{
                     var items = payGroup.items
                     items.append(contentsOf:localCharges.map ({
                             let pay = PayItem(payable: $0.payment)
-                            pay.rewardIconImageStyle.beRound = true
+//                            pay.rewardIconImageStyle.beRound = true
                             pay.rewardIconImageStyle.useTintColor = false
                             return pay
                         })
@@ -267,13 +266,17 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "%@ Membership".localizedFormatted(papStrings.name)
-                , detailedLabel: "Prices Are Including Every New Apps and Updates.".localized
+                , detailedLabel: "Prices Are Including Every New Apps and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
-                    , PayItem(payable:YearlyAllAppsPayment.self)
-                    , PayItem(payable:MonthlyAllAppsPayment.self)
-                    , PayItem(payable:OneMonthAllAppsPayment.self)
+
+//                    , PayItem(payable:YearlyAllAppsPayment.self)
+//                    , PayItem(payable:MonthlyAllAppsPayment.self)
+
+                    , PayItem(payable:OneYearAllAppsPayment.self)
                     , PayItem(payable:SixMonthsAllAppsPayment.self)
+                    , PayItem(payable:OneMonthAllAppsPayment.self)
+
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
         )
@@ -324,6 +327,10 @@ private struct PayGroup:Hashable, Equatable, Section {
 }
 
 private extension ChargeableImage{
+    static var estimatedMaxSizeLength:CGFloat{
+        return 32
+    }
+
     static func create(for charge:Charge?, tintColor:UIColor, appearance:ChargeableButtonAppearance) -> UIImage{
         let image = ChargeableImage(balance: charge?.priceAmount.value ?? 0, fillMode: .fill, tintColor: tintColor, appearanceDelegate: appearance)
         return image.withAlignmentRectInsets(UIEdgeInsets(top: -6, left: -6, bottom: -6, right: -6))
@@ -398,8 +405,16 @@ private class PayItem: Hashable, Equatable {
                 }
             }
 
-            if let iconImage = iconImage{
-                iconImageCache?.setObject(iconImage, forKey: charge.identifier as NSString)
+            if let _iconImage = iconImage{
+                if _iconImage.size.height > ChargeableImage.estimatedMaxSizeLength{
+                    iconImage = _iconImage.resize(aspectFit: ChargeableImage.estimatedMaxSizeLength.size) ?? _iconImage
+                }else{
+                    iconImage = _iconImage
+                }
+            }
+
+            if let _iconImage = iconImage{
+                iconImageCache?.setObject(_iconImage, forKey: charge.identifier as NSString)
             }
             return iconImage
         }
@@ -614,22 +629,22 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadContactCellDescribers(){
         contactCellDescribers.removeAll()
 
-        let c0 = UITableViewButtonCellDescriber()
-        c0.label = "Give A Rating".localized
-        c0.buttonTitle = "Rate It".localized
-        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-        c0.iconImageTintColor = self.view.tintColor
-        c0.valueHandler = { _ in
-            DispatchQueue.global().async{
-                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
-            }
-        }
-        contactCellDescribers.append(c0)
+//        let c0 = UITableViewButtonCellDescriber()
+//        c0.label = "Give A Rating".localized
+//        c0.buttonTitle = "Rate It".localized
+////        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c0.iconImageTintColor = self.view.tintColor
+//        c0.valueHandler = { _ in
+//            DispatchQueue.global().async{
+//                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+//            }
+//        }
+//        contactCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
         c1.label = "Write A Review".localized
         c1.buttonTitle = "Write".localized
-        c1.iconImage = R.image.cellIconWriteAReview()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c1.iconImage = R.image.cellIconWriteAReview()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c1.iconImageTintColor = self.view.tintColor
         c1.valueHandler = { _ in
             DispatchQueue.global().async{
@@ -641,7 +656,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c123 = UITableViewButtonCellDescriber()
         c123.label = "Share This App".localized
         c123.buttonTitle = "Share".localized
-        c123.iconImage = R.image.commonCellIconShare()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c123.iconImage = R.image.commonCellIconShare()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c123.iconImageTintColor = self.view.tintColor
         c123.valueHandler = { _ in
             DispatchQueue.global().async{
@@ -653,7 +668,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c2 = UITableViewButtonCellDescriber()
         c2.label = "Contact Us Now".localized
         c2.buttonTitle = "Send".localized
-        c2.iconImage = R.image.cellIconContactUs()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c2.iconImage = R.image.cellIconContactUs()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c2.valueHandler = { _ in
             AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
         }
@@ -663,7 +678,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             let c6 = UITableViewButtonCellDescriber()
             c6.label = "VIP Hotline".localized
             c6.buttonTitle = "Inquiry".localized
-            c6.iconImage = R.image.cellIconVIPHotline()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//            c6.iconImage = R.image.cellIconVIPHotline()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
             c6.iconImageTintColor = self.view.tintColor
             c6.valueHandler = { _ in
                 //TODO: add realtime messenger or in-app messaging.
@@ -676,7 +691,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 //        let c3 = UITableViewButtonCellDescriber()
 //        c3.label = "User Community".localized
 //        c3.buttonTitle = "Visit".localized
-//        c3.iconImage = R.image.cellIconUserGroup.name
+////        c3.iconImage = R.image.cellIconUserGroup.name
 //        c3.iconImageTintColor = self.view.tintColor
 //        c3.valueHandler = { _ in
 //            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
@@ -686,7 +701,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c322 = UITableViewButtonCellDescriber()
         c322.label = "Stories Behind the Apps".localized
         c322.buttonTitle = "Visit".localized
-        c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c322.iconImageTintColor = self.view.tintColor
         c322.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
@@ -701,7 +716,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c42343 = UITableViewButtonCellDescriber()
         c42343.label = "Photo Apps Index"
         c42343.buttonTitle = "Open".localized
-        c42343.iconImage = R.image.cellIconAppsIndex()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c42343.iconImage = R.image.cellIconAppsIndex()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c42343.iconImageTintColor = self.view.tintColor
         c42343.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeAppsIndex>.self)
@@ -711,7 +726,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c345 = UITableViewButtonCellDescriber()
         c345.label = "Video Tutorials".localized
         c345.buttonTitle = "Open".localized
-        c345.iconImage = R.image.cellIconYouTubeChannel()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c345.iconImage = R.image.cellIconYouTubeChannel()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c345.iconImageTintColor = self.view.tintColor
         c345.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
@@ -721,7 +736,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c234 = UITableViewButtonCellDescriber()
         c234.label = "Usage Guide".localized
         c234.buttonTitle = "Open".localized
-        c234.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c234.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c234.iconImageTintColor = self.view.tintColor
         c234.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
@@ -731,7 +746,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c3243 = UITableViewButtonCellDescriber()
         c3243.label = "Engineering Notes".localized
         c3243.buttonTitle = "Open".localized
-        c3243.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c3243.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c3243.iconImageTintColor = self.view.tintColor
         c3243.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeEngineeringNotes>.self)
@@ -741,7 +756,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c3 = UITableViewButtonCellDescriber()
         c3.label = "Privacy Policy".localized
         c3.buttonTitle = "Open".localized
-        c3.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c3.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c3.iconImageTintColor = self.view.tintColor
         c3.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypePrivacyPolicy>.self)
@@ -751,7 +766,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         let c7 = UITableViewButtonCellDescriber()
         c7.label = "Terms of Use".localized
         c7.buttonTitle = "Open".localized
-        c7.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c7.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c7.iconImageTintColor = self.view.tintColor
         c7.valueHandler = { _ in
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeTermsOfUse>.self)
@@ -1047,13 +1062,18 @@ extension ShopAppDockContent{
         // Cell.ImageView: Reward
         cell.imageView?.tintColor = self.view.tintColor
 
-        if dataItem.rewardIconImageStyle.useTintColor {
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        }else{
-            cell.imageView?.image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        }
-        if dataItem.rewardIconImageStyle.beRound, let image = cell.imageView?.image{
-            cell.imageView?.image = image.rounded(radius: image.size.height)?.resize(aspectFit: CGSize(width: tableView.rowHeight*image.size.height/image.size.width, height: tableView.rowHeight))
+        if let image = dataItem.getRewardIconImage(tintColor:view.tintColor)?.asUIImage{
+            var cellImage:UIImage = image
+
+            if dataItem.rewardIconImageStyle.beRound{
+                cellImage = cellImage.rounded(radius: cellImage.size.height) ?? cellImage
+            }
+
+            if dataItem.rewardIconImageStyle.useTintColor {
+                cell.imageView?.image = cellImage.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+            }else{
+                cell.imageView?.image = cellImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+            }
         }
 
         if dataItem.isIndicating{

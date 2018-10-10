@@ -77,8 +77,7 @@ public class StabilizerApp: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, P
             , appType: StabilizerApp.self
             , displayName: "Stabilizer".localized, description:nil, keywords:nil
             , iconBundleName: nil
-            , themeColor: UIColor(red: 0, green: 0, blue: 128 / 255.0, alpha: 1)
-            , policy: AppPolicy.default
+            , themeColor: UIColor(red: 0, green: 0, blue: 128 / 255.0, alpha: 1), embossIconBundleName: nil            , policy: AppPolicy.default
             , minOSVersion: nil
     )
 

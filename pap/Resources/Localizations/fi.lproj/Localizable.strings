@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 kuukauden jäsenyys";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 vuoden jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "Kaikkien sovellusten 1 kuukauden käyttö ja uusi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1 kuukauden käyttö pää- ja uusiin sovelluksiin";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "Kaikkien ja uusien sovellusten 1 vuoden käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1 vuoden käyttö tärkeimpien ja uusien sovellusten käyttöön";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "Valmistellaan";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "esiasetukset";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Hinnat sisältävät jokaisen uuden sovelluksen ja päivityksen.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Hinnat sisältävät jokaisen uuden sovelluksen ja päivityksen, myös se ei uusi automaattisesti.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Tietosuojakäytäntö";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -538,8 +542,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Palautuksen avulla voidaan palauttaa joukko muokattuja valokuvia alkuperäiseen nopeasti. Lisäksi se auttaa sinua automaattisessa valinnassa!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Entisöinti";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "uusintaotos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Käänteinen";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 개월 회원";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 년 회원";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1 개월 동안 모든 앱 및 새로운 앱 사용";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "메인 앱과 새 앱의 1 개월 사용";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "모든 앱과 새로운 앱의 1 년 사용";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "주 앱과 새 앱의 1 년 사용";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "준비 중";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "프리셋";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "가격에는 새로운 앱 및 업데이트가 모두 포함됩니다.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "가격에는 새로운 앱 및 업데이트가 모두 포함되며 자동 갱신되지 않습니다.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "개인 정보 정책";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -538,8 +542,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "복원을 사용하면 여러 장의 사진을 원본 사진으로 신속하게 복원 할 수 있습니다. 또한, 그것은 자동 선택으로 당신을 도와줍니다!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "복구";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "다시 잡다";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "역방향";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -136,3 +136,8 @@ extension CGRect: Hashable {
     }
 }
 
+extension CGFloat{
+    public var size:CGSize{
+        return CGSize(width:self, height:self)
+    }
+}

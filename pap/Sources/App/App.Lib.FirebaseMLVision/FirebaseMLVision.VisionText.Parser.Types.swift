@@ -61,6 +61,9 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
     //https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     private let deniedPattern = "[^0-9\\+\\s\\)\\(\\-]|(^\\-)"
 
+    // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN
+    private let prefixSpacePattern = "^[0-9]{2,4}$"
+
     func process(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = blockParser.process(input: input) else{
             return nil
@@ -68,13 +71,23 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 
         var phoneNumbers = Set<String>()
 
+        var previousWord:String = ""
+
         for line in lines{
             for word in line{
-                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word)
+
+                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word.trimmed)
                     , !phoneNumbers.contains(phoneNumber.numberString)
                     , phoneNumber.type != .notParsed && phoneNumber.type != .unknown
                     , phoneNumber.numberString.count>0
                     , !phoneNumber.numberString.matched(deniedPattern){
+
+                    let estimatedPrefix = previousWord.trimmed
+                    if estimatedPrefix.matched(prefixSpacePattern){
+                        phoneNumbers.insert("\(estimatedPrefix)-\(phoneNumber.numberString)")
+                    }else{
+                        phoneNumbers.insert(phoneNumber.numberString)
+                    }
 
 //                    print(phoneNumber.numberString.matched(deniedPattern),
 //                            phoneNumber.type
@@ -83,10 +96,12 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
 //                            , phoneNumber.countryCode
 //                            , phoneNumber.nationalNumber
 //                            , phoneNumber.numberExtension)
+//
 
-                    phoneNumbers.insert(phoneNumber.numberString)
                 }
+                previousWord = word
             }
+
         }
 
         return Array<String>(phoneNumbers).nilEmpty

@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 maand lidmaatschap";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 jaar lidmaatschap";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1-maand gebruik van alle apps en nieuw";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-maand gebruik van hoofd- en nieuwe apps";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 jaar gebruik van alle en nieuwe apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1 jaar gebruik van hoofd- en nieuwe apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "voorbereidingen treffen";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Prijzen zijn inclusief alle nieuwe apps en updates.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Prijzen zijn inclusief alle nieuwe apps en updates, ook wordt deze niet automatisch verlengd.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Privacybeleid";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -538,8 +542,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Met restauratie kunt u een groot aantal bewerkte foto's snel terugzetten naar de originele foto's. Bovendien helpt het u met de automatische selectie!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Restauratie";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "heroveren";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Omgekeerde";
 /* Generated from genl10n: GIFMaker.BApp.swift */

@@ -142,10 +142,14 @@
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift#189 */
 "1 Month Membership" = "1 місяць членство";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 рік членства";
 /* Generated from genl10n: AppCenter.Charge.swift#178 */
 "1-Month Use of All and New Apps" = "1-місячне використання всіх програм і нових";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Apps" = "1-місячне використання основних та нових програм";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 рік використання всіх і нових програм";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Apps" = "1 рік використання основних та нових програм";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -498,8 +502,8 @@
 "Preparing" = "Підготовка";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
-/* Generated from genl10n: Shop.SApp.swift#273 */
-"Prices Are Including Every New Apps and Updates." = "Ціни включають кожен новий додаток та оновлення.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Ціни включають в себе кожне нове додаток та оновлення, а також автоматично не поновлюються.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Політика конфіденційності";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -538,8 +542,6 @@
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Реставрація дозволяє швидко відновлювати купу відредагованих фотографій до оригіналу. Крім того, це допоможе вам з автоматичним вибором!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
 "Restorer" = "Реставрація";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Retake" = "Повторювати";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Reverse" = "Зворотний";
 /* Generated from genl10n: GIFMaker.BApp.swift */

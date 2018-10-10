@@ -53,11 +53,11 @@ extension CSSearchable{
         csItemAttr.keywords = app.info.keywords
         if let image = app.info.iconBundleName?.asUIImage{
             autoreleasepool {
-                var thumbnailImage = image
-                if let rImage = image.rounded(radius: image.size.height/2){
-                    thumbnailImage = rImage
-                }
-                csItemAttr.thumbnailData = thumbnailImage.pngData()
+//                var thumbnailImage = image
+//                if let rImage = image.rounded(radius: image.size.height/2)*/{
+//                    thumbnailImage = rImage
+//                }
+                csItemAttr.thumbnailData = image.pngData()
             }
         }
         self.init(suffix: app.info.identifier, domain: String(describing: App.self), attributeSet: csItemAttr)

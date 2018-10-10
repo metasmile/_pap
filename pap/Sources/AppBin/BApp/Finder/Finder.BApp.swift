@@ -44,9 +44,8 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
             , displayName: "Finder".localized
             , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
-            , iconBundleName: R.image.finderBAppIcon.name
-            , themeColor: UIColor(red:0.36, green:0.31, blue:0.71, alpha:1)
-            , policy: AppPolicy.default
+            , iconBundleName: R.image.finderBAppEmbossIcon.name
+            , themeColor: UIColor(red:0.36, green:0.31, blue:0.71, alpha:1), embossIconBundleName: R.image.finderBAppEmbossIcon.name             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
@@ -615,12 +614,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
                 items: [
-                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.ico_action_phonenumber.name)
-                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.ico_action_email.name)
-                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.ico_action_address.name)
-                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.ico_action_date.name)
-                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.ico_action_url.name)
-                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.ico_action_flightnumber.name)
+                    ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.appActionIconPhoneNumber.name)
+                    ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.appActionIconEmail.name)
+                    ,ParserItem(key: ParserItem.Key.Address, label:"Address".localized, iconImageBundleName:R.image.appActionIconLocation.name)
+                    ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.appActionIconDate.name)
+                    ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.appActionIconURL.name)
+                    ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.appActionIconFlight.name)
                 ])
     ]
 

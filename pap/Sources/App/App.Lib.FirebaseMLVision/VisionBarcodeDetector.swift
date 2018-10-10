@@ -26,9 +26,9 @@ class VisionBarcodeText: NSObject, VisionText {
 
 extension VisionBarcodeDetector{
     
-    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionText]? {
+    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionBarcodeText]? {
         let visionImage = VisionImage(image: image)
-        var result:[VisionText]?
+        var result:[VisionBarcodeText]?
         
         async.begin()
         self.detect(in: visionImage) { (features, error) in
@@ -40,23 +40,5 @@ extension VisionBarcodeDetector{
         }
         async.waitUntilEnd()
         return result
-    }
-}
-
-import EventKit
-
-extension VisionBarcode {
-    var event: EKEvent? {
-        guard valueType == .calendarEvent else { return nil }
-        
-        let event = EKEvent()
-        
-        event.title = calendarEvent?.summary
-        event.startDate = calendarEvent?.start
-        event.endDate = calendarEvent?.end
-        event.notes = calendarEvent?.eventDescription
-        event.location = calendarEvent?.location
-        
-        return event
     }
 }
