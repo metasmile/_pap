@@ -740,6 +740,36 @@ extension Array where Element:VisionTextDetectResult {
                 }
                 
                 switch barcode.valueType {
+                case .calendarEvent:
+                    guard let calendarEvent = barcode.calendarEvent else { break }
+                    
+                    let action = UIAlertAction(title: calendarEvent.summary ?? "New Event".localized, style: .default, handler: { action in
+                        EventKitUtil.shared.newEvent { event in
+                            
+                            if let event = event {
+                                event.title = calendarEvent.summary
+                                event.startDate = calendarEvent.start
+                                if let start = calendarEvent.start, let end = calendarEvent.end, start <= end {
+                                    event.endDate = end
+                                }
+                                else {
+                                    event.endDate = calendarEvent.start
+                                }
+                                event.location = calendarEvent.location
+                                event.notes = calendarEvent.eventDescription
+                                
+                                EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
+                                    asyncSignal.end()
+                                })
+                                
+                            }else{
+                                asyncSignal.end()
+                            }
+                        }
+
+                    })
+                    action.accessoryImage = R.image.ico_action_date()
+                    alert.addAction(action)
                 case .phone:
                     guard let phone = barcode.phone?.number else { break }
                     
