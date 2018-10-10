@@ -780,7 +780,14 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     fileprivate func showActions(with results: [VisionTextImageDetectResult]) {
         DispatchQueue.global(qos: .userInteractive).async{
             let asyncSignal = AsyncSignal()
-            if let resultMessage = results.handleAsAction(true, asyncSignal){
+
+            let quickMode = self.switchShowAllTexts.isOn == false
+            var previewTexts:String?
+            if !quickMode{
+                previewTexts = results.compactMap{ $0.plainText }.joined().trimmed.nilEmpty
+            }
+
+            if let resultMessage = results.handleAsAction(quickMode, message: previewTexts, asyncSignal){
                 asyncSignal.begin()
                 DispatchQueue.main.async {
                     UIAlertController.alert(resultMessage, completion:{ _ in

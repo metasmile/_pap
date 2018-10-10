@@ -47,12 +47,12 @@ extension Array where Element:VisionTextDetectResult {
         }
     }
 
-    func handleAsAction(_ isQuickActionOnly:Bool, _ asyncSignal: AsyncWaitSignalable) -> String?{
+    func handleAsAction(_ isQuickActionOnly:Bool, message:String?=nil, _ asyncSignal: AsyncWaitSignalable) -> String?{
 
         let items: [VisionTextDetectResult] = self
         let currentQueue = DispatchQueue.current
 
-        let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: nil)
+        let alert = UIAlertController.actionSheet(title: "Choose An Action".localized, message: message)
 
         let defaultCancelSubAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
@@ -142,6 +142,8 @@ extension Array where Element:VisionTextDetectResult {
 
                     action = phoneNumberActionCall(phoneNumber)
 
+                    action.accessoryImage = R.image.appActionIconPhoneCall()
+
                 }else{
                     let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
 
@@ -173,9 +175,9 @@ extension Array where Element:VisionTextDetectResult {
                         }
 
                     })
-                }
 
-                action.accessoryImage = R.image.appActionIconPhoneNumber()
+                    action.accessoryImage = R.image.appActionIconPhoneNumber()
+                }
 
                 alert.addAction(action)
 
@@ -708,7 +710,7 @@ extension Array where Element:VisionTextDetectResult {
                     }
                     
                     //root action
-                    action = UIAlertAction(title: "Share Entire Text".localized, style: . default, handler: { action in
+                    action = UIAlertAction(title: plainText.components(separatedBy: .newlines).joined(), style: . default, handler: { action in
                         DispatchQueue.main.async{
                             UIViewController.present(_alert, animated: true)
                         }
@@ -806,7 +808,7 @@ extension Array where Element:VisionTextDetectResult {
                             asyncSignal.end()
                         }
                     })
-                    action.accessoryImage = R.image.appActionIconURL()
+                    action.accessoryImage = R.image.appActionIconPhoneCall()
                     alert.addAction(action)
                 case .product:
                     guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
