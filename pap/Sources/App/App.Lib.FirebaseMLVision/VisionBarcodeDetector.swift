@@ -26,9 +26,9 @@ class VisionBarcodeText: NSObject, VisionText {
 
 extension VisionBarcodeDetector{
     
-    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionText]? {
+    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionBarcodeText]? {
         let visionImage = VisionImage(image: image)
-        var result:[VisionText]?
+        var result:[VisionBarcodeText]?
         
         async.begin()
         self.detect(in: visionImage) { (features, error) in

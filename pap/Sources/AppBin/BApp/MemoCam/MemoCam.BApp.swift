@@ -80,8 +80,9 @@ extension VisionTextResultGroup {
             case .calendarEvent:
                 guard let event = barcode.calendarEvent?.start else { break }
                 dates.append([event])
-//            case .product:
-//                print("product", barcode.rawValue)
+            case .product:
+                guard let product = barcode.rawValue, let url = URL(string: "https://google.com/search?q=\(product)") else { break }
+                urls.append([url])
             case .ISBN:
                 guard let isbn = barcode.rawValue, let url = URL(string: "https://isbnsearch.org/isbn/\(isbn)") else { break }
                 urls.append([url])
