@@ -24,6 +24,8 @@ class CIMLArtFilter: CIFilter {
         self.style = style
     }
 
+    var outputAsResizedOriginalSize = true
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -33,14 +35,24 @@ class CIMLArtFilter: CIFilter {
     override var outputImage: CIImage? {
         return autoreleasepool {
             guard let image = value(forKey: kCIInputImageKey) as? CIImage
-            , let uiImage = image.asUIImage else {
+            , let inputImage = image.asUIImage else {
                 return nil
             }
 
-            //TODO: directly process CIImage
-            //FIXME: filter preview is correct but original image is wrong. (maybe max 700)
-            if let resultImage = MLArtProcessor().process(image: uiImage, style: style){
-                return CIImage(image: resultImage)
+            let inputImageSize = inputImage.size
+
+            if let processedImage = MLArtProcessor().process(image: inputImage, style: style){
+
+                var outputImage = processedImage
+                let neededOutputSize = outputAsResizedOriginalSize ? inputImageSize : inputImageSize.aspectFit(in: processedImage.size)
+
+                if processedImage.size != neededOutputSize{
+                    if let resizedOutputImage = processedImage.re(size: neededOutputSize){
+                        outputImage = resizedOutputImage
+                    }
+                }
+
+                return CIImage(image:outputImage)
             }
 
             return nil
