@@ -25,7 +25,22 @@ extension Array where Element:VisionTextDetectResult {
         }
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            print(#function, self)
+            controller.dismiss(animated: true, completion: nil)
+            
+            completion?()
+        }
+    }
+    
+    class MessageComposerDelegator: NSObject, MFMessageComposeViewControllerDelegate {
+        var completion: (() -> Void)?
+        
+        convenience init(completion: (() -> Void)?) {
+            self.init()
+            
+            self.completion = completion
+        }
+        
+        func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
             controller.dismiss(animated: true, completion: nil)
             
             completion?()
@@ -44,6 +59,10 @@ extension Array where Element:VisionTextDetectResult {
         })
         
         let defaultMailComposerDelegator = MailComposerDelegator {
+            asyncSignal.end()
+        }
+        
+        let defaultMessageComposerDelegator = MessageComposerDelegator {
             asyncSignal.end()
         }
 
@@ -709,18 +728,39 @@ extension Array where Element:VisionTextDetectResult {
             for barcode in resultGroup.barcodes ?? [] {
                 switch barcode.valueType {
                 case .URL: break
+                case .SMS:
+                    guard let sms = barcode.sms, let phone = sms.phoneNumber else { break }
+                    let action = UIAlertAction(title: phone, style: .default, handler: { action in
+                        if MFMessageComposeViewController.canSendText() {
+                            let composer = MFMessageComposeViewController()
+                            composer.messageComposeDelegate = defaultMessageComposerDelegator
+                            composer.recipients = [phone]
+                            composer.body = sms.message
+                            
+                            DispatchQueue.main.async{
+                                UIViewController.present(composer, animated: true)
+                            }
+                        }
+                        else if let url = URL(string: "sms://\(phone)&body=\(sms.message?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"), UIApplication.shared.canOpenURL(url) {
+                            asyncSignal.end()
+                            UIApplication.shared.open(url)
+                        }
+                    })
+                    
+                    action.accessoryImage = R.image.ico_action_email()
+                    alert.addAction(action)
                 case .email:
                     guard let email = barcode.email, let address = email.address else { break }
                     let action = UIAlertAction(title: address, style: .default, handler: { action in
                         if MFMailComposeViewController.canSendMail() {
-                            let mailComposer = MFMailComposeViewController()
-                            mailComposer.mailComposeDelegate = defaultMailComposerDelegator
-                            mailComposer.setToRecipients([address])
-                            mailComposer.setSubject(email.subject ?? "")
-                            mailComposer.setMessageBody(email.body ?? "", isHTML: false)
+                            let composer = MFMailComposeViewController()
+                            composer.mailComposeDelegate = defaultMailComposerDelegator
+                            composer.setToRecipients([address])
+                            composer.setSubject(email.subject ?? "")
+                            composer.setMessageBody(email.body ?? "", isHTML: false)
                             
                             DispatchQueue.main.async{
-                                UIViewController.present(mailComposer, animated: true)
+                                UIViewController.present(composer, animated: true)
                             }
                         }
                         else if let url = URL(string: "mailto://\(email)"), UIApplication.shared.canOpenURL(url) {
