@@ -86,6 +86,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , keywords: ["YouArt", "Color", "Effect", "High-Quality"]
         , iconBundleName: R.image.youArtBAppIcon.name
         , themeColor: nil
+        , embossIconBundleName: R.image.youArtBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
