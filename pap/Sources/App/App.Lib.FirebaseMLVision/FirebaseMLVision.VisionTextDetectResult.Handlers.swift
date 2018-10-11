@@ -687,7 +687,7 @@ extension Array where Element:VisionTextDetectResult {
                 }
                 
                 if isQuickActionOnly{
-                    action = _quickAction(plainText.components(separatedBy: .newlines).joined())
+                    action = _quickAction("All Texts".localized)
                     
                 }else{
                     let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
@@ -710,7 +710,7 @@ extension Array where Element:VisionTextDetectResult {
                     }
                     
                     //root action
-                    action = UIAlertAction(title: plainText.components(separatedBy: .newlines).joined(), style: . default, handler: { action in
+                    action = UIAlertAction(title: "All Texts".localized, style: . default, handler: { action in
                         DispatchQueue.main.async{
                             UIViewController.present(_alert, animated: true)
                         }
@@ -904,7 +904,7 @@ extension Array where Element:VisionTextDetectResult {
                     action.accessoryImage = R.image.appActionIconLocation()
                     alert.addAction(action)
                 case .text, .unknown:
-                    let plainText = barcode.rawValue ?? ""
+                    guard let plainText = barcode.rawValue else { break }
                     var action:UIAlertAction?
                     
                     //sub actions
