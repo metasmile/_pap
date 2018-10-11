@@ -43,7 +43,7 @@ public struct FileURL {
     }
 
     public static func queuePrivateGroup(_ queueName:String=DispatchQueue.currentLabel) -> String{
-        return queueName
+        return queueName.replace("/", "") //path splitter not allowed.
     }
 
     /*
