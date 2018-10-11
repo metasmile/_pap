@@ -41,7 +41,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
             , version: "1.0"
             , phase: .release
             , appType: CleanerApp.self
-            , displayName: "Cleaner".localized
+            , displayName: "Cleaner".localized.localizedCapitalized
             , description: "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!".localized
             , keywords: ["Clean","Remove","Instagram Video","Screenshot", "Flashlight", "Close-up", "Similar Photos", "Duplicate", "Capacity", "Memory", "Volume", "Saving"]
             , iconBundleName: R.image.cleanerBAppEmbossIcon.name

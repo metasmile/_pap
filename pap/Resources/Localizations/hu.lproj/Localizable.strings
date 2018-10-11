@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "Bármikor ingyenes lemondás.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Alkalmazzon kiváló minőségű szűrőket az összes kívánt fotóra. Ez a kötegelt feldolgozó eszköz nem korlátozza a szűrők alkalmazásához szükséges fotók számát.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Művész";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Képarány";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

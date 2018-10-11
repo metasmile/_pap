@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "การยกเลิกฟรีทุกเวลา";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "ใช้ตัวกรองคุณภาพสูงกับรูปภาพทั้งหมดที่คุณต้องการ เครื่องมือการประมวลผลชุดนี้ไม่ จำกัด จำนวนรูปภาพที่จะใช้ตัวกรอง";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "ศิลปิน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "อัตราส่วนภาพ";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

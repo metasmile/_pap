@@ -54,7 +54,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
             , version: "1.0"
             , phase: .release
             , appType: TransformApp.self
-            , displayName: "Rotation".localized
+            , displayName: "Rotation".localized.localizedCapitalized
             , description: "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.".localized
             , keywords: ["Transformation", "Rotation","Flip","Vertical","Editor"]
             , iconBundleName: R.image.transformBAppEmbossIcon.name

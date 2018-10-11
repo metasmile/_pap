@@ -47,7 +47,7 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
         , version: "1.0"
         , phase: .release
         , appType: CameraApp.self
-        , displayName: "Camera".localized
+        , displayName: "Camera".localized.localizedCapitalized
         , description: "Robust Standard Built-In Camera for Capturing Live Photos."
         , keywords:["Camera", "Capture","Take a photo", "Video", "Record"]
         , iconBundleName: R.image.cameraSAppEmbossIcon.name

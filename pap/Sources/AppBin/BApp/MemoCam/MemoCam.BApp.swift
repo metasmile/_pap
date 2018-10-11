@@ -31,7 +31,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , version: "1.0"
         , phase: .develop
         , appType: MemoCamApp.self
-        , displayName: "Memo Cam".localized, description:nil, keywords:nil
+        , displayName: "Memo Cam".localized.localizedCapitalized, description:nil, keywords:nil
         , iconBundleName: nil
             , themeColor: nil, embossIconBundleName: nil        , policy: AppPolicy.default
         , minOSVersion: nil

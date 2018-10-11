@@ -58,7 +58,7 @@ public class PhoneCallsApp: NSObject, PropertyWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: PhoneCallsApp.self
-            , displayName: "Phone Calls".localized
+            , displayName: "Phone Calls".localized.localizedCapitalized
             , description:"Phone Calls lets you grab phone numbers accurately in your numerous photos. Then you merely start calling!"
             , keywords: ["Phone", "Call", "Numbers", "Address", "Contacts"]
             , iconBundleName: R.image.phoneCallsBAppEmbossIcon.name

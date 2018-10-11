@@ -81,7 +81,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , version: "1.0"
         , phase: .develop
         , appType: ArtistApp.self
-        , displayName: "Artist"
+        , displayName: "Artist".localized.localizedCapitalized
         , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
         , keywords: ["Artist", "Color", "Effect", "High-Quality"]
         , iconBundleName: R.image.artistBAppIcon.name

@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "När som helst gratis avbokning.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Applicera filter med hög kvalitet på alla dina foton. Det här batchbehandlingsverktyget har ingen gräns för antalet bilder som ska appliceras på filter.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Konstnär";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Bildförhållande";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

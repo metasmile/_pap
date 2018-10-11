@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "いつでも無料でキャンセルできます。";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "すべての写真に高品質のフィルタを適用します。このバッチ処理ツールには、フィルタを適用する写真の数に制限はありません。";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "アーティスト";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "アスペクト比";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

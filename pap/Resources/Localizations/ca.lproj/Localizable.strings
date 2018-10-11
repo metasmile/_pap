@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "Cancel·lació gratuïta en qualsevol moment.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Apliqueu filtres d'alta qualitat a totes les fotografies que desitgeu. Aquesta eina de processament per lots no té límit en la quantitat de fotos per aplicar filtres.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Artista";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Relació d'aspecte";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

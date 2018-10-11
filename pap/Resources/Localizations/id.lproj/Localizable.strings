@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "Pembatalan gratis kapan saja.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Terapkan filter Kualitas Tinggi pada semua foto yang Anda inginkan. Alat pengolah batch ini tidak memiliki batasan jumlah foto untuk menerapkan filter.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Artis";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "Rasio Aspek";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */

@@ -73,7 +73,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
             , version: "1.1"
             , phase: .release
             , appType: ConverterApp.self
-            , displayName: "Converter".localized
+            , displayName: "Converter".localized.localizedCapitalized
             , description: "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.".localized
             , keywords: ["GIF Converter", "Live Photos", "GIF Editor", "GIF", "Video Converter", "Mp4", "MOV", "Movie File", "Video Quality","Burst Photos","Animated GIF", "Animation"]
             , iconBundleName: R.image.converterBAppEmbossIcon.name

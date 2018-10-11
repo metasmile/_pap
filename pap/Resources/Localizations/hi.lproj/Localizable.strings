@@ -206,6 +206,8 @@
 "Anytime free cancellation." = "कभी भी मुफ्त रद्दीकरण।";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "अपनी इच्छित तस्वीरों पर उच्च-गुणवत्ता वाले फ़िल्टर लागू करें। इस बैच प्रोसेसिंग टूल में फ़िल्टर लागू करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "कलाकार";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Aspect Ratio" = "आस्पेक्ट अनुपात";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
