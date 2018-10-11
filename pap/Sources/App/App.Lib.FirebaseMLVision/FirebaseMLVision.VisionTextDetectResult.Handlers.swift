@@ -686,11 +686,13 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
                 
+                let actionTitle = item.sourceVisionTexts?.count == 1 ? "Text".localized :  "All Texts".localized
+                
                 if isQuickActionOnly{
-                    action = _quickAction("All Texts".localized)
+                    action = _quickAction(actionTitle)
                     
                 }else{
-                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: plainText)
                     
                     var _actions = [defaultCancelSubAction]
                     
@@ -710,7 +712,7 @@ extension Array where Element:VisionTextDetectResult {
                     }
                     
                     //root action
-                    action = UIAlertAction(title: "All Texts".localized, style: . default, handler: { action in
+                    action = UIAlertAction(title: actionTitle, style: . default, handler: { action in
                         DispatchQueue.main.async{
                             UIViewController.present(_alert, animated: true)
                         }

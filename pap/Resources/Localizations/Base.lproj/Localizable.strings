@@ -150,7 +150,7 @@
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "All Texts" = "All Texts";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
@@ -626,7 +626,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Terms of Use" = "Terms of Use";
-/* Generated from genl10n: Finder.BApp.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";
