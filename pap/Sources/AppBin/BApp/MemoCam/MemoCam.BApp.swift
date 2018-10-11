@@ -9,6 +9,7 @@
 import UIKit
 import PropertyKit
 import Vision
+import AVFoundation
 
 private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
@@ -526,30 +527,44 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return layer
     }
     
-    private func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
-        let previewSize = self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size)
-        
+    fileprivate func drawPolygons(with quads: [CGQuad], to layer: CAShapeLayer, in previewSize: CGSize? = nil) {
         let path = UIBezierPath()
-        for observation in observations {
+        
+        for quad in quads {
             let polygon = UIBezierPath()
-            polygon.move(to: observation.topLeft)
-            polygon.addLine(to: observation.topRight)
-            polygon.addLine(to: observation.bottomRight)
-            polygon.addLine(to: observation.bottomLeft)
+            polygon.move(to: quad.topLeft)
+            polygon.addLine(to: quad.topRight)
+            polygon.addLine(to: quad.bottomRight)
+            polygon.addLine(to: quad.bottomLeft)
             polygon.close()
             
             path.append(polygon)
         }
         
-        let transform = CGAffineTransform.identity
-            .scaledBy(x: 1, y: -1)
-            .translatedBy(x: 0, y: -previewSize.height)
-            .scaledBy(x: previewSize.width, y: previewSize.height)
-        
-        path.apply(transform)
-        
-        layer.path = path.cgPath
-        layer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
+        if let previewSize = previewSize {
+            let transform = CGAffineTransform.identity
+                .scaledBy(x: 1, y: -1)
+                .translatedBy(x: 0, y: -previewSize.height)
+                .scaledBy(x: previewSize.width, y: previewSize.height)
+            
+            path.apply(transform)
+            
+            layer.path = path.cgPath
+            layer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
+        }
+        else {
+            layer.path = path.cgPath
+            layer.frame = self.cameraView.bounds
+        }
+    }
+    
+    fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
+        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size))
+    }
+    
+    fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
+        let padding: CGFloat = 4
+        drawPolygons(with: codeObjects.map { CGQuad($0.corners, clockwised: false).inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding)) }, to: layer)
     }
     
     private lazy var detector = MemoCamAppDetector()
@@ -580,14 +595,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.layer.addSublayer(detectTextLayer)
         cameraView.layer.addSublayer(detectBarcodesLayer)
         
-        let detectBarcodesRequest = VNDetectBarcodesRequest { (request, error) in
-            guard let observations = request.results as? [VNBarcodeObservation] else { return }
-            
-            DispatchQueue.main.async {
-                self.drawPolygons(with: observations, to: detectBarcodesLayer)
-            }
-        }
-        
         let detectTextRequest = VNDetectTextRectanglesRequest { (request, error) in
             guard let observations = request.results as? [VNTextObservation] else { return }
             
@@ -596,8 +603,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
         }
         
-        cameraView.startSession()
-        cameraView.captureVideoDataDidUpdate = { sampleBuffer in
+        cameraView.captureVideoDataDidOutput = { sampleBuffer in
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
             let deviceOrientation = self.cameraView.deviceMotion.orientation
@@ -622,15 +628,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 options[VNImageOption.cameraIntrinsics] = cameraIntrinsicMatrix
             }
             
-            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([
-                detectTextRequest,
-                detectBarcodesRequest
-            ])
+            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
         }
+        cameraView.setMetadataOutput { (metadataObjects) in
+            DispatchQueue.main.async {
+                self.drawPolygons(with: metadataObjects as? [AVMetadataMachineReadableCodeObject] ?? [], to: detectBarcodesLayer)
+            }
+        }
+        cameraView.startSession()
     }
     
     func willRemoveContentView() {
-        cameraView.captureVideoDataDidUpdate = nil
+        cameraView.captureVideoDataDidOutput = nil
         cameraView.stopSession()
     }
     
@@ -821,6 +830,7 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     }
 }
 
+/*
 import ARKit
 
 class AppUIARView: UIView {
@@ -952,3 +962,4 @@ extension float4x4 {
         return float3(translation.x, translation.y, translation.z)
     }
 }
+*/

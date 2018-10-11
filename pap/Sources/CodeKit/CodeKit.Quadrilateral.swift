@@ -26,8 +26,15 @@ public struct CGQuad {
         self.bottomLeft = bottomLeft
     }
     
-    init(_ corners: [CGPoint]) {
-        self.init(corners[0], corners[1], corners[2], corners[3])
+    init(_ corners: [CGPoint], clockwised: Bool = true) {
+        let corners: [CGPoint] = corners.count == 4 ? corners : Array<CGPoint>(repeating: .zero, count: 4)
+        
+        if clockwised {
+            self.init(corners[0], corners[1], corners[2], corners[3])
+        }
+        else {
+            self.init(corners[0], corners[3], corners[2], corners[1])
+        }
     }
 }
 

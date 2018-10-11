@@ -49,7 +49,8 @@ class CameraView: UIView, PropertyWatchable {
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     
     private lazy var captureVideoDataQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
-    var captureVideoDataDidUpdate: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
+    var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
+    private(set) var captureVideoMetadataDidOutput: ((_ metadataObjects: [AVMetadataObject]) -> Void)?
 
     private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
     private var cameraPointOfInterestLayer: CAShapeLayer?
@@ -323,7 +324,35 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        self.captureVideoDataDidUpdate?(sampleBuffer)
+        self.captureVideoDataDidOutput?(sampleBuffer)
+    }
+}
+
+extension CameraView: AVCaptureMetadataOutputObjectsDelegate {
+    func setMetadataOutput(types metadataObjectTypes: [AVMetadataObject.ObjectType]? = nil, updateBlock: (([AVMetadataObject]) -> Void)?) {
+        self.captureVideoMetadataDidOutput = updateBlock
+        
+        sessionQueue.async {
+            guard let captureSession = self.captureSession else { return }
+            
+            self.beginConfiguration()
+            
+            let metadataOutput = AVCaptureMetadataOutput()
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue(label: #file + ".metadataObjectsQueue", qos: .utility))
+            
+            if captureSession.canAddOutput(metadataOutput) {
+                captureSession.addOutput(metadataOutput)
+            }
+            
+            metadataOutput.metadataObjectTypes = metadataObjectTypes ?? metadataOutput.availableMetadataObjectTypes
+            
+            self.commitConfiguration()
+        }
+    }
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        self.captureVideoMetadataDidOutput?(metadataObjects.map {
+            cameraPreviewView.previewLayer.transformedMetadataObject(for: $0) ?? $0
+        })
     }
 }
 
