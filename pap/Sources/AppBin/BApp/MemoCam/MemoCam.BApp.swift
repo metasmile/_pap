@@ -222,7 +222,7 @@ fileprivate struct ResultPreviewItem {
             return R.image.appActionIconEmbossPhoneCall()
         } else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true {
             return R.image.appActionIconEmail()
-        } else if resultGroup.addresses?.count ?? 0 > 0 {
+        } else if resultGroup.addresses?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .geographicCoordinates }) == true {
             return R.image.appActionIconLocation()
         } else if resultGroup.barcodes?.contains(where: { $0.valueType == .contactInfo }) == true {
             return R.image.appActionIconContact()
@@ -528,6 +528,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     fileprivate func drawPolygons(with quads: [CGQuad], to layer: CAShapeLayer, in previewSize: CGSize? = nil) {
+        let disabledActions = CATransaction.disableActions()
+        CATransaction.setDisableActions(true)
+        
         let path = UIBezierPath()
         
         for quad in quads {
@@ -556,6 +559,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             layer.path = path.cgPath
             layer.frame = self.cameraView.bounds
         }
+        
+        CATransaction.setDisableActions(disabledActions)
+        CATransaction.commit()
     }
     
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
@@ -778,6 +784,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 
                 DispatchQueue.main.async {
                     self.updateToolBar()
+                    
+                    self.cameraView.layer.sublayers?.forEach { ($0 as? DisableImplicitAnimatableShapeLayer)?.path = nil }
                 }
             }
         }

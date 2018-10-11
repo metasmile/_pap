@@ -886,6 +886,23 @@ extension Array where Element:VisionTextDetectResult {
                     
                     action.accessoryImage = R.image.appActionIconEmail()
                     alert.addAction(action)
+                case .geographicCoordinates:
+                    guard
+                        let geographicCoordinates = barcode.geoPoint
+                    else { break }
+                    
+                    let latitude = geographicCoordinates.latitude
+                    let longitude = geographicCoordinates.longitude
+                    let zoom = 10
+                    
+                    let action = UIAlertAction(title: "Open Apple Maps".localized, style: .default, handler: { action in
+                        if let url = URL(string: "https://maps.apple.com/?sll=\(latitude),\(longitude)&z=\(zoom)&t=s"), UIApplication.shared.canOpenURL(url) {
+                            asyncSignal.end()
+                            UIApplication.shared.open(url)
+                        }
+                    })
+                    action.accessoryImage = R.image.appActionIconLocation()
+                    alert.addAction(action)
                 case .text, .unknown:
                     let plainText = barcode.rawValue ?? ""
                     var action:UIAlertAction?
