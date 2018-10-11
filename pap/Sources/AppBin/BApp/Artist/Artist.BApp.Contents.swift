@@ -11,7 +11,7 @@ import Photos
 import MobileCoreServices
 import AVFoundation
 
-class _YouArtAppAsset: AppAsset {
+class _ArtistAppAsset: AppAsset {
     fileprivate var editingContext: PHLivePhotoEditingContext?
     fileprivate var exportSession: AVAssetExportSession?
     
@@ -24,7 +24,7 @@ class _YouArtAppAsset: AppAsset {
     }
 }
 
-extension _YouArtAppAsset: PHAssetImageEditable {
+extension _ArtistAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
 
@@ -61,7 +61,7 @@ extension _YouArtAppAsset: PHAssetImageEditable {
     }
 }
 
-extension _YouArtAppAsset: PHAssetLivePhotoEditable {
+extension _ArtistAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -93,7 +93,7 @@ extension _YouArtAppAsset: PHAssetLivePhotoEditable {
     }
 }
 
-extension _YouArtAppAsset: PHAssetVideoEditable {
+extension _ArtistAppAsset: PHAssetVideoEditable {
     func edit<T>(processor:T.Type, /*audioMix: AVAudioMix? = nil,*/ progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]?
         where T:VideoProcessable {
             

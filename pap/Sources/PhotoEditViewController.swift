@@ -146,7 +146,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
 
-            appCenter.currentInstanceAs(YouArtApp.self)?.config?.watch(\.filter, id:"editor\(YouArtApp.info.identifier)") { (config, changed) in
+            appCenter.currentInstanceAs(ArtistApp.self)?.config?.watch(\.filter, id:"editor\(ArtistApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
                     self.setAppValue(value)
                 }
@@ -172,7 +172,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["editor\(FiltersApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(YouArtApp.self)?.config?.unwatch(\.filter, forIds:["editor\(YouArtApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ArtistApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ArtistApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(StabilizerApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])

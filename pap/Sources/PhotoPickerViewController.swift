@@ -288,7 +288,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
 
-            AppCenter.default.currentInstanceAs(YouArtApp.self)?.config?.watch(\.filter, id: "picker\(YouArtApp.info.identifier)") { (config, changed) in
+            AppCenter.default.currentInstanceAs(ArtistApp.self)?.config?.watch(\.filter, id: "picker\(ArtistApp.info.identifier)") { (config, changed) in
                 if let value = config.filter, !AppCenter.default.task.isRunning {
                     self.setAppValue(value)
                 }
@@ -373,7 +373,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func unregisterWatchingAppConfig() {
         AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["picker\(TransformApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["picker\(FiltersApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(YouArtApp.self)?.config?.unwatch(\.filter, forIds:["picker\(YouArtApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ArtistApp.self)?.config?.unwatch(\.filter, forIds:["picker\(ArtistApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["picker\(StabilizerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(GIFMakerApp.self)?.config?.unwatch(\.sourceType, forIds:["picker\(GIFMakerApp.info.identifier)"])

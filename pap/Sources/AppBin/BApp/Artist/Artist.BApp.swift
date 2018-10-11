@@ -1,5 +1,5 @@
 //
-//  PhotosYouArt.App.swift
+//  PhotosArtist.App.swift
 //  batch
 //
 //  Created by HYOJIN MO on 2018. 3. 28..
@@ -11,12 +11,12 @@ import Photos
 import PropertyKit
 import Intents
 
-protocol YouArtAppDefaults: AppDefaults {
-    var youArtFilterName: String? { get set }
+protocol ArtistAppDefaults: AppDefaults {
+    var artistFilterName: String? { get set }
 }
 
-extension Defaults: YouArtAppDefaults {
-    var youArtFilterName: String? {
+extension Defaults: ArtistAppDefaults {
+    var artistFilterName: String? {
         get {
             return get(or: nil)
         }
@@ -26,7 +26,7 @@ extension Defaults: YouArtAppDefaults {
 }
  
 
-public class YouArtAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
+public class ArtistAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
     @objc dynamic
     public var tintColor: UIColor?
     
@@ -38,22 +38,22 @@ public class YouArtAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttri
             self.tintColor = other.tintColor
         }
         
-        if let other = fromOther as? YouArtAppConfigValue, let filter = other.filter{
+        if let other = fromOther as? ArtistAppConfigValue, let filter = other.filter{
             self.filter = filter
         }
     }
 }
 
-public class YouArtApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
+public class ArtistApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
 PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 
-    public static let taskType: AppTaskable.Type = _YouArtAppTask.self
-    public static let paramType: AppTaskParamable.Type = _YouArtAppAsset.self
+    public static let taskType: AppTaskable.Type = _ArtistAppTask.self
+    public static let paramType: AppTaskParamable.Type = _ArtistAppAsset.self
 
     public static var defaultConfigValue: AppConfigValuable {
-        let config = YouArtAppConfigValue()
+        let config = ArtistAppConfigValue()
         config.tintColor = .black
         return config
     }
@@ -63,30 +63,30 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     }
 
     @objc dynamic
-    public private(set) lazy var config: YouArtAppConfigValue? = type(of:self).defaultConfigValue as? YouArtAppConfigValue
+    public private(set) lazy var config: ArtistAppConfigValue? = type(of:self).defaultConfigValue as? ArtistAppConfigValue
 
-    public private(set) lazy var content: AppDockContent? = YouArtAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = YouArtAppDockContent()
+    public private(set) lazy var content: AppDockContent? = ArtistAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = ArtistAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
         
-        var defaults = type(of: self).defaults as! YouArtAppDefaults
-        defaults.youArtFilterName = editStateValue?.ciFilter?.name
+        var defaults = type(of: self).defaults as! ArtistAppDefaults
+        defaults.artistFilterName = editStateValue?.ciFilter?.name
     }
 
     public static let info = AppInfo(
-        identifier: "com.stells.pap.youart"
+        identifier: "com.stells.pap.artist"
         , version: "1.0"
         , phase: .develop
-        , appType: YouArtApp.self
-        , displayName: "YouArt"
+        , appType: ArtistApp.self
+        , displayName: "Artist"
         , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
-        , keywords: ["YouArt", "Color", "Effect", "High-Quality"]
-        , iconBundleName: R.image.youArtBAppIcon.name
+        , keywords: ["Artist", "Color", "Effect", "High-Quality"]
+        , iconBundleName: R.image.artistBAppIcon.name
         , themeColor: nil
-        , embossIconBundleName: R.image.youArtBAppIcon.name
+        , embossIconBundleName: R.image.artistBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
@@ -98,28 +98,28 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
             self.updateControllerView()
         }
         
-        if let controllerContent = self.content as? YouArtAppDockContent {
+        if let controllerContent = self.content as? ArtistAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! YouArtAppDefaults
-                    let filterItem = controllerContent.getYouArtItem(by: defaults.youArtFilterName)
+                    var defaults = type(of: self).defaults as! ArtistAppDefaults
+                    let filterItem = controllerContent.getArtistItem(by: defaults.artistFilterName)
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
             }
         }
         
-        if let controllerContent = self.photoEditorDockContent as? YouArtAppDockContent {
+        if let controllerContent = self.photoEditorDockContent as? ArtistAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! YouArtAppDefaults
-                    let filterItem = controllerContent.getYouArtItem(by: defaults.youArtFilterName)
+                    var defaults = type(of: self).defaults as! ArtistAppDefaults
+                    let filterItem = controllerContent.getArtistItem(by: defaults.artistFilterName)
                     self.config?.filter = filterItem
                 }
             }
@@ -162,17 +162,17 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        (content as? YouArtAppDockContent)?.selectItem(with: editStateValue)
+        (content as? ArtistAppDockContent)?.selectItem(with: editStateValue)
     }
 }
 //
-//extension YouArtApp:UIApplicationDelegateLaunchableApp{
+//extension ArtistApp:UIApplicationDelegateLaunchableApp{
 //    static var intents: [INIntent] {
 //        if #available(iOS 12.0, *) {
-//            let openAppIntent = OpenYouArtIntent()
-//            openAppIntent.appId = YouArtApp.info.identifier
-//            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: YouArtApp.info.displayName) as String
-//            openAppIntent.suggestedInvocationPhrase = "Open YouArt.".localized
+//            let openAppIntent = OpenArtistIntent()
+//            openAppIntent.appId = ArtistApp.info.identifier
+//            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ArtistApp.info.displayName) as String
+//            openAppIntent.suggestedInvocationPhrase = "Open Artist.".localized
 //            return [openAppIntent]
 //        } else {
 //            return []
@@ -188,7 +188,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 //}
 
 
-private extension YouArtApp {
+private extension ArtistApp {
     private func updateControllerView() {
         self.content?.view.tintColor = config?.tintColor
         self.photoEditorDockContent?.view.tintColor = config?.tintColor
@@ -216,7 +216,7 @@ fileprivate extension CIFilter{
     }
 }
 
-fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockContent {
+fileprivate class ArtistAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIFilter] = [
         CIMLArtFilter(style: MLArtStyle.Mosaic),
         CIMLArtFilter(style: MLArtStyle.Candy),
@@ -267,7 +267,7 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
         selectItem(by: editStateValue?.ciFilter?.name)
     }
     
-    fileprivate func getYouArtItem(by filterName: String?) -> CIFilterItem? {
+    fileprivate func getArtistItem(by filterName: String?) -> CIFilterItem? {
         let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
         return CIFilterItem(self.filters[safe: index - 1])
     }
@@ -338,25 +338,25 @@ fileprivate class YouArtAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
 }
 
-private class _YouArtAppTask: AppTaskPrototype, AppTaskable {
-    public typealias ParamType = _YouArtAppAsset
+private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
+    public typealias ParamType = _ArtistAppAsset
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _YouArtAppAsset)?.cancelAllRequestIDs()
-        (param as? _YouArtAppAsset)?.cancelProcessing()
+        (param as? _ArtistAppAsset)?.cancelAllRequestIDs()
+        (param as? _ArtistAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is _YouArtAppAsset, "TaskParamable type of this app is \(_YouArtAppAsset.self)")
-        guard let _param = param as? _YouArtAppAsset else{
+        assert(param is _ArtistAppAsset, "TaskParamable type of this app is \(_ArtistAppAsset.self)")
+        guard let _param = param as? _ArtistAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _YouArtAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _ArtistAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()
@@ -366,7 +366,7 @@ private class _YouArtAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: YouArtApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ArtistApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
