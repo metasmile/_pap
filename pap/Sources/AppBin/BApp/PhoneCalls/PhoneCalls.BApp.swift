@@ -404,14 +404,16 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
         settingCellDescribers.append(cell1)
 
 
-        let cell_b = UITableViewButtonCellDescriber()
-        cell_b.itemIdentifier = PhoneCallsAppCells.takePhoto.hashValue
-        cell_b.label = "Take A Photo".localized
-        cell_b.buttonImage = R.image.systemIconCamera.name
-        cell_b.valueHandler = { _ in
-            AppCenter.default.openCamera()
+        if AppCenter.default.apps().first(where:{ appType in appType is CameraApp.Type }) != nil{
+            let cell_b = UITableViewButtonCellDescriber()
+            cell_b.itemIdentifier = PhoneCallsAppCells.takePhoto.hashValue
+            cell_b.label = "Take A Photo".localized
+            cell_b.buttonImage = R.image.systemIconCamera.name
+            cell_b.valueHandler = { _ in
+                AppCenter.default.openCamera()
+            }
+            settingCellDescribers.append(cell_b)
         }
-        settingCellDescribers.append(cell_b)
 
 
         if let tableView = view as? UITableView{

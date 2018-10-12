@@ -702,19 +702,22 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         }
         settingCellDescribers.append(cell1)
 
-        let cell_b = UITableViewButtonCellDescriber()
-        cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
-        cell_b.label = "Take A Photo".localized
-        cell_b.buttonImage = R.image.systemIconCamera.name
-        cell_b.valueHandler = { _ in
-            var option = AppLaunchOptions()
-            option.identifierToReturn = FinderApp.info.identifier
-            AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
-            papLog.app.userCalledCameraInApp()
+        if AppCenter.default.apps().first(where:{ appType in appType is CameraApp.Type }) != nil{
+            let cell_b = UITableViewButtonCellDescriber()
+            cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
+            cell_b.label = "Take A Photo".localized
+            cell_b.buttonImage = R.image.systemIconCamera.name
+            cell_b.valueHandler = { _ in
+                var option = AppLaunchOptions()
+                option.identifierToReturn = FinderApp.info.identifier
+                AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
+                papLog.app.userCalledCameraInApp()
+
+            }
+            settingCellDescribers.append(cell_b)
         }
-        settingCellDescribers.append(cell_b)
 
 
         let cell0 = UITableViewSegmentControlCellDescriber()
