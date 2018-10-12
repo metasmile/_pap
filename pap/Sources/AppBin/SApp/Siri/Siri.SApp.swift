@@ -93,7 +93,8 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         
-        tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 22)))
+        let tableHeaderViewHeight: CGFloat = 22
+        tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: tableHeaderViewHeight)))
         
         searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
         searchBar.delegate = self
@@ -102,7 +103,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
             guard let frameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
             let frame = frameValue.cgRectValue
             
-            self.tableView.contentInset.bottom = frame.height - (UIScreen.main.bounds.height - dock.contentInsets.bottom)
+            self.tableView.contentInset.bottom = frame.height - (UIScreen.main.bounds.height - dock.contentInsets.bottom) - tableHeaderViewHeight
             self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }
         
