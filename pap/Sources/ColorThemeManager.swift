@@ -29,6 +29,13 @@ extension ColorTheme {
         }
     }
     
+    var themeColor: UIColor {
+        switch self {
+        case .black: return UIColor(red:0.15, green:0.15, blue:0.15, alpha:1)
+        default: return .white
+        }
+    }
+    
     var backgroundColor: UIColor {
         switch self {
         case .black: return UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
@@ -45,7 +52,7 @@ extension ColorTheme {
     
     var lineSeparatorColor: UIColor {
         switch self {
-        case .black: return UIColor(red: 55 / 255.0, green: 55 / 255.0, blue: 55 / 255.0, alpha: 1)
+        case .black: return UIColor(red: 80 / 255.0, green: 80 / 255.0, blue: 80 / 255.0, alpha: 1)
         default: return UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1)
         }
     }
@@ -73,7 +80,7 @@ protocol ColorThemable {
 fileprivate class ColorThemeManager {
     static var shared = ColorThemeManager()
     
-    var colorTheme: ColorTheme = .default {
+    var colorTheme: ColorTheme = .black {
         didSet {
             targets.forEach {
                 $0._applyTheme(colorTheme)
@@ -131,5 +138,24 @@ extension ColorThemable where Self: UIViewController {
         navigationController?.navigationBar.tintColor = colorTheme.tintColor
         
         applyTheme(colorTheme)
+    }
+}
+
+extension UITableView {
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        backgroundColor = currentTheme.backgroundColor
+        tintColor = currentTheme.tintColor
+        separatorColor = currentTheme.lineSeparatorColor
+    }
+}
+
+extension UITableViewCell {
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        textLabel?.textColor = tintColor
+        backgroundColor = currentTheme.themeColor
     }
 }
