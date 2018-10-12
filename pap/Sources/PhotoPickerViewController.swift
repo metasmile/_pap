@@ -358,7 +358,7 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
             
-            AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.currentTheme.textColor))
+            AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
         }
     }
     
@@ -800,7 +800,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             present(navigationController, animated: false) {
                 self.photoEditorTransitionContext?.sourceView.isHidden = false
                 
-                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.currentTheme.textColor))
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
             }
         }
     }

@@ -93,7 +93,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController, ColorThemable {
+class AppDockViewController: UIViewController, ColorThemeable {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -108,7 +108,7 @@ class AppDockViewController: UIViewController, ColorThemable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerThemable()
+        registerThemeable()
 
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton

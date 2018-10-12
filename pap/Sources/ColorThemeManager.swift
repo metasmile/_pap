@@ -11,76 +11,85 @@ import PropertyKit
 
 enum ColorTheme: Int, Decodable {
     case `default`
-    case black
+    case dark
 }
 
 extension ColorTheme {
     var textColor: UIColor {
         switch self {
-        case .black: return .white
+        case .dark: return UIColor(red:0.69, green:0.69, blue:0.7, alpha:1)
         default: return .black
+        }
+    }
+
+    var textGrayColor: UIColor {
+        switch self {
+        case .dark: return .lightGray
+        default: return .gray
         }
     }
     
     var barStyle: UIBarStyle {
         switch self {
-        case .black: return .black
+        case .dark: return .black
         default: return .default
         }
     }
     
-    var themeColor: UIColor {
+    var objectBackgroundColor: UIColor {
         switch self {
-        case .black: return UIColor(red:0.15, green:0.15, blue:0.15, alpha:1)
+        case .dark: return UIColor(red:0.19, green:0.2, blue:0.21, alpha:1)
         default: return .white
         }
     }
     
     var backgroundColor: UIColor {
         switch self {
-        case .black: return UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+        case .dark: return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1)
         default: return .white
         }
     }
     
     var barTintColor: UIColor? {
         switch self {
-        case .black: return UIColor(red:0.11, green:0.11, blue:0.11, alpha:1)
+        case .dark: return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1)
         default: return nil
         }
     }
     
     var lineSeparatorColor: UIColor {
         switch self {
-        case .black: return UIColor(red: 80 / 255.0, green: 80 / 255.0, blue: 80 / 255.0, alpha: 1)
+        case .dark: return UIColor(red: 80 / 255.0, green: 80 / 255.0, blue: 80 / 255.0, alpha: 1)
         default: return UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1)
         }
     }
     
-    var tintColor: UIColor? {
+    var tintColor: UIColor {
         switch self {
-        case .black: return .white
-        default: return UIApplication.shared.keyWindow?.tintColor
+            case .dark:
+                return UIColor(red:0.73, green:0.73, blue:0.73, alpha:1)
+            default:
+                return (UIApplication.shared.keyWindow ?? UIWindow()).tintColor
         }
     }
     
     var isBarTranslucent: Bool {
         switch self {
-        case .black: return true
+        case .dark: return true
         default: return true
         }
     }
 }
 
-protocol ColorThemable {
+protocol ColorThemeable {
     func _applyTheme(_ colorTheme: ColorTheme)
     func applyTheme(_ colorTheme: ColorTheme)
 }
 
 fileprivate class ColorThemeManager {
     static var shared = ColorThemeManager()
-    
-    var colorTheme: ColorTheme = .black {
+
+    var colorTheme: ColorTheme = .dark {
         didSet {
             targets.forEach {
                 $0._applyTheme(colorTheme)
@@ -92,19 +101,19 @@ fileprivate class ColorThemeManager {
         colorTheme = theme
     }
     
-    private var targets = [ColorThemable]()
-    func registerThemable(target: ColorThemable) {
+    private var targets = [ColorThemeable]()
+    func registerThemeable(target: ColorThemeable) {
         targets.append(target)
     }
 }
 
-extension ColorThemable where Self: UIViewController {
+extension ColorThemeable where Self: UIViewController {
     private var themeManager: ColorThemeManager {
         return ColorThemeManager.shared
     }
     
-    func registerThemable() {
-        themeManager.registerThemable(target: self)
+    func registerThemeable() {
+        themeManager.registerThemeable(target: self)
         setColorTheme(themeManager.colorTheme)
     }
     
@@ -122,12 +131,12 @@ extension ColorThemable where Self: UIViewController {
 }
 
 extension UIView {
-    var currentTheme: ColorTheme {
+    var colorTheme: ColorTheme {
         return ColorThemeManager.shared.colorTheme
     }
 }
 
-extension ColorThemable where Self: UIViewController {
+extension ColorThemeable where Self: UIViewController {
     func _applyTheme(_ colorTheme: ColorTheme) {
         navigationController?.view.backgroundColor = colorTheme.backgroundColor
         view.backgroundColor = colorTheme.backgroundColor
@@ -142,20 +151,54 @@ extension ColorThemable where Self: UIViewController {
 }
 
 extension UITableView {
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+
+        tintColorDidChange()
+    }
+
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         
-        backgroundColor = currentTheme.backgroundColor
-        tintColor = currentTheme.tintColor
-        separatorColor = currentTheme.lineSeparatorColor
+        backgroundColor = colorTheme.backgroundColor
+        tintColor = colorTheme.tintColor
+        separatorColor = colorTheme.lineSeparatorColor
     }
 }
 
+//extension UIControl{
+//    open override func willMove(toSuperview newSuperview: UIView?) {
+//        super.willMove(toSuperview: newSuperview)
+//
+//        tintColorDidChange()
+//    }
+//
+//    open override func tintColorDidChange() {
+//        super.tintColorDidChange()
+//        tintColor = colorTheme.textColor
+//        backgroundColor = colorTheme.objectBackgroundColor
+//
+//        if let control = self as? UIButton{
+//            control.setTitleColor(colorTheme.tintColor, for: .normal)
+//
+//        } else if let control = self as? UISwitch{
+//            control.onTintColor = colorTheme.tintColor
+//        }
+//    }
+//}
+
 extension UITableViewCell {
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+
+        tintColorDidChange()
+    }
+
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         
         textLabel?.textColor = tintColor
-        backgroundColor = currentTheme.themeColor
+        accessoryView?.tintColor = colorTheme.tintColor
+        backgroundColor = colorTheme.objectBackgroundColor
     }
 }

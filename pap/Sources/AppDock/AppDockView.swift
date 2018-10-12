@@ -124,7 +124,7 @@ class AppDockView: CustomView {
     }
     
     private func updateBackgroundColors() {
-        let color = hasAnyContentAsLayout ? currentTheme.backgroundColor : .clear
+        let color = hasAnyContentAsLayout ? colorTheme.backgroundColor : .clear
         backgroundView.backgroundColor = color
         topAccessoryView.backgroundColor = color
         controllerView.backgroundColor = color
@@ -1356,7 +1356,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         self.app = app
 
         appTitleLabel.text = app.info.displayName.localized
-        appTitleLabel.textColor = app.info.themeColor ?? UIColor.gray
+        appTitleLabel.textColor = app.info.themeColor ?? appTitleLabel.colorTheme.textGrayColor
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
         if status == nil{
@@ -1367,7 +1367,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
         setIconImage()
         selectedStateView.layer.cornerRadius = selectedStateView.height/6
-        selectedStateView.backgroundColor = (app.info.themeColor ?? UIColor.gray).withAlphaComponent(0.2)
+        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor).withAlphaComponent(0.3)
     }
 
     func setIconImage(){
@@ -1444,7 +1444,7 @@ internal class DockCollectionBackgroundView: UIView {
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setLineWidth(0.5)
 //        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
-        ctx?.setStrokeColor(self.currentTheme.lineSeparatorColor.cgColor)
+        ctx?.setStrokeColor(self.colorTheme.lineSeparatorColor.cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
 

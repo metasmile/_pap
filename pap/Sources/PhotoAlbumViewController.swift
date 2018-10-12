@@ -128,7 +128,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerThemable()
+        registerThemeable()
         
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16
@@ -413,7 +413,7 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension PhotoAlbumViewController: ColorThemable {
+extension PhotoAlbumViewController: ColorThemeable {
     func applyTheme(_ colorTheme: ColorTheme) {
         collectionView.tintColor = colorTheme.textColor
     }
