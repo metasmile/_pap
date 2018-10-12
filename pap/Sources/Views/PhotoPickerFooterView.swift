@@ -35,4 +35,10 @@ class PhotoPickerFooterView: UICollectionReusableView {
             label.text = text
         }
     }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        label.textColor = tintColor
+    }
 }

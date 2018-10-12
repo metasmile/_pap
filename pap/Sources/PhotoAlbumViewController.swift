@@ -69,7 +69,7 @@ struct AlbumItem {
     }
 }
 
-class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  {
+class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver {
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var dataSource: [AlbumItemGroup]?
     
@@ -127,6 +127,8 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerThemable()
         
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16
@@ -364,6 +366,12 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
         imageView.accessibilityIgnoresInvertColors = true
     }
     
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        titleLabel.textColor = tintColor
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -402,5 +410,11 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
                 })
             }
         }
+    }
+}
+
+extension PhotoAlbumViewController: ColorThemable {
+    func applyTheme(_ colorTheme: ColorTheme) {
+        collectionView.tintColor = colorTheme.textColor
     }
 }

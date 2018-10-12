@@ -57,12 +57,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         title = "Edit".localized
-
-        view.backgroundColor = iOSStandardEditorBackgroundColor
-
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = iOSStandardEditorBackgroundColor
         
         photoZoomingView.canCancelContentTouches = false
         photoZoomingView.addSubview(zoomingContentView)
@@ -78,7 +72,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         photoZoomingView.minimumZoomScale = 1
         photoZoomingView.maximumZoomScale = 4
         
-        appDockView?.barStyle = .black
         appDockView?.delegate = self
 
         doneButton?.title = "Done".localized
@@ -165,7 +158,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             }
             
             //common ui attributes if current app is ConfigurableApp
-            appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues( AppConfigUIAttribute(tintColor: .white))
+            appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.currentTheme.textColor))
         }
     }
     

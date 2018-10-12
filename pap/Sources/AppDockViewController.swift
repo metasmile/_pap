@@ -93,7 +93,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController {
+class AppDockViewController: UIViewController, ColorThemable {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -107,6 +107,8 @@ class AppDockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerThemable()
 
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
@@ -119,15 +121,6 @@ class AppDockViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if navigationController?.navigationBar.barStyle == UIBarStyle.black {
-            cancelButton?.tintColor = .white
-            doneButton?.tintColor = .white
-        }
-        else {
-            cancelButton?.tintColor = view.tintColor
-            doneButton?.tintColor = view.tintColor
-        }
         
         //INFO: for prevent unnecessary animation
         self.appDockView?.superview?.layoutIfNeeded()
@@ -214,6 +207,10 @@ class AppDockViewController: UIViewController {
     
     func content(in view: AppDockView) -> AppDockContent? {
         return AppCenter.default.currentInstanceAs(AppDockApp.self)?.content
+    }
+    
+    func applyTheme(_ colorTheme: ColorTheme) {
+        appDockView?.barStyle = colorTheme.barStyle
     }
 }
 

@@ -357,6 +357,8 @@ class PhotoPickerViewController: AppDockViewController {
                     self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
                 }
             }
+            
+            AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.currentTheme.textColor))
         }
     }
     
@@ -400,6 +402,12 @@ class PhotoPickerViewController: AppDockViewController {
             self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
+    }
+    
+    override func applyTheme(_ colorTheme: ColorTheme) {
+        super.applyTheme(colorTheme)
+        
+        photoCollectionView.tintColor = colorTheme.textColor
     }
 
     override func cancelButtonDidTap(sender: Any) {
@@ -792,7 +800,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
             present(navigationController, animated: false) {
                 self.photoEditorTransitionContext?.sourceView.isHidden = false
                 
-                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: .white))
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.currentTheme.textColor))
             }
         }
     }

@@ -124,11 +124,12 @@ class AppDockView: CustomView {
     }
     
     private func updateBackgroundColors() {
-        let color = hasAnyContentAsLayout ? (barStyle == .black ? UIColor(red:0.11, green:0.11, blue:0.11, alpha:1) : .white) : .clear
+        let color = hasAnyContentAsLayout ? currentTheme.backgroundColor : .clear
         backgroundView.backgroundColor = color
         topAccessoryView.backgroundColor = color
         controllerView.backgroundColor = color
         drawerView.tintColor = color
+        dockView.backgroundColor = color
         bottomAccessoryView.backgroundColor = color
     }
     
@@ -1433,8 +1434,8 @@ internal class DockCollectionBackgroundView: UIView {
         
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setLineWidth(0.5)
-        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
-        ctx?.setStrokeColor(UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1).cgColor)
+//        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
+        ctx?.setStrokeColor(self.currentTheme.lineSeparatorColor.cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
 
