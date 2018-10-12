@@ -469,7 +469,8 @@ extension AppDockView {
     }
     
     fileprivate var preferredDockViewHeight: CGFloat {
-        if dataSource?.numberOfSections(in: self) ?? 0 > 1 {
+
+        if numberOfItemsInAllSections(in:appCollectionView) > 1 {
             switch dockBarStyle {
             case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
             case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
@@ -580,6 +581,14 @@ extension AppDockView {
 // MARK: -
 
 extension AppDockView: UICollectionViewDataSource {
+    func numberOfItemsInAllSections(in collectionView: UICollectionView) -> Int {
+        var totalItemNumbers = 0
+        for s in 0 ..< numberOfSections(in: collectionView){
+            totalItemNumbers += self.collectionView(collectionView, numberOfItemsInSection: s)
+        }
+        return totalItemNumbers
+    }
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataSource?.numberOfSections(in: self) ?? 0
     }

@@ -216,40 +216,28 @@ class AppDockViewController: UIViewController, ColorThemable {
 
 extension AppDockViewController: AppDockViewDataSource {
     fileprivate func installAppDockItems() {
-        appDockItemGroups = Array<[AppDockItem]>(repeating: [], count: numberOfAppGroups)
-        
+
+        var appGroupIndexes = [String:Int]()
+        for g in appDockItems.sorted(by:{ (item1, item2) -> Bool in
+            return item1.app.group.priority < item2.app.group.priority
+
+        }) where appGroupIndexes[g.app.group.identifier] == nil{
+            appGroupIndexes[g.app.group.identifier] = appGroupIndexes.keys.count
+        }
+
+        appDockItemGroups = Array<[AppDockItem]>(repeating: [], count: appGroupIndexes.keys.count)
+
         for item in appDockItems {
-            let section = groupSection(of: item.app, in: appDockItemGroups.count)
+            let section:Int
+            if let indexOfGroupedApp = appGroupIndexes[item.app.group.identifier] {
+                section = indexOfGroupedApp
+            } else {
+                section = 0
+            }
             appDockItemGroups[section].append(item)
         }
     }
-    
-    //INFO: App Dock Group Policy
-    // draft:
-    //  0 - system
-    //  1 - user
-    //  n - beta, develop
-    private func groupSection(of app: App.Type, in numberOfAppGroups: Int) -> Int {
-        if numberOfAppGroups > 1 {
-            if app is SApp.Type {
-                return 0
-            }
-            else {
-                return 1
-            }
-        }
-        else {
-            return 0
-        }
-    }
-    
-    private var numberOfAppGroups: Int {
-        var numberOfGroups = 0
-        numberOfGroups += appDockItems.contains(where: { $0.app is SApp.Type }) ? 1 : 0
-        numberOfGroups += appDockItems.contains(where: { $0.app is BApp.Type }) ? 1 : 0
-        return max(numberOfGroups, 1)
-    }
-    
+
     func numberOfSections(in view: AppDockView) -> Int {
         return appDockItemGroups.count
     }

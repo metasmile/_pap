@@ -151,4 +151,52 @@ class AppTaskTests: XCTestCase {
             XCTAssertTrue(true)
         }
     }
+
+    func test_AppGroup(){
+        var appGroupIndexes = [String:Int]()
+        let apps:[App.Type] = [SiriApp.self, ConverterApp.self, FinderApp.self, MemoCamApp.self,CleanerApp.self]
+
+        for g in apps.sorted(by:{ (app1, app2) -> Bool in
+            return app1.group.priority < app2.group.priority
+
+        }) where appGroupIndexes[g.group.identifier] == nil{
+            appGroupIndexes[g.group.identifier] = appGroupIndexes.keys.count
+        }
+
+        XCTAssertTrue(appGroupIndexes.keys.count==3)
+
+        var groupingApps = [[App.Type]]()
+        for app in apps {
+            let group:Int
+            if let indexOfGroupedApp = appGroupIndexes[app.group.identifier] {
+                group = indexOfGroupedApp
+            } else {
+                group = 0
+            }
+            groupingApps[group].append(app)
+        }
+
+        print(groupingApps)
+    }
 }
+
+public protocol AIDetectorApp: App{}
+extension AIDetectorApp{
+    public static var group: AppGroup{
+        return AppGroup(identifier: "1", priority: 0, name: nil)
+    }
+}
+
+public protocol PhotoManApp: App{}
+extension PhotoManApp{
+    public static var group: AppGroup{
+        return AppGroup(identifier: "2", priority: 41, name: nil)
+    }
+}
+
+extension FinderApp: AIDetectorApp{}
+extension MemoCamApp: AIDetectorApp{}
+
+extension ConverterApp: PhotoManApp{}
+extension CleanerApp: PhotoManApp{}
+

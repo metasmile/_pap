@@ -160,7 +160,7 @@ class CodeKitTests: XCTestCase {
     }
 
     func test_CodableEnumUserDefaults(){
-        var defaults:TestAppDefaults = Defaults(userDefaults:UserDefaults())
+        var defaults:TestAppDefaults = Defaults(suiteName:"sdfsdfds") as! TestAppDefaults
 
         XCTAssertEqual(defaults.valueWithCustomCodableType.from, .video)
 
