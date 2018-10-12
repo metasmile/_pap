@@ -11,6 +11,15 @@ public protocol App {
     init()
 
     static var info: AppInfo { get }
+
+    static var group: AppGroup {get}
+}
+
+extension App{
+
+    public static var group: AppGroup {
+        return AppGroup.default
+    }
 }
 
 public protocol TaskApp: App{
@@ -109,6 +118,15 @@ public struct AppPolicy {
 
     public let lifeCycle: AppLifecyclePolicy
     public let task: AppTaskPolicy
+}
+
+
+public struct AppGroup{
+    let identifier:String
+    let priority:Int // 0 is best priority
+    let name:String?
+
+    static let `default` = AppGroup(identifier:"default", priority:0, name: "Default Group")
 }
 
 

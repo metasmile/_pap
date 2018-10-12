@@ -96,7 +96,8 @@ class PHAssetsXCTestCase: XCTestCase {
         let signal = AsyncSignal()
         signal.begin()
 
-        var assetInfo:KeyPathWatcherInfo?
+        
+        var assetInfo:PropertyWatcherInfo?
         assetInfo = PHAssets.fetched.watch(\.results) {
             XCTAssertTrue(assetInfo != nil)
             XCTAssertTrue(PHAssets.fetched.results != nil)

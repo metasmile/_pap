@@ -24,7 +24,7 @@ public class TestApp: App {
             , phase: .develop
             , appType: TestApp.self
             , displayName: "TestApp", description:nil, keywords:nil
-            , iconBundleName: nil
+        , iconBundleName: nil, themeColor: nil, embossIconBundleName: nil
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
