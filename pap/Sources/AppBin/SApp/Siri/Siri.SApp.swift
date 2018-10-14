@@ -92,11 +92,13 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
+        tableView.tintColor = view.tintColor
         
         let tableHeaderViewHeight: CGFloat = 22
         tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: tableHeaderViewHeight)))
         
         searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
+        tableView.tintColor = view.tintColor
         searchBar.delegate = self
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
@@ -350,6 +352,7 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             cell.textLabel?.text = cellDescriber.label
             cell.textLabel?.textColor = UIColor.gray
             cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            cell.backgroundColor = UIColor.clear
             return cell
         }
 

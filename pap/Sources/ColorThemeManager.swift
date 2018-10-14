@@ -38,7 +38,7 @@ extension ColorTheme {
     
     var objectBackgroundColor: UIColor {
         switch self {
-        case .dark: return UIColor(red:0.19, green:0.2, blue:0.21, alpha:1)
+        case .dark: return UIColor(red:0.18, green:0.18, blue:0.18, alpha:1)
         default: return .white
         }
     }
@@ -67,7 +67,7 @@ extension ColorTheme {
     var tintColor: UIColor {
         switch self {
             case .dark:
-                return UIColor(red:0.73, green:0.73, blue:0.73, alpha:1)
+                return UIColor(red:0.78, green:0.78, blue:0.78, alpha:1)
             default:
                 return (UIApplication.shared.keyWindow ?? UIWindow()).tintColor
         }
@@ -130,6 +130,9 @@ extension ColorThemeable where Self: UIViewController {
     }
 }
 
+
+
+
 extension UIView {
     var colorTheme: ColorTheme {
         return ColorThemeManager.shared.colorTheme
@@ -139,7 +142,10 @@ extension UIView {
 extension ColorThemeable where Self: UIViewController {
     func _applyTheme(_ colorTheme: ColorTheme) {
         navigationController?.view.backgroundColor = colorTheme.backgroundColor
-        view.backgroundColor = colorTheme.backgroundColor
+
+        if view.backgroundColor != UIColor.clear{
+            view.backgroundColor = colorTheme.backgroundColor
+        }
         
         navigationController?.navigationBar.isTranslucent = colorTheme.isBarTranslucent
         navigationController?.navigationBar.barStyle = colorTheme.barStyle
@@ -150,55 +156,37 @@ extension ColorThemeable where Self: UIViewController {
     }
 }
 
-extension UITableView {
-    open override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-
-        tintColorDidChange()
-    }
-
+extension UIControl{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-        
-        backgroundColor = colorTheme.backgroundColor
+
+        tintColor = colorTheme.tintColor
+    }
+}
+
+extension UITableView {
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        if backgroundColor != UIColor.clear{
+            backgroundColor = colorTheme.backgroundColor
+        }
+
         tintColor = colorTheme.tintColor
         separatorColor = colorTheme.lineSeparatorColor
     }
 }
 
-//extension UIControl{
-//    open override func willMove(toSuperview newSuperview: UIView?) {
-//        super.willMove(toSuperview: newSuperview)
-//
-//        tintColorDidChange()
-//    }
-//
-//    open override func tintColorDidChange() {
-//        super.tintColorDidChange()
-//        tintColor = colorTheme.textColor
-//        backgroundColor = colorTheme.objectBackgroundColor
-//
-//        if let control = self as? UIButton{
-//            control.setTitleColor(colorTheme.tintColor, for: .normal)
-//
-//        } else if let control = self as? UISwitch{
-//            control.onTintColor = colorTheme.tintColor
-//        }
-//    }
-//}
-
 extension UITableViewCell {
-    open override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-
-        tintColorDidChange()
-    }
-
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-        
-        textLabel?.textColor = tintColor
+
+        textLabel?.textColor = colorTheme.textColor
         accessoryView?.tintColor = colorTheme.tintColor
-        backgroundColor = colorTheme.objectBackgroundColor
+
+        if backgroundColor != UIColor.clear{
+            backgroundColor = colorTheme.objectBackgroundColor
+        }
+
     }
 }
