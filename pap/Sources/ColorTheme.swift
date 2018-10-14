@@ -20,7 +20,7 @@ enum ColorTheme: Int, Decodable {
 extension ColorTheme {
     var textColor: UIColor {
         switch self {
-        case .dark: return UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
+        case .dark: return UIColor(red:0.66, green:0.66, blue:0.66, alpha:1)
         default: return .black
         }
     }
