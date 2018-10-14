@@ -164,6 +164,18 @@ extension UIControl{
     }
 }
 
+extension UISearchBar{
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        tintColor = colorTheme.tintColor
+
+        barStyle = colorTheme == .dark ? .black : .default
+        barTintColor = colorTheme.barTintColor
+        backgroundColor = colorTheme.backgroundColor
+    }
+}
+
 extension UITableView {
     open override func tintColorDidChange() {
         super.tintColorDidChange()

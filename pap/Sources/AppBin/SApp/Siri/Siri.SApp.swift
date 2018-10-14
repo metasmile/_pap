@@ -98,7 +98,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: tableHeaderViewHeight)))
         
         searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
-        tableView.tintColor = view.tintColor
+        searchBar.tintColor = view.tintColor
         searchBar.delegate = self
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
@@ -168,7 +168,12 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                         cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
                         cell.itemIdentifier = (intent.identifier ?? cell.label).hashValue
                         cell.accessoryGenerator = {
-                            let button = intent.addToSiriButton(style: .white)
+                            let theme = self.view.colorTheme
+
+                            let button = intent.addToSiriButton(style: theme == .dark ? .black : .white)
+                            button?.backgroundColor = theme.objectBackgroundColor
+                            button?.setTitleColor(theme.textColor, for: .normal)
+                            button?.tintColor = self.view.tintColor
                             button?.delegate = self
                             return button
                         }
@@ -351,7 +356,7 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             cell.imageView?.image = iconImage
             cell.textLabel?.text = cellDescriber.label
             cell.textLabel?.textColor = UIColor.gray
-            cell.textLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
             cell.backgroundColor = UIColor.clear
             return cell
         }
