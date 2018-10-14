@@ -82,14 +82,26 @@ public class UITableViewPickerCell: UITableViewCell, UITableViewExpandableCell {
         }
     }
 
-    private let separator: ColorLockedView = {
+    public var lineSeparatorColor:UIColor = UIColor(white: 0, alpha: 0.1) {
+        didSet{
+            separator.lockedBackgroundColor = lineSeparatorColor
+        }
+    }
+
+    private lazy var separator: ColorLockedView = {
         let view = ColorLockedView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.lockedBackgroundColor = UIColor(white: 0, alpha: 0.1)
+        view.lockedBackgroundColor = self.lineSeparatorColor
         return view
     }()
+
     private var picker: UIView = UIPickerView()
 
+    public override var tintColor: UIColor! {
+       didSet {
+           picker.tintColor = tintColor
+       }
+    }
     /// The type of the picker used in the cell.
     public private(set) var pickerType = PickerType.default
 
@@ -414,6 +426,10 @@ extension UITableViewPickerCell: UIPickerViewDelegate {
         didPickHandler?(self, selectedRow, value)
     }
 
+    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let value = values[row]
+        return NSAttributedString(string: value, attributes: [NSAttributedString.Key.foregroundColor:self.defaultValueLabelTextColor])
+    }
 }
 
 extension UITableViewPickerCell: UIPickerViewDataSource {

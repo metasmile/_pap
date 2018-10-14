@@ -524,8 +524,9 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
-        tableView.tintColor = view.tintColor
+        view.tintColor = view.colorTheme.tintColor
         view.addSubview(tableView)
+        tableView.tintColor = view.tintColor
         tableView.fitConstraints(to: view)
         return view
     }()

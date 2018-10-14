@@ -55,10 +55,11 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override func initialize() {
         super.initialize()
-        
+
         selectionCheckView = CheckMark(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
+//        selectionCheckView.checkedColor = colorTheme == .dark ? colorTheme.objectBackgroundColor : nil
         selectionCheckView.backgroundColor = UIColor.clear
-        
+
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
         
@@ -112,7 +113,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
 
     public var isEnabled:Bool = false {
         didSet{
-            contentView.alpha = isEnabled ? 1 : 0.5
+            contentView.alpha = isEnabled ? 1 : 0.4
         }
     }
 

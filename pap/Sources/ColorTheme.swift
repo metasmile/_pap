@@ -1,5 +1,5 @@
 //
-//  ColorThemeManager.swift
+//  pap.ColorTheme.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 9. 13..
@@ -9,6 +9,9 @@
 import UIKit
 import PropertyKit
 
+//WARNING: Do not use this CodeKit/* directly
+//TODO: change to StaticVar-Generic styled common theme handler
+
 enum ColorTheme: Int, Decodable {
     case `default`
     case dark
@@ -17,7 +20,7 @@ enum ColorTheme: Int, Decodable {
 extension ColorTheme {
     var textColor: UIColor {
         switch self {
-        case .dark: return UIColor(red:0.69, green:0.69, blue:0.7, alpha:1)
+        case .dark: return UIColor(red:0.6, green:0.6, blue:0.6, alpha:1)
         default: return .black
         }
     }
@@ -45,14 +48,14 @@ extension ColorTheme {
     
     var backgroundColor: UIColor {
         switch self {
-        case .dark: return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1)
+        case .dark: return UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
         default: return .white
         }
     }
     
     var barTintColor: UIColor? {
         switch self {
-        case .dark: return UIColor(red:0.17, green:0.17, blue:0.17, alpha:1)
+        case .dark: return backgroundColor
         default: return nil
         }
     }
@@ -67,7 +70,7 @@ extension ColorTheme {
     var tintColor: UIColor {
         switch self {
             case .dark:
-                return UIColor(red:0.78, green:0.78, blue:0.78, alpha:1)
+                return UIColor(red:0.84, green:0.84, blue:0.84, alpha:1)
             default:
                 return (UIApplication.shared.keyWindow ?? UIWindow()).tintColor
         }
@@ -146,12 +149,12 @@ extension ColorThemeable where Self: UIViewController {
         if view.backgroundColor != UIColor.clear{
             view.backgroundColor = colorTheme.backgroundColor
         }
-        
+
         navigationController?.navigationBar.isTranslucent = colorTheme.isBarTranslucent
         navigationController?.navigationBar.barStyle = colorTheme.barStyle
         navigationController?.navigationBar.barTintColor = colorTheme.barTintColor
         navigationController?.navigationBar.tintColor = colorTheme.tintColor
-        
+
         applyTheme(colorTheme)
     }
 }
@@ -180,12 +183,33 @@ extension UITableView {
     open override func tintColorDidChange() {
         super.tintColorDidChange()
 
+        if colorTheme == .dark && "UIPickerTableView" == String(describing: type(of: self)){
+            backgroundColor = UIColor.clear
+        }
+
         if backgroundColor != UIColor.clear{
             backgroundColor = colorTheme.backgroundColor
         }
 
         tintColor = colorTheme.tintColor
         separatorColor = colorTheme.lineSeparatorColor
+    }
+}
+
+extension UIPickerView{
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        tintColor = colorTheme.tintColor
+
+        if colorTheme == .dark{
+            for v in getAllSubviews(){
+                v.backgroundColor = UIColor.clear
+            }
+            self.subviews[safe: 1]?.backgroundColor = colorTheme.lineSeparatorColor
+            self.subviews[safe: 2]?.backgroundColor = colorTheme.lineSeparatorColor
+        }
+
     }
 }
 
@@ -199,6 +223,36 @@ extension UITableViewCell {
         if backgroundColor != UIColor.clear{
             backgroundColor = colorTheme.objectBackgroundColor
         }
-
     }
 }
+
+extension UITableViewPickerCell{
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        titleLabel.textColor = colorTheme.textColor
+        defaultValueLabelTextColor = colorTheme.textColor
+        lineSeparatorColor = colorTheme.lineSeparatorColor
+    }
+}
+
+extension UITableViewMultiplePickerCell{
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        titleLabel.textColor = colorTheme.textColor
+        defaultValueLabelTextColor = colorTheme.textColor
+        lineSeparatorColor = colorTheme.lineSeparatorColor
+    }
+}
+
+
+extension UIActivityIndicatorView{
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        self.style = colorTheme == .dark ? .white : .gray
+    }
+
+}
+

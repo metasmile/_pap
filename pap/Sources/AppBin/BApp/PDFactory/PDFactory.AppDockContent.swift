@@ -212,6 +212,7 @@ class PDFactoryAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.selectedRow = 0
             }
             cell.titleLabel.text = item.label
+            cell.tintColor = tableView.tintColor
             cell.didPickHandler = { cell, row, value in
                 cellDescriber.valueHandler?(value)
             }

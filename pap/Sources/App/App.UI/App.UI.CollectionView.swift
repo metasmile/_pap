@@ -107,6 +107,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
         cell.imageInsets = cellImageInsets
+        cell.tintColor = tintColor
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
         return cell

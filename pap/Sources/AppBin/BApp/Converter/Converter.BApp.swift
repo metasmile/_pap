@@ -745,6 +745,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             } else{
                 cell.selectedRow = 0
             }
+            cell.tintColor = tableView.tintColor
             cell.titleLabel.text = item.label
             cell.didPickHandler = { cell, row, value in
                 cellDescriber.valueHandler?(value)
