@@ -798,7 +798,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
-            cell.switcher.onTintColor = self.view.tintColor
+            cell.switcher.onTintColor = ConverterApp.info.themeColor
             cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
             cell.imageView?.tintColor = self.view.tintColor
             cell.switchDidChange = item.valueHandler

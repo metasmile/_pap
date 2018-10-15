@@ -694,6 +694,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     private lazy var switchShowAllTexts: UISwitch = {
         let view = UISwitch(frame: .zero)
         view.sizeToFit()
+        view.onTintColor = MemoCamApp.info.themeColor
         view.addTarget(self, action: #selector(self.toggleResultPreviewMode), for: .valueChanged)
         return view
     }()

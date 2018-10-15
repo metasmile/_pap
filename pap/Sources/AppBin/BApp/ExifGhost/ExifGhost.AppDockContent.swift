@@ -359,7 +359,6 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
-            cell.switcher.onTintColor = self.view.tintColor
             if let image = item.iconImage?.asUIImage{
                 cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
                 cell.imageView?.tintColor = self.view.tintColor
@@ -484,12 +483,6 @@ private class Cell: UITableViewCell {
 
     @objc func cellSwitchDidChange(sender: UISwitch) {
         switchDidChange?(sender.isOn)
-    }
-    
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-        
-        optionSwitch.onTintColor = tintColor
     }
 }
 

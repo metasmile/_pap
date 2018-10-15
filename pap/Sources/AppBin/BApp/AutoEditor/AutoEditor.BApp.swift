@@ -367,7 +367,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         cell.imageView?.contentMode = .scaleAspectFit
 
         cell.textLabel?.text = AutoEditorApp.AutoAdjustments.aliasName(filterName)
-        cell.optionSwitch.onTintColor = cell.imageView?.tintColor
+        cell.optionSwitch.onTintColor = AutoEditorAppDockContent.primaryColor
         cell.optionSwitch.setOn(self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] == true, animated: false)
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] = on ? true : false

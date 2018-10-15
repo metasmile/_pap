@@ -488,7 +488,7 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
-            cell.switcher.onTintColor = self.view.tintColor
+            cell.switcher.onTintColor = PhoneCallsApp.info.themeColor
             if let image = item.iconImage?.asUIImage{
                 cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
                 cell.imageView?.tintColor = self.view.tintColor
@@ -598,16 +598,6 @@ fileprivate class PhoneCallsAppDockContent: NSObject, PropertyWatchable,
 
         @objc func cellSwitchDidChange(sender: UISwitch) {
             switchDidChange?(sender.isOn)
-        }
-
-        override func layoutSubviews() {
-            super.layoutSubviews()
-        }
-
-        override func tintColorDidChange() {
-            super.tintColorDidChange()
-
-            optionSwitch.onTintColor = tintColor
         }
     }
 }

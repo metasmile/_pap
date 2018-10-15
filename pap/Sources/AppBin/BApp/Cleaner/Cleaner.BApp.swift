@@ -706,7 +706,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
-            cell.switcher.onTintColor = self.view.tintColor
+            cell.switcher.onTintColor = CleanerApp.info.themeColor
             if let image = item.iconImage?.asUIImage{
                 cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
                 cell.imageView?.tintColor = self.view.tintColor
@@ -873,7 +873,7 @@ private class Cell: UITableViewCell {
     override func tintColorDidChange() {
         super.tintColorDidChange()
 
-        optionSwitch.onTintColor = tintColor
+        optionSwitch.onTintColor = CleanerApp.info.themeColor
     }
 }
 

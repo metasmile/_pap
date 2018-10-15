@@ -220,6 +220,7 @@ fileprivate class RevertAppDockContent: NSObject, PropertyWatchable, AppDockCont
         cell.imageView?.tintColor = primaryColor
 
         cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
+        cell.optionSwitch.onTintColor = RevertApp.info.themeColor
         cell.switchDidChange = { on in
             self.defaults.autoSelect = on
             AppCenter.default.currentInstanceAs(RevertApp.self)?.autoSelect = on
@@ -271,12 +272,6 @@ fileprivate class RevertAppDockContent: NSObject, PropertyWatchable, AppDockCont
 //            imageView?.frame.origin = CGPoint(x: 10, y: (contentView.bounds.height - 30) / 2)
 
 //            textLabel?.frame.origin.x = (imageView?.frame.maxX ?? 0) + 10
-        }
-
-        override func tintColorDidChange() {
-            super.tintColorDidChange()
-
-            optionSwitch.onTintColor = tintColor
         }
     }
 }
