@@ -67,12 +67,12 @@ extension ColorTheme {
         }
     }
     
-    var tintColor: UIColor? {
+    var tintColor: UIColor {
         switch self {
             case .dark:
                 return UIColor(red:0.84, green:0.84, blue:0.84, alpha:1)
             default:
-                return UIApplication.shared.keyWindow?.tintColor
+                return UIApplication.shared.keyWindow?.tintColor ?? UIColor(red: 0, green: 122 / 255.0, blue: 1, alpha: 1)
         }
     }
     
@@ -251,5 +251,15 @@ extension UIActivityIndicatorView{
         super.tintColorDidChange()
 
         self.style = colorTheme == .dark ? .white : .gray
+    }
+}
+
+extension UIToolbar {
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        barStyle = colorTheme.barStyle
+        barTintColor = colorTheme.barTintColor
+        isTranslucent = colorTheme.isBarTranslucent
     }
 }

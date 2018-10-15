@@ -159,9 +159,7 @@ class AppDockView: CustomView {
     
     private func updateBackgroundColors() {
         let color = hasAnyContentAsLayout ? colorTheme.backgroundColor : .clear
-        backgroundToolBar.barStyle = colorTheme.barStyle
-        backgroundToolBar.barTintColor = colorTheme.barTintColor
-        backgroundToolBar.isTranslucent = colorTheme.isBarTranslucent
+        backgroundToolBar.tintColor = colorTheme.tintColor
         drawerView.tintColor = color
     }
     
@@ -1403,7 +1401,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
         setIconImage()
         selectedStateView.layer.cornerRadius = selectedStateView.height/6
-        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor ?? UIColor.gray).withAlphaComponent(0.3)
+        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor).withAlphaComponent(0.3)
     }
 
     func setIconImage(){
