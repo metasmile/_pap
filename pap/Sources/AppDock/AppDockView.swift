@@ -60,6 +60,37 @@ enum AppDockBarStyle {
     case magnifying // minimum > maximum
 }
 
+internal class DockContainerView: DesignableView {
+    var cornerRadius: CGFloat = 8 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    var topMargin: CGFloat = 8
+    
+    lazy private var maskLayer = CAShapeLayer()
+    
+    override func initialize() {
+        super.initialize()
+        
+        layer.mask = maskLayer
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layoutIfNeeded()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: bounds.width, height: UIScreen.main.bounds.height), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        maskLayer.path = roundedRectPath.cgPath
+    }
+}
+
 class AppDockView: CustomView {
     private struct DefaultPreferences{
         struct AppDockView {
@@ -82,8 +113,11 @@ class AppDockView: CustomView {
 
         static let ControlMaxPreferredHeight:CGFloat = UIScreen.main.bounds.height/3
     }
-
+    
+    @IBOutlet weak private var dockContainerView: DockContainerView!
+    
     @IBOutlet weak private var backgroundView: UIView!
+    @IBOutlet weak var backgroundToolBar: UIToolbar!
     @IBOutlet weak private var drawerView: AppDockDrawerView!
     @IBOutlet weak private var drawerViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var appContentView: UIView!
@@ -125,12 +159,10 @@ class AppDockView: CustomView {
     
     private func updateBackgroundColors() {
         let color = hasAnyContentAsLayout ? colorTheme.backgroundColor : .clear
-        backgroundView.backgroundColor = color
-        topAccessoryView.backgroundColor = color
-        controllerView.backgroundColor = color
+        backgroundToolBar.barStyle = colorTheme.barStyle
+        backgroundToolBar.barTintColor = colorTheme.barTintColor
+        backgroundToolBar.isTranslucent = colorTheme.isBarTranslucent
         drawerView.tintColor = color
-        dockView.backgroundColor = color
-        bottomAccessoryView.backgroundColor = color
     }
     
     private func updateDockBarStyle() {
@@ -153,6 +185,9 @@ class AppDockView: CustomView {
 
         setContentHuggingPriority(.defaultLow, for: .vertical)
         setContentCompressionResistancePriority(.required, for: .vertical)
+        
+        dockContainerView.topMargin = 0
+        dockContainerView.cornerRadius = 16
 
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
@@ -160,7 +195,7 @@ class AppDockView: CustomView {
 //        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
-        drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
+        drawerView.topMargin = 0
 
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
@@ -307,7 +342,8 @@ class AppDockView: CustomView {
             }
             
             //INFO: no controller animation
-            appContentView.layoutIfNeeded()
+//            appContentView.layoutIfNeeded()
+            controllerView.layoutIfNeeded()
             
             delegate?.appDockView(self, didOpenDrawer: controller != nil && contentLayoutState == .maximized)
         }
@@ -1367,7 +1403,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
         setIconImage()
         selectedStateView.layer.cornerRadius = selectedStateView.height/6
-        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor).withAlphaComponent(0.3)
+        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor ?? UIColor.gray).withAlphaComponent(0.3)
     }
 
     func setIconImage(){

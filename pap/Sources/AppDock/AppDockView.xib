@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +16,13 @@
                 <outlet property="appCollectionViewHeightLayout" destination="4oi-mU-Bw3" id="v1o-YW-dZu"/>
                 <outlet property="appContentView" destination="rzS-9k-7Sx" id="omg-6O-cLK"/>
                 <outlet property="appContentViewHeightLayout" destination="9KR-4K-J6j" id="9Bo-5S-ImK"/>
+                <outlet property="backgroundToolBar" destination="RjT-1d-d2h" id="Jhv-p6-ABg"/>
                 <outlet property="backgroundView" destination="Ar8-HU-RAa" id="HgH-0B-BxY"/>
                 <outlet property="bottomAccessoryView" destination="8u0-vY-4kx" id="HQE-Yx-Vg6"/>
                 <outlet property="controllerView" destination="Nsh-j1-0eF" id="UJx-dl-LYV"/>
                 <outlet property="controllerViewHeightLayout" destination="mMQ-ZO-2JX" id="grA-UJ-DBI"/>
                 <outlet property="dimmedView" destination="XOc-rv-YPn" id="VsW-1d-49s"/>
+                <outlet property="dockContainerView" destination="NdN-JT-aJa" id="9Tz-YH-52X"/>
                 <outlet property="dockView" destination="Ccg-Ud-fcA" id="6fC-r6-sQp"/>
                 <outlet property="dockViewHeightLayout" destination="ACb-fT-cyq" id="El0-Z7-dUI"/>
                 <outlet property="drawerView" destination="Eoy-3D-8zG" id="6xI-RR-Gyg"/>
@@ -28,113 +30,132 @@
                 <outlet property="topAccessoryView" destination="jmY-6N-1EF" id="TRw-4Y-ngP"/>
             </connections>
         </placeholder>
-        <view contentMode="scaleToFill" verticalHuggingPriority="100" id="NdN-JT-aJa">
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LgT-pz-T4r">
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-HU-RAa">
+                <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="NdN-JT-aJa" customClass="DockContainerView" customModule="pap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="AppDockDrawerView" customModule="pap" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                    <constraints>
-                        <constraint firstAttribute="height" id="oFG-xd-IUR" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
-                    </constraints>
-                </view>
-                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
-                    <rect key="frame" x="0.0" y="16" width="375" height="0.0"/>
                     <subviews>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar8-HU-RAa">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <subviews>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjT-1d-d2h">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <items/>
+                                </toolbar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="RjT-1d-d2h" secondAttribute="bottom" id="AgX-TP-axG"/>
+                                <constraint firstItem="RjT-1d-d2h" firstAttribute="leading" secondItem="Ar8-HU-RAa" secondAttribute="leading" id="MiA-Pp-QVH"/>
+                                <constraint firstItem="RjT-1d-d2h" firstAttribute="top" secondItem="Ar8-HU-RAa" secondAttribute="top" id="apU-6x-we2"/>
+                                <constraint firstAttribute="trailing" secondItem="RjT-1d-d2h" secondAttribute="trailing" id="xHh-h3-TYa"/>
+                            </constraints>
                         </view>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
+                        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-3D-8zG" customClass="AppDockDrawerView" customModule="pap" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                             <constraints>
-                                <constraint firstAttribute="height" priority="750" id="mMQ-ZO-2JX" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                <constraint firstAttribute="height" id="oFG-xd-IUR" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
                             </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-9k-7Sx">
+                            <rect key="frame" x="0.0" y="16" width="375" height="0.0"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmY-6N-1EF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                </view>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsh-j1-0eF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="750" id="mMQ-ZO-2JX" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="2ke-7x-72k"/>
+                                <constraint firstAttribute="height" id="9KR-4K-J6j" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="top" id="PKi-oJ-f7E"/>
+                                <constraint firstAttribute="trailing" secondItem="jmY-6N-1EF" secondAttribute="trailing" id="T7e-x9-A4h"/>
+                                <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="Tfa-il-ROq"/>
+                                <constraint firstItem="Nsh-j1-0eF" firstAttribute="top" secondItem="jmY-6N-1EF" secondAttribute="bottom" id="iDU-nu-msx"/>
+                                <constraint firstAttribute="bottom" secondItem="Nsh-j1-0eF" secondAttribute="bottom" id="mBv-hX-9EL"/>
+                                <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="v4k-wA-13O"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA" customClass="DockView" customModule="pap" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="16" width="375" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-pp-wo9" customClass="DockCollectionBackgroundView" customModule="pap" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="4oi-mU-Bw3" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                    </constraints>
+                                    <collectionViewLayout key="collectionViewLayout" id="xex-FQ-Nk7" customClass="AppCollectionViewLayout" customModule="pap" customModuleProvider="target"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="n38-MD-6pi"/>
+                                        <outlet property="delegate" destination="-1" id="3a8-Tt-886"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
+                                <constraint firstAttribute="height" constant="44" id="ACb-fT-cyq" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
+                                <constraint firstItem="U77-pp-wo9" firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="OWh-of-gil"/>
+                                <constraint firstItem="U77-pp-wo9" firstAttribute="leading" secondItem="3j3-5w-cI5" secondAttribute="leading" id="SJH-zb-3Cj"/>
+                                <constraint firstItem="U77-pp-wo9" firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" id="VZ9-BS-6Zn"/>
+                                <constraint firstItem="U77-pp-wo9" firstAttribute="top" secondItem="3j3-5w-cI5" secondAttribute="top" id="ZzP-29-ICP"/>
+                                <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" id="fVt-tu-qzS"/>
+                                <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-vY-4kx">
+                            <rect key="frame" x="0.0" y="60" width="375" height="0.0"/>
+                        </view>
+                        <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOc-rv-YPn">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Nsh-j1-0eF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="2ke-7x-72k"/>
-                        <constraint firstAttribute="height" id="9KR-4K-J6j" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
-                        <constraint firstItem="jmY-6N-1EF" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="top" id="PKi-oJ-f7E"/>
-                        <constraint firstAttribute="trailing" secondItem="jmY-6N-1EF" secondAttribute="trailing" id="T7e-x9-A4h"/>
-                        <constraint firstAttribute="trailing" secondItem="Nsh-j1-0eF" secondAttribute="trailing" id="Tfa-il-ROq"/>
-                        <constraint firstItem="Nsh-j1-0eF" firstAttribute="top" secondItem="jmY-6N-1EF" secondAttribute="bottom" id="iDU-nu-msx"/>
-                        <constraint firstAttribute="bottom" secondItem="Nsh-j1-0eF" secondAttribute="bottom" id="mBv-hX-9EL"/>
-                        <constraint firstItem="jmY-6N-1EF" firstAttribute="leading" secondItem="rzS-9k-7Sx" secondAttribute="leading" id="v4k-wA-13O"/>
+                        <constraint firstAttribute="trailing" secondItem="Ar8-HU-RAa" secondAttribute="trailing" id="0hR-vz-7DK"/>
+                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="3er-ib-ek6"/>
+                        <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
+                        <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
+                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
+                        <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
+                        <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
+                        <constraint firstItem="XOc-rv-YPn" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="SiB-DM-Nmy"/>
+                        <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
+                        <constraint firstItem="Ar8-HU-RAa" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="V9K-zV-gNE"/>
+                        <constraint firstAttribute="bottom" secondItem="Ar8-HU-RAa" secondAttribute="bottom" id="X9k-0P-CjS"/>
+                        <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="bottom" id="cWa-pq-4Nr"/>
+                        <constraint firstItem="Ar8-HU-RAa" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="d0K-h5-PcU"/>
+                        <constraint firstAttribute="bottom" secondItem="XOc-rv-YPn" secondAttribute="bottom" id="dDe-w2-bRh"/>
+                        <constraint firstAttribute="trailing" secondItem="rzS-9k-7Sx" secondAttribute="trailing" id="ecX-8A-dQf"/>
+                        <constraint firstItem="XOc-rv-YPn" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" id="l2K-4u-mcx"/>
+                        <constraint firstItem="rzS-9k-7Sx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="lP2-4D-mNt"/>
+                        <constraint firstItem="rzS-9k-7Sx" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="pLr-NB-GFJ"/>
+                        <constraint firstItem="Eoy-3D-8zG" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="q22-5M-2x1"/>
+                        <constraint firstItem="Eoy-3D-8zG" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="q7O-Rb-eMw"/>
+                        <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
+                        <constraint firstAttribute="trailing" secondItem="XOc-rv-YPn" secondAttribute="trailing" id="w1J-D0-48I"/>
                     </constraints>
-                </view>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccg-Ud-fcA" customClass="DockView" customModule="pap" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="16" width="375" height="44"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-pp-wo9" customClass="DockCollectionBackgroundView" customModule="pap" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
-                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-5w-cI5">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="4oi-mU-Bw3" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
-                            </constraints>
-                            <collectionViewLayout key="collectionViewLayout" id="xex-FQ-Nk7" customClass="AppCollectionViewLayout" customModule="pap" customModuleProvider="target"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="n38-MD-6pi"/>
-                                <outlet property="delegate" destination="-1" id="3a8-Tt-886"/>
-                            </connections>
-                        </collectionView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="3j3-5w-cI5" firstAttribute="leading" secondItem="Ccg-Ud-fcA" secondAttribute="leading" id="2QQ-Em-ggH"/>
-                        <constraint firstAttribute="height" constant="44" id="ACb-fT-cyq" customClass="AppDockVoidableLayoutConatraint" customModule="pap" customModuleProvider="target"/>
-                        <constraint firstItem="U77-pp-wo9" firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="OWh-of-gil"/>
-                        <constraint firstItem="U77-pp-wo9" firstAttribute="leading" secondItem="3j3-5w-cI5" secondAttribute="leading" id="SJH-zb-3Cj"/>
-                        <constraint firstItem="U77-pp-wo9" firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" id="VZ9-BS-6Zn"/>
-                        <constraint firstItem="U77-pp-wo9" firstAttribute="top" secondItem="3j3-5w-cI5" secondAttribute="top" id="ZzP-29-ICP"/>
-                        <constraint firstAttribute="bottom" secondItem="3j3-5w-cI5" secondAttribute="bottom" id="fVt-tu-qzS"/>
-                        <constraint firstAttribute="trailing" secondItem="3j3-5w-cI5" secondAttribute="trailing" id="kaJ-xo-Do5"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u0-vY-4kx">
-                    <rect key="frame" x="0.0" y="60" width="375" height="0.0"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
-                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOc-rv-YPn">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="6bG-Xh-UqJ"/>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ar8-HU-RAa" secondAttribute="trailing" id="0hR-vz-7DK"/>
-                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="3er-ib-ek6"/>
-                <constraint firstAttribute="bottom" secondItem="8u0-vY-4kx" secondAttribute="bottom" id="9O7-N7-g7f"/>
-                <constraint firstAttribute="trailing" secondItem="Ccg-Ud-fcA" secondAttribute="trailing" id="BhW-Bt-vAZ"/>
-                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="bottom" secondItem="6bG-Xh-UqJ" secondAttribute="bottom" id="FOT-7M-nDF"/>
-                <constraint firstItem="Ar8-HU-RAa" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" id="Jdq-X3-ZGF"/>
-                <constraint firstAttribute="trailing" secondItem="8u0-vY-4kx" secondAttribute="trailing" id="Nf5-Op-bg2"/>
-                <constraint firstAttribute="trailing" secondItem="Eoy-3D-8zG" secondAttribute="trailing" id="NoP-V5-fUv"/>
-                <constraint firstItem="XOc-rv-YPn" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="SiB-DM-Nmy"/>
-                <constraint firstItem="8u0-vY-4kx" firstAttribute="top" secondItem="Ccg-Ud-fcA" secondAttribute="bottom" id="TpO-nP-D6I"/>
-                <constraint firstAttribute="bottom" secondItem="Ar8-HU-RAa" secondAttribute="bottom" id="X9k-0P-CjS"/>
-                <constraint firstItem="Ccg-Ud-fcA" firstAttribute="top" secondItem="rzS-9k-7Sx" secondAttribute="bottom" id="cWa-pq-4Nr"/>
-                <constraint firstItem="Ar8-HU-RAa" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="d0K-h5-PcU"/>
-                <constraint firstAttribute="bottom" secondItem="XOc-rv-YPn" secondAttribute="bottom" id="dDe-w2-bRh"/>
-                <constraint firstAttribute="trailing" secondItem="rzS-9k-7Sx" secondAttribute="trailing" id="ecX-8A-dQf"/>
-                <constraint firstItem="XOc-rv-YPn" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" id="l2K-4u-mcx"/>
-                <constraint firstItem="rzS-9k-7Sx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="lP2-4D-mNt"/>
-                <constraint firstItem="rzS-9k-7Sx" firstAttribute="top" secondItem="Eoy-3D-8zG" secondAttribute="bottom" priority="750" id="pLr-NB-GFJ"/>
-                <constraint firstItem="Eoy-3D-8zG" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="q22-5M-2x1"/>
-                <constraint firstItem="Eoy-3D-8zG" firstAttribute="top" secondItem="NdN-JT-aJa" secondAttribute="top" id="q7O-Rb-eMw"/>
-                <constraint firstItem="8u0-vY-4kx" firstAttribute="leading" secondItem="NdN-JT-aJa" secondAttribute="leading" id="qUL-xU-QJP"/>
-                <constraint firstAttribute="trailing" secondItem="XOc-rv-YPn" secondAttribute="trailing" id="w1J-D0-48I"/>
+                <constraint firstItem="NdN-JT-aJa" firstAttribute="leading" secondItem="LgT-pz-T4r" secondAttribute="leading" id="RQf-oU-Z14"/>
+                <constraint firstAttribute="trailing" secondItem="NdN-JT-aJa" secondAttribute="trailing" id="TjE-P9-Gax"/>
+                <constraint firstAttribute="bottom" secondItem="NdN-JT-aJa" secondAttribute="bottom" id="f98-MG-KwK"/>
+                <constraint firstItem="NdN-JT-aJa" firstAttribute="top" secondItem="LgT-pz-T4r" secondAttribute="top" id="jWx-g3-b6e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="6bG-Xh-UqJ"/>
-            <point key="canvasLocation" x="33.5" y="55"/>
         </view>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>
 </document>

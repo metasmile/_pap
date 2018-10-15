@@ -129,40 +129,40 @@ internal class AppDockDrawerView: DesignableView {
         drawerShapePath.addLine(to: CGPoint(x: drawerShapeLayerSize.width, y: 0))
         drawerShapeLayer.path = drawerShapePath.cgPath
         
-        contentMode = .redraw
+//        contentMode = .redraw
     }
 
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-
-        let cornerRadius: CGFloat = 8
-
-        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: max(cornerRadius * 2, rect.height - topMargin)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-
-        let ctx = UIGraphicsGetCurrentContext()
-        ctx?.saveGState()
-
-        ctx?.setBlendMode(.normal)
-        ctx?.setFillColor(drawerColor.cgColor)
-
-        ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.3).cgColor)
-
-        ctx?.addPath(roundedRectPath.cgPath)
-        ctx?.fillPath()
-
-        ctx?.restoreGState()
-
-        ctx?.setLineWidth(0.5)
-        ctx?.setStrokeColor(drawerStrokeColor.cgColor)
-        ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
-        ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
-        ctx?.move(to: CGPoint(x: 0, y: rect.height))
-        // TEST: no bottom line
-        if showsTitle {
-            ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        }
-        ctx?.strokePath()
-    }
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//
+//        let cornerRadius: CGFloat = 8
+//
+//        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: rect.width, height: max(cornerRadius * 2, rect.height - topMargin)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+//
+//        let ctx = UIGraphicsGetCurrentContext()
+//        ctx?.saveGState()
+//
+//        ctx?.setBlendMode(.normal)
+//        ctx?.setFillColor(drawerColor.cgColor)
+//
+//        ctx?.setShadow(offset: .zero, blur: topMargin, color: UIColor.black.withAlphaComponent(0.3).cgColor)
+//
+//        ctx?.addPath(roundedRectPath.cgPath)
+//        ctx?.fillPath()
+//
+//        ctx?.restoreGState()
+//
+//        ctx?.setLineWidth(0.5)
+//        ctx?.setStrokeColor(drawerStrokeColor.cgColor)
+//        ctx?.move(to: CGPoint(x: cornerRadius, y: topMargin))
+//        ctx?.addLine(to: CGPoint(x: rect.width - cornerRadius, y: topMargin))
+//        ctx?.move(to: CGPoint(x: 0, y: rect.height))
+//        // TEST: no bottom line
+//        if showsTitle {
+//            ctx?.addLine(to: CGPoint(x: rect.width, y: rect.height))
+//        }
+//        ctx?.strokePath()
+//    }
     
     var compactHeight: CGFloat = 11
 
@@ -171,7 +171,7 @@ internal class AppDockDrawerView: DesignableView {
 
         let disableActionsToRestore = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
-        drawerShapeLayer.frame.origin = CGPoint(x: (bounds.width - drawerShapePath.bounds.width) / 2, y: topMargin + (compactHeight - drawerShapeLayer.lineWidth) / 2)
+        drawerShapeLayer.frame.origin = CGPoint(x: (bounds.width - drawerShapePath.bounds.width) / 2, y: topMargin + (bounds.height - topMargin) / 2)
         CATransaction.setDisableActions(disableActionsToRestore)
         
         layoutIfNeeded()

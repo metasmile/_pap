@@ -17,16 +17,6 @@ enum ColorTheme: Int, Decodable {
     case dark
 }
 
-struct ColorThemePalette {
-    var backgroundColor: UIColor
-    var tintColor: UIColor
-    var barTintColor: UIColor
-    var contentBackgroundColor: UIColor
-    var lineSeparatorColor: UIColor
-    var textColor: UIColor
-    var textGrayColor: UIColor
-}
-
 extension ColorTheme {
     var textColor: UIColor {
         switch self {
@@ -77,12 +67,12 @@ extension ColorTheme {
         }
     }
     
-    var tintColor: UIColor {
+    var tintColor: UIColor? {
         switch self {
             case .dark:
                 return UIColor(red:0.84, green:0.84, blue:0.84, alpha:1)
             default:
-                return (UIApplication.shared.keyWindow ?? UIWindow()).tintColor
+                return UIApplication.shared.keyWindow?.tintColor
         }
     }
     
@@ -90,13 +80,6 @@ extension ColorTheme {
         switch self {
         case .dark: return true
         default: return true
-        }
-    }
-    
-    var blurEffectStyle: UIBlurEffect.Style {
-        switch self {
-        case .dark: return .dark
-        default: return .light
         }
     }
 }
@@ -263,13 +246,10 @@ extension UITableViewMultiplePickerCell{
     }
 }
 
-
 extension UIActivityIndicatorView{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
 
         self.style = colorTheme == .dark ? .white : .gray
     }
-
 }
-
