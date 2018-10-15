@@ -1395,7 +1395,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         appStatusIconView.backgroundColor = status?.statusColor
 
         setIconImage()
-        selectedStateView.layer.cornerRadius = selectedStateView.height/6
+        selectedStateView.layer.cornerRadius = selectedStateView.height/5
         selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor).withAlphaComponent(0.3)
     }
 

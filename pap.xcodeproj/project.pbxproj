@@ -308,6 +308,7 @@
 		5174B00F216ACB1D00177999 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */; };
 		518BAC3A20F6BC2200A54750 /* CodeKit.CGGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAC3920F6BC2200A54750 /* CodeKit.CGGeometry.swift */; };
 		518BAE962161B5F600D68BF4 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BAE952161B5F600D68BF4 /* VisionBarcodeDetector.swift */; };
+		A00B5A1C21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00B5A1B21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets */; };
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
 		A07CD82B216E0A3D003DFD75 /* App.Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07CD82A216E0A3D003DFD75 /* App.Resources.xcassets */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
@@ -697,6 +698,7 @@
 		5FA8D6CA125AC9C3DF819BA2 /* Pods_pap_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6089B37E3E1620CEDA68858B /* Pods_pap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A00B5A1B21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A01B12CA2153F31B00D58600 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Intents.strings; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* pap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pap.entitlements; sourceTree = "<group>"; };
 		A020941A2129AC2A00D0F84C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -1337,6 +1339,7 @@
 			isa = PBXGroup;
 			children = (
 				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
+				A00B5A1B21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets */,
 			);
 			path = MemoCam;
 			sourceTree = "<group>";
@@ -2201,6 +2204,7 @@
 				A0DE011B216D027000F99365 /* Artist.BApp.Assets.xcassets in Resources */,
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,
+				A00B5A1C21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets in Resources */,
 				4F71D4A97BBD774069AC6E31 /* Revert.BApp.Assets.xcassets in Resources */,
 				4F71D58C2B40BC3B670A6A85 /* Transform.BApp.Assets.xcassets in Resources */,
 				4F71D0DDBDE1464AF55CCCA9 /* PhoneCalls.BApp.Assets.xcassets in Resources */,

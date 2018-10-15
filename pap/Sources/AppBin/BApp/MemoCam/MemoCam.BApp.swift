@@ -29,11 +29,11 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
     public static let info = AppInfo(
         identifier: "com.stells.pap.memocam"
         , version: "1.0"
-        , phase: .develop
+        , phase: .release
         , appType: MemoCamApp.self
         , displayName: "Memo Cam".localized.localizedCapitalized, description:nil, keywords:nil
-        , iconBundleName: nil
-            , themeColor: nil, embossIconBundleName: nil        , policy: AppPolicy.default
+        , iconBundleName: R.image.memoCamBAppEmbossIcon.name
+            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), embossIconBundleName: R.image.memoCamBAppEmbossIcon.name        , policy: AppPolicy.default
         , minOSVersion: nil
     )
     
