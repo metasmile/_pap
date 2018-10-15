@@ -17,6 +17,16 @@ enum ColorTheme: Int, Decodable {
     case dark
 }
 
+struct ColorThemePalette {
+    var backgroundColor: UIColor
+    var tintColor: UIColor
+    var barTintColor: UIColor
+    var contentBackgroundColor: UIColor
+    var lineSeparatorColor: UIColor
+    var textColor: UIColor
+    var textGrayColor: UIColor
+}
+
 extension ColorTheme {
     var textColor: UIColor {
         switch self {
@@ -80,6 +90,13 @@ extension ColorTheme {
         switch self {
         case .dark: return true
         default: return true
+        }
+    }
+    
+    var blurEffectStyle: UIBlurEffect.Style {
+        switch self {
+        case .dark: return .dark
+        default: return .light
         }
     }
 }
@@ -173,7 +190,7 @@ extension UISearchBar{
 
         tintColor = colorTheme.tintColor
 
-        barStyle = colorTheme == .dark ? .black : .default
+        barStyle = colorTheme.barStyle
         barTintColor = colorTheme.barTintColor
         backgroundColor = colorTheme.backgroundColor
     }

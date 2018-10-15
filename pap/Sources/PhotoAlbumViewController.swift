@@ -349,6 +349,12 @@ internal class PhotoAlbumCollectionTitleView: UICollectionReusableView {
             titleLabel.text = title
         }
     }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        titleLabel.textColor = tintColor
+    }
 }
 
 class PhotoAlbumCollectionViewCell: UICollectionViewCell {
@@ -370,6 +376,7 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
         super.tintColorDidChange()
         
         titleLabel.textColor = tintColor
+        subtitleLabel.textColor = colorTheme.textGrayColor
     }
     
     override func prepareForReuse() {
@@ -415,6 +422,6 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
 
 extension PhotoAlbumViewController: ColorThemeable {
     func applyTheme(_ colorTheme: ColorTheme) {
-        collectionView.tintColor = colorTheme.textColor
+        collectionView.tintColor = colorTheme.tintColor
     }
 }
