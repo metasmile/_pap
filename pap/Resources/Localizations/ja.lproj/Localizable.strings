@@ -224,6 +224,8 @@
 "Auto Selection Bot" = "自動選択ボット";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "自動水平補正";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ぼかし率";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -430,6 +432,8 @@
 "No Crop" = "クロップなし";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ループなし";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "現在、カメラを介してあなたの周りの現在のシーンから意味のある情報をすべてキャプチャします。その後、すぐに電話をかける、地図で開く、バーコードをスキャンする、ウェブサイトを検索するなどの方法があります。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
 "Number" = "数";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */

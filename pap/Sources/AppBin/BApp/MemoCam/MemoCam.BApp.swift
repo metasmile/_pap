@@ -31,9 +31,12 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , version: "1.0"
         , phase: .release
         , appType: MemoCamApp.self
-        , displayName: "Memo Cam".localized.localizedCapitalized, description:nil, keywords:nil
+        , displayName: "Memo Cam".localized.localizedCapitalized
+        , description:"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights.".localized
+        , keywords: nil
         , iconBundleName: R.image.memoCamBAppIcon.name
-            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), policy: AppPolicy.default
+        , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1)
+        , policy: AppPolicy.default
         , minOSVersion: nil
     )
     

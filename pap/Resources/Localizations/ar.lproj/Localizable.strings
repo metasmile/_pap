@@ -224,6 +224,8 @@
 "Auto Selection Bot" = "اختيار السيارات بوت";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "تسطيح السيارات";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "كن فنان. يتيح لك الفنان تشغيل جميع الصور أو مقاطع الفيديو بشكل كبير في اللوحات الشهيرة. أداة معالجة الدفعات هذه ليس لها حد لعدد الصور المطلوب تحويلها.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "معدل طمس";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -430,6 +432,8 @@
 "No Crop" = "لا المحاصيل";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "لا حلقة";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "الآن التقاط كل معلومات ذات مغزى من المشهد الحالي من حولك عن طريق الكاميرا. ثم قم بإجراء مكالمة على الفور ، وفتحها باستخدام الخرائط ، أو مسح الباركود ضوئيًا ، أو فتح مواقع الويب حتى البحث عن رحلات جوية.";
 /* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
 "Number" = "رقم";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */

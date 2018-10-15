@@ -79,11 +79,11 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     public static let info = AppInfo(
         identifier: "com.stells.pap.artist"
         , version: "1.0"
-        , phase: .develop
+        , phase: .release
         , appType: ArtistApp.self
         , displayName: "Artist".localized.localizedCapitalized
-        , description: "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.".localized
-        , keywords: ["Artist", "Color", "Effect", "High-Quality"]
+        , description: "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.".localized
+        , keywords: ["Artist", "Artwork", "Art", "Painting", "Machine Learning", "Art Creation", MLArtStyle.Mosaic.name, MLArtStyle.Muse.name, MLArtStyle.Udanie.name, MLArtStyle.Candy.name, MLArtStyle.Feathers.name, MLArtStyle.Scream.name]
         , iconBundleName: R.image.artistBAppIcon.name
         , themeColor: nil
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
