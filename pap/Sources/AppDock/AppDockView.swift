@@ -1408,11 +1408,11 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 //                iconImage = iconName.asUIImage
 //                appIconView.cornerRadius = appIconView.height / 2
 //            }else{
-//                iconImage = app?.info.embossIconBundleName?.asUIImage ?? iconName.asUIImage
+//                iconImage = app?.info.iconBundleName?.asUIImage ?? iconName.asUIImage
 //                appIconView.cornerRadius = 0
 //            }
 //        }
-        iconImage = app?.info.embossIconBundleName?.asUIImage
+        iconImage = app?.info.iconBundleName?.asUIImage
         appIconView.cornerRadius = 0
     }
 

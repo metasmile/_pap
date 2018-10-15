@@ -105,7 +105,7 @@ class AppTaskTests: XCTestCase {
                     , appType: TestPreferredConcurrentCountApp.self
                     , displayName: "TestPreferredConcurrentCountApp", description:nil, keywords:nil
                     , iconBundleName: nil
-                    , themeColor: nil, embossIconBundleName: nil                    , policy: AppPolicy.default
+                    , themeColor: nil, policy: AppPolicy.default
                     , minOSVersion: nil
             )
             public required init() {}

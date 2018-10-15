@@ -44,8 +44,8 @@ public class RevertApp: NSObject, PropertyWatchable, BApp
             , displayName: "Restorer".localized.localizedCapitalized
             , description: "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
             , keywords: ["Restore","Repair","Revert","recovery", "Restorer"]
-            , iconBundleName: R.image.revertBAppEmbossIcon.name
-            , themeColor: UIColor.lightGray, embossIconBundleName: R.image.revertBAppEmbossIcon.name             , policy: AppPolicy.default
+            , iconBundleName: R.image.revertBAppIcon.name
+            , themeColor: UIColor.lightGray, policy: AppPolicy.default
             , minOSVersion: nil
     )
 

@@ -44,8 +44,8 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
             , displayName: "Finder".localized.localizedCapitalized
             , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
-            , iconBundleName: R.image.finderBAppEmbossIcon.name
-            , themeColor: UIColor(red:0.59, green:0.56, blue:0.99, alpha:1), embossIconBundleName: R.image.finderBAppEmbossIcon.name             , policy: AppPolicy.default
+            , iconBundleName: R.image.finderBAppIcon.name
+            , themeColor: UIColor(red:0.59, green:0.56, blue:0.99, alpha:1), policy: AppPolicy.default
             , minOSVersion: nil
     )
 

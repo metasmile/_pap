@@ -86,7 +86,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
         , keywords: ["Artist", "Color", "Effect", "High-Quality"]
         , iconBundleName: R.image.artistBAppIcon.name
         , themeColor: nil
-        , embossIconBundleName: R.image.artistBAppIcon.name
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )

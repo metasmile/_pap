@@ -32,8 +32,8 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , phase: .release
         , appType: MemoCamApp.self
         , displayName: "Memo Cam".localized.localizedCapitalized, description:nil, keywords:nil
-        , iconBundleName: R.image.memoCamBAppEmbossIcon.name
-            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), embossIconBundleName: R.image.memoCamBAppEmbossIcon.name        , policy: AppPolicy.default
+        , iconBundleName: R.image.memoCamBAppIcon.name
+            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), policy: AppPolicy.default
         , minOSVersion: nil
     )
     

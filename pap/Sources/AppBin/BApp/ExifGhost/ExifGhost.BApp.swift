@@ -28,8 +28,8 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
             , displayName: "EXIF Ghost"
             , description: "EXIF Ghost lets you remove all kinds of data containing your photos including private information.".localized
             , keywords: ["privacy", "exif", "metadata", "GPS", "altitude", "latitude", "time stamp", "date", "date time", "time", "personal data"]
-            , iconBundleName: R.image.exifGhostBAppEmbossIcon.name
-            , themeColor: UIColor.white, embossIconBundleName: R.image.exifGhostBAppEmbossIcon.name             , policy: AppPolicy.default
+            , iconBundleName: R.image.exifGhostBAppIcon.name
+            , themeColor: UIColor.white, policy: AppPolicy.default
             , minOSVersion: nil
     )
 

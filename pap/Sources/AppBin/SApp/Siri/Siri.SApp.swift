@@ -26,7 +26,7 @@ class SiriApp: NSObject
         , description: nil
         , keywords: nil
         , iconBundleName: R.image.siriSAppIcon.name
-        , themeColor: nil, embossIconBundleName: R.image.siriSAppEmbossIcon.name         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+        , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
         , minOSVersion: OperatingSystemVersion(majorVersion: 12, minorVersion: 0, patchVersion: 0)
     )
     

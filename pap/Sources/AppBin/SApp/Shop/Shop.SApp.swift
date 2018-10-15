@@ -36,7 +36,7 @@ public class ShopApp: NSObject
             , description: nil
             , keywords: nil
             , iconBundleName: R.image.shopSAppIcon.name
-            , themeColor: nil, embossIconBundleName: R.image.shopSAppEmbossIcon.name             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+            , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
 
