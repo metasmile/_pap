@@ -81,7 +81,7 @@ internal class DockContainerView: DesignableView {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: bounds.width, height: UIScreen.main.bounds.height), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: bounds.width, height: UIScreen.main.bounds.height * 1.25), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         maskLayer.path = roundedRectPath.cgPath
     }
 }
