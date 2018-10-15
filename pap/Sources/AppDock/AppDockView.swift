@@ -98,7 +98,7 @@ class AppDockView: CustomView {
         }
 
         struct DrawerView {
-            static let compactDisabledHeight: CGFloat = 14
+            static let compactDisabledHeight: CGFloat = 16
             static let compactDisabledTopMargin = prominentHeight - compactDisabledHeight
 
             static let compactHeight: CGFloat = 22
@@ -185,7 +185,7 @@ class AppDockView: CustomView {
         setContentCompressionResistancePriority(.required, for: .vertical)
         
         dockContainerView.topMargin = 0
-        dockContainerView.cornerRadius = 16
+        dockContainerView.cornerRadius = DefaultPreferences.DrawerView.compactDisabledHeight
 
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
