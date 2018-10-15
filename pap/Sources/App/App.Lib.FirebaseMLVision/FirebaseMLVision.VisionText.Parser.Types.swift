@@ -61,8 +61,8 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
     //https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
     private let deniedPattern = "[^0-9\\+\\s\\)\\(\\-]|(^\\-)"
 
-    // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN
-    private let prefixSpacePattern = "^[0-9]{2,4}$"
+    // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN, (XXX) NNNN-NNNN
+    private let prefixSpacePattern = "^([0-9]{2,4})|(\\([0-9]{2,4}\\))$"
 
     func process(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = blockParser.process(input: input) else{
