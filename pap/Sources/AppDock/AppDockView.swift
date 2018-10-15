@@ -61,12 +61,7 @@ enum AppDockBarStyle {
 }
 
 internal class DockContainerView: DesignableView {
-    var cornerRadius: CGFloat = 8 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-        }
-    }
-    
+    var cornerRadius: CGFloat = 8
     var topMargin: CGFloat = 8
     
     lazy private var maskLayer = CAShapeLayer()
