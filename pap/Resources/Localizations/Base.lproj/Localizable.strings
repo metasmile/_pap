@@ -150,8 +150,6 @@
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"All Texts" = "All Texts";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -308,6 +306,10 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Texts" = "Get All Texts";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Get Text";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
@@ -404,6 +406,8 @@
 "Open %@" = "Open %@";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Apple Maps" = "Open Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Open Artist.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "Open Auto Editor.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -492,6 +496,8 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Recognize Text" = "Recognize Text";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -626,7 +632,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Terms of Use" = "Terms of Use";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";

@@ -720,7 +720,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     private var needsCaptureImage = false
-    private func setNeedsCaptureImage() {
+    fileprivate func setNeedsCaptureImage() {
         needsCaptureImage = true
     }
     
@@ -744,7 +744,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
     }
     
-    @objc private func cancelButtonDidTap(sender: Any) {
+    @objc fileprivate func cancelButtonDidTap(sender: Any) {
         UIFeedback.impact(.medium)
         
         if let _ = currentTargetImage {
@@ -840,6 +840,44 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         showActions(with: [result])
     }
 }
+
+
+import Intents
+extension MemoCamApp: UIApplicationDelegateLaunchableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let recognizeTextIntent = RecognizeTextIntent()
+            recognizeTextIntent.appId = MemoCamApp.info.identifier
+            recognizeTextIntent.suggestedInvocationPhrase = "Recognize Text".localized
+
+            return [recognizeTextIntent]
+        } else {
+            return []
+        }
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            if intent is RecognizeTextIntent{
+                (self.content as? MemoCamAppDockContent)?.cancelButtonDidTap(sender: "")
+                (self.content as? MemoCamAppDockContent)?.setNeedsCaptureImage()
+            }
+        }
+
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    }
+}
+
+
+
+
 
 /*
 import ARKit

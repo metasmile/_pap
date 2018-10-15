@@ -342,6 +342,10 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Nhận quyền truy cập";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Texts" = "Nhận tất cả nội dung";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Nhận văn bản";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
@@ -438,6 +442,8 @@
 "Open %@" = "Mở %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Mở Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Mở Nghệ sĩ.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "Open Auto Editor.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -526,6 +532,8 @@
 "Quality" = "Phẩm chất";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Xếp hạng";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Recognize Text" = "Nhận dạng văn bản";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Loại bỏ mắt đỏ";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */

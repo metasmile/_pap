@@ -342,6 +342,10 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "לקבל גישה";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Texts" = "קבל את כל הטקסטים";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "קבל טקסט";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "תן דירוג";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
@@ -438,6 +442,8 @@
 "Open %@" = "פתח את %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "פתח את האמן.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "Open Auto Editor.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -526,6 +532,8 @@
 "Quality" = "איכות";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "לדרג אותו";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Recognize Text" = "זיהוי טקסט";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "הסרת עיניים אדומות";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */

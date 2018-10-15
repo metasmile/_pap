@@ -381,3 +381,26 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
+
+import Intents
+extension ArtistApp: UIApplicationDelegateLaunchableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            let openAppIntent = OpenIntent()
+            openAppIntent.appId = info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ArtistApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Artist.".localized
+
+            return [openAppIntent]
+        } else {
+            return []
+        }
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    }
+}

@@ -342,6 +342,10 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Obteniu accés";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Texts" = "Obtenir tots els textos";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Obteniu text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Doneu una valoració";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
@@ -438,6 +442,8 @@
 "Open %@" = "Obre %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Obriu els mapes d'Apple";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Artista obert.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "Open Auto Editor.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -526,6 +532,8 @@
 "Quality" = "Qualitat";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Qualifica-ho";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Recognize Text" = "Reconeix el text";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Remoció d'ulls vermells";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */

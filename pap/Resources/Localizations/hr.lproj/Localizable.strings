@@ -342,6 +342,10 @@
 "GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Dobiti pristup";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Texts" = "Preuzmite sve tekstove";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Nabavite tekst";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
@@ -438,6 +442,8 @@
 "Open %@" = "Otvoreno %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Otvorite Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Otvori izvođača.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "Open Auto Editor.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -526,6 +532,8 @@
 "Quality" = "kvaliteta";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ocijenite ga";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Recognize Text" = "Prepoznaj tekst";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Uklanjanje crvenih očiju";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
