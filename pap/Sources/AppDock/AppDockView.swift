@@ -190,6 +190,8 @@ class AppDockView: CustomView {
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = 0
 
+        dimmedView.backgroundColor = dimmedView.colorTheme.objectBackgroundColor
+
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
         gesture.maximumNumberOfTouches = 1
@@ -295,7 +297,7 @@ class AppDockView: CustomView {
     var disabled: Bool = false {
         didSet {
             self.isUserInteractionEnabled = !disabled
-            
+
             UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
                 self.dimmedView.isHidden = !self.disabled
             }, completion: nil)
