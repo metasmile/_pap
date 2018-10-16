@@ -25,18 +25,11 @@ extension Defaults: FilterAppDefaults {
     }
 }
 
-public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
-    @objc dynamic
-    public var tintColor: UIColor?
-    
+public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
     @objc dynamic
     public var filter: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttributeValuable {
-            self.tintColor = other.tintColor
-        }
-        
         if let other = fromOther as? FiltersAppConfigValue, let filter = other.filter{
             self.filter = filter
         }
@@ -53,7 +46,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 
     public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
-        config.tintColor = .black
         return config
     }
 
@@ -90,10 +82,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     
     required public override init() {
         super.init()
-        
-        config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateControllerView()
-        }
         
         if let controllerContent = self.content as? FiltersAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
@@ -141,7 +129,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateControllerView()
     }
     
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
@@ -181,14 +168,6 @@ extension FiltersApp:UIApplicationDelegateLaunchableApp{
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-    }
-}
-
-
-private extension FiltersApp {
-    private func updateControllerView() {
-        self.content?.view.tintColor = config?.tintColor
-        self.photoEditorDockContent?.view.tintColor = config?.tintColor
     }
 }
 
@@ -288,6 +267,8 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
+        view.tintColor = view.colorTheme.tintColor
+        
         loadPreview()
     }
 

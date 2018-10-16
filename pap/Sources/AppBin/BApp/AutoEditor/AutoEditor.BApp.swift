@@ -19,7 +19,6 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
 
     public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
-        config.tintColor = .black
         return config
     }
 
@@ -61,10 +60,6 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     
     required public override init() {
         super.init()
-
-        config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateControllerView()
-        }
 
         let controllerContent = self.content as? AutoEditorAppDockContent
         controllerContent?.watch(\.options, options: [.initial, .new]) {
@@ -118,7 +113,6 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateControllerView()
     }
     
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
@@ -229,11 +223,6 @@ private extension AutoEditorApp {
         AutoEditorApp.AutoAdjustments.Crop,
         AutoEditorApp.AutoAdjustments.RedEye
     ]
-    
-    private func updateControllerView(){
-        self.content?.view.tintColor = config?.tintColor
-        self.photoEditorDockContent?.view.tintColor = config?.tintColor
-    }
 }
 
 private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
@@ -330,6 +319,8 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
+        view.tintColor = view.colorTheme.tintColor
+        
         if options != nil{
             (view as? UITableView)?.reloadData()
         }
