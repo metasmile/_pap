@@ -9,7 +9,70 @@
 import UIKit
 import AVFoundation
 import Photos
-import Hero
+
+class PhotoEditorTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    var presented: Bool = true
+    
+    var sourceView: UIView?
+    var transitionView: UIView?
+    var sourceRect: CGRect = .zero
+    var targetRect: CGRect = .zero
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
+        
+        let toView = transitionContext.view(forKey: .to)
+        
+        if let view = toView {
+            containerView.addSubview(view)
+        }
+        
+        if let view = transitionView {
+            containerView.addSubview(view)
+        }
+        
+        if presented {
+            self.sourceView?.isHidden = true
+        }
+        else if let appDockNavigationController = transitionContext.viewController(forKey: .from) as? AppDockNavigationController {
+            if let photoEditor = appDockNavigationController.topViewController as? PhotoEditViewController {
+                photoEditor.zoomingContentView.isHidden = true
+            }
+        }
+        
+        toView?.alpha = 0
+        
+        UIView.animate(withDuration: self.transitionDuration(using: transitionContext) / 2) {
+            toView?.alpha = 1
+        }
+        
+        DispatchQueue.main.async {
+            UIView.animateAsSpring(self.transitionDuration(using: transitionContext), delay: 0, options: [.curveEaseInOut], animations: {
+                self.transitionView?.frame = self.presented ? self.targetRect : self.sourceRect
+                
+                if !self.presented {
+                    self.transitionView?.clipsToBounds = true
+                }
+            }) { (completed) in
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            }
+        }
+    }
+    
+    func animationEnded(_ transitionCompleted: Bool) {
+        if !self.presented {
+            self.sourceView?.isHidden = false
+            self.sourceView = nil
+        }
+        
+        self.transitionView?.removeFromSuperview()
+        self.transitionView = nil
+    }
+}
 
 protocol EditViewControllerDelegate {
     func editViewController(_ photoEditor: PhotoEditViewController, didFinishWith editItem: StateValueSet<ImageEditStateValue>?, at indexPath: IndexPath?)
@@ -53,17 +116,20 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return UITapGestureRecognizer(target: self.assetView, action: #selector(self.assetView.playAny))
     }()
     
+    lazy var transitionAnimator = PhotoEditorTransitionAnimator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Edit".localized
+        
+        zoomingContentView.isHidden = true
         
         photoZoomingView.canCancelContentTouches = false
         photoZoomingView.addSubview(zoomingContentView)
         
         placeholderView.image = placeholderImage
         placeholderView.contentMode = .scaleAspectFit
-        placeholderView.hero.id = "TransitionToPhotoEditViewController"
         zoomingContentView.addSubview(placeholderView)
         
         assetView.contentMode = .scaleAspectFit
@@ -116,6 +182,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(self.preferredEditState.imageEditStateValue, in: (app as? PhotoEditorViewControllerDelegatableApp)?.photoEditorDockContent)
         }
+        
+        zoomingContentView.isHidden = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -196,6 +264,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.center = CGPoint(x: contentSize.width / 2, y: contentSize.height / 2)
         
         placeholderView.frame = assetView.frame
+        
+        transitionAnimator.targetRect = view.convert(placeholderView.frame, from: zoomingContentView)
     }
     
     // MARK: - Navigation Bar Actions
@@ -288,6 +358,20 @@ extension PhotoEditViewController: AppDockViewDelegate{
     }
 }
 
-// MARK: - Photos
-
-
+extension PhotoEditViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transitionAnimator.presented = true
+        return transitionAnimator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let imageView = UIImageView(frame: view.convert(placeholderView.frame, from: zoomingContentView))
+        imageView.image = placeholderView.image
+        imageView.contentMode = .scaleAspectFill
+        imageView.transform = placeholderView.transform
+        
+        transitionAnimator.transitionView = imageView
+        transitionAnimator.presented = false
+        return transitionAnimator
+    }
+}

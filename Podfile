@@ -18,7 +18,6 @@ target 'pap' do
   pod 'PropertyKit'
 
   # Common Solutions
-  pod 'Hero'
   pod 'SwiftyGif'
 
   # com.stells.pap.shop

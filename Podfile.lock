@@ -84,7 +84,6 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
-  - Hero (1.3.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -121,7 +120,6 @@ DEPENDENCIES:
   - Firebase/MLVisionBarcodeModel
   - Firebase/MLVisionLabelModel
   - Firebase/MLVisionTextModel
-  - Hero
   - PhoneNumberKit (~> 2.1)
   - PropertyKit
   - R.swift (= 4.0.0)
@@ -150,7 +148,6 @@ SPEC REPOS:
     - GoogleMobileVision
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - Hero
     - nanopb
     - PhoneNumberKit
     - PropertyKit
@@ -198,7 +195,6 @@ SPEC CHECKSUMS:
   GoogleMobileVision: 6b0a3a2dae1974ec35d80fdeeacc3a03193642e0
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  Hero: 3eecd3fd62dd2425cbc7e35505c557b86d5a379e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
   PropertyKit: e193df8d2df4e53db40399fd13638dcc8c4ad639
@@ -210,6 +206,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
 
-PODFILE CHECKSUM: 9d22ab97f45b48e6a043d83b72f3a76d4f81bc21
+PODFILE CHECKSUM: 1f005d11182fe3100ab4ec78fe77c521b33c3d99
 
 COCOAPODS: 1.5.3
