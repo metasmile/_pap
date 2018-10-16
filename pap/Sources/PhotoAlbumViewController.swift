@@ -420,8 +420,8 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension PhotoAlbumViewController: ColorThemeable {
-    func applyTheme(_ colorTheme: ColorTheme) {
+extension PhotoAlbumViewController: papColorThemeable {
+    func applyTheme(_ colorTheme: papColorTheme) {
         collectionView.tintColor = colorTheme.tintColor
     }
 }

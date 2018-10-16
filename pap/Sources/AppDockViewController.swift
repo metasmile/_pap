@@ -93,7 +93,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController, ColorThemeable {
+class AppDockViewController: UIViewController, papColorThemeable {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -209,7 +209,7 @@ class AppDockViewController: UIViewController, ColorThemeable {
         return AppCenter.default.currentInstanceAs(AppDockApp.self)?.content
     }
     
-    func applyTheme(_ colorTheme: ColorTheme) {
+    func applyTheme(_ colorTheme: papColorTheme) {
         appDockView?.barStyle = colorTheme.barStyle
     }
 }

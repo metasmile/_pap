@@ -1,5 +1,5 @@
 //
-//  pap.ColorTheme.swift
+//  pap.pap.ColorTheme.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 9. 13..
@@ -12,12 +12,12 @@ import PropertyKit
 //WARNING: Do not use this CodeKit/* directly
 //TODO: change to StaticVar-Generic styled common theme handler
 
-enum ColorTheme: Int, Decodable {
+enum papColorTheme: Int, Decodable {
     case `default`
     case dark
 }
 
-extension ColorTheme {
+extension papColorTheme {
     var textColor: UIColor {
         switch self {
         case .dark: return UIColor(red:0.66, green:0.66, blue:0.66, alpha:1)
@@ -84,15 +84,15 @@ extension ColorTheme {
     }
 }
 
-protocol ColorThemeable {
-    func _applyTheme(_ colorTheme: ColorTheme)
-    func applyTheme(_ colorTheme: ColorTheme)
+protocol papColorThemeable {
+    func _applyTheme(_ colorTheme: papColorTheme)
+    func applyTheme(_ colorTheme: papColorTheme)
 }
 
 fileprivate class ColorThemeManager {
     static var shared = ColorThemeManager()
 
-    var colorTheme: ColorTheme = .dark {
+    var colorTheme: papColorTheme = .dark {
         didSet {
             targets.forEach {
                 $0._applyTheme(colorTheme)
@@ -100,17 +100,17 @@ fileprivate class ColorThemeManager {
         }
     }
     
-    func changeTheme(_ theme: ColorTheme) {
+    func changeTheme(_ theme: papColorTheme) {
         colorTheme = theme
     }
     
-    private var targets = [ColorThemeable]()
-    func registerThemeable(target: ColorThemeable) {
+    private var targets = [papColorThemeable]()
+    func registerThemeable(target: papColorThemeable) {
         targets.append(target)
     }
 }
 
-extension ColorThemeable where Self: UIViewController {
+extension papColorThemeable where Self: UIViewController {
     private var themeManager: ColorThemeManager {
         return ColorThemeManager.shared
     }
@@ -120,7 +120,7 @@ extension ColorThemeable where Self: UIViewController {
         setColorTheme(themeManager.colorTheme)
     }
     
-    func setColorTheme(_ colorTheme: ColorTheme, animated: Bool = false) {
+    func setColorTheme(_ colorTheme: papColorTheme, animated: Bool = false) {
         if let window = UIApplication.shared.keyWindow, animated {
             guard themeManager.colorTheme != colorTheme else { return }
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
@@ -137,13 +137,13 @@ extension ColorThemeable where Self: UIViewController {
 
 
 extension UIView {
-    var colorTheme: ColorTheme {
+    var colorTheme: papColorTheme {
         return ColorThemeManager.shared.colorTheme
     }
 }
 
-extension ColorThemeable where Self: UIViewController {
-    func _applyTheme(_ colorTheme: ColorTheme) {
+extension papColorThemeable where Self: UIViewController {
+    func _applyTheme(_ colorTheme: papColorTheme) {
         navigationController?.view.backgroundColor = colorTheme.backgroundColor
 
         if view.backgroundColor != UIColor.clear{
@@ -164,6 +164,14 @@ extension UIControl{
         super.tintColorDidChange()
 
         tintColor = colorTheme.tintColor
+    }
+}
+
+extension UIButton{
+    open override func tintColorDidChange() {
+        if self.buttonType != .system{
+            super.tintColorDidChange()
+        }
     }
 }
 

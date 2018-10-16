@@ -404,7 +404,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
-    override func applyTheme(_ colorTheme: ColorTheme) {
+    override func applyTheme(_ colorTheme: papColorTheme) {
         super.applyTheme(colorTheme)
         
         photoCollectionView.tintColor = colorTheme.textColor

@@ -16,7 +16,7 @@
 		4F71D013F3FE786B5FB6D9F5 /* UITableViewCellDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0F5DA4DCD21C441F0C1 /* UITableViewCellDescribable.swift */; };
 		4F71D01B1E2AA18BDF671F3F /* App.UI.CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE77D153F85F4E5A92F2 /* App.UI.CollectionView.swift */; };
 		4F71D01D8203435826722D5F /* Converter.Jpeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCC6064610129707F675 /* Converter.Jpeg.swift */; };
-		4F71D020237DD627F415DF1C /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE6B36CC0C10D92D955 /* ColorTheme.swift */; };
+		4F71D020237DD627F415DF1C /* pap.ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE6B36CC0C10D92D955 /* pap.ColorTheme.swift */; };
 		4F71D0269246F4EE22C3466B /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07F06651FC2637771BB /* AssetView.swift */; };
 		4F71D031B016F0F31C61B0CF /* PDFactory.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1F92BCDA386568EBD46 /* PDFactory.AppDockContent.swift */; };
 		4F71D03D1F1C24E08079ECD4 /* Converter.Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D842AC616FE4F150ABBE /* Converter.Gif.swift */; };
@@ -595,7 +595,7 @@
 		4F71DABA565AF8CCD87462E4 /* CodeKit.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.swift; sourceTree = "<group>"; };
 		4F71DACE8C9EB0DE3FC5446E /* FirebaseMLVision.VisionTextDetectResult.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionTextDetectResult.Types.swift; sourceTree = "<group>"; };
 		4F71DADBAF507D7B76080383 /* Reader.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.BApp.swift; sourceTree = "<group>"; };
-		4F71DAE6B36CC0C10D92D955 /* ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		4F71DAE6B36CC0C10D92D955 /* pap.ColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pap.ColorTheme.swift; sourceTree = "<group>"; };
 		4F71DAF79F3B9E82509B651C /* Converter.Png.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Png.swift; sourceTree = "<group>"; };
 		4F71DB341620B5007A7F6B60 /* ApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		4F71DB4244A2621CAD3749BA /* PHAssets.Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.Search.swift; sourceTree = "<group>"; };
@@ -1470,7 +1470,7 @@
 				4F71D84FE3BD30A722F14E0E /* pap.Counts.swift */,
 				4F71D5B1AE758CB5C42DBD66 /* PhotoPickerViewController.Operations.DelegatableApp.swift */,
 				4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */,
-				4F71DAE6B36CC0C10D92D955 /* ColorTheme.swift */,
+				4F71DAE6B36CC0C10D92D955 /* pap.ColorTheme.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -2718,7 +2718,7 @@
 				4F71D2DF6A3BB6176B6AD53E /* Artist.BApp.Contents.swift in Sources */,
 				4F71D2C05A9AD18DA16E981A /* Artist.BApp.swift in Sources */,
 				4F71D4DFF78863535F0EB8B0 /* CodeKit.CGImage.swift in Sources */,
-				4F71D020237DD627F415DF1C /* ColorTheme.swift in Sources */,
+				4F71D020237DD627F415DF1C /* pap.ColorTheme.swift in Sources */,
 				4F71DF8A92A91DD33C22FE77 /* UITableViewMultiplePickerCell.swift in Sources */,
 				4F71DBE347DF61807D9EEC4A /* CodeKit.UIView.Hierarchy.swift in Sources */,
 			);
