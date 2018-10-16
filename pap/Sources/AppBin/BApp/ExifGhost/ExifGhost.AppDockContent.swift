@@ -359,6 +359,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.textLabel?.text = item.label
             cell.switcher.setOn(value, animated: false)
+            cell.switcher.onTintColor = ExifGhostApp.info.themeColor
             if let image = item.iconImage?.asUIImage{
                 cell.imageView?.image = image.withRenderingMode(.alwaysTemplate)
                 cell.imageView?.tintColor = self.view.tintColor
@@ -430,6 +431,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell.detailTextLabel?.text = selected ? "%@ will be hidden".localizedFormatted("").trimmed : nil
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
+        cell.optionSwitch.onTintColor = ExifGhostApp.info.themeColor
         cell.switchDidChange = { on in
             if on{
                 self.defaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
