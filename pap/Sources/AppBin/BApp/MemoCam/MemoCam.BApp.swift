@@ -539,7 +539,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = MemoCamApp.info.themeColor?.cgColor
-        layer.lineWidth = 1.5
+        layer.lineWidth = 1.2
         layer.opacity = 0.9
 
         return layer
@@ -551,36 +551,30 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         var layers = [CALayer]()
         
-        let padding: CGFloat = 2
+        let padding: CGFloat = 4
+        var transform: CGAffineTransform = .identity
+        
         if let previewSize = previewSize {
-            let transform = CGAffineTransform.identity
+            transform = transform
                     .scaledBy(x: 1, y: -1)
                     .translatedBy(x: 0, y: -previewSize.height)
                     .scaledBy(x: previewSize.width, y: previewSize.height)
             
-            for var quad in quads {
-                quad.apply(transform)
-                quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
-                
-                let polygonLayer = createDebugLayer()
-                polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
-                polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
-                layers.append(polygonLayer)
-            }
-            
             layer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
         }
         else {
-            for var quad in quads {
-                quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
-                
-                let polygonLayer = createDebugLayer()
-                polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
-                polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
-                layers.append(polygonLayer)
-            }
-            
             layer.frame = self.cameraView.bounds
+        }
+        
+        for var quad in quads {
+            quad.apply(transform)
+            let padding = min(quad.boundingRect.height * 0.1, padding)
+            quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
+            
+            let polygonLayer = createDebugLayer()
+            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
+            polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
+            layers.append(polygonLayer)
         }
         
         layer.sublayers = layers
