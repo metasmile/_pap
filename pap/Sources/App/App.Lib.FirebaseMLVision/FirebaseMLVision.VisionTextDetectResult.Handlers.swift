@@ -702,7 +702,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
                 
-                let actionTitle = item.sourceVisionTexts?.count == 1 ? "Get Text".localized :  "Get All Texts".localized
+                let actionTitle = item.sourceVisionTexts?.count == 1 ? "Get Text".localized :  "Get All Text".localized
                 
                 if isQuickActionOnly{
                     action = _quickAction(actionTitle)
