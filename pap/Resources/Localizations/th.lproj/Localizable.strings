@@ -186,6 +186,8 @@
 "Address" = "ที่อยู่";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "ข้อความทั้งหมด";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "บันทึกรายชื่อติดต่อทั้งหมดเรียบร้อยแล้ว";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -234,6 +236,10 @@
 "Camera" = "กล้อง";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ไม่สามารถย้อนกลับได้ รายการที่เลือกทั้งหมดยังไม่ได้แก้ไข";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "จับภาพการกระทำที่ต้องทำ";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "จับภาพข้อความทั้งหมด";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "เลือกหมายเลขโทรศัพท์ที่ต้องการโทร";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -394,6 +400,8 @@
 "Landscape" = "ภูมิประเทศ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "แบบ";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "ประกาศผลการดำเนินงานที่ จำกัด";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -536,8 +544,6 @@
 "Quality" = "คุณภาพ";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "ให้คะแนนมัน";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "จดจำข้อความ";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "การกำจัดตาแดง";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -614,8 +620,6 @@
 "Sharing on Facebook Messenger" = "การแบ่งปันบน Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "แบ่งปันบน Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "แสดงข้อความทั้งหมด";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */

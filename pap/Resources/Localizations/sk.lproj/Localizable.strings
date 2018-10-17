@@ -186,6 +186,8 @@
 "Address" = "adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Alba";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "Všetok text";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Všetky kontakty boli úspešne uložené.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -234,6 +236,10 @@
 "Camera" = "fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nemožno sa vrátiť späť. Všetky vybraté položky neboli upravené.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Zachyťte akcie, ktoré chcete urobiť.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Zachytiť celý text.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Vyberte telefónne číslo, ktoré chcete zavolať";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -394,6 +400,8 @@
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "dispozície";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Oznámenie o obmedzenej výkonnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -536,8 +544,6 @@
 "Quality" = "kvalita";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ohodnoť to";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "Rozpoznať text";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Odstránenie efektu červených očí";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -614,8 +620,6 @@
 "Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Sharing on Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "Zobraziť všetky texty";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "podobnosť";
 /* Generated from genl10n: GIFMaker.BApp.swift */

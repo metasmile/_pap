@@ -186,6 +186,8 @@
 "Address" = "Indirizzo";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "Tutto il testo";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tutti i contatti sono stati salvati correttamente.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -234,6 +236,10 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Impossibile ripristinare. Tutti gli elementi selezionati non sono stati modificati.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Cattura le azioni da fare.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Cattura tutto il testo.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Scegli un numero di telefono da chiamare";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -394,6 +400,8 @@
 "Landscape" = "Paesaggio";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Avviso sulle prestazioni limitate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -536,8 +544,6 @@
 "Quality" = "Qualità";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Valutarlo";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "Riconosci il testo";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rimozione dell'effetto occhi rossi";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -614,8 +620,6 @@
 "Sharing on Facebook Messenger" = "Condivisione su Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Condivisione su Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "Mostra tutti i testi";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Somiglianza";
 /* Generated from genl10n: GIFMaker.BApp.swift */

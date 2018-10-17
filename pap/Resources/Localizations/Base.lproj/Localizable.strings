@@ -136,7 +136,7 @@
 "Access Failed." = "Access Failed.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Granted." = "Access Granted.";
-/* Generated from genl10n: Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Activate Ads" = "Activate Ads";
@@ -150,6 +150,8 @@
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "All Text";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -198,6 +200,10 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Capture Actions To Do.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Choose A Phone Number To Call";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -358,6 +364,8 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Layout";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Limited Performance Notice";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -500,8 +508,6 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "Recognize Text";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -578,8 +584,6 @@
 "Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook" = "Sharing on Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "Show All Texts";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */

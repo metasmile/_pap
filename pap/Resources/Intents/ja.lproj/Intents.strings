@@ -22,6 +22,10 @@
 "UQnvTr" = "自動選択。";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"UP0V3N" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"4R8c66" = "目的のアクションをキャプチャする。";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "カメラを開いて写真を撮る";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +50,10 @@
 "IMAD8C" = "自動選択。";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"ogPwff" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"9qFP95" = "目的のアクションをキャプチャする。";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "${appName}を開く";
 /*Translated from: Open ${appName}*/
@@ -98,6 +106,10 @@
 "Tz3aEP" = "${appName}で自動選択します。";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"1MzX2t" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"R06BKx" = "目的のアクションをキャプチャする。";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "OK。今すぐ写真を撮ることができます";
 /*Translated from: OK. You can take a Live Photo now*/

@@ -132,6 +132,8 @@
 "Address" = "地址";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
 "Albums" = "相冊";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "所有文字";
 /* Generated from genl10n: Finder.BApp.swift#276 */
 "All contacts were successfully saved." = "所有聯繫人都已成功保存。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -180,6 +182,10 @@
 "Camera" = "相機";
 /* Generated from genl10n: Revert.BApp.swift#85 */
 "Cannot revert. All selected items have not edited." = "無法恢復。所有選擇的項目都沒有編輯。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "捕獲要執行的操作。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "捕獲所有文本。";
 /* Generated from genl10n: PhoneCalls.BApp.swift#138 */
 "Choose A Phone Number To Call" = "選擇要撥打的電話號碼";
 /* Generated from genl10n: Finder.BApp.swift#312 */
@@ -340,6 +346,8 @@
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#112 */
 "Layout" = "佈局";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
@@ -482,8 +490,6 @@
 "Quality" = "質量";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評分";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "識別文字";
 /* Generated from genl10n: AutoEditor.BApp.swift#176 */
 "Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -560,8 +566,6 @@
 "Sharing on Facebook Messenger" = "在Facebook Messenger上分享";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "在Facebook上分享";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "顯示所有文本";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: GIFMaker.BApp.swift#477, GIFMaker.BApp.swift#680, GIFMaker.BApp.swift#692, GIFMaker.BApp.swift#829 */

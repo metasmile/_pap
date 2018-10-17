@@ -186,6 +186,8 @@
 "Address" = "Adresse";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "album";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "All tekst";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "Alle kontakter ble lagret.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -234,6 +236,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan ikke gå tilbake. Alle valgte elementer har ikke blitt redigert.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Capture Actions å gjøre.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Velg et telefonnummer for å ringe";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -394,6 +400,8 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Oppsett";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Begrenset ytelsesmelding";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -536,8 +544,6 @@
 "Quality" = "Kvalitet";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rangere det";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "Gjenkjenne tekst";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Fjerning av røde øyne";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -614,8 +620,6 @@
 "Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook" = "Deling på Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "Vis alle tekstene";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */

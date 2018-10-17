@@ -186,6 +186,8 @@
 "Address" = "Alamat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"All Text" = "Semua Teks";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Semua kenalan berjaya disimpan.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -234,6 +236,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Tindakan Menangkap Tindakan.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Tangkap Semua Teks.";
 /* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
 "Choose A Phone Number To Call" = "Pilih Nombor Telefon Untuk Panggilan";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -394,6 +400,8 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Notis Prestasi Terhad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -536,8 +544,6 @@
 "Quality" = "Kualiti";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Menilainya";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Recognize Text" = "Mengiktiraf Teks";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -614,8 +620,6 @@
 "Sharing on Facebook Messenger" = "Perkongsian di Facebook Messenger";
 /* Generated from genl10n: AppCenter.Charge.swift#103 */
 "Sharing on Facebook" = "Berkongsi di Facebook";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Show All Texts" = "Tunjukkan Semua Teks";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
