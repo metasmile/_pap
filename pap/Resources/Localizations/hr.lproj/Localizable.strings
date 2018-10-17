@@ -580,6 +580,8 @@
 "Screenshots" = "Slike";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Pretraži letove";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Pretraživanje Na Google kartama";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Potražite %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

@@ -580,6 +580,8 @@
 "Screenshots" = "Ảnh chụp màn hình";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Tìm kiếm chuyến bay";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Tìm kiếm trên Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Tìm kiếm %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

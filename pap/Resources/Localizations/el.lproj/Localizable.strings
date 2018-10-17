@@ -580,6 +580,8 @@
 "Screenshots" = "Στιγμιότυπα οθόνης";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Αναζήτηση Πτήσεων";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Αναζήτηση στους Χάρτες Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Αναζήτηση για %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

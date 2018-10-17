@@ -580,6 +580,8 @@
 "Screenshots" = "Screenshots";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Zoek vluchten";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Zoeken op Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Zoeken naar %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

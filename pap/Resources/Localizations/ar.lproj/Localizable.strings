@@ -580,6 +580,8 @@
 "Screenshots" = "لقطات";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "البحث عن الرحلات الجوية";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "البحث على خرائط جوجل";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "البحث عن %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

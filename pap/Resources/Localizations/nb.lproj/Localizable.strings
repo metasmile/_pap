@@ -580,6 +580,8 @@
 "Screenshots" = "Skjerm";
 /* Generated from genl10n: Finder.BApp.swift */
 "Search Flights" = "Søk flyreiser";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Søk på Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Søk etter %@";
 /* Generated from genl10n: Converter.AppDockContent.swift */

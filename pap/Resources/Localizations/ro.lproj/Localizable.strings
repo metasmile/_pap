@@ -580,6 +580,8 @@
 "Screenshots" = "Imagini";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Căutați bilete";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Căutați în Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Căutați %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

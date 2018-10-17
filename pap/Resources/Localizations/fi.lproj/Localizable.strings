@@ -580,6 +580,8 @@
 "Screenshots" = "kuvakaappauksia";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Etsi lennot";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Haku Google Mapsissa";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Hae %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

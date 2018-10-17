@@ -580,6 +580,8 @@
 "Screenshots" = "ภาพหน้าจอ";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "ค้นหาเที่ยวบิน";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "ค้นหาใน Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "ค้นหา %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

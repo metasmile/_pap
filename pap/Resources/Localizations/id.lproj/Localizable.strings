@@ -580,6 +580,8 @@
 "Screenshots" = "Tangkapan layar";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Cari Penerbangan";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Cari Di Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Search for %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

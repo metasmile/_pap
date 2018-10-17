@@ -580,6 +580,8 @@
 "Screenshots" = "Captures de pantalla";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vols de cerca";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Cerca a Google Maps";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Cerqueu %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

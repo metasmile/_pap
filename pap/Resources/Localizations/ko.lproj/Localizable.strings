@@ -580,6 +580,8 @@
 "Screenshots" = "스크린 샷";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "항공편 검색";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Google지도에서 검색";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@ 검색";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

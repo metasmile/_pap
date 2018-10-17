@@ -580,6 +580,8 @@
 "Screenshots" = "Знімки екрану";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Пошук авіарейсів";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Пошук на Картах Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Пошук за %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

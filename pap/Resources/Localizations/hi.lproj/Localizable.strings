@@ -580,6 +580,8 @@
 "Screenshots" = "स्क्रीनशॉट";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "उड़ान खोजें";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Google मानचित्र पर खोजें";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@ के लिए खोजें";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

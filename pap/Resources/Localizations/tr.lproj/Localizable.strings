@@ -580,6 +580,8 @@
 "Screenshots" = "Ekran görüntüleri";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Uçuş ara";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Google Haritalar&#39;da Ara";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@ İçin ara";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

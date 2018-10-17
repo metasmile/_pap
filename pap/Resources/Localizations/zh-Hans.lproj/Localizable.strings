@@ -580,6 +580,8 @@
 "Screenshots" = "截图";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "搜索航班";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "在Google地图上搜索";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "搜索%@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

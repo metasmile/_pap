@@ -580,6 +580,8 @@
 "Screenshots" = "ukážky";
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Vyhľadávacie lety";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Vyhľadávanie v Mapách Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Vyhľadajte %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
