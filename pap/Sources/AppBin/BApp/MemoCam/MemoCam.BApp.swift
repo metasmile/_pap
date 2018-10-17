@@ -538,9 +538,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         layer.drawsAsynchronously = true
         
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.white.cgColor
-        layer.lineWidth = 1
-        layer.opacity = 0.7
+        layer.strokeColor = MemoCamApp.info.themeColor?.cgColor
+        layer.lineWidth = 1.5
+        layer.opacity = 0.9
 
         return layer
     }
@@ -548,33 +548,45 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     fileprivate func drawPolygons(with quads: [CGQuad], to layer: CAShapeLayer, in previewSize: CGSize? = nil) {
         let disabledActions = CATransaction.disableActions()
         CATransaction.setDisableActions(true)
-
-        let path = UIBezierPath()
-
-        for quad in quads {
-            let polygon = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: quad.boundingRect.minLength/2)
-            path.append(polygon)
-        }
-
+        
+        var layers = [CALayer]()
+        
+        let padding: CGFloat = 2
         if let previewSize = previewSize {
             let transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: -1)
                     .translatedBy(x: 0, y: -previewSize.height)
                     .scaledBy(x: previewSize.width, y: previewSize.height)
-
-            path.apply(transform)
-
-            layer.path = path.cgPath
+            
+            for var quad in quads {
+                quad.apply(transform)
+                quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
+                
+                let polygonLayer = createDebugLayer()
+                polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
+                polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
+                layers.append(polygonLayer)
+            }
+            
             layer.frame = CGRect(origin: CGPoint(x: (self.cameraView.bounds.width - previewSize.width) / 2, y: (self.cameraView.bounds.height - previewSize.height) / 2), size: previewSize)
         }
         else {
-            layer.path = path.cgPath
+            for var quad in quads {
+                quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
+                
+                let polygonLayer = createDebugLayer()
+                polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
+                polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
+                layers.append(polygonLayer)
+            }
+            
             layer.frame = self.cameraView.bounds
         }
-
+        
+        layer.sublayers = layers
+        
         CATransaction.setDisableActions(disabledActions)
         CATransaction.commit()
-
     }
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
@@ -582,8 +594,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
-        let padding: CGFloat = 4
-        drawPolygons(with: codeObjects.map { CGQuad($0.corners, clockwised: false).inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding)) }, to: layer)
+        drawPolygons(with: codeObjects.map { CGQuad($0.corners, clockwised: false) }, to: layer)
     }
 
     private lazy var detector = MemoCamAppDetector()
@@ -813,7 +824,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 DispatchQueue.main.async {
                     self.updateToolBar()
 
-                    self.cameraView.layer.sublayers?.forEach { ($0 as? DisableImplicitAnimatableShapeLayer)?.path = nil }
+                    self.cameraView.layer.sublayers?.forEach { ($0 as? DisableImplicitAnimatableShapeLayer)?.sublayers = nil }
                 }
             }
         }

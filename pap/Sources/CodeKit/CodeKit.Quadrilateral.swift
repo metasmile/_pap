@@ -140,3 +140,24 @@ extension CATransform3D {
                   m41: c/i, m42: f/i, m43: 0, m44: 1.0)
     }
 }
+
+extension CGQuad {
+    var bezierPath: UIBezierPath {
+        let path = UIBezierPath()
+        path.move(to: topLeft)
+        path.addLine(to: topRight)
+        path.addLine(to: bottomRight)
+        path.addLine(to: bottomLeft)
+        path.close()
+        return path
+    }
+}
+
+extension CGQuad {
+    mutating func apply(_ t: CGAffineTransform) {
+        self.topLeft = self.topLeft.applying(t)
+        self.topRight = self.topRight.applying(t)
+        self.bottomRight = self.bottomRight.applying(t)
+        self.bottomLeft = self.bottomLeft.applying(t)
+    }
+}
