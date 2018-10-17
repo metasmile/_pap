@@ -825,14 +825,19 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         batchPreviewView.reloadCollectionViewItems(animated: false)
         
         if let editItem = editItem {
-            let transformedSize = photoEditor.transitionAnimator.sourceRect.size.applying(editItem.transform).magnitude
+            if let _ = photoEditor.transitionAnimator.sourceView as? PhotoCollectionViewCell, let index = AppAssets.selected.index(for: asset), let cell = batchPreviewView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? PreviewCollectionViewCell {
+                
+                photoEditor.transitionAnimator.sourceView?.isHidden = false
+                cell.isHidden = true
+                
+                photoEditor.transitionAnimator.sourceView = cell
+                photoEditor.transitionAnimator.sourceRect = cell.frame
+            }
             
+            let transformedSize = photoEditor.transitionAnimator.sourceRect.size.applying(editItem.transform).magnitude
             photoEditor.transitionAnimator.sourceRect.size = transformedSize
             
-            if let cell = photoEditor.transitionAnimator.sourceView as? PhotoCollectionViewCell {
-                photoEditor.transitionAnimator.sourceRect.origin = photoCollectionView.convert(cell.frame, to: view).origin
-            }
-            else if let cell = photoEditor.transitionAnimator.sourceView as? PreviewCollectionViewCell {
+            if let cell = photoEditor.transitionAnimator.sourceView as? PreviewCollectionViewCell {
                 let point = batchPreviewView.collectionView.convert(cell.frame, to: view).origin
                 photoEditor.transitionAnimator.sourceRect.origin = CGPoint(x: point.x + (cell.bounds.width - transformedSize.width) / 2, y: point.y + (cell.bounds.height - transformedSize.height) / 2)
             }
