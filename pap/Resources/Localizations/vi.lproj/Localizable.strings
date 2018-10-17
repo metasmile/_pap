@@ -345,7 +345,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Nhận quyền truy cập";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "Nhận tất cả nội dung";
+"Get All Text" = "Nhận tất cả văn bản";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Nhận văn bản";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -582,6 +582,8 @@
 "Search Flights" = "Tìm kiếm chuyến bay";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "Tìm kiếm trên Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Tìm kiếm trên Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Tìm kiếm %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

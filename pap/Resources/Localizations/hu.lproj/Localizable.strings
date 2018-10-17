@@ -345,7 +345,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Hozzáférést szerezni";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "Szerezd meg az összes szöveget";
+"Get All Text" = "Szerezd meg az összes szöveget";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Get Text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -582,6 +582,8 @@
 "Search Flights" = "Keres járatok";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "Keresés a Google Térképen";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Keresés a Google-on";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Keresés %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

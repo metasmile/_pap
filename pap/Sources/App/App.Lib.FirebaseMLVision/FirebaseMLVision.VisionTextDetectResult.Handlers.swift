@@ -544,7 +544,7 @@ extension Array where Element:VisionTextDetectResult {
                                 })
                         )
                     }else{
-                        if let url = URL(string: "https://www.google.com/maps/search/?\(["q":addressString].urlQueryString))") {
+                        if let url = URL(string: "https://www.google.com/maps/search/\(addressString.encodeAsURLQuery())") {
                             _actions.append(
                                     UIAlertAction(title: "Search On Google Maps".localized, style: .default, handler: { action in
                                         asyncSignal.end()
@@ -739,6 +739,16 @@ extension Array where Element:VisionTextDetectResult {
                     action.accessoryImage = R.image.appActionIconText()
                     alert.addAction(action)
                 }
+
+                if let url = URL(string: "https://www.google.com/search?\(["q":plainText].urlQueryString)") {
+                    let action = UIAlertAction(title: "Search On Google".localized.localizedCapitalized, style: .default, handler: { action in
+                        asyncSignal.end()
+                        UIApplication.shared.open(url)
+                    })
+                    action.accessoryImage = R.image.appActionIconSearch()
+                    alert.addAction(action)
+                }
+
             }// END OF AN ACTION
 
 
@@ -952,7 +962,17 @@ extension Array where Element:VisionTextDetectResult {
                                 asyncSignal.end()
                             })
                         )
-                        
+
+                        if let url = URL(string: "https://www.google.com/search?\(["q":plainText].urlQueryString))") {
+                            let action = UIAlertAction(title: "Search On Google".localized.localizedCapitalized, style: .default, handler: { action in
+                                asyncSignal.end()
+                                UIApplication.shared.open(url)
+                            })
+                            action.accessoryImage = R.image.appActionIconSearch()
+                            _actions.append(action)
+                        }
+
+
                         for _action in _actions{
                             _alert.addAction(_action)
                         }

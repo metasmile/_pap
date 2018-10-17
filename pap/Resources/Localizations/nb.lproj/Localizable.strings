@@ -345,7 +345,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Få tilgang";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "Få alle tekster";
+"Get All Text" = "Få all tekst";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Få tekst";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
@@ -582,6 +582,8 @@
 "Search Flights" = "Søk flyreiser";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "Søk på Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Søk på Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Søk etter %@";
 /* Generated from genl10n: Converter.AppDockContent.swift */

@@ -345,7 +345,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "ได้รับการเข้าถึง";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "รับข้อความทั้งหมด";
+"Get All Text" = "รับข้อความทั้งหมด";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "รับข้อความ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -582,6 +582,8 @@
 "Search Flights" = "ค้นหาเที่ยวบิน";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "ค้นหาใน Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "ค้นหาบน Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "ค้นหา %@";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

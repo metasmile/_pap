@@ -309,7 +309,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "Get All Texts";
+"Get All Text" = "Get All Text";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Get Text";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -546,6 +546,8 @@
 "Search Flights" = "Search Flights";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "Search On Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Search On Google";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "Search for %@";
 /* Generated from genl10n: Converter.BApp.swift */

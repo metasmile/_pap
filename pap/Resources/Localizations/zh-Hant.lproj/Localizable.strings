@@ -291,7 +291,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "獲得訪問權限";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Texts" = "獲取所有文本";
+"Get All Text" = "獲取所有文字";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "獲取文字";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
@@ -528,6 +528,8 @@
 "Search Flights" = "搜索航班";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google Maps" = "在Google地圖上搜索";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "在Google上搜索";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "搜索%@";
 /* Generated from genl10n: Converter.AppDockContent.swift#158 */
