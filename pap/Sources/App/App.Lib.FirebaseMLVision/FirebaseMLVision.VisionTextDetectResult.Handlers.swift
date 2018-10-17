@@ -502,6 +502,13 @@ extension Array where Element:VisionTextDetectResult {
                         })
                     }
 
+                    if let url = URL(string: "https://www.google.com/maps/search/?\(["q":addressString].urlQueryString))") {
+                        return UIAlertAction(title: t, style: .default, handler: { action in
+                            asyncSignal.end()
+                            UIApplication.shared.open(url)
+                        })
+                    }
+
                     return nil
                 }
 
@@ -536,6 +543,15 @@ extension Array where Element:VisionTextDetectResult {
                                     UIApplication.shared.open(url)
                                 })
                         )
+                    }else{
+                        if let url = URL(string: "https://www.google.com/maps/search/?\(["q":addressString].urlQueryString))") {
+                            _actions.append(
+                                    UIAlertAction(title: "Search On Google Maps".localized, style: .default, handler: { action in
+                                        asyncSignal.end()
+                                        UIApplication.shared.open(url)
+                                    })
+                            )
+                        }
                     }
 
                     _actions.append(
