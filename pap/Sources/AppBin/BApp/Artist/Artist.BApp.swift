@@ -26,18 +26,11 @@ extension Defaults: ArtistAppDefaults {
 }
  
 
-public class ArtistAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
-    @objc dynamic
-    public var tintColor: UIColor?
-    
+public class ArtistAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
     @objc dynamic
     public var filter: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttributeValuable {
-            self.tintColor = other.tintColor
-        }
-        
         if let other = fromOther as? ArtistAppConfigValue, let filter = other.filter{
             self.filter = filter
         }
@@ -54,7 +47,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 
     public static var defaultConfigValue: AppConfigValuable {
         let config = ArtistAppConfigValue()
-        config.tintColor = .black
         return config
     }
 
@@ -92,10 +84,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     
     required public override init() {
         super.init()
-        
-        config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateControllerView()
-        }
         
         if let controllerContent = self.content as? ArtistAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
@@ -143,7 +131,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateControllerView()
     }
     
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
@@ -185,14 +172,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
 //    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
 //    }
 //}
-
-
-private extension ArtistApp {
-    private func updateControllerView() {
-        self.content?.view.tintColor = config?.tintColor
-        self.photoEditorDockContent?.view.tintColor = config?.tintColor
-    }
-}
 
 fileprivate extension CIFilter{
 
@@ -287,7 +266,7 @@ fileprivate class ArtistAppDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-
+        view.tintColor = view.colorTheme.tintColor
         loadPreview()
     }
 
