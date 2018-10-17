@@ -95,11 +95,8 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         _contentSize.width += paddingLeft + paddingRight
     }
     
-    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
-        guard
-            let collectionView = self.collectionView,
-            let appAsset = AppAssets.selected.at(unsafeIndex: indexPath.item)
-        else { return .zero }
+    private func estimatedSizeForItem(at indexPath: IndexPath, in collectionView: UICollectionView) -> CGSize {
+        guard let appAsset = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return .zero }
         
         let asset = appAsset.asset
         
@@ -112,6 +109,11 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         let cellSize = photoSize.applying(appAsset.editState.transform).magnitude
         
         return CGSize(width: cellSize.width, height: floor(contentSize.height))
+    }
+    
+    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        guard let collectionView = self.collectionView else { return .zero }
+        return estimatedSizeForItem(at: indexPath, in: collectionView)
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -128,6 +130,32 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     
     var contentSize: CGSize {
         return CGSize(width: _contentSize.width - paddingLeft - paddingRight, height: _contentSize.height)
+    }
+    
+    func estimatedContentSize(collectionView: UICollectionView) -> CGSize {
+        var itemPositionX: CGFloat = 0
+        var contentSize: CGSize = .zero
+        
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemSize = estimatedSizeForItem(at: indexPath, in: collectionView)
+            
+            let itemPosition = CGPoint(x: itemPositionX, y: (previewHeight - itemSize.height) / 2)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPositionX += itemSize.width + minimumSpacing
+            
+            contentSize.width = attributes.frame.maxX
+            contentSize.height = attributes.frame.height
+        }
+        
+        let paddingLeft = contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - contentSize.width) / 2
+        let paddingRight = paddingLeft
+        
+        contentSize.width += paddingLeft + paddingRight
+        
+        return CGSize(width: contentSize.width - paddingLeft - paddingRight, height: contentSize.height)
     }
     
     override var collectionViewContentSize: CGSize {
@@ -185,7 +213,10 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     private func setPreviewLayout(with height: CGFloat) {
+        let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout
         let toLayout = PreviewCollectionLayout(previewHeight: height)
+        
+        guard fromLayout?.contentSize != toLayout.estimatedContentSize(collectionView: self.collectionView) else { return }
         
         var targetIndexPath: IndexPath? = nil
         let location = transitionBeginLocation ?? CGPoint(x: collectionView.bounds.width / 2, y: 0)
