@@ -303,6 +303,7 @@
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
 		515AB1632106C029005E1997 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* ActionViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
+		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
 		5174B00F216ACB1D00177999 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */; };
@@ -690,6 +691,7 @@
 		51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.ShortcutItem.swift; sourceTree = "<group>"; };
 		515AB1622106C029005E1997 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
+		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
 		5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Quadrilateral.swift; sourceTree = "<group>"; };
@@ -919,6 +921,7 @@
 				4F71D1AA3EEE97024F2F4BCB /* BApp.Chargeable.DefaultLocalCharge.swift */,
 				4F71DA698AAB3FCF12FF1A59 /* Reader */,
 				4F71D1BDFA3F48F08ACE87D1 /* Artist */,
+				515E9BCE21784D270090CEEC /* Clipboard */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -1675,6 +1678,14 @@
 				4F71D22FF33BD22F2AB27EEA /* Intents.strings */,
 			);
 			path = Intents;
+			sourceTree = "<group>";
+		};
+		515E9BCE21784D270090CEEC /* Clipboard */ = {
+			isa = PBXGroup;
+			children = (
+				515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */,
+			);
+			path = Clipboard;
 			sourceTree = "<group>";
 		};
 		516834FE214F2DDD00338AE6 /* Siri */ = {
@@ -2479,6 +2490,7 @@
 				4F71D7EEBE343A0437955522 /* FloatingView.swift in Sources */,
 				4F71DE878F3F12AB840B64A7 /* GradientView.swift in Sources */,
 				4F71D09F4B8DAECA51DBBE94 /* RoundedButton.swift in Sources */,
+				515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */,
 				4F71D1295C875656D5592FAE /* iOSCheckMarkView.swift in Sources */,
 				4F71D0440EB3CB53F84A71C1 /* AssetIO.LivePhoto.swift in Sources */,
 				4F71DBCB2A884DD7DB4E77C5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,

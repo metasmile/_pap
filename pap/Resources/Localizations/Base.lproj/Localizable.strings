@@ -216,6 +216,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Cleaner" = "Cleaner";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -460,6 +462,8 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Pages" = "Pages";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Paste images from your clipboards";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Permanent Ownership" = "Permanent Ownership";
 /* Generated from genl10n: AppCenter.Charge.swift */
