@@ -268,6 +268,7 @@
 		4F71DE7FCD2D06F1202FA6AD /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD97E45E61FD6DE7D15A /* Loggable.swift */; };
 		4F71DE878F3F12AB840B64A7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5BE3EC7986FCBEDA9B4 /* GradientView.swift */; };
 		4F71DE92ECA4FA18D5E02F33 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0043D08EE0021680D4F /* CodeKit.UIView.Animation.swift */; };
+		4F71DEAB7FCCD2C7F1655701 /* FirebaseMLVision.VisionTextDetectResult.Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA9295F88D18C7CE3C9A /* FirebaseMLVision.VisionTextDetectResult.Actions.swift */; };
 		4F71DEB236685AB6222E02C7 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D623E81A421C6B35DECB /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */; };
 		4F71DEB2DE070285F8B97D61 /* CodeKit.String.NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D930D023AA50424DCA3A /* CodeKit.String.NSRegularExpression.swift */; };
 		4F71DEB56080DAE3DBDE6554 /* App.LifecycleManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2C6AC6415B946CC4677 /* App.LifecycleManagable.swift */; };
@@ -593,6 +594,7 @@
 		4F71DA862E45A6C3A07BFC8C /* AssetIO.LivePhotoResource.Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhotoResource.Image.swift; sourceTree = "<group>"; };
 		4F71DA8A996DE6E8643C88F5 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		4F71DA8CB1A1375BFBCDC477 /* gifmaker_preview_frame_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_2.png; sourceTree = "<group>"; };
+		4F71DA9295F88D18C7CE3C9A /* FirebaseMLVision.VisionTextDetectResult.Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionTextDetectResult.Actions.swift; sourceTree = "<group>"; };
 		4F71DABA565AF8CCD87462E4 /* CodeKit.String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.swift; sourceTree = "<group>"; };
 		4F71DACE8C9EB0DE3FC5446E /* FirebaseMLVision.VisionTextDetectResult.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionTextDetectResult.Types.swift; sourceTree = "<group>"; };
 		4F71DADBAF507D7B76080383 /* Reader.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.BApp.swift; sourceTree = "<group>"; };
@@ -1435,6 +1437,7 @@
 				4F71D13CBE60C9D77D1B9B26 /* FirebaseMLVision.VisionTextDetectResult.swift */,
 				4F71D9CCA3BA87B6ABA12226 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift */,
 				518BAE952161B5F600D68BF4 /* VisionBarcodeDetector.swift */,
+				4F71DA9295F88D18C7CE3C9A /* FirebaseMLVision.VisionTextDetectResult.Actions.swift */,
 			);
 			path = App.Lib.FirebaseMLVision;
 			sourceTree = "<group>";
@@ -2729,6 +2732,7 @@
 				4F71D020237DD627F415DF1C /* pap.ColorTheme.swift in Sources */,
 				4F71DF8A92A91DD33C22FE77 /* UITableViewMultiplePickerCell.swift in Sources */,
 				4F71DBE347DF61807D9EEC4A /* CodeKit.UIView.Hierarchy.swift in Sources */,
+				4F71DEAB7FCCD2C7F1655701 /* FirebaseMLVision.VisionTextDetectResult.Actions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

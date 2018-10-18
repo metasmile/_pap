@@ -155,9 +155,8 @@ private class BadgeIconLayer: ResultItemLayer {
         badgeLayer.addSublayer(badgeIconLayer)
         
         badgeIconLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
-        badgeIconLayer.cornerRadius = (badgeSize * 0.8) / 2
         badgeIconLayer.masksToBounds = true
-        badgeIconLayer.frame.size = CGSize(width: badgeSize * 0.8, height: badgeSize * 0.8)
+        badgeIconLayer.frame.size = CGSize(width: badgeSize * 0.6, height: badgeSize * 0.6)
     }
     
     let badgeSize: CGFloat = 24
@@ -572,7 +571,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
             
             let polygonLayer = createDebugLayer()
-            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding * 1.5).cgPath
+            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: quad.boundingRect.minLength/2).cgPath
             polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
             layers.append(polygonLayer)
         }
@@ -721,7 +720,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     private lazy var switchShowAllTexts: UISegmentedControl = {
-        let view = UISegmentedControl(items: ["Actions".localized, "All Text".localized])
+        let view = UISegmentedControl(items: ["Action".localized, "Text".localized])
         //TODO: later some category, beautiful action icons with collection view.
         view.selectedSegmentIndex = MemoCamApp.privateDefaults.showAllTexts ? 1 : 0
         view.addTarget(self, action: #selector(self.toggleResultPreviewMode), for: .valueChanged)

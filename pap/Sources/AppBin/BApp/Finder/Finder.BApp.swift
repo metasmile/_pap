@@ -191,11 +191,25 @@ extension FinderApp{
             asyncSignal.begin()
             DispatchQueue.main.async{
                 let actionSheet = UIAlertController.actionSheet(title: nil, message: strings.joined().trimmed)
-                actionSheet.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
+
+                let shareAction = UIAlertAction(title: "Share".localized, style: .default, handler: { (action) in
                     UIActivityViewController.share(activityItems: strings, excludedActivityTypes: nil) { _, _, _, _ in
                         asyncSignal.end()
                     }
-                }))
+                })
+                shareAction.accessoryImage = R.image.commonCellIconShare()
+                actionSheet.addAction(shareAction)
+
+                if let url = VisionTextDetectResultAction_Translation.makeUrl(text: strings.joined().trimmed) {
+                    let action = UIAlertAction(title: VisionTextDetectResultAction_Translation.title, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = VisionTextDetectResultAction_Translation.iconImage
+                    actionSheet.addAction(action)
+                }
+
                 actionSheet.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { (action) in
                     asyncSignal.end()
                 }))
@@ -722,7 +736,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
-        cell0.label = "Formats".localized
+        cell0.label = "Type".localized
         cell0.valueGetter = { FinderApp.privateDefaults.selectionPreset }
         cell0.valueCollection = [
             (label:"Actions".localized,value: SelectionPreset.action.rawValue),

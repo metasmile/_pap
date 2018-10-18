@@ -12,7 +12,7 @@ import EventKitUI
 import SafariServices
 import MessageUI
 
-//TODO: MUST separate each actions
+//TODO: MUST separate each actions by type (Action, Contact saving, Text etc)
 
 extension Array where Element:VisionTextDetectResult {
     class MailComposerDelegator: NSObject, MFMailComposeViewControllerDelegate {
@@ -740,12 +740,22 @@ extension Array where Element:VisionTextDetectResult {
                     alert.addAction(action)
                 }
 
-                if let url = URL(string: "https://www.google.com/search?\(["q":plainText].urlQueryString)") {
-                    let action = UIAlertAction(title: "Search On Google".localized.localizedCapitalized, style: .default, handler: { action in
+                if let url = VisionTextDetectResultAction_Translation.makeUrl(text: plainText) {
+                    let action = UIAlertAction(title: VisionTextDetectResultAction_Translation.title, style: .default, handler: { action in
+                        UIApplication.openSafari(with: url) {
+                            asyncSignal.end()
+                        }
+                    })
+                    action.accessoryImage = VisionTextDetectResultAction_Translation.iconImage
+                    alert.addAction(action)
+                }
+
+                if let url = VisionTextDetectResultAction_Search.makeUrl(text: plainText) {
+                    let action = UIAlertAction(title: VisionTextDetectResultAction_Search.title, style: .default, handler: { action in
                         asyncSignal.end()
                         UIApplication.shared.open(url)
                     })
-                    action.accessoryImage = R.image.appActionIconSearch()
+                    action.accessoryImage = VisionTextDetectResultAction_Search.iconImage
                     alert.addAction(action)
                 }
 
@@ -963,15 +973,24 @@ extension Array where Element:VisionTextDetectResult {
                             })
                         )
 
-                        if let url = URL(string: "https://www.google.com/search?\(["q":plainText].urlQueryString))") {
-                            let action = UIAlertAction(title: "Search On Google".localized.localizedCapitalized, style: .default, handler: { action in
-                                asyncSignal.end()
-                                UIApplication.shared.open(url)
+                        if let url = VisionTextDetectResultAction_Translation.makeUrl(text: plainText) {
+                            let action = UIAlertAction(title: VisionTextDetectResultAction_Translation.title, style: .default, handler: { action in
+                                UIApplication.openSafari(with: url) {
+                                    asyncSignal.end()
+                                }
                             })
-                            action.accessoryImage = R.image.appActionIconSearch()
+                            action.accessoryImage = VisionTextDetectResultAction_Translation.iconImage
                             _actions.append(action)
                         }
 
+                        if let url = VisionTextDetectResultAction_Search.makeUrl(text: plainText) {
+                            let action = UIAlertAction(title: VisionTextDetectResultAction_Search.title, style: .default, handler: { action in
+                                asyncSignal.end()
+                                UIApplication.shared.open(url)
+                            })
+                            action.accessoryImage = VisionTextDetectResultAction_Search.iconImage
+                            _actions.append(action)
+                        }
 
                         for _action in _actions{
                             _alert.addAction(_action)
