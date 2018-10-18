@@ -172,6 +172,8 @@
 "Access Failed." = "アクセスに失敗しました。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "アクション";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "アクション";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "住所";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "すべてのテキスト";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "すべての連絡先が正常に保存されました。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "クリーナーを使用すると、間違った写真を見つけ出して、削除することができます。例えば、重複した画像や類似した画像、クローズアップ写真、ロック画面のスクリーンショットなどが見つかった場合には削除してください。";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "クリーナー";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "クリップボード";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "ページサイズプリセット";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "ページ";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "クリップボードから画像を貼り付ける";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "永続的所有権";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "遅すぎるシャッタースピード";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "変換モード";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "今すぐ翻訳する";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻訳訂正";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "タイプ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
 /* Generated from genl10n: Shop.SApp.swift */

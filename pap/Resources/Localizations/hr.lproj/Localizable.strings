@@ -172,6 +172,8 @@
 "Access Failed." = "Pristup nije uspio.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pristup odobren.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Radnja";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "akcije";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumi";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Svi tekst";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Svi su kontakti uspješno spremljeni.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistač vam omogućuje da pronađete i izbrišete različite vrste netočnih fotografija ako se primjerice podudaraju s dupliciranim i sličnim slikama, fotografijama izbliza ili snimkama sa zasuna zaslona!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistač";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Međuspremnik";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Boja i podsjetnik za svaku fazu";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Predodređena veličina stranice";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stranice";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Zalijepite slike iz svojih isječaka";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Stalno posjedovanje";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Premala brzina zatvarača";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Način pretvorbe";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Prevedi sada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Ispravak prevođenja";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Tip";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Trenutačno nije moguće potvrditi kôd. Pokušajte ga kasnije.";
 /* Generated from genl10n: Shop.SApp.swift */

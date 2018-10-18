@@ -172,6 +172,8 @@
 "Access Failed." = "Prístup zlyhal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Prístup povolený.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "akčné";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akcia";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Alba";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Všetok text";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Všetky kontakty boli úspešne uložené.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistič vám umožňuje vyhľadať a odstrániť rôzne nesprávne fotografie, ak sa zhodujú napr. S duplikátmi a podobnými obrázkami, detailnými fotografiami alebo zámkami v zámku!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "čistič";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Schránka";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Farba a pripomenutie pre každú fázu";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Predvolená veľkosť stránky";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stránky";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Prilepte obrázky zo schránok";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Trvalé vlastníctvo";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Príliš pomalá rýchlosť uzávierky";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Režim transformácie";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Preložiť teraz";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Korekcia prekladu";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "typ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálne sa nepodarilo overiť kód. Skúste to neskôr.";
 /* Generated from genl10n: Shop.SApp.swift */

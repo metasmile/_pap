@@ -172,6 +172,8 @@
 "Access Failed." = "Zugriff fehlgeschlagen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Zugriff gewährt.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Aktion";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Aktionen";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Adresse";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Alben";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Alles Text";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Alle Kontakte wurden erfolgreich gespeichert.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ermöglicht es Ihnen, verschiedene Arten von falschen Fotos zu finden und zu löschen, wenn sie zum Beispiel Duplikate und ähnliche Bilder, Nahaufnahmen oder Sperrbilder ergeben haben!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Reiniger";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Zwischenablage";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Farbe und Erinnerung für jede Phase";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Seitengröße voreingestellt";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Seiten";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Fügen Sie Bilder aus Ihren Zwischenablagen ein";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Dauereigentum";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Zu lange Verschlusszeit";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Transformationsmodus";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Übersetzen Sie jetzt";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Übersetzungskorrektur";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Art";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Der Code konnte zur Zeit nicht überprüft werden. Bitte versuchen Sie es später.";
 /* Generated from genl10n: Shop.SApp.swift */

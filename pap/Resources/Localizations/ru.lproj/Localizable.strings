@@ -172,6 +172,8 @@
 "Access Failed." = "Ошибка доступа.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Доступ разрешен.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "действие";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "действия";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Адрес";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Альбомы";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Весь текст";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Все контакты были успешно сохранены.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Очиститель позволяет находить и удалять различные неправильные фотографии, если они совпадают, например, с дублирующими и аналогичными изображениями, крупными фотографиями или снимками Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Очиститель";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "буфер обмена";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Цвет и напоминание для каждой фазы";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Размер страницы";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "страницы";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Вставить изображения из ваших буферов обмена";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Постоянная собственность";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Слишком низкая скорость затвора";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Режим преобразования";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Перевести";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Коррекция перевода";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Тип";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Не удалось проверить код в настоящее время. Пожалуйста, попробуйте позже.";
 /* Generated from genl10n: Shop.SApp.swift */

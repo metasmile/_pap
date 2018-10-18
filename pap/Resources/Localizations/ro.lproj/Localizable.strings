@@ -172,6 +172,8 @@
 "Access Failed." = "Accesul a eșuat.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acces permis.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Acțiune";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "acţiuni";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albume";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Toate textele";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Toate contactele au fost salvate cu succes.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vă permite să găsiți și să ștergeți diverse tipuri de fotografii incorecte dacă acestea au fost potrivite, de exemplu, pentru duplicat și imagini similare, fotografii apropiate sau fotografii Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Mai curat";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Culoare și memento pentru fiecare fază";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pagini";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Inserați imagini din clipboard-urile dvs.";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Proprietate permanentă";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Viteză de declanșare prea lentă";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Modul de transformare";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Traduceți acum";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Traducerea corectă";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Tip";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Codul nu a putut fi verificat în prezent. Încercați mai târziu.";
 /* Generated from genl10n: Shop.SApp.swift */

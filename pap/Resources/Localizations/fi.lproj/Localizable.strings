@@ -172,6 +172,8 @@
 "Access Failed." = "Käyttö epäonnistui.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pääsy myönnetty.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Toiminta";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Toimet";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Osoite";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albumit";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Kaikki teksti";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Kaikki yhteystiedot tallennettiin onnistuneesti.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Puhdistusaineella voit etsiä ja poistaa erilaisia ​​vääriä valokuvia, jos ne ovat sopineet esimerkiksi kaksoiskappaleisiin ja vastaaviin kuviin, lähikuviin tai lukkotulosteisiin!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "siivooja";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "leikepöydälle";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Väri ja muistutus jokaiselle vaiheelle";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Sivun koko Esiasetettu";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sivut";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Liitä kuvat leikepöydiltäsi";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Pysyvä omistaja";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Liian hidas suljinnopeus";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Transform Mode";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Käännä nyt";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Käännöskorjaus";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Tyyppi";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tällä hetkellä koodia ei voi tarkistaa. Yritä myöhemmin.";
 /* Generated from genl10n: Shop.SApp.swift */

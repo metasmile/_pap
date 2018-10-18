@@ -172,6 +172,8 @@
 "Access Failed." = "Không truy cập được.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Chấp thuận quyền truy cập.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Hoạt động";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Hành động";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Địa chỉ nhà";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Tất cả văn bản";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tất cả địa chỉ liên hệ đã được lưu thành công.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner cho phép bạn tìm và xóa các loại ảnh không chính xác khác nhau nếu chúng đã khớp với các hình ảnh trùng lặp và tương tự, ảnh cận cảnh hoặc ảnh chụp màn hình khóa!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Sạch hơn";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Màu sắc và nhắc nhở cho từng giai đoạn";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Kích thước trang đặt trước";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Trang";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Dán hình ảnh từ clipboards của bạn";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Quyền sở hữu vĩnh viễn";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Tốc độ màn trập quá chậm";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Chế độ chuyển đổi";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Dịch ngay bây giờ";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Chỉnh sửa bản dịch";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Kiểu";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Không thể xác minh mã hiện tại. Vui lòng thử lại sau.";
 /* Generated from genl10n: Shop.SApp.swift */

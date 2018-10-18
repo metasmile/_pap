@@ -172,6 +172,8 @@
 "Access Failed." = "Acceso Fallido.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acceso permitido.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Acción";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Dirección";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Álbumes";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Todo el texto";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Todos los contactos fueron salvados con éxito.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "¡Cleaner le permite buscar y eliminar varios tipos de fotos incorrectas si coinciden, por ejemplo, imágenes duplicadas y similares, fotos de primeros planos o disparos de Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Limpiador";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Portapapeles";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Color y recordatorio para cada fase";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Páginas";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Pega imágenes de tus portapapeles.";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Propiedad permanente";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Velocidad de obturación demasiado lenta";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Modo de transformación";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Traducir ahora";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Corrección de traducción";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Tipo";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "No se puede verificar el código actualmente. Por favor intente más tarde.";
 /* Generated from genl10n: Shop.SApp.swift */

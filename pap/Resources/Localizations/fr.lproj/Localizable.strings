@@ -172,6 +172,8 @@
 "Access Failed." = "Accès échoué.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Accès autorisé.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "action";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Adresse";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Tout le texte";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Tous les contacts ont été enregistrés avec succès.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vous permet de trouver et de supprimer différents types de photos incorrectes si elles correspondent, par exemple, des images en double et des images similaires, des photos en gros plan ou des captures d'écran!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Nettoyeur";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Presse-papiers";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Couleur et rappel pour chaque phase";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Taille de page prédéfinie";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Coller des images de vos presse-papiers";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Propriété permanente";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Vitesse d'obturation trop lente";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Mode de transformation";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Traduire maintenant";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Correction de traduction";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Type";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Impossible de vérifier le code actuellement. S'il vous plaît essayez plus tard.";
 /* Generated from genl10n: Shop.SApp.swift */

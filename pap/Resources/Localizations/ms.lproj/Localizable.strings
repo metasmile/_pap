@@ -172,6 +172,8 @@
 "Access Failed." = "Akses Gagal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Akses Diberikan.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Tindakan";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Tindakan";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Alamat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Semua Teks";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Semua kenalan berjaya disimpan.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam pelbagai jenis gambar yang salah jika mereka telah dipadankan sebagai contoh pendua dan imej yang serupa, gambar rapat atau tangkapan skrin Kunci!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Bersih";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Papan klip";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Warna Dan Peringatan untuk Setiap Fasa";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Halaman Preset Saiz";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Tampalkan imej dari clipboard anda";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Pemilikan Tetap";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Kelajuan pengatup yang terlalu perlahan";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Mod Transform";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Terjemah Sekarang";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Pembetulan Terjemahan";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Taipkan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tidak dapat mengesahkan kod pada masa ini. Sila cuba kemudian.";
 /* Generated from genl10n: Shop.SApp.swift */

@@ -172,6 +172,8 @@
 "Access Failed." = "A hozzáférés sikertelen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Hozzáférés biztosított.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Akció";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Hozzászólások";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Cím";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumok";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Minden szöveg";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Minden névjegyet sikeresen elmentettünk.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "A Tisztító lehetővé teszi, hogy megtalálja és törölje a különféle helytelen fényképeket, ha például a másolatok és hasonló képek, a közelkép fotók vagy a zárakat rögzítő képek megegyeznek.";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Tisztító";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Vágólap";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Szín és emlékeztető minden egyes fázisban";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Oldalméret előre beállítva";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Oldalak";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Illessze be a képeket a vágólapokból";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Állandó tulajdon";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "Túl lassú zársebesség";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Átalakítási mód";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Fordítás most";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Fordítási javítás";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "típus";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "A kód jelenleg nem ellenőrizhető. Próbálja ki később.";
 /* Generated from genl10n: Shop.SApp.swift */

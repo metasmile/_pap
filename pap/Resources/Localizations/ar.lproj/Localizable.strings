@@ -172,6 +172,8 @@
 "Access Failed." = "فشل الوصول.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "لقد تم منح الوصول.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "عمل";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "أفعال";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "عنوان";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "ألبومات";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "كل النص";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "تم حفظ جميع جهات الاتصال بنجاح.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "يمكّنك منظف البحث من العثور على أنواع مختلفة من الصور غير الصحيحة وحذفها إذا كانت متطابقة مع الصور المكررة والمماثلة على سبيل المثال ، أو صور قريبة أو لقطات شاشة Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "منظف";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "الحافظة";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "اللون وتذكير لكل مراحل";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "حجم الصفحة";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "صفحات";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "لصق الصور من قصاصاتك";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "ملكية دائمة";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "بطيئة جدا سرعة مصراع";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "وضع التحويل";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "ترجمة الآن";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "تصحيح الترجمة";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "نوع";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "غير قادر على التحقق من الرمز حاليًا. يرجى المحاولة لاحقا.";
 /* Generated from genl10n: Shop.SApp.swift */

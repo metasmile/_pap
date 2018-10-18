@@ -172,6 +172,8 @@
 "Access Failed." = "Adgang mislykkedes.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Adgangstilskud.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Handling";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Handlinger";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "Adresse";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "Alle tekst";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "Alle kontakter blev gemt.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gør det muligt at finde og slette forskellige slags forkerte fotos, hvis de har matchet for eksempel duplikat og lignende billeder, nærbilleder eller Lockscreen-skud!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Renere";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Udklipsholder";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Farve og påmindelse for hver fase";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "Sideformat Forudindstillet";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sider";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Indsæt billeder fra dine udklipsholder";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Permanent ejerskab";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "For langsom lukkertid";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "Transform mode";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Oversæt nu";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Oversættelse Korrektion";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Type";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kan ikke bekræfte koden i øjeblikket. Prøv det senere.";
 /* Generated from genl10n: Shop.SApp.swift */

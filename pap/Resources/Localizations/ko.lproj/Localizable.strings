@@ -172,6 +172,8 @@
 "Access Failed." = "액세스가 실패했습니다.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "액세스가 허가되었습니다.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "동작";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "액션";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -186,8 +188,6 @@
 "Address" = "주소";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "앨범";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"All Text" = "모든 텍스트";
 /* Generated from genl10n: Finder.BApp.swift#215 */
 "All contacts were successfully saved." = "모든 연락처가 성공적으로 저장되었습니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -252,6 +252,8 @@
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "클리너";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "클립 보드";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "각 단계별 색상 및 알림";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -496,6 +498,8 @@
 "Page Size Preset" = "페이지 크기 사전 설정";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "페이지";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "클립 보드에서 이미지 붙여 넣기";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "영구 소유권";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
@@ -700,8 +704,12 @@
 "Too Slow Shutter Speed" = "너무 느린 셔터 속도";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
 "Transform Mode" = "변환 모드";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "지금 번역하기";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "번역 교정";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "유형";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "현재 코드를 확인할 수 없습니다. 나중에 다시 시도하십시오.";
 /* Generated from genl10n: Shop.SApp.swift */
