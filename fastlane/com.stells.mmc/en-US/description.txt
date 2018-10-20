@@ -1,0 +1,20 @@
+Capture Every Info Around You, Then Do Something.
+
+Memo Cam enables accurately detecting and then extracting every meaningful information such as phone numbers, addresses, barcodes, dates or URLs in your numerous photos.
+Then you can make a call, open maps, navigate websites even search flights, and save them all as the contact or raw text.
+
+
+Actions
+• Phone Number - Save or numbers or convert into iOS contacts.
+• E-Mail Address - Send a message.
+• Address - Open on map
+• Date - Save as Event with Calendar.
+• URL - Open with Browser.
+• Flight Number - Search for flights with detected numbers.
+• Barcode - Scan inner content of QR code and Barcode
+Many actions are going to be updated!
+
+
+Auto Selection Bot
+
+ASB is an assistant for choosing automatically if your photos are containing the text.
