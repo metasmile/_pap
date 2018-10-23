@@ -370,13 +370,12 @@ fileprivate class ResultPreviewView: DesignableView {
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
-        let path = UIBezierPath()
-        
         let renderScaleTransform = CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height)
         
         let padding: CGFloat = 12
-        let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
+        let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding / 2, left: -padding / 2, bottom: -padding / 2, right: -padding / 2))
         
+        let path = UIBezierPath()
         path.move(to: quad.topLeft)
         path.addLine(to: quad.topRight)
         path.addLine(to: quad.bottomRight)
