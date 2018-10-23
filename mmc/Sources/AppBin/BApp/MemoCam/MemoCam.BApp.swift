@@ -45,7 +45,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , phase: .release
         , appType: MemoCamApp.self
         , displayName: "Camera".localized.localizedCapitalized, description:nil, keywords:nil
-        , iconBundleName: R.image.systemIconCamera.name
+        , iconBundleName: R.image.memoCamBAppIcon.name
             , themeColor: nil, policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -298,11 +298,7 @@ fileprivate class ResultPreviewView: DesignableView {
                 
             }
             else {
-                resultsLayer.sublayers = nil
-                resultsUILayer.sublayers = nil
-                
-                dimmedPath.removeAllPoints()
-                dimmedLayer.path = nil
+                reset()
             }
         }
         
@@ -337,7 +333,7 @@ fileprivate class ResultPreviewView: DesignableView {
                 self.resultsLayer.sublayers = nil
                 self.resultsUILayer.sublayers = nil
                 
-                let previewSize = result.image.size.aspectFill(in: self.bounds.size)
+                let previewSize = self.imageView.contentMode == .scaleAspectFill ? result.image.size.aspectFill(in: self.bounds.size) : result.image.size.aspectFit(in: self.bounds.size)
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
                 self.dimmedLayer.frame = self.resultsLayer.frame
@@ -360,6 +356,14 @@ fileprivate class ResultPreviewView: DesignableView {
                 self.dimmedLayer.opacity = 1
             }
         }
+    }
+    
+    fileprivate func reset() {
+        resultsLayer.sublayers = nil
+        resultsUILayer.sublayers = nil
+        
+        dimmedPath.removeAllPoints()
+        dimmedLayer.path = nil
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
@@ -385,7 +389,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.previewTransform = renderScaleTransform
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
         layer.hitTestPath = path
-        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: padding).cgPath
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
         layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
         let iconLayer = BadgeIconLayer()
@@ -471,7 +475,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let cameraView = CameraView(frame: .zero)
         cameraView.clipsToBounds = false
         cameraView.contentMode = .scaleAspectFill
-        cameraView.setUp()
         return cameraView
     }()
 
@@ -504,8 +507,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         contentView.addSubview(cameraView)
         cameraView.fitConstraints(to: contentView)
-        
-        cameraView.capturePreset = .high
         
         return view
     }()
@@ -568,7 +569,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
             
             let polygonLayer = createDebugLayer()
-            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: quad.boundingRect.minLength/2).cgPath
+            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
             polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
             layers.append(polygonLayer)
         }
@@ -580,7 +581,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
-        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size))
+        let previewSize = previewContentMode == .scaleAspectFill ? self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size) : self.cameraView.captureVideoSize.aspectFit(in: self.cameraView.bounds.size)
+        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: previewSize)
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
@@ -601,75 +603,82 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     @objc dynamic
     fileprivate var captureSessionHasStarted:Bool = false
+    
+    private var previewContentMode: UIView.ContentMode {
+        return self.resultPreviewView.imageView.contentMode
+    }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
-        cameraView.layer.sublayers?.forEach {
-            if $0 is DisableImplicitAnimatableShapeLayer {
-                $0.removeFromSuperlayer()
-            }
-        }
-        self.currentTargetImage = nil
+        let launchOption = AppCenter.default.currentInstanceAs(MemoCamApp.self)?.importedLaunchOption
+        self.currentTargetImage = launchOption?.options?[AppLaunchOptionsKey.MemoCamPreviewOption] as? UIImage
+        
+        stopMemoCamSession()
+        
         updateToolBar()
-
+        
+        if let image = currentTargetImage {
+            let loadingView = UIActivityIndicatorView(style: .gray)
+            loadingView.startAnimating()
+            
+            toolBar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(customView: loadingView),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            ], animated: true)
+            
+            self.resultPreviewView.imageView.contentMode = .scaleAspectFit
+            self.detect(with: image)
+        }
+        else {
+            self.resultPreviewView.imageView.contentMode = .scaleAspectFill
+            startMemoCamSession()
+        }
+    }
+    
+    private func startMemoCamSession() {
+        cameraView.setUp()
+        cameraView.capturePreset = .high
+        
         let detectTextLayer = createDebugLayer()
         let detectBarcodesLayer = createDebugLayer()
-
+        
         cameraView.layer.addSublayer(detectTextLayer)
         cameraView.layer.addSublayer(detectBarcodesLayer)
-
-        var detectTextRequest:VNDetectTextRectanglesRequest? = VNDetectTextRectanglesRequest { (request, error) in
-            guard let observations = request.results as? [VNTextObservation] else {
-                return
-            }
-
+        
+        let detectTextRequest = VNDetectTextRectanglesRequest { (request, error) in
+            guard let observations = request.results as? [VNTextObservation] else { return }
+            
             DispatchQueue.main.async {
                 self.drawPolygons(with: observations, to: detectTextLayer)
             }
         }
-
-        //TODO: if found a cause, remove this.
-        //HOTFIX BEGIN: https://fabric.io/jessi/ios/apps/com.stells.mmc/issues/5bce01faf8b88c2963c52c20?time=last-seven-days
-        /*
-        "iPhone7,1"  : .iPhone6plus, (unknown)
-        "iPhone7,2"  : .iPhone6,   (x) unknown but expected
-        "iPhone8,1"  : .iPhone6S,  (x)
-        "iPhone8,2"  : .iPhone6Splus, (no issue)
-        "iPhone8,4"  : .iPhoneSE, (x)
-        */
-        let deviceName = UIDevice.name
-        if deviceName == "iPhone8,1" || deviceName == "iPhone8,4" || deviceName == "iPhone7,2"{
-            detectTextRequest = nil
-        }
-        //HOTFIX END
-
+        
         cameraView.captureVideoDataDidOutput = { sampleBuffer in
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-
+            
             let deviceOrientation = self.cameraView.deviceMotion.orientation
-
+            
             if self.needsCaptureImage {
                 self.needsCaptureImage = false
-
+                
                 self.cameraView.performShutterAnimation()
-
+                
                 let ciImage = CIImage(cvPixelBuffer: pixelBuffer).oriented(forExifOrientation: Int32(deviceOrientation.exifOrientation(frontFacing: false).rawValue))
-
+                
                 var image: UIImage?
                 if let cgImage = CIContext(options: nil).createCGImage(ciImage, from: ciImage.extent) {
                     image = UIImage(cgImage: cgImage)
                 }
-
+                
                 self.detect(with: image)
             }
-
+            
             var options: [VNImageOption: Any] = [:]
             if let cameraIntrinsicMatrix = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) {
                 options[VNImageOption.cameraIntrinsics] = cameraIntrinsicMatrix
             }
-
-            if let detectTextRequest = detectTextRequest{
-                try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
-            }
+            
+            try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(deviceOrientation.exifOrientation(frontFacing: false).rawValue)) ?? .rightMirrored, options: options).perform([detectTextRequest])
         }
         cameraView.setMetadataOutput { (metadataObjects) in
             DispatchQueue.main.async {
@@ -680,11 +689,24 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             self.captureSessionHasStarted = true
         }
     }
+    
+    private func stopMemoCamSession() {
+        cameraView.layer.sublayers?.forEach {
+            if $0 is DisableImplicitAnimatableShapeLayer {
+                $0.removeFromSuperlayer()
+            }
+        }
+        
+        cameraView.stopSession()
+        captureSessionHasStarted = false
+    }
 
     func willRemoveContentView() {
         cameraView.captureVideoDataDidOutput = nil
         cameraView.stopSession()
         captureSessionHasStarted = false
+        
+        resultPreviewView.reset()
     }
 
     var delegate: AppDockDelegate? {
@@ -706,14 +728,14 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
                 UIView.transition(with: self.contentView, duration: 0.3, options: [.transitionCrossDissolve], animations: {
                     if let _ = self.currentTargetImage {
-                        self.cameraView.stopSession()
+                        self.stopMemoCamSession()
 
                         self.contentView.addSubview(self.resultPreviewView)
                         self.resultPreviewView.fitConstraints(to: self.contentView)
                         self.resultPreviewView.delegate = self
                     }
                     else {
-                        self.cameraView.startSession()
+                        self.startMemoCamSession()
                         self.resultPreviewView.removeFromSuperview()
                         self.resultPreviewView.delegate = nil
                     }
@@ -793,8 +815,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     @objc fileprivate func cancelButtonDidTap(sender: Any) {
         UIFeedback.impact(.medium)
-
-        if let _ = currentTargetImage {
+        
+        if let launchOption = AppCenter.default.currentInstanceAs(MemoCamApp.self)?.importedLaunchOption, let identifierToReturn = launchOption.identifierToReturn {
+            AppCenter.default.openApp(identifier: identifierToReturn)
+        }
+        else if let _ = currentTargetImage {
             currentTargetImage = nil
 
             updateToolBar()
@@ -884,22 +909,6 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         showActions(with: [result])
     }
 }
-
-//HOTFIX BEGIN
-private extension UIDevice {
-    static var name: String? {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let modelCode = withUnsafePointer(to: &systemInfo.machine) {
-            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
-                ptr in
-                String(validatingUTF8: ptr)
-            }
-        }
-        return String(validatingUTF8: modelCode!)
-    }
-}
-//HOTFIX END
 
 
 import Intents
