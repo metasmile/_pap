@@ -800,7 +800,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         UIFeedback.impact(.medium)
         
         if let launchOption = AppCenter.default.currentInstanceAs(MemoCamApp.self)?.importedLaunchOption, let identifierToReturn = launchOption.identifierToReturn {
-            AppCenter.default.openApp(identifier: identifierToReturn)
+            
+            DispatchQueue.main.async {
+                AppCenter.default.openApp(identifier: identifierToReturn)
+            }
         }
         else if let _ = currentTargetImage {
             currentTargetImage = nil

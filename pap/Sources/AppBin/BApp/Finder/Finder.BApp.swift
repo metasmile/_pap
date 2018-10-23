@@ -186,7 +186,9 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
         if let image = appAsset.asset.asUIImage {
             var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
             option.identifierToReturn = FinderApp.info.identifier
-            AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
+            DispatchQueue.main.async {
+                AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
+            }
         }
     }
 }
