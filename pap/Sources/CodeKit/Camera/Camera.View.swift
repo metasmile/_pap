@@ -74,6 +74,8 @@ class CameraView: UIView, PropertyWatchable {
     }
 
     func setUp() {
+        guard captureSession == nil else { return }
+        
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized: break
         case .notDetermined:

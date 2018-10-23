@@ -992,6 +992,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState != .maximized {
             return true
         }
+        else if let _ = AppCenter.default.currentInstanceAs(AppPreviewActionable.self), let rewards = AppCenter.paidChargeableTypeInCurrentContext?.reward, rewards != .blockOfUses {
+            return true
+        }
         else {
             return false
         }
@@ -1001,14 +1004,23 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
             return "Edit".localized
         }
+        else if let app = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {
+            return app.titleForAction
+        }
         else {
             return nil
         }
     }
     
     func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath) {
-        if let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item), let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
+        guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
             showPhotoEditor(with: selectedAssetItem, animated: true)
+        }
+        else if let app = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {
+            DispatchQueue(label: #function + "AppPreviewActionable", qos: .utility).async {
+                app.didAction(with: selectedAssetItem)
+            }
         }
     }
 }

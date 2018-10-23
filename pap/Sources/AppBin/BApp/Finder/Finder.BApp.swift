@@ -21,7 +21,8 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
         , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , LaunchableApp
-        , ChargeableApp {
+        , ChargeableApp
+        , AppPreviewActionable {
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
@@ -175,6 +176,18 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
 
     public var doneButtonTitle: String? {
         return "Find".localized
+    }
+    
+    public var titleForAction: String? {
+        return "Detail".localized
+    }
+    
+    public func didAction(with appAsset: AppAsset) {
+        if let image = appAsset.asset.asUIImage {
+            var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
+            option.identifierToReturn = FinderApp.info.identifier
+            AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
+        }
     }
 }
 

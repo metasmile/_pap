@@ -305,6 +305,8 @@
 		515AB1632106C029005E1997 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* ActionViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
+		51674849217EB71300374C3F /* App.PreviewView.Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51674848217EB71300374C3F /* App.PreviewView.Actionable.swift */; };
+		5167484B217EB99400374C3F /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167484A217EB99400374C3F /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
 		5174B00F216ACB1D00177999 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */; };
@@ -694,6 +696,8 @@
 		515AB1622106C029005E1997 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
+		51674848217EB71300374C3F /* App.PreviewView.Actionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.PreviewView.Actionable.swift; sourceTree = "<group>"; };
+		5167484A217EB99400374C3F /* MemoCam.BApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
 		5174B00E216ACB1D00177999 /* CodeKit.Quadrilateral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Quadrilateral.swift; sourceTree = "<group>"; };
@@ -1345,6 +1349,7 @@
 			children = (
 				4F71D886210610B2463DCA2A /* MemoCam.BApp.swift */,
 				A00B5A1B21749F6000A4D303 /* MemoCam.BApp.Assets.xcassets */,
+				5167484A217EB99400374C3F /* MemoCam.BApp.Launchable.OptionsKeys.swift */,
 			);
 			path = MemoCam;
 			sourceTree = "<group>";
@@ -1392,6 +1397,7 @@
 				4F71D1FFEDB90792654FC9A6 /* App.UICollectionViewPreheatable.swift */,
 				4F71D5E3248E9FE7836799D0 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */,
 				4F71D2363FDBBFC0BEE21FBE /* App.PreviewProcessable.swift */,
+				51674848217EB71300374C3F /* App.PreviewView.Actionable.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2581,6 +2587,7 @@
 				4F71D1EEBA7ED8C1BFC21EC0 /* App.Lib.Parser.swift in Sources */,
 				4F71D7EC467C4954754DAFDF /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */,
 				4F71D7183DFB117A969BE78E /* FirebaseMLVision.VisionText.swift in Sources */,
+				5167484B217EB99400374C3F /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71D047CB6B038B633CE59A /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71DE695A164DF95980274B /* App.Preheatable.swift in Sources */,
 				4F71D341A19E0B6BD30A10AC /* App.UICollectionViewPreheatable.swift in Sources */,
@@ -2621,6 +2628,7 @@
 				4F71D82816900C9C4C93BC6E /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71D09C4038E6D07CE506BC /* PHAsset.Items.swift in Sources */,
 				A0DE0111216CFD4D00F99365 /* NonMaxSuppression.swift in Sources */,
+				51674849217EB71300374C3F /* App.PreviewView.Actionable.swift in Sources */,
 				4F71D470CB2DA2A48F4ACBB7 /* PHAsset.Editable.swift in Sources */,
 				4F71D5983139B58F7B26FB8F /* PHAsset.swift in Sources */,
 				4F71D92E81D81872641B5772 /* Sourceable.swift in Sources */,

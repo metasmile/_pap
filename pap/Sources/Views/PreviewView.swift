@@ -652,8 +652,8 @@ extension PreviewView: UICollectionViewDelegate {
     }
     
     override var canBecomeFirstResponder: Bool {
-        if let indexPath = collectionView.indexPathsForSelectedItems?.first, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath) {
-            return menuTitle.isEmpty ? super.canBecomeFirstResponder : true
+        if let indexPath = collectionView.indexPathsForSelectedItems?.first, delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true {
+            return true
         }
         return super.canBecomeFirstResponder
     }
