@@ -22,6 +22,10 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
     func batchPreviewViewDidCancelEdit(_ view: PreviewView)
+    
+    func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
+    func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String?
+    func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath)
 }
 
 internal class PreviewCollectionLayout: UICollectionViewLayout {
@@ -213,6 +217,10 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     private func setPreviewLayout(with height: CGFloat) {
+        if UIMenuController.shared.isMenuVisible {
+            UIMenuController.shared.setMenuVisible(false, animated: true)
+        }
+        
         let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout
         let toLayout = PreviewCollectionLayout(previewHeight: height)
         
@@ -633,5 +641,29 @@ extension PreviewView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
+        
+        if delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath), let cell = collectionView.cellForItem(at: indexPath) {
+            becomeFirstResponder()
+            
+            UIMenuController.shared.setTargetRect(convert(cell.frame, from: collectionView), in: self)
+            UIMenuController.shared.menuItems = [UIMenuItem(title: menuTitle, action: #selector(self.performActionForMenuItem))]
+            UIMenuController.shared.setMenuVisible(true, animated: true)
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        if let indexPath = collectionView.indexPathsForSelectedItems?.first, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath) {
+            return menuTitle.isEmpty ? super.canBecomeFirstResponder : true
+        }
+        return super.canBecomeFirstResponder
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(self.performActionForMenuItem)
+    }
+    
+    @objc func performActionForMenuItem(sender: UIMenuController) {
+        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+        delegate?.batchPreviewView(self, didSelectMenuItemAt: indexPath)
     }
 }

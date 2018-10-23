@@ -987,6 +987,30 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         
         appDockView?.disabled = false
     }
+    
+    func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState != .maximized {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String? {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
+            return "Edit"
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath) {
+        if let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item), let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
+            showPhotoEditor(with: selectedAssetItem, animated: true)
+        }
+    }
 }
 
 extension PhotoPickerViewController: AppDockViewDelegate{
