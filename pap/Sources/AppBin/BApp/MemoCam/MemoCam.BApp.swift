@@ -301,11 +301,7 @@ fileprivate class ResultPreviewView: DesignableView {
                 
             }
             else {
-                resultsLayer.sublayers = nil
-                resultsUILayer.sublayers = nil
-                
-                dimmedPath.removeAllPoints()
-                dimmedLayer.path = nil
+                reset()
             }
         }
         
@@ -340,7 +336,7 @@ fileprivate class ResultPreviewView: DesignableView {
                 self.resultsLayer.sublayers = nil
                 self.resultsUILayer.sublayers = nil
                 
-                let previewSize = result.image.size.aspectFill(in: self.bounds.size)
+                let previewSize = self.imageView.contentMode == .scaleAspectFill ? result.image.size.aspectFill(in: self.bounds.size) : result.image.size.aspectFit(in: self.bounds.size)
                 self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
                 
                 self.dimmedLayer.frame = self.resultsLayer.frame
@@ -363,6 +359,14 @@ fileprivate class ResultPreviewView: DesignableView {
                 self.dimmedLayer.opacity = 1
             }
         }
+    }
+    
+    fileprivate func reset() {
+        resultsLayer.sublayers = nil
+        resultsUILayer.sublayers = nil
+        
+        dimmedPath.removeAllPoints()
+        dimmedLayer.path = nil
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
@@ -580,7 +584,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
-        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size))
+        let previewSize = previewContentMode == .scaleAspectFill ? self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size) : self.cameraView.captureVideoSize.aspectFit(in: self.cameraView.bounds.size)
+        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: previewSize)
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
@@ -601,6 +606,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     @objc dynamic
     fileprivate var captureSessionHasStarted:Bool = false
+    
+    private var previewContentMode: UIView.ContentMode {
+        return self.resultPreviewView.imageView.contentMode
+    }
 
     func didSetContentView(_ view: UIView, dock: AppDock) {
         let launchOption = AppCenter.default.currentInstanceAs(MemoCamApp.self)?.importedLaunchOption
@@ -613,9 +622,20 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         toolBar.tintColor = view.colorTheme.tintColor
         
         if let image = currentTargetImage {
+            let loadingView = UIActivityIndicatorView(style: .gray)
+            loadingView.startAnimating()
+            
+            toolBar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(customView: loadingView),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            ], animated: true)
+            
+            self.resultPreviewView.imageView.contentMode = .scaleAspectFit
             self.detect(with: image)
         }
         else {
+            self.resultPreviewView.imageView.contentMode = .scaleAspectFill
             startMemoCamSession()
         }
     }
@@ -690,6 +710,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.captureVideoDataDidOutput = nil
         cameraView.stopSession()
         captureSessionHasStarted = false
+        
+        resultPreviewView.reset()
     }
 
     var delegate: AppDockDelegate? {
