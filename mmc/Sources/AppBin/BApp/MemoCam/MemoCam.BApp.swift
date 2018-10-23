@@ -729,12 +729,15 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                     if let _ = self.currentTargetImage {
                         self.stopMemoCamSession()
 
+                        self.cameraView.isHidden = true
                         self.contentView.addSubview(self.resultPreviewView)
                         self.resultPreviewView.fitConstraints(to: self.contentView)
                         self.resultPreviewView.delegate = self
                     }
                     else {
                         self.startMemoCamSession()
+                        
+                        self.cameraView.isHidden = false
                         self.resultPreviewView.removeFromSuperview()
                         self.resultPreviewView.delegate = nil
                     }
