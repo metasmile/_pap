@@ -999,7 +999,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     
     func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String? {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
-            return "Edit"
+            return "Edit".localized
         }
         else {
             return nil
