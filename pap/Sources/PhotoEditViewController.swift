@@ -186,6 +186,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         zoomingContentView.isHidden = false
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        assetView.clearDrawing()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
