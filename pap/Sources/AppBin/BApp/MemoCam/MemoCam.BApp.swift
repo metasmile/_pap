@@ -212,7 +212,7 @@ private class ResultItemLayer: CAShapeLayer {
 }
 
 fileprivate protocol ResultPreviewViewDelegate {
-    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem)
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem?)
 }
 
 fileprivate struct ResultPreviewItem {
@@ -258,6 +258,7 @@ fileprivate class ResultPreviewView: DesignableView {
     var delegate: ResultPreviewViewDelegate?
 
     private(set) var resultsInPlainText: Bool = false
+    private lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.didLongPress))
 
     override func initialize() {
         super.initialize()
@@ -272,6 +273,8 @@ fileprivate class ResultPreviewView: DesignableView {
         
         dimmedLayer.fillRule = .evenOdd
         dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
+        
+        addGestureRecognizer(longPressGesture)
     }
     
     override func layoutSubviews() {
@@ -426,13 +429,19 @@ fileprivate class ResultPreviewView: DesignableView {
         return nil
     }
     
+    @objc private func didLongPress(sender: UILongPressGestureRecognizer) {
+        let hidesResults: Bool
+        switch sender.state {
+        case .ended, .cancelled: hidesResults = false
+        default: hidesResults = true
+        }
+        resultsLayer.isHidden = hidesResults
+        resultsUILayer.isHidden = hidesResults
+        dimmedLayer.isHidden = hidesResults
+    }
+    
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if let _ = resultItemLayer(at: point) {
-            return self
-        }
-        else {
-            return nil
-        }
+        return self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -459,20 +468,22 @@ fileprivate class ResultPreviewView: DesignableView {
         
         guard let point = touches.first?.location(in: self) else { return }
         
-        guard currentHitLayer == resultItemLayer(at: point) else {
-            self.touchesCancelled(touches, with: event)
-            return
-        }
-        
         DispatchQueue.main.async {
             UIFeedback.select()
         }
         
-        if let item = currentHitLayer?.result {
-            delegate?.resultPreviewView(self, didSelectItemWith: item)
+        if currentHitLayer == nil {
+            
+        }
+        else if currentHitLayer != resultItemLayer(at: point) {
+            self.touchesCancelled(touches, with: event)
+            return
         }
         
+        delegate?.resultPreviewView(self, didSelectItemWith: currentHitLayer?.result)
+        
         currentHitLayer?.highlighted = false
+        currentHitLayer = nil
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -501,11 +512,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let view = UIView(frame: .zero)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.performButtonDidTap))
-        contentView.addGestureRecognizer(tapGesture)
+        cameraView.addGestureRecognizer(tapGesture)
         
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.resultPreviewDidLongPress))
-        contentView.addGestureRecognizer(longPressGesture)
-
         view.addSubview(contentView)
         view.addSubview(toolBar)
         
@@ -824,8 +832,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     @objc fileprivate func performButtonDidTap(sender: Any) {
         if let _ = currentTargetImage {
-            UIFeedback.select()
-            actionButtonDidTap()
+//            UIFeedback.select()
+//            actionButtonDidTap()
         }
         else {
             let loadingView = UIActivityIndicatorView(style: .gray)
@@ -874,17 +882,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }))
         UIViewController.present(alert, animated: true)
     }
-    
-    @objc private func resultPreviewDidLongPress(sender: UILongPressGestureRecognizer) {
-        let hidesResults: Bool
-        switch sender.state {
-        case .ended, .cancelled: hidesResults = false
-        default: hidesResults = true
-        }
-        resultPreviewView.resultsLayer.isHidden = hidesResults
-        resultPreviewView.resultsUILayer.isHidden = hidesResults
-        resultPreviewView.dimmedLayer.isHidden = hidesResults
-    }
 
     private func detect(with image: UIImage?) {
         currentTargetImage = image
@@ -903,6 +900,13 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 }
             }
         }
+    }
+}
+
+extension MemoCamAppDockContent: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        print(gestureRecognizer.view)
+        return true
     }
 }
 
@@ -939,17 +943,22 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         }
     }
 
-    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem) {
+    func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem?) {
         guard let image = currentTargetImage else { return }
 
-        var result = VisionTextImageDetectResult(image: image)
-        result.sourceVisionTexts = [resultPreviewItem.visionText]
-        if view.resultsInPlainText {
-            result.plainText = result.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
-        }
-        result.resultGroup = resultPreviewItem.resultGroup
+        if let resultPreviewItem = resultPreviewItem {
+            var result = VisionTextImageDetectResult(image: image)
+            result.sourceVisionTexts = [resultPreviewItem.visionText]
+            if view.resultsInPlainText {
+                result.plainText = result.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
+            }
+            result.resultGroup = resultPreviewItem.resultGroup
 
-        showActions(with: [result])
+            showActions(with: [result])
+        }
+        else {
+            actionButtonDidTap()
+        }
     }
 }
 
