@@ -150,6 +150,10 @@ class AppDockViewController: UIViewController, papColorThemeable {
         super.viewWillLayoutSubviews()
         
         appDockView?.invalidateCollectionViewLayout()
+        
+        if let appDockView = appDockView {
+            content(in: appDockView)?.willLayoutSubviews()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -157,6 +161,10 @@ class AppDockViewController: UIViewController, papColorThemeable {
         
         //INFO: for update bottom inset
         self.appDockView?.superview?.layoutIfNeeded()
+        
+        if let appDockView = appDockView {
+            content(in: appDockView)?.didLayoutSubviews()
+        }
     }
     
     private var isWatchingAppConfig = false
