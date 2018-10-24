@@ -490,7 +490,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let view = UIView(frame: .zero)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.performButtonDidTap))
-        cameraView.addGestureRecognizer(tapGesture)
+        contentView.addGestureRecognizer(tapGesture)
 
         view.addSubview(contentView)
         view.addSubview(toolBar)
