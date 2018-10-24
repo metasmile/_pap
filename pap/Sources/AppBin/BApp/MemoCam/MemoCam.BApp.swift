@@ -444,22 +444,38 @@ fileprivate class ResultPreviewView: DesignableView {
         return self
     }
     
+    private var cancelToTap = false
+    private var touchBeginLocation = CGPoint.zero
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
+        cancelToTap = false
+        
         guard let point = touches.first?.location(in: self) else { return }
+        
+        touchBeginLocation = point
         
         currentHitLayer = resultItemLayer(at: point)
         currentHitLayer?.highlighted = true
+        
+        longPressGesture.isEnabled = currentHitLayer == nil
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
         
-        guard let point = touches.first?.location(in: self), let boundingBoxOfPath = resultItemLayer(at: point)?.path?.boundingBoxOfPath else {
+        guard let point = touches.first?.location(in: self) else { return }
+        
+        if currentHitLayer == nil {
+            cancelToTap = touchBeginLocation.distance(to: point) > 10
+        }
+        
+        guard let boundingBoxOfPath = resultItemLayer(at: point)?.path?.boundingBoxOfPath else {
             currentHitLayer?.highlighted = false
             return
         }
+        
         currentHitLayer?.highlighted = (currentHitLayer?.path?.boundingBoxOfPath.intersects(boundingBoxOfPath) == true)
     }
     
@@ -468,16 +484,13 @@ fileprivate class ResultPreviewView: DesignableView {
         
         guard let point = touches.first?.location(in: self) else { return }
         
-        DispatchQueue.main.async {
-            UIFeedback.select()
-        }
-        
-        if currentHitLayer == nil {
-            
-        }
-        else if currentHitLayer != resultItemLayer(at: point) {
+        guard (currentHitLayer == nil && !cancelToTap) || (currentHitLayer != nil && currentHitLayer == resultItemLayer(at: point)) else {
             self.touchesCancelled(touches, with: event)
             return
+        }
+        
+        DispatchQueue.main.async {
+            UIFeedback.select()
         }
         
         delegate?.resultPreviewView(self, didSelectItemWith: currentHitLayer?.result)
@@ -900,13 +913,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 }
             }
         }
-    }
-}
-
-extension MemoCamAppDockContent: UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        print(gestureRecognizer.view)
-        return true
     }
 }
 

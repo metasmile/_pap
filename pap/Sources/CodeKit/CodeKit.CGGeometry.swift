@@ -13,3 +13,13 @@ extension CGSize {
         return lhs.applying(CGAffineTransform(scaleX: rhs, y: rhs))
     }
 }
+
+extension CGPoint {
+    static func distance(from p1: CGPoint, to p2: CGPoint) -> CGFloat {
+        return hypot(p1.x - p2.x, p1.y - p2.y)
+    }
+    
+    func distance(to point: CGPoint) -> CGFloat {
+        return CGPoint.distance(from: self, to: point)
+    }
+}
