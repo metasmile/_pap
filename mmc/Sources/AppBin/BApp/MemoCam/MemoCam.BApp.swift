@@ -599,6 +599,12 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     func willSetContentView(_ view: UIView, dock: AppDock) {
 
     }
+    
+    func willLayoutSubviews() {
+        if let image = currentTargetImage {
+            reloadDetectedResult(with: image)
+        }
+    }
 
     @objc dynamic
     fileprivate var captureSessionHasStarted:Bool = false
@@ -616,22 +622,26 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         updateToolBar()
         
         if let image = currentTargetImage {
-            let loadingView = UIActivityIndicatorView(style: .gray)
-            loadingView.startAnimating()
-            
-            toolBar.setItems([
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(customView: loadingView),
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            ], animated: true)
-            
-            self.resultPreviewView.imageView.contentMode = .scaleAspectFit
-            self.detect(with: image)
+            reloadDetectedResult(with: image)
         }
         else {
             self.resultPreviewView.imageView.contentMode = .scaleAspectFill
             startMemoCamSession()
         }
+    }
+    
+    private func reloadDetectedResult(with image: UIImage) {
+        let loadingView = UIActivityIndicatorView(style: .gray)
+        loadingView.startAnimating()
+        
+        toolBar.setItems([
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(customView: loadingView),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            ], animated: true)
+        
+        self.resultPreviewView.imageView.contentMode = .scaleAspectFit
+        self.detect(with: image)
     }
     
     private func startMemoCamSession() {
