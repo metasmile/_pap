@@ -360,17 +360,18 @@ class AppDockView: CustomView {
         controllerView.subviews.forEach({ $0.removeFromSuperview() })
         if let view = view {
             controllerView.addSubview(view)
-
-            if isNeedingFixedContentLayout {
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
-                view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
-                view.trailingAnchor.constraint(equalTo: controllerView.trailingAnchor).isActive = true
-                view.heightAnchor.constraint(equalToConstant: preferredControllerViewHeight).isActive = true
-            }
-            else {
-                view.fitConstraints(to: controllerView)
-            }
+            view.fitConstraints(to: controllerView)
+            
+//            if isNeedingFixedContentLayout {
+//                view.translatesAutoresizingMaskIntoConstraints = false
+//                view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
+//                view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
+//                view.trailingAnchor.constraint(equalTo: controllerView.trailingAnchor).isActive = true
+//                view.heightAnchor.constraint(equalToConstant: preferredControllerViewHeight).isActive = true
+//            }
+//            else {
+//                view.fitConstraints(to: controllerView)
+//            }
         }
 
         layoutAppContentViews()
