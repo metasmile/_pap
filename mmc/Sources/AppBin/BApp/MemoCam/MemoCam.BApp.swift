@@ -271,10 +271,46 @@ fileprivate class ResultPreviewView: DesignableView {
         dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
     }
     
-    private lazy var dimmedLayer = CAShapeLayer()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layoutIfNeeded()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        guard let result = detectResult else { return }
+        
+        let disableActions = CATransaction.disableActions()
+        CATransaction.setDisableActions(true)
+        self.resultsLayer.sublayers = nil
+        self.resultsUILayer.sublayers = nil
+        
+        let previewSize = self.imageView.contentMode == .scaleAspectFill ? result.image.size.aspectFill(in: self.bounds.size) : result.image.size.aspectFit(in: self.bounds.size)
+        self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
+        
+        self.dimmedLayer.frame = self.resultsLayer.frame
+        self.resultsUILayer.frame = self.resultsLayer.frame
+        
+        self.dimmedPath.removeAllPoints()
+        self.dimmedLayer.path = nil
+        
+        self.dimmedPath.append(UIBezierPath(rect: self.dimmedLayer.bounds))
+        
+        for item in self.resultPreviewItems {
+            self.drawResult(item, in: result.image.size)
+        }
+        
+        self.dimmedLayer.path = self.dimmedPath.cgPath
+        
+        CATransaction.setDisableActions(disableActions)
+    }
+    
+    fileprivate lazy var dimmedLayer = CAShapeLayer()
     private lazy var dimmedPath = UIBezierPath()
     
-    lazy var resultsUILayer: CALayer = {
+    fileprivate lazy var resultsUILayer: CALayer = {
         let layer = CALayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
@@ -282,7 +318,7 @@ fileprivate class ResultPreviewView: DesignableView {
         return layer
     }()
     
-    lazy var resultsLayer: CALayer = {
+    fileprivate lazy var resultsLayer: CALayer = {
         let layer = CALayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
@@ -328,32 +364,7 @@ fileprivate class ResultPreviewView: DesignableView {
             }
             
             DispatchQueue.main.async {
-                let disableActions = CATransaction.disableActions()
-                CATransaction.setDisableActions(true)
-                self.resultsLayer.sublayers = nil
-                self.resultsUILayer.sublayers = nil
-                
-                let previewSize = self.imageView.contentMode == .scaleAspectFill ? result.image.size.aspectFill(in: self.bounds.size) : result.image.size.aspectFit(in: self.bounds.size)
-                self.resultsLayer.frame = CGRect(origin: CGPoint(x: (self.bounds.width - previewSize.width) / 2, y: (self.bounds.height - previewSize.height) / 2), size: previewSize)
-                
-                self.dimmedLayer.frame = self.resultsLayer.frame
-                self.resultsUILayer.frame = self.resultsLayer.frame
-                
-                self.dimmedPath.removeAllPoints()
-                self.dimmedLayer.path = nil
-                
-                self.dimmedPath.append(UIBezierPath(rect: self.dimmedLayer.bounds))
-                
-                for item in self.resultPreviewItems {
-                    self.drawResult(item, in: result.image.size)
-                }
-                
-                self.dimmedLayer.path = self.dimmedPath.cgPath
-                self.dimmedLayer.opacity = 0
-                
-                CATransaction.setDisableActions(disableActions)
-                
-                self.dimmedLayer.opacity = 1
+                self.layoutIfNeeded()
             }
         }
     }
@@ -395,7 +406,7 @@ fileprivate class ResultPreviewView: DesignableView {
         iconLayer.tintColor = tintColor
         iconLayer.result = resultPreviewItem
         iconLayer.previewTransform = renderScaleTransform
-        iconLayer.showBadgeIcon(with: resultPreviewItem.quad, in: CGRect(origin: CGPoint(x: (resultsLayer.bounds.width - bounds.width) / 2, y: (resultsLayer.bounds.height - bounds.height) / 2), size: size))
+        iconLayer.showBadgeIcon(with: resultPreviewItem.quad, in: CGRect(origin: CGPoint(x: (resultsLayer.bounds.width - bounds.width) / 2, y: (resultsLayer.bounds.height - bounds.height) / 2), size: resultsLayer.bounds.size))
         
         resultsLayer.addSublayer(layer)
         resultsUILayer.addSublayer(iconLayer)
@@ -488,6 +499,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.performButtonDidTap))
         contentView.addGestureRecognizer(tapGesture)
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.resultPreviewDidLongPress))
+        contentView.addGestureRecognizer(longPressGesture)
 
         view.addSubview(contentView)
         view.addSubview(toolBar)
@@ -601,9 +615,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     func willLayoutSubviews() {
-        if let image = currentTargetImage {
-            reloadDetectedResult(with: image)
-        }
+        resultPreviewView.layoutIfNeeded()
     }
 
     @objc dynamic
@@ -853,6 +865,17 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             alert.dismiss(animated: true, completion: nil)
         }))
         UIViewController.present(alert, animated: true)
+    }
+    
+    @objc private func resultPreviewDidLongPress(sender: UILongPressGestureRecognizer) {
+        let hidesResults: Bool
+        switch sender.state {
+        case .ended, .cancelled: hidesResults = false
+        default: hidesResults = true
+        }
+        resultPreviewView.resultsLayer.isHidden = hidesResults
+        resultPreviewView.resultsUILayer.isHidden = hidesResults
+        resultPreviewView.dimmedLayer.isHidden = hidesResults
     }
 
     private func detect(with image: UIImage?) {
