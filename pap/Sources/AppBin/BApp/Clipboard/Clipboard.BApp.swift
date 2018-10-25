@@ -182,18 +182,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                         cell.indicating = true
                         DispatchQueue.main.async { self.tableView.reloadData() }
                         
-                        DispatchQueue(label: #file + "saveFromClipboard", qos: .utility).async {
-                            let signal = AsyncSignal()
-                            signal.begin()
-                            PHPhotoLibrary.shared().performChanges({
-                                let creationRequest = PHAssetCreationRequest.forAsset()
-                                creationRequest.addResource(with: .photo, data: data, options: nil)
-                            }, completionHandler: { (success, info) in
-                                signal.end()
-                                cell.indicating = false
-                                DispatchQueue.main.async { self.tableView.reloadData() }
-                            })
-                            signal.waitUntilEnd()
+                        self.saveImageFromClipboard(data) {
+                            cell.indicating = false
+                            DispatchQueue.main.async { self.tableView.reloadData() }
                         }
                     }
                 }
@@ -202,10 +193,22 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                     cell.buttonTitle = "Get"
                     cell.buttonDetailTitle = "URL"
                 }
-                else if UIPasteboard.typeListImage.contains(value.type) {
-                    cell.label = "\(value.value ?? "")"
-                    cell.buttonTitle = "Get"
+                else if UIPasteboard.typeListImage.contains(value.type), let image = value.value as? UIImage {
+                    cell.iconImage = image
+                    cell.label = "Image"
+                    cell.buttonTitle = "Save"
                     cell.buttonDetailTitle = "Image"
+                    cell.valueHandler = { _ in
+                        if let data = image.jpegData(compressionQuality: 0.7) {
+                            cell.indicating = true
+                            DispatchQueue.main.async { self.tableView.reloadData() }
+                            
+                            self.saveImageFromClipboard(data) {
+                                cell.indicating = false
+                                DispatchQueue.main.async { self.tableView.reloadData() }
+                            }
+                        }
+                    }
                 }
                 else if UIPasteboard.typeListString.contains(value.type), let text = value.value as? String, !text.isEmpty {
                     cell.label = text
@@ -223,6 +226,21 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             groups.append(cellGroup)
         }
         return groups
+    }
+    
+    private func saveImageFromClipboard(_ data: Data, completion: (() -> Void)?) {
+        DispatchQueue(label: #file + "saveFromClipboard", qos: .utility).async {
+            let signal = AsyncSignal()
+            signal.begin()
+            PHPhotoLibrary.shared().performChanges({
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                creationRequest.addResource(with: .photo, data: data, options: nil)
+            }, completionHandler: { (success, info) in
+                signal.end()
+                completion?()
+            })
+            signal.waitUntilEnd()
+        }
     }
 }
 
