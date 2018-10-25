@@ -402,7 +402,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.previewTransform = renderScaleTransform
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
         layer.hitTestPath = path
-        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(padding, quad.boundingRect.minLength * 0.2)).cgPath
         layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
         let iconLayer = BadgeIconLayer()
