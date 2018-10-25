@@ -35,7 +35,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
     }
 
     private var initialApp:App.Type{
-        return FinderApp.self
+        return TransformApp.self
     }
 
     func configure() -> AppManagerConfig? {
@@ -43,21 +43,18 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
         var config = AppManagerConfig()
 
         let defaultAppCollection:[App.Type] = [
-            FinderApp.self
-            , TransformApp.self
+            TransformApp.self
             , FiltersApp.self
-            , PhoneCallsApp.self
             , ConverterApp.self
             , CleanerApp.self
             , GIFMakerApp.self
             , RevertApp.self
             , PDFactoryApp.self
-            , CameraApp.self
+//            , CameraApp.self
             , ShopApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
             , SiriApp.self
-            , MemoCamApp.self
             , ArtistApp.self
             , ClipboardApp.self
 //            , Stabilizer.self
