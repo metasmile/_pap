@@ -224,6 +224,9 @@ class UITableViewButtonCell: UITableViewIndicatorCell {
 
     override open func prepareForReuse() {
         super.prepareForReuse()
+        
+        button.setTitle(nil, for: .normal)
+        button.setAttributedTitle(nil, for: .normal)
 
         didTap = nil
     }

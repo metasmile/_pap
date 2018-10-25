@@ -121,7 +121,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     internal func registerClipboardObservingTimer() {
-        Timer.scheduledTimer(identifier: clipboardObservingTimerId, withTimeInterval: 5, repeats: true) { timer in
+        Timer.scheduledTimer(identifier: clipboardObservingTimerId, withTimeInterval: 1, repeats: true) { timer in
             if self.hasClipboardChanges {
                 self.reloadData()
             }
@@ -160,12 +160,18 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         
         let items = UIPasteboard.general.items
         for item in items {
-            let values = item.keys.map { (type: $0, value: item[$0]) }
+            let rawValues: [(type: String, value: Any?)] = item.keys.map { (type: $0, value: item[$0]) }
+            
+            var values = [(type: String, value: Any?)]()
+            for rawValue in rawValues {
+                guard !values.contains(where: { ($0.value as? AnyHashable) == (rawValue.value as? AnyHashable) }) else { continue }
+                values.append(rawValue)
+            }
+            
             let group = ClipboardGroup(type: "", values: values)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, value) in values.enumerated() {
-                print("====",value)
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = idx
                 
@@ -229,12 +235,14 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                         }
                     }
                 }
+                else if UIPasteboard.typeListString.contains(value.type), let text = value.value as? String {
+                    cell.label = text
+                }
                 else {
                     continue
                 }
                 
                 cellDescribers.append(cell)
-                break
             }
             
             guard !cellDescribers.isEmpty else { continue }
@@ -251,7 +259,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     private func saveImageFromURL(_ url: URL, completion: (() -> Void)?) {
-        DispatchQueue(label: #file + "saveFromURL", qos: .utility).async {
+        DispatchQueue(label: #file + #function, qos: .utility).async {
             if let data = try? Data(contentsOf: url) {
                 self.saveImageFromData(data, completion: completion)
             }
@@ -262,7 +270,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     private func saveImageFromData(_ data: Data, completion: (() -> Void)?) {
-        DispatchQueue(label: #file + "saveFromClipboard", qos: .utility).async {
+        DispatchQueue(label: #file + #function, qos: .utility).async {
             let signal = AsyncSignal()
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
