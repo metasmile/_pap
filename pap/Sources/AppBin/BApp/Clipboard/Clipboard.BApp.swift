@@ -163,13 +163,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             let values = item.keys.map { (type: $0, value: item[$0]) }
             let group = ClipboardGroup(type: "", values: values)
             
-            var detailedLabel: String? = nil
-            if values.contains(where: { $0.type == "com.apple.is-remote-clipboard" }) {
-                detailedLabel = "From Remote Clipboard"
-            }
-            
             var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, value) in values.enumerated() {
+                print("====",value)
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = idx
                 
@@ -182,16 +178,39 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                         cell.indicating = true
                         DispatchQueue.main.async { self.tableView.reloadData() }
                         
-                        self.saveImageFromClipboard(data) {
+                        self.saveImageFromData(data) {
                             cell.indicating = false
                             DispatchQueue.main.async { self.tableView.reloadData() }
                         }
                     }
                 }
-                else if UIPasteboard.typeListURL.contains(value.type), let url = value.value as? URL {
-                    cell.label = url.absoluteString
-                    cell.buttonTitle = "Get"
-                    cell.buttonDetailTitle = "URL"
+                else if UIPasteboard.typeListURL.contains(value.type), let url = value.value as? URL, UTI(withURL: url).conforms(to: UTI.image) {
+                    cell.label = url.lastPathComponent
+                    cell.buttonTitle = "Download"
+                    cell.buttonDetailTitle = "Image"
+                    cell.valueHandler = { _ in
+                        cell.indicating = true
+                        DispatchQueue.main.async { self.tableView.reloadData() }
+                        
+                        self.saveImageFromURL(url, completion: {
+                            cell.indicating = false
+                            DispatchQueue.main.async { self.tableView.reloadData() }
+                        })
+                    }
+                }
+                else if UIPasteboard.typeListString.contains(value.type), let urlString = value.value as? String, let url = URL(string: urlString), UTI(withURL: url).conforms(to: UTI.image) {
+                    cell.label = url.lastPathComponent
+                    cell.buttonTitle = "Download"
+                    cell.buttonDetailTitle = "Image"
+                    cell.valueHandler = { _ in
+                        cell.indicating = true
+                        DispatchQueue.main.async { self.tableView.reloadData() }
+                        
+                        self.saveImageFromURL(url, completion: {
+                            cell.indicating = false
+                            DispatchQueue.main.async { self.tableView.reloadData() }
+                        })
+                    }
                 }
                 else if UIPasteboard.typeListImage.contains(value.type), let image = value.value as? UIImage {
                     cell.iconImage = image
@@ -203,23 +222,26 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                             cell.indicating = true
                             DispatchQueue.main.async { self.tableView.reloadData() }
                             
-                            self.saveImageFromClipboard(data) {
+                            self.saveImageFromData(data) {
                                 cell.indicating = false
                                 DispatchQueue.main.async { self.tableView.reloadData() }
                             }
                         }
                     }
                 }
-                else if UIPasteboard.typeListString.contains(value.type), let text = value.value as? String, !text.isEmpty {
-                    cell.label = text
-                    cell.buttonTitle = "Get"
-                    cell.buttonDetailTitle = "Text"
-                }
                 else {
                     continue
                 }
                 
                 cellDescribers.append(cell)
+                break
+            }
+            
+            guard !cellDescribers.isEmpty else { continue }
+            
+            var detailedLabel: String? = nil
+            if values.contains(where: { $0.type == "com.apple.is-remote-clipboard" }) {
+                detailedLabel = "From Remote Clipboard"
             }
             
             let cellGroup = CellDescriberGroup(label: group.label, detailedLabel: detailedLabel, groupHeaderCellDescriber: nil, itemCellDescribers: cellDescribers)
@@ -228,7 +250,18 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         return groups
     }
     
-    private func saveImageFromClipboard(_ data: Data, completion: (() -> Void)?) {
+    private func saveImageFromURL(_ url: URL, completion: (() -> Void)?) {
+        DispatchQueue(label: #file + "saveFromURL", qos: .utility).async {
+            if let data = try? Data(contentsOf: url) {
+                self.saveImageFromData(data, completion: completion)
+            }
+            else {
+                completion?()
+            }
+        }
+    }
+    
+    private func saveImageFromData(_ data: Data, completion: (() -> Void)?) {
         DispatchQueue(label: #file + "saveFromClipboard", qos: .utility).async {
             let signal = AsyncSignal()
             signal.begin()
