@@ -71,24 +71,7 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp {
 
 fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     lazy var view: UIView = {
-        let view = UIView(frame: .zero)
-        view.addSubview(tableView)
-        tableView.fitConstraints(to: view)
-//        view.addSubview(pasteButton)
-//        pasteButton.translatesAutoresizingMaskIntoConstraints = false
-//        pasteButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-//        view.bottomAnchor.constraint(equalTo: pasteButton.bottomAnchor, constant: 10).isActive = true
-//        pasteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-//        view.trailingAnchor.constraint(equalTo: pasteButton.trailingAnchor, constant: 10).isActive = true
-        return view
-    }()
-    
-    private lazy var pasteButton: UIButton = {
-        let button = UIButton(type: UIButton.ButtonType.roundedRect)
-        button.backgroundColor = UIColor.lightGray
-        button.setTitle("Paste", for: .normal)
-        button.addTarget(self, action: #selector(self.pasteButtonDidTap), for: .touchUpInside)
-        return button
+        return tableView
     }()
     
     private lazy var tableView: UITableView = {
@@ -96,9 +79,13 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         return tableView
     }()
     
+    var contentScrollable: AppDockContentScrollable? {
+        return AppDockScrollableContent(tableView)
+    }
+    
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = min(tableView.contentSize.height, 44 * 4)
+        preferences.preferredHeight = tableView.estimatedRowHeight * 5
         return preferences
     }
     
@@ -106,6 +93,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         tableView.dataSource = delegator
         tableView.delegate = delegator
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         tableView.tintColor = view.tintColor
@@ -115,12 +103,60 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         view.tintColor = view.colorTheme.tintColor
         
         reloadData()
+        
+        registerClipboardObservingTimer()
+    }
+    
+    func willRemoveContentView() {
+        unregisterClipboardObservingTimer()
+    }
+    
+    private var clipboardObservingTimerId: String {
+        return "\(#file)_clipboardObservingTimer"
+    }
+    
+    private var fetchedChangeCount: Int = 0
+    private var hasClipboardChanges: Bool {
+        return fetchedChangeCount != UIPasteboard.general.changeCount
+    }
+    
+    internal func registerClipboardObservingTimer() {
+        Timer.scheduledTimer(identifier: clipboardObservingTimerId, withTimeInterval: 5, repeats: true) { timer in
+            if self.hasClipboardChanges {
+                self.reloadData()
+            }
+        }
+    }
+    
+    internal func unregisterClipboardObservingTimer() {
+        Timer.removeScheduledTimer(identifier: clipboardObservingTimerId)
     }
     
     lazy var delegator = ClipboardTableViewContentDelegator()
     
     private func reloadData() {
-        delegator.group.removeAll()
+        DispatchQueue(label: #file + "fetchPasteboardItems", qos: .utility).async {
+            self.delegator.group = self.fetchPasteboardItems()
+            
+            DispatchQueue.main.async {
+                for group in self.delegator.group{
+                    if let groupDesc = group.groupHeaderCellDescriber{
+                        self.tableView.register(describer: groupDesc)
+                    }
+                    for intentCellDescriber in group.itemCellDescribers {
+                        self.tableView.register(describer: intentCellDescriber)
+                    }
+                }
+                
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    private func fetchPasteboardItems() -> [CellDescriberGroup] {
+        self.fetchedChangeCount = UIPasteboard.general.changeCount
+        
+        var groups = [CellDescriberGroup]()
         
         let items = UIPasteboard.general.items
         for item in items {
@@ -136,23 +172,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             }
             
             let cellGroup = CellDescriberGroup(label: group.label, detailedLabel: nil, groupHeaderCellDescriber: nil, itemCellDescribers: cellDescribers)
-            delegator.group.append(cellGroup)
+            groups.append(cellGroup)
         }
-        
-        for group in delegator.group{
-            if let groupDesc = group.groupHeaderCellDescriber{
-                tableView.register(describer: groupDesc)
-            }
-            for intentCellDescriber in group.itemCellDescribers {
-                tableView.register(describer: intentCellDescriber)
-            }
-        }
-        
-        tableView.reloadData()
-    }
-    
-    @objc private func pasteButtonDidTap(sender: UIButton) {
-        
+        return groups
     }
 }
 
