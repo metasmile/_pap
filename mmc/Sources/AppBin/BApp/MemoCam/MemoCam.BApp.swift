@@ -497,6 +497,7 @@ fileprivate class ResultPreviewView: DesignableView {
         
         currentHitLayer?.highlighted = false
         currentHitLayer = nil
+        longPressGesture.isEnabled = true
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -504,6 +505,7 @@ fileprivate class ResultPreviewView: DesignableView {
         
         currentHitLayer?.highlighted = false
         currentHitLayer = nil
+        longPressGesture.isEnabled = true
     }
 }
 
