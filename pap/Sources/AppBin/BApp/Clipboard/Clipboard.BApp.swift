@@ -160,18 +160,66 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         
         let items = UIPasteboard.general.items
         for item in items {
-            let values = item.keys.map { (key: $0, value: item[$0]) }
+            let values = item.keys.map { (type: $0, value: item[$0]) }
             let group = ClipboardGroup(type: "", values: values)
+            
+            var detailedLabel: String? = nil
+            if values.contains(where: { $0.type == "com.apple.is-remote-clipboard" }) {
+                detailedLabel = "From Remote Clipboard"
+            }
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, value) in values.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = idx
-                cell.label = "\(value.key) \(value.value ?? "")"
+                
+                if value.type == UTI.tiff.rawValue, let data = value.value as? Data, let image = UIImage(data: data) {
+                    cell.label = "Image"
+                    cell.iconImage = image
+                    cell.buttonTitle = "Save"
+                    cell.buttonDetailTitle = "Image"
+                    cell.valueHandler = { _ in
+                        cell.indicating = true
+                        DispatchQueue.main.async { self.tableView.reloadData() }
+                        
+                        DispatchQueue(label: #file + "saveFromClipboard", qos: .utility).async {
+                            let signal = AsyncSignal()
+                            signal.begin()
+                            PHPhotoLibrary.shared().performChanges({
+                                let creationRequest = PHAssetCreationRequest.forAsset()
+                                creationRequest.addResource(with: .photo, data: data, options: nil)
+                            }, completionHandler: { (success, info) in
+                                signal.end()
+                                cell.indicating = false
+                                DispatchQueue.main.async { self.tableView.reloadData() }
+                            })
+                            signal.waitUntilEnd()
+                        }
+                    }
+                }
+                else if UIPasteboard.typeListURL.contains(value.type), let url = value.value as? URL {
+                    cell.label = url.absoluteString
+                    cell.buttonTitle = "Get"
+                    cell.buttonDetailTitle = "URL"
+                }
+                else if UIPasteboard.typeListImage.contains(value.type) {
+                    cell.label = "\(value.value ?? "")"
+                    cell.buttonTitle = "Get"
+                    cell.buttonDetailTitle = "Image"
+                }
+                else if UIPasteboard.typeListString.contains(value.type), let text = value.value as? String, !text.isEmpty {
+                    cell.label = text
+                    cell.buttonTitle = "Get"
+                    cell.buttonDetailTitle = "Text"
+                }
+                else {
+                    continue
+                }
+                
                 cellDescribers.append(cell)
             }
             
-            let cellGroup = CellDescriberGroup(label: group.label, detailedLabel: nil, groupHeaderCellDescriber: nil, itemCellDescribers: cellDescribers)
+            let cellGroup = CellDescriberGroup(label: group.label, detailedLabel: detailedLabel, groupHeaderCellDescriber: nil, itemCellDescribers: cellDescribers)
             groups.append(cellGroup)
         }
         return groups
@@ -249,6 +297,7 @@ private class ClipboardTableViewContentDelegator: NSObject, UITableViewDataSourc
         if let cellDescriber = cellDescriber as? UITableViewButtonCellDescriber
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewButtonCell {
             
+            cell.imageView?.image = cellDescriber.iconImage?.asUIImage
             cell.textLabel?.text = cellDescriber.label
             
             if let buttonTitle = cellDescriber.buttonTitle{
@@ -258,6 +307,8 @@ private class ClipboardTableViewContentDelegator: NSObject, UITableViewDataSourc
             cell.didTap = {
                 cellDescriber.valueHandler?("tapped")
             }
+            
+            let _ = cellDescriber.indicating ? cell.startIndicating() : cell.stopIndicating()
             
             return cell
         }
