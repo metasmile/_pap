@@ -12,8 +12,8 @@ import PropertyKit
 
 private typealias ClipboardAppParam = AppAsset
 private struct ClipboardAppResult: AppTaskResultable {
-//    fileprivate let asset:PHAsset
-//    fileprivate let isAdjusted:Bool
+//    var imagePath: URL
+    var image: UIImage
 }
 private class _ClipboardAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
@@ -27,24 +27,22 @@ private class _ClipboardAppTask: AppTaskPrototype, AppTaskable {
     }
     
     private func _perform(_ clipboardParam: ClipboardAppParam, _ async: AsyncWaitSignalable) throws -> ClipboardAppResult?  {
-//        guard revertParam.asset.isAdjusted else { return RevertAppResult(asset: revertParam.asset, isAdjusted: revertParam.asset.isAdjusted) }
+        async.begin()
         
-//        async.begin()
-//
-//        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
-//            //INFO: prepare original version of asset
-//            // it may get original version from icloud to local
-//            PHImageManager.default().touchOriginalVersion(for: revertParam.asset, completion: {
-//                async.end()
-//            })
-//        }
-//
-//        async.waitUntilEnd()
-        return ClipboardAppResult()
+        var result: ClipboardAppResult?
+        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+            if let image = clipboardParam.asset.asUIImage {
+                result = ClipboardAppResult(image: image)
+            }
+            async.end()
+        }
+        
+        async.waitUntilEnd()
+        return result
     }
 }
 
-class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp {
+class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, FinalizableApp {
     public static let taskType: AppTaskable.Type = _ClipboardAppTask.self
     public static let paramType: AppTaskParamable.Type = ClipboardAppParam.self
     
@@ -66,6 +64,33 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp {
     
     required override init() {
         super.init()
+    }
+    
+    public var doneButtonTitle: String?{
+        return "Copy".localized
+    }
+    
+    func shouldSelect(item: AppAsset) -> Bool {
+        return true
+    }
+    
+    var numberOfItemsShouldSelect: Int? {
+        return 4
+    }
+    
+    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
+        let items = result
+            .filter { respondable in respondable.info.state == .completed }
+            .compactMap { $0.result as? ClipboardAppResult }
+        
+        asyncSignal.begin()
+        DispatchQueue(label: #file + "exportImagesToClipboard", qos: .utility).async {
+            UIPasteboard.general.images = items.compactMap { $0.image }
+            asyncSignal.end()
+        }
+        asyncSignal.waitUntilEnd()
+        
+        return result
     }
 }
 
@@ -172,6 +197,8 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, value) in values.enumerated() {
+                print("=====", value)
+                
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = idx
                 
