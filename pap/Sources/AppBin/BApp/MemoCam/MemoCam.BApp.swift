@@ -272,7 +272,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.addSublayer(resultsUILayer)
         
         dimmedLayer.fillRule = .evenOdd
-        dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
+        dimmedLayer.fillColor = UIColor(white: 0, alpha: 0.75).cgColor
         
         addGestureRecognizer(longPressGesture)
     }
@@ -397,7 +397,10 @@ fileprivate class ResultPreviewView: DesignableView {
         path.apply(renderScaleTransform)
         path.close()
         
-        self.dimmedPath.append(path)
+        let dimmedPath = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3))
+        dimmedPath.apply(CATransform3DGetAffineTransform(CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))))
+        
+        self.dimmedPath.append(dimmedPath)
         
         let layer = ResultItemLayer()
         layer.tintColor = tintColor
@@ -405,7 +408,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.previewTransform = renderScaleTransform
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
         layer.hitTestPath = path
-        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(padding, quad.boundingRect.minLength * 0.2)).cgPath
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
         layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
         let iconLayer = BadgeIconLayer()
