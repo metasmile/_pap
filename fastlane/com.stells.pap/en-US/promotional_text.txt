@@ -1,6 +1,0 @@
-An App, But Contains Many Apps for Photos.
-
-Photo Apps supports, of course, iOS 12 and Siri Shortcuts.
-
-Let's tell Siri,
-"Hey Siri, Take a selfie with Live Photo."

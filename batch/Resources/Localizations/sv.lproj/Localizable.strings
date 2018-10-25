@@ -1,0 +1,790 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotoåtkomst Inaktiverad";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Vänligen öppna inställningar och ge åtkomst till dina foton";
+/*Translated from: Open Settings*/
+"Open Settings" = "Öppna Inställningar";
+/*Translated from: OK*/
+"OK" = "ok";
+/*Translated from: Done*/
+"Done" = "Gjort";
+/*Translated from: Confirm*/
+"Confirm" = "Bekräfta";
+/*Translated from: Cancel*/
+"Cancel" = "Annullera";
+/*Translated from: Detail*/
+"Detail" = "Detalj";
+/*Translated from: Delete*/
+"Delete" = "Radera";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Förlåt, något gick fel.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Redigera %d foto (er)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Redigera %d video (er)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "Redigera %d objekt (er)";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Ignorera ändringar";
+/*Translated from: Processing...*/
+"Processing..." = "Bearbetning ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Cancelling...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Spara foton ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Raderar foton ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Välj det här fotot";
+/*Translated from: Select this video*/
+"Select this video" = "Välj den här videon";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Avmarkera det här fotot";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Avmarkera den här videon";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Redigera detta foto";
+/*Translated from: Edit this video*/
+"Edit this video" = "Redigera den här videon";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Foto";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Artikel";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Foton";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videor";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Items";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Redigera %@ Foto";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Redigera %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Redigera %@ Foton";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Redigera %@ Videor";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "Redigera %@ objekt";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Tillämpa";
+/*com.stells.batch.revert*/
+"Revert" = "Återgå";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Börjar återställa ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Skapa %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "Börjar att skapa PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "Skapa PDF-sidor ...";
+/*com.stells.batch.converter*/
+"Convert" = "Konvertera";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "album";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "foton";
+/*Translated from: editor*/
+"cs_keyword_3" = "redaktör";
+/*Translated from: messenger*/
+"cs_keyword_4" = "budbärare";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtrera";
+/*Translated from: edit*/
+"cs_keyword_6" = "edit";
+/*Translated from: image*/
+"cs_keyword_7" = "bild";
+/*Translated from: smart*/
+"cs_keyword_8" = "smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "picture";
+/*Translated from: memory*/
+"cs_keyword_10" = "minne";
+/*Translated from: familiy*/
+"cs_keyword_11" = "familj";
+/*Translated from: friend*/
+"cs_keyword_12" = "vän";
+/*Translated from: lover*/
+"cs_keyword_13" = "älskare";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Dag";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Ladda ner nu GRATIS!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Medlem";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Medlemskapsprogram";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Medlemskap";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Ägarskap";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ kan hittas";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ kommer att döljas";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Dag";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d gånger";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 månaders medlemskap";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 års medlemskap";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All and New Apps" = "1 månaders användning av alla appar och nytt";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Apps" = "1-månaders användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 års användning av alla och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "1 års användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Apps" = "14-dagars användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3-månaders användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 månaders medlemskap";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All and New Apps" = "6-månaders användning av alla appar och nytt";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6-månaders användning av huvud- och nya appar";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Apps" = "7-dagars användning av huvud- och nya appar";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "En licens krävs.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "Tillträde beviljas ej.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "Åtkomst misslyckades.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "Tillgång beviljad.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Verkan";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Handlingar";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "Aktivera annonser";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Aktiverar nuvarande synliga föremål ...";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Lägg till ny kontakt";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Lägg till en händelse";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "Adress";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "album";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Alla kontakter har sparats.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Sparade utan kameran";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "Alla processer du har bekräftat var färdiga.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "Allt";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "En app men innehåller många fotoapps.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "Ett fel uppstod vid mottagande av annonser.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animerad GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Animation";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "När som helst gratis avbokning.";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Applicera filter med hög kvalitet på alla dina foton. Det här batchbehandlingsverktyget har ingen gräns för antalet bilder som ska appliceras på filter.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Konstnär";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Bildförhållande";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Automatisk beskärning";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor låter dig redigera automatiskt om dina foton behövs för att korrigera.";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Automatisk förstärkning";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Auto Välj på %@.";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "Auto Selection Bot";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Var en artist. Artist låter dig dramatiskt göra dina foton eller videoklipp till berömda stilade målningar. Det här batchbehandlingsverktyget har ingen gräns för antalet foton som ska konverteras.";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Suddhastighet";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Brista";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamera";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Kan inte återgå. Alla valda objekt har inte redigerats.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Fånga åtgärder att göra.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Fånga all text.";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Choose A Phone Number To Call" = "Välj ett telefonnummer att ringa";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Välj en åtgärd";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Välj en exportalternativ för %d objekt";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Välj en underåtgärd.";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort olika typer av felaktiga foton om de har matchat till exempel dubbla och liknande bilder, närbilder eller Lockscreen-bilder!";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Cleaner";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Urklipp";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Färg och påminnelse för varje fas";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Kontakta oss nu";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kontakter";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Konvertera senaste Live Photo Into GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Konvertera senaste Live Photo Into Video.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Konvertera den senaste videon till GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Konvertera den senaste videon till Live Photo.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Konvertera den senaste videon till MP4.";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter gör att du kan konvertera alla medieformat som Video, Live Photos, GIFs till alla varandra.";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Omvandlare";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Kopiera";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Det gick inte att upptäcka någon kontakt.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Det gick inte att upptäcka något telefonnummer.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Det gick inte att upptäcka någon text.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Det gick inte att upptäcka något.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "Det gick inte att ta emot annonser.";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Skapa";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Skörda att passa";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "Beskära";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "För närvarande är vår AI-textigenkänningsmodell endast tillgänglig för alfanumeriska och några specialtecken, och det kan påverkas av det aktuella systemspråket.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "Datum";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Radera mål";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Detekterar ... %@";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Riktning";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Gör allt med foton.";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Hämta nu gratis på %@";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Hämtar ...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "E-postadress";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost kan du ta bort alla typer av data som innehåller dina foton, inklusive privat information.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Aktivera snabba åtgärder";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Engagera nu och upprepade gånger ladda huvudapplicenslicens.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Tekniska anteckningar";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Exportera";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "filter";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Find" = "Hitta";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder gör det möjligt att extrahera alla meningsfulla uppgifter som telefonnummer, adresser, datum eller webbadresser från dina bilder och sedan ringa, öppna kartor eller navigera webbplatser även sökflyg. Du kan också spara dem alla som rå text.";
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Finding Contacts ... %@ " = "Hitta kontakter ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Ficklampa";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Flygnummer";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "format";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Fram";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Frame Delay";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Fri användning och alla nya uppdateringar";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "Fri användning";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker gör det enkelt och snabbt att göra GIF-bilder från foton eller Live Photos med olika alternativ! Och då kan du öppna konverteraren app för att konvertera till allt som Live Foton eller Videor.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "Få tillgång till";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "Få all text";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Få text";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Ge betyg";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Ge mig det telefonnumret.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Gästanvändarlicensprogram";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Gästanvändarlicens";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "Gästanvändare";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "Hej, %@!";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "Hej %@ Team, jag är %@.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Hide";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Dölja utvalda objekt ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Bildkvalitet";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Bilder";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Importera";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Information om användning";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "Inmatning här";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Förfrågan";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Det visar ett förhållande mellan återstående friapptillgångstider.";
+/* Generated from genl10n: AppStrings.swift#22 */
+"It could not be stored." = "Det kunde inte lagras.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Det ser ut som en ogiltig kod. Var god försök igen.";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krävs ett tillstånd att komma åt dina kontakter. Vänligen tillåt Kontakter på IOS-inställningar.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "artiklar";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Gå med i %@ Program";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Landskap";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Layout";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Begränsad prestandameddelande";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Slinga";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
+"Main Apps License" = "Main Apps License";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Huvudapplikationer Använd av %@ Dag";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Gör GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Ringa ett samtal";
+/* Generated from genl10n: Shop.SApp.swift */
+"Membership or Main Apps License" = "Medlemskap eller huvudapplicenslicens";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Memo Cam";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Månadsmedlemskap";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Mina album";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Min feedback om %@";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Ny kontakt";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Nytt event";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "Nytt nummer";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "Nya telefonnummer";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "No loop";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Ta nu upp varje meningsfull information från den aktuella scenen runt dig via kamera. Ringa sedan omedelbart ett samtal, öppna med kartor, skanna streckkoder eller öppna webbplatser, även sökflyg.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "siffra";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "I vänteläge";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All and New Apps" = "Löpande användning av alla appar och nya";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "Löpande användning av alla och nya huvuds Apps";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "Öppna %@";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Öppna Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Öppna Artist.";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Öppen kamera.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Open Finder.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Open Google Maps";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Open Phone Calls." = "Open Phone Calls.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Öppna webbsidan";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Öppen";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "Original";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory gör PDF-dokument från flera bilder med olika sidalternativ.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Sidmarginal";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Sidstorlek Förinställd";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "sidor";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Klistra in bilder från klippklippen";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Permanent ägande";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Permanent användning och alla nya uppdateringar";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All and New Apps" = "Permanent användning av alla appar och nya";
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
+"Phone Calls" = "Telefonsamtal";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "Telefonnummer";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "foton";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "Var god ange din hemliga kod";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Kontrollera och återställ din internetanslutning, eller inaktivera annonser.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "Försök igen med en annan kod.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Vänligen stäng av följande alternativ och återställ annonseringsidentifieraren i Inställningar. Försök sedan igen.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Porträtt";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "förbereda";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "presets";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Priserna inkluderar alla nya appar och uppdateringar, det kommer inte automatiskt att förnyas.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Integritetspolicy";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Integritet";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "bearbetning";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Promotions License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Kampanjlicens";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promotion User";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Inköpshantering";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Inköp";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "Kvalitet";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "Betygsätt det";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Röda ögonavlägsnande";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "Återstående räkning i denna körning";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Återstående nivå";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Återstående procentandel";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Upprepa";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Återställ alla inköp";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "Återställa";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurering gör det möjligt att snabbt återställa en massa mängd redigerade foton till originalet. Dessutom hjälper det dig med det automatiska valet!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "Restaurering";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Omvänd";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Spola tillbaka";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Rotera";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Rotation";
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
+"Save All Phone Numbers" = "Spara alla telefonnummer";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Spara kontakter";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "Spara och dela";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "Spara";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Spara resultat ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Skalan ska passa";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Skärm";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Sök flyg";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Sök på Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Sök på Google";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Sök efter %@";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Välj Format för att konvertera";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Välj foton för att ta bort.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "Välj foton för att hitta något.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Välj foton du vill ta med telefonnummer!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Vald";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Skicka ett email";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "Skicka";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "Inställningar för Main Apps License";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "inställningar";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Dela denna appen";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dela din talang, gör tillsammans. Få varje belöning om det antas.";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Dela på Facebook Messenger";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Dela på Facebook";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "Likhet";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Storlek";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Vissa kontakter sparades, men vissa var inte.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Särskilt gästlicensprogram";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Speciell gästlicens";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "Speciell gäst";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Fyrkant";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "Stabiliseringsläge";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "Stabilisera";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "Stabilisator";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "Stabilisering av valda artiklar ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Start";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "Börjar hitta ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "Startar processen ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Börjar att kolla redigerade foton ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "Bo hos oss";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Berättelser bakom Apps";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på några objekt du vill gömma. Kvaliteten kommer helt och hållet att förbli densamma.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Ta en GIF med Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Ta ett foto";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Ta del";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Ta med Inbyggd kamera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Tryck på för att upptäcka";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Målinriktad";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "mål";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Villkor";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Text";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Tack %@. Snart kommer vi att kontakta dig.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Tack för ditt meddelande. Snart kommer vi att kontakta dig.";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "Tack för ditt köp.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Tack så mycket för din feedback! Snart kommer vi att kontakta dig.";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Det här enkla men stora batchbildtransformverktyget gör det möjligt att snabbt rotera och flipa många mediefiler, inklusive Live Photos. Det finns ingen gräns för antalet foton att redigera dem.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "För att använda den här appen behöver en motsvarande åtkomstlicens. Vill du öppna %@?";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "För nära ansikte";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "För långsam slutartid";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "Transformationsläge";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Översätt nu";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Översättningskorrigering";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Typ";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Det går inte att verifiera koden för närvarande. Vänligen prova det senare.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Användarguide";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Använd prov";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "Använda sig av";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "VIP Membership Program";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP Membership";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "Verifiering misslyckades.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video Tutorials";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "Videor sparade av Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Videor kortare än 1 sekund";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Videor utan ljud";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videor från skärminspelare";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Besök sociala sidor";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Besök";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Waiting To Select ..." = "Väntar på att välja ...";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "Välkommen Free Pack";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Välkommen till vårt %@ licensprogram!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "Välkommen till vårt VIP-licensprogram.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Välkommen till vårt gästanvändarlicensprogram!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Välkommen till vårt program för främjande av licens!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Välkommen till vårt speciella gästlicensprogram!";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Vill du gå tillbaka till %@?";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Skriva en recension";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "Skriva";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Årligt medlemskap";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Du kan bara välja foton eller videoklipp som matchade startformatet.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Ditt meddelande har skickats.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Din kod är ogiltig. Var god försök igen.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "Din kod har löpt ut.";
+/* Generated from genl10n: Period.swift */
+"day" = "dag";
+/* Generated from genl10n: Period.swift */
+"hour" = "timme";
+/* Generated from genl10n: Period.swift */
+"minute" = "minut";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "månad";
+/* Generated from genl10n: Period.swift */
+"second" = "andra";
+/* Generated from genl10n: Period.swift */
+"week" = "vecka";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "år";

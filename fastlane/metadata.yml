@@ -1,11 +1,11 @@
-default_target: com.stells.pap
+default_target: com.stells.batch
 supported_languages: [en-US]
 
 # emoji : http://www.emoji-cheat-sheet.com/
 global_notices:
     en-US: ''
 
-com.stells.pap:
+com.stells.batch:
     version: '1.0'
     Base:
         marketing_url: 'https://apps.photo'

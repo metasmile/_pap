@@ -19,7 +19,7 @@ public class TestApp: App {
     public static let paramType: AppTaskParamable.Type = TestTaskParam.self
 
     public static let info = AppInfo(
-            identifier: "com.stells.pap.test"
+            identifier: "com.stells.batch.test"
             , version: "0.1"
             , phase: .develop
             , appType: TestApp.self

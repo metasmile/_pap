@@ -1,0 +1,790 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "גישה לתמונות מושבתת";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "פתח את ההגדרות ואפשר גישה לתמונות שלך";
+/*Translated from: Open Settings*/
+"Open Settings" = "פתח את 'הגדרות'";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "בוצע";
+/*Translated from: Confirm*/
+"Confirm" = "Confirm";
+/*Translated from: Cancel*/
+"Cancel" = "Cancel";
+/*Translated from: Detail*/
+"Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "Delete";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "מצטערים, משהו השתבש.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "ערוך %d תמונות";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "ערוך %d סרטונים";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "ערוך %d פריטים";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "בטל שינויים";
+/*Translated from: Processing...*/
+"Processing..." = "מעבד...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "מבטל ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "שומר תמונות ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "מוחק תמונות ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "משחזר תמונות ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "בחר תמונה זו";
+/*Translated from: Select this video*/
+"Select this video" = "בחר סרטון זה";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "בטל את הבחירה בתמונה זו";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "בטלו את הסימון של סרטון זה";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "ערוך תמונה זו";
+/*Translated from: Edit this video*/
+"Edit this video" = "ערוך סרטון זה";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Photo";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ סרטון";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ פריט";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ תמונות";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ סרטונים";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ פריטים";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "ערוך את %@ תמונה";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "ערוך %@ סרטון";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "ערוך %@ תמונות";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "ערוך %@ סרטונים";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "ערוך %@ פריטים";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Apply";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "מתחיל לבטל ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "משחזר תמונות ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "צור %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "מתחיל ליצור PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "יוצר דפי PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "להמיר";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "אַלבּוֹם";
+/*Translated from: camera*/
+"cs_keyword_1" = "מַצלֵמָה";
+/*Translated from: photos*/
+"cs_keyword_2" = "תמונות";
+/*Translated from: editor*/
+"cs_keyword_3" = "עוֹרֵך";
+/*Translated from: messenger*/
+"cs_keyword_4" = "Messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "Filter";
+/*Translated from: edit*/
+"cs_keyword_6" = "Edit";
+/*Translated from: image*/
+"cs_keyword_7" = "תמונה";
+/*Translated from: smart*/
+"cs_keyword_8" = "Smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "Picture";
+/*Translated from: memory*/
+"cs_keyword_10" = "זיכרון";
+/*Translated from: familiy*/
+"cs_keyword_11" = "Familiy";
+/*Translated from: friend*/
+"cs_keyword_12" = "חָבֵר";
+/*Translated from: lover*/
+"cs_keyword_13" = "מְאַהֵב";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ יום";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ חבר";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ תוכנית חברות";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ חברות";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ בעלות";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ עשוי להימצא";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ יוסתר";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Day";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d פעמים";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 חודש חברות";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 חברות בשנה";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All and New Apps" = "1 חודש שימוש בכל היישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Apps" = "1 חודש שימוש ביישומים ראשיים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "1 שנה שימוש בכל היישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "1 שנה שימוש ראשי ויישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Apps" = "שימוש 14 יום של יישומים חדשים וחדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "3 חודשים שימוש ראשי ויישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 חודשים חברות";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All and New Apps" = "6 חודשים שימוש בכל היישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6 חודשים שימוש ראשי ויישומים חדשים";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Apps" = "שימוש ב -7 ימים ביישומים ראשיים וחדשים";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "נדרש רשיון.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "גישה נדחתה.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "הגישה נכשלה.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "כניסה מורשית.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "פעולה";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "פעולות";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "הפעל מודעות";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "מפעיל פריטים גלויים נוכחיים ...";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "הוסף איש קשר חדש";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "הוסף אירוע";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "כתובת";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "אלבומים";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "כל אנשי הקשר נשמרו בהצלחה.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "ללא שם: נשמר ללא מצלמה";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "כל התהליכים שאישרת אישרו.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "את כל";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "App, אבל מכיל יישומים רבים צילום.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "אירעה שגיאה בעת קבלת מודעות.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF מונפש";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "אנימציה";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "ביטול חינם בכל עת.";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "החל מסננים באיכות גבוהה על כל התמונות שאתה רוצה. זה כלי עיבוד אצווה אין להגביל את מספר התמונות להחיל מסננים.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "אמן";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "יחס הממדים";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "חיתוך אוטומטי";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "'עורך אוטומטי' מאפשר לך לערוך באופן אוטומטי אם התצלומים שלך נחוצים לתיקון.";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "עורך אוטומטי";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "שיפור אוטומטי";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "בחירה אוטומטית ב- %@.";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "בחירת אוטומטי בוט";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "יישור אוטומטי";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "להיות אמן. האמן מאפשר לך להפוך באופן דרמטי את כל התמונות או קטעי וידאו לתוך ציורים מנוסח מפורסם. זה כלי אצווה עיבוד אין הגבלה על מספר התמונות להמיר.";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "שיעור טשטוש";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Burst";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "מַצלֵמָה";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "לא ניתן לחזור. כל הפריטים שנבחרו לא נערכו.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "לכוד פעולות לביצוע";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "לכוד את כל הטקסט.";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Choose A Phone Number To Call" = "בחר מספר טלפון להתקשרות";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "בחר פעולה";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "בחר באפשרות תת פעולה.";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "מנקה מאפשר לך למצוא ולמחוק סוגים שונים של תמונות שגויות אם הם מתאימים למשל כפולות ותמונות דומות, צילום תקריב או יריות Lockscreen!";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "מְנַקֶה";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "הלוח";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "צבע תזכורת עבור כל השלבים";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "צור איתנו קשר עכשיו";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "אנשי קשר";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "המר את התמונה האחרונה Live לתוך GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "המר את התמונה האחרונה לחיות לתוך וידאו.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "המר את הווידאו האחרון לתוך GIF.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "המר את הווידאו האחרון לתוך תמונה חיה.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "המר את הווידאו האחרון לתוך MP4.";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "ממיר מאפשר לך להמיר כל פורמטים של מדיה כגון וידאו, תמונות חיות, קבצי GIF לתוך כל אחד את השני.";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "מֵמִיר";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "עותק";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "לא ניתן היה לאתר איש קשר כלשהו.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "לא ניתן לזהות מספר טלפון כלשהו.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "לא ניתן לזהות טקסט.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "לא הצלחתי לזהות שום דבר.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "לא ניתן היה לקבל מודעות.";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "לִיצוֹר";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "חתוך לפיט";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "יְבוּל";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "נכון לעכשיו, מודל זיהוי הטקסט AI שלנו זמין רק עבור אלפאנומריים וכמה תווים מיוחדים, וזה יכול להיות מושפע שפת המערכת הנוכחית.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Custom";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "Date";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "מחיקת יעדים";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "מזהה ... %@";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Direction";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "לעשות הכל עם תמונות.";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "הורד כעת בחינם ב- %@";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "מוריד ...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "כתובת דוא'ל";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost מאפשר לך להסיר כל מיני נתונים המכילים את התמונות שלך, כולל מידע פרטי.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "הפעל פעולות מהירות";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "עכשיו ולהפעיל מחדש שוב ושוב ראשי יישומים רישיון.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "הערות הנדסיות";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "יְצוּא";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "מסננים";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Find" = "למצוא";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder מאפשר לחילוץ כל מידע משמעותי כגון מספרי טלפון, כתובות, תאריכים או כתובות אתר מהתמונות שלך ולאחר מכן להתקשר, לפתוח מפות או לנווט באתרים אפילו טיסות חיפוש. אתה גם יכול לשמור את כולם כמו טקסט גולמי.";
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Finder";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Finding Contacts ... %@ " = "מציאת אנשי קשר ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "פנס";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "מספר טיסה";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "פורמטים";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "קָדִימָה";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "עיכוב מסגרת";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "חינם לשימוש וכל עדכונים חדשים";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "שימוש חופשי";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker מאפשר בקלות ובמהירות לעשות תמונות GIF מ תמונות או תמונות חיות עם אפשרויות שונות! ואז אתה יכול לפתוח את היישום ממיר להמיר כל דבר כגון תמונות חיות או וידאו.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "לקבל גישה";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "קבל את כל הטקסט";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "קבל טקסט";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "תן דירוג";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "תן לי את זה מספר טלפון.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "תוכנית רישיון משתמש אורח";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "רישיון משתמש אורח";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "משתמש אורח";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "שלום, %@!";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "שלום %@ צוות, אני %@.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "להתחבא";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "מסתיר פריטים שנבחרו ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "איכות תמונה";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "תמונות";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Import";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "מידע על השימוש";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "קלט כאן";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "חֲקִירָה";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "זה מציג יחס של תקופות גישה חינם App חינם.";
+/* Generated from genl10n: AppStrings.swift#22 */
+"It could not be stored." = "זה לא יכול להיות מאוחסן.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "הוא נראה קוד לא חוקי. בבקשה נסה שוב.";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "זה דורש אישור לגשת לאנשי הקשר שלך. המתן אנשי קשר בהגדרות iOS.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "פריטים";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "הצטרף לתוכנית %@";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "נוֹף";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "מַעֲרָך";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "הודעת ביצועים מוגבלת";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "מנעולים";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
+"Main Apps License" = "רישיון יישומים ראשי";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "שימוש ראשי ב- Apps ביום %@";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "צור GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "להתקשר";
+/* Generated from genl10n: Shop.SApp.swift */
+"Membership or Main Apps License" = "חברות או רישיון יישומים ראשי";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "תזכיר";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "חברות חודשית";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "האלבומים שלי";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "המשוב שלי ב- %@";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "איש קשר חדש";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "אירוע חדש";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "מספר חדש";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "מספרי טלפון חדשים";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "ללא לולאה";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "עכשיו ללכוד כל מידע משמעותי מהסצנה הנוכחית סביבך באמצעות המצלמה. אז מיד לבצע שיחה, לפתוח עם מפות, סרוק ברקודים או לפתוח אתרי אינטרנט אפילו טיסות חיפוש.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "מספר";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "בסטנד ביי";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All and New Apps" = "שימוש מתמשך בכל האפליקציות וב- New";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "שימוש מתמשך בכל האפליקציות החדשות והחדשות";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "פתח את %@";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "פתח את מפות Apple";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "פתח את האמן.";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "מצלמה פתוחה.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Open Finder.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "פתח את מפות Google";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Open Phone Calls." = "Open Phone Calls.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "פתח את דף האינטרנט";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "לִפְתוֹחַ";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "מְקוֹרִי";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory עושה מסמך PDF מתמונות מרובות עם אפשרויות דף שונים.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "שולי דף";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "הגדרת גודל דף";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "דפים";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "הדבק תמונות מהרישומים שלך";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "בעלות קבועה";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "שימוש קבוע וכל העדכונים החדשים";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All and New Apps" = "שימוש קבוע בכל היישומים חדשים";
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
+"Phone Calls" = "שיחות טלפון";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "מספר טלפון";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "תמונות";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "אנא הכנס את הקוד הסודי שלך";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "בדוק ושחזר את קישוריות האינטרנט שלך או השבת מודעות.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "נסה שוב עם קוד אחר.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "כבה את האפשרות הבאה, ואפס את מזהה הפרסום ב'הגדרות '. לאחר מכן נסה שוב.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "דְיוֹקָן";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "מכין";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "המחירים כוללים כל אפליקציות חדשות ועדכונים, גם היא לא תחודש אוטומטית.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "מדיניות פרטיות";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "פְּרָטִיוּת";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "מעבד";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "תוכנית רשיון קידום";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "רישיון קידום";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "משתמש לקידום";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "ניהול הרכש";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "לִרְכּוֹשׁ";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "איכות";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "לדרג אותו";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "הסרת עיניים אדומות";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "ספירה שנותרה בריצה זו";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "רמה שנותרה";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "אחוז שנותר";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Repeat";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "שחזר את כל הרכישות";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "לשחזר";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "שחזור מאפשר שחזור כמות חבורה של תמונות ערוכות המקורי במהירות. יתר על כן, זה עוזר לך עם הבחירה האוטומטית!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "שִׁחזוּר";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "לַהֲפוֹך";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "חזור אחורה";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "לְסוֹבֵב";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "רוֹטַציָה";
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
+"Save All Phone Numbers" = "שמור את כל מספרי הטלפון";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "שמור אנשי קשר";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "שמור ושתף";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "Save";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "שומר תוצאות ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "קנה מידה להתאמה";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "צילומי מסך";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "חפש טיסות";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "חפש ב&#39;מפות Google &#39;";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "חפש בגוגל";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "חפש את %@";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "בחר פורמט להמרה";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "בחר תמונות למחיקה.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "בחר תמונות כדי למצוא משהו.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "בחר תמונות אתה רוצה לתפוס מספרי טלפון!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "נבחר";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "שלח אימייל";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "לִשְׁלוֹחַ";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "הגדרות עבור רשיון יישומים ראשי";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "הגדרות";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "שתף את זה App";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. השג כל תגמול אם מאומץ.";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "שיתוף ב - Facebook Messenger";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "שיתוף בפייסבוק";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "דִמיוֹן";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "גודל";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "כמה אנשי קשר ניצלו, אבל לא היו כאלה.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "תוכנית רשיון אורח מיוחדת";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "רישיון אורח מיוחד";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "אורח מיוחד";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "כיכר";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "מצב ייצוב";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "Stabilize";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "Stabilizer";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "מייצב פריטים שנבחרו ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Start";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "מתחיל למצוא ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "מתחיל את התהליך ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "מתחיל לבדוק תמונות שנערכו ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "להישאר איתנו";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "סיפורים מאחורי Apps";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "הפעל את כל הפריטים שברצונך להסתיר. האיכות תהיה מושלמת.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "קח GIF עם תמונה חיה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "קח תמונה";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "לקחת חלק";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "עם מצלמה מובנית";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "הקש כדי לזהות";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "ממוקד";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "מטרות";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "תנאי שימוש";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "טֶקסט";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "תודה %@. בקרוב ניצור איתך קשר.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "תודה לך על ההודעה שלך. בקרוב ניצור איתך קשר.";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "תודה על רכישתך.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "תודה רבה על המשוב שלך! בקרוב ניצור איתך קשר.";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "זה פשוט אבל בקנה מידה גדול אצווה התמונה להפוך כלי מאפשר לך לסובב במהירות להעיף הרבה קבצי מדיה כולל Live תמונות. אין הגבלה על מספר התמונות כדי לערוך אותן.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "כדי להשתמש ביישום זה נדרש רישיון גישה מקביל. האם ברצונך לפתוח את %@?";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "גם פנים תקריב";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "מהירות תריס איטית מדי";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "שינוי צורה";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "תרגם כעת";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "תיקון תרגום";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "הקלד";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "לא ניתן לאמת את הקוד כרגע. נסה את זה מאוחר יותר.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "מדריך שימוש";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "השתמש בניסוי";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "להשתמש";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "מוקד VIP";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "תוכנית חברות VIP";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "חברות VIP";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "האימות נכשל.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "הדרכות וידאו";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "וִידֵאוֹ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "סרטונים שנשמרו על ידי Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "קטעי וידאו קצר יותר מ 1 Second";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "וידאו ללא קול";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "וידאו מתוך מקליט מסך";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "בקר בדפים חברתיים";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "לְבַקֵר";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Waiting To Select ..." = "ממתין לבחירה ...";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "ברוכים הבאים חינם Pack";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Welcome to our %@ license program!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "ברוכים הבאים לתוכנית הרישיון שלנו.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "ברוכים הבאים לתוכנית הרישיון למשתמש שלנו!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "ברוכים הבאים לתוכנית הרישוי שלנו!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "האם ברצונך לחזור אל %@?";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "כתוב ביקורת";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "לִכתוֹב";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "חברות שנתית";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "ניתן לבחור רק תמונות או סרטונים שמתאימים לפורמט ההתחלה.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "הודעתך נשלחה.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "פג תוקפו של הקוד שלך.";
+/* Generated from genl10n: Period.swift */
+"day" = "יְוֹם";
+/* Generated from genl10n: Period.swift */
+"hour" = "שָׁעָה";
+/* Generated from genl10n: Period.swift */
+"minute" = "דַקָה";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "חוֹדֶשׁ";
+/* Generated from genl10n: Period.swift */
+"second" = "שְׁנִיָה";
+/* Generated from genl10n: Period.swift */
+"week" = "שָׁבוּעַ";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "שָׁנָה";

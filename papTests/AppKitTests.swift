@@ -99,7 +99,7 @@ class AppTaskTests: XCTestCase {
             public static let paramType: AppTaskParamable.Type = TestTaskParam.self
 
             public static let info = AppInfo(
-                    identifier: "com.stells.pap.TestPreferredConcurrentCountApp"
+                    identifier: "com.stells.batch.TestPreferredConcurrentCountApp"
                     , version: "0.1"
                     , phase: .develop
                     , appType: TestPreferredConcurrentCountApp.self

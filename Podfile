@@ -1,7 +1,7 @@
 platform :ios, '11.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'pap' do
+def common_pods
   use_frameworks!
 
   # pod 'RealmSwift'
@@ -20,7 +20,14 @@ target 'pap' do
   # Common Solutions
   pod 'SwiftyGif'
 
-  # com.stells.pap.shop
+  pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
+  pod 'PhoneNumberKit', '~> 2.1'
+end
+
+target 'batch' do
+  common_pods
+
+  # com.stells.batch.shop
   # pod 'Eureka'
   # # Garbage Social/Ads Kits - Must Use In ShopApp Only.
   pod 'Firebase/AdMob', inhibit_warnings: true
@@ -31,17 +38,18 @@ target 'pap' do
   # Store
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
-  # com.stells.pap.pdfactory
+  # com.stells.batch.pdfactory
   pod 'TPPDF'
-  # com.stells.pap.clean
+  # com.stells.batch.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
-
-  # com.stells.pap.finder,phonecall - FirebaseMLVision.VisionText.Parser.Types.swift
-  pod 'PhoneNumberKit', '~> 2.1'
 
   target 'papTests' do
     inherit! :complete
   end
+end
+
+target 'mmc' do
+  common_pods
 end
 
 post_install do |installer|

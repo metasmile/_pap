@@ -1,0 +1,790 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotók hozzáférés letiltva";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Nyissa meg a beállításokat, és engedélyezze a fényképekhez való hozzáférést";
+/*Translated from: Open Settings*/
+"Open Settings" = "Open Settings";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Done";
+/*Translated from: Confirm*/
+"Confirm" = "Megerősít";
+/*Translated from: Cancel*/
+"Cancel" = "Cancel";
+/*Translated from: Detail*/
+"Detail" = "Részlet";
+/*Translated from: Delete*/
+"Delete" = "Töröl";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Elnézést, valami nem ment jól.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "Edit %d photo(s)";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "Edit %d video(s)";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Elemek szerkesztése";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Módosítások elvetése";
+/*Translated from: Processing...*/
+"Processing..." = "Feldolgozás...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "Cancelling...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotók mentése ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotók törlése ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Válassza ezt a fotót";
+/*Translated from: Select this video*/
+"Select this video" = "Válassza ezt a videót";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Törölje ezt a fotót";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Törölje ezt a videót";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Szerkessze ezt a fotót";
+/*Translated from: Edit this video*/
+"Edit this video" = "Szerkessze ezt a videót";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotó";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Videó";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Tétel";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotók";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videók";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Elemek";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Szerkesztés: %@ Fotó";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "Edit %@ Video";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "%@ Fotók szerkesztése";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "Edit %@ Videos";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Elemek szerkesztése";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Alkalmaz";
+/*com.stells.batch.revert*/
+"Revert" = "Visszaszáll";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Starting to revert...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Fotók visszavétele ...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "Hozz létre %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF létrehozása ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF-oldalak létrehozása ...";
+/*com.stells.batch.converter*/
+"Convert" = "Convert";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "Album";
+/*Translated from: camera*/
+"cs_keyword_1" = "Kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "Fotók";
+/*Translated from: editor*/
+"cs_keyword_3" = "Szerkesztő";
+/*Translated from: messenger*/
+"cs_keyword_4" = "Hírnök";
+/*Translated from: filter*/
+"cs_keyword_5" = "Szűrő";
+/*Translated from: edit*/
+"cs_keyword_6" = "Edit";
+/*Translated from: image*/
+"cs_keyword_7" = "Image";
+/*Translated from: smart*/
+"cs_keyword_8" = "Smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "Kép";
+/*Translated from: memory*/
+"cs_keyword_10" = "Memória";
+/*Translated from: familiy*/
+"cs_keyword_11" = "Család";
+/*Translated from: friend*/
+"cs_keyword_12" = "Barát";
+/*Translated from: lover*/
+"cs_keyword_13" = "Lover";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Nap";
+/* Generated from genl10n: pap.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Ingyen letölthető most!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Member" = "%@ Tag";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"%@ Membership Program" = "%@ Tagsági program";
+/* Generated from genl10n: Shop.SApp.swift#272 */
+"%@ Membership" = "%@ Tagság";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Tulajdonjog";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ megtalálható";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ el lesz rejtve";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Nap";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d alkalommal";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift#189 */
+"1 Month Membership" = "1 hónapos tagság";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year Membership" = "1 éves tagság";
+/* Generated from genl10n: AppCenter.Charge.swift#178 */
+"1-Month Use of All and New Apps" = "Az összes alkalmazás és az új hónap 1 hónapos használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Apps" = "1 hónapos fő és új alkalmazások használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Apps" = "Minden és új alkalmazások 1 éves használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Apps" = "A fő és az új alkalmazások 1 éves használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Apps" = "14 napos fő és új alkalmazások használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Apps" = "A fő és új alkalmazások 3 hónapos használata";
+/* Generated from genl10n: AppCenter.Charge.swift#203 */
+"6 Months Membership" = "6 hónapos tagság";
+/* Generated from genl10n: AppCenter.Charge.swift#192 */
+"6-Month Use of All and New Apps" = "Minden alkalmazás 6 hónapos használata és új";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Apps" = "6 hónapos fő és új alkalmazások használata";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Apps" = "7 napos fő és új alkalmazások használata";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Engedély szükséges.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "Hozzáférés megtagadva.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "A hozzáférés sikertelen.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "Hozzáférés biztosított.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Akció";
+/* Generated from genl10n: Finder.BApp.swift#1227 */
+"Actions" = "Hozzászólások";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "Hirdetések aktiválása";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Jelenlegi látható tárgyak aktiválása ...";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Új kapcsolat felvétele";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Esemény hozzáadása";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "Cím";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "Albumok";
+/* Generated from genl10n: Finder.BApp.swift#215 */
+"All contacts were successfully saved." = "Minden névjegyet sikeresen elmentettünk.";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "A fényképezőgép nélkül mentve";
+/* Generated from genl10n: Finder.BApp.swift#306 */
+"All processes you have confirmed were finished." = "Minden megerősített folyamat befejeződött.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "All";
+/* Generated from genl10n: pap.Strings.swift#33 */
+"An App, But Contains Many Photo Apps." = "Alkalmazás, de sok fotóalkalmazást tartalmaz.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "Hiba történt a hirdetések fogadásakor.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animált GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Élénkség";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Bármikor ingyenes lemondás.";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Alkalmazzon kiváló minőségű szűrőket az összes kívánt fotóra. Ez a kötegelt feldolgozó eszköz nem korlátozza a szűrők alkalmazásához szükséges fotók számát.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Művész";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "Képarány";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Automatikus vágás";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Az Automatikus szerkesztő lehetővé teszi, hogy automatikusan módosítsa, ha a fényképeinek javítása szükséges.";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Auto Editor";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Automatikus javítás";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Automatikus választás %@.";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "Auto Selection Bot";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Automatikus egyenesítés";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Legyen művész. Az előadó lehetővé teszi, hogy drámaian minden fényképét vagy videóját híres festményként alakítsa át. Ez a kötegelt feldolgozó eszköz nem korlátozza a konvertálandó fotók számát.";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Blur arány";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Burst";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamera";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Nem térhet vissza. Az összes kiválasztott elem nem szerkesztett.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Akadályozza a műveleteket.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Az összes szöveg rögzítése.";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Choose A Phone Number To Call" = "Válasszon telefonszámot a híváshoz";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Válasszon egy műveletet";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "Válassza ki az export opciót az %d elemekhez";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Válasszon egy alkategóriát.";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "A Tisztító lehetővé teszi, hogy megtalálja és törölje a különféle helytelen fényképeket, ha például a másolatok és hasonló képek, a közelkép fotók vagy a zárakat rögzítő képek megegyeznek.";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "Tisztító";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Vágólap";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Szín és emlékeztető minden egyes fázisban";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Lépjen kapcsolatba velünk most";
+/* Generated from genl10n: Finder.BApp.swift#1228 */
+"Contacts" = "Kapcsolatok";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Az utolsó élő fénykép konvertálása a GIF-be.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Az utolsó élő fénykép konvertálása a videóba.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Az utolsó videó konvertálása GIF-be.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Az utolsó videó konvertálása Live Photo-be.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Az utolsó videó konvertálása az MP4-be.";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Az átalakító lehetővé teszi, hogy minden médiaformátumot, például videókat, élő fotókat és GIF-eket egymásba konvertáljon.";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Converter";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "Másolat";
+/* Generated from genl10n: Finder.BApp.swift#232 */
+"Could not detect any contact." = "Nem sikerült felismerni a kapcsolatot.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
+"Could not detect any phone number." = "Nem sikerült felismerni egyetlen telefonszámot sem.";
+/* Generated from genl10n: Finder.BApp.swift#218 */
+"Could not detect any text." = "Nem sikerült felismerni semmilyen szöveget.";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Nem sikerült észlelni semmit.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "Nem sikerült megjeleníteni a hirdetéseket.";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Teremt";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Vágás a fithez";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift#1288 */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Jelenleg az AI szövegfelismerési modellünk csak az alfanumerikus és néhány speciális karakter számára elérhető, és az aktuális rendszernyelv befolyásolhatja.";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "Szokás";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "Dátum";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Célok törlése";
+/* Generated from genl10n: Finder.BApp.swift#116 */
+"Detecting ... %@ " = "Érzékelés ... %@";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Irány";
+/* Generated from genl10n: pap.Strings.swift#25 */
+"Do Everything With Photos." = "Mindent csináljon fotókkal.";
+/* Generated from genl10n: pap.Strings.swift#45 */
+"Download now for FREE at %@" = "Töltsd le ingyen az %@";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "Letöltés ...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "Email cím";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Az EXIF ​​Ghost lehetővé teszi, hogy eltávolítson minden olyan adatot, amely a fényképeket tartalmazza, beleértve a privát adatokat is.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Gyors műveletek engedélyezése";
+/* Generated from genl10n: Shop.SApp.swift#287 */
+"Engage Now And Repeatedly Recharge Main Apps License." = "Engedje el és ismételten töltse fel a fő alkalmazói licencet.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Mérnöki megjegyzések";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "Export";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Szűrők";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Find" = "Find";
+/* Generated from genl10n: Finder.BApp.swift#44 */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "A Finder lehetővé teszi minden fontos információ, például telefonszámok, címek, dátumok vagy URL-ek kivonását a fotókból, majd hívja fel, nyissa meg a térképeket vagy navigáljon a weboldalakon, még a keresési járatokon is. Ön is mentheti őket mindent nyers szöveg.";
+/* Generated from genl10n: Finder.BApp.swift#40 */
+"Finder" = "Kereső";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Finding Contacts ... %@ " = "Kapcsolatok keresése ... %@";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "Zseblámpa";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Járatszám";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Formátumok";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "Előre";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Keret késleltetés";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Ingyenes felhasználás és minden új frissítés";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "Ingyenes felhasználás";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "A GIF Maker segítségével könnyedén és gyorsan készíthet GIF-képeket a Fényképekről vagy az élőképekről különböző lehetőségekkel! Ezután megnyithatja a konvertálóalkalmazást, hogy minden olyan formába konvertáljon, mint az élő fotók vagy videók.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF készítő";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "Hozzáférést szerezni";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "Szerezd meg az összes szöveget";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Get Text";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Adj egy értékelést";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Give Me That Phone Number." = "Adjon nekem ezt a telefonszámot.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Vendég felhasználói licencprogram";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Vendég felhasználói licenc";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "Vendég felhasználó";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "Hello, %@!";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "Hi %@ Csapat, én vagyok %@.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Elrejt";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "A kijelölt elemek elrejtése ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Képminőség";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Képek";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "Import";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Használati információ";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "Bemenet itt";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "Vizsgálat";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Megjeleníti a fennmaradó ingyenes hozzáférési periódusok arányát.";
+/* Generated from genl10n: AppStrings.swift#22 */
+"It could not be stored." = "Nem lehetett tárolni.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Érvénytelen kódnak tűnik. Kérlek próbáld újra.";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ehhez engedély szükséges a névjegyek eléréséhez. Engedélyezze a Kapcsolatok lehetőséget az iOS-beállításoknál.";
+/* Generated from genl10n: Finder.BApp.swift#1146 */
+"Items" = "Példány";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In %@ Program" = "Csatlakozzon a (z) %@ Programhoz";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "Tájkép";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "Elrendezés";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Korlátozott teljesítményjelentés";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Élő fotó";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Hurok";
+/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
+"Main Apps License" = "Fő alkalmazói licenc";
+/* Generated from genl10n: AppCenter.Charge.swift#299 */
+"Main Apps Use of %@ Day" = "Főbb alkalmazások a %@ nap használata";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "Make GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Hívás kezdeményezése";
+/* Generated from genl10n: Shop.SApp.swift */
+"Membership or Main Apps License" = "Tagsági vagy fő alkalmazói licenc";
+/* Generated from genl10n: MemoCam.BApp.swift#36 */
+"Memo Cam" = "Emlékeztető Cam";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Módosít";
+/* Generated from genl10n: AppCenter.Charge.swift#174 */
+"Monthly Membership" = "Havi tagság";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Az én albumaim";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "Visszajelzésem %@";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Új kapcsolat";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Új esemény";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "Új szám";
+/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
+"New Phone Numbers" = "Új telefonszámok";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "Nem Crop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Nincs hurok";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Most rögzítsen minden értelmes információt az aktuális jelenetről körülötted kamerán keresztül. Ezután azonnal kezdeményezzen egy hívást, nyissa meg a térképeket, vizsgálja meg a vonalkódokat vagy a nyitott weboldalakat, még a keresési járatokat is.";
+/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
+"Number" = "Szám";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "Készenléti módban";
+/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
+"Ongoing Use of All and New Apps" = "Az összes alkalmazás és az új";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Apps" = "Az összes és az új fő alkalmazások folyamatos használata";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "Nyitott %@";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Open Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Nyílt előadó.";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Nyitott kamera.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Open Finder.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Nyissa meg a Google Térképet";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Open Phone Calls." = "Open Phone Calls.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Nyissa meg a weboldalt";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Nyisd ki";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "Eredeti";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "A PDFactory több oldalról több képet tartalmazó PDF dokumentumot készít.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Oldalsáv";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Oldalméret előre beállítva";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Oldalak";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Illessze be a képeket a vágólapokból";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Állandó tulajdon";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Tartós használat és minden új frissítés";
+/* Generated from genl10n: AppCenter.Charge.swift#156 */
+"Permanent Use of All and New Apps" = "Az összes alkalmazás és az új alkalmazás folyamatos használata";
+/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
+"Phone Calls" = "Telefonhívások";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "Telefonszám";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotók";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "Kérjük, adja meg titkos kódját";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Kérjük, ellenőrizze és helyreállítsa internetkapcsolatát, illetve tiltsa le a hirdetéseket.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "Próbálkozzon újra egy másik kóddal.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Kérjük, kapcsolja ki a következő lehetőséget, és állítsa alaphelyzetbe a hirdetési azonosítót a Beállítások menüpontban. Ezután próbálkozzon újra.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portré";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "Felkészülés";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "Presets";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Az árak magukban foglalják az új alkalmazásokat és frissítéseket is, de nem fog automatikusan megújulni.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Adatvédelmi irányelvek";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Magánélet";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "Feldolgozás";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Promóciós engedély program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Promóciós licenc";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "Promóciós felhasználó";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Vásárlás menedzsment";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Vásárlás";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "Minőség";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "Értékelje";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Vörösszem-eltávolítás";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "A fennmaradó gróf ebben a futtatásban";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Fennmaradó szint";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Fennmaradó százalék";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Ismétlés";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Összes vásárlás visszaállítása";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "visszaállítás";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "A helyreállítás lehetővé teszi, hogy egy csomó mennyiségű szerkesztett fényképet helyreállítsanak az eredetihez. Ezenkívül segít az automatikus kiválasztásban is!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "Felújítás";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Fordított";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Visszatekerés";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Forog";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "Forgás";
+/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
+"Save All Phone Numbers" = "Minden telefonszám mentése";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Névjegyek mentése";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "Mentés és megosztás";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "Save";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Eredmények mentése ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Méretre igazítás";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Pillanatképek";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Keres járatok";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Keresés a Google Térképen";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Keresés a Google-on";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "Keresés %@";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Válassza a Konvertálás formátumot";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Válassza ki a Fotók törléshez lehetőséget.";
+/* Generated from genl10n: Finder.BApp.swift#1490 */
+"Select Photos To Find Something." = "Válassza ki a fotókat, hogy valamit találjon.";
+/* Generated from genl10n: PhoneCalls.BApp.swift */
+"Select Photos You Want To Grab Phone Numbers!" = "Válassza ki a fotókat, amelyekkel meg akarja fogni a telefonszámokat!";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "Kiválasztott";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Küldj emailt";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "Elküld";
+/* Generated from genl10n: Shop.SApp.swift#480 */
+"Settings for Main Apps License" = "A fő alkalmazói licenc beállításai";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "Beállítások";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Oszd meg ezt az alkalmazást";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Ossza meg tehetségét, készíts össze. Szerezzen minden jutalmat, ha elfogadják.";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "Ossza meg";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Megosztás a Facebook Messengeren";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Megosztás a Facebookon";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "Hasonlóság";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Méret";
+/* Generated from genl10n: Finder.BApp.swift#217 */
+"Some contacts were saved, but someones were not." = "Egyes kapcsolatok mentésre kerültek, de valaki nem.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Különleges vendégajánlat-program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Különleges vendégi engedély";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "Különleges vendég";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Négyzet";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "Stabilizációs mód";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "Stabilizálja";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "Stabilizátor";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "A kijelölt elemek stabilizálása ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Rajt";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "A keresés megkezdése ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "A folyamat indítása ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "A szerkesztett fotók ellenőrzése ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "Tartózkodj velünk";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories Behind the Apps" = "Történetek az alkalmazások mögött";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Kapcsolja be az elrejteni kívánt elemeket. A minőség tökéletesen megmarad.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Vegyél egy GIF-et Live Photo segítségével.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift#1273 */
+"Take A Photo" = "Fotózd le";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Részt vesz";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Beépített kamerával";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect" = "Érintse meg a Detektálás gombot";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Célzott";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Célok";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Használati feltételek";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Szöveg";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Köszönjük, hogy %@. Hamarosan kapcsolatba lépünk Önnel.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Köszönöm az üzenetet. Hamarosan kapcsolatba lépünk Önnel.";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "Köszönjük a vásárlást.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Köszönöm a visszajelzést! Hamarosan kapcsolatba lépünk Önnel.";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ez az egyszerű, de nagy méretű képfeldolgozó eszköz lehetővé teszi, hogy gyorsan forgassa és flip sok médiafájl, beleértve a Live Photos. Nincs korlátozás a fotók számának szerkesztésére.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Az alkalmazás használatához megfelelő hozzáférési licenc szükséges. Szeretné megnyitni %@?";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Túl közelről arccal";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Túl lassú zársebesség";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "Átalakítási mód";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Fordítás most";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Fordítási javítás";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "típus";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "A kód jelenleg nem ellenőrizhető. Próbálja ki később.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Használati útmutató";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Használd a próbát";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "Használat";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Hotline";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP Membership Program" = "VIP tagsági program";
+/* Generated from genl10n: AppCenter.Charge.swift#159 */
+"VIP Membership" = "VIP tagság";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "Az ellenőrzés sikertelen.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Videó oktatóanyagok";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Videó";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "Az Instagram által mentett videók";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "Videók rövidebb, mint 1 másodperc";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Hang nélküli videók";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Videók a képernyőfelvevőből";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Látogassa meg a szociális oldalakat";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Látogatás";
+/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
+"Waiting To Select ..." = "Várakozás kiválasztása ...";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "Welcome Free Pack";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our %@ license program!" = "Üdvözöljük a %@ licencelési programunkban!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "Üdvözöljük a VIP licencprogramunkban.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Üdvözöljük a vendég felhasználói licencprogramunkban!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Üdvözöljük a promóciós licencprogramunkban!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Üdvözöljük a különleges vendégprogramunkban!";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "Szeretnél visszatérni %@?";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Írja meg a véleményét";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "Ír";
+/* Generated from genl10n: AppCenter.Charge.swift#181 */
+"Yearly Membership" = "Éves tagság";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Csak olyan fényképeket vagy videókat választhat ki, amelyek megfelelnek a kezdő formátumnak.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Az üzenet el lett küldve.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "A kód érvénytelen. Kérlek próbáld újra.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "A kód lejárt.";
+/* Generated from genl10n: Period.swift */
+"day" = "nap";
+/* Generated from genl10n: Period.swift */
+"hour" = "óra";
+/* Generated from genl10n: Period.swift */
+"minute" = "perc";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "hónap";
+/* Generated from genl10n: Period.swift */
+"second" = "második";
+/* Generated from genl10n: Period.swift */
+"week" = "hét";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "év";

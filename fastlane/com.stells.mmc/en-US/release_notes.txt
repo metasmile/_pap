@@ -1,0 +1,2 @@
+• Crash fixes for some specific iDevice models.
+• Corrected some symbol icon images.

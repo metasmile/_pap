@@ -1,0 +1,1 @@
+AI,ARKit,document,scanner,text,maps,translator,calendar,photos,camera,bot,albums,memo,notes,barcode

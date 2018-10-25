@@ -2,8 +2,8 @@
 # For more information, check out the docs
 # https://docs.fastlane.tools/actions/deliver/
 team_id "2020888" #Tae ho Lee
-app_identifier "com.stells.pap"
-metadata_path "./fastlane/com.stells.pap"
-screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/pap"
-ipa "pap.ipa"
+app_identifier "com.stells.batch"
+metadata_path "./fastlane/com.stells.batch"
+screenshots_path "/Users/blackgene/Documents/batch\-resources/appstore/screenshots/batch"
+ipa "batch.ipa"
 username "illhert@yahoo.com"
