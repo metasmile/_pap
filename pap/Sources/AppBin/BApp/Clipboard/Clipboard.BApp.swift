@@ -270,6 +270,10 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 }
                 
                 cellDescribers.append(cell)
+                
+                if values.contains(where: { $0.type == "com.apple.uikit.image" }) {
+                    break
+                }
             }
             
             guard !cellDescribers.isEmpty else { continue }
