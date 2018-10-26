@@ -28,7 +28,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     
     lazy var dimmedView: UIView = {
         let view = UIView(frame: self.view.bounds)
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         view.alpha = 0.5
         view.isHidden = true
         return view
@@ -93,7 +93,7 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController {
+class AppDockViewController: UIViewController, papColorThemeable {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -107,7 +107,9 @@ class AppDockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        registerThemeable()
+        
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         
@@ -213,6 +215,10 @@ class AppDockViewController: UIViewController {
     
     func content(in view: AppDockView) -> AppDockContent? {
         return AppCenter.default.currentInstanceAs(AppDockApp.self)?.content
+    }
+    
+    func applyTheme(_ colorTheme: papColorTheme) {
+        appDockView?.barStyle = colorTheme.barStyle
     }
 }
 

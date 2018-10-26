@@ -300,6 +300,7 @@
 		515AB1632106C029005E1997 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515AB1622106C029005E1997 /* ActionViewController.swift */; };
 		515C9A5920FC2358004AF6BF /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */; };
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
+		516606F82182B4ED002F1A49 /* pap.ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516606F72182B4ED002F1A49 /* pap.ColorTheme.swift */; };
 		51674849217EB71300374C3F /* App.PreviewView.Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51674848217EB71300374C3F /* App.PreviewView.Actionable.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
@@ -921,6 +922,7 @@
 		515AB1622106C029005E1997 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		515C9A5820FC2358004AF6BF /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
+		516606F72182B4ED002F1A49 /* pap.ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pap.ColorTheme.swift; sourceTree = "<group>"; };
 		51674848217EB71300374C3F /* App.PreviewView.Actionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.PreviewView.Actionable.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -2311,6 +2313,7 @@
 				A00FDD2B218235EE005EAD1B /* Views */,
 				A00FDD33218235EE005EAD1B /* AppBin */,
 				A00FDD43218235EE005EAD1B /* AppCenter.swift */,
+				516606F72182B4ED002F1A49 /* pap.ColorTheme.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -4099,6 +4102,7 @@
 				A00FDDC2218235EF005EAD1B /* UITableViewExpandableCell.UITableView.swift in Sources */,
 				A00FDE1C218235EF005EAD1B /* PhotoPickerViewController.UICollectionView.CachingImage.swift in Sources */,
 				A00FDDCB218235EF005EAD1B /* Version.swift in Sources */,
+				516606F82182B4ED002F1A49 /* pap.ColorTheme.swift in Sources */,
 				A00FDE00218235EF005EAD1B /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				A00FDDD3218235EF005EAD1B /* CodeKit.FileManager.swift in Sources */,
 				A00FDDA6218235EF005EAD1B /* App.Launchable.UIApplicationDelegate.swift in Sources */,
