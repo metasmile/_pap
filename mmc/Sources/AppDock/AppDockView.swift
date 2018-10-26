@@ -153,13 +153,9 @@ class AppDockView: CustomView {
     }
     
     private func updateBackgroundColors() {
-        let color = hasAnyContentAsLayout ? self.backgroundColor : .clear
-        backgroundView.backgroundColor = color
-        topAccessoryView.backgroundColor = color
-        controllerView.backgroundColor = color
+        let color = hasAnyContentAsLayout ? colorTheme.backgroundColor : .clear
+        backgroundToolBar.tintColor = colorTheme.tintColor
         drawerView.tintColor = color
-        dockView.backgroundColor = color
-        bottomAccessoryView.backgroundColor = color
     }
     
     private func updateDockBarStyle() {
@@ -193,9 +189,9 @@ class AppDockView: CustomView {
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
         drawerView.topMargin = 0
-
-        dimmedView.backgroundColor = self.backgroundColor
-
+        
+        dimmedView.backgroundColor = dimmedView.colorTheme.objectBackgroundColor
+        
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
         gesture.maximumNumberOfTouches = 1
@@ -341,7 +337,8 @@ class AppDockView: CustomView {
             }
             
             //INFO: no controller animation
-            appContentView.layoutIfNeeded()
+            //            appContentView.layoutIfNeeded()
+            controllerView.layoutIfNeeded()
             
             delegate?.appDockView(self, didOpenDrawer: controller != nil && contentLayoutState == .maximized)
         }
@@ -1490,7 +1487,8 @@ internal class DockCollectionBackgroundView: UIView {
         
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setLineWidth(0.5)
-        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
+//        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
+        ctx?.setStrokeColor(self.colorTheme.lineSeparatorColor.cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
 
