@@ -120,7 +120,7 @@
 "cs_keyword_13" = "حبيب";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ اليوم";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: mmc.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ التنزيل الآن مجانًا!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "قد يتم العثور على %@";
@@ -178,7 +178,7 @@
 "Detecting ... %@ " = "جارٍ اكتشاف ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "اكتشاف العناصر المرئية الحالية ...";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "التنزيل الآن مجانًا في %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "جارى التحميل...";
@@ -192,9 +192,9 @@
 "Flight Number" = "رقم الرحلة الجوية";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "الحصول على كل النص";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "الحصول على كل المعلومات حولك.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "احصل على النص ثم افعل شيئا.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "الحصول على النص";

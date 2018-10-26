@@ -120,7 +120,7 @@
 "cs_keyword_13" = "milovník";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Deň";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Prevziať teraz ZDARMA!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Člen";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "Uložené bez fotoaparátu";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "Aplikácia, ale obsahuje veľa fotografií Apps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Pri prijímaní reklám došlo k chybe.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "Odstránenie cieľov";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "Robte všetko s fotografiami.";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Stiahnite si teraz zadarmo na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Stiahnuť ▼";

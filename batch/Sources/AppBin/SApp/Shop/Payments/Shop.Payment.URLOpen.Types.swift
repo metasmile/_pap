@@ -22,56 +22,56 @@ extension URLOpenType {
 }
 
 struct URLOpenTypeSocialPage: URLOpenType {
-    static var webUrl: URL?{ return papStrings.social.facebook.url.asURL }
+    static var webUrl: URL?{ return batchStrings.social.facebook.url.asURL }
 
     static var localUrl: URL? {
         //Facebook -> Twitter
-        let url:URL = "fb://profile/\(papStrings.social.facebook.pageId)".asURL!
+        let url:URL = "fb://profile/\(batchStrings.social.facebook.pageId)".asURL!
         if UIApplication.shared.canOpenURL(url){
             return url
         }
-        return "twitter://user?screen_name=\(papStrings.social.twitter.accountName)".asURL
+        return "twitter://user?screen_name=\(batchStrings.social.twitter.accountName)".asURL
     }
 }
 
 struct URLOpenTypeUserCommunity: URLOpenType {
-    static var webUrl: URL?{ return papStrings.social.facebook.groupUrl.asURL }
+    static var webUrl: URL?{ return batchStrings.social.facebook.groupUrl.asURL }
 
     static var localUrl: URL? {
-        return "fb://group?id=\(papStrings.social.facebook.groupId)".asURL
+        return "fb://group?id=\(batchStrings.social.facebook.groupId)".asURL
     }
 }
 
 struct URLOpenTypeBlog: URLOpenType {
-    static var webUrl: URL?{ return papStrings.social.blog.url.asURL }
+    static var webUrl: URL?{ return batchStrings.social.blog.url.asURL }
 }
 
 struct URLOpenTypeEngineeringNotes: URLOpenType {
-    static var webUrl: URL?{ return papStrings.info.engineering.url.asURL }
+    static var webUrl: URL?{ return batchStrings.info.engineering.url.asURL }
 }
 
 struct URLOpenTypeVideoTutorials: URLOpenType {
-    static var webUrl: URL?{ return papStrings.social.youtube.url.asURL }
+    static var webUrl: URL?{ return batchStrings.social.youtube.url.asURL }
 
     static var localUrl: URL? {
-        return "youtube://www.youtube.com/channel/\(papStrings.social.youtube.channelId)".asURL 
+        return "youtube://www.youtube.com/channel/\(batchStrings.social.youtube.channelId)".asURL 
     }
 }
 
 struct URLOpenTypeAppsIndex: URLOpenType {
-    static var webUrl: URL?{ return papStrings.info.appsIndex.url.asURL }
+    static var webUrl: URL?{ return batchStrings.info.appsIndex.url.asURL }
 }
 
 struct URLOpenTypeReferenceGuide: URLOpenType {
-    static var webUrl: URL?{ return papStrings.info.guide.url.asURL }
+    static var webUrl: URL?{ return batchStrings.info.guide.url.asURL }
 }
 
 struct URLOpenTypePrivacyPolicy: URLOpenType {
-    static var webUrl: URL?{ return papStrings.info.privacy.url.asURL }
+    static var webUrl: URL?{ return batchStrings.info.privacy.url.asURL }
 }
 
 struct URLOpenTypeTermsOfUse: URLOpenType {
-    static var webUrl: URL?{ return papStrings.info.terms.url.asURL }
+    static var webUrl: URL?{ return batchStrings.info.terms.url.asURL }
 }
 
 

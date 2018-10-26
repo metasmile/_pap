@@ -59,7 +59,7 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
 
         DispatchQueue.main.async{
-            Armchair.appID(papStrings.appStoreId)
+            Armchair.appID(batchStrings.appStoreId)
             Armchair.useStoreKitReviewPrompt( true)
             Armchair.resetAllCounters()
             Armchair.shouldIncrementUseCountClosure { () -> Bool in
@@ -76,7 +76,7 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
         var paid = false
         asyncSignal.begin()
 
-        papLog.charge.userHasShownInAppPromptRating()
+        batchLog.charge.userHasShownInAppPromptRating()
 
         DispatchQueue.main.async{
             Armchair.showPrompt { info in

@@ -120,7 +120,7 @@
 "cs_keyword_13" = "người yêu";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ngày";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Tải xuống miễn phí!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Thành viên";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "Đã lưu mà không có máy ảnh";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "Một ứng dụng, nhưng chứa nhiều ứng dụng ảnh.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Đã xảy ra lỗi khi nhận quảng cáo.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "Xóa mục tiêu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "Làm mọi thứ với hình ảnh.";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Tải về";

@@ -6,12 +6,12 @@
 import Foundation
 import PropertyKit
 
-protocol papDefaultsPublic:PropertyDefaults{
+protocol batchDefaultsPublic:PropertyDefaults{
     var appIdentifier: String?{set get}
     var appDockContentLayoutState: Int{set get}
 }
 
-extension Defaults: papDefaultsPublic {
+extension Defaults: batchDefaultsPublic {
     public var appIdentifier: String? {
         set{ set(newValue) } get{ return get() }
     }

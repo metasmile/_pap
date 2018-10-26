@@ -120,7 +120,7 @@
 "cs_keyword_13" = "Amoureux";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Jour";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: mmc.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Téléchargez maintenant GRATUITEMENT!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ pourrait être trouvé";
@@ -178,7 +178,7 @@
 "Detecting ... %@ " = "Détecter ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Détection des éléments visibles actuels ...";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Téléchargez maintenant gratuitement à %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Téléchargement...";
@@ -192,9 +192,9 @@
 "Flight Number" = "Numéro de vol";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Obtenir tout le texte";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "Obtenez toutes les informations autour de vous.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "Obtenir du texte et ensuite faire quelque chose.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Obtenir du texte";

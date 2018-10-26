@@ -354,7 +354,7 @@ extension PreviewView {
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
-        papLog.performFromUser()
+        batchLog.performFromUser()
 
         papCount.app.countToPerform()
 
@@ -414,7 +414,7 @@ extension PreviewView {
             for (_, results) in resultsByApps{
                 for r in results{
                     if let e = r.info.error{
-                        papLog.error.recordedError(e, parameters:[
+                        batchLog.error.recordedError(e, parameters:[
                             "task.state": "\(r.info.state)"
                         ])
                     }

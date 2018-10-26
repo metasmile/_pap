@@ -120,7 +120,7 @@
 "cs_keyword_13" = "ljubavnik";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dan";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Preuzmite sada besplatno!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Član";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "Spremljeno bez kamere";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "svi";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "Aplikacija, ali sadrži mnoge aplikacije za fotografije.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Došlo je do pogreške prilikom prijema oglasa.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "Brisanje ciljeva";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "Učinite sve sa slikama.";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "preuzimanje datoteka";

@@ -66,7 +66,7 @@
 "cs_keyword_13" = "情人";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
-/* Generated from genl10n: pap.Strings.swift#50 */
+/* Generated from genl10n: mmc.Strings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
 /* Generated from genl10n: Finder.BApp.swift#1647, Cleaner.BApp.swift#767 */
 "%@ might be found" = "可能會找到%@";
@@ -124,7 +124,7 @@
 "Detecting ... %@ " = "檢測... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "檢測當前可見物品......";
-/* Generated from genl10n: pap.Strings.swift#54 */
+/* Generated from genl10n: mmc.Strings.swift#54 */
 "Download now for FREE at %@" = "立即免費下載%@";
 /* Generated from genl10n: PhotoPickerViewController.swift#874 */
 "Downloading..." = "下載...";
@@ -138,9 +138,9 @@
 "Flight Number" = "航班號";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "獲取所有文字";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "獲取您周圍的每一個信息。";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "得到文本，然後做點什麼。";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "獲取文字";

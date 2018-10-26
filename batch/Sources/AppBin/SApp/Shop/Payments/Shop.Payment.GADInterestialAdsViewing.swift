@@ -61,7 +61,7 @@ struct GADInterestialTypeTimeOfUses: GADInterestialType{
 struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialType{
     private(set) static var appId: String = _AdsSystemInfo.appId.rawValue
     private(set) static var unitId: String = _AdsSystemInfo.interestial.rawValue
-    private(set) static var interval: Double? = papTimeInterval.ofGADInterestialTypeBlockOfUses
+    private(set) static var interval: Double? = batchTimeInterval.ofGADInterestialTypeBlockOfUses
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         if wasPaid(){
@@ -97,7 +97,7 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialT
     }
 
     fileprivate static var remainingOfflineAdsSkipCountInCurrentRuntime:Int
-            = papCounts.defaultAllowedOfflineAdsSkipCountInCurrentRuntime
+            = batchCounts.defaultAllowedOfflineAdsSkipCountInCurrentRuntime
 
     fileprivate static var offlineMessage: String {
         let menu = "Main Tools License".localized
@@ -202,12 +202,12 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                 }
                 asyncSignal.waitUntilEnd()
 
-                papLog.charge.ads.offlineModeWarning()
+                batchLog.charge.ads.offlineModeWarning()
                 return true
             }
 
             //Default actions is not allowed.
-            papLog.charge.ads.offlineModeDenied()
+            batchLog.charge.ads.offlineModeDenied()
             return false
         }
 
@@ -249,7 +249,7 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                             if AppCenter.default.current != ShopApp.self{
                                 let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
                                     asyncSignal.end()
-                                    papLog.charge.ads.movedToSettingsUnableReceivingAds()
+                                    batchLog.charge.ads.movedToSettingsUnableReceivingAds()
 
                                     AppCenter.default.openApp(identifier:ShopApp.info.identifier)
                                 }
@@ -264,14 +264,14 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                                 asyncSignal.end()
                             })
 
-                            papLog.charge.ads.occurredShowedUnableReceivingAds()
+                            batchLog.charge.ads.occurredShowedUnableReceivingAds()
 
                         }else{
                             // message not required
                             asyncSignal.end()
                         }
 
-                        papLog.error.recordedError(error)
+                        batchLog.error.recordedError(error)
 
                     }else{
 

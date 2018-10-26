@@ -120,7 +120,7 @@
 "cs_keyword_13" = "rakastaja";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Päivä";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Lataa nyt ILMAISEKSI!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Jäsen";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "Tallennettu ilman kameraa";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "Sovellus, mutta sisältää monia valokuvasovelluksia.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Virhe tapahtui mainosten vastaanottamisen aikana.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "Kohdeiden poistaminen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "Tee kaikki valokuvilla.";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Lataa nyt ILMAISEKSI osoitteessa %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "ladata";

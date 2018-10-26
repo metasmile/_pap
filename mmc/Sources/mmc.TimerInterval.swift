@@ -5,14 +5,14 @@
 
 import Foundation
 
-//INFO: com.stells.batch-exclusive time interval policies in strict seconds.
+//INFO: com.stells.mmc-exclusive time interval policies in strict seconds.
 //CRITICAL
 
 #if DEBUG
 private let debugMode = true
 #endif
 
-struct papTimeInterval{
+struct mmcTimeInterval {
 
     static var ofTimeOfUsesDayTimeUnit:TimeInterval{
 #if DEBUG

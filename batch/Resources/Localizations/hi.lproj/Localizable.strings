@@ -120,7 +120,7 @@
 "cs_keyword_13" = "प्रेमी";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ सदस्य";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "कैमरा के बिना बचाया";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "सब";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "एक ऐप, लेकिन इसमें कई फोटो ऐप्स शामिल हैं।";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "विज्ञापन प्राप्त करते समय एक त्रुटि हुई।";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "तस्वीरें के साथ सब कुछ करो।";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "डाउनलोड";

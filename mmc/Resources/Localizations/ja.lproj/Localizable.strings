@@ -120,7 +120,7 @@
 "cs_keyword_13" = "恋人";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@日";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: mmc.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@今すぐ無料でダウンロードしてください！";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@が見つかりました";
@@ -178,7 +178,7 @@
 "Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "現在表示されている項目の検出中...";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ダウンロード中...";
@@ -192,9 +192,9 @@
 "Flight Number" = "フライトナンバー";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "すべてのテキストを取得";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "あなたの周りのあらゆる情報を入手してください。";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "テキストを取得し、次に何かをします。";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "テキストを取得する";

@@ -531,7 +531,7 @@ extension Array where Element:VisionTextDetectResult {
                     let param_googlemap = [
                         "q":addressString
                         , "x-success": Bundle.main.schemes?.first ?? ""
-                        , "x-source": papStrings.name
+                        , "x-source": batchStrings.name
                     ].urlQueryString
 
                     let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")

@@ -108,7 +108,7 @@ class PhotoPickerViewController: AppDockViewController {
                 FileManager.default.clearTemporaryDirectory()
             }
 
-            papLog.allTasksAreFinished()
+            mmcLog.allTasksAreFinished()
         }
         
         navigationItem.setLeftBarButton(nil, animated: false)
@@ -622,7 +622,7 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                papLog.performWhenPhotoLibraryDidChanged()
+                mmcLog.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
                 self.updateUIDisplays()

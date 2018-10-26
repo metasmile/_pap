@@ -50,14 +50,14 @@ struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable, RelativePayable {
 
 
 struct MonthlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month), legalInfo:(notice:StoreLegalDescription,termsOfUse:URL(string:papStrings.info.terms.url), privacyPolicy:URL(string:papStrings.info.privacy.url)))
+    static let product = StoreProduct(identifier: "pap_xapp_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month), legalInfo:(notice:StoreLegalDescription,termsOfUse:URL(string:batchStrings.info.terms.url), privacyPolicy:URL(string:batchStrings.info.privacy.url)))
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
 }
 
 struct YearlyAllAppsPayment: AutoRenewableSubscribingPayable, RelativePayable {
-    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo:(notice:StoreLegalDescription,termsOfUse:URL(string:papStrings.info.terms.url), privacyPolicy:URL(string:papStrings.info.privacy.url)))
+    static let product = StoreProduct(identifier: "pap_xapp_RN_Y_rented_2", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo:(notice:StoreLegalDescription,termsOfUse:URL(string:batchStrings.info.terms.url), privacyPolicy:URL(string:batchStrings.info.privacy.url)))
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
@@ -104,19 +104,19 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayabl
     }
 
     static var trialTimeLength: TimeInterval {
-        return papTimeInterval.ofAllTimeAppPaymentTrialTimeLength
+        return batchTimeInterval.ofAllTimeAppPaymentTrialTimeLength
     }
 }
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month), legalInfo: (notice:StoreLegalDescription,termsOfUse:URL(string:papStrings.info.terms.url), privacyPolicy:URL(string:papStrings.info.privacy.url)))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_M_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .month), legalInfo: (notice:StoreLegalDescription,termsOfUse:URL(string:batchStrings.info.terms.url), privacyPolicy:URL(string:batchStrings.info.privacy.url)))
     }
 }
 
 struct YearlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StoreProduct{
-        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo: (notice:StoreLegalDescription,termsOfUse:URL(string:papStrings.info.terms.url), privacyPolicy:URL(string:papStrings.info.privacy.url)))
+        return StoreProduct(identifier: "pap_\(T.info.identifier)_RN_Y_rented", subscriptionPeriod: Period(numberOfUnits: 1, unit: .year), legalInfo: (notice:StoreLegalDescription,termsOfUse:URL(string:batchStrings.info.terms.url), privacyPolicy:URL(string:batchStrings.info.privacy.url)))
     }
 }
 

@@ -817,7 +817,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 closeDrawer()
 
                 if contentLayoutState == .minimized{
-                    papLog.app.minimizeAppDockDrawer()
+                    mmcLog.app.minimizeAppDockDrawer()
                 }
 
                 sender.isEnabled = false
@@ -827,7 +827,7 @@ extension AppDockView: UIGestureRecognizerDelegate {
                 openDrawer()
 
                 if contentLayoutState == .maximized{
-                    papLog.app.maximizeAppDockDrawer()
+                    mmcLog.app.maximizeAppDockDrawer()
                 }
 
                 sender.isEnabled = false

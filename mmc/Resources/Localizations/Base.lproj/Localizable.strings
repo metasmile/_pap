@@ -84,7 +84,7 @@
 
 /* Generated from genl10n: Charge.Types.Trialable.swift */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
 /* Generated from genl10n: Finder.BApp.swift */
 "%@ might be found" = "%@ might be found";
@@ -142,7 +142,7 @@
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Detecting Current Visible Items ...";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
@@ -156,9 +156,9 @@
 "Flight Number" = "Flight Number";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Get All Text";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "Get Every Info Around You.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "Get Text And Then Do Something.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Get Text";

@@ -26,8 +26,8 @@ extension MailContactType{
 struct MailContactFeedbackType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         return (
-                addresses: [papStrings.contact.feedback.email]
-                , subject: "👋 " + "My Feedback on %@".localizedFormatted(papStrings.name)
+                addresses: [batchStrings.contact.feedback.email]
+                , subject: "👋 " + "My Feedback on %@".localizedFormatted(batchStrings.name)
                 , messageAfterSent: "Thank you very much for your feedback! Soon we will contact you.".localized
         )
     }
@@ -36,7 +36,7 @@ struct MailContactFeedbackType: MailContactType {
 struct MailContactSupportType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         return (
-                addresses: [papStrings.contact.support.email]
+                addresses: [batchStrings.contact.support.email]
                 , subject: "[\(UUID().uuidString.split(separator: "-")[0])] I need some help while using this app."
                 , messageAfterSent: "Thank you for your message. Soon we will contact you.".localized
         )
@@ -47,8 +47,8 @@ struct MailContactHotlineType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         let ownerName = SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.grantedOwnerName ?? PermanentVIPSecretCodeProgram.defaultOwnerName
         return (
-                addresses: [papStrings.contact.vip.email]
-                , subject: "Hi %@ Team, I'm %@.".localizedFormatted(papStrings.name, ownerName)
+                addresses: [batchStrings.contact.vip.email]
+                , subject: "Hi %@ Team, I'm %@.".localizedFormatted(batchStrings.name, ownerName)
                 , messageAfterSent: "Thank you %@. Soon we will contact you.".localizedFormatted(ownerName)
         )
     }
@@ -80,7 +80,7 @@ struct MailContactL10NType:MailContactType{
 
     static var attributes: MailContactTypeAttributes{
         return (
-                addresses: [papStrings.youapp.l10n.email]
+                addresses: [batchStrings.youapp.l10n.email]
                 , subject: "[Locale: \(Locale.preferredLanguages.first ?? "unknown"), Version: \(Bundle.main.version ?? "0")] Applying my localization works. Please confirm!"
                 , messageAfterSent: "Thank you very much for share your language talent to us. We will contact you with review result."
         )

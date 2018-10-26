@@ -6,12 +6,12 @@
 import Foundation
 import PropertyKit
 
-protocol papDefaultsPublic:PropertyDefaults{
+protocol mmcDefaultsPublic:PropertyDefaults{
     var appIdentifier: String?{set get}
     var appDockContentLayoutState: Int{set get}
 }
 
-extension Defaults: papDefaultsPublic {
+extension Defaults: mmcDefaultsPublic {
     public var appIdentifier: String? {
         set{ set(newValue) } get{ return get() }
     }
@@ -21,11 +21,11 @@ extension Defaults: papDefaultsPublic {
     }
 }
 
-fileprivate protocol papDefaultsPrivate:PropertyDefaults{
+fileprivate protocol mmcDefaultsPrivate:PropertyDefaults{
     var appCount: [String:Double]{set get}
 }
 
-extension Defaults:papDefaultsPrivate{
+extension Defaults:mmcDefaultsPrivate{
 // private
     fileprivate var appCount:[String:Double]{ // [identifier: performed count]
         set{
@@ -34,7 +34,7 @@ extension Defaults:papDefaultsPrivate{
     }
 }
 
-public struct papCount {
+public struct mmcCount {
     struct app {
         static var numberOfCounted:Int{
             return Defaults.shared.appCount.keys.count

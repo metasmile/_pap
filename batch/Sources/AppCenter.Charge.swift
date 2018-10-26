@@ -469,7 +469,7 @@ private final class AppChargeBanker: ChargeBanker {
 
     private lazy var receiptStorage = ChargeReceiptStorage(identifier: self.receiptStorageIdentifier, delegate: self)
 
-    fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = papTimeInterval.ofTimeOfUsesDayTimeUnit
+    fileprivate static let Abs_TimeOfUses_DayTimeUnit:TimeInterval = batchTimeInterval.ofTimeOfUsesDayTimeUnit
     fileprivate static let InitialTutorial_TimeOfUses_Day:TimeInterval = 3
     fileprivate static let Abs_TimeOfUses_Day:TimeInterval = 30
     fileprivate static let Abs_TimeOfUses_Time:TimeInterval = Abs_TimeOfUses_Day * Abs_TimeOfUses_DayTimeUnit
@@ -648,11 +648,11 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didSaveDeposit(for charge: Charge, balance: Amount) {
-        papLog.charge.paid(charge: charge)
+        batchLog.charge.paid(charge: charge)
     }
 
     func didDeclineDeposit(for charge: Charge) {
-        papLog.charge.unpaid(charge: charge)
+        batchLog.charge.unpaid(charge: charge)
     }
 }
 

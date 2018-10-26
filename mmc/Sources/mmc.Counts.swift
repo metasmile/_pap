@@ -7,7 +7,7 @@ import Foundation
 
 //INFO: com.stells.mmc-exclusive time interval policies in strict seconds.
 //CRITICAL
-struct papCounts{
+struct mmcCounts {
 
     static var defaultAllowedOfflineAdsSkipCountInCurrentRuntime:Int{
 #if DEBUG

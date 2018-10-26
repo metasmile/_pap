@@ -100,7 +100,7 @@ class PhotoPickerViewController: AppDockViewController {
                 FileManager.default.clearTemporaryDirectory()
             }
 
-            papLog.allTasksAreFinished()
+            batchLog.allTasksAreFinished()
         }
         
         navigationItem.setLeftBarButton(nil, animated: false)
@@ -381,7 +381,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
-    override func applyTheme(_ colorTheme: papColorTheme) {
+    override func applyTheme(_ colorTheme: batchColorTheme) {
         super.applyTheme(colorTheme)
         
         photoCollectionView.tintColor = colorTheme.textColor
@@ -669,7 +669,7 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                papLog.performWhenPhotoLibraryDidChanged()
+                batchLog.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
                 self.updateUIDisplays()

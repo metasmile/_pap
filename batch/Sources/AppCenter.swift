@@ -22,7 +22,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             Defaults.shared.appIdentifier = target.currentIdentifier
             print("Current App: \(Defaults.shared.appIdentifier ?? "nil")")
 
-            papLog.appSelected()
+            batchLog.appSelected()
         }
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier

@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        Armchair.appID(papStrings.appStoreId)
+        Armchair.appID(mmcStrings.appStoreId)
         Armchair.useStoreKitReviewPrompt( true)
         Armchair.resetAllCounters()
         Armchair.shouldIncrementUseCountClosure { () -> Bool in

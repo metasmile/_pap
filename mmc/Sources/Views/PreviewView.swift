@@ -323,9 +323,9 @@ extension PreviewView {
             AppCenter.default.task.append(request: AppTaskRequest(app, appAssetsSelected.at(i)))
         }
         AppCenter.default.task.perform(createTaskReaction())
-        papLog.performFromUser()
+        mmcLog.performFromUser()
 
-        papCount.app.countToPerform()
+        mmcCount.app.countToPerform()
 
         return true
     }
@@ -383,7 +383,7 @@ extension PreviewView {
             for (_, results) in resultsByApps{
                 for r in results{
                     if let e = r.info.error{
-                        papLog.error.recordedError(e, parameters:[
+                        mmcLog.error.recordedError(e, parameters:[
                             "task.state": "\(r.info.state)"
                         ])
                     }

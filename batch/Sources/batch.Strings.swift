@@ -12,9 +12,9 @@ import Foundation
 //INFO: Common message only for pap.
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
-struct papStrings {
+struct batchStrings {
     static var appStoreId:String{
-        return "1309539102"
+        return "1310420792"
     }
 
     static var name:String{
@@ -199,7 +199,7 @@ struct papStrings {
 
         static var hashTags: [String]{
             return [
-                "#PhotoApps",
+                "#BatchPhotos",
                 "#GetPhotoApps"
             ]
         }

@@ -20,7 +20,7 @@ private protocol ConverterAppDefaults: AppDefaults{
 
 extension Defaults: ConverterAppDefaults {
     fileprivate var convertingDirection: ConvertingDirection {
-        set { set(newValue); papLog.app.defaults.log(value:newValue.identifier) }
+        set { set(newValue); batchLog.app.defaults.log(value:newValue.identifier) }
         get { return get(or: ConvertingDirection(from: .livephoto, to: .gif)) }
     }
 
@@ -604,9 +604,9 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             self.defaults.autoSelect = on
 
             if self.defaults.autoSelect {
-                papLog.app.userEnablesASB()
+                batchLog.app.userEnablesASB()
             }else{
-                papLog.app.userDisablesASB()
+                batchLog.app.userDisablesASB()
             }
         }
         cellDescribers.append(autoSelectCell)

@@ -22,7 +22,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             Defaults.shared.appIdentifier = target.currentIdentifier
             print("Current App: \(Defaults.shared.appIdentifier ?? "nil")")
 
-            papLog.appSelected()
+            mmcLog.appSelected()
         }
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier
@@ -53,7 +53,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
                 return true
             }
 
-            if papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2){
+            if mmcCount.app.countPerformed(app: appType1) > mmcCount.app.countPerformed(app: appType2){
                 return true
             }
 

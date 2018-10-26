@@ -20,7 +20,7 @@ extension AppCenter{
 
         let opened = openApp(identifier:CameraApp.info.identifier, options:option)
 
-        papLog.app.userCalledCameraInApp()
+        batchLog.app.userCalledCameraInApp()
 
         return opened
     }

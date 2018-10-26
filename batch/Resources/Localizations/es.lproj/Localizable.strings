@@ -120,7 +120,7 @@
 "cs_keyword_13" = "amante";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Día";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ ¡Descárgalo ahora GRATIS!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Miembro";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "Guardado sin la cámara";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Todas";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "Una aplicación, pero contiene muchas aplicaciones de fotos.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Se produjo un error al recibir anuncios.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "Eliminando objetivos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "Haz todo con fotos";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Descargue ahora GRATIS en %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Descargar";

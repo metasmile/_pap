@@ -120,7 +120,7 @@
 "cs_keyword_13" = "מְאַהֵב";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ חבר";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "ללא שם: נשמר ללא מצלמה";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "את כל";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "App, אבל מכיל יישומים רבים צילום.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "אירעה שגיאה בעת קבלת מודעות.";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "מחיקת יעדים";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "לעשות הכל עם תמונות.";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "הורד כעת בחינם ב- %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "הורד";

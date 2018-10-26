@@ -84,7 +84,7 @@
 
 /* Generated from genl10n: AppCenter.Charge.swift, Charge.Types.Trialable.swift */
 "%@ Day" = "%@ Day";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: batch.Strings.swift */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ Member";
@@ -152,7 +152,7 @@
 "All not taken with Camera" = "All not taken with Camera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "All" = "All";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: batch.Strings.swift */
 "An App, But Contains Many Batch Photos." = "An App, But Contains Many Batch Photos.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
@@ -246,9 +246,9 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: batch.Strings.swift */
 "Do Everything With Photos." = "Do Everything With Photos.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: batch.Strings.swift */
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Download";

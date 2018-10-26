@@ -66,7 +66,7 @@
 "cs_keyword_13" = "情人";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
-/* Generated from genl10n: pap.Strings.swift#50 */
+/* Generated from genl10n: batch.Strings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@會員";
@@ -134,7 +134,7 @@
 "All not taken with Camera" = "沒有相機保存";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#182 */
 "All" = "全體";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "一個app裡存在的多種照片apps。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "接收廣告時出錯。";
@@ -228,9 +228,9 @@
 "Deleting Targets" = "刪除目標";
 /* Generated from genl10n: GIFMaker.BApp.swift#558 */
 "Direction" = "方向";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "用照片做一切。";
-/* Generated from genl10n: pap.Strings.swift#54 */
+/* Generated from genl10n: batch.Strings.swift#54 */
 "Download now for FREE at %@" = "立即免費下載%@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "下載";

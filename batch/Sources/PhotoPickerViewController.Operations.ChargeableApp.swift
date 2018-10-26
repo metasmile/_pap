@@ -191,7 +191,7 @@ extension PhotoPickerViewController{
         option.options = options
 
         if AppCenter.default.openApp(identifier:ShopApp.info.identifier, options: option){
-            papLog.charge.opened()
+            batchLog.charge.opened()
         }
     }
 

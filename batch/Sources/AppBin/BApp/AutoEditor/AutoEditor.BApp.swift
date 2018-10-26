@@ -278,7 +278,7 @@ private protocol AutoEditorAppDefaults: AppDefaults{
 
 extension Defaults: AutoEditorAppDefaults {
     fileprivate var autoAdjustmentOptions: [String:Bool] {
-        set{ set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
+        set{ set(newValue); batchLog.app.defaults.log(value:String(describing: newValue)) }
         get{ return get(or: AutoEditorApp.AutoAdjustmentsKeys.dictionary { ($0.rawValue, true) } ) }
     }
 }

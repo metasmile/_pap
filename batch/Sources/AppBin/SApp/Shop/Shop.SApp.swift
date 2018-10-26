@@ -265,7 +265,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "%@ Membership".localizedFormatted(papStrings.name)
+                , label: "%@ Membership".localizedFormatted(batchStrings.name)
                 , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)

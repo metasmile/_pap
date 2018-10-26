@@ -120,7 +120,7 @@
 "cs_keyword_13" = "коханець";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: mmc.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Завантажити зараз БЕЗКОШТОВНО!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ може бути знайдений";
@@ -178,7 +178,7 @@
 "Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Виявлення поточних видимих ​​елементів ...";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Завантаження ...";
@@ -192,9 +192,9 @@
 "Flight Number" = "Номер рейсу";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Отримати весь текст";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "Отримайте інформацію навколо вас.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "Отримати текст, а потім зробити щось.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Отримати текст";

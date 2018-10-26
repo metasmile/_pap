@@ -120,7 +120,7 @@
 "cs_keyword_13" = "คนรัก";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "%@ Member" = "%@ สมาชิก";
@@ -188,7 +188,7 @@
 "All not taken with Camera" = "บันทึกโดยไม่มีกล้อง";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: pap.Strings.swift#33 */
+/* Generated from genl10n: batch.Strings.swift#33 */
 "An App, But Contains Many Batch Photos." = "แอปพลิเคชัน แต่ประกอบด้วยแอปภาพถ่ายจำนวนมาก";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "เกิดข้อผิดพลาดขณะรับโฆษณา";
@@ -282,9 +282,9 @@
 "Deleting Targets" = "การลบเป้าหมาย";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
-/* Generated from genl10n: pap.Strings.swift#25 */
+/* Generated from genl10n: batch.Strings.swift#25 */
 "Do Everything With Photos." = "ทำทุกอย่างด้วยภาพถ่าย";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "ดาวน์โหลดเดี๋ยวนี้ฟรีที่ %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "ดาวน์โหลด";

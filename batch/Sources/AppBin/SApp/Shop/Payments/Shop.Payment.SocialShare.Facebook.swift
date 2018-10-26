@@ -21,8 +21,8 @@ private enum FBSharePublicKeys:String{
     case pageId = "616758765335887"
     case appId = "443161082811578"
 
-    case ogType = "pap:share"
-    case ogActionType = "pap:fbsharepayment"
+    case ogType = "batch:share"
+    case ogActionType = "batch:fbsharepayment"
 }
 
 
@@ -99,13 +99,13 @@ class FBShareTypeDownloadUrlPayment: FBSDKSharingDelegatePrototype, PreparablePa
 
         //link
         let content = FBSDKShareLinkContent()
-        content.quote = papStrings.share.messageFirst
+        content.quote = batchStrings.share.messageFirst
 
         //Common
-        content.contentURL = papStrings.download.url.asURL
+        content.contentURL = batchStrings.download.url.asURL
         content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
         content.pageID = FBSharePublicKeys.pageId.rawValue
-        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
+        content.hashtag = FBSDKHashtag(string: "#GetBatchPhotos")
 
         return content
     }
@@ -160,7 +160,7 @@ class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Relativ
 
     static var isEnable: Bool {
         if let latestPaidDate = defaults.latestPaidDate{
-            return Date().timeIntervalSince(latestPaidDate) > papTimeInterval.ofFBShareTypeDownloadMessagerPaymentLatestPaid
+            return Date().timeIntervalSince(latestPaidDate) > batchTimeInterval.ofFBShareTypeDownloadMessagerPaymentLatestPaid
         }
 
         return autoreleasepool {

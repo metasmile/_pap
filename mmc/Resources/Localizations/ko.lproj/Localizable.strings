@@ -120,7 +120,7 @@
 "cs_keyword_13" = "연인";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
-/* Generated from genl10n: pap.Strings.swift#41 */
+/* Generated from genl10n: mmc.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ 지금 무료로 다운로드하십시오!";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@을 (를) 찾을 수 있습니다.";
@@ -178,7 +178,7 @@
 "Detecting ... %@ " = "감지 중 ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "현재 표시되는 항목 감지 중 ...";
-/* Generated from genl10n: pap.Strings.swift#45 */
+/* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "%@에서 지금 무료로 다운로드하십시오.";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "다운로드 중 ...";
@@ -192,9 +192,9 @@
 "Flight Number" = "항공편 번호";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "모든 텍스트 가져 오기";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Every Info Around You." = "당신 주변의 모든 정보를 얻으십시오.";
-/* Generated from genl10n: pap.Strings.swift */
+/* Generated from genl10n: mmc.Strings.swift */
 "Get Text And Then Do Something." = "텍스트를 얻은 다음, 뭔가를하십시오.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "텍스트 가져 오기";

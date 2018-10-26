@@ -12,7 +12,7 @@ import Foundation
 //INFO: Common message only for pap.
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
-struct papStrings {
+struct mmcStrings {
     static var appStoreId:String{
         return "1402594534"
     }

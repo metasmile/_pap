@@ -21,7 +21,7 @@ struct SNSEngagementPayment: RelativePayable {
 
     static var isEnable: Bool {
         if let latestPaidDate = defaults.latestPaidDate{
-            return Date().timeIntervalSince(latestPaidDate) > papTimeInterval.ofSNSEngagementPaymentLatestPaid
+            return Date().timeIntervalSince(latestPaidDate) > batchTimeInterval.ofSNSEngagementPaymentLatestPaid
         }
         return true
     }

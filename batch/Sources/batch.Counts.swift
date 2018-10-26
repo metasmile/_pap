@@ -7,7 +7,7 @@ import Foundation
 
 //INFO: com.stells.batch-exclusive time interval policies in strict seconds.
 //CRITICAL
-struct papCounts{
+struct batchCounts {
 
     static var defaultAllowedOfflineAdsSkipCountInCurrentRuntime:Int{
 #if DEBUG

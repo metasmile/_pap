@@ -9,7 +9,7 @@ import PropertyKit
 
 //INFO: It is recommended that inserted into only UI actions.
 
-struct papLog: Loggable {
+struct batchLog: Loggable {
     private static var kOption:String{ return #function }
     private static var kValue:String{ return #function }
 
