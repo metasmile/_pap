@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-634" y="188"/>
         </scene>
-        <!--Photo Apps-->
+        <!--Batch Photos-->
         <scene sceneID="f5k-qW-NGj">
             <objects>
                 <viewController storyboardIdentifier="PhotoPickerViewController" id="lkB-fw-5jX" customClass="PhotoPickerViewController" customModule="pap" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="cFY-UM-i1G"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Photo Apps" largeTitleDisplayMode="never" id="nKx-xc-xBf"/>
+                    <navigationItem key="navigationItem" title="Batch Photos" largeTitleDisplayMode="never" id="nKx-xc-xBf"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="Fza-uH-EMZ" id="25a-Kq-na0"/>
                     </connections>
@@ -133,7 +133,7 @@
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="r3c-Ti-4C4" secondAttribute="height" multiplier="1:1" id="hBO-Co-UAb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Photo Apps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Batch Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-6Q-hxt">
                                                 <rect key="frame" x="52" y="0.0" width="95" height="44"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>

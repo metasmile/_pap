@@ -7,35 +7,35 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1050525772906-u1j7s0ir7hif7cerc7t4uao75leugorg.apps.googleusercontent.com</string>
+	<string>312167608473-8shm8l0gn8qgu696ccvighdl6e4re3ts.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1050525772906-u1j7s0ir7hif7cerc7t4uao75leugorg</string>
+	<string>com.googleusercontent.apps.312167608473-8shm8l0gn8qgu696ccvighdl6e4re3ts</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAzf5_b5mkukeNdgURoejtqfJF72DSGOKM</string>
+	<string>AIzaSyC1S_J0DlfkwngCrRV6xQ0Mr1UQKj1pxyc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1050525772906</string>
+	<string>312167608473</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.stells.batch</string>
 	<key>PROJECT_ID</key>
-	<string>photo-apps-e7b88</string>
+	<string>batch-photos</string>
 	<key>STORAGE_BUCKET</key>
-	<string>photo-apps-e7b88.appspot.com</string>
+	<string>batch-photos.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1050525772906:ios:813ef82f3b35d83a</string>
+	<string>1:312167608473:ios:016849b168ea666a</string>
 	<key>DATABASE_URL</key>
-	<string>https://photo-apps-e7b88.firebaseio.com</string>
+	<string>https://batch-photos.firebaseio.com</string>
 	<key>ADMOB_APP_ID</key>
 	<string>ca-app-pub-3029312734389414~7736928915</string>
 </dict>

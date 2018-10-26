@@ -18,7 +18,7 @@ struct papStrings {
     }
 
     static var name:String{
-        return Bundle.main.displayName ?? "Photo Apps"
+        return Bundle.main.displayName ?? "Batch Photos"
     }
 
     static var title: String{
@@ -30,7 +30,7 @@ struct papStrings {
     }
 
     static var tagline: String{
-        return "An App, But Contains Many Photo Apps.".localized
+        return "An App, But Contains Many Batch Photos.".localized
     }
     
     static var nameTitleTagLine:String{

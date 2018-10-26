@@ -109,25 +109,25 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1 Year Membership" = "1 Year Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Apps" = "1-Month Use of All and New Apps";
+"1-Month Use of All and New Tools" = "1-Month Use of All and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "1-Month Use of Main and New Apps";
+"1-Month Use of Main and New Tools" = "1-Month Use of Main and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "1-Year Use of All and New Apps";
+"1-Year Use of All and New Tools" = "1-Year Use of All and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1-Year Use of Main And New Apps";
+"1-Year Use of Main And New Tools" = "1-Year Use of Main And New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "14-Day Use of Main and New Apps";
+"14-Day Use of Main and New Tools" = "14-Day Use of Main and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "3-Month Use of Main And New Apps";
+"3-Month Use of Main And New Tools" = "3-Month Use of Main And New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months Membership" = "6 Months Membership";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Apps" = "6-Month Use of All and New Apps";
+"6-Month Use of All and New Tools" = "6-Month Use of All and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "6-Month Use of Main And New Apps";
+"6-Month Use of Main And New Tools" = "6-Month Use of Main And New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "7-Day Use of Main and New Apps";
+"7-Day Use of Main and New Tools" = "7-Day Use of Main and New Tools";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "A Licence Is Required.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
@@ -153,7 +153,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift */
-"An App, But Contains Many Photo Apps." = "An App, But Contains Many Photo Apps.";
+"An App, But Contains Many Batch Photos." = "An App, But Contains Many Batch Photos.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -261,7 +261,7 @@
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Engage Now And Repeatedly Recharge Main Apps License.";
+"Engage Now And Repeatedly Recharge Main Tools License." = "Engage Now And Repeatedly Recharge Main Tools License.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -343,15 +343,15 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Apps License" = "Main Apps License";
+"Main Tools License" = "Main Tools License";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Main Apps Use of %@ Day" = "Main Apps Use of %@ Day";
+"Main Tools Use of %@ Day" = "Main Tools Use of %@ Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
 /* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Membership or Main Apps License";
+"Membership or Main Tools License" = "Membership or Main Tools License";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -372,10 +372,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "On Standby" = "On Standby";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Apps" = "Ongoing Use of All and New Apps";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Ongoing Use of All and New Main Apps";
+"Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Ongoing Use of All and New Tools";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open %@" = "Open %@";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -425,7 +425,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Permanent Use of All and New Apps" = "Permanent Use of All and New Apps";
+"Permanent Use of All and New Tools" = "Permanent Use of All and New Tools";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -445,7 +445,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Prices Are Including Every New Apps and Updates, also it will not renew automatically.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Prices Are Including Every New Tools and Updates, also it will not renew automatically.";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Privacy Policy" = "Privacy Policy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -523,8 +523,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Send" = "Send";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Apps License" = "Settings for Main Apps License";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, Converter.BApp.swift */
+"Settings for Main Tools License" = "Settings for Main Tools License";
+/* Generated from genl10n: Shop.SApp.swift, ExifGhost.AppDockContent.swift, Converter.BApp.swift */
 "Settings" = "Settings";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Share This App";
@@ -567,7 +567,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Staying With Us";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Stories Behind the Apps";
+"Stories Behind the Batch Tools" = "Stories Behind the Batch Tools";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */

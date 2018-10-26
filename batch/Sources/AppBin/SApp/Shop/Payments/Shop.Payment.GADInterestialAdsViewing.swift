@@ -100,7 +100,7 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialT
             = papCounts.defaultAllowedOfflineAdsSkipCountInCurrentRuntime
 
     fileprivate static var offlineMessage: String {
-        let menu = "Main Apps License".localized
+        let menu = "Main Tools License".localized
         let item = "Activate Ads".localized
         let appName = ShopApp.info.displayName
         let msg = "Please check and restore your internet connectivity, or deactivate Ads.".localized
