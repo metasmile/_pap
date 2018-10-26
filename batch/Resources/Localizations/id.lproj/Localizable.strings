@@ -172,10 +172,6 @@
 "Access Failed." = "Akses Gagal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Akses Diberikan.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "Tindakan";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "Tindakan";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Aktifkan Iklan";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "Alamat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "Semua kontak berhasil disimpan.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Disimpan Tanpa Kamera";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "Semua proses yang Anda konfirmasikan telah selesai.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Semua";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Tidak bisa kembali. Semua item yang dipilih belum diedit.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Capture Actions To Do.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Tangkap Semua Teks.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "Pilih Nomor Telepon Untuk Memanggil";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Pilih Suatu Tindakan";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Pembersih";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Papan klip kosong";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Papan klip";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Warna Dan Pengingat untuk Setiap Fase";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Hubungi Kami Sekarang";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "Kontak";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Konversikan Live Photo terakhir menjadi GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "Konverter";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Salinan";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "Tidak dapat mendeteksi kontak apa pun.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "Tidak dapat mendeteksi nomor telepon apa pun.";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "Tidak dapat mendeteksi teks apa pun.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Menyalin Foto ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Tidak dapat mendeteksi apa pun.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "Pangkas agar Sesuai";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Saat ini, model pengenalan teks AI kami hanya tersedia untuk Alfanumerik dan beberapa karakter khusus, dan itu bisa terpengaruh oleh bahasa sistem saat ini.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Adat";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tanggal";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Menghapus Target";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "Mendeteksi ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Lakukan Semuanya Dengan Foto.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Unduh sekarang GRATIS di %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "Unduh";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Mengunduh ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "Ekspor";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filter";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "Find";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder memungkinkan mengekstraksi setiap informasi yang bermakna seperti nomor telepon, alamat, tanggal atau URL dari foto Anda, dan kemudian menelepon, membuka peta atau menavigasi situs web bahkan mencari penerbangan. Anda juga dapat menyimpan semuanya sebagai teks mentah.";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "penemu";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "Menemukan Kontak ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Senter";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "Penggunaan Gratis Dan Semua Pembaruan Baru";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Penggunaan Gratis";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Dari Clipboard Jarak Jauh";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker memungkinkan untuk membuat gambar GIF dengan mudah dan cepat dari Foto atau Foto Live dengan berbagai opsi! Dan kemudian Anda dapat membuka aplikasi konverter untuk mengonversikan ke dalam segala sesuatu seperti Live Photos atau Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "Dapatkan Teks";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Berikan Rating";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "Berikan Saya Nomor Telepon Itu.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program Lisensi Pengguna Tamu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "Menyembunyikan Item yang Dipilih ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kualitas gambar";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "Gambar";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "Gambar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "Penyelidikan";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Ini Menampilkan Rasio Periode Akses Aplikasi yang Tersisa.";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "Itu tidak bisa disimpan.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Tampaknya kode tidak valid. Silakan Coba lagi.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ini membutuhkan izin untuk mengakses kontak Anda. Harap izinkan Kontak di Pengaturan iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Item";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "Join In %@ Program";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Pemandangan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Pemberitahuan Performa Terbatas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "Melakukan Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "Keanggotaan atau Lisensi Aplikasi Utama";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "Acara baru";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Nomor baru";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "Nomor Telepon Baru";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Sekarang, ambil setiap informasi yang berarti dari adegan saat ini di sekitar Anda melalui kamera. Kemudian segera melakukan panggilan, buka dengan peta, pindai kode batang, atau buka situs web bahkan mencari penerbangan.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "Jumlah";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Siaga";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Buka Google Maps";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "Penggunaan Permanen Dan Semua Pembaruan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "Penggunaan Permanen Semua Aplikasi dan Baru";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nomor telepon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "Memutar";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Rotasi";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "Simpan Semua Nomor Telepon";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Simpan Kontak";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "Pilih Format Untuk Mengkonversi";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Pilih Foto Untuk Menghapus.";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "Pilih Foto Untuk Menemukan Sesuatu.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "Pilih Foto yang Ingin Anda Tarik Nomor Telepon!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Terpilih";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Ukuran";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "Beberapa kontak disimpan, tetapi beberapa orang tidak.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Program Lisensi Tamu Khusus";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "Menstabilkan Produk yang Dipilih ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Mulai";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "Mulai Menemukan ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Memulai Proses ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Mulai memeriksa foto yang diedit ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Mulai menyalin foto ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tetap Bersama Kami";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "Ambil GIF Dengan Foto Langsung.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "Mengambil foto";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "Ambil bagian";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Bawaan";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Ketuk Untuk Mendeteksi";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Ditargetkan";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "Terjemahkan Sekarang";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Koreksi Terjemahan";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "Mengetik";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tidak dapat memverifikasi kode saat ini. Silakan coba nanti.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "Kunjungi Halaman Sosial";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Mengunjungi";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "Menunggu Untuk Memilih ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */

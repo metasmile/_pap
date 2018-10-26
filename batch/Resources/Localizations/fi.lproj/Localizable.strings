@@ -172,10 +172,6 @@
 "Access Failed." = "Käyttö epäonnistui.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pääsy myönnetty.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "Toiminta";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "Toimet";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Aktivoi mainokset";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "Osoite";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albumit";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "Kaikki yhteystiedot tallennettiin onnistuneesti.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Tallennettu ilman kameraa";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "Kaikki vahvistetut prosessit ovat valmiit.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ei voi palata. Kaikki valitut kohteet eivät ole muokattuja.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Tehdä tehtäviä.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Kaappaa kaikki teksti.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "Valitse puhelinnumero puheluun";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Valitse Toimi";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "siivooja";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Leikepöytä on tyhjä";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "leikepöydälle";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Väri ja muistutus jokaiselle vaiheelle";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Ota yhteyttä nyt";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "Yhteydet";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Muunna viimeinen Live Photo GIF -muotoon.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "Muunnin";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Kopio";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "Yhteyttä ei löytynyt.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "Puhelinnumeroa ei löytynyt.";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "Tekstin havaitsemista ei voitu havaita.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Valokuvien kopiointi ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Ei löytynyt mitään.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "Rajaa sopivaksi";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Tällä hetkellä AI-tekstintunnistusmallimme on käytettävissä vain aakkosnumeerisille ja tietyille erikoismerkille, ja nykyinen järjestelmäkieli saattaa vaikuttaa siihen.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Treffi";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Kohdeiden poistaminen";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "Havaitsemalla ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Tee kaikki valokuvilla.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Lataa nyt ILMAISEKSI osoitteessa %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "ladata";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Lataamista ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Suodattimet";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "löytö";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finderin avulla voit poimia kaikki mielekkäitä tietoja, kuten puhelinnumeroita, osoitteita, päivämääriä tai URL-osoitteita valokuvista, ja sitten soittaa, avata karttoja tai navigoida verkkosivustoja jopa etsiä lentoja. Voit myös tallentaa ne raakateksteinä.";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "löytäjä";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "Yhteystietojen etsiminen ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Taskulamppu";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "Ilmainen käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Vapaa käyttö";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Etäliitevälilehdeltä";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker mahdollistaa helposti ja nopeasti GIF-kuvat valokuvista tai live-valokuvista, joissa on useita vaihtoehtoja! Ja sitten voit avata muunnossovelluksen muunnettavaksi kaiken, kuten Live-valokuvia tai videoita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "Hanki teksti";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Anna luokitus";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "Anna minulle se puhelinnumero.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Vieras-käyttäjän käyttöoikeusohjelma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "Valittujen kohteiden piilottaminen ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kuvanlaatu";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "Kuva";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "kuvat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "tiedustelu";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Se näyttää jäljellä olevien ilmaisten sovellusten käyttöjaksojen suhteen.";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "Sitä ei voitu tallentaa.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Se näyttää virheelliseltä koodilta. Yritä uudelleen.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Tuotteet";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "Liity %@ ohjelmaan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Maisema";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Rajoitettu suorituskykyilmoitus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "Jäsenyyden tai tärkein sovelluslisenssi";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "Uusi tapahtuma";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Uusi numero";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "Uudet puhelinnumerot";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Voit nyt kaapata kaikki merkitykselliset tiedot nykyisestä kohtauksesta, joka ympärilläsi on kameran kautta. Sitten heti soita, avaa karttoja, skannaa viivakoodeja tai avoimia verkkosivustoja jopa etsiä lentoja.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "Määrä";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Valmiustilassa";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Avaa Google Maps";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "Pysyvä käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "Kaikkien sovellusten pysyvä käyttö ja uusi";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "Puhelinsoitot";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "Kiertää";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Kierto";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "Tallenna kaikki puhelinnumerot";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Tallenna yhteystietoja";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "Valitse Muotoon muunnettava";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Valitse valokuvien poistaminen.";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "Valokuvien valitseminen jotain löytämiseksi.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "Valitse valokuvat, jotka haluat napata puhelinnumerot!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "valittu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "Jotkut yhteystiedot tallentuivat, mutta jotkut eivät olleet.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Special Guest Licence -ohjelma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "Valittujen kohteiden vakauttaminen ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "alkaa";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "Aloittaminen löytää ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prosessin käynnistäminen ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Muokatut valokuvat tarkistetaan ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Valokuvien kopiointi alkaa ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pysy kanssamme";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "Ota GIF Live -kuvana.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "Ottaa valokuva";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "Ottaa osaa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Otettu sisäänrakennetulla kameralla";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Napauta tunnistaaksesi";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "kohdennettu";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "Käännä nyt";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Käännöskorjaus";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "Tyyppi";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL-";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Tällä hetkellä koodia ei voi tarkistaa. Yritä myöhemmin.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "Siirry sosiaalisiin sivuihin";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Vierailla";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "Odotetaan valitsemaan ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Loimi";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */

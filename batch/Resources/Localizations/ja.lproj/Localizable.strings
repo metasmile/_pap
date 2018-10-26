@@ -172,10 +172,6 @@
 "Access Failed." = "アクセスに失敗しました。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "アクション";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "アクション";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "広告をアクティブにする";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "住所";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "すべての連絡先が正常に保存されました。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "カメラで撮影していないすべての画像";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "あなたが確認したすべてのプロセスを終了しました。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "すべて";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "カメラ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "目的のアクションをキャプチャする。";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "すべてのテキストをキャプチャします。";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "電話する電話番号を選択";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "アクションを選択";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "クリーナー";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "クリップボードが空です";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "クリップボード";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "お問い合わせ";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "連絡先";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "最後のライブ写真をGIFに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "コンバータ";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "コピー";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "連絡先を検出できませんでした。";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "電話番号を検出できませんでした。";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "テキストを検出できませんでした。";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "写真のコピー中...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "何も検出できませんでした。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "ぴったり切り取る";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "クロップ";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字のみ使用できます。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "カスタム";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "日付";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "ターゲットの削除";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "写真ですべてを行う。";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "ダウンロード";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "ダウンロード中...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "輸出する";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "フィルタ";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "検索";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finderを使用すると、写真から電話番号、住所、日付、URLなどの意味のある情報をすべて抽出し、電話をかけたり、地図を開いたり、ウェブサイトを検索することができます。更にすべて原文として保存することもできます。";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "ファインダ";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "連絡先の検索... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "フラッシュ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "無料で使用し、すべての新しいアップデート";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "無料使用";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "リモートクリップボードから";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIFメーカーは、様々なオプションで写真やライブ写真からGIF画像を簡単かつ迅速に作成できます。そしてコンバータアプリを開いて、ライブ写真や動画に変換することができます。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "テキストを取得する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "その電話番号を教えてください。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "ゲストユーザーライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "選択アイテムを非表示にします...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "画質";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "画像";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "イメージ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "問い合わせ";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "保存することができませんでした。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "それは無効なコードに見えます。もう一度お試しください。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "あなたの連絡先にアクセスするための許可が必要です。 iOSの設定で連絡先を許可してください。";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "アイテム";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "%@プログラムに参加";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "風景";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "限定パフォーマンス通知";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "メンバーシップまたはメインAppsライセンス";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "メモカム";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修正";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "新しいイベント";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "あたらしい番号";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "新しい電話番号";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "クロップなし";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ループなし";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "現在、カメラを介してあなたの周りの現在のシーンから意味のある情報をすべてキャプチャします。その後、すぐに電話をかける、地図で開く、バーコードをスキャンする、ウェブサイトを検索するなどの方法があります。";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "数";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "待機";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Googleマップを開く";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "恒久的な使用とすべての新しいアップデート";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "すべてのアプリケーションと新規の恒久的な使用";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "電話";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "電話番号";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "ローテート";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "ローテート";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "すべての電話番号を保存";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "連絡先を保存";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "変換する書式を選択";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "削除する写真を選択";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "写真を選択して何かを検索する。";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "写真を選択して電話番号を手に入れよう！";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "選択されました。";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "類似性";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "サイズ";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "一部の連絡先は保存されましたが、一部は保存されませんでした。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "特別ゲストライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "選択アイテムの安定化をしています...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "開始";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "検索開始中...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "プロセスの開始中...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "編集した写真のチェックを開始しています...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "写真のコピーを開始しています...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "ライブ写真でGIFを撮る";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "写真を撮る";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "テイクパート";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "タップして検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "今すぐ翻訳する";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻訳訂正";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "タイプ";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "ソーシャルページを訪問する";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "訪問";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "選択するのを待っています...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "ワープ";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */

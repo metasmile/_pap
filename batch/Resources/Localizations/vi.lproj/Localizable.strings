@@ -172,10 +172,6 @@
 "Access Failed." = "Không truy cập được.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Chấp thuận quyền truy cập.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "Hoạt động";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "Hành động";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Kích hoạt quảng cáo";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "Địa chỉ nhà";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "Tất cả địa chỉ liên hệ đã được lưu thành công.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Đã lưu mà không có máy ảnh";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "Tất cả các quy trình bạn đã xác nhận đã hoàn tất.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Chụp hành động để thực hiện.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Chụp tất cả văn bản.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "Chọn số điện thoại để gọi";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Chọn một hành động";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Sạch hơn";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Clipboard trống";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Màu sắc và nhắc nhở cho từng giai đoạn";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Liên lạc với chúng tôi ngay";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "Danh bạ";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Chuyển đổi ảnh Live thành GIF cuối cùng.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "Chuyển đổi";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "Không thể phát hiện bất kỳ liên hệ nào.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "Không thể phát hiện bất kỳ số điện thoại nào.";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "Không thể phát hiện bất kỳ văn bản nào.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Đang sao chép ảnh ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Không thể phát hiện bất cứ điều gì.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "Cắt để phù hợp";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt và nó có thể bị ảnh hưởng bởi ngôn ngữ hệ thống hiện tại.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Tập quán";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Ngày";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Xóa mục tiêu";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "Đang phát hiện ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Làm mọi thứ với hình ảnh.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "Tải về";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Đang tải xuống ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "Xuất khẩu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "Find";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Trình tìm kiếm cho phép trích xuất mọi thông tin có ý nghĩa như số điện thoại, địa chỉ, ngày hoặc URL từ ảnh của bạn và sau đó gọi, mở bản đồ hoặc điều hướng trang web ngay cả khi tìm kiếm chuyến bay. Bạn cũng có thể lưu tất cả chúng dưới dạng văn bản thô.";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "Finder";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "Đang tìm Danh bạ ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Đèn pin";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "Sử dụng miễn phí và tất cả cập nhật mới";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Sử dụng miễn phí";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Từ Clipboard Từ xa";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker cho phép tạo ảnh GIF dễ dàng và nhanh chóng từ Ảnh hoặc Live Photos với nhiều tùy chọn khác nhau! Và sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "Nhận văn bản";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "Cho tôi số điện thoại đó.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Chương trình cấp phép người dùng dành cho khách";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "Đang ẩn các mục đã chọn ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Chất lượng hình ảnh";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "Hình ảnh";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "Hình ảnh";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "Yêu cầu";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Nó hiển thị một tỷ lệ thời gian truy cập ứng dụng miễn phí còn lại.";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "Nó không thể được lưu trữ.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Có vẻ mã không hợp lệ. Vui lòng thử lại.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Mặt hàng";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "Tham gia chương trình %@";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Bố trí";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Thông báo về hiệu suất giới hạn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "Thực hiện cuộc gọi";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "Giấy phép thành viên hoặc ứng dụng chính";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Sửa đổi";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "Sự kiện mới";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Số mới";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "Số điện thoại mới";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Giờ hãy nắm bắt mọi thông tin có ý nghĩa từ cảnh hiện tại xung quanh bạn qua máy ảnh. Sau đó, thực hiện cuộc gọi ngay lập tức, mở bằng bản đồ, quét mã vạch hoặc mở các trang web ngay cả các chuyến bay tìm kiếm.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "Con số";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Mở Google Maps";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "Sử dụng vĩnh viễn và tất cả cập nhật mới";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "Sử dụng vĩnh viễn tất cả ứng dụng và mới";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Số điện thoại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "Quay";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Vòng xoay";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "Lưu tất cả số điện thoại";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Lưu liên hệ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "Chọn định dạng để chuyển đổi";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Chọn Ảnh để Xóa.";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "Chọn ảnh để tìm nội dung nào đó.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "Chọn hình ảnh bạn muốn để lấy số điện thoại!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Đã chọn";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "Tương tự";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "Một số địa chỉ liên lạc đã được lưu, nhưng ai đó thì không.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Chương trình giấy phép khách mời đặc biệt";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "Đang ổn định các mục đã chọn ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Khởi đầu";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "Bắt đầu tìm ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Đang bắt đầu quá trình ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Đang bắt đầu sao chép ảnh ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ở lại với chúng tôi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "Chụp ảnh GIF bằng Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "Chụp một tấm";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "Tham gia";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Chụp với máy ảnh tích hợp";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Nhấn để phát hiện";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "Dịch ngay bây giờ";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Chỉnh sửa bản dịch";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "Kiểu";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Không thể xác minh mã hiện tại. Vui lòng thử lại sau.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "Truy cập trang xã hội";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Chuyến thăm";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "Đang chờ chọn ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */

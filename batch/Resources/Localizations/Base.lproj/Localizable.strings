@@ -203,6 +203,8 @@
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Clipboard is empty";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
@@ -224,6 +226,8 @@
 "Converter" = "Converter";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Clipboard.BApp.swift */
 "Copy" = "Copy";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Copying Photos...";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Could not detect anything." = "Could not detect anything.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -246,6 +250,8 @@
 "Do Everything With Photos." = "Do Everything With Photos.";
 /* Generated from genl10n: pap.Strings.swift */
 "Download now for FREE at %@" = "Download now for FREE at %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "Download";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -276,6 +282,8 @@
 "Free Use And All New Updates" = "Free Use And All New Updates";
 /* Generated from genl10n: Shop.Payment.System.swift */
 "Free Use" = "Free Use";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "From Remote Clipboard";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -304,6 +312,8 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFactory.AppDockContent.swift */
 "Image Quality" = "Image Quality";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "Image";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -486,7 +496,7 @@
 "Save Contacts" = "Save Contacts";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Save and Share";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Clipboard.BApp.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
@@ -552,6 +562,8 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Starting to copy photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Staying With Us";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -578,6 +590,8 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Terms of Use" = "Terms of Use";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -600,6 +614,8 @@
 "Translate Now" = "Translate Now";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
 /* Generated from genl10n: Shop.SApp.swift */

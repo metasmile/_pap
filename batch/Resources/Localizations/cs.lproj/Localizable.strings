@@ -172,10 +172,6 @@
 "Access Failed." = "Přístup se nezdařil.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Přístup umožněn.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "Akce";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "Akce";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Aktivujte reklamy";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "Adresa";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumy";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "Všechny kontakty byly úspěšně uloženy.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Uloženo bez fotoaparátu";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "Všechny procesy, které jste potvrdili, byly dokončeny.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "Fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Capture akce dělat.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Zachytit celý text.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "Zvolte telefonní číslo, které chcete zavolat";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Zvolte akci";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Čistič";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Schránka je prázdná";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Schránka";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Barva a připomínka pro každou fázi";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Kontaktujte nás";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "Kontakty";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Převede poslední fotku Live do GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "Konvertor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "Nelze zjistit žádný kontakt.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "Nelze nalézt žádné telefonní číslo.";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "Nelze nalézt žádný text.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Kopírování fotografií ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Nelze zjistit nic.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V současné době je náš model rozpoznávání textu AI dostupný pouze pro alfanumerické a některé speciální znaky a mohl by být ovlivněn současným systémovým jazykem.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Zvyk";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Smazání cílů";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "Zjišťování ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Dělat vše s fotografiemi.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Stáhnout zdarma na %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "Stažení";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "Vývozní";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtry";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "Nalézt";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Vyhledávač umožňuje vyjímat z vašich fotografií veškeré smysluplné informace, jako jsou telefonní čísla, adresy, data nebo adresy URL, a poté volat, otevřít mapy nebo navigovat na webové stránky, a dokonce i vyhledat lety. Můžete je také uložit jako surový text.";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "Nálezce";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "Hledání kontaktů ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Svítilna";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "Volné použití a všechny nové aktualizace";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Volné použití";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Ze vzdálené schránky";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker umožňuje snadno a rychle vytvářet obrázky GIF z fotografií nebo živých fotografií s různými možnostmi! Potom můžete aplikaci konvertoru otevřít a převést na vše, jako jsou například živé fotografie nebo videa.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "Získat text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "Dej mi to telefonní číslo.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "Skrytí vybraných položek ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvalita obrazu";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "obraz";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "Snímky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "Poptávka";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Zobrazuje poměr zbývajících bezplatných období přístupu k aplikacím.";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "Nemohl být uložen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Vypadá to jako neplatný kód. Prosím zkuste to znovu.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Položky";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "Připojte se do %@ programu";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Rozvržení";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Oznámení o omezené výkonnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "Volání";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "Členství nebo hlavní aplikace Apps";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modifikovat";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "Nová událost";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Nové číslo";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "Nové telefonní čísla";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Žádná smyčka";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Nyní zachyťte všechny smysluplné informace z aktuální scény kolem vás prostřednictvím kamery. Pak okamžitě zavolejte, otevřete s mapami, skenujte čárové kódy nebo otevřete webové stránky, a dokonce vyhledáte lety.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "Číslo";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostním režimu";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Otevřete Mapy Google";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "Trvalé použití a všechny nové aktualizace";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "Trvalé používání všech aplikací a nové";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "Telefonní hovory";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "Točit se";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Otáčení";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "Uložit všechna telefonní čísla";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Uložit kontakty";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "Vyberte formát pro převedení";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Vyberte fotky k odstranění.";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "Vyberte fotky, chcete-li něco najít.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "Vyberte fotky, které chcete chytit telefonní čísla!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Vybraný";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "Podobnost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "Některé kontakty byly uloženy, ale někteří nebyli.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Zvláštní program pro hosty";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "Stabilizace vybraných položek ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "Začínáme najít ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Spuštění procesu ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Začátek kopírování fotografií ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pobyt s námi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "Take GIF s živou fotkou.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "Vyfoť";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "Zúčastnit se";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Vestavěný fotoaparát";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Klepnutím na položku Rozpoznat";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Cílené";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "Přeložit nyní";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Korekce překladu";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "Typ";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálně nelze ověřit kód. Zkuste to prosím později.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "Navštivte sociální stránky";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Návštěva";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "Čekání na výběr ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */

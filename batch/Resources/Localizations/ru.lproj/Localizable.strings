@@ -172,10 +172,6 @@
 "Access Failed." = "Ошибка доступа.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Доступ разрешен.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "действие";
-/* Generated from genl10n: Finder.BApp.swift#1227 */
-"Actions" = "действия";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Активировать рекламу";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -188,12 +184,8 @@
 "Address" = "Адрес";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Альбомы";
-/* Generated from genl10n: Finder.BApp.swift#215 */
-"All contacts were successfully saved." = "Все контакты были успешно сохранены.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Сохранено без камеры";
-/* Generated from genl10n: Finder.BApp.swift#306 */
-"All processes you have confirmed were finished." = "Все процессы, которые вы подтвердили, были закончены.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Все";
 /* Generated from genl10n: pap.Strings.swift#33 */
@@ -236,12 +228,6 @@
 "Camera" = "камера";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не удается вернуться. Все выбранные элементы не отредактированы.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Захват действий.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Захват всего текста.";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Choose A Phone Number To Call" = "Выберите номер телефона для вызова";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Выберите действие";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -253,13 +239,13 @@
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
 "Cleaner" = "Очиститель";
 /* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Буфер обмена пуст";
+/* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "буфер обмена";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Цвет и напоминание для каждой фазы";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Свяжитесь с нами";
-/* Generated from genl10n: Finder.BApp.swift#1228 */
-"Contacts" = "контакты";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Преобразование последнего Live Photo в GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -276,12 +262,8 @@
 "Converter" = "конвертер";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "копия";
-/* Generated from genl10n: Finder.BApp.swift#232 */
-"Could not detect any contact." = "Не удалось обнаружить контакт.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#226 */
-"Could not detect any phone number." = "Не удалось обнаружить номер телефона.";
-/* Generated from genl10n: Finder.BApp.swift#218 */
-"Could not detect any text." = "Не удалось обнаружить какой-либо текст.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Копирование фотографий ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Не удалось обнаружить ничего.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -292,22 +274,20 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
-/* Generated from genl10n: Finder.BApp.swift#1288 */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В настоящее время наша модель распознавания текста AI доступна только для буквенно-цифровых и некоторых специальных символов, и на нее может влиять текущий системный язык.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Удаление целей";
-/* Generated from genl10n: Finder.BApp.swift#116 */
-"Detecting ... %@ " = "Обнаружение ... %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "направление";
 /* Generated from genl10n: pap.Strings.swift#25 */
 "Do Everything With Photos." = "Делайте все с фотографиями.";
 /* Generated from genl10n: pap.Strings.swift#45 */
 "Download now for FREE at %@" = "Бесплатно загрузить в %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "Скачать";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Загрузка ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -324,14 +304,6 @@
 "Export" = "экспорт";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "фильтры";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Find" = "найти";
-/* Generated from genl10n: Finder.BApp.swift#44 */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder позволяет извлекать из ваших фотографий любую значимую информацию, такую ​​как номера телефонов, адреса, даты или URL-адреса, а затем звонить, открывать карты или перемещаться по сайтам даже по поисковым рейсам. Вы также можете сохранить их все как исходный текст.";
-/* Generated from genl10n: Finder.BApp.swift#40 */
-"Finder" = "искатель";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Finding Contacts ... %@ " = "Поиск контактов ... %@";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Фонарик";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -346,6 +318,8 @@
 "Free Use And All New Updates" = "Бесплатное использование и все новые обновления";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Бесплатное использование";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Из удаленного буфера обмена";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker позволяет легко и быстро создавать GIF-изображения из фотографий или живых фотографий с различными вариантами! А затем вы можете открыть приложение конвертера для преобразования во все, например, «Живые фотографии» или «Видео».";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -358,8 +332,6 @@
 "Get Text" = "Получить текст";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Give Me That Phone Number." = "Дайте мне этот номер телефона.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Пользовательская лицензионная программа пользователя";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -376,6 +348,8 @@
 "Hiding Selected Items..." = "Скрытие выбранных элементов ...";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Качество изображения";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "Образ";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
 "Images" = "Изображений";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -388,22 +362,16 @@
 "Inquiry" = "запрос";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Он отображает соотношение оставшихся бесплатных периодов доступа к приложениям.";
-/* Generated from genl10n: AppStrings.swift#22 */
-"It could not be stored." = "Он не может быть сохранен.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Он выглядит недействительным. Пожалуйста, попробуйте снова.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для этого требуется разрешение на доступ к вашим контактам. Разрешите Контакты в настройках iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Предметы";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In %@ Program" = "Присоединиться к программе %@";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "раскладка";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Ограниченное уведомление об эффективности";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -420,8 +388,6 @@
 "Making A Call" = "Создание звонка";
 /* Generated from genl10n: Shop.SApp.swift */
 "Membership or Main Apps License" = "Лицензия на членство или основные приложения";
-/* Generated from genl10n: MemoCam.BApp.swift#36 */
-"Memo Cam" = "Memo Cam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift#174 */
@@ -436,16 +402,10 @@
 "New Event" = "Новое событие";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
 "New Number" = "Новый номер";
-/* Generated from genl10n: PhoneCalls.BApp.swift#151, PhoneCalls.BApp.swift#191 */
-"New Phone Numbers" = "Новые номера телефонов";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Нет петли";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Now capture every meaningful information from the current scene around you via camera. Then immediately make a call, open with maps, scan barcodes or open websites even search flights." = "Теперь захватите всю значимую информацию из текущей сцены вокруг вас через камеру. Затем сразу же позвоните, откройте карты, сканируйте штрих-коды или откройте веб-сайты даже по поисковым рейсам.";
-/* Generated from genl10n: PhoneCalls.BApp.swift#154, PhoneCalls.BApp.swift#193 */
-"Number" = "Число";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режиме ожидания";
 /* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
@@ -470,16 +430,12 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Открыть Google Карты";
 /* Generated from genl10n: PDFactory.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Open Phone Calls." = "Open Phone Calls.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
@@ -506,8 +462,6 @@
 "Permanent Use And All New Updates" = "Постоянное использование и все новые обновления";
 /* Generated from genl10n: AppCenter.Charge.swift#156 */
 "Permanent Use of All and New Apps" = "Постоянное использование всех приложений и новых";
-/* Generated from genl10n: PhoneCalls.BApp.swift#57 */
-"Phone Calls" = "Phone Calls";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Номер телефона";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -574,8 +528,6 @@
 "Rotate" = "Поворот";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "вращение";
-/* Generated from genl10n: PhoneCalls.BApp.swift#137 */
-"Save All Phone Numbers" = "Сохранить все номера телефонов";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Сохранить контакты";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -600,10 +552,6 @@
 "Select Format To Convert" = "Выберите Формат для преобразования";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Выберите «Фотографии для удаления».";
-/* Generated from genl10n: Finder.BApp.swift#1490 */
-"Select Photos To Find Something." = "Выберите «Фотографии, чтобы найти что-то».";
-/* Generated from genl10n: PhoneCalls.BApp.swift */
-"Select Photos You Want To Grab Phone Numbers!" = "Выберите фотографии, которые вы хотите захватить номера телефонов!";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "выбранный";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -628,8 +576,6 @@
 "Similarity" = "сходство";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Размер";
-/* Generated from genl10n: Finder.BApp.swift#217 */
-"Some contacts were saved, but someones were not." = "Некоторые контакты были сохранены, но кто-то не был.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Специальная гостевая лицензионная программа";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -648,12 +594,12 @@
 "Stabilizing Selected Items..." = "Стабилизация выбранных элементов ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
-/* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "Начало поиска ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Запуск процесса ...";
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Начиная проверять отредактированные фотографии ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Начиная копировать фотографии ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Пребывание с нами";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -664,8 +610,6 @@
 "Take A GIF With Live Photo." = "Возьмите GIF с помощью Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
-/* Generated from genl10n: Finder.BApp.swift#1273 */
-"Take A Photo" = "Сфотографировать";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -676,8 +620,6 @@
 "Take Part" = "Принимать участие";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Взято со встроенной камерой";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Нажмите, чтобы обнаружить";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "целевое";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -708,8 +650,8 @@
 "Translate Now" = "Перевести";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Коррекция перевода";
-/* Generated from genl10n: Finder.BApp.swift */
-"Type" = "Тип";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Не удалось проверить код в настоящее время. Пожалуйста, попробуйте позже.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -742,8 +684,6 @@
 "Visit Social Pages" = "Посетите социальные страницы";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Посещение";
-/* Generated from genl10n: Finder.BApp.swift, PhoneCalls.BApp.swift */
-"Waiting To Select ..." = "Ожидание выбора ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
