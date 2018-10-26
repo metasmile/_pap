@@ -3082,7 +3082,6 @@
 			buildPhases = (
 				9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */,
 				A0C4010420D160E500F0919C /* ShellScript */,
-				A0CFD8C72052C6990007041B /* ShellScript */,
 				0ABFCF741F14B65C0078A583 /* Sources */,
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
 				0ABFCF761F14B65C0078A583 /* Resources */,
@@ -3105,7 +3104,6 @@
 			buildPhases = (
 				E6329068ABA98C157F8EC116 /* [CP] Check Pods Manifest.lock */,
 				A00FDE4021823622005EAD1B /* Run Script */,
-				A00FDE412182362F005EAD1B /* ShellScript */,
 				A00FDBC921823532005EAD1B /* Sources */,
 				A00FDBCA21823532005EAD1B /* Frameworks */,
 				A00FDBCB21823532005EAD1B /* Resources */,
@@ -3493,24 +3491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"\n";
-		};
-		A00FDE412182362F005EAD1B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$TARGET_NAME\"\n";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/mmc/pre-build.sh\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/mmc\"\n\n\n";
 		};
 		A00FDE432182367F005EAD1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3553,20 +3534,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"\n";
-		};
-		A0CFD8C72052C6990007041B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/batch\"\n";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/batch/pre-build.sh\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/batch\"\n\n";
 		};
 		B2A4A3DF76110781FCA6B279 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
