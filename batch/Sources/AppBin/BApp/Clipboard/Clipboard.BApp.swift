@@ -12,7 +12,6 @@ import PropertyKit
 
 private typealias ClipboardAppParam = AppAsset
 private struct ClipboardAppResult: AppTaskResultable {
-//    var imagePath: URL
     var image: UIImage
 }
 private class _ClipboardAppTask: AppTaskPrototype, AppTaskable {
@@ -64,6 +63,14 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
     
     required override init() {
         super.init()
+    }
+    
+    public var titleWillBegin: String? {
+        return "Starting to copy photos...".localized
+    }
+    
+    public var titleWillFinalize: String? {
+        return "Copying Photos...".localized
     }
     
     public var doneButtonTitle: String?{
@@ -183,31 +190,18 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         
         var groups = [CellDescriberGroup]()
         
-        let items = UIPasteboard.general.items
-        for item in items {
-            let rawValues: [(type: String, value: Any?)] = item.keys.map { (type: $0, value: item[$0]) }
-            
-            var values = [(type: String, value: Any?)]()
-            for rawValue in rawValues {
-                guard !values.contains(where: { ($0.value as? AnyHashable) == (rawValue.value as? AnyHashable) }) else { continue }
-                values.append(rawValue)
-            }
-            
-            let group = ClipboardGroup(type: "", values: values)
+        if UIPasteboard.general.hasImages, let images = UIPasteboard.general.images {
+            let group = ClipboardGroup(type: "Image".localized, values: images)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
-            for (idx, value) in values.enumerated() {
-                print("=====", value)
-                
+            for (idx, image) in images.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
-                cell.itemIdentifier = idx
-                
-                if value.type == UTI.tiff.rawValue, let data = value.value as? Data, let image = UIImage(data: data) {
-                    cell.label = "Image"
-                    cell.iconImage = image
-                    cell.buttonTitle = "Save"
-                    cell.buttonDetailTitle = "Image"
-                    cell.valueHandler = { _ in
+                cell.itemIdentifier = "image \(idx)".hashValue
+                cell.iconImage = image
+                cell.label = "Image".localized
+                cell.buttonTitle = "Save".localized
+                cell.valueHandler = { _ in
+                    if let data = image.jpegData(compressionQuality: 0.7) {
                         cell.indicating = true
                         DispatchQueue.main.async { self.tableView.reloadData() }
                         
@@ -217,75 +211,145 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                         }
                     }
                 }
-                else if UIPasteboard.typeListURL.contains(value.type), let url = value.value as? URL, UTI(withURL: url).conforms(to: UTI.image) {
-                    cell.label = url.lastPathComponent
-                    cell.buttonTitle = "Download"
-                    cell.buttonDetailTitle = "Image"
-                    cell.valueHandler = { _ in
-                        cell.indicating = true
+                
+                cellDescribers.append(cell)
+            }
+            
+            if !cellDescribers.isEmpty {
+                var detailedLabel: String? = nil
+                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                    detailedLabel = "From Remote Clipboard".localized
+                }
+                
+                let groupDescriber = UITableViewCellDescriber()
+                groupDescriber.itemIdentifier = group.hashValue
+                groupDescriber.label = group.type
+                
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                groups.append(cellGroup)
+            }
+        }
+        
+        if UIPasteboard.general.hasURLs, let urls = UIPasteboard.general.urls {
+            let group = ClipboardGroup(type: "URL".localized, values: urls)
+            
+            var cellDescribers = [UITableViewButtonCellDescriber]()
+            for (idx, url) in urls.enumerated() {
+                
+                let cell = UITableViewButtonCellDescriber()
+                cell.itemIdentifier = "url \(idx)".hashValue
+                cell.label = url.host ?? url.lastPathComponent
+                cell.buttonTitle = "Download".localized
+                cell.buttonDetailTitle = UTI(withURL: url).conforms(to: UTI.image) ? "Image".localized : "URL".localized
+                cell.valueHandler = { _ in
+                    cell.indicating = true
+                    DispatchQueue.main.async { self.tableView.reloadData() }
+                    
+                    self.saveImageFromURL(url, completion: {
+                        cell.indicating = false
                         DispatchQueue.main.async { self.tableView.reloadData() }
-                        
-                        self.saveImageFromURL(url, completion: {
-                            cell.indicating = false
-                            DispatchQueue.main.async { self.tableView.reloadData() }
-                        })
-                    }
-                }
-                else if UIPasteboard.typeListString.contains(value.type), let urlString = value.value as? String, let url = URL(string: urlString), UTI(withURL: url).conforms(to: UTI.image) {
-                    cell.label = url.lastPathComponent
-                    cell.buttonTitle = "Download"
-                    cell.buttonDetailTitle = "Image"
-                    cell.valueHandler = { _ in
-                        cell.indicating = true
-                        DispatchQueue.main.async { self.tableView.reloadData() }
-                        
-                        self.saveImageFromURL(url, completion: {
-                            cell.indicating = false
-                            DispatchQueue.main.async { self.tableView.reloadData() }
-                        })
-                    }
-                }
-                else if UIPasteboard.typeListImage.contains(value.type), let image = value.value as? UIImage {
-                    cell.iconImage = image
-                    cell.label = "Image"
-                    cell.buttonTitle = "Save"
-                    cell.buttonDetailTitle = "Image"
-                    cell.valueHandler = { _ in
-                        if let data = image.jpegData(compressionQuality: 0.7) {
-                            cell.indicating = true
-                            DispatchQueue.main.async { self.tableView.reloadData() }
-                            
-                            self.saveImageFromData(data) {
-                                cell.indicating = false
-                                DispatchQueue.main.async { self.tableView.reloadData() }
-                            }
-                        }
-                    }
-                }
-                else if UIPasteboard.typeListString.contains(value.type), let text = value.value as? String {
-                    cell.label = text
-                }
-                else {
-                    continue
+                    })
                 }
                 
                 cellDescribers.append(cell)
-                
-                if values.contains(where: { $0.type == "com.apple.uikit.image" }) {
-                    break
+            }
+            
+            if !cellDescribers.isEmpty {
+                var detailedLabel: String? = nil
+                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                    detailedLabel = "From Remote Clipboard".localized
                 }
+                
+                let groupDescriber = UITableViewCellDescriber()
+                groupDescriber.itemIdentifier = group.hashValue
+                groupDescriber.label = group.type
+                
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                groups.append(cellGroup)
+            }
+        }
+        else if UIPasteboard.general.hasStrings, let urls = UIPasteboard.general.strings?.compactMap({ URL(string: $0) }).filter({ !$0.absoluteString.urls().isEmpty }), !urls.isEmpty {
+            let group = ClipboardGroup(type: "URL".localized, values: urls)
+            
+            var cellDescribers = [UITableViewButtonCellDescriber]()
+            for (idx, url) in urls.enumerated() {
+                let cell = UITableViewButtonCellDescriber()
+                cell.itemIdentifier = "url \(idx)".hashValue
+                cell.label = url.host ?? url.lastPathComponent
+                cell.buttonTitle = "Download".localized
+                cell.buttonDetailTitle = UTI(withURL: url).conforms(to: UTI.image) ? "Image".localized : "URL".localized
+                cell.valueHandler = { _ in
+                    cell.indicating = true
+                    DispatchQueue.main.async { self.tableView.reloadData() }
+                    
+                    self.saveImageFromURL(url, completion: {
+                        cell.indicating = false
+                        DispatchQueue.main.async { self.tableView.reloadData() }
+                    })
+                }
+                
+                cellDescribers.append(cell)
             }
             
-            guard !cellDescribers.isEmpty else { continue }
+            if !cellDescribers.isEmpty {
+                var detailedLabel: String? = nil
+                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                    detailedLabel = "From Remote Clipboard".localized
+                }
+                
+                let groupDescriber = UITableViewCellDescriber()
+                groupDescriber.itemIdentifier = group.hashValue
+                groupDescriber.label = group.type
+                
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                groups.append(cellGroup)
+            }
+        }
+        else if UIPasteboard.general.hasStrings, let strings = UIPasteboard.general.strings {
+            let group = ClipboardGroup(type: "Text".localized, values: strings)
             
-            var detailedLabel: String? = nil
-            if values.contains(where: { $0.type == "com.apple.is-remote-clipboard" }) {
-                detailedLabel = "From Remote Clipboard"
+            var cellDescribers = [UITableViewButtonCellDescriber]()
+            for (idx, string) in strings.enumerated() {
+                let cell = UITableViewButtonCellDescriber()
+                cell.itemIdentifier = "text \(idx)".hashValue
+                cell.label = string.trimmed
+                
+                cellDescribers.append(cell)
             }
             
-            let cellGroup = CellDescriberGroup(label: group.label, detailedLabel: detailedLabel, groupHeaderCellDescriber: nil, itemCellDescribers: cellDescribers)
+            if !cellDescribers.isEmpty {
+                var detailedLabel: String? = nil
+                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                    detailedLabel = "From Remote Clipboard".localized
+                }
+                
+                let groupDescriber = UITableViewCellDescriber()
+                groupDescriber.itemIdentifier = group.hashValue
+                groupDescriber.label = group.type
+                
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                groups.append(cellGroup)
+            }
+        }
+        
+        if groups.isEmpty {
+            let group = ClipboardGroup(type: "", values: ["Empty"])
+            
+            var cellDescribers = [UITableViewButtonCellDescriber]()
+            let cell = UITableViewButtonCellDescriber()
+            cell.itemIdentifier = "empty".hashValue
+            cell.label = "Clipboard is empty".localized
+            
+            cellDescribers.append(cell)
+            
+            let groupDescriber = UITableViewCellDescriber()
+            groupDescriber.itemIdentifier = group.hashValue
+            groupDescriber.label = group.type
+            
+            let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: nil, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
             groups.append(cellGroup)
         }
+        
         return groups
     }
     
