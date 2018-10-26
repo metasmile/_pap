@@ -45,7 +45,6 @@ public class ConverterApp: NSObject, PropertyWatchable,
         BApp,
         AppDockApp,
         ConfigurableApp, _ConfigurableApp,
-        ChargeableApp,
         FinalizableApp,
         PreheatableApp,
         LaunchableApp,
@@ -70,7 +69,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.converter"
-            , version: "1.1"
+            , version: "1.0"
             , phase: .release
             , appType: ConverterApp.self
             , displayName: "Converter".localized.localizedCapitalized
@@ -84,10 +83,6 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     override required public init() {
         super.init()
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     public var doneButtonTitle: String? {

@@ -122,14 +122,12 @@
 "%@ Day" = "%@ День";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Завантажити зараз БЕЗКОШТОВНО!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Учасник";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Програма членства";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Членство";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Ліцензія";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Власність";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Ліцензія на партнерство";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ може бути знайдений";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d раз";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1 місяць членство";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 рік членства";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "1-місячне використання всіх програм і нових";
+"1 Month License" = "1 місяць ліцензії";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "1-місячне використання основних та нових програм";
+"1 Year License" = "Ліцензія на 1 рік";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "1 рік використання всіх і нових програм";
+"1-Month Use of All and New Tools" = "1-місячне використання всіх та нових інструментів";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1 рік використання основних та нових програм";
+"1-Month Use of Main and New Tools" = "1-місячне використання основних та нових інструментів";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "14-денне користування основними та новими програмами";
+"1-Year Use of All and New Tools" = "1 рік використання всіх та нових інструментів";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "3-місячне використання основних та нових програм";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6 місяців членства";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "6-місячне використання всіх програм і нових";
+"1-Year Use of Main And New Tools" = "1 рік використання основних та нових інструментів";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "6-місячне використання основних та нових програм";
+"14-Day Use of Main and New Tools" = "14-денне користування основними та новими інструментами";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "7-денне користування основними та новими програмами";
+"3-Month Use of Main And New Tools" = "3-місячне використання основних та нових інструментів";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "Ліцензія на 6 місяців";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "6-місячне використання всіх та нових інструментів";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "6-місячне використання основних та нових інструментів";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "7-денне користування основними та новими інструментами";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Ліцензія потрібна.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Увімкнути швидкі дії";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Займайте зараз і багаторазово підвищуйте ліцензію на основні програми.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Займайте зараз і багаторазово перезавантажуйте ліцензію на основні інструменти.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Інженерні замітки";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Приєднатися до програми %@";
+"Join In Partnership Program" = "Приєднуйтесь до Партнерської програми";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Макет";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Ліцензія або основні ліцензії на інструменти";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Блокування екранів";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Петля";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Основна ліцензія на програми";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Основні програми Використання %@ Дня";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Основні ліцензії на інструменти";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Основні інструменти Використання %@ Дня";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Зробити GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Зателефонувати";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Членство або Ліцензія на основні програми";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "Щомісячне членство";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Щомісячна ліцензія";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мої альбоми";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "Немає петлі";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режимі очікування";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Постійне використання всіх програм і нових";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Постійне використання всіх та нових основних програм";
+"Ongoing Use of All and New Main Tools" = "Постійне використання всіх та нових основних інструментів";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Постійне використання всіх та нових інструментів";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Відкрийте %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Сторінки";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Ліцензійна програма партнерства";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Ліцензія на партнерство";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Вставити зображення з ваших буферів обміну";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Постійна власність";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Постійне використання та всі нові оновлення";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Постійне використання всіх програм і нових";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Постійне використання всіх та нових інструментів";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Номер телефону";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресетів";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Ціни включають в себе кожне нове додаток та оновлення, а також автоматично не поновлюються.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Ціни включають в себе всі нові інструменти та оновлення, а також автоматично не поновлюються.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Політика конфіденційності";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Відправити";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Налаштування для основної програми";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Параметри основної ліцензії на інструменти";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Налаштування";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Залишайтеся з нами";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Історії за програмами";
+"Stories Behind the Batch Tools" = "Історії за партійними інструментами";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде абсолютно незмінним.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP-членство в програмі";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP членство";
+"VIP License Program" = "VIP ліцензійна програма";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP-ліцензія";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Верифікація не вдалася.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Ласкаво просимо!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Ласкаво просимо до нашої %@ ліцензійної програми!";
+"Welcome to our Partnership License Program!" = "Ласкаво просимо до нашої програми ліцензування партнерства";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Ласкаво просимо до нашої програми ліцензування VIP.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Написати відгук";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Напиши";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Щорічне членство";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Щорічна ліцензія";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Ви можете вибрати лише фотографії або відео, які відповідають початковому формату.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

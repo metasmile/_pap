@@ -40,7 +40,7 @@ public class ArtistAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptab
 public class ArtistApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
-PhotoEditorViewControllerDelegatableApp, ChargeableApp {
+PhotoEditorViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _ArtistAppTask.self
     public static let paramType: AppTaskParamable.Type = _ArtistAppAsset.self
@@ -48,10 +48,6 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     public static var defaultConfigValue: AppConfigValuable {
         let config = ArtistAppConfigValue()
         return config
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultFreeBAppLocalCharges
     }
 
     @objc dynamic

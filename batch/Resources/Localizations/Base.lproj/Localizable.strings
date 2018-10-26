@@ -86,14 +86,12 @@
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: batch.Strings.swift */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Member";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Membership Program";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift, AppCenter.Charge.swift, Shop.SApp.swift */
-"%@ Membership" = "%@ Membership";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ License";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Ownership";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Partnership License";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -105,9 +103,9 @@
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month Membership" = "1 Month Membership";
+"1 Month License" = "1 Month License";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 Year Membership";
+"1 Year License" = "1 Year License";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of All and New Tools" = "1-Month Use of All and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -121,7 +119,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-Month Use of Main And New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months Membership" = "6 Months Membership";
+"6 Months License" = "6 Months License";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of All and New Tools" = "6-Month Use of All and New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -331,11 +329,13 @@
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Join In %@ Program";
+"Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Layout";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "License or Main Tools License";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -350,12 +350,10 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Tools License" = "Membership or Main Tools License";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly Membership" = "Monthly Membership";
+"Monthly License" = "Monthly License";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -418,6 +416,10 @@
 "Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Pages" = "Pages";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Partnership License Program";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift, Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License" = "Partnership License";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Paste images from your clipboards";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -627,9 +629,9 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP Membership Program";
+"VIP License Program" = "VIP License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"VIP Membership" = "VIP Membership";
+"VIP License" = "VIP License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -653,7 +655,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Welcome Free Pack" = "Welcome Free Pack";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Welcome to our %@ license program!";
+"Welcome to our Partnership License Program!" = "Welcome to our Partnership License Program!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Welcome to our VIP license program.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -669,7 +671,7 @@
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.MailContact.swift */
 "Write" = "Write";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly Membership" = "Yearly Membership";
+"Yearly License" = "Yearly License";
 /* Generated from genl10n: Converter.BApp.swift */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

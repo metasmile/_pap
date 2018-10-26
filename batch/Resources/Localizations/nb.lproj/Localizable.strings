@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: batch.Strings.swift */
 "%@ Download now for FREE!" = "%@ Last ned nå GRATIS!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Medlem";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Medlemskapsprogram";
 /* Generated from genl10n: Shop.SApp.swift */
-"%@ Membership" = "%@ Medlemskap";
+"%@ License" = "%@ Lisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Eierskap";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Partnerskapslisens";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "%@ might be found" = "%@ kan bli funnet";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -141,29 +139,29 @@
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month Membership" = "1 måneders medlemskap";
+"1 Month License" = "1 måneders lisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 års medlemskap";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"1-Month Use of All and New Apps" = "1 måneders bruk av alle apper og ny";
+"1 Year License" = "1 års lisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "1-måneders bruk av hoved- og nye applikasjoner";
+"1-Month Use of All and New Tools" = "1-måneders bruk av alle og nye verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "1 års bruk av alle og nye apper";
+"1-Month Use of Main and New Tools" = "1-måneders bruk av hoved og nytt verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1 års bruk av hoved og nye applikasjoner";
+"1-Year Use of All and New Tools" = "1 års bruk av alle og nye verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "14-dagers bruk av hoved og nye applikasjoner";
+"1-Year Use of Main And New Tools" = "1 års bruk av hoved og nytt verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "3-måneders bruk av hoved og nye applikasjoner";
+"14-Day Use of Main and New Tools" = "14-dagers bruk av hoved og nytt verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months Membership" = "6 måneders medlemskap";
+"3-Month Use of Main And New Tools" = "3-måneders bruk av hoved og nytt verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Apps" = "6-måneders bruk av alle apper og ny";
+"6 Months License" = "6 måneders lisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "6-måneders bruk av hoved og nye applikasjoner";
+"6-Month Use of All and New Tools" = "6-måneders bruk av alle og nye verktøy";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "7-dagers bruk av hoved og nye applikasjoner";
+"6-Month Use of Main And New Tools" = "6-måneders bruk av hoved og nytt verktøy";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "7-dagers bruk av hoved og nytt verktøy";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "En lisens er nødvendig.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
@@ -297,7 +295,7 @@
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Enable Quick Actions" = "Aktiver hurtige handlinger";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Engasjere nå og gjentatte ganger lade hovedapplikasjonslisens.";
+"Engage Now And Repeatedly Recharge Main Tools License." = "Engasjere nå og gjentatte ganger lade hovedverktøy lisens.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,11 +365,13 @@
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krever tillatelse til å få tilgang til kontaktene dine. Vennligst tillat kontakter på iOS-innstillinger.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Bli med i %@ Program";
+"Join In Partnership Program" = "Bli med i partnerskapsprogrammet";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Oppsett";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Lisens eller hovedverktøy lisens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -379,19 +379,17 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Apps License" = "Hovedapplikasjonslisens";
+"Main Tools License" = "Hovedverktøy Lisens";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Main Apps Use of %@ Day" = "Hovedapplikasjoner Bruk av %@ Dag";
+"Main Tools Use of %@ Day" = "Hovedverktøy Bruk av %@ Dag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Lag GIF";
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Ringe";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Medlemskap eller hovedapplikasjonslisens";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "endre";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly Membership" = "Månedlig medlemskap";
+"Monthly License" = "Månedlig lisens";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mine album";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -408,10 +406,10 @@
 "No loop" = "Ingen sløyfe";
 /* Generated from genl10n: PhoneCalls.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "On Standby" = "På vent";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Apps" = "Pågående bruk av alle apper og nye";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Løpende bruk av alle og nye hovedapplikasjoner";
+"Ongoing Use of All and New Main Tools" = "Løpende bruk av alle og nye hovedverktøy";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Løpende bruk av alle og nye verktøy";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Open %@" = "Åpne %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -454,6 +452,10 @@
 "Page Size Preset" = "Forhåndsinnstilling for sidestørrelse";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Pages" = "sider";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Partnerskapslisensprogram";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Partnerskapslisens";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Lim inn bilder fra utklippstavlene dine";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -461,7 +463,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Permanent Use And All New Updates" = "Permanent bruk og alle nye oppdateringer";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Permanent Use of All and New Apps" = "Permanent bruk av alle apper og nye";
+"Permanent Use of All and New Tools" = "Permanent bruk av alle og nye verktøy";
 /* Generated from genl10n: Finder.BApp.swift, Finder.BApp.swift */
 "Phone Number" = "Telefonnummer";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Prisene inkluderer alle nye apper og oppdateringer, og det fornyes ikke automatisk.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Prisene er inkludert alle nye verktøy og oppdateringer, også det fornyes ikke automatisk.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Privacy Policy" = "Personvernregler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -559,7 +561,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Send" = "Send";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Apps License" = "Settings for Main Apps License";
+"Settings for Main Tools License" = "Innstillinger for hovedverktøyslisens";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Settings" = "innstillinger";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Historier bak Apps";
+"Stories Behind the Batch Tools" = "Historier bak batchverktøyene";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP medlemskapsprogram";
+"VIP License Program" = "VIP lisensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"VIP Membership" = "VIP-medlemskap";
+"VIP License" = "VIP-lisens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Bekreftelsen mislyktes.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Welcome Free Pack" = "Velkommen Free Pack";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Velkommen til vårt %@ lisensprogram!";
+"Welcome to our Partnership License Program!" = "Velkommen til vårt partnerskapslisensprogram!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our VIP license program." = "Velkommen til vårt VIP lisensprogram.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -705,7 +707,7 @@
 /* Generated from genl10n: Shop.Payment.SocialShare.swift, Shop.SApp.swift */
 "Write" = "Skrive";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly Membership" = "Årlig Medlemskap";
+"Yearly License" = "Årlig lisens";
 /* Generated from genl10n: Converter.AppDockContent.swift */
 "You can select only photos or videos that matched with starting format." = "Du kan bare velge bilder eller videoer som samsvarer med startformat.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

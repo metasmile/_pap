@@ -39,11 +39,11 @@ struct batchStrings {
 
     struct download{
         static var url: String{
-            return "https://get.apps.photo"
+            return "https://get.batch.photos"
         }
 
         static var urlWithoutScheme: String{
-            return "get.apps.photo"
+            return "get.batch.photos"
         }
 
         static var urlFirst: String{
@@ -57,16 +57,16 @@ struct batchStrings {
 
     struct youapp{
         static var url: String{
-            return "https://you.apps.photo"
+            return "https://you.batch.photos"
         }
 
         static var email: String{
-            return "you@apps.photo"
+            return "you@batch.photos"
         }
 
         struct l10n {
             static var email: String{
-                return "you.l10n@apps.photo"
+                return "you.l10n@batch.photos"
             }
         }
     }
@@ -74,22 +74,22 @@ struct batchStrings {
     struct contact{
         struct feedback {
             static var email: String{
-                return "feedback@apps.photo"
+                return "feedback@batch.photos"
             }
         }
 
         struct support {
             static var email: String{
-                return "support@apps.photo"
+                return "support@batch.photos"
             }
             static var url: String{
-                return "https://apps.photo"
+                return "https://batch.photos"
             }
         }
 
         struct vip{
             static var email: String{
-                return "vip@apps.photo"
+                return "vip@batch.photos"
             }
         }
 
@@ -99,7 +99,7 @@ struct batchStrings {
 
         struct blog {
             static var url: String{
-                return "https://apps.photo/blog"
+                return "https://batch.photos/blog"
             }
         }
 
@@ -111,11 +111,11 @@ struct batchStrings {
 
         struct facebook{
             static var url: String{
-                return "https://apps.photo/social"
+                return "https://batch.photos/social"
             }
 
             static var groupUrl: String{
-                return "https://apps.photo/users"
+                return "https://batch.photos/users"
             }
 
             static var pageId:String{
@@ -129,7 +129,7 @@ struct batchStrings {
 
         struct youtube{
             static var url:String{
-                return "https://apps.photo/youtube"
+                return "https://batch.photos/youtube"
             }
 
             static var channelId:String{
@@ -141,28 +141,28 @@ struct batchStrings {
     struct info{
         struct engineering {
             static var url: String{
-                return "https://apps.photo/engineering"
+                return "https://batch.photos/engineering"
             }
         }
 
         struct appsIndex {
             static var url: String{
-                return "https://apps.photo/list"
+                return "https://batch.photos/list"
             }
         }
 
         struct guide {
             static var url: String{
-                return "https://apps.photo/guide"
+                return "https://batch.photos/guide"
             }
         }
 
         struct privacy {
             static var email: String{
-                return "info@apps.photo"
+                return "info@batch.photos"
             }
             static var url: String{
-                return "https://apps.photo/privacy"
+                return "https://batch.photos/privacy"
             }
         }
 
@@ -171,10 +171,10 @@ struct batchStrings {
                 return privacy.email
             }
             static var url: String{
-                return "https://apps.photo/terms"
+                return "https://batch.photos/terms"
             }
             static var urlForAutoRenewalSubscription: String{
-                return "https://apps.photo/terms#arp"
+                return "https://batch.photos/terms#arp"
             }
         }
     }

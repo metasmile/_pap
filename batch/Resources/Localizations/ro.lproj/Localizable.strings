@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Ziua";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Descarcă acum GRATUIT!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Membru";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Programul de membru";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Calitatea de membru";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Licență";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Proprietate";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Licență de parteneriat";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ ar putea fi găsit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d de ori";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1 lună de membru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 an de membru";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "Utilizare pe 1 lună a tuturor aplicațiilor și a celor noi";
+"1 Month License" = "Licență 1 lună";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "Utilizare pe 1 lună a aplicațiilor principale și noi";
+"1 Year License" = "Licență de 1 an";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "Utilizare pe o perioadă de 1 an a tuturor aplicațiilor și a aplicațiilor noi";
+"1-Month Use of All and New Tools" = "Utilizarea 1 oră a tuturor instrumentelor noi și a celor noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1 an de utilizare a aplicațiilor principale și noi";
+"1-Month Use of Main and New Tools" = "Utilizare pe o lună a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "Utilizarea pe 14 zile a aplicațiilor principale și noi";
+"1-Year Use of All and New Tools" = "1 an de utilizare a tuturor și instrumente noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "Utilizare pe 3 luni a aplicațiilor principale și noi";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6 luni de membru";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "Utilizarea la 6 luni a tuturor aplicațiilor și a noului";
+"1-Year Use of Main And New Tools" = "1 an de utilizare a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "Utilizare pe 6 luni a aplicațiilor principale și noi";
+"14-Day Use of Main and New Tools" = "Utilizarea pe 14 zile a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "Utilizarea pe 7 zile a aplicațiilor principale și noi";
+"3-Month Use of Main And New Tools" = "Utilizare pe 3 luni a instrumentelor principale și noi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6 luni de licență";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "Utilizarea pe 6 luni a tuturor instrumentelor noi și a celor noi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "Utilizarea la 6 luni a instrumentelor principale și noi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "Utilizarea pe 7 zile a instrumentelor principale și noi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Este necesară o licență.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vă permite să eliminați toate tipurile de date care conțin fotografiile dvs., inclusiv informații private.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Activați acțiunile rapide";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Angajați acum și reîncărcați în mod repetat licența principală de aplicații.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Angajați acum și reîncărcați în mod repetat licența de instrumente principale.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Note tehnice";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Este necesară o permisiune pentru a accesa contactele dvs. Activați persoanele de contact din setările iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Alăturați-vă în %@ Program";
+"Join In Partnership Program" = "Alăturați-vă programului de parteneriat";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Peisaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "schemă";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Licență sau licență pentru instrumente principale";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Buclă";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Principala licență Apps";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Aplicații principale Utilizarea zilei %@";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Licența Instrumentelor principale";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Scule principale Utilizarea %@ Zilei";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Faceți GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Efectuarea unui apel";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Membru sau Licență principală pentru aplicații";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "Lunar de membru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Licență lunară";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albumele mele";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "Nicio buclă";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "În așteptare";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Utilizarea continuă a tuturor aplicațiilor și a celor noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Utilizarea continuă a tuturor aplicațiilor principale și a noilor aplicații principale";
+"Ongoing Use of All and New Main Tools" = "Utilizarea continuă a tuturor și a noilor instrumente principale";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Utilizarea continuă a tuturor și a noilor instrumente";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Deschideți %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pagini";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Programul de licență pentru parteneriat";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Licență de licență";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Inserați imagini din clipboard-urile dvs.";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Proprietate permanentă";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Utilizarea permanentă și toate actualizările noi";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Utilizarea permanentă a tuturor aplicațiilor și cea nouă";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Utilizarea permanentă a tuturor și a noilor instrumente";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Numar de telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "presetări";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Prețurile includ toate aplicațiile și actualizările noi, de asemenea, nu se vor reînnoi automat.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Prețurile includ toate noile instrumente și actualizări, de asemenea, nu se vor reînnoi automat.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Politica de confidentialitate";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Trimite un email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Trimite";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Setările pentru licența principală de aplicații";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Setări pentru licența Instrumente principale";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Setări";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Rămâi cu noi";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Povestiri din spatele aplicațiilor";
+"Stories Behind the Batch Tools" = "Povestiri din spatele instrumentelor lotului";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne perfect aceeași.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "Programul VIP al membrilor";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP membru";
+"VIP License Program" = "Programul de licență VIP";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "Licență VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificare esuata.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Bine ati venit pachetul gratuit";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Welcome to our %@ license program!";
+"Welcome to our Partnership License Program!" = "Bine ați venit în Programul nostru de licență de parteneriat!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Bine ați venit la programul nostru de licență VIP.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Scrie o recenzie";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Scrie";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Membru anual";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Licență anuală";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Puteți selecta numai fotografiile sau videoclipurile care corespund formatului de pornire.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

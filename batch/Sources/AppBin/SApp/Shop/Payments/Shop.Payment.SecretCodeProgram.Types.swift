@@ -12,7 +12,7 @@ struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
     }
 
     static var title: String {
-        return "VIP Membership Program".localized
+        return "VIP License Program".localized
     }
     static var grantedMessage: String {
         return "Welcome to our VIP license program.".localized
@@ -144,10 +144,10 @@ class YouAppSecretCodeProgram:SecretCodeProgram{
     }
 
     static var title: String {
-        return "%@ Membership Program".localizedFormatted("YOU.app")
+        return "Partnership License Program".localized.localizedCapitalized
     }
     static var grantedMessage: String {
-        return "Welcome to our %@ license program!".localizedFormatted("YOU.app")
+        return "Welcome to our Partnership License Program!".localized.localizedCapitalized
     }
 
     class var program: String? {
@@ -155,7 +155,7 @@ class YouAppSecretCodeProgram:SecretCodeProgram{
     }
 
     static var defaultOwnerName: String {
-        return "\("%@ Member".localizedFormatted("YOU.app")) \(UUID.fixedShortUUIDString)"
+        return "\("Partnership License".localized) \(UUID.fixedShortUUIDString)"
     }
 
     static var isEnable: Bool = false

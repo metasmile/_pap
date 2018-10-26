@@ -157,7 +157,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self
                     , priceAmount: AmountObject(value:1)
-                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"%@ Partnership License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "1-Year Use of Main And New Tools".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
@@ -165,7 +165,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self
                     , priceAmount: AmountObject(value:1)
-                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Partnership License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "6-Month Use of Main And New Tools".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
@@ -173,7 +173,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .timeOfUses
                     , payment: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self
                     , priceAmount: AmountObject(value:1)
-                    , describable: AppChargeDescription(title:"%@ Membership".localizedFormatted("YOU.app"), description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Partnership License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "3-Month Use of Main And New Tools".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
@@ -196,7 +196,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .secretCode
                     , reward: .owned, payment: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"VIP Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"VIP License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All and New Tools".localized, shortTitle: "Permanent Tools License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -211,7 +211,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .renewableMonthlySubscriptionInAppStore
                     , reward: .rented, payment: MonthlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Monthly Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Monthly License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Monthly Tools License", description: nil, unit: nil, iconImage: nil)
             )
             
@@ -219,7 +219,7 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .rented
                     , payment: YearlyAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Yearly Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"Yearly License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Yearly Tools License", description: nil, unit: nil, iconImage: nil)
             )
 
@@ -227,21 +227,21 @@ private final class AppChargeManager: ChargeManager{
                     , reward: .rented
                     , payment: OneMonthAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"1 Month Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"1 Month License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "1-Month Use of All and New Tools".localized, shortTitle: "1-Month Tools License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: SixMonthsAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"6 Months Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"6 Months License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "6-Month Use of All and New Tools".localized, shortTitle: "6-Month Tools License", description: nil, unit: nil, iconImage: nil)
             )
 
             , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
                     , reward: .rented, payment: OneYearAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"1 Year Membership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"1 Year License".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "1-Year Use of All and New Tools".localized, shortTitle: "1-Year Tools License", description: nil, unit: nil, iconImage: nil)
             )
         ]

@@ -265,7 +265,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "%@ Membership".localizedFormatted(batchStrings.name)
+                , label: "%@ License".localizedFormatted(batchStrings.name)
                 , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
@@ -500,7 +500,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         if youAppCellDescribers.count > 0{
-            s.append(CellDescriberGroup(label: "Join In %@ Program".localizedFormatted("YOU.app"), detailedLabel: "Share Your Talent, Make Together. Obtain Each Reward If Adopted.".localized, describers: youAppCellDescribers))
+            s.append(CellDescriberGroup(label: "Join In Partnership Program".localized, detailedLabel: "Share Your Talent, Make Together. Obtain Each Reward If Adopted.".localized, describers: youAppCellDescribers))
         }
 
         if contactCellDescribers.count > 0{
@@ -591,7 +591,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
             let c2 = UITableViewButtonCellDescriber()
             c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Membership or Main Tools License".localized
+            c2.detailedLabel = "License or Main Tools License".localized
             c2.buttonTitle = "Take Part".localized
             c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
             c2.valueHandler = { _ in

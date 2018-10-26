@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Ahli";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Program Keahlian";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Keahlian";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Lesen";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Pemilikan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Lesen Perkongsian";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ boleh dijumpai";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d kali";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "Keahlian 1 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "Keahlian 1 Tahun";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "Penggunaan 1 Bulan Semua Semua dan Baru";
+"1 Month License" = "Lesen 1 Bulan";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "Penggunaan 1 Bulan Penggunaan Utama dan Aplikasi Baru";
+"1 Year License" = "Lesen 1 Tahun";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "Penggunaan Semua 1 Tahun dan Aplikasi Baru";
+"1-Month Use of All and New Tools" = "Penggunaan 1 Bulan Semua dan Alat Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "Penggunaan 1 Tahun Utama Dan Aplikasi Baru";
+"1-Month Use of Main and New Tools" = "Penggunaan 1-Bulan Alat Utama dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "Penggunaan 14-Hari Aplikasi Utama dan Baru";
+"1-Year Use of All and New Tools" = "Penggunaan 1 Tahun Semua dan Alat Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "Penggunaan Bulan Tiga Apl Utama Dan Baru";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "Keahlian 6 Bulan";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "Penggunaan 6 Bulan Semua Semua dan Baru";
+"1-Year Use of Main And New Tools" = "Penggunaan 1-Tahun Alat Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "Penggunaan 6 Bulan Aplikasi Utama Dan Baru";
+"14-Day Use of Main and New Tools" = "Penggunaan 14-Hari Alat Utama dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "Penggunaan 7-Hari Aplikasi Utama dan Baru";
+"3-Month Use of Main And New Tools" = "Penggunaan 3 Bulan Alat Utama Dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "Lesen 6 Bulan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "Penggunaan 6 Bulan Semua dan Alat Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "Penggunaan 6 Bulan Penggunaan Utama Dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "Kegunaan Utama dan Baru 7 Hari";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Lesen Diperlukan.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost membolehkan anda mengeluarkan semua jenis data yang mengandungi foto anda termasuk maklumat peribadi.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Dayakan Tindakan Pantas";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Terlibat Sekarang Dan Berulang Mengulangi Lesen Apl Utama.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Engaged Now And Repeatedly Recharge Main Tools License.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Nota Kejuruteraan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Sertai Dalam %@ Program";
+"Join In Partnership Program" = "Sertai Program Perkongsian";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Lesen atau Lesen Alat Utama";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Skrin kunci";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Lesen Apl Utama";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Aplikasi Utama Penggunaan %@ Hari";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Lesen Alat Utama";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Alat Utama Penggunaan %@ Hari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Buat GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Membuat Panggilan";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Keahlian atau Lesen Apl Utama";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "Keahlian Bulanan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Lesen Bulanan";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "Tiada gelung";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Bersiap sedia";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Penggunaan Penggunaan Semua Semua dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Penggunaan Penggunaan Semua dan Aplikasi Utama yang berterusan";
+"Ongoing Use of All and New Main Tools" = "Penggunaan Semula Semua dan Alat Utama Baru";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Penggunaan Semua dan Alat Baru yang sedang berjalan";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Buka %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Halaman Preset Saiz";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pages";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Program Lesen Perkongsian";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Lesen Perkongsian";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Tampalkan imej dari clipboard anda";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Pemilikan Tetap";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Penggunaan Tetap Dan Semua Kemas Kini Baharu";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Penggunaan Tetap Semua Aplikasi dan Baru";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Penggunaan Tetap Semua dan Alat Baru";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Nombor telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Pratetap";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Harga Termasuk Setiap Aplikasi Baru dan Kemas Kini, juga ia tidak akan memperbaharui secara automatik.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Harga Termasuk Setiap Alat dan Pembaharuan Baru, juga tidak akan memperbaharui secara automatik.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Dasar Privasi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Hantar email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Hantar";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Tetapan untuk Lesen Apl Utama";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Tetapan untuk Lesen Alat Utama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Tetapan";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tinggal Dengan Kami";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Cerita Di Sebalik Aplikasi";
+"Stories Behind the Batch Tools" = "Cerita Di Belakang Alat Batch";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tukar item yang anda ingin sembunyikan. Kualitinya tetap sama.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "Program Keahlian VIP";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "Keahlian VIP";
+"VIP License Program" = "Program Lesen VIP";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "Lesen VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Pengesahan Gagal.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Selamat Datang Pack Percuma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Selamat datang ke program lesen %@ kami!";
+"Welcome to our Partnership License Program!" = "Selamat datang ke Program Lesen Perkongsian kami!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Selamat datang ke program lesen VIP kami.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Menulis ulasan";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Tulis";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Keahlian Tahunan";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Lesen Tahunan";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya boleh memilih foto atau video yang dipadankan dengan format permulaan.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

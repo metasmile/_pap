@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Deň";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Prevziať teraz ZDARMA!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Člen";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Členský program";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Členstvo";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Licencia";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Vlastníctvo";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Partnerská licencia";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ možno nájsť";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d krát";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1 mesiac členstvo";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 rok členstva";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "1-mesačné používanie všetkých aplikácií a nové";
+"1 Month License" = "1 mesačná licencia";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "1-mesačné používanie hlavných a nových aplikácií";
+"1 Year License" = "1 ročná licencia";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "1-ročné používanie všetkých a nových aplikácií";
+"1-Month Use of All and New Tools" = "1-mesačné použitie všetkých a nových nástrojov";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1-ročné používanie hlavných a nových aplikácií";
+"1-Month Use of Main and New Tools" = "1-mesačné používanie hlavných a nových nástrojov";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "14-dňové používanie hlavných a nových aplikácií";
+"1-Year Use of All and New Tools" = "1-ročné použitie všetkých a nových nástrojov";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "3-mesačné používanie hlavných a nových aplikácií";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6 mesiacov členstva";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "6-mesačné používanie všetkých aplikácií a nové";
+"1-Year Use of Main And New Tools" = "1-ročné používanie hlavných a nových nástrojov";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "6-mesačné používanie hlavných a nových aplikácií";
+"14-Day Use of Main and New Tools" = "14-dňové používanie hlavných a nových nástrojov";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "7-dňové použitie hlavných a nových aplikácií";
+"3-Month Use of Main And New Tools" = "3-mesačné používanie hlavných a nových nástrojov";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6 mesačná licencia";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "6-mesačné použitie všetkých a nových nástrojov";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "6-mesačné použitie hlavných a nových nástrojov";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "7-dňové použitie hlavných a nových nástrojov";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Vyžaduje sa licencia.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožňuje odstrániť všetky druhy údajov obsahujúcich vaše fotky vrátane súkromných informácií.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Povoliť rýchle akcie";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Zapojte teraz a opakovane dobite hlavnú licenciu aplikácií.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Zahrnúť teraz a opakovane dobíjať licenciu na hlavné nástroje.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Technické poznámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Pripojte sa do %@ programu";
+"Join In Partnership Program" = "Zapojte sa do programu partnerstva";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "dispozície";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Licencia alebo Licencia na hlavné nástroje";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "slučka";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Hlavná licencia aplikácií";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Hlavné aplikácie Použitie dňa %@";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Licencia na hlavné nástroje";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Hlavné nástroje Použitie dňa %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Vytvorte GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Uskutočnenie hovoru";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Členstvo alebo Hlavná aplikácia";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "Mesačné členstvo";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Mesačná licencia";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje albumy";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostnom režime";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Prebiehajúce používanie všetkých aplikácií a nové";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Prebiehajúce používanie všetkých a nových hlavných aplikácií";
+"Ongoing Use of All and New Main Tools" = "Prebiehajúce používanie všetkých a nových hlavných nástrojov";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Prebiehajúce používanie všetkých a nových nástrojov";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Otvorte %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Predvolená veľkosť stránky";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "stránky";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Partnerský licenčný program";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Partnerská licencia";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Prilepte obrázky zo schránok";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Trvalé vlastníctvo";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Trvalé používanie a všetky nové aktualizácie";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Trvalé používanie všetkých aplikácií a nové";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Trvalé používanie všetkých a nových nástrojov";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefónne číslo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Presets";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Ceny zahŕňajú všetky nové aplikácie a aktualizácie, tiež sa automaticky neobnovia.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Ceny zahŕňajú všetky nové nástroje a aktualizácie, ale tiež sa automaticky neobnovia.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Zásady ochrany osobných údajov";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Poslať email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "odoslať";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Nastavenia pre hlavnú aplikáciu";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Nastavenia pre licenciu na hlavné nástroje";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "nastavenie";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Zostať s nami";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Príbehy za Apps";
+"Stories Behind the Batch Tools" = "Príbehy za dávkovými nástrojmi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita bude dokonale zostať rovnaká.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "Program VIP členstva";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP členstvo";
+"VIP License Program" = "VIP licenčný program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP licencia";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Overenie sa nepodarilo.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Vitajte zadarmo balíček";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Vitajte v našom %@ licenčnom programe!";
+"Welcome to our Partnership License Program!" = "Vitajte v našom Partnerskom licenčnom programe!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Vitajte v našom VIP licenčnom programe.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Napísať recenziu";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "zapísať";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Ročné členstvo";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Ročná licencia";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Môžete vybrať len fotografie alebo videá, ktoré zodpovedajú štartovaciemu formátu.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

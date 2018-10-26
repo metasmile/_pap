@@ -68,14 +68,12 @@
 "%@ Day" = "%@天";
 /* Generated from genl10n: batch.Strings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@會員";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@會員計劃";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@會員資格";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@許可證";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@所有權";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@合夥許可";
 /* Generated from genl10n: Finder.BApp.swift#1647, Cleaner.BApp.swift#767 */
 "%@ might be found" = "可能會找到%@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#425 */
@@ -86,30 +84,30 @@
 "%d times" = "%d次";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1個月會員資格";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1年會員資格";
-/* Generated from genl10n: AppCenter.Charge.swift#185 */
-"1-Month Use of All and New Apps" = "所有應用程序和新應用程序的1個月使用";
+"1 Month License" = "1個月許可證";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "主要和新應用程序的1個月使用";
+"1 Year License" = "1年許可證";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "1年使用全部和新應用程序";
+"1-Month Use of All and New Tools" = "1個月使用全部和新工具";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "主要和新應用程序的1年使用";
+"1-Month Use of Main and New Tools" = "主要和新工具的1個月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "主要和新應用程序的14天使用";
+"1-Year Use of All and New Tools" = "1年使用全部和新工具";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "主要和新應用程序的3個月使用";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6個月會員資格";
-/* Generated from genl10n: AppCenter.Charge.swift#199 */
-"6-Month Use of All and New Apps" = "所有應用程序和新應用程序的6個月使用";
+"1-Year Use of Main And New Tools" = "主要和新工具的1年使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "主要和新應用程序的6個月使用";
+"14-Day Use of Main and New Tools" = "主要和新工具的14天使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "主要和新應用程序的7天使用";
+"3-Month Use of Main And New Tools" = "主要和新工具的3個月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6個月許可證";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "6個月使用全部和新工具";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "主要和新工具的6個月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "主要和新工具的7天使用";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "需要許可證。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -242,8 +240,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "立即參與並反复補充主要應用程序許可。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "立即參與並反复補充主要工具許可證。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
@@ -313,31 +311,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#64 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要獲得訪問您的聯繫人的權限。請允許iOS設置上的聯繫人。";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "加入%@計劃";
+"Join In Partnership Program" = "加入夥伴關係計劃";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#112 */
 "Layout" = "佈局";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "許可證或主要工具許可證";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift#596 */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "主要應用許可證";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "主要應用使用%@天";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "主要工具許可證";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "主要工具使用%@日";
 /* Generated from genl10n: GIFMaker.BApp.swift#281 */
 "Make GIF" = "製作GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打個電話";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "會員資格或主要應用許可";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "每月會員";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "每月許可證";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "我的相冊";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift#18 */
@@ -354,10 +352,10 @@
 "No loop" = "沒有循環";
 /* Generated from genl10n: PhoneCalls.BApp.swift#615, Finder.BApp.swift#1727, Cleaner.BApp.swift#889 */
 "On Standby" = "隨時待命";
-/* Generated from genl10n: AppCenter.Charge.swift#170, AppCenter.Charge.swift#177 */
-"Ongoing Use of All and New Apps" = "正在使用所有應用程序和新的";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "正在使用所有和新的主要應用程序";
+"Ongoing Use of All and New Main Tools" = "正在使用所有和新的主要工具";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "正在使用所有和新工具";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "打開%@";
 /* Generated from genl10n: Finder.BApp.swift#769 */
@@ -400,14 +398,18 @@
 "Page Size Preset" = "頁面大小預設";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "網頁";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "合作許可計劃";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "合夥許可";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "粘貼剪貼板中的圖像";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "永久所有權";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Permanent Use And All New Updates" = "永久使用和所有新更新";
-/* Generated from genl10n: AppCenter.Charge.swift#155, AppCenter.Charge.swift#163 */
-"Permanent Use of All and New Apps" = "永久使用所有應用程序和新的";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "永久使用所有和新工具";
 /* Generated from genl10n: Finder.BApp.swift#355, Finder.BApp.swift#1262 */
 "Phone Number" = "電話號碼";
 /* Generated from genl10n: GIFMaker.BApp.swift#88 */
@@ -427,7 +429,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#179 */
 "Presets" = "預置";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "價格包含每個新的應用和更新，也不會自動續訂。";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "價格包含每個新工具和更新，也不會自動續訂。";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "隱私政策";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#183 */
@@ -504,8 +506,8 @@
 "Send an Email" = "發送電子郵件";
 /* Generated from genl10n: Shop.SApp.swift#603 */
 "Send" = "發送";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "主應用程序許可證的設置";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "主工具許可證的設置";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#303 */
 "Settings" = "設置";
 /* Generated from genl10n: Shop.SApp.swift#589 */
@@ -549,7 +551,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "和我們在一起";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "應用程序背後的故事";
+"Stories Behind the Batch Tools" = "批處理工具背後的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -609,9 +611,9 @@
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP會員計劃";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP會員資格";
+"VIP License Program" = "VIP許可計劃";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP許可證";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -635,7 +637,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "歡迎免費包";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "歡迎來到我們的%@許可計劃！";
+"Welcome to our Partnership License Program!" = "歡迎來到我們的合作許可計劃！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "歡迎來到我們的VIP許可計劃。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -650,8 +652,8 @@
 "Write A Review" = "寫評論";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#577 */
 "Write" = "寫";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "每年會員資格";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "年度許可證";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

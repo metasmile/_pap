@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Päivä";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Lataa nyt ILMAISEKSI!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Jäsen";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Jäsenohjelma";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Jäsenyys";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Lisenssi";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Omistusoikeus";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ -Kumppanuuslisenssi";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ saattaa löytyä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d kertaa";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1 kuukauden jäsenyys";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 vuoden jäsenyys";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "Kaikkien sovellusten 1 kuukauden käyttö ja uusi";
+"1 Month License" = "1 kuukauden lisenssi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "1 kuukauden käyttö pää- ja uusiin sovelluksiin";
+"1 Year License" = "1 vuoden lisenssi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "Kaikkien ja uusien sovellusten 1 vuoden käyttö";
+"1-Month Use of All and New Tools" = "Kaikkien ja uusien työkalujen 1 kuukauden käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "1 vuoden käyttö tärkeimpien ja uusien sovellusten käyttöön";
+"1-Month Use of Main and New Tools" = "1 kuukauden käyttö pää- ja uusilla työkaluilla";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "14 päivän käyttö pää- ja uusiin sovelluksiin";
+"1-Year Use of All and New Tools" = "Kaikkien ja uusien työkalujen 1 vuoden käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "3 kuukauden käyttö tärkeimmistä ja uusista sovelluksista";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6 kuukautta Jäsenyys";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "Kaikkien sovellusten 6 kuukauden käyttö ja uusi";
+"1-Year Use of Main And New Tools" = "Päätuotteiden ja uusien työkalujen 1-vuotinen käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "6 kuukauden käyttö tärkeimmistä ja uusista sovelluksista";
+"14-Day Use of Main and New Tools" = "14 päivän pää- ja uudet työkalut";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "7-päivän Main- ja uusien sovellusten käyttö";
+"3-Month Use of Main And New Tools" = "3 kuukauden käyttö tärkeimmistä ja uusista työkaluista";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6 kuukauden lisenssi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "Kaikkien ja uusien työkalujen 6 kuukauden käyttö";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "6 kuukauden käyttö tärkeimmistä ja uusista työkaluista";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "7-päivän pää- ja uudet työkalut";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Lisenssi vaaditaan.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostin avulla voit poistaa kaikenlaisia ​​valokuvasi sisältäviä tietoja, kuten yksityisiä tietoja.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Aktivoi nyt ja toistuvasti lataa pääohjelmistolisenssi.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Aktivoi nyt ja toistuvasti lataa päätyökalujen käyttöoikeus.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "Liity %@ ohjelmaan";
+"Join In Partnership Program" = "Liity kumppanuusohjelmaan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Maisema";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Lisenssi tai päätyökalusopimus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Main-sovelluslisenssi";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Pääsovellukset %@ päivä";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Päätytyökalu";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Päätyökalut %@ päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Tee GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Jäsenyyden tai tärkein sovelluslisenssi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "Kuukausittainen jäsenyys";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Kuukausittainen lisenssi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "No loop";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Valmiustilassa";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Kaikkien sovellusten jatkuva käyttö ja uusi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Kaikkien ja uusien pääohjelmien jatkuva käyttö";
+"Ongoing Use of All and New Main Tools" = "Kaikkien ja uusien päätyökalujen jatkuva käyttö";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Kaikkien ja uusien työkalujen jatkuva käyttö";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Avaa %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Sivun koko Esiasetettu";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "sivut";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Kumppanuusohjelma";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Kumppanuuslisenssi";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Liitä kuvat leikepöydiltäsi";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Pysyvä omistaja";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Pysyvä käyttö ja kaikki uudet päivitykset";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Kaikkien sovellusten pysyvä käyttö ja uusi";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Kaikkien ja uusien työkalujen pysyvä käyttö";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "esiasetukset";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Hinnat sisältävät jokaisen uuden sovelluksen ja päivityksen, myös se ei uusi automaattisesti.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Hinnat sisältävät kaikki uudet työkalut ja päivitykset, mutta se ei uusi automaattisesti.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Tietosuojakäytäntö";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Lähetä sähköposti";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Lähettää";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Main-sovellusten käyttöoikeuksien asetukset";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Päätyökalujen käyttöoikeusasetukset";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "asetukset";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pysy kanssamme";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Tarinoita sovellusten takana";
+"Stories Behind the Batch Tools" = "Tarinoita erätyökalujen takana";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP-jäsenohjelma";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP-jäsenyys";
+"VIP License Program" = "VIP-lisenssiohjelma";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP-lisenssi";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Vahvistus epäonnistui.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Tervetuloa ilmainen paketti";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "Tervetuloa %@ lisenssiohjelmaan!";
+"Welcome to our Partnership License Program!" = "Tervetuloa kumppanuusohjelmaan!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Tervetuloa VIP-lisenssiohjelmaan.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Kirjoita arvostelu";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Kirjoittaa";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Vuotuinen jäsenyys";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Vuotuinen lisenssi";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Voit valita vain valokuvia tai videoita, jotka sopivat aloitusformaattiin.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

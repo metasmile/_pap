@@ -27,7 +27,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, PreheatableApp, ChargeableApp {
+public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -53,10 +53,6 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.showActions]
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     public var needsCachingRequestOptions: [PHAssetRequestOption]? {

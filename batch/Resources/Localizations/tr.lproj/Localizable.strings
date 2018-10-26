@@ -122,14 +122,12 @@
 "%@ Day" = "%@ Gün";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Member" = "%@ Üye";
-/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"%@ Membership Program" = "%@ Üyelik Programı";
-/* Generated from genl10n: Shop.SApp.swift#272 */
-"%@ Membership" = "%@ Üyelik";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Lisans";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Sahiplik";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Ortaklık Lisansı";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ bulunabilir";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -140,30 +138,30 @@
 "%d times" = "%d kez";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
-/* Generated from genl10n: AppCenter.Charge.swift#189 */
-"1 Month Membership" = "1 Aylık Üyelik";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year Membership" = "1 Yıllık Üyelik";
-/* Generated from genl10n: AppCenter.Charge.swift#178 */
-"1-Month Use of All and New Apps" = "Tüm Uygulamaların ve Yeni 1 Aylık Kullanım";
+"1 Month License" = "1 Aylık Lisans";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 1 Aylık Kullanımı";
+"1 Year License" = "1 Yıllık Lisans";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Apps" = "Tüm ve Yeni Uygulamaların 1 Yıllık Kullanımı";
+"1-Month Use of All and New Tools" = "Tüm ve Yeni Araçların 1 Aylık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Apps" = "Ana ve Yeni Uygulamaların 1 Yıllık Kullanımı";
+"1-Month Use of Main and New Tools" = "Ana ve Yeni Araçların 1 Aylık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 14 Günlük Kullanımı";
+"1-Year Use of All and New Tools" = "Tüm ve Yeni Araçların 1 Yıllık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Apps" = "Ana ve Yeni Uygulamaların 3 Aylık Kullanımı";
-/* Generated from genl10n: AppCenter.Charge.swift#203 */
-"6 Months Membership" = "6 Aylık Üyelik";
-/* Generated from genl10n: AppCenter.Charge.swift#192 */
-"6-Month Use of All and New Apps" = "Tüm Uygulamaların ve Yeni 6 Aylık Kullanım";
+"1-Year Use of Main And New Tools" = "Ana ve Yeni Araçların 1 Yıllık Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Apps" = "Ana ve Yeni Uygulamaların 6 Aylık Kullanımı";
+"14-Day Use of Main and New Tools" = "Ana ve Yeni Araçların 14 Günlük Kullanımı";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Apps" = "Ana ve Yeni Uygulamaların 7 Günlük Kullanımı";
+"3-Month Use of Main And New Tools" = "Ana ve Yeni Araçların 3 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6 Aylık Lisans";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "Tüm ve Yeni Araçların 6 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "Ana ve Yeni Araçların 6 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "Ana ve Yeni Araçların 7 Günlük Kullanımı";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Bir Lisans Gerekir.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -296,8 +294,8 @@
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost, özel bilgileri içeren fotoğraflarınızı içeren her türlü veriyi kaldırmanızı sağlar.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
-/* Generated from genl10n: Shop.SApp.swift#287 */
-"Engage Now And Repeatedly Recharge Main Apps License." = "Şimdi Kapatın ve Ana Uygulama Lisansını Sürekli Olarak Yeniden Şarj Edin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Şimdi Kapatın ve Ana Araçları Lisansı&#39;nı Tekrar Tekrar Şarj Edin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Mühendislik Notları";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -367,31 +365,31 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In %@ Program" = "%@ Programına Katıl";
+"Join In Partnership Program" = "Ortaklık Programına Katılın";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "peyzaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "düzen";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Lisans veya Ana Araçlar Lisansı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "döngü";
-/* Generated from genl10n: Shop.SApp.swift#286, Shop.Payment.GADInterestialAdsViewing.swift#103 */
-"Main Apps License" = "Ana Uygulamalar Lisansı";
-/* Generated from genl10n: AppCenter.Charge.swift#299 */
-"Main Apps Use of %@ Day" = "Ana Uygulamalar %@ Gününün Kullanımı";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Ana Araçlar Lisansı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Ana Araçlar %@ Gününün Kullanımı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIF yap";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Arama yapmak";
-/* Generated from genl10n: Shop.SApp.swift */
-"Membership or Main Apps License" = "Üyelik veya Ana Uygulamalar Lisansı";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift#174 */
-"Monthly Membership" = "aylık üyelik";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Aylık lisans";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Albümlerim";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,10 +406,10 @@
 "No loop" = "Döngü yok";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Beklemede";
-/* Generated from genl10n: AppCenter.Charge.swift#163, AppCenter.Charge.swift#170 */
-"Ongoing Use of All and New Apps" = "Tüm Uygulamaların Sürekli Kullanımı ve Yeni";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Apps" = "Tüm ve Yeni Ana Uygulamaların Devam Eden Kullanımı";
+"Ongoing Use of All and New Main Tools" = "Tüm ve Yeni Ana Araçların Sürekli Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Tüm ve Yeni Araçların Sürekli Kullanımı";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "%@ Açık";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -454,14 +452,18 @@
 "Page Size Preset" = "Sayfa Boyutu Ön Ayarı";
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Sayfalar";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Ortaklık Lisansı Programı";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Ortaklık lisansı";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Panolarınızdaki görüntüleri yapıştırın";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
 "Permanent Ownership" = "Kalıcı Mülkiyet";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Kalıcı Kullanım ve Tüm Yeni Güncellemeler";
-/* Generated from genl10n: AppCenter.Charge.swift#156 */
-"Permanent Use of All and New Apps" = "Tüm Uygulamaların ve Yeni Kalıcı Kullanımın Kalıcı Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Tüm ve Yeni Araçların Kalıcı Kullanımı";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Telefon numarası";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -481,7 +483,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Hazır ayarlar";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Apps and Updates, also it will not renew automatically." = "Fiyatlar Her Yeni Uygulama ve Güncellemeyi İçeriyor, ayrıca otomatik olarak yenilenmeyecek.";
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Fiyatlar Her Yeni Araç ve Güncellemeyi İçeriyor, ayrıca otomatik olarak yenilenmeyecek.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Gizlilik Politikası";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -558,8 +560,8 @@
 "Send an Email" = "Bir e-posta göndermek";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "göndermek";
-/* Generated from genl10n: Shop.SApp.swift#480 */
-"Settings for Main Apps License" = "Ana Uygulamalar Lisansı için Ayarlar";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Ana Araçlar Lisansı için Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ayarlar";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -603,7 +605,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bizimle Kalmak";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Apps" = "Uygulamaların Ardındaki Hikayeler";
+"Stories Behind the Batch Tools" = "Toplu Araçları Arkasındaki Hikayeler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Gizlemek istediğiniz öğeleri açın. Kalite mükemmel olarak aynı kalacaktır.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -663,9 +665,9 @@
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Yardım Hattı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP Membership Program" = "VIP Üyelik Programı";
-/* Generated from genl10n: AppCenter.Charge.swift#159 */
-"VIP Membership" = "VIP Üyeliği";
+"VIP License Program" = "VIP Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP Lisansı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Doğrulama başarısız oldu.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -689,7 +691,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Hoşgeldiniz ücretsiz paketi";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our %@ license program!" = "%@ Lisans programımıza hoş geldiniz!";
+"Welcome to our Partnership License Program!" = "Ortaklık Lisans Programımıza Hoş Geldiniz!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -704,8 +706,8 @@
 "Write A Review" = "Bir değerlendirme yazın";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Yazmak";
-/* Generated from genl10n: AppCenter.Charge.swift#181 */
-"Yearly Membership" = "Yıllık Üyelik";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Yıllık Lisans";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Sadece başlangıç ​​formatıyla eşleşen fotoğrafları veya videoları seçebilirsiniz.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
