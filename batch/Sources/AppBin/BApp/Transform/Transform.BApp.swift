@@ -10,18 +10,11 @@ import UIKit
 import MobileCoreServices
 import PropertyKit
 
-public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttributeValuable, AppConfigAdoptableValuable {
-    @objc dynamic
-    public var tintColor: UIColor?
-
+public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
     @objc dynamic
     public var transform: ImageEditStateValue?
 
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? AppConfigUIAttributeValuable {
-            self.tintColor = other.tintColor
-        }
-
         if let other = fromOther as? TransformAppConfigValue, let transform = other.transform{
             self.transform = transform
         }
@@ -39,15 +32,14 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
 
     public static var defaultConfigValue: AppConfigValuable {
         let config = TransformAppConfigValue()
-        config.tintColor = TransformApp.info.themeColor
         return config
     }
 
     @objc dynamic
     public private(set) lazy var config: TransformAppConfigValue? = type(of:self).defaultConfigValue as? TransformAppConfigValue
 
-    public private(set) lazy var content: AppDockContent? = createController()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = createController()
+    public private(set) lazy var content: AppDockContent? = TransformAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = TransformAppDockContent()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
@@ -65,10 +57,6 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
 
     required public override init(){
         super.init()
-
-        config?.watch(\.tintColor, options: [.initial, .new]) {
-            self.updateControllerView()
-        }
     }
 
     public private(set) var doneButtonTitle: String? = "Rotate".localized
@@ -79,7 +67,6 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
-        self.updateControllerView()
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -93,39 +80,51 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
-private extension TransformApp{
-    private func createController() -> AppDockContent {
-        let items = [
-            AppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
-                self.config?.transform = VerticalFlipTransformItem()
-            }),
-            AppUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
-                self.config?.transform = HorizontalFlipTransformItem()
-            }),
-            AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
-                self.config?.transform = RotationTransformItem(degrees: -90)
-            }),
-            AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
-                self.config?.transform = RotationTransformItem(degrees: 90)
-            })
-        ]
-        
+fileprivate class TransformAppDockContent: NSObject, AppDockContent {
+    private var config: TransformAppConfigValue? {
+        return AppCenter.default.currentInstanceAs(TransformApp.self)?.config
+    }
+    
+    lazy var items = [
+        AppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
+            self.config?.transform = VerticalFlipTransformItem()
+        }),
+        AppUICollectionView.CollectionItem(title: nil, image: R.image.flipHorizontal()?.withRenderingMode(.alwaysTemplate), action: {
+            self.config?.transform = HorizontalFlipTransformItem()
+        }),
+        AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateLeft()?.withRenderingMode(.alwaysTemplate), action: {
+            self.config?.transform = RotationTransformItem(degrees: -90)
+        }),
+        AppUICollectionView.CollectionItem(title: nil, image: R.image.rotateRight()?.withRenderingMode(.alwaysTemplate), action: {
+            self.config?.transform = RotationTransformItem(degrees: 90)
+        })
+    ]
+    
+    lazy var view: UIView = {
         let view = AppUICollectionStackView(items: items)
         view.cellSize = CGSize(width: 44, height: 44)
         view.cellSpacing = 2
         view.cellImageInsets = UIEdgeInsets(top: 8, left: 10, bottom: 10, right: 10)
-        
+        return view
+    }()
+    
+    var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 52
-        
-        let scrollable = AppDockScrollableContent(view.collectionView)
-        
-        return AppDockContentItem(view: view, preferences: preferences, contentScrollable: scrollable)
+        return preferences
     }
-
-    private func updateControllerView(){
-        self.content?.view.tintColor = config?.tintColor
-        self.photoEditorDockContent?.view.tintColor = config?.tintColor
+    
+    var contentScrollable: AppDockContentScrollable? {
+        guard let view = view as? AppUICollectionStackView else { return nil }
+        return AppDockScrollableContent(view.collectionView)
+    }
+    
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        
+    }
+    
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        view.tintColor = TransformApp.info.themeColor ?? view.colorTheme.tintColor
     }
 }
 
