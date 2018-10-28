@@ -331,14 +331,9 @@ fileprivate class ResultPreviewView: DesignableView {
     
     var image: UIImage? {
         set {
-            imageView.image = newValue
+            reset()
             
-            if let _ = newValue {
-                
-            }
-            else {
-                reset()
-            }
+            imageView.image = newValue
         }
         
         get {
@@ -373,11 +368,13 @@ fileprivate class ResultPreviewView: DesignableView {
     }
     
     fileprivate func reset() {
-        resultsLayer.sublayers = nil
-        resultsUILayer.sublayers = nil
-        
-        dimmedPath.removeAllPoints()
-        dimmedLayer.path = nil
+        DispatchQueue.main.async {
+            self.resultsLayer.sublayers = nil
+            self.resultsUILayer.sublayers = nil
+            
+            self.dimmedPath.removeAllPoints()
+            self.dimmedLayer.path = nil
+        }
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {
