@@ -46,6 +46,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             TransformApp.self
             , FiltersApp.self
             , ConverterApp.self
+            , ArtistApp.self
             , CleanerApp.self
             , GIFMakerApp.self
             , RevertApp.self
@@ -55,7 +56,6 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , AutoEditorApp.self
             , ExifGhostApp.self
             , SiriApp.self
-            , ArtistApp.self
             , ClipboardApp.self
 //            , Stabilizer.self
 

@@ -976,6 +976,7 @@ extension ShopAppDockContent {
             defaultSetCellAppearanceForRow(cellForRowAt: indexPath, describer: cellDescriber, cell: cell)
 
             cell.switcher.setOn(value, animated: false)
+            cell.switcher.onTintColor = ShopApp.info.themeColor
             cell.switchDidChange = item.valueHandler
             return cell
         }
@@ -1098,6 +1099,7 @@ extension ShopAppDockContent{
 
     func switcherCellForRow(_ tableView: UITableView, _ cell:UITableViewSwitchSubtitleCell, cellForRowAt indexPath: IndexPath, forItem:PayItem) -> UITableViewCell{
 
+        cell.switcher.onTintColor = ShopApp.info.themeColor
         cell.switcher.isOn = AppCenter.charge.isPaid(payable: forItem.payable)
         cell.switchDidChange = { on in
             if on {

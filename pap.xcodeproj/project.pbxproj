@@ -324,7 +324,6 @@
 		A00FDD52218235EE005EAD1B /* Intents.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC12218235EE005EAD1B /* Intents.strings */; };
 		A00FDD53218235EE005EAD1B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A00FDC24218235EE005EAD1B /* Intents.intentdefinition */; };
 		A00FDD54218235EE005EAD1B /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC37218235EE005EAD1B /* AppStoryboard.storyboard */; };
-		A00FDD55218235EE005EAD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC38218235EE005EAD1B /* Assets.xcassets */; };
 		A00FDD56218235EE005EAD1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC39218235EE005EAD1B /* GoogleService-Info.plist */; };
 		A00FDD59218235EE005EAD1B /* AppDelegate.SpotlightSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDC3E218235EE005EAD1B /* AppDelegate.SpotlightSearch.swift */; };
 		A00FDD5B218235EE005EAD1B /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDC41218235EE005EAD1B /* AppDelegate.Intents.swift */; };
@@ -1020,7 +1019,6 @@
 		A00FDC35218235EE005EAD1B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Intents.strings; sourceTree = "<group>"; };
 		A00FDC36218235EE005EAD1B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Intents.strings; sourceTree = "<group>"; };
 		A00FDC37218235EE005EAD1B /* AppStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppStoryboard.storyboard; sourceTree = "<group>"; };
-		A00FDC38218235EE005EAD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00FDC39218235EE005EAD1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A00FDC3E218235EE005EAD1B /* AppDelegate.SpotlightSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.SpotlightSearch.swift; sourceTree = "<group>"; };
 		A00FDC40218235EE005EAD1B /* mmc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = mmc.entitlements; sourceTree = "<group>"; };
@@ -2226,7 +2224,6 @@
 			isa = PBXGroup;
 			children = (
 				A00FDBE2218235EE005EAD1B /* Resources */,
-				A00FDC38218235EE005EAD1B /* Assets.xcassets */,
 				A00FDC39218235EE005EAD1B /* GoogleService-Info.plist */,
 				A00FDC3E218235EE005EAD1B /* AppDelegate.SpotlightSearch.swift */,
 				A00FDC40218235EE005EAD1B /* mmc.entitlements */,
@@ -3357,7 +3354,6 @@
 				A00FDD50218235EE005EAD1B /* Assets.xcassets in Resources */,
 				A00FDD7D218235EE005EAD1B /* AppUICollectionViewCell.xib in Resources */,
 				A00FDE32218235EF005EAD1B /* Siri.SApp.Assets.xcassets in Resources */,
-				A00FDD55218235EE005EAD1B /* Assets.xcassets in Resources */,
 				A00FDD4B218235EE005EAD1B /* cell_icon_pano.png in Resources */,
 				A00FDE2F218235EF005EAD1B /* PreviewView.xib in Resources */,
 				A00FDE2E218235EF005EAD1B /* PreviewCollectionViewCell.xib in Resources */,
