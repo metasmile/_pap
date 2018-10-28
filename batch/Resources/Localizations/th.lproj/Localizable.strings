@@ -604,8 +604,6 @@
 "Starting to copy photos..." = "กำลังเริ่มถ่ายสำเนารูปภาพ ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "อยู่กับเรา";
-/* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Batch Tools" = "เรื่องราวเบื้องหลังเครื่องมือ Batch";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะสมบูรณ์เหมือนเดิม";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -670,8 +668,6 @@
 "VIP License" = "ใบอนุญาตวีไอพี";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "การยืนยันล้มเหลว";
-/* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "วิดีโอบทแนะนำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "วีดีโอ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

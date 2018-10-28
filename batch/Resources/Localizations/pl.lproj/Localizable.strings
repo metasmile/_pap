@@ -604,8 +604,6 @@
 "Starting to copy photos..." = "Zaczynam kopiować zdjęcia ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pobyt u nas";
-/* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Batch Tools" = "Historie za narzędziami wsadowymi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Włącz wszystkie przedmioty, które chcesz ukryć. Jakość doskonale pozostanie taka sama.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -670,8 +668,6 @@
 "VIP License" = "Licencja VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Weryfikacja nie powiodła się.";
-/* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "Samouczki wideo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Wideo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

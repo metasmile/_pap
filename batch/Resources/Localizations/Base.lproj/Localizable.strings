@@ -404,7 +404,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open" = "Open";
 /* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift, Artist.BApp.swift */
 "Original" = "Original";
@@ -568,8 +568,6 @@
 "Starting to copy photos..." = "Starting to copy photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Staying With Us";
-/* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Batch Tools" = "Stories Behind the Batch Tools";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -634,8 +632,6 @@
 "VIP License" = "VIP License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Verification Failed.";
-/* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "Video Tutorials";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -648,7 +644,7 @@
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
+/* Generated from genl10n: Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";

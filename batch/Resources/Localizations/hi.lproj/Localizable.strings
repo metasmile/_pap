@@ -604,8 +604,6 @@
 "Starting to copy photos..." = "फोटो कॉपी करने के लिए शुरू कर रहा है ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "हमारे साथ रहना";
-/* Generated from genl10n: Shop.SApp.swift */
-"Stories Behind the Batch Tools" = "बैच टूल्स के पीछे कहानियां";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "किसी भी आइटम को स्विच करें जिसे आप छिपाना चाहते हैं। गुणवत्ता पूरी तरह से वही रहेगी।";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -670,8 +668,6 @@
 "VIP License" = "वीआईपी लाइसेंस";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
-/* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "वीडियो शिक्षण";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
