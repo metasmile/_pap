@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Salvato senza fotocamera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tutti";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Un'app, ma contiene molte app di foto.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Si è verificato un errore durante la ricezione degli annunci.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -217,7 +215,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Raddrizzamento automatico";
 /* Generated from genl10n: Artist.BApp.swift */
-"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sii un artista. L&#39;artista ti consente di trasformare in modo drammatico tutte le tue foto o video in famosi dipinti in stile. Questo strumento di elaborazione batch non ha limiti al numero di foto da convertire.";
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sii un artista. L'artista ti consente di trasformare in modo drammatico tutte le tue foto o video in famosi dipinti in stile. Questo strumento di elaborazione batch non ha limiti al numero di foto da convertire.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -245,15 +243,15 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Contattaci ora";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Converti l&#39;ultima foto dal vivo in GIF.";
+"Convert the last Live Photo Into GIF." = "Converti l'ultima foto dal vivo in GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Converti l&#39;ultima foto dal vivo in video.";
+"Convert the last Live Photo Into Video." = "Converti l'ultima foto dal vivo in video.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Converti l&#39;ultimo video in GIF.";
+"Convert the last Video Into GIF." = "Converti l'ultimo video in GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Converti l&#39;ultimo video in Live Photo.";
+"Convert the last Video Into Live Photo." = "Converti l'ultimo video in Live Photo.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Converti l&#39;ultimo video in MP4.";
+"Convert the last Video Into MP4." = "Converti l'ultimo video in MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Il convertitore consente di convertire tutti i formati multimediali come video, foto dal vivo, GIF in ogni altro.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Eliminazione di obiettivi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzione";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Fai tutto con le foto.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Scarica ora GRATUITAMENTE su %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Licenza utente ospite";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Utente ospite";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Gestisci molte foto contemporaneamente.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Ciao, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Richiede un permesso per accedere ai tuoi contatti. Si prega di consentire Contatti su Impostazioni iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Partecipa al programma di partnership";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Basta selezionare le foto che ti servono e poi eseguirle.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Paesaggio";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -655,7 +655,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Impossibile verificare il codice al momento. Si prega di provare più tardi.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Usage Guide" = "Guida all&#39;uso";
+"Usage Guide" = "Guida all'uso";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Utilizzare la prova";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */

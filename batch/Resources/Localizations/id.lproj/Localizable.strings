@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Disimpan Tanpa Kamera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Semua";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Aplikasi, tetapi Berisi Banyak Aplikasi Foto.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Terjadi Kesalahan Saat Menerima Iklan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Menghapus Target";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Lakukan Semuanya Dengan Foto.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Unduh sekarang GRATIS di %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Lisensi Pengguna Tamu";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Pengguna Tamu";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Tangani banyak foto sekaligus.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Halo, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ini membutuhkan izin untuk mengakses kontak Anda. Harap izinkan Kontak di Pengaturan iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Bergabung Dalam Program Kemitraan";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Cukup pilih foto yang Anda butuhkan dan kemudian jalankan.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Pemandangan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

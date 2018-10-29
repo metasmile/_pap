@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Salvat fără aparatul foto";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Toate";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "O aplicație, dar conține multe aplicații foto.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "A apărut o eroare la primirea anunțurilor.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Ștergerea țintelor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direcţie";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Faceți totul cu fotografii.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Descarcă acum GRATUIT la %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Licență utilizator licitată";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Utilizator invitat";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Manipulați o mulțime de fotografii deodată.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Bună ziua, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Este necesară o permisiune pentru a accesa contactele dvs. Activați persoanele de contact din setările iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Alăturați-vă programului de parteneriat";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Doar selectați fotografiile de care aveți nevoie și apoi executați-le.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Peisaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

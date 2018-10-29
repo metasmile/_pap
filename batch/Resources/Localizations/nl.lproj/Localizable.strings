@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Opgeslagen zonder de camera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Alle";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Een app, maar bevat veel foto-apps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Er is een fout opgetreden tijdens het ontvangen van advertenties.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -217,7 +215,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Artist.BApp.swift */
-"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto&#39;s of video&#39;s omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto&#39;s.";
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto's of video's omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto's.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Vervaagsnelheid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -261,7 +259,7 @@
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copy";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Copying Photos..." = "Foto&#39;s kopiëren ...";
+"Copying Photos..." = "Foto's kopiëren ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "Kon niets vinden.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Doelen verwijderen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Alles doen met foto's.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS op %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Gastgebruikerslicentie";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gast gebruiker";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Behandel veel foto's tegelijkertijd.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hallo, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Join In Partnership-programma";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Selecteer gewoon foto's die u nodig hebt en voer het vervolgens uit.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -379,7 +379,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Tools License" = "Licentie voor hoofdprogramma&#39;s";
+"Main Tools License" = "Licentie voor hoofdprogramma's";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Main Tools Use of %@ Day" = "Hoofdtools Gebruik van %@ Dag";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -601,7 +601,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "Beginnen met het controleren van bewerkte foto's ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Starting to copy photos..." = "Beginnen met het kopiëren van foto&#39;s ...";
+"Starting to copy photos..." = "Beginnen met het kopiëren van foto's ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bij ons blijven";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -677,7 +677,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Video's zonder geluid";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
-"Videos from Screen Recorder" = "Video&#39;s van schermrecorder";
+"Videos from Screen Recorder" = "Video's van schermrecorder";
 /* Generated from genl10n: AppCenter.Charge.swift#132 */
 "Visit Social Pages" = "Bezoek sociale pagina's";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */

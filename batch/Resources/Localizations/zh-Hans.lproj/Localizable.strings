@@ -186,8 +186,6 @@
 "All not taken with Camera" = "没有相机保存";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "全体";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "一个app里存在的多种照片apps。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "接收广告时出错。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "删除目标";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "用照片做一切。";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "立即免费下载%@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "访客用户许可";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "来宾用户";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "一次处理大量照片。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "加入伙伴关系计划";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "只需选择您需要的照片，然后运行它。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "景观";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

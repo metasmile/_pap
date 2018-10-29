@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Ohne die Kamera gespeichert";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Alle";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Eine App, aber enthält viele Foto-Apps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Beim Empfangen von Anzeigen ist ein Fehler aufgetreten.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Ziele löschen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richtung";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Mach alles mit Fotos.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Jetzt kostenlos bei %@ herunterladen";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Gastbenutzerlizenz";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gastbenutzer";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Viele Fotos gleichzeitig bearbeiten.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hallo, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Es erfordert eine Erlaubnis, auf Ihre Kontakte zuzugreifen. Bitte erlaube Kontakte in den iOS-Einstellungen.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Join in Partnerschaftsprogramm";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Wählen Sie einfach die gewünschten Fotos aus und führen Sie sie dann aus.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landschaft";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

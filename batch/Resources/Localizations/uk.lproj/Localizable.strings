@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Збережено без камери";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Все";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Додаток, але містить багато додатків для фотографій.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Під час отримання оголошень з'явилася помилка.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Видалення цілей";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Робити все з фотографіями.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Ліцензія користувача гостя";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Гостьовий користувач";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Обробити безліч фотографій одночасно.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Привіт, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Приєднуйтесь до Партнерської програми";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Просто виберіть потрібні фотографії, а потім запустіть його.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -629,13 +629,13 @@
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Текст";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you %@. Soon we will contact you." = "Дякую %@ Скоро ми зв&#39;яжемося з вами.";
+"Thank you %@. Soon we will contact you." = "Дякую %@ Скоро ми зв'яжемося з вами.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you for your message. Soon we will contact you." = "Дякую за повідомлення. Скоро ми зв&#39;яжемося з вами.";
+"Thank you for your message. Soon we will contact you." = "Дякую за повідомлення. Скоро ми зв'яжемося з вами.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
 "Thank you for your purchase." = "Дякуємо за покупку.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you very much for your feedback! Soon we will contact you." = "Велике спасибі за ваш відгук! Скоро ми зв&#39;яжемося з вами.";
+"Thank you very much for your feedback! Soon we will contact you." = "Велике спасибі за ваш відгук! Скоро ми зв'яжемося з вами.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Цей простий, але широкомасштабний інструмент перетворення зображень дозволяє вам швидко обертати і перевертати багато медіа-файлів, включаючи Live Photos. Кількість фотографій для їх редагування не обмежується.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

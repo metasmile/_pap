@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Alt er ikke tatt med kameraet";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "All" = "Alle";
-/* Generated from genl10n: batch.Strings.swift */
-"An App, But Contains Many Batch Photos." = "En app, men inneholder mange fotoapps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "En feil oppstod under mottak av annonser.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -281,8 +279,6 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
 /* Generated from genl10n: batch.Strings.swift */
-"Do Everything With Photos." = "Gjør alt med bilder.";
-/* Generated from genl10n: batch.Strings.swift */
 "Download now for FREE at %@" = "Last ned nå GRATIS på %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "nedlasting";
@@ -336,6 +332,8 @@
 "Guest User License" = "Gjestebruker Lisens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gjestebruker";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Håndter mange bilder samtidig.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hei, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krever tillatelse til å få tilgang til kontaktene dine. Vennligst tillat kontakter på iOS-innstillinger.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Bli med i partnerskapsprogrammet";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Bare velg bilder du trenger og kjør det.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */

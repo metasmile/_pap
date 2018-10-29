@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Đã lưu mà không có máy ảnh";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Một ứng dụng, nhưng chứa nhiều ứng dụng ảnh.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Đã xảy ra lỗi khi nhận quảng cáo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Xóa mục tiêu";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Làm mọi thứ với hình ảnh.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Giấy phép người dùng của khách";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Tài khoản khách";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Xử lý nhiều ảnh cùng một lúc.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Tham gia chương trình hợp tác";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Chỉ cần chọn ảnh bạn cần và sau đó chạy nó.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

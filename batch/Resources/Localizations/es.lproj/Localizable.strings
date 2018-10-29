@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Guardado sin la cámara";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Todas";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Una aplicación, pero contiene muchas aplicaciones de fotos.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Se produjo un error al recibir anuncios.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Eliminando objetivos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Haz todo con fotos";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Descargue ahora GRATIS en %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Licencia de usuario invitado";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Usuario invitado";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Maneja muchas fotos a la vez.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hola, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requiere un permiso para acceder a sus contactos. Por favor, permite contactos en la configuración de iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Únete en el programa de asociación";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Solo selecciona las fotos que necesites y luego ejecútalo.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Paisaje";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

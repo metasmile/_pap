@@ -22,7 +22,7 @@ struct batchStrings {
     }
 
     static var title: String{
-        return "Do Everything With Photos.".localized
+        return "Handle lots of photos at once.".localized
     }
 
     static var nameTitle:String{
@@ -30,7 +30,7 @@ struct batchStrings {
     }
 
     static var tagline: String{
-        return "An App, But Contains Many Batch Photos.".localized
+        return "Just select photos you need and then run it.".localized
     }
     
     static var nameTitleTagLine:String{
@@ -105,7 +105,7 @@ struct batchStrings {
 
         struct twitter{
             static var accountName:String{
-                return "AppsForPhotos"
+                return "BatchPhotos"
             }
         }
 
@@ -200,7 +200,7 @@ struct batchStrings {
         static var hashTags: [String]{
             return [
                 "#BatchPhotos",
-                "#GetPhotoApps"
+                "#GetBatchPhotos"
             ]
         }
     }

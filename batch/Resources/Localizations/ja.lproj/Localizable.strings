@@ -186,8 +186,6 @@
 "All not taken with Camera" = "カメラで撮影していないすべての画像";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "すべて";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "一つのアプリに、多くのフォトアプリケーションが含まれています。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "広告の受信中にエラーが発生しました。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "ターゲットの削除";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "写真ですべてを行う。";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "ゲストユーザライセンス";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "ゲストユーザ";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "多数の写真を一度に処理します。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "あなたの連絡先にアクセスするための許可が必要です。 iOSの設定で連絡先を許可してください。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "パートナーシッププログラムに参加する";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "必要な写真を選択して実行するだけです。";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "風景";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

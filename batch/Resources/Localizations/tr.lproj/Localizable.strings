@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Kamera Olmadan Kaydedildi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Bir Uygulama, Ama Birçok Fotoğraf Uygulamaları İçeriyor.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Reklamları alırken bir hata oluştu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -245,15 +243,15 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Şimdi bize ulaşın";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Son Canlı Fotoğrafı GIF&#39;e dönüştür.";
+"Convert the last Live Photo Into GIF." = "Son Canlı Fotoğrafı GIF'e dönüştür.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into Video." = "Son Canlı Fotoğrafı Videoya Dönüştür.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Son videoyu GIF&#39;e dönüştür.";
+"Convert the last Video Into GIF." = "Son videoyu GIF'e dönüştür.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Video Into Live Photo." = "Son Videoyu Canlı Fotoğrafa Dönüştür.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Son Videoyu MP4&#39;e dönüştür.";
+"Convert the last Video Into MP4." = "Son Videoyu MP4'e dönüştür.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Dönüştürücü, Videolar, Canlı Fotoğraflar, GIF'ler gibi her medya formatını birbirinize dönüştürmenizi sağlar.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Hedefleri Silme";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Fotoğraflarla Herşeyi Yapın.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -295,7 +291,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Şimdi Kapatın ve Ana Araçları Lisansı&#39;nı Tekrar Tekrar Şarj Edin.";
+"Engage Now And Repeatedly Recharge Main Tools License." = "Şimdi Kapatın ve Ana Araçları Lisansı'nı Tekrar Tekrar Şarj Edin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Mühendislik Notları";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -317,7 +313,7 @@
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Ücretsiz kullanım";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "Uzak Pano&#39;dan";
+"From Remote Clipboard" = "Uzak Pano'dan";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker, çeşitli seçeneklerle Fotoğraflardan veya Canlı Fotoğraflardan GIF görüntülerini kolayca ve hızlı bir şekilde yapmanızı sağlar! Ve sonra Canlı Fotoğraflar veya Videolar gibi her şeye dönüştürmek için dönüştürücü uygulamasını açabilirsiniz.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Misafir Kullanıcı Lisansı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Misafir kullanıcı";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Bir seferde bol bol fotoğraf çekin.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Merhaba, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Ortaklık Programına Katılın";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Sadece ihtiyacınız olan fotoğrafları seçin ve sonra çalıştırın.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "peyzaj";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -545,9 +545,9 @@
 /* Generated from genl10n: Finder.BApp.swift#762 */
 "Search Flights" = "Uçuş ara";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google Maps" = "Google Haritalar&#39;da Ara";
+"Search On Google Maps" = "Google Haritalar'da Ara";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google" = "Google&#39;da Ara";
+"Search On Google" = "Google'da Ara";
 /* Generated from genl10n: Siri.SApp.swift */
 "Search for %@" = "%@ İçin ara";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */

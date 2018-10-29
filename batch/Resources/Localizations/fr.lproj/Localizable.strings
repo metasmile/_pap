@@ -147,19 +147,19 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "Utilisation pendant un mois des outils principaux et nouveaux";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "Utilisation d&#39;un an de tous les outils et de nouveaux outils";
+"1-Year Use of All and New Tools" = "Utilisation d'un an de tous les outils et de nouveaux outils";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Tools" = "Utilisation d&#39;un an d&#39;outils principaux et nouveaux";
+"1-Year Use of Main And New Tools" = "Utilisation d'un an d'outils principaux et nouveaux";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "Utilisation des outils principaux et nouveaux pendant 14 jours";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Tools" = "Utilisation de 3 mois d&#39;outils principaux et nouveaux";
+"3-Month Use of Main And New Tools" = "Utilisation de 3 mois d'outils principaux et nouveaux";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months License" = "Licence 6 mois";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of All and New Tools" = "Utilisation de tous les outils et de nouveaux outils pendant 6 mois";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Tools" = "Utilisation de 6 mois d&#39;outils principaux et nouveaux";
+"6-Month Use of Main And New Tools" = "Utilisation de 6 mois d'outils principaux et nouveaux";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Tools" = "Utilisation pendant 7 jours des outils principaux et nouveaux";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Enregistré sans la caméra";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tout";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Une application, mais contient de nombreuses applications photo.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Une erreur s'est produite lors de la réception des annonces.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Suppression des cibles";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Tout faire avec des photos.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Téléchargez maintenant gratuitement à %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -331,11 +327,13 @@
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Donner une note";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "Programme de licence d&#39;utilisateur invité";
+"Guest User License Program" = "Programme de licence d'utilisateur invité";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "Licence d&#39;utilisateur invité";
+"Guest User License" = "Licence d'utilisateur invité";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Utilisateur invité";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Traitez beaucoup de photos à la fois.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Bonjour, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Il nécessite une autorisation pour accéder à vos contacts. Veuillez autoriser les contacts sur les paramètres iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Programme de partenariat";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Sélectionnez simplement les photos dont vous avez besoin, puis exécutez-les.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Paysage";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
@@ -561,7 +561,7 @@
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Envoyer";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Tools License" = "Paramètres de la licence d&#39;outils principaux";
+"Settings for Main Tools License" = "Paramètres de la licence d'outils principaux";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Paramètres";
 /* Generated from genl10n: Shop.SApp.swift#584 */
@@ -655,7 +655,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Impossible de vérifier le code actuellement. S'il vous plaît essayez plus tard.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Usage Guide" = "Guide d&#39;utilisation";
+"Usage Guide" = "Guide d'utilisation";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Utiliser l'essai";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */

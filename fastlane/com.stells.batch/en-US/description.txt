@@ -1,0 +1,74 @@
+Just choose all photos you need and then tap performing button. You can do everything all you needed with all your photos.
+Batch Photos is a fast and large-scale photo processing app for all your photos that let you work with various tools.
+
+
+Introducing Batch Tools:
+
+Converter
+Converter enables you to convert every media formats such as Videos, mp4 Video Live Photos, GIFs or Burst Photos into every each other.
+
+Cleaner
+Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!
+
+List of Cleaner Matchers
+• Similarity
+• Screenshots
+• Flashlight included
+• Saved with Built-in Camera (in the PA)
+• LockScreens - Taken Screenshots with iOS locked screen.
+• Too Close-up Face
+• Too Slow Sutter Speed
+• Videos Without Sound
+• Videos Shorter Than 1 Second
+• Videos Saved By Instagram
+• All not taken with Camera
+
+
+GIF Maker
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! Moreover, then you can open the converter app to convert into everything such as Live Photos or Videos.
+
+• Multiple Photos
+• Burst Photos
+• Live Photos
+• Custom quality and cropping ratio support
+• Frame delay, direction(Forward, Reverse, Rewind), repetition control
+
+
+EXIF Ghost
+EXIF Ghost lets you remove all kinds of data containing your photos including private information.
+
+• Selective metadata purging for all properties of GPS, EXIF, TIFF support.
+
+
+Rotation
+This straightforward but large-scale batch image transform tool lets you quickly rotate and flip many media files including Live Photos. There is no limit to the number of photos to edit them.
+
+• Tested processing capacity: 2000+a photos at one time.
+• Optimized for multi-core processing. It depends on iDevice models.
+
+
+Auto Editor
+Auto Editor lets you edit automatically if your photos are needed to correct.
+
+• Auto Enhance
+• Auto Straighten
+• Auto Crop
+• Auto Red-Eye Removal
+
+
+Filters
+Apply high-quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
+
+• Tested processing capacity: 2000+a photos at one time.
+• Optimized for multi-core processing. It depends on image size and iDevice models.
+
+
+PDFactory
+PDFactory makes PDF document from multiple images with various page options.
+
+• Page Size(e.g., A4 or US Legal), Margin, Scale, and Layout Mode Support
+
+
+Auto Selection Bot (ASB System)
+
+ASB is a multi-purpose assistant engine for choosing the right items in the current context for each app.

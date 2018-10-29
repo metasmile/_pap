@@ -5,7 +5,7 @@
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Fare una foto.";
 /*Translated from: Open App*/
-"DckJin" = "Apri l&#39;app";
+"DckJin" = "Apri l'app";
 /*Translated from: Find Phone Numbers*/
 "8uSBqs" = "Trova i numeri di telefono";
 /*Translated from: Choose To Delete.*/
@@ -15,9 +15,9 @@
 /*Translated from: Take A GIF With Live Photo*/
 "ZUWAEC" = "Prendi una GIF con Live Photo";
 /*Translated from: Convert the last Live Photo into another.*/
-"p7qwJF" = "Converti l&#39;ultima Live Photo in un&#39;altra.";
+"p7qwJF" = "Converti l'ultima Live Photo in un'altra.";
 /*Translated from: Convert the last Video into another.*/
-"SMLHhI" = "Converti l&#39;ultimo video in un altro.";
+"SMLHhI" = "Converti l'ultimo video in un altro.";
 /*Translated from: Auto Select.*/
 "UQnvTr" = "Selezione automatica";
 /*Translated from: Recognize Text.*/
@@ -31,9 +31,9 @@
 /*Translated from: Open Photo Filters*/
 "UCP0Dw" = "Apri i filtri fotografici";
 /*Translated from: Take a photo with Camera app.*/
-"EOxZtc" = "Scatta una foto con l&#39;app Fotocamera.";
+"EOxZtc" = "Scatta una foto con l'app Fotocamera.";
 /*Translated from: Open App*/
-"lmZpL4" = "Apri l&#39;app";
+"lmZpL4" = "Apri l'app";
 /*Translated from: Find Phone Numbers*/
 "u3K2SQ" = "Trova i numeri di telefono";
 /*Translated from: Open Cleaner And Then Choose Items To Delete.*/
@@ -43,9 +43,9 @@
 /*Translated from: Take A GIF With Live Photo*/
 "gBOghJ" = "Prendi una GIF con Live Photo";
 /*Translated from: Convert the last Live Photo into another.*/
-"PhXLyO" = "Converti l&#39;ultima Live Photo in un&#39;altra.";
+"PhXLyO" = "Converti l'ultima Live Photo in un'altra.";
 /*Translated from: Convert the last Video into another.*/
-"wiPuF4" = "Converti l&#39;ultimo video in un altro.";
+"wiPuF4" = "Converti l'ultimo video in un altro.";
 /*Translated from: Auto Select.*/
 "IMAD8C" = "Selezione automatica";
 /*Translated from: Recognize Text.*/
@@ -87,21 +87,21 @@
 /*Translated from: Take A GIF With Live Photo*/
 "tP4mFl" = "Prendi una GIF con Live Photo";
 /*Translated from: Convert the last Live Photo into unknown*/
-"QmvYfr-wlS6k3" = "Convertire l&#39;ultima Live Photo in sconosciuta";
+"QmvYfr-wlS6k3" = "Convertire l'ultima Live Photo in sconosciuta";
 /*Translated from: Convert the last Live Photo into Live Photo*/
-"QmvYfr-6qTqFL" = "Convertire l&#39;ultima Live Photo in Live Photo";
+"QmvYfr-6qTqFL" = "Convertire l'ultima Live Photo in Live Photo";
 /*Translated from: Convert the last Live Photo into MP4*/
-"QmvYfr-z5soyq" = "Converti l&#39;ultima Live Photo in MP4";
+"QmvYfr-z5soyq" = "Converti l'ultima Live Photo in MP4";
 /*Translated from: Convert the last Live Photo into GIF*/
-"QmvYfr-VSOU19" = "Converti l&#39;ultima foto dal vivo in GIF";
+"QmvYfr-VSOU19" = "Converti l'ultima foto dal vivo in GIF";
 /*Translated from: Convert the last Video into unknown*/
-"hvJmlA-wlS6k3" = "Converti l&#39;ultimo video in sconosciuto";
+"hvJmlA-wlS6k3" = "Converti l'ultimo video in sconosciuto";
 /*Translated from: Convert the last Video into Live Photo*/
-"hvJmlA-6qTqFL" = "Converti l&#39;ultimo video in Live Photo";
+"hvJmlA-6qTqFL" = "Converti l'ultimo video in Live Photo";
 /*Translated from: Convert the last Video into MP4*/
-"hvJmlA-z5soyq" = "Converti l&#39;ultimo video in MP4";
+"hvJmlA-z5soyq" = "Converti l'ultimo video in MP4";
 /*Translated from: Convert the last Video into GIF*/
-"hvJmlA-VSOU19" = "Converti l&#39;ultimo video in GIF";
+"hvJmlA-VSOU19" = "Converti l'ultimo video in GIF";
 /*Translated from: Auto Select on ${appName}.*/
 "Tz3aEP" = "Selezione automatica su ${appName}.";
 /*Translated from: Recognize Text.*/
