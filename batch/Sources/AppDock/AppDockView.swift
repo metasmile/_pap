@@ -1209,6 +1209,12 @@ class AppCollectionViewLayout: UICollectionViewLayout {
                 itemPosition.x += sectionSpacing
             }
         }
+
+        if let v = collectionView, collectionViewContentSize.width < v.width{
+            let horizontalInset = (v.width-collectionViewContentSize.width)/2
+            v.contentInset.left = horizontalInset
+            v.contentInset.right = horizontalInset
+        }
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
