@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Gemt uden kameraet";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Alle";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "En app, men indeholder mange fotoprogrammer.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Der opstod en fejl under modtagelse af annoncer.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Sletning af mål";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Gør alt med fotos.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS ved %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Gæstebrugerlicens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gæstebruger";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Håndter mange billeder på én gang.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hej, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det kræver en tilladelse til at få adgang til dine kontakter. Tillad venligst kontakter på iOS-indstillinger.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Deltag i partnerskabsprogram";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Vælg bare de billeder, du har brug for, og kør det derefter.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landskab";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

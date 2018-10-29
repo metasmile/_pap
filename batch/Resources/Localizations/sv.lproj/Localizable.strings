@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Sparade utan kameran";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Allt";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "En app men innehåller många fotoapps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Ett fel uppstod vid mottagande av annonser.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Radera mål";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Riktning";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Gör allt med foton.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Hämta nu gratis på %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Gästanvändarlicens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gästanvändare";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Hantera massor av bilder på en gång.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hej, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krävs ett tillstånd att komma åt dina kontakter. Vänligen tillåt Kontakter på IOS-inställningar.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Delta i partnerskapsprogram";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Välj bara foton du behöver och kör sedan den.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

@@ -149,7 +149,7 @@
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Camera" = "Càmera";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Captura d&#39;accions a fer.";
+"Capture Actions To Do." = "Captura d'accions a fer.";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Capture All Text." = "Captura tot el text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
@@ -177,7 +177,7 @@
 /* Generated from genl10n: Finder.BApp.swift#116 */
 "Detecting ... %@ " = "S'està detectant ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
-"Detecting Current Visible Items ..." = "Detecció d&#39;elements visibles actuals ...";
+"Detecting Current Visible Items ..." = "Detecció d'elements visibles actuals ...";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Baixeu-vos ara GRATIS a %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */

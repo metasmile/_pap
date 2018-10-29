@@ -186,8 +186,6 @@
 "All not taken with Camera" = "कैमरा के बिना बचाया";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "सब";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "एक ऐप, लेकिन इसमें कई फोटो ऐप्स शामिल हैं।";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "विज्ञापन प्राप्त करते समय एक त्रुटि हुई।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "तस्वीरें के साथ सब कुछ करो।";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "अतिथि उपयोगकर्ता लाइसेंस";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "अतिथि उपयेागकर्ता";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "एक साथ कई तस्वीरें संभाल लें।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "हैलो, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "इसे आपके संपर्कों तक पहुंचने की अनुमति की आवश्यकता है। कृपया आईओएस सेटिंग्स पर संपर्कों की अनुमति दें।";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "साझेदारी कार्यक्रम में शामिल हों";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "बस आपको आवश्यक तस्वीरों का चयन करें और फिर इसे चलाएं।";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "परिदृश्य";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

@@ -127,7 +127,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "Propietat %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"%@ Partnership License" = "%@ Llicència d&#39;associació";
+"%@ Partnership License" = "%@ Llicència d'associació";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ es pot trobar";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -145,23 +145,23 @@
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of All and New Tools" = "Ús a 1 mes de les eines noves i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Tools" = "Ús de 1 mes d&#39;eines principals i noves";
+"1-Month Use of Main and New Tools" = "Ús de 1 mes d'eines principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of All and New Tools" = "Ús a 1 any de totes i noves eines";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Tools" = "Ús a 1 any d&#39;eines principals i noves";
+"1-Year Use of Main And New Tools" = "Ús a 1 any d'eines principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Tools" = "Ús de 14 dies d&#39;eines principals i noves";
+"14-Day Use of Main and New Tools" = "Ús de 14 dies d'eines principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Tools" = "Ús de tres mesos d&#39;eines principals i noves";
+"3-Month Use of Main And New Tools" = "Ús de tres mesos d'eines principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6 Months License" = "Llicència de 6 mesos";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of All and New Tools" = "Ús de totes les eines nou i nou";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Tools" = "Ús de 6 mesos d&#39;eines principals i noves";
+"6-Month Use of Main And New Tools" = "Ús de 6 mesos d'eines principals i noves";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Tools" = "Ús de 7 dies d&#39;eines principals i noves";
+"7-Day Use of Main and New Tools" = "Ús de 7 dies d'eines principals i noves";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "A Licence Is Required." = "Es requereix una llicència.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
@@ -186,8 +186,6 @@
 "All not taken with Camera" = "S'ha desat sense la càmera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tots";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Una aplicació, però conté moltes aplicacions de fotografies.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "S'ha produït un error en rebre anuncis.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -217,7 +215,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Autoextracció";
 /* Generated from genl10n: Artist.BApp.swift */
-"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sigues artista. L&#39;artista us permetrà convertir les vostres fotos o vídeos en quadres famosos. Aquesta eina de processament per lots no té límit a la quantitat de fotos que es poden convertir.";
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sigues artista. L'artista us permetrà convertir les vostres fotos o vídeos en quadres famosos. Aquesta eina de processament per lots no té límit a la quantitat de fotos que es poden convertir.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -245,15 +243,15 @@
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Contact Us Now" = "Contacta'ns ara";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Converteix l&#39;última foto en viu en GIF.";
+"Convert the last Live Photo Into GIF." = "Converteix l'última foto en viu en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Converteix l&#39;última foto en viu en vídeo.";
+"Convert the last Live Photo Into Video." = "Converteix l'última foto en viu en vídeo.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Converteix l&#39;últim vídeo en GIF.";
+"Convert the last Video Into GIF." = "Converteix l'últim vídeo en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Converteix l&#39;últim vídeo a la foto en viu.";
+"Convert the last Video Into Live Photo." = "Converteix l'últim vídeo a la foto en viu.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Converteix l&#39;últim vídeo en MP4.";
+"Convert the last Video Into MP4." = "Converteix l'últim vídeo en MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "El convertidor us permet convertir tots els formats multimèdia, com ara vídeos, fotos en viu, GIF en cada un dels altres.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -261,7 +259,7 @@
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
 "Copy" = "Copia";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Copying Photos..." = "S&#39;estan copiant fotos ...";
+"Copying Photos..." = "S'estan copiant fotos ...";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "No s'ha pogut detectar res.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "S'estan suprimint objectius";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Fer tot amb fotos.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Baixeu-vos ara GRATIS a %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -295,7 +291,7 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Activa les accions ràpides";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Participa ara i recarrega repetidament les llicències d&#39;eines principals.";
+"Engage Now And Repeatedly Recharge Main Tools License." = "Participa ara i recarrega repetidament les llicències d'eines principals.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notes d'enginyeria";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -331,11 +327,13 @@
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Doneu una valoració";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "Programa de llicència d&#39;usuari convidat";
+"Guest User License Program" = "Programa de llicència d'usuari convidat";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "Llicència d&#39;usuari convidada";
+"Guest User License" = "Llicència d'usuari convidada";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Usuari convidat";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Controla moltes fotos alhora.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hola, %@";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -365,13 +363,15 @@
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requereix un permís per accedir als vostres contactes. Permeteu contactes a la configuració de iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In Partnership Program" = "Uniu-vos al programa d&#39;associacions";
+"Join In Partnership Program" = "Uniu-vos al programa d'associacions";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Només cal seleccionar les fotos que necessiteu i, a continuació, executar-les.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Paisatge";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Disseny";
 /* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Llicència o principal llicència d&#39;eines";
+"License or Main Tools License" = "Llicència o principal llicència d'eines";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -379,7 +379,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Bucle";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Tools License" = "Llicència principal d&#39;eines";
+"Main Tools License" = "Llicència principal d'eines";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Main Tools Use of %@ Day" = "Eines principals Utilització del dia %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -453,9 +453,9 @@
 /* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
 "Pages" = "Pàgines";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Partnership License Program" = "Programa de llicència d&#39;associació";
+"Partnership License Program" = "Programa de llicència d'associació";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Partnership License" = "Llicència d&#39;associació";
+"Partnership License" = "Llicència d'associació";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Enganxeu les imatges dels vostres taulers";
 /* Generated from genl10n: AppCenter.Charge.swift#167 */
@@ -561,13 +561,13 @@
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Enviar";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Tools License" = "Configuració de la llicència principal d&#39;eines";
+"Settings for Main Tools License" = "Configuració de la llicència principal d'eines";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Configuració";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Comparteix aquesta aplicació";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Compartiu el vostre talent, feu junts. Obteniu cada recompensa si s&#39;adopta.";
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Compartiu el vostre talent, feu junts. Obteniu cada recompensa si s'adopta.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -601,7 +601,7 @@
 /* Generated from genl10n: Revert.BApp.swift */
 "Starting to check edited photos..." = "S'està començant a verificar les fotos editades ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Starting to copy photos..." = "S&#39;està començant a copiar fotos ...";
+"Starting to copy photos..." = "S'està començant a copiar fotos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Mantenir-se amb nosaltres";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
@@ -655,7 +655,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "No es pot verificar el codi actual. Proveu-ho més tard.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Usage Guide" = "Guia d&#39;ús";
+"Usage Guide" = "Guia d'ús";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
 "Use Trial" = "Utilitza la prova";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
@@ -687,11 +687,11 @@
 /* Generated from genl10n: AppCenter.Charge.swift#81 */
 "Welcome Free Pack" = "Paquet gratuït de benvinguda";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our Partnership License Program!" = "Benvingut al nostre programa de llicència d&#39;associats.";
+"Welcome to our Partnership License Program!" = "Benvingut al nostre programa de llicència d'associats.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Welcome to our VIP license program." = "Benvingut al nostre programa de llicències VIP.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "Benvingut al nostre programa de llicència d&#39;usuari invitat!";
+"Welcome to our guest user license program!" = "Benvingut al nostre programa de llicència d'usuari invitat!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our promotion license program!" = "Benvingut al nostre programa de llicència de promoció.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -150,8 +150,6 @@
 "All not taken with Camera" = "All not taken with Camera";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift */
-"An App, But Contains Many Batch Photos." = "An App, But Contains Many Batch Photos.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -245,8 +243,6 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: batch.Strings.swift */
-"Do Everything With Photos." = "Do Everything With Photos.";
-/* Generated from genl10n: batch.Strings.swift */
 "Download now for FREE at %@" = "Download now for FREE at %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Download";
@@ -300,6 +296,8 @@
 "Guest User License" = "Guest User License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Guest User";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Handle lots of photos at once.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -330,6 +328,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Join In Partnership Program";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Just select photos you need and then run it.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */

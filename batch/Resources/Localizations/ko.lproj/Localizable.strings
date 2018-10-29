@@ -186,8 +186,6 @@
 "All not taken with Camera" = "카메라없이 저장 됨";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "전체";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "하나의 앱 속 다양한 사진 앱들.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "광고를받는 동안 오류가 발생했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "대상 삭제";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "사진으로 모든 것을하십시오.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "%@에서 지금 무료로 다운로드하십시오.";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "게스트 사용자 라이센스";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "게스트 사용자";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "한 번에 많은 사진을 다루십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "안녕하세요, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "연락처에 액세스하려면 권한이 필요합니다. iOS 설정에서 주소록을 허용하십시오.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "파트너십 프로그램에 참여하십시오";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "필요한 사진을 선택하고 실행하십시오.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "가로";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

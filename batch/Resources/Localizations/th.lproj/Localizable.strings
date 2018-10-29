@@ -186,8 +186,6 @@
 "All not taken with Camera" = "บันทึกโดยไม่มีกล้อง";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "แอปพลิเคชัน แต่ประกอบด้วยแอปภาพถ่ายจำนวนมาก";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "เกิดข้อผิดพลาดขณะรับโฆษณา";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "การลบเป้าหมาย";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "ทำทุกอย่างด้วยภาพถ่าย";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "ดาวน์โหลดเดี๋ยวนี้ฟรีที่ %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "ใบอนุญาตผู้ใช้ Guest";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "ผู้เยี่ยมชม";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "จับภาพจำนวนมากพร้อมกัน";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "สวัสดี %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ต้องมีสิทธิ์เข้าถึงที่อยู่ติดต่อของคุณ โปรดอนุญาตให้ผู้ติดต่อในการตั้งค่า iOS";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "เข้าร่วมโครงการหุ้นส่วน";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "เพียงแค่เลือกรูปภาพที่คุณต้องการแล้วเรียกใช้";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "ภูมิประเทศ";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

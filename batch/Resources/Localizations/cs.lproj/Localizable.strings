@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Uloženo bez fotoaparátu";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Aplikace, ale obsahuje mnoho fotografií Aplikace.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Při přijímání reklam došlo k chybě.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Smazání cílů";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Dělat vše s fotografiemi.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Stáhnout zdarma na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Uživatelská licence uživatele";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Host Guest";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Spravujte spoustu fotografií najednou.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý den, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Zapojte se do programu partnerství";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Stačí vybrat fotografie, které potřebujete, a poté je spustit.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "Krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */

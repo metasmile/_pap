@@ -186,8 +186,6 @@
 "All not taken with Camera" = "Uložené bez fotoaparátu";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
-/* Generated from genl10n: batch.Strings.swift#33 */
-"An App, But Contains Many Batch Photos." = "Aplikácia, ale obsahuje veľa fotografií Apps.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Pri prijímaní reklám došlo k chybe.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -280,8 +278,6 @@
 "Deleting Targets" = "Odstránenie cieľov";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "smer";
-/* Generated from genl10n: batch.Strings.swift#25 */
-"Do Everything With Photos." = "Robte všetko s fotografiami.";
 /* Generated from genl10n: batch.Strings.swift#45 */
 "Download now for FREE at %@" = "Stiahnite si teraz zadarmo na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -336,6 +332,8 @@
 "Guest User License" = "Licencia používateľa hosťa";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Používateľ hosťa";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Ovládajte veľa fotografií naraz.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý deň, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -366,6 +364,8 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Zapojte sa do programu partnerstva";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Stačí vybrať fotografie, ktoré potrebujete, a potom ich spustite.";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
