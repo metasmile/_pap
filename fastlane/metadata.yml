@@ -8,10 +8,10 @@ global_notices:
 com.stells.batch:
     version: '1.0'
     Base:
-        marketing_url: 'https://apps.photo'
-        privacy_url: 'https://apps.photo/privacy'
-        support_url: 'https://apps.photo/support'
-        promotional_text: 'An App, But Contains Many Batch Photos: Batch Photos(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and photo apps built with the latest technologies on its own.'
+        marketing_url: 'https://batch.photos'
+        privacy_url: 'https://batch.photos/privacy'
+        support_url: 'https://batch.photos/support'
+        promotional_text: 'An App, But Contains Many Batch Photos: Batch Photos(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and Batch Photos built with the latest technologies on its own.'
     en-US:
         name: Batch Photos
         subtitle: 'Do Everything With Photos.'

@@ -1,0 +1,12 @@
+Dear Apple Review Team.
+
+For this project, since over 9+ month, and personally four years, we've been a small team consists of two developers, but now we are trying to do a bold takeoff.
+
+This project is a practical implementation based on our pure and robust passion with deep thoughts about the improvement of the current Photos' functionality structure for a long time, every day. We believe our project will help to present next vision of iOS Photos, as a new structure for dealing with Photos.
+
+We have not only our this app version 1.0, a bunch of ideas, for example integrating Siri with machine vision or Camera, also other technical plans for the next step of Photos on iOS. So wish to get some connection with Apple Photos Team if it is possible. 
+
+Thank you. 
+Best regards,
+
+- Taeho Lee

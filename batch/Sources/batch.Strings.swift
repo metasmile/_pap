@@ -200,7 +200,7 @@ struct batchStrings {
         static var hashTags: [String]{
             return [
                 "#BatchPhotos",
-                "#GetPhotoApps"
+                "#GetBatchPhotos"
             ]
         }
     }

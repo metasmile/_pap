@@ -191,7 +191,7 @@ class FBShareTypeDownloadMessagerPayment: FBSDKSharingDelegatePrototype, Relativ
 //        content.contentURL = papStrings.download.url.asURL
 //        content.peopleIDs = [FBSharePublicKeys.pageId.rawValue]
 //        content.pageID = FBSharePublicKeys.pageId.rawValue
-//        content.hashtag = FBSDKHashtag(string: "#GetPhotoApps")
+//        content.hashtag = FBSDKHashtag(string: "#GetBatchPhotos")
 
 //        return content
     }
