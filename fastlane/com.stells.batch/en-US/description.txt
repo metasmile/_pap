@@ -1,5 +1,5 @@
-Just choose all photos you need and then tap performing button. You can do everything all you needed with all your photos.
-Batch Photos is a fast and large-scale photo processing app for all your photos that let you work with various tools.
+Batch Photos is a fast, reliable and large-scale photo processing app for all your photos that let you work with various tools.
+Just choose all photos you need and then tap performing button. You can do anything all you needed with all your photos.
 
 
 Introducing Batch Tools:
@@ -14,7 +14,6 @@ List of Cleaner Matchers
 • Similarity
 • Screenshots
 • Flashlight included
-• Saved with Built-in Camera (in the PA)
 • LockScreens - Taken Screenshots with iOS locked screen.
 • Too Close-up Face
 • Too Slow Sutter Speed
@@ -25,7 +24,7 @@ List of Cleaner Matchers
 
 
 GIF Maker
-GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! Moreover, then you can open the converter app to convert into everything such as Live Photos or Videos.
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! Moreover, then you can open the converter app to convert into anything such as Live Photos or Videos.
 
 • Multiple Photos
 • Burst Photos
