@@ -1,24 +1,11 @@
-Batch Photos(PA), an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and Batch Photos built with the latest technologies on its own.
+Just choose all photos you need and then tap performing button. You can do everything all you needed with all your photos.
+Batch Photos is a fast and large-scale photo processing app for all your photos that let you work with various tools.
 
-From now on, Do everything all you needed, with all your photos.
 
-
-Finder
-Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.
-
-Actions
-• Phone Number - Save or numbers or convert into iOS contacts.
-• E-Mail Address - Send a message.
-• Address - Open on map
-• Date - Save as Event with Calendar.
-• URL - Open with Browser.
-• Flight Number - Search for flights with detected numbers.
-Many actions are going to be updated!
-
+Introducing Batch Tools:
 
 Converter
 Converter enables you to convert every media formats such as Videos, mp4 Video Live Photos, GIFs or Burst Photos into every each other.
-
 
 Cleaner
 Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!
@@ -28,7 +15,7 @@ List of Cleaner Matchers
 • Screenshots
 • Flashlight included
 • Saved with Built-in Camera (in the PA)
-• Lockscreens - Taken Screenshots with iOS locked screen.
+• LockScreens - Taken Screenshots with iOS locked screen.
 • Too Close-up Face
 • Too Slow Sutter Speed
 • Videos Without Sound
@@ -80,14 +67,6 @@ PDFactory
 PDFactory makes PDF document from multiple images with various page options.
 
 • Page Size(e.g., A4 or US Legal), Margin, Scale, and Layout Mode Support
-
-
-Phone Calls
-Phone Calls lets you grab phone numbers accurately in your numerous photos. Then you merely start calling!
-
-
-Camera
-Robust Standard Built-In Camera for Capturing Live Photos.
 
 
 Auto Selection Bot (ASB System)
