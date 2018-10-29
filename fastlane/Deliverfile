@@ -1,9 +1,16 @@
 # The Deliverfile allows you to store various iTunes Connect metadata
 # For more information, check out the docs
 # https://docs.fastlane.tools/actions/deliver/
-team_id "2020888" #Tae ho Lee
-app_identifier "com.stells.batch"
-metadata_path "./fastlane/com.stells.batch"
-screenshots_path "/Users/blackgene/Documents/batch\-resources/appstore/screenshots/batch"
-ipa "batch.ipa"
-username "illhert@yahoo.com"
+
+if ENV['batch']
+    app_identifier "com.stells.batch"
+    metadata_path "./fastlane/com.stells.batch"
+    screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/batch"
+    ipa "batch.ipa"
+    username "croing09@gmail.com"
+elsif ENV['mmc']
+    app_identifier "com.stells.mmc"
+    metadata_path "./fastlane/com.stells.mmc"
+    screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/mmc"
+    ipa "mmc.ipa"
+    username "illhert@yahoo.com"
