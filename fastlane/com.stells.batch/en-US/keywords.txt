@@ -1,1 +1,1 @@
-apps,batch,edit,storage,cleaner,gif,live,video,scan,call,filters,pdf,manual,camera,maker,pic,album
+Bulk,batch,edit,cleaner,gif,live photo,video,scan,call,filters,pdf,manual,camera,maker,pic,album
