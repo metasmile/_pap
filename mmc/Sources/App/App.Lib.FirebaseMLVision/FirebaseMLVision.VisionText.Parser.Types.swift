@@ -348,6 +348,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 formatter.usesGroupingSeparator = true
+                formatter.minimumFractionDigits = 0
                 formatter.maximumFractionDigits = 2
                 formatter.roundingMode = .down
                 
@@ -395,7 +396,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     }
 
     
-    //    $  1,234.57;          USD 99.99
+    //    $  1,234.57;          USD 99.99           100 BTC
     
     
     
