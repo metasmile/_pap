@@ -1,0 +1,728 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "ปิดใช้งานการเข้าถึงรูปภาพแล้ว";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "โปรดเปิดการตั้งค่าและอนุญาตให้เข้าถึงรูปภาพของคุณ";
+/*Translated from: Open Settings*/
+"Open Settings" = "เปิดการตั้งค่า";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Done";
+/*Translated from: Confirm*/
+"Confirm" = "ยืนยัน";
+/*Translated from: Cancel*/
+"Cancel" = "ยกเลิก";
+/*Translated from: Detail*/
+"Detail" = "Detail";
+/*Translated from: Delete*/
+"Delete" = "ลบ";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "ขอโทษมีบางอย่างผิดพลาด.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "แก้ไข %d รูปภาพ";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "แก้ไข %d วิดีโอ";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "แก้ไข %d รายการ";
+/*Translated from: Edit*/
+"Edit" = "Edit";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "ยกเลิกการเปลี่ยนแปลง";
+/*Translated from: Processing...*/
+"Processing..." = "กำลังประมวลผล ...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "ยกเลิก ...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "กำลังบันทึกรูปภาพ ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "กำลังลบรูปภาพ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*Translated from: Select this photo*/
+"Select this photo" = "เลือกรูปภาพนี้";
+/*Translated from: Select this video*/
+"Select this video" = "เลือกวิดีโอนี้";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "ยกเลิกการเลือกรูปภาพนี้";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "ยกเลิกการเลือกวิดีโอนี้";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "แก้ไขรูปภาพนี้";
+/*Translated from: Edit this video*/
+"Edit this video" = "แก้ไขวิดีโอนี้";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ รูปภาพ";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ วิดีโอ";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ รายการ";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ รูปภาพ";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ วิดีโอ";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ รายการ";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "แก้ไข %@ รูปภาพ";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "แก้ไข %@ วิดีโอ";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "แก้ไข %@ รูปภาพ";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "แก้ไข %@ วิดีโอ";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "แก้ไข %@ รายการ";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Apply";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "กำลังเริ่มทำย้อนกลับ ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "สร้าง %@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "กำลังเริ่มสร้าง PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "กำลังสร้างหน้า PDF ...";
+/*com.stells.batch.converter*/
+"Convert" = "แปลง";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "อัลบั้ม";
+/*Translated from: camera*/
+"cs_keyword_1" = "กล้อง";
+/*Translated from: photos*/
+"cs_keyword_2" = "ภาพถ่าย";
+/*Translated from: editor*/
+"cs_keyword_3" = "บรรณาธิการ";
+/*Translated from: messenger*/
+"cs_keyword_4" = "Messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "กรอง";
+/*Translated from: edit*/
+"cs_keyword_6" = "Edit";
+/*Translated from: image*/
+"cs_keyword_7" = "ภาพ";
+/*Translated from: smart*/
+"cs_keyword_8" = "Smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "Picture";
+/*Translated from: memory*/
+"cs_keyword_10" = "หน่วยความจำ";
+/*Translated from: familiy*/
+"cs_keyword_11" = "ครอบครัว";
+/*Translated from: friend*/
+"cs_keyword_12" = "เพื่อน";
+/*Translated from: lover*/
+"cs_keyword_13" = "คนรัก";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ วัน";
+/* Generated from genl10n: batch.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ ใบอนุญาต";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ ความเป็นเจ้าของ";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ ใบอนุญาตการเป็นพันธมิตร";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "อาจพบ %@";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ จะถูกซ่อนไว้";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / วัน";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d ครั้ง";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Month License" = "ใบอนุญาต 1 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year License" = "ใบอนุญาต 1 ปี";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of All and New Tools" = "การใช้ทั้งหมดและเครื่องมือใหม่ 1 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Tools" = "การใช้เครื่องมือหลักและเครื่องมือใหม่ 1 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Tools" = "การใช้ทั้งหมดและเครื่องมือใหม่ 1 ปี";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Tools" = "การใช้เครื่องมือหลักและใหม่ 1 ปี";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Tools" = "การใช้เครื่องมือหลักและเครื่องมือใหม่ 14 วัน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Tools" = "การใช้เครื่องมือหลักและใหม่ 3 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "ใบอนุญาต 6 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "ใช้งานครบทุก 6 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "การใช้เครื่องมือหลักและใหม่เป็นเวลา 6 เดือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "การใช้เครื่องมือหลักและเครื่องมือใหม่ 7 วัน";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "จำเป็นต้องมีใบอนุญาต";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "ปฏิเสธการเข้าใช้.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "การเข้าถึงล้มเหลว";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "การเข้าถึงที่ได้รับ";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "เปิดใช้งานโฆษณา";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "กำลังเปิดใช้งานรายการที่มองเห็นได้ปัจจุบัน ...";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "เพิ่มผู้ติดต่อใหม่";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "เพิ่มเหตุการณ์";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "ที่อยู่";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "อัลบัม";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "บันทึกโดยไม่มีกล้อง";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "All";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "เกิดข้อผิดพลาดขณะรับโฆษณา";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "GIF เคลื่อนไหว";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "นิเมชั่น";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "การยกเลิกฟรีทุกเวลา";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "ใช้ตัวกรองคุณภาพสูงกับรูปภาพทั้งหมดที่คุณต้องการ เครื่องมือการประมวลผลชุดนี้ไม่ จำกัด จำนวนรูปภาพที่จะใช้ตัวกรอง";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "ศิลปิน";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "อัตราส่วนภาพ";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "ครอบตัดอัตโนมัติ";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "โปรแกรมแก้ไขอัตโนมัติช่วยให้คุณสามารถแก้ไขได้โดยอัตโนมัติหากจำเป็นต้องแก้ไขรูปถ่ายของคุณ";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "ตัวแก้ไขอัตโนมัติ";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "เพิ่มประสิทธิภาพอัตโนมัติ";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "เลือกอัตโนมัติใน %@";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "บอทเลือกอัตโนมัติ";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "ตั้งให้ตรง";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "เป็นศิลปิน ศิลปินช่วยให้คุณสามารถเปลี่ยนรูปถ่ายหรือวิดีโอทั้งหมดของคุณให้เป็นภาพวาดที่มีชื่อเสียง เครื่องมือการประมวลผลชุดนี้ไม่ จำกัด จำนวนรูปภาพที่จะแปลง";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "อัตราการเบลอ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Burst";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "กล้อง";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "ไม่สามารถย้อนกลับได้ รายการที่เลือกทั้งหมดยังไม่ได้แก้ไข";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "เลือกการกระทำ";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "เลือกการกระทำย่อย";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ช่วยให้คุณสามารถค้นหาและลบรูปภาพประเภทต่างๆที่ไม่ถูกต้องหากจับคู่กันได้เช่นภาพที่ซ้ำกันและภาพใกล้เคียงกันหรือภาพ Lockscreen!";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "ทำความสะอาด";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "คลิปบอร์ดว่างเปล่า";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "คลิปบอร์ด";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "สีและคำเตือนสำหรับแต่ละเฟส";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "ติดต่อเราตอนนี้";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "แปลงรูปภาพสดล่าสุดเป็น GIF";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "แปลงภาพสดล่าสุดเป็นวิดีโอ";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "แปลงวิดีโอล่าสุดเป็น GIF";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "แปลงวิดีโอล่าสุดเป็นภาพสด";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "แปลงวิดีโอล่าสุดเป็น MP4";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter ช่วยให้คุณสามารถแปลงรูปแบบสื่อทุกรูปแบบเช่นวิดีโอ, รูปถ่ายสด, GIFs ลงในแต่ละอื่น ๆ";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "แปลง";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "สำเนา";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "กำลังคัดลอกรูปภาพ ...";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "ไม่พบสิ่งใด";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "ไม่สามารถรับโฆษณา";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "Create";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "ครอบตัดให้พอดี";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "พืชผล";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "กำหนดเอง";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "วันที่";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "การลบเป้าหมาย";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "ทิศทาง";
+/* Generated from genl10n: batch.Strings.swift#45 */
+"Download now for FREE at %@" = "ดาวน์โหลดเดี๋ยวนี้ฟรีที่ %@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "ดาวน์โหลด";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "ดาวน์โหลด ...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "ที่อยู่อีเมล";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ช่วยให้คุณลบข้อมูลทุกประเภทที่มีรูปภาพของคุณรวมถึงข้อมูลส่วนตัว";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "มีส่วนร่วมในตอนนี้และโหลดใบอนุญาตเครื่องมือหลัก ๆ ซ้ำ ๆ";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "วิศวกรรมหมายเหตุ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "ส่งออก";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "ฟิลเตอร์";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "ไฟฉาย";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "เที่ยวบินหมายเลข";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "รูปแบบ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ข้างหน้า";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "ความล่าช้าของเฟรม";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "ใช้ฟรีและปรับปรุงใหม่ทั้งหมด";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "ใช้ฟรี";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "จากคลิปบอร์ดระยะไกล";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "เครื่อง GIF Maker ช่วยให้สามารถสร้างภาพ GIF จากภาพถ่ายหรือภาพสดด้วยตัวเลือกต่างๆ! จากนั้นคุณสามารถเปิดแอปเครื่องแปลงสัญญาณเพื่อแปลงเป็นทุกอย่างเช่นรูปภาพสดหรือวิดีโอ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "เครื่อง GIF";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "ได้รับการเข้าถึง";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "รับข้อความทั้งหมด";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "รับข้อความ";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "ให้คะแนน";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Guest User License Program";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "ใบอนุญาตผู้ใช้ Guest";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "ผู้เยี่ยมชม";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "จับภาพจำนวนมากพร้อมกัน";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "สวัสดี %@!";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "สวัสดี %@ ทีมฉัน %@";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Hide";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "คุณภาพรูปภาพ";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "ภาพ";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "ภาพ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "นำเข้า";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "ข้อมูลการใช้งาน";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "ใส่ที่นี่";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "การสอบสวน";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "แสดงอัตราส่วนของระยะเวลาการเข้าถึงแอปฟรีที่เหลืออยู่";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "ดูเหมือนรหัสที่ไม่ถูกต้อง กรุณาลองอีกครั้ง.";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ต้องมีสิทธิ์เข้าถึงที่อยู่ติดต่อของคุณ โปรดอนุญาตให้ผู้ติดต่อในการตั้งค่า iOS";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In Partnership Program" = "เข้าร่วมโครงการหุ้นส่วน";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "เพียงแค่เลือกรูปภาพที่คุณต้องการแล้วเรียกใช้";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "ภูมิประเทศ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "แบบ";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "ใบอนุญาตหรือใบอนุญาตเครื่องมือหลัก";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "ห่วง";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "ใบอนุญาตเครื่องมือหลัก";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "ใช้เครื่องมือหลักของ %@ วัน";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "ทำ GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "การโทรออก";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "แก้ไข";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "ใบอนุญาตรายเดือน";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "อัลบั้มของฉัน";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "คำติชมของฉันเกี่ยวกับ %@";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "ที่ติดต่อใหม่";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "กิจกรรมใหม่";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "หมายเลขใหม่";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "No Crop";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "ไม่มีลูป";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "เมื่อสแตนด์บาย";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Tools" = "การใช้งานเครื่องมือทั้งหมดและใหม่อย่างต่อเนื่อง";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "การใช้เครื่องมือและเครื่องมือใหม่อย่างต่อเนื่อง";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "เปิด %@";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "เปิดแอปเปิ้ลแผนที่";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "เปิด Artist";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "กล้องเปิด.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "เปิด Google Maps";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "เปิดเว็บเพจ";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "เปิด";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "เป็นต้นฉบับ";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory ทำให้เอกสาร PDF จากภาพหลายภาพพร้อมตัวเลือกหน้าต่างๆ";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Margin หน้า";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "ตั้งค่าขนาดหน้าเว็บ";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "หน้า";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "โครงการใบอนุญาตหุ้นส่วน";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "ใบอนุญาตหุ้นส่วน";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "วางภาพจากคลิปบอร์ดของคุณ";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "การเป็นเจ้าของถาวร";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "การใช้งานถาวรและการปรับปรุงใหม่ทั้งหมด";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "การใช้เครื่องมือทั้งหมดและใหม่อย่างถาวร";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "หมายเลขโทรศัพท์";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "ภาพถ่าย";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "โปรดใส่รหัสลับของคุณ";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "โปรดตรวจสอบและกู้คืนการเชื่อมต่ออินเทอร์เน็ตของคุณหรือปิดใช้งานโฆษณา";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "โปรดลองอีกครั้งด้วยรหัสอื่น";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "โปรดปิดตัวเลือกต่อไปนี้และรีเซ็ตตัวระบุการโฆษณาในการตั้งค่า จากนั้นลองอีกครั้ง";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "ภาพเหมือน";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "การจัดเตรียม";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "ค่าที่ตั้งไว้";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "ราคาจะรวมถึงเครื่องมือใหม่ ๆ และการอัปเดตตลอดจนเครื่องมือจะไม่ต่ออายุโดยอัตโนมัติ";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "นโยบายส่วนบุคคล";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Privacy";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "การประมวลผล";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "โปรแกรมใบอนุญาตการส่งเสริมการขาย";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "ใบอนุญาตการส่งเสริมการขาย";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "ผู้ใช้โปรโมชั่น";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "การจัดการการซื้อ";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "ซื้อ";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "คุณภาพ";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "ให้คะแนนมัน";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "การกำจัดตาแดง";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "จำนวนที่เหลืออยู่ในช่วงเวลานี้";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "ระดับที่เหลือ";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "เปอร์เซ็นต์ที่เหลือ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "ทำซ้ำ";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "ฟื้นฟู";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "การคืนค่าช่วยให้สามารถคืนค่าจำนวนภาพที่แก้ไขไปเป็นภาพเดิมได้อย่างรวดเร็ว นอกจากนี้ยังช่วยคุณในการเลือกอัตโนมัติ!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "การบูรณะ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "ย้อนกลับ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "ม้วนกลับ";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "หมุน";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "การหมุน";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "บันทึกรายชื่อติดต่อ";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "บันทึกและแบ่งปัน";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "Save";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "ปรับให้พอดี";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "ภาพหน้าจอ";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "ค้นหาเที่ยวบิน";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "ค้นหาใน Google Maps";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "ค้นหาบน Google";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "ค้นหา %@";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "เลือกรูปแบบการแปลง";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "เลือกรูปภาพเพื่อลบ";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "เลือก";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "ส่งอีเมล์";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "ส่ง";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "การตั้งค่าใบอนุญาตเครื่องมือหลัก";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "การตั้งค่า";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "แชร์แอปนี้";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "หุ้น";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "การแบ่งปันบน Facebook Messenger";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "แบ่งปันบน Facebook";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "ความคล้ายคลึงกัน";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "ขนาด";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "โปรแกรมสิทธิพิเศษสำหรับผู้มาเยือน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "ใบอนุญาตผู้มาเยือนพิเศษ";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "แขกพิเศษ";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "สี่เหลี่ยม";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "โหมดเสถียรภาพ";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "ทำให้มีเสถียรภาพ";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "Stabilizer";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "Start";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "กำลังเริ่มถ่ายสำเนารูปภาพ ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "อยู่กับเรา";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะสมบูรณ์เหมือนเดิม";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "ใช้ GIF ด้วย Live Photo";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "มีส่วนร่วม";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "ถ่ายด้วยกล้องในตัว";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "เป้าหมาย";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "เป้าหมาย";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "ข้อกำหนดการใช้งาน";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "ข้อความ";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "ขอบคุณ %@ เร็ว ๆ นี้เราจะติดต่อคุณ";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "ขอบคุณสำหรับข้อความ. เร็ว ๆ นี้เราจะติดต่อคุณ";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "ขอขอบคุณสำหรับการซื้อของคุณ.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "ขอบคุณมากสำหรับความคิดเห็นของคุณ! เร็ว ๆ นี้เราจะติดต่อคุณ";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "เครื่องมือแปลงไฟล์ชุดภาพที่ซับซ้อนและตรงไปตรงมานี้ช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึงรูปภาพสดได้อย่างรวดเร็ว ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "ในการใช้แอปนี้ต้องมีใบอนุญาตการเข้าถึงที่เกี่ยวข้อง คุณต้องการเปิด %@ หรือไม่?";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Too Close-up Face";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "ความเร็วชัตเตอร์ต่ำเกินไป";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "โหมดการแปลง";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "แปลตอนนี้";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "การแก้ไขการแปล";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "ไม่สามารถยืนยันรหัสได้ในขณะนี้ โปรดลองภายหลัง";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "คู่มือการใช้งาน";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "ใช้การทดลองใช้";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "ใช้";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "วีไอพี Hotline";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP License Program" = "วีไอพีโปรแกรมใบอนุญาต";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "ใบอนุญาตวีไอพี";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "การยืนยันล้มเหลว";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "วีดีโอ";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "วิดีโอที่บันทึกโดย Instagram";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "วิดีโอสั้นกว่า 1 วินาที";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "วิดีโอจาก Screen Recorder";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "ไปที่หน้าทางสังคม";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "เยือน";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "วิปริต";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "ยินดีต้อนรับแพ็คฟรี";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our Partnership License Program!" = "ยินดีต้อนรับสู่โปรแกรม License License ของเรา!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "ยินดีต้อนรับสู่โปรแกรมอนุญาตวีไอพีของเรา";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตผู้เข้าพักของเรา!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตการส่งเสริมการขายของเรา!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "ยินดีต้อนรับสู่โปรแกรมใบอนุญาตพิเศษสำหรับแขกของเรา!";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "คุณต้องการกลับไปที่ %@ หรือไม่?";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "แสดงความคิดเห็น";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "เขียน";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "ใบอนุญาตรายปี";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "คุณสามารถเลือกเฉพาะรูปถ่ายหรือวิดีโอที่ตรงกับรูปแบบเริ่มต้น";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "ข้อความของคุณถูกส่งแล้ว.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "รหัสของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "รหัสของคุณหมดอายุแล้ว";
+/* Generated from genl10n: Period.swift */
+"day" = "วัน";
+/* Generated from genl10n: Period.swift */
+"hour" = "ชั่วโมง";
+/* Generated from genl10n: Period.swift */
+"minute" = "นาที";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "เดือน";
+/* Generated from genl10n: Period.swift */
+"second" = "ที่สอง";
+/* Generated from genl10n: Period.swift */
+"week" = "สัปดาห์";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "ปี";

@@ -1,0 +1,158 @@
+//
+// Created by BLACKGENE on 12/03/2018.
+// Copyright (c) 2018 Stells. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import Photos
+
+extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if previewingContext.sourceView == photoCollectionView {
+
+            guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }
+            guard let selectedAsset = PHAssets.fetched.asset(at: indexPath) else { return nil }
+            guard let cell = photoCollectionView.cellForItem(at: indexPath) else { return nil }
+
+            guard let item = AppAssets.selected.by(selectedAsset) ?? AppAsset.create(for:selectedAsset) else {
+                return nil
+            }
+            
+            let placeholderImage = item.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))
+
+            let vc = PhotoPickerDetailViewController()
+            vc.placeholderImage = placeholderImage?.applyFilter(ciFilter: item.editState.ciFilter) ?? placeholderImage
+            vc.assetItem = item
+            
+            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+                setActions(with: item, at: indexPath, to: vc)
+            }
+
+            previewingContext.sourceRect = cell.frame
+            return vc
+
+        }
+        else if previewingContext.sourceView == batchPreviewView {
+            guard let indexPath = batchPreviewView.collectionView.indexPathForItem(at: batchPreviewView.convert(location, to: batchPreviewView.collectionView)) else { return nil }
+            guard
+                let cell = batchPreviewView.collectionView.cellForItem(at: indexPath),
+                let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item)
+            else { return nil }
+            
+            let selectedAsset = selectedAssetItem.asset
+            guard let selectedIndexPath = PHAssets.fetched.indexPath(of: selectedAsset) else { return nil }
+
+            guard let item = AppAssets.selected.by(selectedAsset) else {
+                assert(false,"[!] AppAssets and batchPreviewView.collectionView.cellForItem is not matched.")
+                return nil
+            }
+
+            let vc = PhotoPickerDetailViewController()
+            vc.assetItem = item
+            
+            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+                setActions(with: item, at: selectedIndexPath, to: vc)
+            }
+
+            previewingContext.sourceRect = batchPreviewView.collectionView.convert(cell.frame, to: batchPreviewView)
+            return vc
+        }
+
+        return nil
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let vc = viewControllerToCommit as? PhotoPickerDetailViewController, let item = vc.assetItem, let indexPath = PHAssets.fetched.indexPath(of: item.asset), self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) else {
+            return
+        }
+
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+            showPhotoEditor(with: item)
+        }
+    }
+
+    private func setActions(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+            _setActionsWithEditor(with:item, at:indexPath,to:vc)
+
+        }else{
+            _setActionsWithoutEditor(with:item, at:indexPath,to:vc)
+        }
+    }
+
+    private func _setActionsWithoutEditor(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        var typeWord = "photo"
+        if item.asset.mediaType == .video {
+            typeWord = "video"
+        }
+
+
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            vc.actionItems = [
+                UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
+                    self.deselectCollectionViewItems([indexPath])
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
+            ]
+        }
+        else {
+            vc.actionItems = [
+                UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
+                    self.selectCollectionViewItem(at: indexPath)
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
+            ]
+        }
+    }
+
+    private func _setActionsWithEditor(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
+        var typeWord = "photo"
+        if item.asset.mediaType == .video {
+            typeWord = "video"
+        }
+
+        let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
+            self.showPhotoEditor(with: item)
+        }
+
+        if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {
+            vc.actionItems = [
+                editAction,
+                UIPreviewAction(title: "Deselect this \(typeWord)".localized, style: .default) { action, controller in
+                    self.deselectCollectionViewItems([indexPath])
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
+            ]
+        }
+        else {
+            vc.actionItems = [
+                editAction,
+                UIPreviewAction(title: "Select this \(typeWord)".localized, style: .default) { action, controller in
+                    self.selectCollectionViewItem(at: indexPath)
+                },
+                UIPreviewAction(title: "Share".localized, style: .default) { action, controller in
+                    item.asset.shareWithDefaultUIActivities()
+                },
+                UIPreviewAction(title: "Delete".localized, style: .destructive) { action, controller in
+                    item.asset.requestToDelete()
+                }
+            ]
+        }
+    }
+}

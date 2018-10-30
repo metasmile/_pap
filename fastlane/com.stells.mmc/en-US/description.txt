@@ -1,19 +1,29 @@
-Capture Every Info Around You, Then Do Something.
+Capture and save any addresses, URLs, phone numbers or even flight numbers nearby with your camera, photos or screenshots.
 
-An AI-powered text recognization camera app, Memo Cam enables accurately detecting and then extracting every meaningful information such as phone numbers, addresses, dates or URLs in your numerous photos.
+An AI-powered text info recognization camera app, Memo Cam enables accurately detecting and then extracting every meaningful information such as phone numbers, barcodes, addresses, dates or URLs in your numerous photos.
 
 Then you can make a call, open maps, navigate websites even search flights, and save them all as the contacts or raw text.
 
-Detections/Actions
+
+Detectable formats and supported actions:
 
 • Phone Number - Save or numbers or convert into iOS contacts.
 • E-Mail Address - Send a message.
 • Address - Open on map
-• Date - Save as Event with Calendar.
+• Date - Save as an event into the Calendar.
 • URL - Open with Browser.
 • Flight Number - Search for flights with detected numbers.
 • Plain Text - Translate Your Whole Text
-• Auto Detection Bot - Choosing automatically if your photos are containing the information.
+• Barcode - Search with A Product Code
+
+
+Technical features:
+
+• 100% offline work with latest machine learning technology.
+• Optimized parallel processing for multi-core CPUs.
+• Auto-detection bot: Automatically choosing items contained text info while scrolling photo album.
+• Support basic handwriting text.
+
 
 iOS 12 Siri Shortcuts
 
@@ -22,4 +32,5 @@ iOS 12 Siri Shortcuts
 • "Capture Actions To Do."
 • "Auto Detect on Albums."
 
-Many features and extendable actions are going to be updated!
+
+Many shortcuts and extendable actions are continuously going to be updated!

@@ -1,0 +1,120 @@
+/*Translated from: Open Camera.*/
+"4I4kgH" = "กล้องเปิด.";
+/*Translated from: Open Filters.*/
+"AW925e" = "เปิดตัวกรอง";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "ถ่ายรูป.";
+/*Translated from: Open App*/
+"DckJin" = "เปิดแอป";
+/*Translated from: Find Phone Numbers*/
+"8uSBqs" = "ค้นหาเบอร์โทรศัพท์";
+/*Translated from: Choose To Delete.*/
+"TIJEu1" = "เลือกเพื่อลบ";
+/*Translated from: Give Me That Phone Number.*/
+"yM8RqU" = "ให้หมายเลขโทรศัพท์นั้นแก่ฉัน";
+/*Translated from: Take A GIF With Live Photo*/
+"ZUWAEC" = "ใช้ GIF ด้วย Live Photo";
+/*Translated from: Convert the last Live Photo into another.*/
+"p7qwJF" = "แปลงรูปภาพสดครั้งสุดท้ายเป็นอีกรูปแบบหนึ่ง";
+/*Translated from: Convert the last Video into another.*/
+"SMLHhI" = "แปลงวิดีโอล่าสุดเป็นอีกรายการหนึ่ง";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "เลือกอัตโนมัติ";
+/*Translated from: Recognize Text.*/
+"tRAr4x" = "จดจำข้อความ";
+/*Translated from: Capture All Text.*/
+"UP0V3N" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"4R8c66" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "เปิดกล้องถ่ายรูปเพื่อถ่ายภาพ";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "เปิดตัวกรองรูปถ่าย";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "ถ่ายรูปด้วยแอปกล้องถ่ายรูป";
+/*Translated from: Open App*/
+"lmZpL4" = "เปิดแอป";
+/*Translated from: Find Phone Numbers*/
+"u3K2SQ" = "ค้นหาเบอร์โทรศัพท์";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "เปิด Cleaner แล้วเลือกรายการที่จะลบ";
+/*Translated from: Give Me That Phone Number.*/
+"jRmXDB" = "ให้หมายเลขโทรศัพท์นั้นแก่ฉัน";
+/*Translated from: Take A GIF With Live Photo*/
+"gBOghJ" = "ใช้ GIF ด้วย Live Photo";
+/*Translated from: Convert the last Live Photo into another.*/
+"PhXLyO" = "แปลงรูปภาพสดครั้งสุดท้ายเป็นอีกรูปแบบหนึ่ง";
+/*Translated from: Convert the last Video into another.*/
+"wiPuF4" = "แปลงวิดีโอล่าสุดเป็นอีกรายการหนึ่ง";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "เลือกอัตโนมัติ";
+/*Translated from: Recognize Text.*/
+"XyhJZ4" = "จดจำข้อความ";
+/*Translated from: Capture All Text.*/
+"ogPwff" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"9qFP95" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "เปิด ${appName}";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "เปิด ${appName}";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "เปิด ${appName}";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "เปิด ${appName}";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "ถ่ายรูป";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "ถ่ายรูป";
+/*Translated from: Take A Live Photo*/
+"ewGyLx-ZbogxE" = "ถ่ายภาพสด";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "ใช้ Selfie";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "ถ่ายภาพตัวเองด้วยภาพสด";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "เปิด ${appName}";
+/*Translated from: Find Phone Numbers*/
+"oMVwAV" = "ค้นหาเบอร์โทรศัพท์";
+/*Translated from: Choose unknown To Delete.*/
+"yI4SHf-OdqORs" = "เลือกไม่ทราบเพื่อลบ";
+/*Translated from: Choose Screenshots To Delete.*/
+"yI4SHf-HlgytX" = "เลือกภาพหน้าจอเพื่อลบ";
+/*Translated from: Choose Lockscreen Shots To Delete.*/
+"yI4SHf-BI7avK" = "เลือกภาพที่ล็อคหน้าจอเพื่อลบ";
+/*Translated from: Give Me That Phone Number.*/
+"9fanUE" = "ให้หมายเลขโทรศัพท์นั้นแก่ฉัน";
+/*Translated from: Take A GIF With Live Photo*/
+"tP4mFl" = "ใช้ GIF ด้วย Live Photo";
+/*Translated from: Convert the last Live Photo into unknown*/
+"QmvYfr-wlS6k3" = "แปลงรูปภาพสดล่าสุดเป็นไม่ทราบ";
+/*Translated from: Convert the last Live Photo into Live Photo*/
+"QmvYfr-6qTqFL" = "แปลงรูปภาพสดล่าสุดเป็นรูปภาพสด";
+/*Translated from: Convert the last Live Photo into MP4*/
+"QmvYfr-z5soyq" = "แปลงรูปภาพสดล่าสุดเป็น MP4";
+/*Translated from: Convert the last Live Photo into GIF*/
+"QmvYfr-VSOU19" = "แปลงรูปภาพสดล่าสุดเป็น GIF";
+/*Translated from: Convert the last Video into unknown*/
+"hvJmlA-wlS6k3" = "แปลงวิดีโอล่าสุดเป็นไม่ทราบ";
+/*Translated from: Convert the last Video into Live Photo*/
+"hvJmlA-6qTqFL" = "แปลงวิดีโอล่าสุดเป็นภาพสด";
+/*Translated from: Convert the last Video into MP4*/
+"hvJmlA-z5soyq" = "แปลงวิดีโอล่าสุดเป็น MP4";
+/*Translated from: Convert the last Video into GIF*/
+"hvJmlA-VSOU19" = "แปลงวิดีโอล่าสุดเป็น GIF";
+/*Translated from: Auto Select on ${appName}.*/
+"Tz3aEP" = "เลือกอัตโนมัติใน ${appName}";
+/*Translated from: Recognize Text.*/
+"ZIF3u3" = "จดจำข้อความ";
+/*Translated from: Capture All Text.*/
+"1MzX2t" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"R06BKx" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "ตกลง. คุณสามารถถ่ายรูปตอนนี้ได้";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "ตกลง. คุณสามารถถ่ายรูปสดได้เลย";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "ตกลง. คุณสามารถใช้ Selfie ได้เลย";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "ตกลง. คุณสามารถถ่ายภาพตัวเองด้วยภาพสดได้เลย";

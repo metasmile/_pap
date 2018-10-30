@@ -9,28 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0F086BF20AC6C9B00E74025"
-               BuildableName = "papTests.xctest"
-               BlueprintName = "papTests"
-               ReferencedContainer = "container:pap.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0ABFCF771F14B65C0078A583"
-               BuildableName = "pap.app"
-               BlueprintName = "pap"
+               BlueprintIdentifier = "A0F086BF20AC6C9B00E74025"
+               BuildableName = "papTests.xctest"
+               BlueprintName = "papTests"
                ReferencedContainer = "container:pap.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -53,15 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0F086BF20AC6C9B00E74025"
-            BuildableName = "papTests.xctest"
-            BlueprintName = "papTests"
-            ReferencedContainer = "container:pap.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -75,16 +52,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0ABFCF771F14B65C0078A583"
-            BuildableName = "pap.app"
-            BlueprintName = "pap"
+            BlueprintIdentifier = "A0F086BF20AC6C9B00E74025"
+            BuildableName = "papTests.xctest"
+            BlueprintName = "papTests"
             ReferencedContainer = "container:pap.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,16 +70,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0ABFCF771F14B65C0078A583"
-            BuildableName = "pap.app"
-            BlueprintName = "pap"
-            ReferencedContainer = "container:pap.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

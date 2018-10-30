@@ -1,0 +1,120 @@
+/*Translated from: Open Camera.*/
+"4I4kgH" = "Cámara abierta.";
+/*Translated from: Open Filters.*/
+"AW925e" = "Filtros abiertos.";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "Toma una foto.";
+/*Translated from: Open App*/
+"DckJin" = "Abre la app";
+/*Translated from: Find Phone Numbers*/
+"8uSBqs" = "Encontrar números de teléfono";
+/*Translated from: Choose To Delete.*/
+"TIJEu1" = "Elija para eliminar.";
+/*Translated from: Give Me That Phone Number.*/
+"yM8RqU" = "Dame ese número de teléfono.";
+/*Translated from: Take A GIF With Live Photo*/
+"ZUWAEC" = "Toma un GIF con Live Photo";
+/*Translated from: Convert the last Live Photo into another.*/
+"p7qwJF" = "Convierte la última Live Photo en otra.";
+/*Translated from: Convert the last Video into another.*/
+"SMLHhI" = "Convertir el último video en otro.";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "Selección automática.";
+/*Translated from: Recognize Text.*/
+"tRAr4x" = "Reconocer texto.";
+/*Translated from: Capture All Text.*/
+"UP0V3N" = "Capturar todo el texto.";
+/*Translated from: Capture Actions To Do.*/
+"4R8c66" = "Captura acciones para hacer.";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "Abra la cámara para tomar una foto";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "Abrir filtros de fotos";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "Tome una foto con la aplicación de la cámara.";
+/*Translated from: Open App*/
+"lmZpL4" = "Abre la app";
+/*Translated from: Find Phone Numbers*/
+"u3K2SQ" = "Encontrar números de teléfono";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "Abra el limpiador y luego elija los elementos para eliminar.";
+/*Translated from: Give Me That Phone Number.*/
+"jRmXDB" = "Dame ese número de teléfono.";
+/*Translated from: Take A GIF With Live Photo*/
+"gBOghJ" = "Toma un GIF con Live Photo";
+/*Translated from: Convert the last Live Photo into another.*/
+"PhXLyO" = "Convierte la última Live Photo en otra.";
+/*Translated from: Convert the last Video into another.*/
+"wiPuF4" = "Convertir el último video en otro.";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "Selección automática.";
+/*Translated from: Recognize Text.*/
+"XyhJZ4" = "Reconocer texto.";
+/*Translated from: Capture All Text.*/
+"ogPwff" = "Capturar todo el texto.";
+/*Translated from: Capture Actions To Do.*/
+"9qFP95" = "Captura acciones para hacer.";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "Abrir ${appName}";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "Abrir ${appName}";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "Abrir ${appName}";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "Abrir ${appName}";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "Toma una foto";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "Toma una foto";
+/*Translated from: Take A Live Photo*/
+"ewGyLx-ZbogxE" = "Tomar una foto en vivo";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "Toma una selfie";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "Tomar un selfie con foto en vivo";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "Abrir ${appName}";
+/*Translated from: Find Phone Numbers*/
+"oMVwAV" = "Encontrar números de teléfono";
+/*Translated from: Choose unknown To Delete.*/
+"yI4SHf-OdqORs" = "Elija desconocido para eliminar.";
+/*Translated from: Choose Screenshots To Delete.*/
+"yI4SHf-HlgytX" = "Elija capturas de pantalla para eliminar.";
+/*Translated from: Choose Lockscreen Shots To Delete.*/
+"yI4SHf-BI7avK" = "Elija disparos de pantalla de bloqueo para eliminar.";
+/*Translated from: Give Me That Phone Number.*/
+"9fanUE" = "Dame ese número de teléfono.";
+/*Translated from: Take A GIF With Live Photo*/
+"tP4mFl" = "Toma un GIF con Live Photo";
+/*Translated from: Convert the last Live Photo into unknown*/
+"QmvYfr-wlS6k3" = "Convertir la última foto en vivo en desconocido";
+/*Translated from: Convert the last Live Photo into Live Photo*/
+"QmvYfr-6qTqFL" = "Convierte la última Live Photo en Live Photo";
+/*Translated from: Convert the last Live Photo into MP4*/
+"QmvYfr-z5soyq" = "Convierte la última foto en vivo en MP4";
+/*Translated from: Convert the last Live Photo into GIF*/
+"QmvYfr-VSOU19" = "Convertir la última foto en vivo en GIF";
+/*Translated from: Convert the last Video into unknown*/
+"hvJmlA-wlS6k3" = "Convertir el último video en desconocido";
+/*Translated from: Convert the last Video into Live Photo*/
+"hvJmlA-6qTqFL" = "Convierte el último video en Live Photo";
+/*Translated from: Convert the last Video into MP4*/
+"hvJmlA-z5soyq" = "Convierte el último video en MP4";
+/*Translated from: Convert the last Video into GIF*/
+"hvJmlA-VSOU19" = "Convierte el último video en GIF";
+/*Translated from: Auto Select on ${appName}.*/
+"Tz3aEP" = "Selección automática en ${appName}.";
+/*Translated from: Recognize Text.*/
+"ZIF3u3" = "Reconocer texto.";
+/*Translated from: Capture All Text.*/
+"1MzX2t" = "Capturar todo el texto.";
+/*Translated from: Capture Actions To Do.*/
+"R06BKx" = "Captura acciones para hacer.";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "DE ACUERDO. Puedes tomar una foto ahora";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "DE ACUERDO. Puedes tomar una foto en vivo ahora";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "DE ACUERDO. Puedes tomar un Selfie ahora";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "DE ACUERDO. Puedes tomar un Selfie con Live Photo ahora";

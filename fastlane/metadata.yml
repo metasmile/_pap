@@ -1,0 +1,18 @@
+default_target: com.stells.batch
+supported_languages: [en-US]
+
+# emoji : http://www.emoji-cheat-sheet.com/
+global_notices:
+    en-US: ''
+
+com.stells.batch:
+    version: '1.0'
+    Base:
+        marketing_url: 'https://batch.photos'
+        privacy_url: 'https://batch.photos/privacy'
+        support_url: 'https://batch.photos/support'
+        promotional_text: 'An App, But Contains Many Batch Photos: Batch Photos, an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and Batch Photos built with the latest technologies on its own.'
+    en-US:
+        name: Batch Photos
+        subtitle: 'Do Everything With Photos.'
+        release_notes: ''

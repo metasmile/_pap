@@ -1,1 +1,1 @@
-AI,AR,document,scan,detection,text,phone,maps,translator,calendar,OCR,image,photos,camera,bot,albums
+AI,ARKit,document,scanner,text,maps,translator,calendar,photos,camera,bot,albums,memo,notes,barcode

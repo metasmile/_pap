@@ -1,0 +1,120 @@
+/*Translated from: Open Camera.*/
+"4I4kgH" = "オープンカメラ。";
+/*Translated from: Open Filters.*/
+"AW925e" = "オープンフィルタ。";
+/*Translated from: Take A Photo.*/
+"Jvx2bY" = "写真を撮る。";
+/*Translated from: Open App*/
+"DckJin" = "アプリを開く";
+/*Translated from: Find Phone Numbers*/
+"8uSBqs" = "電話番号を探す";
+/*Translated from: Choose To Delete.*/
+"TIJEu1" = "削除を選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"yM8RqU" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"ZUWAEC" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into another.*/
+"p7qwJF" = "最後のライブ写真を別のライブ写真に変換します。";
+/*Translated from: Convert the last Video into another.*/
+"SMLHhI" = "最後のビデオを別のビデオに変換します。";
+/*Translated from: Auto Select.*/
+"UQnvTr" = "自動選択。";
+/*Translated from: Recognize Text.*/
+"tRAr4x" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"UP0V3N" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"4R8c66" = "目的のアクションをキャプチャする。";
+/*Translated from: Open Camera To Take A Photo*/
+"HYZy53" = "カメラを開いて写真を撮る";
+/*Translated from: Open Photo Filters*/
+"UCP0Dw" = "オープンフォトフィルター";
+/*Translated from: Take a photo with Camera app.*/
+"EOxZtc" = "カメラアプリで写真を撮ってください。";
+/*Translated from: Open App*/
+"lmZpL4" = "アプリを開く";
+/*Translated from: Find Phone Numbers*/
+"u3K2SQ" = "電話番号を探す";
+/*Translated from: Open Cleaner And Then Choose Items To Delete.*/
+"ZOPazv" = "クリーナーを開き、削除するアイテムを選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"jRmXDB" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"gBOghJ" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into another.*/
+"PhXLyO" = "最後のライブ写真を別のライブ写真に変換します。";
+/*Translated from: Convert the last Video into another.*/
+"wiPuF4" = "最後のビデオを別のビデオに変換します。";
+/*Translated from: Auto Select.*/
+"IMAD8C" = "自動選択。";
+/*Translated from: Recognize Text.*/
+"XyhJZ4" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"ogPwff" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"9qFP95" = "目的のアクションをキャプチャする。";
+/*Translated from: Open ${appName}*/
+"oGM42K" = "${appName}を開く";
+/*Translated from: Open ${appName}*/
+"6TT4Gp" = "${appName}を開く";
+/*Translated from: Open ${appName}*/
+"gFHyMK" = "${appName}を開く";
+/*Translated from: Open ${appName}*/
+"ibaGsc" = "${appName}を開く";
+/*Translated from: Take A Photo*/
+"FbRC9N" = "写真を撮る";
+/*Translated from: Take A Photo*/
+"ewGyLx-yQLzJM" = "写真を撮る";
+/*Translated from: Take A Live Photo*/
+"ewGyLx-ZbogxE" = "ライブ写真を撮る";
+/*Translated from: Take A Selfie*/
+"ewGyLx-IJ8sUB" = "セルフリーに乗る";
+/*Translated from: Take A Selfie With Live Photo*/
+"ewGyLx-MNWfid" = "ライブ写真でセルフリーを取る";
+/*Translated from: Open ${appName}*/
+"DcHSN1" = "${appName}を開く";
+/*Translated from: Find Phone Numbers*/
+"oMVwAV" = "電話番号を探す";
+/*Translated from: Choose unknown To Delete.*/
+"yI4SHf-OdqORs" = "削除するには不明を選択します。";
+/*Translated from: Choose Screenshots To Delete.*/
+"yI4SHf-HlgytX" = "削除するスクリーンショットを選択します。";
+/*Translated from: Choose Lockscreen Shots To Delete.*/
+"yI4SHf-BI7avK" = "削除する画面をロックするを選択します。";
+/*Translated from: Give Me That Phone Number.*/
+"9fanUE" = "その電話番号を教えてください。";
+/*Translated from: Take A GIF With Live Photo*/
+"tP4mFl" = "ライブ写真でGIFを撮る";
+/*Translated from: Convert the last Live Photo into unknown*/
+"QmvYfr-wlS6k3" = "最後のライブ写真を不明に変換する";
+/*Translated from: Convert the last Live Photo into Live Photo*/
+"QmvYfr-6qTqFL" = "最後のライブフォトをライブフォトに変換する";
+/*Translated from: Convert the last Live Photo into MP4*/
+"QmvYfr-z5soyq" = "最後のライブ写真をMP4に変換する";
+/*Translated from: Convert the last Live Photo into GIF*/
+"QmvYfr-VSOU19" = "最後のライブフォトをGIFに変換する";
+/*Translated from: Convert the last Video into unknown*/
+"hvJmlA-wlS6k3" = "最後のビデオを未知のものに変換する";
+/*Translated from: Convert the last Video into Live Photo*/
+"hvJmlA-6qTqFL" = "最後のビデオをライブ写真に変換する";
+/*Translated from: Convert the last Video into MP4*/
+"hvJmlA-z5soyq" = "最後のビデオをMP4に変換する";
+/*Translated from: Convert the last Video into GIF*/
+"hvJmlA-VSOU19" = "最後のビデオをGIFに変換する";
+/*Translated from: Auto Select on ${appName}.*/
+"Tz3aEP" = "${appName}で自動選択します。";
+/*Translated from: Recognize Text.*/
+"ZIF3u3" = "テキストを認識します。";
+/*Translated from: Capture All Text.*/
+"1MzX2t" = "すべてのテキストをキャプチャします。";
+/*Translated from: Capture Actions To Do.*/
+"R06BKx" = "目的のアクションをキャプチャする。";
+/*Translated from: OK. You can take a Photo now*/
+"xwyqoh-yQLzJM" = "OK。今すぐ写真を撮ることができます";
+/*Translated from: OK. You can take a Live Photo now*/
+"xwyqoh-ZbogxE" = "OK。今すぐライブ写真を撮ることができます";
+/*Translated from: OK. You can take a Selfie now*/
+"xwyqoh-IJ8sUB" = "OK。セルフリーを今すぐ受けることができます";
+/*Translated from: OK. You can take a Selfie With Live Photo now*/
+"xwyqoh-MNWfid" = "OK。今あなたは生きている写真でセルフを取ることができます";

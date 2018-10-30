@@ -1,0 +1,728 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "Fotoğraf Erişimi Devre Dışı";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "Lütfen ayarları açın ve fotoğraflarınıza erişime izin verin";
+/*Translated from: Open Settings*/
+"Open Settings" = "Ayarları aç";
+/*Translated from: OK*/
+"OK" = "OK";
+/*Translated from: Done*/
+"Done" = "Done";
+/*Translated from: Confirm*/
+"Confirm" = "Onaylamak";
+/*Translated from: Cancel*/
+"Cancel" = "İptal etmek";
+/*Translated from: Detail*/
+"Detail" = "detay";
+/*Translated from: Delete*/
+"Delete" = "silmek";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "Üzgünüm, bir şeyler ters gitti.";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "%d Fotoğrafı düzenleyin";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "%d Videoyu düzenle";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "%d Öğeyi düzenle";
+/*Translated from: Edit*/
+"Edit" = "Düzenle";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "Değişiklikleri gözardı et";
+/*Translated from: Processing...*/
+"Processing..." = "İşleme...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "İptal...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "Fotoğrafları Kaydetme ...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "Fotoğraflar siliniyor ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*Translated from: Select this photo*/
+"Select this photo" = "Bu fotoğrafı seç";
+/*Translated from: Select this video*/
+"Select this video" = "Bu videoyu seç";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "Bu fotoğrafın seçimini kaldır";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "Bu videonun seçimini kaldırın";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "Bu fotoğrafı düzenle";
+/*Translated from: Edit this video*/
+"Edit this video" = "Bu videoyu düzenle";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@ Fotoğraf";
+/*Translated from: %@ Video*/
+"%d Video" = "%@ Video";
+/*Translated from: %@ Item*/
+"%d Item" = "%@ Öğe";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@ Fotoğraflar";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@ Videolar";
+/*Translated from: %@ Items*/
+"%d Items" = "%@ Öğeler";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "Fotoğrafı Düzenle %@";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "%@ Videoyu Düzenle";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "Fotoğrafları Düzenle %@";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "%@ Videoları Düzenle";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "%@ Öğeleri Düzenle";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "Uygulamak";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Geri almaya başlıyor ...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "Reverting Photos...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "%@ Oluştur";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "PDF oluşturulmaya başlanıyor ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "PDF Sayfaları Oluşturuluyor ...";
+/*com.stells.batch.converter*/
+"Convert" = "Convert";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "albüm";
+/*Translated from: camera*/
+"cs_keyword_1" = "kamera";
+/*Translated from: photos*/
+"cs_keyword_2" = "fotoğraflar";
+/*Translated from: editor*/
+"cs_keyword_3" = "editör";
+/*Translated from: messenger*/
+"cs_keyword_4" = "messenger";
+/*Translated from: filter*/
+"cs_keyword_5" = "filtre";
+/*Translated from: edit*/
+"cs_keyword_6" = "Düzenle";
+/*Translated from: image*/
+"cs_keyword_7" = "görüntü";
+/*Translated from: smart*/
+"cs_keyword_8" = "akıllı";
+/*Translated from: picture*/
+"cs_keyword_9" = "resim";
+/*Translated from: memory*/
+"cs_keyword_10" = "bellek";
+/*Translated from: familiy*/
+"cs_keyword_11" = "aile";
+/*Translated from: friend*/
+"cs_keyword_12" = "arkadaş";
+/*Translated from: lover*/
+"cs_keyword_13" = "lover";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@ Gün";
+/* Generated from genl10n: batch.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@ Lisans";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@ Sahiplik";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@ Ortaklık Lisansı";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "%@ bulunabilir";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@ gizlenecek";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ / Gün";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d kez";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Month License" = "1 Aylık Lisans";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year License" = "1 Yıllık Lisans";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of All and New Tools" = "Tüm ve Yeni Araçların 1 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Tools" = "Ana ve Yeni Araçların 1 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Tools" = "Tüm ve Yeni Araçların 1 Yıllık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Tools" = "Ana ve Yeni Araçların 1 Yıllık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Tools" = "Ana ve Yeni Araçların 14 Günlük Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Tools" = "Ana ve Yeni Araçların 3 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6 Aylık Lisans";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "Tüm ve Yeni Araçların 6 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "Ana ve Yeni Araçların 6 Aylık Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "Ana ve Yeni Araçların 7 Günlük Kullanımı";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "Bir Lisans Gerekir.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "Erişim reddedildi.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "Erişim Başarısız.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "Erişim izni.";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "Reklamları Etkinleştir";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "Mevcut Görünür Öğelerin Etkinleştirilmesi ...";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "Yeni Kişi Ekle";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "Etkinlik ekle";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "Adres";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "albümler";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "Kamera Olmadan Kaydedildi";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "All";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "Reklamları alırken bir hata oluştu.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "Animasyonlu GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "Animasyon";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "Herzaman ücretsiz iptal.";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "İstediğiniz tüm fotoğraflarınıza Yüksek Kaliteli filtreler uygulayın. Bu toplu işleme aracının, filtreleri uygulamak için fotoğraf sayısına sınırı yoktur.";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "Sanatçı";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "En boy oranı";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "Otomatik ürün";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Otomatik Editör, fotoğraflarınızın düzeltilmesi gerektiğinde otomatik olarak düzenlemenizi sağlar.";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "Otomatik Editör";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "Oto geliştirme";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "Otomatik %@ seçeneğini seçin.";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "Otomatik Seçim Botu";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "Otomatik Düzelt";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Bir sanatçı ol. Sanatçı, tüm fotoğraflarınızı veya videolarınızı ünlü stil resimlere dönüştürmenizi sağlar. Bu toplu işleme aracının, dönüştürülecek fotoğraf sayısına sınırı yoktur.";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "Bulanıklık Hızı";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "Patlamak";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "Kamera";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "Geri alınamaz. Seçilen tüm öğeler düzenlenmedi.";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "Bir Eylem Seç";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "%d Öğeler İçin Bir Dışa Aktarma Seçeneği Seç";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "Bir Alt Eylem seçin.";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Temizleyici, örneğin çift ve benzer resimler, yakın fotoğraflar veya Lockscreen çekimleriyle eşleştiğinde çeşitli yanlış fotoğrafları bulup silmenizi sağlar!";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "temizleyici";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "Pano boş";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "Pano";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "Her Faz İçin Renk ve Hatırlatma";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "Şimdi bize ulaşın";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "Son Canlı Fotoğrafı GIF'e dönüştür.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "Son Canlı Fotoğrafı Videoya Dönüştür.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "Son videoyu GIF'e dönüştür.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "Son Videoyu Canlı Fotoğrafa Dönüştür.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "Son Videoyu MP4'e dönüştür.";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Dönüştürücü, Videolar, Canlı Fotoğraflar, GIF'ler gibi her medya formatını birbirinize dönüştürmenizi sağlar.";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "Dönüştürücü";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "kopya";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "Fotoğraflar kopyalanıyor ...";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "Hiçbir şey algılanamadı.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "Reklam alınamadı.";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "yaratmak";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "Sığacak şekilde kırp";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "Crop";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "görenek";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "tarih";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "Hedefleri Silme";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "Direction";
+/* Generated from genl10n: batch.Strings.swift#45 */
+"Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "İndir";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "İndiriliyor ...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "E";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost, özel bilgileri içeren fotoğraflarınızı içeren her türlü veriyi kaldırmanızı sağlar.";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "Hızlı İşlemleri Etkinleştir";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "Şimdi Kapatın ve Ana Araçları Lisansı'nı Tekrar Tekrar Şarj Edin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "Mühendislik Notları";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "İhracat";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "Filtreler";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "El feneri";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "Uçuş numarası";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "Biçimleri";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "ileri";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "Çerçeve Gecikmesi";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "Ücretsiz Kullanım ve Tüm Yeni Güncellemeler";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "Ücretsiz kullanım";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "Uzak Pano'dan";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker, çeşitli seçeneklerle Fotoğraflardan veya Canlı Fotoğraflardan GIF görüntülerini kolayca ve hızlı bir şekilde yapmanızı sağlar! Ve sonra Canlı Fotoğraflar veya Videolar gibi her şeye dönüştürmek için dönüştürücü uygulamasını açabilirsiniz.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "Erişim Al";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "Tüm Metni Al";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "Metin Al";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "Bir Derecelendirme Ver";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "Misafir Kullanıcı Lisansı Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "Misafir Kullanıcı Lisansı";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "Misafir kullanıcı";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "Bir seferde bol bol fotoğraf çekin.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "Merhaba, %@!";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "Merhaba %@ Takım, ben %@.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "Hide";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "Seçilen Öğeleri Gizlemek ...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "Görüntü kalitesi";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "görüntü";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "Görüntüler";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "İthalat";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "Kullanım Bilgisi";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "Buradan Girin";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "soruşturma";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "Kalan Ücretsiz Uygulama Erişimi Dönemlerinin Bir Oranını Gösterir.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "Geçersiz kod görünüyor. Lütfen tekrar deneyin.";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In Partnership Program" = "Ortaklık Programına Katılın";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "Sadece ihtiyacınız olan fotoğrafları seçin ve sonra çalıştırın.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "peyzaj";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "düzen";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "Lisans veya Ana Araçlar Lisansı";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "Live Photo";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "lockscreens";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "döngü";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "Ana Araçlar Lisansı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "Ana Araçlar %@ Gününün Kullanımı";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "GIF yap";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "Arama yapmak";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "Modify";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "Aylık lisans";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "Albümlerim";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "%@ İle ilgili görüşlerim";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "Yeni bağlantı";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "Yeni etkinlik";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "Yeni numara";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "Kırpma Yok";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "Döngü yok";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "Beklemede";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Tools" = "Tüm ve Yeni Ana Araçların Sürekli Kullanımı";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "Tüm ve Yeni Araçların Sürekli Kullanımı";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "%@ Açık";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "Apple Haritalar'ı aç";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "Açık Sanatçı";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "Kamerayı aç.";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "Google Haritalar'ı aç";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "Web sayfasını aç";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "Açık";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "orijinal";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDF, çeşitli sayfa seçenekleriyle PDF belgesini birden çok görüntüden yapar.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "Sayfa Marjı";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "Sayfa Boyutu Ön Ayarı";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "Sayfalar";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "Ortaklık Lisansı Programı";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "Ortaklık lisansı";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "Panolarınızdaki görüntüleri yapıştırın";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "Kalıcı Mülkiyet";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "Kalıcı Kullanım ve Tüm Yeni Güncellemeler";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "Tüm ve Yeni Araçların Kalıcı Kullanımı";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "Telefon numarası";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "Fotoğraflar";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "Lütfen Gizli Kodunuzu Girin";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Lütfen İnternet bağlantınızı kontrol edip geri yükleyin veya Reklamları devre dışı bırakın.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "Lütfen başka bir kodla tekrar deneyin.";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Lütfen aşağıdaki seçeneği kapatın ve Ayarlar'da reklam tanımlayıcısını sıfırlayın. Sonra tekrar dene.";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "Portre";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "hazırlama";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "Hazır ayarlar";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Fiyatlar Her Yeni Araç ve Güncellemeyi İçeriyor, ayrıca otomatik olarak yenilenmeyecek.";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "Gizlilik Politikası";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "Gizlilik";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "İşleme";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "Tanıtım Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "Tanıtım Lisansı";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "Tanıtım Kullanıcısı";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "Satın alma yönetimi";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "Satın alma";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "Kalite";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "Oyla";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "Kırmızı Göz Giderme";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "Bu Çalışmada Kalan Sayı";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "Kalan Seviye";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "Kalan Yüzde";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "Tekrar et";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "Tüm Satın Alma İşlemlerini Geri Yükle";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "Restore";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restorasyon, düzenlenmiş fotoğrafların bir miktarını orijinaline hızlıca geri yüklemeyi sağlar. Ayrıca, otomatik seçim ile size yardımcı olur!";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "restorasyon";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "Ters";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "Geri sarma";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "Döndürme";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "rotasyon";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "Kişileri Kaydet";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "Kaydet ve Paylaş";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "Save";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "Sonuçları Kaydetme ...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "Uygun ölçek";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "Ekran görüntüleri";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "Uçuş ara";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "Google Haritalar'da Ara";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "Google'da Ara";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "%@ İçin ara";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "Dönüştürmek için Formatı seçin";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "Fotoğrafları silmek için seçin.";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "seçilmiş";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "Bir e-posta göndermek";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "göndermek";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "Ana Araçlar Lisansı için Ayarlar";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "Ayarlar";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "Bu uygulamayı paylaş";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Yeteneğini Paylaş, Birlikte Yap. Kabul Edilmiş Her Bir Ödül edinin.";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Facebook Messenger'da Paylaşım";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "Facebook'ta paylaşma";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "Benzerlik";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "Size";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "Özel Misafir Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "Özel Misafir Ruhsatı";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "Özel misafir";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "Square";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "Stabilizasyon modu";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "Stabilize";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "stabilizatör";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "Seçilen Öğeleri Stabilize Etmek ...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "başla";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "İşlemi Başlatma ...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "Düzenlenmiş fotoğrafları kontrol etmeye başlıyor ...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "Fotoğrafları kopyalamaya başlıyor ...";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "Bizimle Kalmak";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Gizlemek istediğiniz öğeleri açın. Kalite mükemmel olarak aynı kalacaktır.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "Canlı Fotoğraf ile bir GIF atın.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "Yer almak";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "Dahili Kamera ile Çekildi";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "Hedeflenen";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "Hedefler";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "Kullanım Şartları";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "Metin";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "Teşekkür ederim %@. Yakında sizinle iletişim kuracağız.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "Mesajın için teşekkürler. Yakında sizinle iletişim kuracağız.";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "Satın aldığınız için teşekkür ederiz.";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "Geri bildiriminiz için teşekkürler! Yakında sizinle iletişim kuracağız.";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Bu uygulamayı kullanmak için uygun bir erişim lisansı gerekir. %@ Açmak ister misiniz?";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "Çok Yakın Yüz";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "Çok Düşük Obtüratör Hızı";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "Dönüş Modu";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "Şimdi Çevir";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "Çeviri Düzeltme";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "URL";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "Şu anda kod doğrulanamadı. Lütfen daha sonra deneyin.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "Kullanım kılavuzu";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "Deneme sürümünü kullan";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "kullanım";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "VIP Yardım Hattı";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP License Program" = "VIP Lisans Programı";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP Lisansı";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "Doğrulama başarısız oldu.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "Video";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "Instagram tarafından kaydedilen videolar";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "1 saniyeden kısa videolar";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "Sessiz Videolar";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "Ekran Kaydediciden Videolar";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "Sosyal sayfaları ziyaret et";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "Ziyaret etmek";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "Hoşgeldiniz ücretsiz paketi";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our Partnership License Program!" = "Ortaklık Lisans Programımıza Hoş Geldiniz!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "VIP lisans programımıza hoş geldiniz.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "Misafir kullanıcı lisans programımıza hoş geldiniz!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "Tanıtım lisans programımıza hoş geldiniz!";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "Özel misafir lisans programımıza hoş geldiniz!";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "%@ Adresine geri dönmek ister misiniz?";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "Bir değerlendirme yazın";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "Yazmak";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "Yıllık Lisans";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "Sadece başlangıç ​​formatıyla eşleşen fotoğrafları veya videoları seçebilirsiniz.";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "Mesajınız gönderildi.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "Kodunuz geçersiz. Lütfen tekrar deneyin.";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "Kodunuzun süresi doldu.";
+/* Generated from genl10n: Period.swift */
+"day" = "gün";
+/* Generated from genl10n: Period.swift */
+"hour" = "saat";
+/* Generated from genl10n: Period.swift */
+"minute" = "dakika";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "ay";
+/* Generated from genl10n: Period.swift */
+"second" = "ikinci";
+/* Generated from genl10n: Period.swift */
+"week" = "hafta";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "yıl";

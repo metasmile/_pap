@@ -18,19 +18,34 @@ def common_pods
   pod 'PropertyKit'
 
   # Common Solutions
-  pod 'Hero'
   pod 'SwiftyGif'
 
-  # com.stells.mmc.shop
+  pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
+  pod 'PhoneNumberKit', '~> 2.1'
+end
+
+target 'batch' do
+  common_pods
+
+  # com.stells.batch.shop
   # pod 'Eureka'
   # # Garbage Social/Ads Kits - Must Use In ShopApp Only.
-  # pod 'Firebase/AdMob', inhibit_warnings: true
-
+  pod 'Firebase/AdMob', inhibit_warnings: true
+  # Consider to use this: https://developers.facebook.com/docs/sharing/messenger/
+  pod 'Bolts', inhibit_warnings: true
+  pod 'FBSDKCoreKit', inhibit_warnings: true
+  pod 'FBSDKShareKit', inhibit_warnings: true
   # Store
+  pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
+  # com.stells.batch.pdfactory
+  pod 'TPPDF'
+  # com.stells.batch.clean
+  pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
 
-  # com.stells.mmc.finder,phonecall - FirebaseMLVision.VisionText.Parser.Types.swift
-  pod 'PhoneNumberKit', '~> 2.1'
+  target 'papTests' do
+    inherit! :complete
+  end
 end
 
 target 'mmc' do

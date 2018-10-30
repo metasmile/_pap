@@ -1,0 +1,728 @@
+/*Translated from: Photos Access Disabled*/
+"Photos Access Disabled" = "禁用照片访问";
+/*Translated from: Please open settings and allow access to your photos*/
+"Please open settings and allow access to your photos" = "请打开设定并允许接入照片";
+/*Translated from: Open Settings*/
+"Open Settings" = "打开设置";
+/*Translated from: OK*/
+"OK" = "好";
+/*Translated from: Done*/
+"Done" = "完毕";
+/*Translated from: Confirm*/
+"Confirm" = "确认";
+/*Translated from: Cancel*/
+"Cancel" = "取消";
+/*Translated from: Detail*/
+"Detail" = "详情";
+/*Translated from: Delete*/
+"Delete" = "删除";
+/*Translated from: Sorry, something went wrong.*/
+"Sorry, something went wrong." = "抱歉，出了一些问题。";
+/*Translated from: Edit %d photo(s)*/
+"Edit %d photo(s)" = "编辑%d照片";
+/*Translated from: Edit %d video(s)*/
+"Edit %d video(s)" = "编辑%d视频";
+/*Translated from: Edit %d item(s)*/
+"Edit %d item(s)" = "编辑%d项目";
+/*Translated from: Edit*/
+"Edit" = "编辑";
+/*Translated from: Discard Changes*/
+"Discard Changes" = "丢弃更改";
+/*Translated from: Processing...*/
+"Processing..." = "正在处理...";
+/*Translated from: Cancelling...*/
+"Cancelling..." = "取消...";
+/*Translated from: Saving Photos...*/
+"Saving Photos..." = "储存照片...";
+/*Translated from: Deleting Photos...*/
+"Deleting Photos..." = "删除照片...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
+/*Translated from: Select this photo*/
+"Select this photo" = "选择此照片";
+/*Translated from: Select this video*/
+"Select this video" = "选择此视频";
+/*Translated from: Deselect this photo*/
+"Deselect this photo" = "取消选择此照片";
+/*Translated from: Deselect this video*/
+"Deselect this video" = "取消选择此视频";
+/*Translated from: Edit this photo*/
+"Edit this photo" = "编辑这张照片";
+/*Translated from: Edit this video*/
+"Edit this video" = "编辑此视频";
+/*Translated from: %@ Photo*/
+"%d Photo" = "%@照片";
+/*Translated from: %@ Video*/
+"%d Video" = "%@视频";
+/*Translated from: %@ Item*/
+"%d Item" = "%@项目";
+/*Translated from: %@ Photos*/
+"%d Photos" = "%@照片";
+/*Translated from: %@ Videos*/
+"%d Videos" = "%@视频";
+/*Translated from: %@ Items*/
+"%d Items" = "%@项目";
+/*Translated from: Edit %@ Photo*/
+"Edit %d Photo" = "编辑%@照片";
+/*Translated from: Edit %@ Video*/
+"Edit %d Video" = "编辑%@视频";
+/*Translated from: Edit %@ Photos*/
+"Edit %d Photos" = "编辑%@照片";
+/*Translated from: Edit %@ Videos*/
+"Edit %d Videos" = "编辑%@视频";
+/*Translated from: Edit %@ Items*/
+"Edit %d Items" = "编辑%@项目";
+/*com.stells.batch.transform*/
+"Transform" = "Transform";
+/*com.stells.batch.photosfilter*/
+"Apply" = "应用";
+/*com.stells.batch.revert*/
+"Revert" = "Revert";
+/*Translated from: Starting to revert...*/
+"Starting to revert..." = "Starting to revert...";
+/*Translated from: Reverting Photos...*/
+"Reverting Photos..." = "还原照片...";
+/*com.stells.batch.pdfactory*/
+"Create %@" = "创建%@";
+/*Translated from: Starting to create PDF...*/
+"Starting to create PDF..." = "开始创建PDF ...";
+/*Translated from: Creating PDF Pages...*/
+"Creating PDF Pages..." = "创建PDF页面...";
+/*com.stells.batch.converter*/
+"Convert" = "变换";
+/*CoreSpotligth keywords - localizable - marketing*/
+"cs_keyword_0" = "相册";
+/*Translated from: camera*/
+"cs_keyword_1" = "相机";
+/*Translated from: photos*/
+"cs_keyword_2" = "相片";
+/*Translated from: editor*/
+"cs_keyword_3" = "编辑器";
+/*Translated from: messenger*/
+"cs_keyword_4" = "信使";
+/*Translated from: filter*/
+"cs_keyword_5" = "过滤";
+/*Translated from: edit*/
+"cs_keyword_6" = "编辑";
+/*Translated from: image*/
+"cs_keyword_7" = "影像";
+/*Translated from: smart*/
+"cs_keyword_8" = "smart";
+/*Translated from: picture*/
+"cs_keyword_9" = "picture";
+/*Translated from: memory*/
+"cs_keyword_10" = "回忆";
+/*Translated from: familiy*/
+"cs_keyword_11" = "家庭";
+/*Translated from: friend*/
+"cs_keyword_12" = "朋友";
+/*Translated from: lover*/
+"cs_keyword_13" = "情人";
+/* Generated from genl10n: AppCenter.Charge.swift#45 */
+"%@ Day" = "%@天";
+/* Generated from genl10n: batch.Strings.swift#41 */
+"%@ Download now for FREE!" = "%@立即免费下载！";
+/* Generated from genl10n: Shop.SApp.swift */
+"%@ License" = "%@许可证";
+/* Generated from genl10n: AppCenter.Charge.swift#396 */
+"%@ Ownership" = "%@所有权";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"%@ Partnership License" = "%@合伙许可";
+/* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
+"%@ might be found" = "可能会找到%@";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
+"%@ will be hidden" = "%@将被隐藏";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
+"%@/Day" = "%@ /日";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"%d times" = "%d次";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"1 %@" = "1 %@";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Month License" = "1个月许可证";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1 Year License" = "1年许可证";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of All and New Tools" = "1个月使用全部和新工具";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Month Use of Main and New Tools" = "主要和新工具的1个月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of All and New Tools" = "1年使用全部和新工具";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"1-Year Use of Main And New Tools" = "主要和新工具的1年使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"14-Day Use of Main and New Tools" = "主要和新工具的14天使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"3-Month Use of Main And New Tools" = "主要和新工具的3个月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6 Months License" = "6个月许可证";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of All and New Tools" = "6个月使用全部和新工具";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"6-Month Use of Main And New Tools" = "主要和新工具的6个月使用";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"7-Day Use of Main and New Tools" = "主要和新工具的7天使用";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"A Licence Is Required." = "需要许可证。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
+"Access Denied." = "拒绝访问。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"Access Failed." = "访问失败。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Access Granted." = "授予访问权限。";
+/* Generated from genl10n: AppCenter.Charge.swift#124 */
+"Activate Ads" = "激活广告";
+/* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
+"Activating Current Visible Items ..." = "激活当前可见项目......";
+/* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
+"Add New Contact" = "添加新联系人";
+/* Generated from genl10n: Finder.BApp.swift#466 */
+"Add an Event" = "添加活动";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Address" = "地址";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"Albums" = "相册";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
+"All not taken with Camera" = "没有相机保存";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
+"All" = "全体";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
+"An Error Occurred While Receiving Ads." = "接收广告时出错。";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animated GIF" = "动画GIF";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Animation" = "动画";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"Anytime free cancellation." = "随时免费取消。";
+/* Generated from genl10n: Filters.BApp.swift#76 */
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "您选哪张照片，都可以应用高品质过滤器。此批处理工具对应用过滤器的照片数量没有限制。";
+/* Generated from genl10n: Artist.BApp.swift */
+"Artist" = "艺术家";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Aspect Ratio" = "宽高比";
+/* Generated from genl10n: AutoEditor.BApp.swift#172 */
+"Auto Crop" = "自动裁剪";
+/* Generated from genl10n: AutoEditor.BApp.swift#51 */
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "如果您需要修改照片，就可以用自动编辑器来进行自动编辑。";
+/* Generated from genl10n: AutoEditor.BApp.swift#33 */
+"Auto Editor" = "自动编辑器";
+/* Generated from genl10n: AutoEditor.BApp.swift#170 */
+"Auto Enhance" = "自动增强";
+/* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+"Auto Select on %@." = "在%@上自动选择。";
+/* Generated from genl10n: Revert.BApp.swift#189 */
+"Auto Selection Bot" = "自动选择机器人";
+/* Generated from genl10n: AutoEditor.BApp.swift#173 */
+"Auto Straighten" = "自动拉直";
+/* Generated from genl10n: Artist.BApp.swift */
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "成为一名艺术家。艺术家可以让您将所有照片或视频戏剧性地转变为着名的风格画作。此批处理工具对要转换的照片数量没有限制。";
+/* Generated from genl10n: Cleaner.BApp.swift#244 */
+"Blur Rate" = "模糊率";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Burst" = "爆裂";
+/* Generated from genl10n: Camera.BApp.swift#44 */
+"Camera" = "相机";
+/* Generated from genl10n: Revert.BApp.swift */
+"Cannot revert. All selected items have not edited." = "无法恢复。所有选择的项目都没有编辑。";
+/* Generated from genl10n: Finder.BApp.swift#250 */
+"Choose An Action" = "选择一个动作";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Choose An Export Option For %d Items" = "为%d项目选择导出选项";
+/* Generated from genl10n: Finder.BApp.swift#264 */
+"Choose An Sub Action." = "选择一个子动作。";
+/* Generated from genl10n: Cleaner.BApp.swift#45 */
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清洁器使您能够查找和删除各种不正确的照片，如果他们匹配了例如重复和类似的图像，特写照片或锁屏拍摄！";
+/* Generated from genl10n: Cleaner.BApp.swift#49 */
+"Cleaner" = "清洁器";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard is empty" = "剪贴板是空的";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Clipboard" = "剪贴板";
+/* Generated from genl10n: Shop.SApp.swift#532 */
+"Color And Reminder for Each Phases" = "每个阶段的颜色和提醒";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Contact Us Now" = "现在就联系我们";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into GIF." = "将最后一张Live Photo转换为GIF。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Live Photo Into Video." = "将上一张实时照片转换为视频。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into GIF." = "将最后一个视频转换为GIF。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into Live Photo." = "将最后一个视频转换为实时照片。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Convert the last Video Into MP4." = "将最后一个视频转换为MP4。";
+/* Generated from genl10n: Converter.BApp.swift#42 */
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "转换器使您可以将每种媒体格式（如视频、现场照片、GIFS）转换为彼此。";
+/* Generated from genl10n: Converter.BApp.swift#41 */
+"Converter" = "转换器";
+/* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
+"Copy" = "复制";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Copying Photos..." = "复制照片......";
+/* Generated from genl10n: Finder.BApp.swift#911 */
+"Could not detect anything." = "无法检测到任何东西。";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
+"Could not receive Ads." = "无法接收广告。";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Create" = "创建";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Crop to Fit" = "裁剪";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"Crop" = "裁剪";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
+"Custom" = "自定义";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Date" = "日期";
+/* Generated from genl10n: Cleaner.BApp.swift#506 */
+"Deleting Targets" = "删除目标";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Direction" = "方向";
+/* Generated from genl10n: batch.Strings.swift#45 */
+"Download now for FREE at %@" = "立即免费下载%@";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Download" = "下载";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Downloading..." = "下载...";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"E-mail Address" = "电子邮件地址";
+/* Generated from genl10n: ExifGhost.BApp.swift#29 */
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可让您删除包含照片的各种数据，包括私人信息。";
+/* Generated from genl10n: Finder.BApp.swift#1264 */
+"Enable Quick Actions" = "启用快速操作";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engage Now And Repeatedly Recharge Main Tools License." = "立即参与并反复补充主要工具许可证。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Engineering Notes" = "工程笔记";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Export" = "导出";
+/* Generated from genl10n: Filters.BApp.swift#72 */
+"Filters" = "过滤器";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
+"Flashlight" = "手电筒";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
+"Flight Number" = "航班号";
+/* Generated from genl10n: Finder.BApp.swift#1224 */
+"Formats" = "格式";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Forward" = "向前";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Frame Delay" = "帧延迟";
+/* Generated from genl10n: AppCenter.Charge.swift#372 */
+"Free Use And All New Updates" = "免费使用和所有新更新";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
+"Free Use" = "免费使用";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"From Remote Clipboard" = "来自远程剪贴板";
+/* Generated from genl10n: GIFMaker.BApp.swift#266 */
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通过各种选项，让您可以轻松快速地从照片或实时照片制作GIF图像！然后您可以打开转换器app以转换为实时照片或视频等所有东西。";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
+"Get Access" = "获得访问权限";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get All Text" = "获取所有文字";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Get Text" = "获取文字";
+/* Generated from genl10n: AppCenter.Charge.swift#19 */
+"Give A Rating" = "给予评级";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User License Program" = "访客用户许可计划";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Guest User License" = "访客用户许可";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Guest User" = "来宾用户";
+/* Generated from genl10n: batch.Strings.swift */
+"Handle lots of photos at once." = "一次处理大量照片。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Hello, %@!" = "你好，%@！";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Hi %@ Team, I'm %@." = "嗨%@团队，我是%@。";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hide" = "隐藏";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Hiding Selected Items..." = "隐藏所选项目...";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Image Quality" = "画面质量";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"Image" = "图片";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+"Images" = "图片";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Import" = "进口";
+/* Generated from genl10n: Shop.SApp.swift#494 */
+"Information of Use" = "使用信息";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
+"Input Here" = "输入这里";
+/* Generated from genl10n: Shop.SApp.swift#625 */
+"Inquiry" = "查询";
+/* Generated from genl10n: Shop.SApp.swift#468 */
+"It Displays A Ratio of Remaining Free App Access Periods." = "它显示剩余免费应用访问时段的比率。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
+"It looks invalid code. Please Try again." = "它看起来无效代码。请再试一次。";
+/* Generated from genl10n: CodeKit.Contacts.swift#63 */
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Join In Partnership Program" = "加入伙伴关系计划";
+/* Generated from genl10n: batch.Strings.swift */
+"Just select photos you need and then run it." = "只需选择您需要的照片，然后运行它。";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Landscape" = "景观";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+"Layout" = "布局";
+/* Generated from genl10n: Shop.SApp.swift */
+"License or Main Tools License" = "许可证或主要工具许可证";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Live Photo" = "现场照片";
+/* Generated from genl10n: Cleaner.BApp.swift#245 */
+"Lockscreens" = "Lockscreens";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Loop" = "Loop";
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Main Tools License" = "主要工具许可证";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Main Tools Use of %@ Day" = "主要工具使用%@日";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Make GIF" = "制作GIF";
+/* Generated from genl10n: Finder.BApp.swift#402 */
+"Making A Call" = "打个电话";
+/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+"Modify" = "修改";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Monthly License" = "每月许可证";
+/* Generated from genl10n: PhotoAlbumViewController.swift */
+"My Albums" = "我的相册";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
+"My Feedback on %@" = "我对%@的反馈";
+/* Generated from genl10n: CodeKit.Contacts.swift#440 */
+"New Contact" = "新联系人";
+/* Generated from genl10n: Finder.BApp.swift#435 */
+"New Event" = "新事件";
+/* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
+"New Number" = "新号码";
+/* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+"No Crop" = "没有作物";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"No loop" = "没有循环";
+/* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
+"On Standby" = "随时待命";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Ongoing Use of All and New Main Tools" = "正在使用所有和新的主要工具";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Ongoing Use of All and New Tools" = "正在使用所有和新工具";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
+"Open %@" = "打开%@";
+/* Generated from genl10n: Finder.BApp.swift#654 */
+"Open Apple Maps" = "打开Apple Maps";
+/* Generated from genl10n: Artist.BApp.swift */
+"Open Artist." = "开放艺术家。";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Open Auto Editor." = "Open Auto Editor.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Open Camera." = "开放式摄像头。";
+/* Generated from genl10n: Cleaner.BApp.swift */
+"Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Open Converter." = "Open Converter.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Open EXIF Ghost." = "Open EXIF Ghost.";
+/* Generated from genl10n: Filters.BApp.swift */
+"Open Filters." = "Open Filters.";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Open GIF Maker." = "Open GIF Maker.";
+/* Generated from genl10n: Finder.BApp.swift#668 */
+"Open Google Maps" = "打开Goog​​le地图";
+/* Generated from genl10n: PDFactory.BApp.swift */
+"Open PDF Maker." = "Open PDF Maker.";
+/* Generated from genl10n: Revert.BApp.swift */
+"Open Restorer." = "Open Restorer.";
+/* Generated from genl10n: Transform.BApp.swift */
+"Open Rotation." = "Open Rotation.";
+/* Generated from genl10n: Finder.BApp.swift#370 */
+"Open Web Page" = "打开网页";
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+"Open" = "打开";
+/* Generated from genl10n: Filters.BApp.swift */
+"Original" = "原版的";
+/* Generated from genl10n: PDFactory.BApp.swift#32 */
+"PDFactory makes PDF document from multiple images with various page options." = "PDFactory使用各种页面选项从多个图像制作PDF文档。";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+"Page Margin" = "页边距";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+"Page Size Preset" = "页面大小预设";
+/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+"Pages" = "网页";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Partnership License Program" = "合作许可计划";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Partnership License" = "合伙许可";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Paste images from your clipboards" = "粘贴剪贴板中的图像";
+/* Generated from genl10n: AppCenter.Charge.swift#167 */
+"Permanent Ownership" = "永久所有权";
+/* Generated from genl10n: AppCenter.Charge.swift#365 */
+"Permanent Use And All New Updates" = "永久使用和所有新更新";
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+"Permanent Use of All and New Tools" = "永久使用所有和新工具";
+/* Generated from genl10n: FinderApp.AppDockContent.swift */
+"Phone Number" = "电话号码";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Photos" = "相片";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
+"Please Input Your Secret Code" = "请输入您的密码";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
+"Please check and restore your internet connectivity, or deactivate Ads." = "请检查并恢复您的互联网连接，或停用广告。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Please try again with another code." = "请使用其他代码重试。";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "请关闭以下选项，并在“设置”中重置广告标识符。然后再试一次。";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+"Portrait" = "肖像";
+/* Generated from genl10n: ActionViewController.swift#37 */
+"Preparing" = "准备";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
+"Presets" = "预置";
+/* Generated from genl10n: Shop.SApp.swift */
+"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "价格包含每个新工具和更新，也不会自动续订。";
+/* Generated from genl10n: Shop.SApp.swift#687 */
+"Privacy Policy" = "隐私政策";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
+"Privacy" = "隐私";
+/* Generated from genl10n: ActionViewController.swift#38 */
+"Processing" = "处理";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion License Program" = "促销许可计划";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Promotion License" = "促销许可证";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Promotion User" = "推广用户";
+/* Generated from genl10n: Shop.SApp.swift#246 */
+"Purchase Management" = "采购管理";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
+"Purchase" = "采购";
+/* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
+"Quality" = "质量";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
+"Rate It" = "评分";
+/* Generated from genl10n: AutoEditor.BApp.swift#171 */
+"Red-Eye Removal" = "消除红眼";
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
+"Remaining Count In This Run" = "此次运行中的剩余计数";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Level" = "剩余等级";
+/* Generated from genl10n: Shop.SApp.swift */
+"Remaining Percentage" = "剩余百分比";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Repeat" = "重复";
+/* Generated from genl10n: AppCenter.Charge.swift#74 */
+"Restore All Purchases" = "恢复所有购买";
+/* Generated from genl10n: Shop.Payment.System.swift#11 */
+"Restore" = "恢复";
+/* Generated from genl10n: Revert.BApp.swift#45 */
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "恢复允许快速将大量编辑过的照片恢复到原始照片。此外，它可以帮助您自动选择！";
+/* Generated from genl10n: Revert.BApp.swift#44 */
+"Restorer" = "恢复";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Reverse" = "相反";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Rewind" = "倒带";
+/* Generated from genl10n: Transform.BApp.swift#70 */
+"Rotate" = "旋转";
+/* Generated from genl10n: Transform.BApp.swift#54 */
+"Rotation" = "回转";
+/* Generated from genl10n: Finder.BApp.swift#1252 */
+"Save Contacts" = "保存联系人";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save and Share" = "保存并分享";
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Save" = "保存";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Saving Results..." = "保存结果...";
+/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+"Scale To Fit" = "缩放以适应";
+/* Generated from genl10n: Cleaner.BApp.swift#246 */
+"Screenshots" = "截图";
+/* Generated from genl10n: Finder.BApp.swift#762 */
+"Search Flights" = "搜索航班";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google Maps" = "在Google地图上搜索";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Search On Google" = "在Google上搜索";
+/* Generated from genl10n: Siri.SApp.swift */
+"Search for %@" = "搜索%@";
+/* Generated from genl10n: Converter.AppDockContent.swift#148 */
+"Select Format To Convert" = "选择要转换的格式";
+/* Generated from genl10n: Cleaner.BApp.swift#602 */
+"Select Photos To Delete." = "选择要删除的照片。";
+/* Generated from genl10n: Cleaner.BApp.swift#510 */
+"Selected" = "选";
+/* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
+"Send an Email" = "发送电子邮件";
+/* Generated from genl10n: Shop.SApp.swift#583 */
+"Send" = "发送";
+/* Generated from genl10n: Shop.SApp.swift */
+"Settings for Main Tools License" = "主工具许可证的设置";
+/* Generated from genl10n: Shop.SApp.swift#469 */
+"Settings" = "设置";
+/* Generated from genl10n: Shop.SApp.swift#584 */
+"Share This App" = "分享这个应用程式";
+/* Generated from genl10n: Shop.SApp.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才华，团结一致。如果采纳，则获得每项奖励。";
+/* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+"Share" = "分享";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "在Facebook Messenger上分享";
+/* Generated from genl10n: AppCenter.Charge.swift#103 */
+"Sharing on Facebook" = "在Facebook上分享";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
+"Similarity" = "相似";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Size" = "尺寸";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest License Program" = "特别来宾许可计划";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Special Guest License" = "特邀嘉宾许可证";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Special Guest" = "特邀嘉宾";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Square" = "广场";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilization Mode" = "Stabilization Mode";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilize" = "稳定";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizer" = "稳定剂";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Stabilizing Selected Items..." = "稳定所选项目...";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Start" = "开始";
+/* Generated from genl10n: PhotoPickerViewController.swift */
+"Starting the Process..." = "启动过程...";
+/* Generated from genl10n: Revert.BApp.swift */
+"Starting to check edited photos..." = "开始检查编辑的照片...";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Starting to copy photos..." = "开始复制照片......";
+/* Generated from genl10n: Shop.SApp.swift */
+"Staying With Us" = "和我们在一起";
+/* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A GIF With Live Photo." = "用现场照片拍摄GIF。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Photo." = "Take A Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take A Selfie." = "Take A Selfie.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Take Part" = "参与";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
+"Taken With Built-in Camera" = "采用内置摄像头";
+/* Generated from genl10n: Cleaner.BApp.swift#511 */
+"Targeted" = "目标";
+/* Generated from genl10n: Cleaner.BApp.swift#242 */
+"Targets" = "目标";
+/* Generated from genl10n: Shop.SApp.swift#698 */
+"Terms of Use" = "使用条款";
+/* Generated from genl10n: Finder.BApp.swift#1311 */
+"Text" = "文本";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you %@. Soon we will contact you." = "谢谢%@。很快我们会联系你。";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you for your message. Soon we will contact you." = "感谢您的留言。很快我们会联系你。";
+/* Generated from genl10n: Shop.Payables.Store.swift#96 */
+"Thank you for your purchase." = "感谢您的购买。";
+/* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
+"Thank you very much for your feedback! Soon we will contact you." = "非常感谢您的反馈！很快我们会联系你。";
+/* Generated from genl10n: Transform.BApp.swift#55 */
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "这种直观但大规模的批量图像变换工具可让您快速旋转和翻转包括实时照片在内的大量媒体文件。编辑照片的数量没有限制。";
+/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"To use this app needs a corresponding access license. Would you like to open %@?" = "要使用此应用程序，需要相应的访问许可证。你想打开%@吗？";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
+"Too Close-up Face" = "太近距离的脸";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
+"Too Slow Shutter Speed" = "快门速度太慢";
+/* Generated from genl10n: Stabilizer.BApp.swift#330 */
+"Transform Mode" = "变换模式";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
+"Translate Now" = "现在翻译";
+/* Generated from genl10n: Shop.SApp.swift */
+"Translation Correction" = "翻译更正";
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+"URL" = "网址";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Unable to verify the code currently. Please try it later." = "目前无法验证代码。请稍后再试。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Usage Guide" = "使用指南";
+/* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
+"Use Trial" = "使用试用版";
+/* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
+"Use" = "使用";
+/* Generated from genl10n: Shop.SApp.swift#606 */
+"VIP Hotline" = "贵宾热线";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"VIP License Program" = "VIP许可计划";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"VIP License" = "VIP许可证";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
+"Verification Failed." = "验证失败。";
+/* Generated from genl10n: GIFMaker.BApp.swift */
+"Video" = "视频";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
+"Videos Saved by Instagram" = "Instagram保存的视频";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
+"Videos Shorter Than 1 Second" = "短于1秒的视频";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
+"Videos Without Sound" = "没有声音的视频";
+/* Generated from genl10n: Cleaner.GarbageDetector.swift */
+"Videos from Screen Recorder" = "来自Screen Recorder的视频";
+/* Generated from genl10n: AppCenter.Charge.swift#132 */
+"Visit Social Pages" = "访问社交页面";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
+"Visit" = "访问";
+/* Generated from genl10n: Stabilizer.BApp.swift */
+"Warp" = "Warp";
+/* Generated from genl10n: AppCenter.Charge.swift#81 */
+"Welcome Free Pack" = "欢迎免费包";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our Partnership License Program!" = "欢迎来到我们的合作许可计划！";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
+"Welcome to our VIP license program." = "欢迎来到我们的VIP许可计划。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our guest user license program!" = "欢迎来到我们的访客用户许可计划！";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our promotion license program!" = "欢迎来到我们的促销许可计划！";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
+"Welcome to our special guest license program!" = "欢迎来到我们的特邀嘉宾计划！";
+/* Generated from genl10n: Shop.Payables.Store.swift */
+"Would you like to go back to %@?" = "你想回到%@吗？";
+/* Generated from genl10n: AppCenter.Charge.swift#18 */
+"Write A Review" = "写评论";
+/* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
+"Write" = "写";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Yearly License" = "年度许可证";
+/* Generated from genl10n: Converter.AppDockContent.swift#46 */
+"You can select only photos or videos that matched with starting format." = "您只能选择与起始格式匹配的照片或视频。";
+/* Generated from genl10n: Shop.Payment.MailContact.swift */
+"Your Message Has Been Sent." = "您的留言已发送。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code is invalid. Please try again." = "您的代码无效。请再试一次。";
+/* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
+"Your code was expired." = "您的代码已过期。";
+/* Generated from genl10n: Period.swift */
+"day" = "天";
+/* Generated from genl10n: Period.swift */
+"hour" = "小时";
+/* Generated from genl10n: Period.swift */
+"minute" = "分钟";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"month" = "月";
+/* Generated from genl10n: Period.swift */
+"second" = "第二";
+/* Generated from genl10n: Period.swift */
+"week" = "周";
+/* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
+"year" = "年";
