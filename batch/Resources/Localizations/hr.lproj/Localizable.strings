@@ -240,8 +240,6 @@
 "Clipboard" = "Međuspremnik";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Boja i podsjetnik za svaku fazu";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Kontaktirajte nas sada";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Pretvorite posljednju fotografiju uživo u GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Upućivanje poziva";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Maksimalno trajno vlasništvo";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Poruka nam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Početak kopiranja fotografija ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ostati s nama";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Priče o nama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će savršeno ostati ista.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Koristite probnu verziju";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Koristiti";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Korisnička zajednica";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

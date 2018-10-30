@@ -240,8 +240,6 @@
 "Clipboard" = "क्लिपबोर्ड";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "प्रत्येक चरण के लिए रंग और अनुस्मारक";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "हमसे अभी संपर्क करें";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "जीआईएफ में अंतिम लाइव फोटो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "एक फोन करना";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "अधिकतम स्थायी स्वामित्व";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "हमें संदेश";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "फोटो कॉपी करने के लिए शुरू कर रहा है ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "हमारे साथ रहना";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "हमारी कहानियां";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "किसी भी आइटम को स्विच करें जिसे आप छिपाना चाहते हैं। गुणवत्ता पूरी तरह से वही रहेगी।";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "परीक्षण का प्रयोग करें";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "उपयोग";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

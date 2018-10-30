@@ -186,8 +186,6 @@
 "Clipboard" = "剪貼板";
 /* Generated from genl10n: Shop.SApp.swift#537 */
 "Color And Reminder for Each Phases" = "每個階段的顏色和提醒";
-/* Generated from genl10n: Shop.SApp.swift#602 */
-"Contact Us Now" = "現在就聯繫我們";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "將最後一張Live Photo轉換為GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -332,6 +330,8 @@
 "Making A Call" = "打個電話";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "最大永久所有權";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "給我們留言";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -550,6 +550,8 @@
 "Starting to copy photos..." = "開始復制照片......";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "和我們在一起";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "我們的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -606,6 +608,8 @@
 "Use Trial" = "使用試用版";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "用戶社區";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

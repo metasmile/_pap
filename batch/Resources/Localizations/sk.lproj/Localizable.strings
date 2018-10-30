@@ -240,8 +240,6 @@
 "Clipboard" = "Schránka";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Farba a pripomenutie pre každú fázu";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Teraz nás kontaktujte";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Previesť poslednú fotografiu naživo do formátu GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Uskutočnenie hovoru";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Maximálne trvalé vlastníctvo";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Správa nám";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Začíname kopírovať fotografie ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Zostať s nami";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Príbehy nášho";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita bude dokonale zostať rovnaká.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Použite skúšku";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "použitie";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Komunita používateľa";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

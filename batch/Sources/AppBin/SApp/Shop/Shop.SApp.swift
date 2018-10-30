@@ -631,17 +631,17 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadContactCellDescribers(){
         contactCellDescribers.removeAll()
 
-//        let c0 = UITableViewButtonCellDescriber()
-//        c0.label = "Give A Rating".localized
-//        c0.buttonTitle = "Rate It".localized
-////        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-//        c0.iconImageTintColor = self.view.tintColor
-//        c0.valueHandler = { _ in
-//            DispatchQueue.global().async{
-//                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
-//            }
-//        }
-//        contactCellDescribers.append(c0)
+        let c0 = UITableViewButtonCellDescriber()
+        c0.label = "Give A Rating".localized
+        c0.buttonTitle = "Rate It".localized
+        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c0.iconImageTintColor = self.view.tintColor
+        c0.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+            }
+        }
+        contactCellDescribers.append(c0)
 
         let c1 = UITableViewButtonCellDescriber()
         c1.label = "Write A Review".localized
@@ -668,7 +668,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         contactCellDescribers.append(c123)
 
         let c2 = UITableViewButtonCellDescriber()
-        c2.label = "Contact Us Now".localized
+        c2.label = "Message To Us".localized
         c2.buttonTitle = "Send".localized
         c2.iconImage = R.image.cellIconContactUs()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c2.valueHandler = { _ in
@@ -690,25 +690,25 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
 
         //open later.
-//        let c3 = UITableViewButtonCellDescriber()
-//        c3.label = "User Community".localized
-//        c3.buttonTitle = "Visit".localized
-////        c3.iconImage = R.image.cellIconUserGroup.name
-//        c3.iconImageTintColor = self.view.tintColor
-//        c3.valueHandler = { _ in
-//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
-//        }
-//        contactCellDescribers.append(c3)
+        let c3 = UITableViewButtonCellDescriber()
+        c3.label = "User Community".localized
+        c3.buttonTitle = "Visit".localized
+        c3.iconImage = R.image.cellIconUserGroup.name
+        c3.iconImageTintColor = self.view.tintColor
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+        }
+        contactCellDescribers.append(c3)
 
-//        let c322 = UITableViewButtonCellDescriber()
-//        c322.label = "Stories Behind the Batch Tools".localized
-//        c322.buttonTitle = "Visit".localized
-//        c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-//        c322.iconImageTintColor = self.view.tintColor
-//        c322.valueHandler = { _ in
-//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
-//        }
-//        contactCellDescribers.append(c322)
+        let c322 = UITableViewButtonCellDescriber()
+        c322.label = "Stories of Ours".localized
+        c322.buttonTitle = "Visit".localized
+        c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c322.iconImageTintColor = self.view.tintColor
+        c322.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
+        }
+        contactCellDescribers.append(c322)
 
     }
 

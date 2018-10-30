@@ -240,8 +240,6 @@
 "Clipboard" = "Portapapers";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Color i recordatori per a cada fase";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Contacta'ns ara";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Converteix l'última foto en viu en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Fer una trucada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Propietat permanent màxima";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Missatge per a nosaltres";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "S'està començant a copiar fotos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Mantenir-se amb nosaltres";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Contes dels nostres";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Enceneu els elements que voleu amagar. La qualitat serà perfectament la mateixa.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Utilitza la prova";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Ús";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Comunitat d'usuaris";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línia directa VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -240,8 +240,6 @@
 "Clipboard" = "leikepöydälle";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Väri ja muistutus jokaiselle vaiheelle";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Ota yhteyttä nyt";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Muunna viimeinen Live Photo GIF -muotoon.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Suurin pysyvä omistaja";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Viesti meille";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Valokuvien kopiointi alkaa ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pysy kanssamme";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Omat tarinat";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Käytä kokeilua";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Käyttää";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Käyttäjäyhteisö";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

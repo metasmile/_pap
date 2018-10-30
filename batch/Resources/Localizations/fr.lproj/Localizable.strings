@@ -240,8 +240,6 @@
 "Clipboard" = "Presse-papiers";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Couleur et rappel pour chaque phase";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Contactez-nous maintenant";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Convertir la dernière photo en direct au format GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Faire un appel";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Propriété permanente maximale";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Message à nous";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modifier";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Commencer à copier des photos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Rester avec nous";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Histoires d'Our";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Allumez tous les éléments que vous souhaitez masquer. La qualité restera parfaitement la même.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Utiliser l'essai";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilisation";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Communauté d'utilisateurs";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Hotline VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

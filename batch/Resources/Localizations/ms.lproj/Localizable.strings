@@ -240,8 +240,6 @@
 "Clipboard" = "Papan klip";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Warna Dan Peringatan untuk Setiap Fasa";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Hubungi Kami Sekarang";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Tukar Foto Langsung Ke Dalam GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Membuat Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Pemilikan Tetap Maksimum";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Mesej Kepada Kami";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Bermula untuk menyalin foto ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tinggal Dengan Kami";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Cerita Kita";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tukar item yang anda ingin sembunyikan. Kualitinya tetap sama.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Gunakan Percubaan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gunakan";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Komuniti Pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

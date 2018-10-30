@@ -240,8 +240,6 @@
 "Clipboard" = "буфер обмена";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Цвет и напоминание для каждой фазы";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Свяжитесь с нами";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Преобразование последнего Live Photo в GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -386,6 +384,8 @@
 "Making A Call" = "Создание звонка";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Максимальная постоянная собственность";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Сообщение для нас";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Начиная копировать фотографии ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Пребывание с нами";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Рассказы о нашем";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Включите все элементы, которые вы хотите скрыть. Качество отлично сохранится.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Использовать пробную версию";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "использование";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Пользовательское сообщество";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Горячая линия VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

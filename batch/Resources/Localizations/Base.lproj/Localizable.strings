@@ -204,8 +204,6 @@
 "Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
-/* Generated from genl10n: Shop.SApp.swift */
-"Contact Us Now" = "Contact Us Now";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Convert the last Live Photo Into GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -288,7 +286,7 @@
 "Get All Text" = "Get All Text";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Get Text";
-/* Generated from genl10n: AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
@@ -350,6 +348,8 @@
 "Making A Call" = "Making A Call";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum Permanent Ownership" = "Maximum Permanent Ownership";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Message To Us";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -404,7 +404,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open" = "Open";
 /* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift, Artist.BApp.swift */
 "Original" = "Original";
@@ -466,7 +466,7 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
-/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rate It";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
@@ -568,6 +568,8 @@
 "Starting to copy photos..." = "Starting to copy photos...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Staying With Us";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Stories of Ours";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -625,6 +627,8 @@
 /* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Use";
 /* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "User Community";
+/* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP License Program" = "VIP License Program";
@@ -644,7 +648,7 @@
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Visit Social Pages" = "Visit Social Pages";
-/* Generated from genl10n: Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
