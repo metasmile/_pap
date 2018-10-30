@@ -314,14 +314,17 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 public struct VisionTextCurrencyParser: VisionTextParser{
     typealias OutputType = [String]
     
-    private static let currencySymbolRegexPatternType1 = "\\p{Currency_Symbol}"
-    private static let currencySymbolRegexPatternType2 = "[A-Z]{3}"
+    private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
+    private static let currencyCodeRegexPattern = "[A-Z]{3}"
     
+    private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
+    private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
+    private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
     private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
     
-    private static let priceRegexPatternType1 = "\(currencySymbolRegexPatternType1)\\s*\(priceRegexPattern)"
-    private static let priceRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPatternType1)"
-    private static let priceRegexPatternType3 = "\(currencySymbolRegexPatternType2)\\s*\(priceRegexPattern)"
+    private static let priceRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
+    private static let priceRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let priceRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
     
     private static let regexPattern = "(\(priceRegexPatternType1)|\(priceRegexPatternType2)|\(priceRegexPatternType3))"
     
@@ -338,10 +341,47 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     }
     
     func process(input: VisionText) -> OutputType? {
-        let line = input.text
         var currencies = [String]()
-        if let matches = type(of: self).matchesInText(text: line){
-            currencies.append(contentsOf: matches)
+        if let matches = type(of: self).matchesInText(text: input.text) {
+            for match in matches {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                formatter.usesGroupingSeparator = true
+                formatter.maximumFractionDigits = 2
+                formatter.roundingMode = .down
+                
+                if let currencySymbol = match.matchedStrings(VisionTextCurrencyParser.currencySymbolRegexPattern).first {
+                    formatter.currencySymbol = currencySymbol
+                }
+                else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first {
+                    formatter.currencyCode = currencyCode
+                }
+                
+                if match.matched(",[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = "."
+                    formatter.currencyDecimalSeparator = ","
+                }
+                else if match.matched(".[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = ","
+                    formatter.currencyDecimalSeparator = "."
+                }
+                
+                guard var priceString = match.matchedStrings(VisionTextCurrencyParser.priceRegexPattern).first else { continue }
+                
+                priceString = priceString.replaceIfMatched(withPattern: "\\s", replace: "")
+                
+                if let fractionString = priceString.matchedStrings(",[0-9]{2}$").first {
+                    priceString = priceString.replaceIfMatched(withPattern: ",[0-9]{2}$", replace: fractionString.replace(",", "."))
+                }
+                
+                let decimalFormatter = NumberFormatter()
+                decimalFormatter.numberStyle = .decimal
+                
+                guard let price = decimalFormatter.number(from: priceString), let currencyString = formatter.string(from: price) else { continue }
+                
+                currencies.append(currencyString)
+                
+            }
         }
         return !currencies.isEmpty ? currencies : nil
     }

@@ -699,10 +699,19 @@ extension Array where Element:VisionTextDetectResult {
                 
                 var action:UIAlertAction?
                 
-                let url_to_flight = URL(string: "https://google.com/search?q=" + currencyString.encodeAsURLQuery())
+                let localeFormatter = NumberFormatter()
+                localeFormatter.numberStyle = .currency
+                
+                var exchangeURL: URL?
+                if let currencyCode = localeFormatter.currencyCode {
+                    exchangeURL = URL(string: "https://google.com/search?q=" + "\(currencyString) to \(currencyCode)".encodeAsURLQuery())
+                }
+                else {
+                    exchangeURL = URL(string: "https://google.com/search?q=" + currencyString.encodeAsURLQuery())
+                }
                 
                 let _quickAction = { (t: String) -> UIAlertAction? in
-                    if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
+                    if let url = exchangeURL, UIApplication.shared.canOpenURL(url){
                         return UIAlertAction(title: t, style: .default, handler: { action in
                             UIApplication.openSafari(with:url) {
                                 asyncSignal.end()
