@@ -370,8 +370,6 @@
 "Landscape" = "Τοπίο";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Διάταξη";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Άδεια χρήσης άδειας ή Άδεια χρήσης κύριων εργαλείων";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +384,8 @@
 "Make GIF" = "Κάντε το GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Πραγματοποίηση κλήσης";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Μέγιστη μόνιμη ιδιοκτησία";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: AppCenter.Charge.swift */

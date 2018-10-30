@@ -334,8 +334,6 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Layout";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "License or Main Tools License";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -350,6 +348,8 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Maximum Permanent Ownership";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */

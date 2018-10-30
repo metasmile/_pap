@@ -370,8 +370,6 @@
 "Landscape" = "가로";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "라이센스 또는 주 도구 사용권";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +384,8 @@
 "Make GIF" = "GIF 만들기";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "전화 걸기";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "최대 영구 소유권";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "수정";
 /* Generated from genl10n: AppCenter.Charge.swift */

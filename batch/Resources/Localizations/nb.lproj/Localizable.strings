@@ -370,8 +370,6 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Oppsett";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Lisens eller hovedverktøy lisens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -386,6 +384,8 @@
 "Make GIF" = "Lag GIF";
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Ringe";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Maksimum Permanent Eierskap";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "endre";
 /* Generated from genl10n: AppCenter.Charge.swift */

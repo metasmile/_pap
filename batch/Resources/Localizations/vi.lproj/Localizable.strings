@@ -370,8 +370,6 @@
 "Landscape" = "Phong cảnh";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Bố trí";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Giấy phép hoặc Công cụ chính";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +384,8 @@
 "Make GIF" = "Tạo GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Thực hiện cuộc gọi";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Quyền sở hữu vĩnh viễn tối đa";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Sửa đổi";
 /* Generated from genl10n: AppCenter.Charge.swift */

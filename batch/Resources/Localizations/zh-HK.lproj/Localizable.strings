@@ -316,8 +316,6 @@
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#112 */
 "Layout" = "佈局";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "許可證或主要工具許可證";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
@@ -332,6 +330,8 @@
 "Make GIF" = "製作GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打個電話";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "最大永久所有權";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
 /* Generated from genl10n: AppCenter.Charge.swift */

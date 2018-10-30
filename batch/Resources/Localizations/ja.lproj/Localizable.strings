@@ -370,8 +370,6 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "ライセンスまたはメインツールライセンス";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +384,8 @@
 "Make GIF" = "GIFを作る";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "最大永続所有権";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修正";
 /* Generated from genl10n: AppCenter.Charge.swift */

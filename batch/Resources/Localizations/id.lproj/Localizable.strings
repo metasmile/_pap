@@ -370,8 +370,6 @@
 "Landscape" = "Pemandangan";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Lisensi atau Lisensi Alat Utama";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +384,8 @@
 "Make GIF" = "Buat GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Melakukan Panggilan";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Kepemilikan Tetap Maksimum";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
