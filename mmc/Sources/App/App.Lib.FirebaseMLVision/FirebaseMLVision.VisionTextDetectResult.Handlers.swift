@@ -688,6 +688,79 @@ extension Array where Element:VisionTextDetectResult {
             
             
             /*
+             Currency
+             */
+            for currencyString in Array<VisionTextCurrencyParser.OutputType.Element>(Set((resultGroup.currencies ?? []).reduce([],+).compactMap({ $0.nilEmpty }))){
+                if StringSet.contains(currencyString){
+                    continue
+                } else {
+                    StringSet.insert(currencyString)
+                }
+                
+                var action:UIAlertAction?
+                
+                let url_to_flight = URL(string: "https://google.com/search?q=" + currencyString.encodeAsURLQuery())
+                
+                let _quickAction = { (t: String) -> UIAlertAction? in
+                    if let url = url_to_flight, UIApplication.shared.canOpenURL(url){
+                        return UIAlertAction(title: t, style: .default, handler: { action in
+                            UIApplication.openSafari(with:url) {
+                                asyncSignal.end()
+                            }
+                        })
+                    }
+                    return nil
+                }
+                
+                if isQuickActionOnly{
+                    action = _quickAction(currencyString)
+                    
+                }else{
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
+                    
+                    var _actions = [defaultCancelSubAction]
+                    
+                    if let q = _quickAction("Currency Exchange".localized){
+                        _actions.append(q)
+                    }
+                    
+                    _actions.append(
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.string = currencyString
+                            asyncSignal.end()
+                        })
+                    )
+                    
+                    _actions.append(
+                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                            UIActivityViewController.share(activityItems: [currencyString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                asyncSignal.end()
+                            }
+                        })
+                    )
+                    
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+                    
+                    //root action
+                    action = UIAlertAction(title: currencyString, style: . default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.present(_alert, animated: true)
+                        }
+                    })
+                }
+                
+                action?.accessoryImage = R.image.systemIconFavoriteLine()
+                
+                if let action = action{
+                    alert.addAction(action)
+                }
+                
+            }// END OF AN ACTION
+            
+            
+            /*
              Plain Text
              */
             if let plainText = item.plainText?.trimmed {

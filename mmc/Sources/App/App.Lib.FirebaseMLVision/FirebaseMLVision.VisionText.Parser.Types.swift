@@ -25,6 +25,8 @@ public struct VisionTextResultGroup {
     var urls:[VisionTextURLParser.OutputType]?
     var flights:[VisionTextFlightNumberParser.OutputType]?
     
+    var currencies:[VisionTextCurrencyParser.OutputType]?
+    
     var barcodes:[VisionBarcode]?
 
     var isFilled:Bool{
@@ -35,6 +37,7 @@ public struct VisionTextResultGroup {
                 || self.dates?.count ?? 0 > 0
                 || self.urls?.count ?? 0 > 0
                 || self.flights?.count ?? 0 > 0
+                || self.currencies?.count ?? 0 > 0
         
                 || self.barcodes?.count ?? 0 > 0
     }
@@ -309,11 +312,59 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 //https://github.com/danthorpe/Money
 
 public struct VisionTextCurrencyParser: VisionTextParser{
-    typealias OutputType = [Any]
-
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return nil
+    typealias OutputType = [String]
+    
+    private static let currencySymbolRegexPatternType1 = "\\p{Currency_Symbol}"
+    private static let currencySymbolRegexPatternType2 = "[A-Z]{3}"
+    
+    private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    
+    private static let priceRegexPatternType1 = "\(currencySymbolRegexPatternType1)\\s*\(priceRegexPattern)"
+    private static let priceRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPatternType1)"
+    private static let priceRegexPatternType3 = "\(currencySymbolRegexPatternType2)\\s*\(priceRegexPattern)"
+    
+    private static let regexPattern = "(\(priceRegexPatternType1)|\(priceRegexPatternType2)|\(priceRegexPatternType3))"
+    
+    public static func matchesInText(text:String) -> [String]?{
+        if text.count==0{
+            return nil
+        }
+        
+        return Array(Set(
+            text.trimmed
+                .matchedStrings(regexPattern)
+                .compactMap { $0.trimmed.nilEmpty }
+        )).nilEmpty
     }
+    
+    func process(input: VisionText) -> OutputType? {
+        let line = input.text
+        var currencies = [String]()
+        if let matches = type(of: self).matchesInText(text: line){
+            currencies.append(contentsOf: matches)
+        }
+        return !currencies.isEmpty ? currencies : nil
+    }
+
+    
+    //    $  1,234.57;          USD 99.99
+    
+    
+    
+    
+//    $8,987.65;        € 900
+    
+
+    
+    
+    //    4 555,66 $.
+    
+    
+//    7 888,99 €.
+    
+    
+    //          this is $ 7.99
+    
 }
 
 // Bank Account
