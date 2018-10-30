@@ -317,16 +317,17 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
     private static let currencyCodeRegexPattern = "[A-Z]{3}"
     
-    private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
-    private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
-    private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
-    private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]+)?"
+    private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]+)?"
+    private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]+|,?[0-9]+)?"
+    private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]+|,?[0-9]+)?"
     
-    private static let priceRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
-    private static let priceRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
-    private static let priceRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let currencyRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType4 = "\(priceRegexPattern)\\s*\(currencyCodeRegexPattern)"
     
-    private static let regexPattern = "(\(priceRegexPatternType1)|\(priceRegexPatternType2)|\(priceRegexPatternType3))"
+    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4))"
     
     public static func matchesInText(text:String) -> [String]?{
         if text.count==0{
@@ -354,14 +355,21 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                     formatter.currencySymbol = currencySymbol
                 }
                 else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first {
-                    formatter.currencyCode = currencyCode
+                    
+                    let estimatedLocale = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == currencyCode }
+                    if let currencySymbol = estimatedLocale?.currencySymbol {
+                        formatter.currencySymbol = currencySymbol
+                    }
+                    else {
+                        formatter.currencyCode = currencyCode
+                    }
                 }
                 
-                if match.matched(",[0-9]{2}$") {
+                if match.matched(",[0-9]+$") {
                     formatter.currencyGroupingSeparator = "."
                     formatter.currencyDecimalSeparator = ","
                 }
-                else if match.matched(".[0-9]{2}$") {
+                else if match.matched(".[0-9]+$") {
                     formatter.currencyGroupingSeparator = ","
                     formatter.currencyDecimalSeparator = "."
                 }
@@ -370,8 +378,8 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                 
                 priceString = priceString.replaceIfMatched(withPattern: "\\s", replace: "")
                 
-                if let fractionString = priceString.matchedStrings(",[0-9]{2}$").first {
-                    priceString = priceString.replaceIfMatched(withPattern: ",[0-9]{2}$", replace: fractionString.replace(",", "."))
+                if let fractionString = priceString.matchedStrings(",[0-9]+$").first {
+                    priceString = priceString.replaceIfMatched(withPattern: ",[0-9]+$", replace: fractionString.replace(",", "."))
                 }
                 
                 let decimalFormatter = NumberFormatter()
