@@ -25,6 +25,13 @@ extension batchColorTheme {
         }
     }
 
+    var textLightColor: UIColor {
+        switch self {
+        case .dark: return UIColor(red:0.8, green:0.8, blue:0.8, alpha:1)
+        default: return .darkText
+        }
+    }
+
     var textGrayColor: UIColor {
         switch self {
         case .dark: return .lightGray
