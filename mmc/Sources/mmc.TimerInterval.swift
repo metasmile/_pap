@@ -38,7 +38,7 @@ struct mmcTimeInterval {
             return 30
         }
 #endif
-        return 60*60*1
+        return 60*60*0.25 //per 15min
     }
 
     static var ofSNSEngagementPaymentLatestPaid:TimeInterval{
