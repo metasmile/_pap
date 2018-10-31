@@ -618,6 +618,8 @@
 "VIP License" = "VIP許可證";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "視頻教程";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
 "Video" = "視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

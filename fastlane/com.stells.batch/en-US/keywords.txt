@@ -1,1 +1,1 @@
-bulk,batch,photo,editor,cleaner,gif,live,video,exif,converter,filters,pdf,maker,metadata,scanbot,pic
+bulk edit,batch,editor,cleaner,gif maker,live photo,exif,converter,filters,pdf,maker,exif,scan,pics
