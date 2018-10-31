@@ -364,6 +364,12 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                     else {
                         formatter.currencyCode = currencyCode
                     }
+//                    else {
+//                        switch currencyCode {
+//                        case "BTC", "XBT", "LTC", "ETH", "ETC": formatter.currencyCode = currencyCode
+//                        default: continue
+//                        }
+//                    }
                 }
                 
                 if match.matched(",[0-9]{2}$") {
