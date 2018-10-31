@@ -672,6 +672,8 @@
 "VIP License" = "VIP-ліцензія";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Верифікація не вдалася.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Відео-підручники";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Відео";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

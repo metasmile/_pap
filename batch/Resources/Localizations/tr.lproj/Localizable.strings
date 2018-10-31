@@ -672,6 +672,8 @@
 "VIP License" = "VIP Lisansı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Doğrulama başarısız oldu.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video Öğreticiler";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

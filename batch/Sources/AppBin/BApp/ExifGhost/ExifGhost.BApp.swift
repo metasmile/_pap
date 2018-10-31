@@ -14,7 +14,6 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
         PhotoPickerViewControllerAppearanceDelegatableApp,
         PhotoPickerCollectionViewDelegatableApp,
         AppDockApp,
-        ChargeableApp,
         PreheatableApp {
 
     public static let taskType: AppTaskable.Type = _ExifGhostAppTask.self
@@ -41,10 +40,6 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
 
     public required override init() {
         super.init()
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
