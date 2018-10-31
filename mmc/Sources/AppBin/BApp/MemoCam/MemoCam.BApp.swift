@@ -305,7 +305,11 @@ fileprivate class ResultPreviewView: DesignableView {
         
         self.dimmedPath.append(UIBezierPath(rect: self.dimmedLayer.bounds))
         
-        for item in self.resultPreviewItems {
+        let items = self.resultPreviewItems.sorted { (item1, item2) -> Bool in
+            item1.quad.boundingRect.size.area < item2.quad.boundingRect.size.area
+        }
+        
+        for item in items {
             self.drawResult(item, in: result.image.size)
         }
         

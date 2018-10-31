@@ -315,7 +315,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     typealias OutputType = [String]
     
     private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
-    private static let currencyCodeRegexPattern = "[A-Z]{3}"
+    private static let currencyCodeRegexPattern = "\\b[A-Z]{3}\\b"
     
     private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
     private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
@@ -414,6 +414,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     
     //          this is $ 7.99
     
+//    http://trigeminal.fmsinc.com/samples/setlocalesample2.asp
 }
 
 // Bank Account
