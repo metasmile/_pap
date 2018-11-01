@@ -77,6 +77,7 @@ extension VisionTextResultGroup {
         let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
         let flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
         let dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
+        let currencies = visionTexts.parse(type: VisionTextCurrencyParser.self, async) ?? []
 
         let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
         resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
@@ -87,6 +88,7 @@ extension VisionTextResultGroup {
         resultGroup.addresses = !addresses.isEmpty ? addresses : nil
         resultGroup.flights = !flights.isEmpty ? flights : nil
         resultGroup.dates = !dates.isEmpty ? dates : nil
+        resultGroup.currencies = !currencies.isEmpty ? currencies : nil
 
         return resultGroup
     }
@@ -244,6 +246,8 @@ fileprivate struct ResultPreviewItem {
             return R.image.appActionIconEmbossURL()
         } else if resultGroup.flights?.count ?? 0 > 0 {
             return R.image.appActionIconEmbossFlight()
+        } else if resultGroup.currencies?.count ?? 0 > 0 {
+            return R.image.systemIconFavoriteLine()
         }
 
         return nil
@@ -331,14 +335,9 @@ fileprivate class ResultPreviewView: DesignableView {
     
     var image: UIImage? {
         set {
-            imageView.image = newValue
+            reset()
             
-            if let _ = newValue {
-                
-            }
-            else {
-                reset()
-            }
+            imageView.image = newValue
         }
         
         get {
@@ -373,11 +372,13 @@ fileprivate class ResultPreviewView: DesignableView {
     }
     
     fileprivate func reset() {
-        resultsLayer.sublayers = nil
-        resultsUILayer.sublayers = nil
-        
-        dimmedPath.removeAllPoints()
-        dimmedLayer.path = nil
+        DispatchQueue.main.async {
+            self.resultsLayer.sublayers = nil
+            self.resultsUILayer.sublayers = nil
+            
+            self.dimmedPath.removeAllPoints()
+            self.dimmedLayer.path = nil
+        }
     }
     
     private func drawResult(_ resultPreviewItem: ResultPreviewItem, in size: CGSize) {

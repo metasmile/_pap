@@ -25,6 +25,8 @@ public struct VisionTextResultGroup {
     var urls:[VisionTextURLParser.OutputType]?
     var flights:[VisionTextFlightNumberParser.OutputType]?
     
+    var currencies:[VisionTextCurrencyParser.OutputType]?
+    
     var barcodes:[VisionBarcode]?
 
     var isFilled:Bool{
@@ -35,6 +37,7 @@ public struct VisionTextResultGroup {
                 || self.dates?.count ?? 0 > 0
                 || self.urls?.count ?? 0 > 0
                 || self.flights?.count ?? 0 > 0
+                || self.currencies?.count ?? 0 > 0
         
                 || self.barcodes?.count ?? 0 > 0
     }
@@ -309,11 +312,108 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 //https://github.com/danthorpe/Money
 
 public struct VisionTextCurrencyParser: VisionTextParser{
-    typealias OutputType = [Any]
-
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return nil
+    typealias OutputType = [String]
+    
+    private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
+    private static let currencyCodeRegexPattern = "[A-Z]{3}"
+    
+    private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
+    private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
+    private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    
+    private static let currencyRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let currencyRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType4 = "\(priceRegexPattern)\\s*\(currencyCodeRegexPattern)"
+    
+    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4))"
+    
+    public static func matchesInText(text:String) -> [String]?{
+        if text.count==0{
+            return nil
+        }
+        
+        return Array(Set(
+            text.trimmed
+                .matchedStrings(regexPattern)
+                .compactMap { $0.trimmed.nilEmpty }
+        )).nilEmpty
     }
+    
+    func process(input: VisionText) -> OutputType? {
+        var currencies = [String]()
+        if let matches = type(of: self).matchesInText(text: input.text) {
+            for match in matches {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                formatter.usesGroupingSeparator = true
+                formatter.minimumFractionDigits = 0
+                formatter.maximumFractionDigits = 2
+                formatter.roundingMode = .down
+                
+                if let currencySymbol = match.matchedStrings(VisionTextCurrencyParser.currencySymbolRegexPattern).first {
+                    formatter.currencySymbol = currencySymbol
+                }
+                else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first {
+                    
+                    let estimatedLocale = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == currencyCode }
+                    if let currencySymbol = estimatedLocale?.currencySymbol {
+                        formatter.currencySymbol = currencySymbol
+                    }
+                    else {
+                        formatter.currencyCode = currencyCode
+                    }
+                }
+                
+                if match.matched(",[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = "."
+                    formatter.currencyDecimalSeparator = ","
+                }
+                else if match.matched(".[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = ","
+                    formatter.currencyDecimalSeparator = "."
+                }
+                
+                guard var priceString = match.matchedStrings(VisionTextCurrencyParser.priceRegexPattern).first else { continue }
+                
+                priceString = priceString.replaceIfMatched(withPattern: "\\s", replace: "")
+                
+                if let fractionString = priceString.matchedStrings(",[0-9]{2}$").first {
+                    priceString = priceString.replaceIfMatched(withPattern: ",[0-9]{2}$", replace: fractionString.replace(",", "."))
+                }
+                
+                let decimalFormatter = NumberFormatter()
+                decimalFormatter.numberStyle = .decimal
+                
+                guard let price = decimalFormatter.number(from: priceString), let currencyString = formatter.string(from: price) else { continue }
+                
+                currencies.append(currencyString)
+                
+            }
+        }
+        return !currencies.isEmpty ? currencies : nil
+    }
+
+    
+    //    $  1,234.57;          USD 99.99           100 BTC
+    
+    
+    
+    
+//    $8,987.65;        € 900
+    
+
+    
+    
+    //    4 555,66 $.
+    
+    
+//    7 888,99 €.
+    
+    
+    //          this is $ 7.99
+    
 }
 
 // Bank Account

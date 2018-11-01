@@ -1,5 +1,5 @@
 PODS:
-  - Armchair (0.3.5)
+  - Armchair (0.3.6)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -158,14 +158,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Armchair:
-    :commit: 7f05ad9ef68c2130e1a2418044c0bb0e02f99697
+    :commit: 1ea2201dd3dd1cbf42579e315f9c16aab778ca97
     :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
     :commit: cb1ecc794ff8bdf1fd75bad08a33209d9eae4237
     :git: https://github.com/ameingast/cocoaimagehashing
 
 SPEC CHECKSUMS:
-  Armchair: 962c54518594a940022e0327b1570f8e61ab7bed
+  Armchair: 2dd361337cf81937e73e8b9d48f9eda9a21d316c
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CocoaImageHashing: d7d3813c5aeb6ddcf4e57219dc63c741b8a16e0a
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa

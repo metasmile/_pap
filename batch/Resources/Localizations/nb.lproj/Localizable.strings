@@ -240,8 +240,6 @@
 "Clipboard" = "utklippstavlen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Farge og påminnelse for hver fase";
-/* Generated from genl10n: Shop.SApp.swift */
-"Contact Us Now" = "Kontakt oss nå";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Konverter det siste Live-bildet til GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -370,8 +368,6 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFactory.AppDockContent.swift */
 "Layout" = "Oppsett";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Lisens eller hovedverktøy lisens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -386,6 +382,10 @@
 "Make GIF" = "Lag GIF";
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Ringe";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Maksimum Permanent Eierskap";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Melding til oss";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "endre";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "Begynner å kopiere bilder ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Historier om oss";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -661,6 +663,8 @@
 /* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Bruk";
 /* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Bruker fellesskap";
+/* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "VIP License Program" = "VIP lisensprogram";
@@ -668,6 +672,8 @@
 "VIP License" = "VIP-lisens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Bekreftelsen mislyktes.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Video Tutorials";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */

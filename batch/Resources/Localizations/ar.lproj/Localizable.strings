@@ -240,8 +240,6 @@
 "Clipboard" = "الحافظة";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "اللون وتذكير لكل مراحل";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "اتصل بنا الآن";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "قم بتحويل آخر صورة Live إلى ملف GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -370,8 +368,6 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "نسق";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "الترخيص أو الرخصة الرئيسية للأدوات";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +382,10 @@
 "Make GIF" = "اجعل GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "إجراء مكالمة";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "الحد الأقصى للملكية الدائمة";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "رسالة لنا";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "تعديل";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "البدء في نسخ الصور ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "البقاء معنا";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "قصص من بلدنا";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "قم بتشغيل أي عناصر تريد إخفاءها. ستبقى الجودة على ما هي عليه تمامًا.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "استخدام المحاكمة";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "استعمال";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "مجتمع المستخدم";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "خط ساخن لكبار الشخصيات";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -668,6 +672,8 @@
 "VIP License" = "رخصة VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "فشل التحقق.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "دروس الفيديو";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "فيديو";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

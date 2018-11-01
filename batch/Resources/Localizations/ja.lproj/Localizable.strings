@@ -240,8 +240,6 @@
 "Clipboard" = "クリップボード";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "お問い合わせ";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "最後のライブ写真をGIFに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -370,8 +368,6 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "ライセンスまたはメインツールライセンス";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +382,10 @@
 "Make GIF" = "GIFを作る";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "最大永続所有権";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "私たちへのメッセージ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修正";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "写真のコピーを開始しています...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "私たちの物語";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "試用版を使用する";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "ユーザーコミュニティ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -668,6 +672,8 @@
 "VIP License" = "VIPライセンス";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "ビデオチュートリアル";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "動画";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

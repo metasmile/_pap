@@ -1394,7 +1394,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         self.app = app
 
         appTitleLabel.text = app.info.displayName.localized
-        appTitleLabel.textColor = app.info.themeColor ?? appTitleLabel.colorTheme.textGrayColor
+        appTitleLabel.textColor = app.info.themeColor ?? appTitleLabel.colorTheme.textLightColor
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
         if status == nil{
@@ -1405,7 +1405,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 
         setIconImage()
         selectedStateView.layer.cornerRadius = selectedStateView.height/5
-        selectedStateView.backgroundColor = (app.info.themeColor ?? selectedStateView.colorTheme.tintColor).withAlphaComponent(0.3)
+        selectedStateView.backgroundColor = app.info.themeColor?.withAlphaComponent(0.3) ?? selectedStateView.colorTheme.tintColor.withAlphaComponent(0.18)
     }
 
     func setIconImage(){

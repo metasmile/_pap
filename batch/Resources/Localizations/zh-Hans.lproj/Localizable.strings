@@ -240,8 +240,6 @@
 "Clipboard" = "剪贴板";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "每个阶段的颜色和提醒";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "现在就联系我们";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "将最后一张Live Photo转换为GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -370,8 +368,6 @@
 "Landscape" = "景观";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "布局";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "许可证或主要工具许可证";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "现场照片";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +382,10 @@
 "Make GIF" = "制作GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打个电话";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "最大永久所有权";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "给我们留言";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修改";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "开始复制照片......";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "和我们在一起";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "我们的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "使用试用版";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "用户社区";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "贵宾热线";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -668,6 +672,8 @@
 "VIP License" = "VIP许可证";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "验证失败。";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "视频教程";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "视频";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

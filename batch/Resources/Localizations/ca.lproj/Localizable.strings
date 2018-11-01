@@ -240,8 +240,6 @@
 "Clipboard" = "Portapapers";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Color i recordatori per a cada fase";
-/* Generated from genl10n: Shop.SApp.swift#584 */
-"Contact Us Now" = "Contacta'ns ara";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Converteix l'última foto en viu en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -370,8 +368,6 @@
 "Landscape" = "Paisatge";
 /* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
 "Layout" = "Disseny";
-/* Generated from genl10n: Shop.SApp.swift */
-"License or Main Tools License" = "Llicència o principal llicència d'eines";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -386,6 +382,10 @@
 "Make GIF" = "Make GIF";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fer una trucada";
+/* Generated from genl10n: Shop.SApp.swift */
+"Maximum Permanent Ownership" = "Propietat permanent màxima";
+/* Generated from genl10n: Shop.SApp.swift */
+"Message To Us" = "Missatge per a nosaltres";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -604,6 +604,8 @@
 "Starting to copy photos..." = "S'està començant a copiar fotos ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Mantenir-se amb nosaltres";
+/* Generated from genl10n: Shop.SApp.swift */
+"Stories of Ours" = "Contes dels nostres";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Enceneu els elements que voleu amagar. La qualitat serà perfectament la mateixa.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -660,6 +662,8 @@
 "Use Trial" = "Utilitza la prova";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Ús";
+/* Generated from genl10n: Shop.SApp.swift */
+"User Community" = "Comunitat d'usuaris";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línia directa VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
@@ -668,6 +672,8 @@
 "VIP License" = "Llicència VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "La verificació ha fallat.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutorials en vídeo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Vídeo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

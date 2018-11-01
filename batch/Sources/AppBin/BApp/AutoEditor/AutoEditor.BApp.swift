@@ -53,8 +53,8 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
         , description: "Auto Editor lets you edit automatically if your photos are needed to correct.".localized
         , keywords: ["photo editor", "photos", "enhancement", "crop", "red-eye removal", "fix", "quality"]
         , iconBundleName: R.image.autoEditorBAppIcon.name
-            , themeColor: UIColor(red:0.12, green:0.67, blue:0.98, alpha:1)
-                        , policy: AppPolicy.default
+            , themeColor: UIColor(red:0, green:1, blue:0.964, alpha:1)
+            , policy: AppPolicy.default
         , minOSVersion: nil
     )
     
