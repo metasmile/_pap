@@ -415,15 +415,25 @@ fileprivate class ResultPreviewView: DesignableView {
         path.addLine(to: quad.topRight)
         path.addLine(to: quad.bottomRight)
         path.addLine(to: quad.bottomLeft)
-        path.apply(renderScaleTransform)
         path.close()
+        path.apply(renderScaleTransform)
         
         let perspectiveTransform = CATransform3DConcat(CATransform3D(from: frame, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
         
-        let dimmedPath = UIBezierPath(roundedRect: frame, cornerRadius: min(20, frame.minLength * 0.3))
-        dimmedPath.apply(CATransform3DGetAffineTransform(perspectiveTransform))
+        var cornerRadius = min(20, frame.minLength * 0.2)
         
-        self.dimmedPath.append(dimmedPath)
+        //FIXME: it's weird... wrong transform with barcode
+        if resultPreviewItem.visionTextBlock is VisionBarcodeText {
+            let dimmedPath = path
+            self.dimmedPath.append(dimmedPath)
+            
+            cornerRadius = min(4, frame.minLength * 0.1)
+        }
+        else {
+            let dimmedPath = UIBezierPath(roundedRect: frame, cornerRadius: cornerRadius)
+            dimmedPath.apply(CATransform3DGetAffineTransform(perspectiveTransform))
+            self.dimmedPath.append(dimmedPath)
+        }
         
         let layer = ResultItemLayer()
         layer.tintColor = tintColor
@@ -431,7 +441,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.previewTransform = renderScaleTransform
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
         layer.hitTestPath = path
-        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
+        layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: cornerRadius).cgPath
         layer.transform = perspectiveTransform
         
         let iconLayer = BadgeIconLayer()
@@ -634,7 +644,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             quad = quad.inset(by: UIEdgeInsets(top: -padding, left: -padding, bottom: -padding, right: -padding))
             
             let polygonLayer = createDebugLayer()
-            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
+            polygonLayer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.2)).cgPath
             polygonLayer.transform = CATransform3D(from: quad.boundingRect, to: quad)
             layers.append(polygonLayer)
         }
