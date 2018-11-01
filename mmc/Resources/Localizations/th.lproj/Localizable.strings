@@ -170,6 +170,8 @@
 "Could not detect anything." = "ไม่พบสิ่งใด";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "แลกเปลี่ยนเงินตรา";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้ใช้งานเฉพาะสำหรับตัวอักษรและตัวเลขและอักขระพิเศษบางตัวเท่านั้นและอาจได้รับผลกระทบจากภาษาระบบปัจจุบัน";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

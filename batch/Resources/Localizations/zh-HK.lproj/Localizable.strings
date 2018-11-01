@@ -214,6 +214,8 @@
 "Crop to Fit" = "裁剪";
 /* Generated from genl10n: Stabilizer.BApp.swift#337, GIFMaker.BApp.swift#142 */
 "Crop" = "裁剪";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "貨幣兌換";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#184 */
 "Custom" = "自定義";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */

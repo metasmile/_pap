@@ -170,6 +170,8 @@
 "Could not detect anything." = "No pude detectar nada.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Crear";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Cambio de divisas";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actualmente, nuestro modelo de reconocimiento de texto AI solo está disponible para alfanuméricos y algunos caracteres especiales, y podría verse afectado por el idioma actual del sistema.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

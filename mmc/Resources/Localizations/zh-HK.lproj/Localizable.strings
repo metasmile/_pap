@@ -116,6 +116,8 @@
 "Could not detect anything." = "無法檢測到任何東西。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "創建";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "貨幣兌換";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我們的AI文本識別模型僅適用於字母數字和一些特殊字符，並且可能受當前系統語言的影響。";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */

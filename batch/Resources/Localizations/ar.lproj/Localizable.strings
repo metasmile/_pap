@@ -268,6 +268,8 @@
 "Crop to Fit" = "المحاصيل لتناسب";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "تحويل العملات";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "العادة";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

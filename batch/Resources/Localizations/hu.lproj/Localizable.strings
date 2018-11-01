@@ -268,6 +268,8 @@
 "Crop to Fit" = "Vágás a fithez";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Valutaváltó";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Szokás";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

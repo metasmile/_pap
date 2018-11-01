@@ -170,6 +170,8 @@
 "Could not detect anything." = "Impossibile rilevare nulla.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creare";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Cambio di valuta";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Attualmente, il nostro modello di riconoscimento del testo AI è disponibile solo per caratteri alfanumerici e alcuni caratteri speciali e potrebbe essere interessato dalla lingua corrente del sistema.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */

@@ -268,6 +268,8 @@
 "Crop to Fit" = "裁剪";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "裁剪";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "货币兑换";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "自定义";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
