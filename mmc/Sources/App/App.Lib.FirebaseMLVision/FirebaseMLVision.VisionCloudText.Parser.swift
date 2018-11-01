@@ -7,35 +7,25 @@ import Foundation
 import FirebaseMLVision
 
 
-extension VisionCloudText{
+extension VisionText{
     func parseToString() -> String?{
         return VisionCloudTextParser.default.process(input: self)
     }
 }
 
 struct VisionCloudTextParser: Processor {
-    typealias InputType = VisionCloudText
+    typealias InputType = VisionText
     typealias OutputType = String
 
     static let `default` = VisionCloudTextParser()
 
-    func process(input: VisionCloudText) -> String? {
-        guard let pages = input.pages else {
-            return nil
-        }
-
+    func process(input: VisionText) -> String? {
         var testResults:String = ""
 
-        for page in pages {
-            for block in page.blocks ?? []  {
-                for paragraph in block.paragraphs ?? [] {
-                    for word in paragraph.words ?? [] {
-                        if let symbols = word.symbols{
-                            for symbol in symbols {
-                                testResults += symbol.text ?? "" + " "
-                            }
-                        }
-                    }
+        for block in input.blocks {
+            for line in block.lines {
+                for element in line.elements {
+                    testResults += element.text + " "
                 }
             }
         }

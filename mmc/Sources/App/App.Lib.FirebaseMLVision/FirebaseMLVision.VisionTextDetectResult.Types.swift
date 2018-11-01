@@ -15,7 +15,7 @@ struct VisionTextPHAssetDetectResult: VisionTextDetectResult, AppTaskResultable 
         self.asset = asset
     }
 
-    var sourceVisionTexts:[VisionText]?
+    var sourceVisionText:VisionText?
 
     var plainText:String?
 
@@ -32,7 +32,7 @@ struct VisionTextImageDetectResult: VisionTextDetectResult, AppTaskResultable {
         self.image = image
     }
 
-    var sourceVisionTexts:[VisionText]?
+    var sourceVisionText:VisionText?
 
     var plainText:String?
 

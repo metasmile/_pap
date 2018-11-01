@@ -7,86 +7,116 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - CocoaImageHashing (1.6.1)
-  - Crashlytics (3.10.7):
-    - Fabric (~> 1.7.11)
-  - Fabric (1.7.11)
-  - FBSDKCoreKit (4.35.0):
-    - Bolts (~> 1.7)
-  - FBSDKShareKit (4.35.0):
-    - FBSDKCoreKit (~> 4.35.0)
-  - Firebase/AdMob (5.2.0):
+  - Crashlytics (3.11.1):
+    - Fabric (~> 1.8.1)
+  - Fabric (1.8.1)
+  - FBSDKCoreKit (4.38.1):
+    - Bolts (~> 1.9)
+  - FBSDKShareKit (4.38.1):
+    - FBSDKCoreKit
+  - Firebase/AdMob (5.11.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.31.0)
-  - Firebase/Core (5.2.0):
+    - Google-Mobile-Ads-SDK (~> 7.35)
+  - Firebase/Core (5.11.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.1)
-  - Firebase/CoreOnly (5.2.0):
-    - FirebaseCore (= 5.0.3)
-  - Firebase/MLVision (5.2.0):
+    - FirebaseAnalytics (= 5.3.0)
+  - Firebase/CoreOnly (5.11.0):
+    - FirebaseCore (= 5.1.6)
+  - Firebase/MLVision (5.11.0):
     - Firebase/CoreOnly
-    - FirebaseMLVision (= 0.9.0)
-  - Firebase/MLVisionBarcodeModel (5.2.0):
+    - FirebaseMLVision (= 0.12.1)
+  - Firebase/MLVisionBarcodeModel (5.11.0):
     - Firebase/CoreOnly
-    - FirebaseMLVisionBarcodeModel (= 0.9.0)
-  - Firebase/MLVisionTextModel (5.2.0):
+    - FirebaseMLVisionBarcodeModel (= 0.12.0)
+  - Firebase/MLVisionTextModel (5.11.0):
     - Firebase/CoreOnly
-    - FirebaseMLVisionTextModel (= 0.9.0)
-  - FirebaseAnalytics (5.0.1):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - FirebaseMLVisionTextModel (= 0.12.0)
+  - FirebaseAnalytics (5.3.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.3)
+    - GoogleAppMeasurement (~> 5.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - FirebaseCore (5.0.3):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseInstanceID (3.1.1):
-    - FirebaseCore (~> 5.0)
-  - FirebaseMLCommon (0.10.0):
-    - FirebaseCore (~> 5.0)
-  - FirebaseMLVision (0.9.0):
-    - FirebaseCore (~> 5.0)
-    - FirebaseMLCommon (~> 0.9)
+  - FirebaseCore (5.1.6):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.3.0):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMLCommon (0.12.1):
+    - FirebaseCore (~> 5.1)
+  - FirebaseMLVision (0.12.1):
+    - FirebaseCore (~> 5.1)
+    - FirebaseMLCommon (~> 0.12)
     - GoogleAPIClientForREST/Core (~> 1.3)
     - GoogleAPIClientForREST/Vision (~> 1.3)
-    - GoogleMobileVision/Detector (~> 1.3.0)
-  - FirebaseMLVisionBarcodeModel (0.9.0):
-    - GoogleMobileVision/BarcodeDetector (~> 1.3.0)
-  - FirebaseMLVisionTextModel (0.9.0):
-    - GoogleMobileVision/TextDetector (~> 1.3.0)
-  - Google-Mobile-Ads-SDK (7.31.0)
+    - GoogleMobileVision/Detector (~> 1.4)
+  - FirebaseMLVisionBarcodeModel (0.12.0):
+    - GoogleMobileVision/BarcodeDetector (~> 1.4)
+  - FirebaseMLVisionTextModel (0.12.0):
+    - GoogleMobileVision/TextDetector (~> 1.4)
+  - Google-Mobile-Ads-SDK (7.35.1)
   - GoogleAPIClientForREST/Core (1.3.6):
     - GTMSessionFetcher (>= 1.1.7)
   - GoogleAPIClientForREST/Vision (1.3.6):
     - GoogleAPIClientForREST/Core
     - GTMSessionFetcher (>= 1.1.7)
-  - GoogleMobileVision/BarcodeDetector (1.3.3):
-    - GoogleMobileVision/Detector (~> 1.3)
-  - GoogleMobileVision/Detector (1.3.3):
+  - GoogleAppMeasurement (5.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleMobileVision/BarcodeDetector (1.4.1):
+    - GoogleMobileVision/Detector (~> 1.4)
+  - GoogleMobileVision/Detector (1.4.1):
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.1)
-  - GoogleMobileVision/TextDetector (1.3.3):
-    - GoogleMobileVision/Detector (~> 1.3)
+  - GoogleMobileVision/TextDetector (1.4.1):
+    - GoogleMobileVision/Detector (~> 1.4)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/Logger (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GoogleUtilities/AppDelegateSwizzler (5.3.4):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.3.4)
+  - GoogleUtilities/Logger (5.3.4):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.3.4):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.3.4):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.3.4)"
+  - GoogleUtilities/Reachability (5.3.4):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.4):
+    - GoogleUtilities/Logger
   - GTMSessionFetcher (1.2.0):
     - GTMSessionFetcher/Full (= 1.2.0)
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - PhoneNumberKit (2.1.0):
-    - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
-    - PhoneNumberKit/UIKit (= 2.1.0)
-  - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
-  - PhoneNumberKit/UIKit (2.1.0):
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - PhoneNumberKit (2.5.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
+    - PhoneNumberKit/UIKit (= 2.5.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.5.0)
+  - PhoneNumberKit/UIKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - PropertyKit (1.0)
   - Protobuf (3.6.1)
@@ -94,9 +124,9 @@ PODS:
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
   - SwiftLint (0.27.0)
-  - SwiftyGif (4.1.0)
+  - SwiftyGif (4.2.0)
   - SwiftyStoreKit (0.13.3)
-  - TPPDF (1.2.0):
+  - TPPDF (1.3.0):
     - SwiftLint
 
 DEPENDENCIES:
@@ -108,7 +138,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKShareKit
   - Firebase/AdMob
-  - Firebase/Core (= 5.2.0)
+  - Firebase/Core
   - Firebase/MLVision
   - Firebase/MLVisionBarcodeModel
   - Firebase/MLVisionTextModel
@@ -136,8 +166,10 @@ SPEC REPOS:
     - FirebaseMLVisionTextModel
     - Google-Mobile-Ads-SDK
     - GoogleAPIClientForREST
+    - GoogleAppMeasurement
     - GoogleMobileVision
     - GoogleToolboxForMac
+    - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
     - PhoneNumberKit
@@ -161,41 +193,43 @@ CHECKOUT OPTIONS:
     :commit: 1ea2201dd3dd1cbf42579e315f9c16aab778ca97
     :git: https://github.com/UrbanApps/Armchair
   CocoaImageHashing:
-    :commit: cb1ecc794ff8bdf1fd75bad08a33209d9eae4237
+    :commit: 2d9d8e998b9b89ec9e32be2955d4ddfced94dbcd
     :git: https://github.com/ameingast/cocoaimagehashing
 
 SPEC CHECKSUMS:
   Armchair: 2dd361337cf81937e73e8b9d48f9eda9a21d316c
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CocoaImageHashing: d7d3813c5aeb6ddcf4e57219dc63c741b8a16e0a
-  Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
-  Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
-  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
-  FBSDKShareKit: 2ddbd7e6432023fff957af62e23a3671b84319f7
-  Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
-  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
-  FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
-  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
-  FirebaseMLCommon: 88ffed2dbb54ecb7dbcf8080a7654b6ea938e15b
-  FirebaseMLVision: f9756d8376dd150fb17629eaa7bdc6baa8965677
-  FirebaseMLVisionBarcodeModel: dc1c6add14a3d69061eb6edacf90bb619f7aee52
-  FirebaseMLVisionTextModel: 8a9cb61296d4d15d60eb0c7c66a2a88790b34376
-  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
+  Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
+  Fabric: 43ed7bac010f588f63ee23ab1a0276b296db5e17
+  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
+  FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
+  Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
+  FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
+  FirebaseCore: d16552f06821489ce1affe2e5e3e5593402ddfe3
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  FirebaseMLCommon: 5fb0152dc0e4de69f86ec37e813fb2555566ebbd
+  FirebaseMLVision: 7e9a7f2f81117be2796196f3901c36ad893366b1
+  FirebaseMLVisionBarcodeModel: 1956b7b0ae267b67571260e00cc0429a6a5e3091
+  FirebaseMLVisionTextModel: 97af06fa88b45cabbe39f04d2c825b9d7001cd66
+  Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   GoogleAPIClientForREST: 5b95b38a0fa912e8ac7bdcf9e124578ef1a61bf2
-  GoogleMobileVision: 7e0eeac8d897ac1f9a4f9d55d3d2df81325f92ec
+  GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
+  GoogleMobileVision: bedef12c0924e948fc09b8f1b38c5fe1a3594b6f
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   PropertyKit: e193df8d2df4e53db40399fd13638dcc8c4ad639
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  SwiftyGif: d36c6dfb52e2ca1e48fe349d225f50ec4123ec85
+  SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
-  TPPDF: 11ed6f19782bc0aa66b86085fa952b68a00d931e
+  TPPDF: 10c1e16147764c5cc35c25c2ca14869bc069b728
 
-PODFILE CHECKSUM: eef544473281a9ce86f031f8d4ac4a13f98b74a7
+PODFILE CHECKSUM: 78d600557061a75ad6d80618a293b397cc86cce2
 
 COCOAPODS: 1.5.3

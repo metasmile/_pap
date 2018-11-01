@@ -6,14 +6,14 @@
 import Foundation
 import FirebaseMLVision
 
-extension VisionTextDetector{
+extension VisionTextRecognizer {
 
-    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionText]? {
+    func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> VisionText? {
         let visionImage = VisionImage(image: image)
-        var result:[VisionText]?
+        var result:VisionText?
 
         async.begin()
-        self.detect(in: visionImage) { features, error in
+        self.process(visionImage) { features, error in
             if let error = error {
                 print("Received error: \(error)")
             }
@@ -21,6 +21,7 @@ extension VisionTextDetector{
             async.end()
         }
         async.waitUntilEnd()
+        
         return result
     }
 }

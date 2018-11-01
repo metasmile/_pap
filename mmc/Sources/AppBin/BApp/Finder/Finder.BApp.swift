@@ -347,7 +347,7 @@ private struct FinderAppDetector{
 
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
-        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
+        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
             return nil
         }
 
@@ -357,11 +357,11 @@ private struct FinderAppDetector{
 
         var result = VisionTextPHAssetDetectResult(asset: asset)
 
-        result.sourceVisionTexts = visionTexts
+        result.sourceVisionText = visionText
 
         // SelectionPreset.plaintext
         if preset == SelectionPreset.plaintext.rawValue{
-            result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
+            result.plainText = visionText.text
         }
 
         // SelectionPreset.contact,  SelectionPreset.action
@@ -395,7 +395,7 @@ private struct FinderAppDetector{
 
             var stackedParsedContacts = [CNMutableContact]()
 
-            for visionText in visionTexts{
+            for block in visionText.blocks {
 
                 var mergingContract:CNMutableContact?
                 if stackedParsedContacts.count == 0{
@@ -405,7 +405,7 @@ private struct FinderAppDetector{
                 }
 
                 if let mergingContract = mergingContract
-                , let parsedContract = parser.process(input: visionText, mergingOutput: mergingContract){
+                , let parsedContract = parser.process(input: block, mergingOutput: mergingContract){
                     stackedParsedContacts.append(parsedContract)
                 }
             }
@@ -420,30 +420,30 @@ private struct FinderAppDetector{
             var resultGroup = VisionTextResultGroup()
 
             if selectedParserTypes.contains(ParserItem.Key.EmailAddress){
-                resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+                resultGroup.emails = visionText.blocks.parse(type: VisionTextEmailAddressParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.PhoneNumber){
-                resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+                resultGroup.phoneNumbers = visionText.blocks.parse(type: VisionTextPhoneNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.URL){
-                if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
+                if let urls = visionText.blocks.parse(type: VisionTextURLParser.self, async){
                     //excluding mail addresses
                     resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
                 }
             }
 
             if selectedParserTypes.contains(ParserItem.Key.Address){
-                resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+                resultGroup.addresses = visionText.blocks.parse(type: VisionTextAddressParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.FlightNumber){
-                resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
+                resultGroup.flights = visionText.blocks.parse(type: VisionTextFlightNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.Date){
-                resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
+                resultGroup.dates = visionText.blocks.parse(type: VisionTextDateParser.self, async)
             }
 
             result.resultGroup = resultGroup

@@ -8,7 +8,7 @@ import FirebaseMLVision
 
 
 protocol VisionTextDetectResult {
-    var sourceVisionTexts:[VisionText]? {set get}
+    var sourceVisionText:VisionText? {set get}
 
     var plainText:String? {set get}
 

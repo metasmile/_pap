@@ -44,7 +44,7 @@ public struct VisionTextResultGroup {
 }
 
 private struct VisionTextNSTextCheckingResult {
-    static func detect(_ visionText: FirebaseMLVision.VisionText, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
+    static func detect(_ visionText: FirebaseMLVision.VisionTextBlock, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.process(input: visionText) else{
             return nil
@@ -67,7 +67,7 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
     // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN, (XXX) NNNN-NNNN
     private let prefixSpacePattern = "^([0-9]{2,4})|(\\([0-9]{2,4}\\))$"
 
-    func process(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = blockParser.process(input: input) else{
             return nil
         }
@@ -116,7 +116,7 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
 
     private let stringParser = VisionTextStringParser()
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         guard let rawText = stringParser.process(input: input) else{
             return nil
         }
@@ -131,7 +131,7 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
 public struct VisionTextDateParser: VisionTextParser{
     typealias OutputType = [Date]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.date)?.compactMap { result -> Date? in
             return result.date
         }.nilEmpty
@@ -141,7 +141,7 @@ public struct VisionTextDateParser: VisionTextParser{
 public struct VisionTextURLParser: VisionTextParser{
     typealias OutputType = [URL]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.link)?.compactMap { result -> URL? in
             return result.url
         }.nilEmpty
@@ -151,7 +151,7 @@ public struct VisionTextURLParser: VisionTextParser{
 public struct VisionTextAddressParser: VisionTextParser{
     typealias OutputType = [NSTextCheckingAddressComponent]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.address)?.compactMap { result -> NSTextCheckingAddressComponent? in
             return result.address
         }.nilEmpty
@@ -186,7 +186,7 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
         )).nilEmpty
     }
 
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         guard let lines = blockParser.process(input: input) else {
             return nil
         }
@@ -212,7 +212,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 
     public var parseLinkAsEmailAddress = true
 
-    func process(input: FirebaseMLVision.VisionText, mergingOutput: CNMutableContact) -> CNMutableContact? {
+    func process(input: FirebaseMLVision.VisionTextBlock, mergingOutput: CNMutableContact) -> CNMutableContact? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.process(input: input) else{
             return nil
@@ -300,7 +300,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         return nil
     }
 
-    func process(input: FirebaseMLVision.VisionText) -> CNMutableContact? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> CNMutableContact? {
         let contact = CNMutableContact()
         contact.contactType = .person
 
@@ -341,7 +341,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
         )).nilEmpty
     }
     
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         var currencies = [String]()
         if let matches = type(of: self).matchesInText(text: input.text) {
             for match in matches {

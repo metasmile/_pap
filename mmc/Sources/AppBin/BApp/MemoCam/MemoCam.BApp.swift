@@ -68,18 +68,18 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
 }
 
 extension VisionTextResultGroup {
-    static func createResultGroup(with visionTexts: [VisionText], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
+    static func createResultGroup(with visionTextBlocks: [VisionTextBlock], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
         var resultGroup = VisionTextResultGroup()
 
-        let emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async) ?? []
-        let phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
-        let urls = visionTexts.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
-        let addresses = visionTexts.parse(type: VisionTextAddressParser.self, async) ?? []
-        let flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async) ?? []
-        let dates = visionTexts.parse(type: VisionTextDateParser.self, async) ?? []
-        let currencies = visionTexts.parse(type: VisionTextCurrencyParser.self, async) ?? []
+        let emails = visionTextBlocks.parse(type: VisionTextEmailAddressParser.self, async) ?? []
+        let phoneNumbers = visionTextBlocks.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
+        let urls = visionTextBlocks.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
+        let addresses = visionTextBlocks.parse(type: VisionTextAddressParser.self, async) ?? []
+        let flights = visionTextBlocks.parse(type: VisionTextFlightNumberParser.self, async) ?? []
+        let dates = visionTextBlocks.parse(type: VisionTextDateParser.self, async) ?? []
+        let currencies = visionTextBlocks.parse(type: VisionTextCurrencyParser.self, async) ?? []
 
-        let barcodes = visionTexts.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
+        let barcodes = visionTextBlocks.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
         resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
 
         resultGroup.emails = !emails.isEmpty ? emails : nil
@@ -98,27 +98,28 @@ import FirebaseMLVision
 
 private struct MemoCamAppDetector {
     private let vision = Vision.vision()
-    private var textDetector: VisionTextDetector
+    private var textDetector: VisionTextRecognizer
     private var barcodeDetector: VisionBarcodeDetector
 
     init() {
-        textDetector = vision.textDetector()
+        textDetector = vision.onDeviceTextRecognizer()
         barcodeDetector = vision.barcodeDetector()
     }
 
     fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
-        guard var visionTexts = self.textDetector.detect(with: image, async) else {
+        guard let visionText = self.textDetector.detect(with: image, async) else {
             return nil
         }
 
         var result = VisionTextImageDetectResult(image: image)
 
+        var blocks = visionText.blocks
         if let barcodes = self.barcodeDetector.detect(with: image, async) {
-            visionTexts.append(contentsOf: barcodes)
+            blocks.append(contentsOf: barcodes)
         }
 
-        result.sourceVisionTexts = visionTexts
-        result.resultGroup = VisionTextResultGroup.createResultGroup(with: visionTexts, async)
+        result.sourceVisionText = CustomVisionText(visionTextBlocks: blocks)
+        result.resultGroup = VisionTextResultGroup.createResultGroup(with: blocks, async)
 
         return result
     }
@@ -214,17 +215,32 @@ fileprivate protocol ResultPreviewViewDelegate {
     func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem?)
 }
 
+fileprivate class CustomVisionText: VisionText {
+    private var visionTextBlocks = [VisionTextBlock]()
+    required init(visionTextBlocks: [VisionTextBlock]) {
+        self.visionTextBlocks.append(contentsOf: visionTextBlocks)
+    }
+    
+    override var text: String {
+        return visionTextBlocks.filter({ !($0 is VisionBarcodeText) }).parse(type: VisionTextStringParser.self, AsyncSignal())?.joined() ?? ""
+    }
+    
+    override var blocks: [VisionTextBlock] {
+        return visionTextBlocks
+    }
+}
+
 fileprivate struct ResultPreviewItem {
-    var visionText: VisionText
+    var visionTextBlock: VisionTextBlock
     var resultGroup: VisionTextResultGroup
 
-    init(visionText: VisionText, resultGroup: VisionTextResultGroup) {
-        self.visionText = visionText
+    init(visionTextBlock: VisionTextBlock, resultGroup: VisionTextResultGroup) {
+        self.visionTextBlock = visionTextBlock
         self.resultGroup = resultGroup
     }
 
     var quad: CGQuad {
-        return CGQuad(visionText.cornerPoints.map { $0.cgPointValue })
+        return CGQuad(visionTextBlock.cornerPoints?.map { $0.cgPointValue } ?? [])
     }
 
     func preferredParserIcon() -> UIImage? {
@@ -362,11 +378,11 @@ fileprivate class ResultPreviewView: DesignableView {
         DispatchQueue.global(qos: .userInteractive).async {
             self.resultPreviewItems.removeAll()
 
-            for visionText in result.sourceVisionTexts ?? [] {
-                let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionText], async)
-
+            for visionTextBlock in result.sourceVisionText?.blocks ?? [] {
+                let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionTextBlock], async)
+                
                 guard self.resultsInPlainText || resultGroup.isFilled else { continue }
-                self.resultPreviewItems.append(ResultPreviewItem(visionText: visionText, resultGroup: resultGroup))
+                self.resultPreviewItems.append(ResultPreviewItem(visionTextBlock: visionTextBlock, resultGroup: resultGroup))
             }
             
             DispatchQueue.main.async {
@@ -389,7 +405,10 @@ fileprivate class ResultPreviewView: DesignableView {
         let renderScaleTransform = CGAffineTransform(scaleX: resultsLayer.frame.width / size.width, y: resultsLayer.frame.height / size.height)
         
         let padding: CGFloat = 12
-        let quad = resultPreviewItem.quad.inset(by: UIEdgeInsets(top: -padding / 2, left: -padding / 2, bottom: -padding / 2, right: -padding / 2))
+        let insets = UIEdgeInsets(top: -padding / 2, left: -padding / 2, bottom: -padding / 2, right: -padding / 2)
+        let quad = resultPreviewItem.quad.inset(by: insets)
+        
+        let frame = resultPreviewItem.visionTextBlock.frame.inset(by: insets)
         
         let path = UIBezierPath()
         path.move(to: quad.topLeft)
@@ -399,8 +418,10 @@ fileprivate class ResultPreviewView: DesignableView {
         path.apply(renderScaleTransform)
         path.close()
         
-        let dimmedPath = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3))
-        dimmedPath.apply(CATransform3DGetAffineTransform(CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))))
+        let perspectiveTransform = CATransform3DConcat(CATransform3D(from: frame, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
+        
+        let dimmedPath = UIBezierPath(roundedRect: frame, cornerRadius: min(20, frame.minLength * 0.3))
+        dimmedPath.apply(CATransform3DGetAffineTransform(perspectiveTransform))
         
         self.dimmedPath.append(dimmedPath)
         
@@ -411,7 +432,7 @@ fileprivate class ResultPreviewView: DesignableView {
         layer.lineWidth = 1 / max(renderScaleTransform.scaleX, renderScaleTransform.scaleY)
         layer.hitTestPath = path
         layer.path = UIBezierPath(roundedRect: quad.boundingRect, cornerRadius: min(20, quad.boundingRect.minLength * 0.3)).cgPath
-        layer.transform = CATransform3DConcat(CATransform3D(from: quad.boundingRect, to: quad), CATransform3DMakeAffineTransform(renderScaleTransform))
+        layer.transform = perspectiveTransform
         
         let iconLayer = BadgeIconLayer()
         iconLayer.tintColor = tintColor
@@ -964,7 +985,7 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     @objc fileprivate func actionButtonDidTap() {
         if var results = self.resultPreviewView.detectResult {
             if resultPreviewView.resultsInPlainText {
-                results.plainText = results.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
+                results.plainText = results.sourceVisionText?.text
             }
             self.showActions(with: [results])
         }
@@ -975,9 +996,9 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
 
         if let resultPreviewItem = resultPreviewItem {
             var result = VisionTextImageDetectResult(image: image)
-            result.sourceVisionTexts = [resultPreviewItem.visionText]
+            result.sourceVisionText = CustomVisionText(visionTextBlocks: [resultPreviewItem.visionTextBlock])
             if view.resultsInPlainText {
-                result.plainText = result.sourceVisionTexts?.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined()
+                result.plainText = resultPreviewItem.visionTextBlock.text
             }
             result.resultGroup = resultPreviewItem.resultGroup
 
