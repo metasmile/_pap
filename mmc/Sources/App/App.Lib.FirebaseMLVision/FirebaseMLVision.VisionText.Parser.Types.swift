@@ -315,7 +315,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     typealias OutputType = [String]
     
     private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
-    private static let currencyCodeRegexPattern = "\\b[A-Z]{3}\\b"
+    private static let currencyCodeRegexPattern = "\\b[A-Z]+\\b"
     
     private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
     private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
@@ -362,14 +362,13 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                         formatter.currencySymbol = currencySymbol
                     }
                     else {
-                        formatter.currencyCode = currencyCode
+                        //INFO: https://coinmarketcap.com/all/views/all/
+                        // sort by market cap
+                        switch currencyCode {
+                        case "BTC", "ETH", "XRP", "BCH", "EOS", "XLM", "LTC", "ADA", "USDT", "XMR", "TRX", "MIOTA", "DASH", "BNB", "NEO", "ETC", "XEM", "XTZ", "ZEC": formatter.currencyCode = currencyCode
+                        default: continue
+                        }
                     }
-//                    else {
-//                        switch currencyCode {
-//                        case "BTC", "XBT", "LTC", "ETH", "ETC": formatter.currencyCode = currencyCode
-//                        default: continue
-//                        }
-//                    }
                 }
                 
                 if match.matched(",[0-9]{2}$") {
@@ -405,7 +404,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     //    $  1,234.57;          USD 99.99           100 BTC
     
     
-    
+    //                          ABC 7000
     
 //    $8,987.65;        € 900
     
