@@ -321,13 +321,19 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
     private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
     private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    private static let numberRegexPattern = "[1-9]{1}[0-9]*"
     
     private static let currencyRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
     private static let currencyRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
     private static let currencyRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
     private static let currencyRegexPatternType4 = "\(priceRegexPattern)\\s*\(currencyCodeRegexPattern)"
     
-    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4))"
+    private static let currencyRegexPatternType5 = "\(currencySymbolRegexPattern)\\s*\(numberRegexPattern)"
+    private static let currencyRegexPatternType6 = "\(numberRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let currencyRegexPatternType7 = "\(currencyCodeRegexPattern)\\s*\(numberRegexPattern)"
+    private static let currencyRegexPatternType8 = "\(numberRegexPattern)\\s*\(currencyCodeRegexPattern)"
+    
+    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4)|\(currencyRegexPatternType5)|\(currencyRegexPatternType6)|\(currencyRegexPatternType7)|\(currencyRegexPatternType8))"
     
     public static func matchesInText(text:String) -> [String]?{
         if text.count==0{
@@ -365,8 +371,12 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                         //INFO: https://coinmarketcap.com/all/views/all/
                         // sort by market cap
                         switch currencyCode {
-                        case "BTC", "ETH", "XRP", "BCH", "EOS", "XLM", "LTC", "ADA", "USDT", "XMR", "TRX", "MIOTA", "DASH", "BNB", "NEO", "ETC", "XEM", "XTZ", "ZEC": formatter.currencyCode = currencyCode
-                        default: continue
+                            case "S", "s": formatter.currencySymbol = "$"
+                            case "E": formatter.currencySymbol = "€"
+                            case "W", "w": formatter.currencySymbol = "￦"
+                            case "Y": formatter.currencySymbol = "¥"
+                            case "BTC", "ETH", "XRP", "BCH", "EOS", "XLM", "LTC", "ADA", "USDT", "XMR", "TRX", "MIOTA", "DASH", "BNB", "NEO", "ETC", "XEM", "XTZ", "ZEC": formatter.currencyCode = currencyCode
+                            default: continue
                         }
                     }
                 }
@@ -406,12 +416,12 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     
     //                          ABC 7000
     
-//    $8,987.65;        € 900
+//    $8,987.65;        € 900               30000
     
 
+    //              £ 100000
     
-    
-    //    4 555,66 $.
+    //    4 555,66 S.        Y 300               W 29,900
     
     
 //    7 888,99 €.
