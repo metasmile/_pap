@@ -672,6 +672,8 @@
 "VIP License" = "Lesen VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Pengesahan Gagal.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Tutorial Video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

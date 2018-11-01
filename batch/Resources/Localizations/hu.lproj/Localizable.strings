@@ -672,6 +672,8 @@
 "VIP License" = "VIP licenc";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Az ellenőrzés sikertelen.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Videó oktatóanyagok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "Videó";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

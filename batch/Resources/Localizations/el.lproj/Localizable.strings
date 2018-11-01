@@ -672,6 +672,8 @@
 "VIP License" = "Άδεια VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
+/* Generated from genl10n: Shop.SApp.swift */
+"Video Tutorials" = "Βίντεο Tutorials";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Video" = "βίντεο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */

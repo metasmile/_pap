@@ -1,11 +1,24 @@
 Just choose all photos you need and then tap performing button. You can do everything all you needed with all your photos.
-Batch Photos is a fast and large-scale photo processing app for all your photos that let you work with various tools.
+
+Batch Photos is a fast and large-scale photo processing app for all your photos that let you work with smart tools.
 
 
-Introducing Batch Tools:
+The List of Batch Action Tools:
 
 Converter
 Converter enables you to convert every media formats such as Videos, mp4 Video Live Photos, GIFs or Burst Photos into every each other.
+
+• Videos - Live Photos
+• Videos - GIFs
+• Videos - Compressed Videos(mp4)
+• GIFs - Live Photos
+• Burst Photos - Live Photos
+• Burst Photos - GIFs
+• Burst Photos - Videos
+• Screenshots(png) - Compressed Screenshots(jpg)
+
+More converter modules will be added continually.
+
 
 Cleaner
 Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!

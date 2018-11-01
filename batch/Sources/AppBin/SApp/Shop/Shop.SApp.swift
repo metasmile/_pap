@@ -716,7 +716,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         informationOfUsetCellDescribers.removeAll()
 
 //        let c42343 = UITableViewButtonCellDescriber()
-//        c42343.label = "Batch Tools Index"
+//        c42343.label = "Batch Tools List"
 //        c42343.buttonTitle = "Open".localized
 //        c42343.iconImage = R.image.cellIconAppsIndex()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
 //        c42343.iconImageTintColor = self.view.tintColor
@@ -725,15 +725,15 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 //        }
 //        informationOfUsetCellDescribers.append(c42343)
 
-//        let c345 = UITableViewButtonCellDescriber()
-//        c345.label = "Video Tutorials".localized
-//        c345.buttonTitle = "Open".localized
-//        c345.iconImage = R.image.cellIconYouTubeChannel()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-//        c345.iconImageTintColor = self.view.tintColor
-//        c345.valueHandler = { _ in
-//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
-//        }
-//        informationOfUsetCellDescribers.append(c345)
+        let c345 = UITableViewButtonCellDescriber()
+        c345.label = "Video Tutorials".localized
+        c345.buttonTitle = "Open".localized
+        c345.iconImage = R.image.cellIconYouTubeChannel()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c345.iconImageTintColor = self.view.tintColor
+        c345.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
+        }
+        informationOfUsetCellDescribers.append(c345)
 
         let c234 = UITableViewButtonCellDescriber()
         c234.label = "Usage Guide".localized
