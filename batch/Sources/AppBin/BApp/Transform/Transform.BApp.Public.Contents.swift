@@ -6,36 +6,14 @@
 import Foundation
 import UIKit
 
-public extension StateValueSet where T: ImageEditStateValue {
-    var transform: CGAffineTransform {
-        var t = CGAffineTransform.identity
-
-        for value in self.iterator() {
-            t = t.concatenating(value.transform)
-        }
-        return t
-    }
-
-    var transform3d: CATransform3D {
-        var t = CATransform3DIdentity
-        t.m34 = -1 / kEditItemPreviewWidth
-
-        for value in self.iterator() {
-            t = CATransform3DConcat(t, value.transform3d)
-        }
-        return t
-    }
-}
-
-
 public class RotationTransformItem: ImageEditStateValue {
     var angle: CGFloat = 0
 
-    override var transform: CGAffineTransform {
+    override public var transform: CGAffineTransform {
         return CGAffineTransform(rotationAngle: angle)
     }
 
-    override var transform3d: CATransform3D {
+    override public var transform3d: CATransform3D {
         return CATransform3DMakeRotation(angle, 0, 0, 1)
     }
 
@@ -53,21 +31,21 @@ public class RotationTransformItem: ImageEditStateValue {
 }
 
 public class VerticalFlipTransformItem: ImageEditStateValue {
-    override var transform: CGAffineTransform {
+    override public var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: 1, y: -1)
     }
 
-    override var transform3d: CATransform3D {
+    override public var transform3d: CATransform3D {
         return CATransform3DMakeRotation(.pi, 1, 0, 0)
     }
 }
 
 public class HorizontalFlipTransformItem: ImageEditStateValue {
-    override var transform: CGAffineTransform {
+    override public var transform: CGAffineTransform {
         return CGAffineTransform(scaleX: -1, y: 1)
     }
 
-    override var transform3d: CATransform3D {
+    override public var transform3d: CATransform3D {
         return CATransform3DMakeRotation(.pi, 0, 1, 0)
     }
 }

@@ -210,8 +210,6 @@ extension _TransformAppAsset: PHAssetVideoEditable {
 }
 
 
-let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
-
 //https://gist.github.com/schickling/b5d86cb070130f80bb40
 private extension UIImage {
     func fixedOrientation() -> UIImage {
