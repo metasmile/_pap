@@ -1,8 +1,6 @@
-Capture and save any addresses, URLs, phone numbers or even flight numbers nearby with your camera, photos or screenshots.
+An AI-powered text info recognization camera app, Memo Camera enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
-An AI-powered text info recognization camera app, Memo Cam enables accurately detecting and then extracting every meaningful information such as phone numbers, barcodes, addresses, dates or URLs in your numerous photos.
-
-Then you can make a call, open maps, navigate websites even search flights, and save them all as the contacts or raw text.
+And then you can make a call, open maps, navigate websites even search flights, and save them all as the contacts or raw text.
 
 
 Detectable formats and supported actions:
@@ -15,6 +13,10 @@ Detectable formats and supported actions:
 • Flight Number - Search for flights with detected numbers.
 • Plain Text - Translate Your Whole Text
 • Barcode - Search with A Product Code
+• Currencies - Find national currencies and some popular cryptocurrencies in the picture. And then search exchange rate.
+- USD, EUR, Korean WON, Japanese YEN 
+
+We will append and support another currency continually!
 
 
 Technical features:
