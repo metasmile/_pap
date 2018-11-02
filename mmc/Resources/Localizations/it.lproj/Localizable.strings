@@ -170,6 +170,8 @@
 "Could not detect anything." = "Impossibile rilevare nulla.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creare";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "valute";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Cambio di valuta";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -180,6 +182,8 @@
 "Detecting ... %@ " = "Rilevamento ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Rilevare articoli visibili attuali ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Obiettivi di rilevamento";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Scarica ora GRATUITAMENTE su %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -204,8 +208,6 @@
 "It could not be stored." = "Non può essere memorizzato.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Richiede un permesso per accedere ai tuoi contatti. Si prega di consentire Contatti su Impostazioni iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Elementi";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Avviso sulle prestazioni limitate";
 /* Generated from genl10n: Finder.BApp.swift#402 */

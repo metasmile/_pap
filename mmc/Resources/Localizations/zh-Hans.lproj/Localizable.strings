@@ -170,6 +170,8 @@
 "Could not detect anything." = "无法检测到任何东西。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "货币";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "货币兑换";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -180,6 +182,8 @@
 "Detecting ... %@ " = "检测... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "检测当前可见物品......";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "检测目标";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "立即免费下载%@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -204,8 +208,6 @@
 "It could not be stored." = "它无法存储。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "项目";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: Finder.BApp.swift#402 */

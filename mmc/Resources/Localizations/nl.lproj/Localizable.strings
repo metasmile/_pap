@@ -170,6 +170,8 @@
 "Could not detect anything." = "Kon niets vinden.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Creëren";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "valuta";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Wisselkantoor";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -180,6 +182,8 @@
 "Detecting ... %@ " = "Bezig met detecteren ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Detecteren van zichtbare zichtbare items ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Detectiedoelen";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS op %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -204,8 +208,6 @@
 "It could not be stored." = "Het kan niet worden opgeslagen.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Het vereist toestemming om toegang te krijgen tot uw contacten. Staat u Contactpersonen toe voor iOS-instellingen.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Items";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Beperkte prestatiemelding";
 /* Generated from genl10n: Finder.BApp.swift#402 */
