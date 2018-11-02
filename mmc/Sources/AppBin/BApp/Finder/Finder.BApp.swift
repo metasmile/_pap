@@ -586,6 +586,8 @@ private struct ParserItem {
         case URL
 
         case FlightNumber
+        case Currency
+
         case GPSCoordinates
     }
 
@@ -640,6 +642,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                     ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.appActionIconDate.name)
                     ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.appActionIconURL.name)
                     ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.appActionIconFlight.name)
+//                    ,ParserItem(key: ParserItem.Key.Currency, label:"Currencies".localized, iconImageBundleName:R.image.appActionIconCurrency.name)
                 ])
     ]
 

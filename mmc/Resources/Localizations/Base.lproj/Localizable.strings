@@ -136,7 +136,7 @@
 "Create" = "Create";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Currency Exchange";
-/* Generated from genl10n: MemoCam.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
 /* Generated from genl10n: Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionText.Parser.Types.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Date" = "Date";
@@ -196,7 +196,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: App.UI.AssetView.swift */
 "Original" = "Original";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Phone Number" = "Phone Number";
 /* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
@@ -236,7 +236,7 @@
 "Starting the Process..." = "Starting the Process...";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Tap To Detect" = "Tap To Detect";
-/* Generated from genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
+/* Generated from genl10n: MemoCam.BApp.swift, Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
 "Translate Now" = "Translate Now";

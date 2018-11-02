@@ -263,7 +263,7 @@ fileprivate struct ResultPreviewItem {
         } else if resultGroup.flights?.count ?? 0 > 0 {
             return R.image.appActionIconEmbossFlight()
         } else if resultGroup.currencies?.count ?? 0 > 0 {
-            return R.image.systemIconFavoriteLine()
+            return R.image.appActionIconCurrency()
         }
 
         return nil

@@ -759,8 +759,8 @@ extension Array where Element:VisionTextDetectResult {
                         }
                     })
                 }
-                
-                action?.accessoryImage = R.image.systemIconFavoriteLine()
+
+                action?.accessoryImage = R.image.appActionIconCurrency()
                 
                 if let action = action{
                     alert.addAction(action)
