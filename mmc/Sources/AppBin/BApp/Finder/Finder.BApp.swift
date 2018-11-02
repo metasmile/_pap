@@ -446,6 +446,10 @@ private struct FinderAppDetector{
                 resultGroup.dates = visionText.blocks.parse(type: VisionTextDateParser.self, async)
             }
 
+            if selectedParserTypes.contains(ParserItem.Key.Currency){
+                resultGroup.currencies = visionText.blocks.parse(type: VisionTextCurrencyParser.self, async)
+            }
+
             result.resultGroup = resultGroup
 
         }else{
@@ -607,6 +611,7 @@ private struct ParserDictionary {
             ,ParserItem.Key.Date
             ,ParserItem.Key.URL
             ,ParserItem.Key.FlightNumber
+            ,ParserItem.Key.Currency
         ]
     ]
 
@@ -624,8 +629,19 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     private var parserCollection:[ParserDictionary] {
         get{
-            if FinderApp.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
+            let preset = FinderApp.privateDefaults.selectionPreset
+            if preset == SelectionPreset.plaintext.rawValue{
                 return []
+            }
+
+            if preset == SelectionPreset.contact.rawValue{
+                return type(of: self).defaultParserCollection.compactMap { dictionary -> ParserDictionary? in
+                    var _dictionary = dictionary
+                    _dictionary.items = _dictionary.items.filter { (item: ParserItem) -> Bool in
+                        return item.key != ParserItem.Key.Currency
+                    }
+                    return _dictionary
+                }
             }
 
             return type(of: self).defaultParserCollection
@@ -634,7 +650,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Detection Targets".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.appActionIconPhoneNumber.name)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.appActionIconEmail.name)
@@ -642,7 +658,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                     ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.appActionIconDate.name)
                     ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.appActionIconURL.name)
                     ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.appActionIconFlight.name)
-//                    ,ParserItem(key: ParserItem.Key.Currency, label:"Currencies".localized, iconImageBundleName:R.image.appActionIconCurrency.name)
+                    ,ParserItem(key: ParserItem.Key.Currency, label:"Currencies".localized, iconImageBundleName:R.image.appActionIconCurrency.name)
                 ])
     ]
 

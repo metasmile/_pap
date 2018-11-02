@@ -10,7 +10,7 @@ import FirebaseMLVision
 INFO:
 
 'OutputType' must be Foundation supported type in this swift file.
-For other ones, use App.Lib.FirebaseMLVision.VisionText.Parser.Extensions
+For other ones, use instead ./FirebaseMLVision.VisionText.Parser.Types
 */
 
 protocol VisionTextParser: Processor where Self.InputType==VisionTextBlock {
