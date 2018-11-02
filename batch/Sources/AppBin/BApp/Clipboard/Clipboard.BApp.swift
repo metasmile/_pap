@@ -45,6 +45,9 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
     public static let taskType: AppTaskable.Type = _ClipboardAppTask.self
     public static let paramType: AppTaskParamable.Type = ClipboardAppParam.self
     
+    // support Universal Clipboard
+    // https://support.apple.com/kb/PH25168?locale=en_US
+    
     public static let info = AppInfo(
         identifier: "com.stells.batch.clipboard"
         , version: "1.0"
@@ -205,7 +208,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                         cell.indicating = true
                         DispatchQueue.main.async { self.tableView.reloadData() }
                         
-                        self.saveImageFromData(data) {
+                        self.createAssetFromData(data) {
                             cell.indicating = false
                             DispatchQueue.main.async { self.tableView.reloadData() }
                         }
@@ -240,7 +243,12 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 cell.itemIdentifier = "url \(idx)".hashValue
                 cell.label = url.host ?? url.lastPathComponent
                 cell.buttonTitle = "Download".localized
-                cell.buttonDetailTitle = UTI(withURL: url).conforms(to: UTI.image) ? "Image".localized : "URL".localized
+                cell.buttonDetailTitle = { () -> String in
+                    let uti = UTI(withURL: url)
+                    if uti.conforms(to: UTI.image) { return "Image" }
+                    else if uti.conforms(to: UTI.movie) { return "Video" }
+                    else { return "URL" }
+                }().localized
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -268,6 +276,48 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 groups.append(cellGroup)
             }
         }
+//        else if UIPasteboard.general.hasStrings, let datas = UIPasteboard.general.strings?.compactMap({ $0.data(using: String.Encoding.utf8)?.base64EncodedString() }).compactMap({ Data(base64Encoded: $0) }), !datas.isEmpty {
+//            let group = ClipboardGroup(type: "Data".localized, values: datas)
+//            
+//            var cellDescribers = [UITableViewButtonCellDescriber]()
+//            for (idx, data) in datas.enumerated() {
+//                let cell = UITableViewButtonCellDescriber()
+//                cell.itemIdentifier = "data \(idx)".hashValue
+//                cell.label = "Data"
+//                cell.buttonTitle = "Save".localized
+//                cell.buttonDetailTitle = { () -> String in
+//                    let uti = data.uti
+//                    if uti?.conforms(to: UTI.image) == true { return "Image" }
+//                    else if uti?.conforms(to: UTI.movie) == true { return "Video" }
+//                    else { return "Data" }
+//                }().localized
+//                cell.valueHandler = { _ in
+//                    cell.indicating = true
+//                    DispatchQueue.main.async { self.tableView.reloadData() }
+//                    
+//                    self.createAssetFromData(data, completion: {
+//                        cell.indicating = false
+//                        DispatchQueue.main.async { self.tableView.reloadData() }
+//                    })
+//                }
+//                
+//                cellDescribers.append(cell)
+//            }
+//            
+//            if !cellDescribers.isEmpty {
+//                var detailedLabel: String? = nil
+//                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+//                    detailedLabel = "From Remote Clipboard".localized
+//                }
+//                
+//                let groupDescriber = UITableViewCellDescriber()
+//                groupDescriber.itemIdentifier = group.hashValue
+//                groupDescriber.label = group.type
+//                
+//                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+//                groups.append(cellGroup)
+//            }
+//        }
         else if UIPasteboard.general.hasStrings, let urls = UIPasteboard.general.strings?.compactMap({ URL(string: $0) }).filter({ !$0.absoluteString.urls().isEmpty }), !urls.isEmpty {
             let group = ClipboardGroup(type: "URL".localized, values: urls)
             
@@ -277,7 +327,12 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 cell.itemIdentifier = "url \(idx)".hashValue
                 cell.label = url.host ?? url.lastPathComponent
                 cell.buttonTitle = "Download".localized
-                cell.buttonDetailTitle = UTI(withURL: url).conforms(to: UTI.image) ? "Image".localized : "URL".localized
+                cell.buttonDetailTitle = { () -> String in
+                    let uti = UTI(withURL: url)
+                    if uti.conforms(to: UTI.image) { return "Image" }
+                    else if uti.conforms(to: UTI.movie) { return "Video" }
+                    else { return "URL" }
+                }().localized
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -356,7 +411,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     private func saveImageFromURL(_ url: URL, completion: (() -> Void)?) {
         DispatchQueue(label: #file + #function, qos: .utility).async {
             if let data = try? Data(contentsOf: url) {
-                self.saveImageFromData(data, completion: completion)
+                self.createAssetFromData(data, completion: completion)
             }
             else {
                 completion?()
@@ -364,13 +419,23 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         }
     }
     
-    private func saveImageFromData(_ data: Data, completion: (() -> Void)?) {
+    private func createAssetFromData(_ data: Data, completion: (() -> Void)?) {
         DispatchQueue(label: #file + #function, qos: .utility).async {
             let signal = AsyncSignal()
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
+                let uti = data.uti
+                
+                let url = FileURL.temp("\(UUID().uuidString)", uti, group: ClipboardApp.info.displayName)
+                try? data.write(to: url)
+                
                 let creationRequest = PHAssetCreationRequest.forAsset()
-                creationRequest.addResource(with: .photo, data: data, options: nil)
+                if uti?.conforms(to: UTI.image) == true {
+                    creationRequest.addResource(with: .photo, fileURL: url, options: nil)
+                }
+                else if uti?.conforms(to: UTI.movie) == true {
+                    creationRequest.addResource(with: .video, fileURL: url, options: nil)
+                }
             }, completionHandler: { (success, info) in
                 signal.end()
                 completion?()
