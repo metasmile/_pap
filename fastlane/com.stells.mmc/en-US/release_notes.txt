@@ -1,2 +1,3 @@
-+ A new detection target "Currencies" was added! - Grab national currencies and some popular cryptocurrencies from all your photos and camera. And then search exchange rate - Initially support USD, EUR, Korean WON, Japanese YEN.
++ A new detection target "Currencies" was added - Grab national currencies and some popular cryptocurrencies from all your photos and camera. And then search exchange rate - Initially support USD, EUR, Korean WON, Japanese YEN.
++ Accuracy Improvements, Added some new trained models for Latin characters.
 + Better UI appearances.
