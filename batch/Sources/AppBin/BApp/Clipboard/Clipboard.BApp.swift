@@ -188,12 +188,14 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         }
     }
     
-    private func fetchPasteboardItems() -> [CellDescriberGroup] {
-        self.fetchedChangeCount = UIPasteboard.general.changeCount
-        
+    private var localPasteboard: UIPasteboard? {
+        return UIPasteboard(name: UIPasteboard.Name(Bundle.main.bundleIdentifier ?? "com.stells.batch"), create: true)
+    }
+    
+    private func cellDescriberGroupsFor(pasteboard: UIPasteboard, footerText: String? = nil) -> [CellDescriberGroup] {
         var groups = [CellDescriberGroup]()
         
-        if UIPasteboard.general.hasImages, let images = UIPasteboard.general.images {
+        if pasteboard.hasImages, let images = pasteboard.images {
             let group = ClipboardGroup(type: "Image".localized, values: images)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
@@ -220,7 +222,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             
             if !cellDescribers.isEmpty {
                 var detailedLabel: String? = nil
-                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
                     detailedLabel = "From Remote Clipboard".localized
                 }
                 
@@ -228,12 +230,12 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 groupDescriber.itemIdentifier = group.hashValue
                 groupDescriber.label = group.type
                 
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
                 groups.append(cellGroup)
             }
         }
         
-        if UIPasteboard.general.hasURLs, let urls = UIPasteboard.general.urls {
+        if pasteboard.hasURLs, let urls = pasteboard.urls {
             let group = ClipboardGroup(type: "URL".localized, values: urls)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
@@ -241,14 +243,14 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = "url \(idx)".hashValue
-                cell.label = url.host ?? url.lastPathComponent
+                cell.label = url.host ?? (url.lastPathComponent.isEmpty ? url.scheme ?? url.relativeString : url.lastPathComponent)
                 cell.buttonTitle = "Download".localized
                 cell.buttonDetailTitle = { () -> String in
                     let uti = UTI(withURL: url)
                     if uti.conforms(to: UTI.image) { return "Image" }
                     else if uti.conforms(to: UTI.movie) { return "Video" }
                     else { return "URL" }
-                }().localized
+                    }().localized
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -264,7 +266,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             
             if !cellDescribers.isEmpty {
                 var detailedLabel: String? = nil
-                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
                     detailedLabel = "From Remote Clipboard".localized
                 }
                 
@@ -272,13 +274,13 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 groupDescriber.itemIdentifier = group.hashValue
                 groupDescriber.label = group.type
                 
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
                 groups.append(cellGroup)
             }
         }
-//        else if UIPasteboard.general.hasStrings, let datas = UIPasteboard.general.strings?.compactMap({ $0.data(using: String.Encoding.utf8)?.base64EncodedString() }).compactMap({ Data(base64Encoded: $0) }), !datas.isEmpty {
+//        else if pasteboard.hasStrings, let datas = pasteboard.strings?.compactMap({ $0.data(using: String.Encoding.utf8)?.base64EncodedString() }).compactMap({ Data(base64Encoded: $0) }), !datas.isEmpty {
 //            let group = ClipboardGroup(type: "Data".localized, values: datas)
-//            
+//
 //            var cellDescribers = [UITableViewButtonCellDescriber]()
 //            for (idx, data) in datas.enumerated() {
 //                let cell = UITableViewButtonCellDescriber()
@@ -294,45 +296,45 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
 //                cell.valueHandler = { _ in
 //                    cell.indicating = true
 //                    DispatchQueue.main.async { self.tableView.reloadData() }
-//                    
+//
 //                    self.createAssetFromData(data, completion: {
 //                        cell.indicating = false
 //                        DispatchQueue.main.async { self.tableView.reloadData() }
 //                    })
 //                }
-//                
+//
 //                cellDescribers.append(cell)
 //            }
-//            
+//
 //            if !cellDescribers.isEmpty {
 //                var detailedLabel: String? = nil
-//                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+//                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
 //                    detailedLabel = "From Remote Clipboard".localized
 //                }
-//                
+//
 //                let groupDescriber = UITableViewCellDescriber()
 //                groupDescriber.itemIdentifier = group.hashValue
 //                groupDescriber.label = group.type
-//                
-//                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+//
+            //                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
 //                groups.append(cellGroup)
 //            }
 //        }
-        else if UIPasteboard.general.hasStrings, let urls = UIPasteboard.general.strings?.compactMap({ URL(string: $0) }).filter({ !$0.absoluteString.urls().isEmpty }), !urls.isEmpty {
+        else if pasteboard.hasStrings, let urls = pasteboard.strings?.compactMap({ URL(string: $0) }).filter({ !$0.absoluteString.urls().isEmpty }), !urls.isEmpty {
             let group = ClipboardGroup(type: "URL".localized, values: urls)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, url) in urls.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = "url \(idx)".hashValue
-                cell.label = url.host ?? url.lastPathComponent
+                cell.label = url.host ?? (url.lastPathComponent.isEmpty ? url.scheme ?? url.relativeString : url.lastPathComponent)
                 cell.buttonTitle = "Download".localized
                 cell.buttonDetailTitle = { () -> String in
                     let uti = UTI(withURL: url)
                     if uti.conforms(to: UTI.image) { return "Image" }
                     else if uti.conforms(to: UTI.movie) { return "Video" }
                     else { return "URL" }
-                }().localized
+                    }().localized
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -348,7 +350,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             
             if !cellDescribers.isEmpty {
                 var detailedLabel: String? = nil
-                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
                     detailedLabel = "From Remote Clipboard".localized
                 }
                 
@@ -356,11 +358,11 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 groupDescriber.itemIdentifier = group.hashValue
                 groupDescriber.label = group.type
                 
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
                 groups.append(cellGroup)
             }
         }
-        else if UIPasteboard.general.hasStrings, let strings = UIPasteboard.general.strings {
+        else if pasteboard.hasStrings, let strings = pasteboard.strings {
             let group = ClipboardGroup(type: "Text".localized, values: strings)
             
             var cellDescribers = [UITableViewButtonCellDescriber]()
@@ -374,7 +376,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             
             if !cellDescribers.isEmpty {
                 var detailedLabel: String? = nil
-                if UIPasteboard.general.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
                     detailedLabel = "From Remote Clipboard".localized
                 }
                 
@@ -382,9 +384,22 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 groupDescriber.itemIdentifier = group.hashValue
                 groupDescriber.label = group.type
                 
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
                 groups.append(cellGroup)
             }
+        }
+        
+        return groups
+    }
+    
+    private func fetchPasteboardItems() -> [CellDescriberGroup] {
+        self.fetchedChangeCount = UIPasteboard.general.changeCount
+        
+        var groups = [CellDescriberGroup]()
+        groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: UIPasteboard.general))
+        
+        if let localPasteboard = self.localPasteboard {
+            groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: localPasteboard, footerText: "Restore From Previous Clipboard".localized))
         }
         
         if groups.isEmpty {
@@ -404,6 +419,8 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: nil, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
             groups.append(cellGroup)
         }
+        
+        self.localPasteboard?.items = UIPasteboard.general.items
         
         return groups
     }

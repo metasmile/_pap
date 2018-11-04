@@ -482,6 +482,8 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Restore All Purchases";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Restore From Previous Clipboard" = "Restore From Previous Clipboard";
 /* Generated from genl10n: Shop.Payment.System.swift */
 "Restore" = "Restore";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -500,7 +502,7 @@
 "Save Contacts" = "Save Contacts";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Save and Share";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
