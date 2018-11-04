@@ -305,7 +305,7 @@
 			<key>INIntentCategory</key>
 			<string>generic</string>
 			<key>INIntentDescription</key>
-			<string>Capture Actions To Do from Camera</string>
+			<string>Capture Actions To Do.</string>
 			<key>INIntentDescriptionID</key>
 			<string>tr3LN4</string>
 			<key>INIntentLastParameterTag</key>
@@ -378,10 +378,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Capture Actions To Do.
-Capture Actions To Do.
-Capture Actions To Do.
-Capture Actions To Do.</string>
+			<string>Capture Actions To Do.</string>
 			<key>INIntentTitleID</key>
 			<string>FFvrWb</string>
 			<key>INIntentType</key>
