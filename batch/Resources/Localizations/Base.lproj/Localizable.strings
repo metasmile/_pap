@@ -50,7 +50,7 @@
 /*com.stells.batch.transform*/
 "Transform" = "Transform";
 
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "Apply";
 
 /*com.stells.batch.revert*/
@@ -86,8 +86,6 @@
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: batch.Strings.swift */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ License" = "%@ License";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Ownership";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -148,6 +146,8 @@
 "Address" = "Address";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
+/* Generated from genl10n: Shop.SApp.swift */
+"All Tools License" = "All Tools License";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */

@@ -74,7 +74,7 @@
 "Edit %d Items" = "Uredi %@ stavke";
 /*com.stells.batch.transform*/
 "Transform" = "Transformirati";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "Apply";
 /*com.stells.batch.revert*/
 "Revert" = "Revert";

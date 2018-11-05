@@ -74,7 +74,7 @@
 "Edit %d Items" = "Edit %@ Items";
 /*com.stells.batch.transform*/
 "Transform" = "Μεταμορφώνω";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "Ισχύουν";
 /*com.stells.batch.revert*/
 "Revert" = "Revert";

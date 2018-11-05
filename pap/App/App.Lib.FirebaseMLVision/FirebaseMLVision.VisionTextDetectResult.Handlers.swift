@@ -100,7 +100,7 @@ extension Array where Element:VisionTextDetectResult {
 
                                 let components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
                                 contact.dates.append(CNLabeledValue(label: "Date".localized, value: components as NSDateComponents))
-                                contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://batch.photos"))
+                                contact.urlAddresses.append(CNLabeledValue(label: "URL", value: "https://apps.photo"))
                                 contact.phoneNumbers = [ CNLabeledValue(label: "Phone Number".localized, value: CNPhoneNumber(stringValue: phoneNumber))]
 
                                 CNContactViewController.presentDialog(newContact: contact, didDismiss: {

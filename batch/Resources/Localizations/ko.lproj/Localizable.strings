@@ -74,7 +74,7 @@
 "Edit %d Items" = "%@ 항목 편집";
 /*com.stells.batch.transform*/
 "Transform" = "트랜스폼";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "적용";
 /*com.stells.batch.revert*/
 "Revert" = "되돌리기";

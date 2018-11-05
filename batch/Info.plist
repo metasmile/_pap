@@ -98,7 +98,7 @@
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>batch.photos</key>
+			<key>apps.photo</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

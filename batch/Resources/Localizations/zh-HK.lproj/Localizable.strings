@@ -37,7 +37,7 @@
 "Edit %d Items" = "編輯%@項目";
 /*com.stells.batch.transform*/
 "Transform" = "Transform";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "應用";
 /*com.stells.batch.revert*/
 "Revert" = "Revert";

@@ -74,7 +74,7 @@
 "Edit %d Items" = "%@アイテムを編集";
 /*com.stells.batch.transform*/
 "Transform" = "変形";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "適用";
 /*com.stells.batch.revert*/
 "Revert" = "元に戻す";
