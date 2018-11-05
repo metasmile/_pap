@@ -170,8 +170,6 @@
 "Could not detect anything." = "Ei löytynyt mitään.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Luoda";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Valuutat";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Valuutanvaihto";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Valmistellaan";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Hinta";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "käsittely";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

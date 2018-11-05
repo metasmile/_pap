@@ -280,8 +280,6 @@
 "Crop to Fit" = "Cắt để phù hợp";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Đơn vị tiền tệ";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Thu đổi ngoại tệ";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -514,6 +512,8 @@
 "Preparing" = "Đang chuẩn bị";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Cài đặt trước";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Giá bán";
 /* Generated from genl10n: Shop.SApp.swift */
 "Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Giá được bao gồm tất cả các công cụ mới và cập nhật, nó cũng sẽ không tự động gia hạn.";
 /* Generated from genl10n: Shop.SApp.swift#687 */

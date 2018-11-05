@@ -280,8 +280,6 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "урожай";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "валюты";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Обмен валюты";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -514,6 +512,8 @@
 "Preparing" = "Подготовка";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "Пресеты";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Цена";
 /* Generated from genl10n: Shop.SApp.swift */
 "Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Цены включают в себя все новые инструменты и обновления, также он не будет автоматически обновляться.";
 /* Generated from genl10n: Shop.SApp.swift#687 */

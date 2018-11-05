@@ -170,8 +170,6 @@
 "Could not detect anything." = "Kunne ikke registrere noget.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "valutaer";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Valutaveksling";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Telefonnummer";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Forberedelse";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Pris";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Forarbejdning";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

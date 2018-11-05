@@ -170,8 +170,6 @@
 "Could not detect anything." = "Impossible de détecter quoi que ce soit.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Créer";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Monnaies";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Échange de devises";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Numéro de téléphone";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "En train de préparer";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Prix";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "En traitement";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

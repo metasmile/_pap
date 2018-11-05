@@ -170,8 +170,6 @@
 "Could not detect anything." = "Nem sikerült észlelni semmit.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Teremt";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Pénznemek";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Valutaváltó";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Telefonszám";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Felkészülés";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Ár";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Feldolgozás";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

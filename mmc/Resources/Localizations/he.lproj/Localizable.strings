@@ -170,8 +170,6 @@
 "Could not detect anything." = "לא הצלחתי לזהות שום דבר.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "לִיצוֹר";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "מטבעות";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "המרת מטבע";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "מספר טלפון";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "מכין";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "מחיר";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "מעבד";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

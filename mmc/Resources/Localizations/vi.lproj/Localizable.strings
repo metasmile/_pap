@@ -170,8 +170,6 @@
 "Could not detect anything." = "Không thể phát hiện bất cứ điều gì.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Đơn vị tiền tệ";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Thu đổi ngoại tệ";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Số điện thoại";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Đang chuẩn bị";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Giá bán";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Chế biến";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

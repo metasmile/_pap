@@ -170,8 +170,6 @@
 "Could not detect anything." = "ไม่พบสิ่งใด";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "สกุลเงิน";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "แลกเปลี่ยนเงินตรา";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "หมายเลขโทรศัพท์";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "การจัดเตรียม";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "ราคา";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "การประมวลผล";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

@@ -170,8 +170,6 @@
 "Could not detect anything." = "无法检测到任何东西。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "创建";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "货币";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "货币兑换";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "电话号码";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "准备";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "价钱";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "处理";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

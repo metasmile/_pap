@@ -170,8 +170,6 @@
 "Could not detect anything." = "아무것도 감지 할 수 없습니다.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "생성";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "통화";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "환전소";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "전화 번호";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "준비 중";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "가격";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "프로세싱 중";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

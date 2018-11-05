@@ -170,8 +170,6 @@
 "Could not detect anything." = "Hiçbir şey algılanamadı.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "yaratmak";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Kurlar";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Döviz değişimi";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Telefon numarası";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "hazırlama";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Fiyat";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "İşleme";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

@@ -170,8 +170,6 @@
 "Could not detect anything." = "لا يمكن الكشف عن أي شيء.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "خلق";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "العملات";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "تحويل العملات";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "رقم الهاتف";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "خطة";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "السعر";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "معالجة";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

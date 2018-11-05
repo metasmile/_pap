@@ -170,8 +170,6 @@
 "Could not detect anything." = "Nie je možné zistiť nič.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "meny";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Zmenáreň";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Telefónne číslo";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "príprava";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "cena";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "spracovanie";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

@@ -170,8 +170,6 @@
 "Could not detect anything." = "何も検出できませんでした。";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "作成";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "通貨";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "為替";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "電話番号";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "準備";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "価格";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "処理";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

@@ -280,8 +280,6 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "मुद्राओं";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "मुद्रा विनिमय";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -514,6 +512,8 @@
 "Preparing" = "तैयार कर रहे हैं";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "प्रीसेट";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "मूल्य";
 /* Generated from genl10n: Shop.SApp.swift */
 "Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "कीमतें हर नए उपकरण और अपडेट सहित हैं, यह स्वचालित रूप से नवीनीकृत नहीं होगी।";
 /* Generated from genl10n: Shop.SApp.swift#687 */

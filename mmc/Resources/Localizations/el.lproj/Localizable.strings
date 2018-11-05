@@ -170,8 +170,6 @@
 "Could not detect anything." = "Δεν μπορούσε να ανιχνεύσει τίποτα.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "Νομίσματα";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Ανταλλαγή συναλλάγματος";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Τηλεφωνικό νούμερο";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Προετοιμασία";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Τιμή";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Επεξεργασία";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

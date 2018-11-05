@@ -170,8 +170,6 @@
 "Could not detect anything." = "कुछ भी पता नहीं लगा सका।";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "मुद्राओं";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "मुद्रा विनिमय";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "फ़ोन नंबर";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "तैयार कर रहे हैं";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "मूल्य";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "प्रसंस्करण";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

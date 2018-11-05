@@ -170,8 +170,6 @@
 "Could not detect anything." = "Не удалось обнаружить ничего.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Создайте";
-/* Generated from genl10n: Finder.BApp.swift */
-"Currencies" = "валюты";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Обмен валюты";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
@@ -238,6 +236,8 @@
 "Phone Number" = "Номер телефона";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Подготовка";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Цена";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "обработка";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
