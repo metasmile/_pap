@@ -18,7 +18,7 @@ struct batchStrings {
     }
 
     static var name:String{
-        return Bundle.main.displayName ?? "Batch Photos"
+        return Bundle.main.displayName ?? "PAPS"
     }
 
     static var title: String{
@@ -105,7 +105,7 @@ struct batchStrings {
 
         struct twitter{
             static var accountName:String{
-                return "BatchPhotos"
+                return "PAPS"
             }
         }
 
@@ -199,8 +199,8 @@ struct batchStrings {
 
         static var hashTags: [String]{
             return [
-                "#BatchPhotos",
-                "#GetBatchPhotos"
+                "#PAPS",
+                "#GetPAPS"
             ]
         }
     }
