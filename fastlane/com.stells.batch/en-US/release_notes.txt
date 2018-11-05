@@ -1,1 +1,3 @@
-
++ Added new tools!
+• Finder: Extracting every important information and text from all your photos, screenshots, or camera. 
+• Camera: A robust standard built-in camera for capturing Live Photos.
