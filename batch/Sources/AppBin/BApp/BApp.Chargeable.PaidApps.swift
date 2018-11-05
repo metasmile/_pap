@@ -16,3 +16,15 @@ extension CleanerApp: ChargeableApp{
         return self.defaultNonConsumablePaidBAppLocalCharges
     }
 }
+
+extension ArtistApp:ChargeableApp{
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
+    }
+}
+
+extension FinderApp:ChargeableApp{
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
+    }
+}

@@ -21,7 +21,6 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
         , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , LaunchableApp
-        , ChargeableApp
         , AppPreviewActionable {
 
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
@@ -53,10 +52,6 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
 
     public required override init() {
         
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     class func didConfigure(with manager: AppManager) {
