@@ -101,19 +101,19 @@ private final class AppChargeManager: ChargeManager{
 //            )
 
             // Freecharge
-            , AppCharge(type: .socialShare
-                    , reward: .timeOfUses
-                    , payment: FBShareTypeDownloadUrlPayment.self
-                    , priceAmount: AmountObject(value:(0.1/3)*1)
-                    , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
-            )
-
-            , AppCharge(type: .socialShare
-                    , reward: .timeOfUses
-                    , payment: FBShareTypeDownloadMessagerPayment.self
-                    , priceAmount: AmountObject(value:(0.1/3)*7)
-                    , describable: AppChargeDescription(title:"Sharing on Facebook Messenger".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .socialShare
+//                    , reward: .timeOfUses
+//                    , payment: FBShareTypeDownloadUrlPayment.self
+//                    , priceAmount: AmountObject(value:(0.1/3)*1)
+//                    , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
+//            )
+//
+//            , AppCharge(type: .socialShare
+//                    , reward: .timeOfUses
+//                    , payment: FBShareTypeDownloadMessagerPayment.self
+//                    , priceAmount: AmountObject(value:(0.1/3)*7)
+//                    , describable: AppChargeDescription(title:"Sharing on Facebook Messenger".localized, description: nil, iconImage: nil)
+//            )
 
 //            , AppCharge(type: .feedback
 //                    , reward: .timeOfUses
@@ -185,12 +185,12 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Main Tools".localized, shortTitle: nil, description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .urlVisiting
-                    , reward: .timeOfUses
-                    , payment: SNSEngagementPayment.self
-                    , priceAmount: AmountObject(value:(0.1/3))
-                    , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .urlVisiting
+//                    , reward: .timeOfUses
+//                    , payment: SNSEngagementPayment.self
+//                    , priceAmount: AmountObject(value:(0.1/3))
+//                    , describable: AppChargeDescription(title:"Visit Social Pages".localized, description: nil, iconImage: nil)
+//            )
 
             // Promotional
             , AppCharge(type: .secretCode

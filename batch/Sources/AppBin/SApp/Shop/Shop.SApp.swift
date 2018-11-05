@@ -294,9 +294,9 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
                     PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
-                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
-                    PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
-                    PayItem(payable: SNSEngagementPayment.self)
+//                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
+//                    PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
+//                    PayItem(payable: SNSEngagementPayment.self)
                 ]
         )
     ]

@@ -570,10 +570,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.Facebook.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, App.Finalizable.UIActivity.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook" = "Sharing on Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -692,8 +688,6 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Visit Social Pages" = "Visit Social Pages";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: Finder.BApp.swift */
