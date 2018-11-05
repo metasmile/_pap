@@ -715,6 +715,8 @@
 		A00FDE3D218235EF005EAD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD45218235EE005EAD1B /* AppDelegate.swift */; };
 		A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
 		A020941B2129AC2A00D0F84C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A020941A2129AC2A00D0F84C /* CloudKit.framework */; };
+		A02389D1219043750039F398 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02389CF219043750039F398 /* Finder.BApp.swift */; };
+		A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
@@ -1241,6 +1243,8 @@
 		A01B12CA2153F31B00D58600 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Intents.strings; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* batch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = batch.entitlements; sourceTree = "<group>"; };
 		A020941A2129AC2A00D0F84C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A02389CF219043750039F398 /* Finder.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finder.BApp.swift; sourceTree = "<group>"; };
+		A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A04606732153F75B00C62058 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Intents.strings; sourceTree = "<group>"; };
 		A05987C5215401F10011077B /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Intents.strings"; sourceTree = "<group>"; };
 		A05987C6215401FC0011077B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Intents.strings; sourceTree = "<group>"; };
@@ -1471,6 +1475,7 @@
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
 			isa = PBXGroup;
 			children = (
+				A02389CE219043750039F398 /* Finder */,
 				4F71DB79973751F3580CA941 /* BApp.swift */,
 				4F71D22D17F02FB8E5D77ED3 /* AutoEditor */,
 				4F71DFBD6BD512ECD974653D /* Cleaner */,
@@ -2416,6 +2421,15 @@
 			path = MemoCam;
 			sourceTree = "<group>";
 		};
+		A02389CE219043750039F398 /* Finder */ = {
+			isa = PBXGroup;
+			children = (
+				A02389CF219043750039F398 /* Finder.BApp.swift */,
+				A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */,
+			);
+			path = Finder;
+			sourceTree = "<group>";
+		};
 		A0956A8B2095004700E680B9 /* ja.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -2937,6 +2951,7 @@
 				A0956BC52095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BD42095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BBA2095005200E680B9 /* Localizable.strings in Resources */,
+				A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */,
 				A0956BF02095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C122095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C022095005200E680B9 /* Localizable.strings in Resources */,
@@ -3425,6 +3440,7 @@
 				4F71D5517593ADBBE3181F2F /* Shop.Payment.System.swift in Sources */,
 				4F71D31EFB162093534C642D /* Shop.Payment.SecretCodeProgram.swift in Sources */,
 				4F71D2F8A268B672CE91A6C2 /* Shop.Payment.MailContact.swift in Sources */,
+				A02389D1219043750039F398 /* Finder.BApp.swift in Sources */,
 				4F71D133897C01681C50F6AE /* Shop.Payment.MailContact.Types.swift in Sources */,
 				4F71DF5F97855FF3FD1F8A43 /* Shop.Payment.URLOpen.swift in Sources */,
 				4F71D74C0AF53FC5C957C53D /* Shop.Payment.SNSEngagement.swift in Sources */,

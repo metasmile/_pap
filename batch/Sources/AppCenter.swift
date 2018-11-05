@@ -44,6 +44,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
 
         let defaultAppCollection:[App.Type] = [
             TransformApp.self
+            , FinderApp.self
             , FiltersApp.self
             , ConverterApp.self
             , ArtistApp.self
@@ -51,7 +52,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , GIFMakerApp.self
             , RevertApp.self
             , PDFactoryApp.self
-//            , CameraApp.self
+            , CameraApp.self
             , ShopApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
