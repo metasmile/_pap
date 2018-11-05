@@ -281,7 +281,6 @@
 		4F71D690E8F16AE76A900E81 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6AD7D654B6B1F28F72F /* StateValue.swift */; };
 		4F71D6A3E307BAF3A8C640C1 /* ImageIO.HEIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FAE20AA64D26CB964F /* ImageIO.HEIF.swift */; };
 		4F71D6AB5CFA7A2254F0454E /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F53CDB13CF2E2F261E /* AssetView.swift */; };
-		4F71D6ABE5CAE45C4566285C /* mmc.TimerInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD1EE3C1DE19A0049894 /* mmc.TimerInterval.swift */; };
 		4F71D6AED5918FBC468B7B40 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2BAE93FBECD7C5CA0F1 /* PHAsset.Editable.swift */; };
 		4F71D6B8B6B9C21F6BB43A57 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D44BB7D2917E81856D0A /* PreviewView.xib */; };
 		4F71D6BE4C7F5981CFFA7D02 /* CodeKit.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D60BD0DDE13945858373 /* CodeKit.Contacts.swift */; };
@@ -1041,7 +1040,6 @@
 		4F71DD042A1DE2FC95AF1CF9 /* ImageIO.Metadata.Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Data.swift; sourceTree = "<group>"; };
 		4F71DD0FBF9ED3BC94F77E59 /* CodeKit.Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Int.swift; sourceTree = "<group>"; };
 		4F71DD15A4F4F34BE1C7AE5E /* CodeKit.CIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CIImage.swift; sourceTree = "<group>"; };
-		4F71DD1EE3C1DE19A0049894 /* mmc.TimerInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mmc.TimerInterval.swift; sourceTree = "<group>"; };
 		4F71DD24B91F0CDEA2A1C14F /* App.ManagerConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.ManagerConfigurable.swift; sourceTree = "<group>"; };
 		4F71DD2A1BFEA35153058A40 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift; sourceTree = "<group>"; };
 		4F71DD2B31C0FB25B712B7BA /* Shop.Payment.MailContact.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.MailContact.Types.swift; sourceTree = "<group>"; };
@@ -2311,7 +2309,6 @@
 				A00FDD2B218235EE005EAD1B /* Views */,
 				A00FDD33218235EE005EAD1B /* AppBin */,
 				A00FDD43218235EE005EAD1B /* AppCenter.swift */,
-				4F71DD1EE3C1DE19A0049894 /* mmc.TimerInterval.swift */,
 				4F71D0C1B54DC1A482C13675 /* mmc.Strings.swift */,
 				4F71D77E54F5CAE0A2151145 /* mmc.Log.swift */,
 				4F71DAB291FE25F5DB0090E4 /* mmc.Defaults.swift */,
@@ -3667,7 +3664,6 @@
 				A00FDE35218235EF005EAD1B /* Finder.BApp.swift in Sources */,
 				A00FDD5B218235EE005EAD1B /* AppDelegate.Intents.swift in Sources */,
 				A00FDE31218235EF005EAD1B /* SApp.swift in Sources */,
-				4F71D6ABE5CAE45C4566285C /* mmc.TimerInterval.swift in Sources */,
 				4F71D14627DF2F9CC481777F /* mmc.Strings.swift in Sources */,
 				4F71D8D13FF12BADDC401C7D /* mmc.Log.swift in Sources */,
 				4F71D3476855B9E493F778CC /* mmc.Defaults.swift in Sources */,
