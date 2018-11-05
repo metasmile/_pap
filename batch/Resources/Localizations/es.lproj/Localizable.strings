@@ -122,8 +122,6 @@
 "%@ Day" = "%@ Día";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ ¡Descárgalo ahora GRATIS!";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ License" = "Licencia %@";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Propiedad";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -170,6 +168,8 @@
 "Access Failed." = "Acceso Fallido.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acceso permitido.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Actions" = "Comportamiento";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "Activar anuncios";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -182,8 +182,14 @@
 "Address" = "Dirección";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Álbumes";
+/* Generated from genl10n: Shop.SApp.swift */
+"All Tools License" = "Licencia de todas las herramientas";
+/* Generated from genl10n: Finder.BApp.swift */
+"All contacts were successfully saved." = "Todos los contactos fueron guardados con éxito.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "Guardado sin la cámara";
+/* Generated from genl10n: Finder.BApp.swift */
+"All processes you have confirmed were finished." = "Todos los procesos que ha confirmado se han completado.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Todas";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
@@ -240,6 +246,8 @@
 "Clipboard" = "Portapapeles";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Color y recordatorio para cada fase";
+/* Generated from genl10n: Finder.BApp.swift */
+"Contacts" = "Contactos";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Convertir la última foto en vivo en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -258,6 +266,10 @@
 "Copy" = "Dupdo";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Copying Photos..." = "Copiando Fotos ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any contact." = "No se pudo detectar ningún contacto.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any text." = "No se pudo detectar ningún texto.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "No pude detectar nada.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -268,14 +280,22 @@
 "Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "Monedas";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Cambio de divisas";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actualmente, nuestro modelo de reconocimiento de texto AI solo está disponible para caracteres alfanuméricos y algunos caracteres especiales, y podría verse afectado por el idioma actual del sistema.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Fecha";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Eliminando objetivos";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detecting ... %@ " = "Detectando ... %@";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Objetivos de detección";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
 /* Generated from genl10n: batch.Strings.swift#45 */
@@ -298,6 +318,12 @@
 "Export" = "Exportar";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtros";
+/* Generated from genl10n: Finder.BApp.swift */
+"Find" = "Encontrar";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder permite extraer toda información significativa, como números de teléfono, direcciones, fechas o URL de sus fotos, y luego llamar, abrir mapas o navegar por sitios web, incluso buscar vuelos. También puede guardarlos todos como texto en bruto.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder" = "descubridor";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Flash";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -358,6 +384,8 @@
 "Inquiry" = "Investigación";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Muestra una relación de los períodos de acceso a aplicaciones gratuitas restantes.";
+/* Generated from genl10n: Finder.BApp.swift */
+"It could not be stored." = "No pudo ser almacenado.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "Parece código inválido. Inténtalo de nuevo.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -430,6 +458,8 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Abrir el buscador.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -518,6 +548,8 @@
 "Repeat" = "Repetir";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurar todas las compras";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Restore From Previous Clipboard" = "Restaurar desde el portapapeles anterior";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Restaurar";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -556,6 +588,8 @@
 "Select Format To Convert" = "Seleccionar formato para convertir";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "Seleccionar fotos para eliminar";
+/* Generated from genl10n: Finder.BApp.swift */
+"Select Photos To Find Something." = "Seleccione fotos para encontrar algo.";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Seleccionado";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -574,12 +608,12 @@
 "Share" = "Compartir";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "Compartir en Facebook Messenger";
-/* Generated from genl10n: AppCenter.Charge.swift#103 */
-"Sharing on Facebook" = "Compartir en Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Semejanza";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "tamaño";
+/* Generated from genl10n: Finder.BApp.swift */
+"Some contacts were saved, but someones were not." = "Se salvaron algunos contactos, pero no algunos.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Programa de licencia de invitado especial";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -598,6 +632,8 @@
 "Stabilizing Selected Items..." = "Estabilización de elementos seleccionados ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "comienzo";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "Empezando a encontrar ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Comenzando el proceso ...";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -614,6 +650,8 @@
 "Take A GIF With Live Photo." = "Toma un GIF con foto en vivo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Take A Photo" = "Toma una foto";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -654,6 +692,8 @@
 "Translate Now" = "Traducir ahora";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Corrección de traducción";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "Tipo";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
@@ -686,14 +726,12 @@
 "Videos Without Sound" = "Videos sin sonido";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videos de la Grabadora de pantalla";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Visit Social Pages" = "Visite las páginas sociales";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Visitar";
+/* Generated from genl10n: Finder.BApp.swift */
+"Waiting To Select ..." = "En espera de seleccionar ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pack" = "Bienvenido paquete gratuito";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our Partnership License Program!" = "Bienvenido a nuestro programa de licencia de asociación!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */

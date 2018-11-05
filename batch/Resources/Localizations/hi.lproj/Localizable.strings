@@ -122,8 +122,6 @@
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ License" = "%@ लाइसेंस";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ स्वामित्व";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -170,6 +168,8 @@
 "Access Failed." = "एक्सेस विफल";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "प्रवेश करने की अनुमति है।";
+/* Generated from genl10n: Finder.BApp.swift */
+"Actions" = "क्रिया";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "विज्ञापन सक्रिय करें";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -182,8 +182,14 @@
 "Address" = "पता";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "एल्बम";
+/* Generated from genl10n: Shop.SApp.swift */
+"All Tools License" = "सभी उपकरण लाइसेंस";
+/* Generated from genl10n: Finder.BApp.swift */
+"All contacts were successfully saved." = "सभी संपर्क सफलतापूर्वक सहेजे गए थे।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "कैमरा के बिना बचाया";
+/* Generated from genl10n: Finder.BApp.swift */
+"All processes you have confirmed were finished." = "आपके द्वारा पुष्टि की गई सभी प्रक्रियाएं समाप्त हो गईं।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "सब";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
@@ -240,6 +246,8 @@
 "Clipboard" = "क्लिपबोर्ड";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "प्रत्येक चरण के लिए रंग और अनुस्मारक";
+/* Generated from genl10n: Finder.BApp.swift */
+"Contacts" = "संपर्क";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "जीआईएफ में अंतिम लाइव फोटो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -258,6 +266,10 @@
 "Copy" = "Copy";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Copying Photos..." = "तस्वीरें कॉपी कर रहा है ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any contact." = "किसी भी संपर्क का पता नहीं लगा सका।";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any text." = "किसी भी पाठ का पता नहीं लगा सका।";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "कुछ भी पता नहीं लगा सका।";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -268,14 +280,22 @@
 "Crop to Fit" = "फिट करने के लिए फसल";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "मुद्राओं";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "मुद्रा विनिमय";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "वर्तमान में, हमारे एआई टेक्स्ट मान्यता मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है, और यह वर्तमान सिस्टम भाषा से प्रभावित हो सकता है।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "रिवाज";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "तारीख";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detecting ... %@ " = "पता लगा रहा है ... %@";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "पता लगाने के लक्ष्य";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
 /* Generated from genl10n: batch.Strings.swift#45 */
@@ -298,6 +318,12 @@
 "Export" = "निर्यात";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "फिल्टर";
+/* Generated from genl10n: Finder.BApp.swift */
+"Find" = "खोज";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "खोजक आपकी तस्वीरों से फोन नंबर, पते, तिथियां या यूआरएल जैसी प्रत्येक सार्थक जानकारी निकालने में सक्षम बनाता है, और फिर कॉल करें, मानचित्र खोलें या वेबसाइटों को नेविगेट करें यहां तक ​​कि उड़ानें भी खोजें। आप उन्हें कच्चे पाठ के रूप में भी बचा सकते हैं।";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder" = "खोजक";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "टॉर्च";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -358,6 +384,8 @@
 "Inquiry" = "जांच";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "यह शेष नि: शुल्क ऐप एक्सेस अवधि का अनुपात प्रदर्शित करता है।";
+/* Generated from genl10n: Finder.BApp.swift */
+"It could not be stored." = "इसे संग्रहीत नहीं किया जा सका।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "यह अमान्य कोड दिखता है। कृपया पुन: प्रयास करें।";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -430,6 +458,8 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "ओपन फाइंडर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -518,6 +548,8 @@
 "Repeat" = "दोहराना";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Restore From Previous Clipboard" = "पिछली क्लिपबोर्ड से पुनर्स्थापित करें";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "पुनर्स्थापित";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -556,6 +588,8 @@
 "Select Format To Convert" = "कनवर्ट करने के लिए प्रारूप का चयन करें";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "हटाने के लिए तस्वीरें का चयन करें।";
+/* Generated from genl10n: Finder.BApp.swift */
+"Select Photos To Find Something." = "कुछ खोजने के लिए तस्वीरें का चयन करें।";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "चयनित";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -574,12 +608,12 @@
 "Share" = "शेयर";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "फेसबुक मैसेंजर पर साझा करना";
-/* Generated from genl10n: AppCenter.Charge.swift#103 */
-"Sharing on Facebook" = "फेसबुक पर साझा करना";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
+/* Generated from genl10n: Finder.BApp.swift */
+"Some contacts were saved, but someones were not." = "कुछ संपर्क सहेजे गए थे, लेकिन कुछ नहीं थे।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "विशेष अतिथि लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -598,6 +632,8 @@
 "Stabilizing Selected Items..." = "चयनित वस्तुओं को स्थिर करना ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "प्रारंभ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "ढूंढना शुरू हो रहा है ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "प्रक्रिया शुरू कर रहा है ...";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -614,6 +650,8 @@
 "Take A GIF With Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Take A Photo" = "एक तस्वीर लें";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -654,6 +692,8 @@
 "Translate Now" = "अभी अनुवाद करें";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "अनुवाद सुधार";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "प्रकार";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "यूआरएल";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
@@ -686,14 +726,12 @@
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "स्क्रीन रिकॉर्डर से वीडियो";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Visit Social Pages" = "सोशल पेजेस पर जाएं";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "पर जाएँ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Waiting To Select ..." = "चुनने की प्रतीक्षा कर रहा है ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "ताना";
-/* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pack" = "आपका स्वागत है मुफ्त पैक";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our Partnership License Program!" = "हमारे साझेदारी लाइसेंस कार्यक्रम में आपका स्वागत है!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */

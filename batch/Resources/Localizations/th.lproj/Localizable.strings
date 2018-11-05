@@ -122,8 +122,6 @@
 "%@ Day" = "%@ วัน";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ License" = "%@ ใบอนุญาต";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ ความเป็นเจ้าของ";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -170,6 +168,8 @@
 "Access Failed." = "การเข้าถึงล้มเหลว";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "การเข้าถึงที่ได้รับ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Actions" = "การปฏิบัติ";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "เปิดใช้งานโฆษณา";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -182,8 +182,14 @@
 "Address" = "ที่อยู่";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
+/* Generated from genl10n: Shop.SApp.swift */
+"All Tools License" = "ใบอนุญาตเครื่องมือทั้งหมด";
+/* Generated from genl10n: Finder.BApp.swift */
+"All contacts were successfully saved." = "บันทึกรายชื่อติดต่อทั้งหมดเรียบร้อยแล้ว";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "บันทึกโดยไม่มีกล้อง";
+/* Generated from genl10n: Finder.BApp.swift */
+"All processes you have confirmed were finished." = "กระบวนการทั้งหมดที่คุณยืนยันเสร็จสิ้น";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
@@ -240,6 +246,8 @@
 "Clipboard" = "คลิปบอร์ด";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "สีและคำเตือนสำหรับแต่ละเฟส";
+/* Generated from genl10n: Finder.BApp.swift */
+"Contacts" = "รายชื่อผู้ติดต่อ";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "แปลงรูปภาพสดล่าสุดเป็น GIF";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -258,6 +266,10 @@
 "Copy" = "สำเนา";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Copying Photos..." = "กำลังคัดลอกรูปภาพ ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any contact." = "ไม่พบที่อยู่ติดต่อใด ๆ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any text." = "ไม่พบข้อความใด ๆ";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "ไม่พบสิ่งใด";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -268,14 +280,22 @@
 "Crop to Fit" = "ครอบตัดให้พอดี";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "พืชผล";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currencies" = "สกุลเงิน";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "แลกเปลี่ยนเงินตรา";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "ขณะนี้รูปแบบการจดจำข้อความ AI ของเรามีให้ใช้งานเฉพาะสำหรับตัวอักษรและตัวเลขและอักขระพิเศษบางตัวเท่านั้นและอาจได้รับผลกระทบจากภาษาระบบปัจจุบัน";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "กำหนดเอง";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "วันที่";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "การลบเป้าหมาย";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detecting ... %@ " = "กำลังตรวจจับ ... %@";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "เป้าหมายการตรวจจับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
 /* Generated from genl10n: batch.Strings.swift#45 */
@@ -298,6 +318,12 @@
 "Export" = "ส่งออก";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ฟิลเตอร์";
+/* Generated from genl10n: Finder.BApp.swift */
+"Find" = "หา";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder ช่วยให้สามารถดึงข้อมูลที่มีความหมายทุกอย่างเช่นหมายเลขโทรศัพท์ที่อยู่วันที่หรือ URL จากภาพถ่ายของคุณจากนั้นเรียกใช้เปิดแผนที่หรือนำทางเว็บไซต์ได้แม้กระทั่งการค้นหาเที่ยวบิน นอกจากนี้คุณยังสามารถบันทึกข้อมูลทั้งหมดเป็นข้อความดิบ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder" = "Finder";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "ไฟฉาย";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -358,6 +384,8 @@
 "Inquiry" = "การสอบสวน";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "แสดงอัตราส่วนของระยะเวลาการเข้าถึงแอปฟรีที่เหลืออยู่";
+/* Generated from genl10n: Finder.BApp.swift */
+"It could not be stored." = "ไม่สามารถจัดเก็บได้";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "ดูเหมือนรหัสที่ไม่ถูกต้อง กรุณาลองอีกครั้ง.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -430,6 +458,8 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "เปิด Finder";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
@@ -518,6 +548,8 @@
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Restore From Previous Clipboard" = "เรียกคืนจากคลิปบอร์ดก่อนหน้า";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "ฟื้นฟู";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -556,6 +588,8 @@
 "Select Format To Convert" = "เลือกรูปแบบการแปลง";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "เลือกรูปภาพเพื่อลบ";
+/* Generated from genl10n: Finder.BApp.swift */
+"Select Photos To Find Something." = "เลือกรูปภาพเพื่อค้นหาบางสิ่งบางอย่าง";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "เลือก";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -574,12 +608,12 @@
 "Share" = "หุ้น";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "การแบ่งปันบน Facebook Messenger";
-/* Generated from genl10n: AppCenter.Charge.swift#103 */
-"Sharing on Facebook" = "แบ่งปันบน Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "ขนาด";
+/* Generated from genl10n: Finder.BApp.swift */
+"Some contacts were saved, but someones were not." = "ผู้ติดต่อบางรายได้รับการบันทึกไว้ แต่บางคนก็ไม่ได้";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "โปรแกรมสิทธิพิเศษสำหรับผู้มาเยือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -598,6 +632,8 @@
 "Stabilizing Selected Items..." = "กำลังกำหนดรายการที่เลือก ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "Start";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "กำลังเริ่มค้นหา ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "กำลังเริ่มกระบวนการ ...";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -614,6 +650,8 @@
 "Take A GIF With Live Photo." = "ใช้ GIF ด้วย Live Photo";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Take A Photo" = "ถ่ายรูป";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -654,6 +692,8 @@
 "Translate Now" = "แปลตอนนี้";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "การแก้ไขการแปล";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "ชนิด";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
@@ -686,14 +726,12 @@
 "Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "วิดีโอจาก Screen Recorder";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Visit Social Pages" = "ไปที่หน้าทางสังคม";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "เยือน";
+/* Generated from genl10n: Finder.BApp.swift */
+"Waiting To Select ..." = "กำลังรอให้เลือก ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "วิปริต";
-/* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pack" = "ยินดีต้อนรับแพ็คฟรี";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our Partnership License Program!" = "ยินดีต้อนรับสู่โปรแกรม License License ของเรา!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
