@@ -79,12 +79,12 @@ private final class AppChargeManager: ChargeManager{
                     , describable: AppChargeDescription(title:"Restore All Purchases".localized, description: nil, iconImage: nil)
             )
             // Initial
-            , AppCharge(type: .freeTrial
-                    , reward: .timeOfUses
-                    , payment: WelcomeTutorialPayment.self
-                    , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
-                    , describable: AppChargeDescription(title:"Welcome Free Pack".localized, description: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .freeTrial
+//                    , reward: .timeOfUses
+//                    , payment: WelcomeTutorialPayment.self
+//                    , priceAmount: AmountObject(value:AppChargeBanker.InitialTutorial_TimeOfUses_Day/AppChargeBanker.Abs_TimeOfUses_Day)
+//                    , describable: AppChargeDescription(title:"Welcome Free Pack".localized, description: nil, iconImage: nil)
+//            )
 
             , AppCharge(type: .onPromptRating
                     , reward: .nonBlockOfUses
@@ -108,12 +108,12 @@ private final class AppChargeManager: ChargeManager{
 //                    , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
 //            )
 //
-//            , AppCharge(type: .socialShare
-//                    , reward: .timeOfUses
-//                    , payment: FBShareTypeDownloadMessagerPayment.self
-//                    , priceAmount: AmountObject(value:(0.1/3)*7)
-//                    , describable: AppChargeDescription(title:"Sharing on Facebook Messenger".localized, description: nil, iconImage: nil)
-//            )
+            , AppCharge(type: .socialShare
+                    , reward: .timeOfUses
+                    , payment: FBShareTypeDownloadMessagerPayment.self
+                    , priceAmount: AmountObject(value:(0.1/3)*3)
+                    , describable: AppChargeDescription(title:"Sharing on Facebook Messenger".localized, description: nil, iconImage: nil)
+            )
 
 //            , AppCharge(type: .feedback
 //                    , reward: .timeOfUses

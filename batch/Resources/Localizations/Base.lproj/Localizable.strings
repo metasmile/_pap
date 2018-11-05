@@ -570,6 +570,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.Facebook.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, App.Finalizable.UIActivity.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */
@@ -694,8 +696,6 @@
 "Waiting To Select ..." = "Waiting To Select ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Welcome Free Pack" = "Welcome Free Pack";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our Partnership License Program!" = "Welcome to our Partnership License Program!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
