@@ -138,7 +138,7 @@
 "Actions" = "Actions";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift, AppCenter.Charge.swift */
 "Activate Ads" = "Activate Ads";
-/* Generated from genl10n: Cleaner.BApp.swift */
+/* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Add New Contact" = "Add New Contact";
@@ -172,17 +172,15 @@
 "Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Crop" = "Auto Crop";
-/* Generated from genl10n: Finder.BApp.swift */
-"Auto Detection Bot" = "Auto Detection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor lets you edit automatically if your photos are needed to correct.";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Cleaner.BApp.swift, Finder.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -260,8 +258,6 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detecting ... %@ ";
-/* Generated from genl10n: Finder.BApp.swift */
-"Detecting Current Visible Items ..." = "Detecting Current Visible Items ...";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Detection Targets";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -410,8 +406,6 @@
 "Ongoing Use of All and New Tools" = "Ongoing Use of All and New Tools";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open %@" = "Open %@";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Album." = "Open Album.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Apple Maps" = "Open Apple Maps";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -428,6 +422,8 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "Open Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -620,6 +616,8 @@
 "Take A GIF With Live Photo." = "Take A GIF With Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Take A Photo" = "Take A Photo";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -636,7 +634,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Terms of Use" = "Terms of Use";
-/* Generated from genl10n: Finder.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";

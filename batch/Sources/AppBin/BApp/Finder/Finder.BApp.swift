@@ -21,7 +21,9 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
         , PhotoPickerCollectionViewDelegatableApp
         , PreheatableApp
         , LaunchableApp
+        , ChargeableApp
         , AppPreviewActionable {
+
     public static let taskType: AppTaskable.Type = _FinderAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -44,13 +46,17 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
             , description: "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.".localized
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
             , iconBundleName: R.image.finderBAppIcon.name
-            , themeColor: nil
+            , themeColor: UIColor(red:0.75, green:0.59, blue:0.99, alpha:1)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
     public required override init() {
+        
+    }
 
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
     }
 
     class func didConfigure(with manager: AppManager) {
@@ -178,11 +184,11 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     }
 
     public func didAction(with appAsset: AppAsset) {
-        if let image = appAsset.asset.asUIImage {
+//        if let image = appAsset.asset.asUIImage {
 //            var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
 //            option.identifierToReturn = FinderApp.info.identifier
 //            AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
-        }
+//        }
     }
 }
 
@@ -625,6 +631,8 @@ private struct ParserDictionary {
 }
 
 fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate{
+    private lazy var tintColor = FinderApp.info.themeColor
+
     fileprivate var settingCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var parserCollection:[ParserDictionary] {
@@ -670,6 +678,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.tintColor = tintColor
         return tableView
     }()
 
@@ -725,7 +734,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
         let cell1 = UITableViewSwitchSubtitleCellDescriber()
         cell1.itemIdentifier = FinderAppSettingCells.autoSelect.hashValue
-        cell1.label = "Auto Detection Bot".localized
+        cell1.label = "Auto Selection Bot".localized
         cell1.valueGetter = { self.autoSelect }
         cell1.iconImage = R.image.commonCellIconRobot.name
         cell1.valueHandler = {
@@ -739,6 +748,24 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             }
         }
         settingCellDescribers.append(cell1)
+
+
+        if AppCenter.default.apps().first(where:{ appType in appType is CameraApp.Type }) != nil{
+            let cell_b = UITableViewButtonCellDescriber()
+            cell_b.itemIdentifier = FinderAppSettingCells.takePhoto.hashValue
+            cell_b.label = "Take A Photo".localized
+            cell_b.buttonImage = R.image.systemIconCamera.name
+            cell_b.valueHandler = { _ in
+                var option = AppLaunchOptions()
+                option.identifierToReturn = FinderApp.info.identifier
+                AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
+
+                batchLog.app.userCalledCameraInApp()
+
+            }
+            settingCellDescribers.append(cell_b)
+        }
+
 
         let cell0 = UITableViewSegmentControlCellDescriber()
         cell0.itemIdentifier = FinderAppSettingCells.presets.hashValue
@@ -938,6 +965,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = item.detailedLabel
             cell.switcher.setOn(value, animated: false)
+            cell.switcher.onTintColor = FinderApp.info.themeColor
             cell.imageView?.image = item.iconImage?.asUIImage?.withRenderingMode(.alwaysTemplate)
             cell.imageView?.tintColor = self.view.tintColor
             cell.switchDidChange = item.valueHandler
@@ -1066,13 +1094,14 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Album.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized
 
-//            let asb = AutoDetectOnAlbumsIntent()
-//            asb.appId = info.identifier
-//            asb.suggestedInvocationPhrase = "Auto Detect on Albums".localized
+            let asb = AutoSelectIntent()
+            asb.appId = info.identifier
+            asb.appName = openAppIntent.appName
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
 
-            return [openAppIntent]
+            return [openAppIntent, asb]
         } else {
             return []
         }
@@ -1085,15 +1114,13 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
                 return
             }
 
-//            if intent is AutoDetectOnAlbumsIntent{
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
-//                    let d = (self.content as? FinderAppDockContent)?.settingCellDescribers.first { describable in
-//                        describable.itemIdentifier == FinderAppSettingCells.autoSelect.hashValue
-//                    }
-//                    d?.valueHandler?(true)
-//                    (self.content?.view as? UITableView)?.reloadData()
-//                }
-//            }
+            if intent is AutoSelectIntent{
+                let d = (self.content as? FinderAppDockContent)?.settingCellDescribers.first { describable in
+                    describable.itemIdentifier == FinderAppSettingCells.autoSelect.hashValue
+                }
+                d?.valueHandler?(true)
+                (self.content?.view as? UITableView)?.reloadData()
+            }
         }
     }
 
@@ -1130,6 +1157,11 @@ private class Cell: UITableViewCell {
         switchDidChange?(sender.isOn)
     }
 
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+
+        optionSwitch.onTintColor = FinderApp.info.themeColor
+    }
 }
 
 extension FinderAppDockContent: PreheatableAppSubscribable{
@@ -1141,7 +1173,7 @@ extension FinderAppDockContent: PreheatableAppSubscribable{
     }
 
     func didStartPreheating() {
-        prepareStatusDisplaying(label: "Detecting Current Visible Items ...".localized)
+        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
         self.startSelectionBotIconAnimation(self.settingCellDescribers, FinderAppSettingCells.autoSelect.hashValue)
     }
 
