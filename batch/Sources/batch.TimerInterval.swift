@@ -29,7 +29,7 @@ struct batchTimeInterval {
             return 30
         }
 #endif
-        return 60*60*24*3
+        return 60*60*24*1
     }
 
     static var ofGADInterestialTypeBlockOfUses:TimeInterval{
