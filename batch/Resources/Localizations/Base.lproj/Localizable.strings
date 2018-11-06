@@ -332,7 +332,7 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFactory.AppDockContent.swift */
 "Image Quality" = "Image Quality";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "Image";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Images" = "Images";
@@ -434,7 +434,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
 "Open" = "Open";
 /* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
@@ -658,7 +658,7 @@
 "Translation Correction" = "Translation Correction";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Type";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
@@ -680,7 +680,7 @@
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video Tutorials";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos Saved by Instagram" = "Videos Saved by Instagram";

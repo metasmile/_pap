@@ -245,12 +245,17 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 cell.itemIdentifier = "url \(idx)".hashValue
                 cell.label = url.host ?? (url.lastPathComponent.isEmpty ? url.scheme ?? url.relativeString : url.lastPathComponent)
                 cell.buttonTitle = "Download".localized
-                cell.buttonDetailTitle = { () -> String in
-                    let uti = UTI(withURL: url)
-                    if uti.conforms(to: UTI.image) { return "Image" }
-                    else if uti.conforms(to: UTI.movie) { return "Video" }
-                    else { return "URL" }
-                    }().localized
+                let uti = UTI(withURL: url)
+                if uti.conforms(to: UTI.image) {
+                    cell.buttonDetailTitle = "Image".localized
+                }
+                else if uti.conforms(to: UTI.movie) {
+                    cell.buttonDetailTitle = "Video".localized
+                }
+                else {
+                    cell.buttonDetailTitle = "URL".localized
+                    cell.buttonTitle = "Open".localized
+                }
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -329,12 +334,17 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 cell.itemIdentifier = "url \(idx)".hashValue
                 cell.label = url.host ?? (url.lastPathComponent.isEmpty ? url.scheme ?? url.relativeString : url.lastPathComponent)
                 cell.buttonTitle = "Download".localized
-                cell.buttonDetailTitle = { () -> String in
-                    let uti = UTI(withURL: url)
-                    if uti.conforms(to: UTI.image) { return "Image" }
-                    else if uti.conforms(to: UTI.movie) { return "Video" }
-                    else { return "URL" }
-                    }().localized
+                let uti = UTI(withURL: url)
+                if uti.conforms(to: UTI.image) {
+                    cell.buttonDetailTitle = "Image".localized
+                }
+                else if uti.conforms(to: UTI.movie) {
+                    cell.buttonDetailTitle = "Video".localized
+                }
+                else {
+                    cell.buttonDetailTitle = "URL".localized
+                    cell.buttonTitle = "Open".localized
+                }
                 cell.valueHandler = { _ in
                     cell.indicating = true
                     DispatchQueue.main.async { self.tableView.reloadData() }
@@ -398,10 +408,6 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         var groups = [CellDescriberGroup]()
         groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: UIPasteboard.general))
         
-        if let localPasteboard = self.localPasteboard {
-            groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: localPasteboard, footerText: "Restore From Previous Clipboard".localized))
-        }
-        
         if groups.isEmpty {
             let group = ClipboardGroup(type: "", values: ["Empty"])
             
@@ -420,6 +426,14 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             groups.append(cellGroup)
         }
         
+        if let localPasteboard = self.localPasteboard,
+            !(localPasteboard.strings == UIPasteboard.general.strings &&
+            localPasteboard.urls == UIPasteboard.general.urls &&
+            localPasteboard.string == UIPasteboard.general.string &&
+            localPasteboard.colors == UIPasteboard.general.colors) {
+            groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: localPasteboard, footerText: "Restore From Previous Clipboard".localized))
+        }
+        
         self.localPasteboard?.items = UIPasteboard.general.items
         
         return groups
@@ -427,11 +441,21 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     
     private func saveImageFromURL(_ url: URL, completion: (() -> Void)?) {
         DispatchQueue(label: #file + #function, qos: .utility).async {
-            if let data = try? Data(contentsOf: url) {
+            if let data = try? Data(contentsOf: url), let uti = data.uti, (uti.conforms(to: UTI.image) || uti.conforms(to: UTI.movie)) {
                 self.createAssetFromData(data, completion: completion)
             }
             else {
-                completion?()
+                let async = AsyncSignal()
+                async.begin()
+                UIApplication.openSafari(with: url, didPresent: {
+                    
+                }, didLoad:{ loaded in
+                    
+                }, didDismiss: {
+                    async.end()
+                    completion?()
+                })
+                async.waitUntilEnd()
             }
         }
     }
