@@ -38,7 +38,7 @@ target 'batch' do
   # Store
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
-  # com.stells.batch.pdfactory
+  # com.stells.batch.pdfmaker
   pod 'TPPDF'
   # com.stells.batch.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version

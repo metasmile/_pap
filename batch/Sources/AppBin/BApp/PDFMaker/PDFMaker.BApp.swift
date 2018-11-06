@@ -9,29 +9,29 @@ import TPPDF
 import UIKit
 import PropertyKit
 
-private struct PDFactoryAppPHAssetResult: AppTaskResultable {
+private struct PDFMakerAppPHAssetResult: AppTaskResultable {
     public var asset: PHAsset
     public var renderImageBoundSize: CGSize // maximum size of image + paper size
     public var renderImage: UIImage
     public var imageMetadata: [String: Any]?
 }
 
-public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
+public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
         PhotoPickerCollectionViewDelegatableApp , AppDockApp {
 
-    public static let taskType: AppTaskable.Type = _PDFactoryAppTask.self
+    public static let taskType: AppTaskable.Type = _PDFMakerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
 
     public static let info = AppInfo(
-            identifier: "com.stells.batch.pdfactory"
+            identifier: "com.stells.batch.pdfmaker"
             , version: "1.0"
             , phase: .release
-            , appType: PDFactoryApp.self
-            , displayName: "PDFactory"
-            , description:"PDFactory makes PDF document from multiple images with various page options.".localized
+            , appType: PDFMakerApp.self
+            , displayName: "PDF Maker"
+            , description:"PDFMaker makes PDF document from multiple images with various page options.".localized
             , keywords:["PDF","PDF Builder","Documents","PDF Editor","Margin","Layout","Pages"]
-            , iconBundleName: R.image.pdFactoryBAppIcon.name
+            , iconBundleName: R.image.pdfMakerBAppIcon.name
             , themeColor: .red, policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -57,23 +57,23 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppear
         return item.asset.mediaType == .image
     }
 
-    public lazy var content: AppDockContent? = PDFactoryAppAppDockContent()
+    public lazy var content: AppDockContent? = PDFMakerAppAppDockContent()
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 
         let items = result
                 .filter { respondable in respondable.info.state == .completed }
-                .compactMap { $0.result as? PDFactoryAppPHAssetResult }
+                .compactMap { $0.result as? PDFMakerAppPHAssetResult }
 
         guard let rootViewController = UIViewController.presentable else{
             return result
         }
 
-        let defaults = PDFactoryApp.defaults as! PDFactoryAppDefaults
+        let defaults = PDFMakerApp.defaults as! PDFMakerAppDefaults
 //        let imagesPerPage = defaults.imagesPerPage
 
         do {
-            let document = PDFDocument(layout: PDFactoryApp.defaultsPDFLayout)
+            let document = PDFDocument(layout: PDFMakerApp.defaultsPDFLayout)
             let isLandspace = document.layout.size.width > document.layout.size.height
             let container = PDFContainer.contentCenter
 
@@ -88,7 +88,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppear
 
                 //scale mode
                 var sizeFitMode = PDFImageSizeFit.widthHeight
-                let fillPageMode = defaults.scaleMode == PDFactoryAppSettings.ScaleMode.fillPage.rawValue
+                let fillPageMode = defaults.scaleMode == PDFMakerAppSettings.ScaleMode.fillPage.rawValue
                 if fillPageMode{
                     let isImageLandspace = item.renderImage.size.width > item.renderImage.size.height
 
@@ -155,7 +155,7 @@ public class PDFactoryApp: BApp, FinalizableApp, PhotoPickerViewControllerAppear
     }
 }
 
-private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
+private class _PDFMakerAppTask: AppTaskPrototype, AppTaskable {
 
     private var _pdfImageRequestOptions: PHImageRequestOptions {
         let options = PHImageRequestOptions()
@@ -179,7 +179,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
             var renderImage:UIImage?
 
             async.begin()
-            let imageMaxSize:CGSize = PDFactoryApp.defaultsPDFLayout.size
+            let imageMaxSize:CGSize = PDFMakerApp.defaultsPDFLayout.size
             let imagePixelSize = imageMaxSize.applying(CGAffineTransform(scaleX: 2, y: 2))
             let imageRequestID = PHImageManager.default().requestImage(for: asset, targetSize: imagePixelSize, contentMode: .aspectFit, options: _pdfImageRequestOptions) { (image, info) in
                 renderImage = image
@@ -192,7 +192,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
             //read metadata
             var imageMetadata: [String: Any]?
 
-            if (PDFactoryApp.defaults as! PDFactoryAppDefaults).metadataCaption{
+            if (PDFMakerApp.defaults as! PDFMakerAppDefaults).metadataCaption{
                 async.begin()
 
                 let option = PHContentEditingInputRequestOptions()
@@ -213,7 +213,7 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
             }
 
             if let image = renderImage{
-                return PDFactoryAppPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
+                return PDFMakerAppPHAssetResult(asset: asset, renderImageBoundSize: imagePixelSize, renderImage:image, imageMetadata:imageMetadata)
             }
         }
         return nil
@@ -222,12 +222,12 @@ private class _PDFactoryAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension PDFactoryApp:UIApplicationDelegateLaunchableApp{
+extension PDFMakerApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenIntent()
-            openAppIntent.appId = PDFactoryApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFactoryApp.info.displayName) as String
+            openAppIntent.appId = PDFMakerApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFMakerApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open PDF Maker.".localized.localized
             return [openAppIntent]
         } else {

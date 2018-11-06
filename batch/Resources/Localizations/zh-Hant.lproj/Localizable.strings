@@ -43,7 +43,7 @@
 "Revert" = "Revert";
 "Starting to revert..." = "Starting to revert...";
 "Reverting Photos..." = "還原照片...";
-/*com.stells.batch.pdfactory*/
+/*com.stells.batch.pdfmaker*/
 "Create %@" = "創建%@";
 "Starting to create PDF..." = "開始創建PDF ...";
 "Creating PDF Pages..." = "創建PDF頁面...";
@@ -312,11 +312,11 @@
 "Hide" = "隱藏";
 /* Generated from genl10n: ExifGhost.BApp.swift#85 */
 "Hiding Selected Items..." = "隱藏所選項目...";
-/* Generated from genl10n: GIFMaker.BApp.swift#544, PDFactory.AppDockContent.swift#133 */
+/* Generated from genl10n: GIFMaker.BApp.swift#544, PDFMaker.AppDockContent.swift#133 */
 "Image Quality" = "畫面質量";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "圖片";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
 "Images" = "圖片";
 /* Generated from genl10n: GIFMaker.BApp.swift#456 */
 "Import" = "進口";
@@ -338,9 +338,9 @@
 "Join In Partnership Program" = "加入夥伴關係計劃";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "只需選擇您需要的照片，然後運行它。";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Landscape" = "景觀";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#112 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#112 */
 "Layout" = "佈局";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
@@ -408,7 +408,7 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#783 */
 "Open Google Maps" = "打開Goog​​le地圖";
-/* Generated from genl10n: PDFactory.BApp.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
@@ -420,13 +420,13 @@
 "Open" = "打開";
 /* Generated from genl10n: App.UI.AssetView.swift#45, Filters.BApp.swift#233 */
 "Original" = "原版的";
-/* Generated from genl10n: PDFactory.BApp.swift#32 */
-"PDFactory makes PDF document from multiple images with various page options." = "PDFactory使用各種頁面選項從多個圖像製作PDF文檔。";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#122 */
+/* Generated from genl10n: PDFMaker.BApp.swift#32 */
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker使用各種頁面選項從多個圖像製作PDF文檔。";
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#122 */
 "Page Margin" = "頁邊距";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#99 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#99 */
 "Page Size Preset" = "頁面大小預設";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
 "Pages" = "網頁";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "合作許可計劃";
@@ -452,7 +452,7 @@
 "Please try again with another code." = "請使用其他代碼重試。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "請關閉以下選項，並在“設置”中重置廣告標識符。然後再試一次。";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Portrait" = "肖像";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "準備";
@@ -518,7 +518,7 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "保存結果...";
-/* Generated from genl10n: Stabilizer.BApp.swift#424, PDFactory.AppDockContent.swift#146 */
+/* Generated from genl10n: Stabilizer.BApp.swift#424, PDFMaker.AppDockContent.swift#146 */
 "Scale To Fit" = "縮放以適應";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
 "Screenshots" = "截圖";

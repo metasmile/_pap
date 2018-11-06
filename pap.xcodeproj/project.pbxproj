@@ -20,7 +20,7 @@
 		4F71D020237DD627F415DF1C /* batch.ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE6B36CC0C10D92D955 /* batch.ColorTheme.swift */; };
 		4F71D02AEBABA7CF466A80F5 /* FirebaseMLVision.VisionTextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9295A4CC928B9E8F959 /* FirebaseMLVision.VisionTextDetector.swift */; };
 		4F71D02B478DAA8B261D4143 /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBCAC377B219196A2A82 /* Sourceable.PHAsset.swift */; };
-		4F71D031B016F0F31C61B0CF /* PDFactory.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1F92BCDA386568EBD46 /* PDFactory.AppDockContent.swift */; };
+		4F71D031B016F0F31C61B0CF /* PDFMaker.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1F92BCDA386568EBD46 /* PDFMaker.AppDockContent.swift */; };
 		4F71D03B2ED17F12633E5F27 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCF971ACBCBF4D1A4BC3 /* Selectable.swift */; };
 		4F71D03D273FC34B3C17BF5E /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D239D6E80D23C986EFE0 /* Sourceable.swift */; };
 		4F71D0454F9F8C81E665CFFF /* Cleaner.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DFD4E958BB33BAA4755D /* Cleaner.BApp.Assets.xcassets */; };
@@ -37,7 +37,7 @@
 		4F71D090F3D924318BAA22B7 /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9549704010E72943451 /* CodeKit.DispatchQueue.swift */; };
 		4F71D094056300F672270402 /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3F90579A5FF86CB160E /* App.Configurable.swift */; };
 		4F71D095A86ADB194FC1F0EF /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D20680DD3C0CC6667D78 /* CodeKit.UIImage.swift */; };
-		4F71D09B75C58C9F997118E7 /* PDFactory.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDFBFF62BA2892846902 /* PDFactory.BApp.swift */; };
+		4F71D09B75C58C9F997118E7 /* PDFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDFBFF62BA2892846902 /* PDFMaker.BApp.swift */; };
 		4F71D0A5E0F5441EABD7ECDF /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1C0F115659C2204032E /* AppManager.swift */; };
 		4F71D0A6EED5B6FF62B09202 /* Shop.Payment.Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D818F9DFA4A5F9E6563B /* Shop.Payment.Promotion.swift */; };
 		4F71D0B0E4F9A17C3D6F260F /* App.UI.CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D59D7D81E95475A10A3B /* App.UI.CameraView.swift */; };
@@ -224,7 +224,7 @@
 		4F71D55136CD17C37A699158 /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD04191EC912598DEE6E /* CodeKit.UIAlertAction.swift */; };
 		4F71D5517593ADBBE3181F2F /* Shop.Payment.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */; };
 		4F71D551C19D127D53B2FAB6 /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE13753CC05C544782B7 /* AppTask.swift */; };
-		4F71D5523A1C92C67FD2E376 /* PDFactory.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4F254C90792D44FF14D /* PDFactory.AppDefaults.swift */; };
+		4F71D5523A1C92C67FD2E376 /* PDFMaker.AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4F254C90792D44FF14D /* PDFMaker.AppDefaults.swift */; };
 		4F71D55992BC7D1AD4BFA616 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2241CBDF1728864CA13 /* Camera.View.swift */; };
 		4F71D5745952C20BFFB0F2E4 /* UIKitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DBBAA64F6BA083E4A32D /* UIKitItem.swift */; };
 		4F71D577D38CEF4B957D72F1 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D46EA517F6CA946D91E6 /* System.swift */; };
@@ -264,7 +264,7 @@
 		4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCD231FA4176024CEAB9 /* AppDockViewController.LaunchableApp.Macro.swift */; };
 		4F71D64AD1447C83F0D38E96 /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D18503154DBECCB4245B /* App.Asset.swift */; };
 		4F71D64F29C2A1BED207EC67 /* App.Launchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8A06505D71CD684FAED /* App.Launchable.swift */; };
-		4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3BE56AF451D39D5CFC8 /* PDFactory.BApp.Assets.xcassets */; };
+		4F71D656E6E54297FB7632EB /* PDFMaker.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3BE56AF451D39D5CFC8 /* PDFMaker.BApp.Assets.xcassets */; };
 		4F71D65C66CFDF81AD1B1228 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0F3A3AC90D1A42D7EA8 /* CodeKit.UIView.Animation.swift */; };
 		4F71D6644FEE616064BCC18C /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA746933360004B1A6BA /* App.Editable.swift */; };
 		4F71D6660A9F911B13BDFF5C /* CodeKit.UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEA09931F9F190FC951D /* CodeKit.UIViewController.swift */; };
@@ -514,7 +514,7 @@
 		4F71DC383B52730B3CD7C100 /* UITableViewPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8B11C337501A72D24B8 /* UITableViewPickerCell.swift */; };
 		4F71DC3B539BB21AAAC58413 /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2062A4C9C098CEB004A /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71DC453A58797D5A4AB975 /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2062A4C9C098CEB004A /* App.Launchable.UIApplicationDelegate.swift */; };
-		4F71DC4C6539C8DFB2D2BC97 /* PDFactory.TPPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180AB8064C98AB2B778 /* PDFactory.TPPDF.swift */; };
+		4F71DC4C6539C8DFB2D2BC97 /* PDFMaker.TPPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180AB8064C98AB2B778 /* PDFMaker.TPPDF.swift */; };
 		4F71DC4E488A73E2BFA0A44D /* ImageIO.Metadata.Properties.Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9738B1CF6C4812B8479 /* ImageIO.Metadata.Properties.Collection.swift */; };
 		4F71DC6B5852B91644F32C3C /* Charge.Types.Trialable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA3D416A9849D1C207A0 /* Charge.Types.Trialable.swift */; };
 		4F71DC772FA90B15938A1268 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D684543B4784104A5181 /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
@@ -816,7 +816,7 @@
 		4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.System.swift; sourceTree = "<group>"; };
 		4F71D17919E12758958F0951 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppStoryboard.storyboard; sourceTree = "<group>"; };
-		4F71D180AB8064C98AB2B778 /* PDFactory.TPPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.TPPDF.swift; sourceTree = "<group>"; };
+		4F71D180AB8064C98AB2B778 /* PDFMaker.TPPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.TPPDF.swift; sourceTree = "<group>"; };
 		4F71D18503154DBECCB4245B /* App.Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Asset.swift; sourceTree = "<group>"; };
 		4F71D1880C059DE345E8BE46 /* CodeKit.SKProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.SKProduct.swift; sourceTree = "<group>"; };
 		4F71D192F1C169A5B62B2F3A /* Transform.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.BApp.swift; sourceTree = "<group>"; };
@@ -829,7 +829,7 @@
 		4F71D1C0F115659C2204032E /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4F71D1C5225AB9B239E0775A /* gifmaker_preview_frame_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_3.png; sourceTree = "<group>"; };
 		4F71D1E0F894E66E552A5DA4 /* AutoEditor.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AutoEditor.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		4F71D1F92BCDA386568EBD46 /* PDFactory.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.AppDockContent.swift; sourceTree = "<group>"; };
+		4F71D1F92BCDA386568EBD46 /* PDFMaker.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D1FA39CE8C435998C723 /* batch.TimerInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.TimerInterval.swift; sourceTree = "<group>"; };
 		4F71D1FAB15B8F5D756A0C9D /* Shop.Payment.GADInterestialAdsViewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.GADInterestialAdsViewing.swift; sourceTree = "<group>"; };
 		4F71D1FAE20AA64D26CB964F /* ImageIO.HEIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.HEIF.swift; sourceTree = "<group>"; };
@@ -855,7 +855,7 @@
 		4F71D376943A982EAC8CBB05 /* CodeKit.PHPhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		4F71D38F90EE846FA0754E99 /* App.UICollectionViewPreheatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UICollectionViewPreheatable.swift; sourceTree = "<group>"; };
 		4F71D3B9A6423BC94ECACA29 /* CodeKit.Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Collection.swift; sourceTree = "<group>"; };
-		4F71D3BE56AF451D39D5CFC8 /* PDFactory.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PDFactory.BApp.Assets.xcassets; sourceTree = "<group>"; };
+		4F71D3BE56AF451D39D5CFC8 /* PDFMaker.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PDFMaker.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71D3D34CB3FF02DB83D0C1 /* Converter.Jpeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Jpeg.swift; sourceTree = "<group>"; };
 		4F71D3DEBC7096177138684A /* batch.Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Defaults.swift; sourceTree = "<group>"; };
 		4F71D3E181E46BF0CFCA59C8 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
@@ -878,7 +878,7 @@
 		4F71D4DACD3DE4FCBFA15864 /* PhotoPickerViewController.Operations.PreheatableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.PreheatableApp.swift; sourceTree = "<group>"; };
 		4F71D4DEAC8C37F33981C6E1 /* App.LifecycleManagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.LifecycleManagable.swift; sourceTree = "<group>"; };
 		4F71D4E436C91FD6C315F797 /* Revert.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revert.BApp.swift; sourceTree = "<group>"; };
-		4F71D4F254C90792D44FF14D /* PDFactory.AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.AppDefaults.swift; sourceTree = "<group>"; };
+		4F71D4F254C90792D44FF14D /* PDFMaker.AppDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.AppDefaults.swift; sourceTree = "<group>"; };
 		4F71D50122683CC0BDBDDB68 /* CodeKit.UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIButton.swift; sourceTree = "<group>"; };
 		4F71D5309805B6CC484619E3 /* PhotoPickerViewController.Operations.ChargeableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.ChargeableApp.swift; sourceTree = "<group>"; };
 		4F71D5366E28E479C8B0D7D4 /* Transform.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Transform.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -1062,7 +1062,7 @@
 		4F71DDDCFC32DBF0896A173A /* CodeKit.AVAssetExportSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.AVAssetExportSession.swift; sourceTree = "<group>"; };
 		4F71DDE1689205700D4FA850 /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
 		4F71DDE929B4653604C65996 /* cell_icon_depth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_depth.png; sourceTree = "<group>"; };
-		4F71DDFBFF62BA2892846902 /* PDFactory.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFactory.BApp.swift; sourceTree = "<group>"; };
+		4F71DDFBFF62BA2892846902 /* PDFMaker.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.BApp.swift; sourceTree = "<group>"; };
 		4F71DE049D3C9318DF3B6CC2 /* Filters.BApp.Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.Contents.swift; sourceTree = "<group>"; };
 		4F71DE13753CC05C544782B7 /* AppTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTask.swift; sourceTree = "<group>"; };
 		4F71DE2155C124D630681B16 /* PhotoPickerViewController.Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.swift; sourceTree = "<group>"; };
@@ -1458,16 +1458,16 @@
 			path = App.Lib.FirebaseMLVision;
 			sourceTree = "<group>";
 		};
-		4F71D0D8E5FF51D8A1AEC61E /* PDFactory */ = {
+		4F71D0D8E5FF51D8A1AEC61E /* PDFMaker */ = {
 			isa = PBXGroup;
 			children = (
-				4F71DDFBFF62BA2892846902 /* PDFactory.BApp.swift */,
-				4F71D180AB8064C98AB2B778 /* PDFactory.TPPDF.swift */,
-				4F71D4F254C90792D44FF14D /* PDFactory.AppDefaults.swift */,
-				4F71D1F92BCDA386568EBD46 /* PDFactory.AppDockContent.swift */,
-				4F71D3BE56AF451D39D5CFC8 /* PDFactory.BApp.Assets.xcassets */,
+				4F71DDFBFF62BA2892846902 /* PDFMaker.BApp.swift */,
+				4F71D180AB8064C98AB2B778 /* PDFMaker.TPPDF.swift */,
+				4F71D4F254C90792D44FF14D /* PDFMaker.AppDefaults.swift */,
+				4F71D1F92BCDA386568EBD46 /* PDFMaker.AppDockContent.swift */,
+				4F71D3BE56AF451D39D5CFC8 /* PDFMaker.BApp.Assets.xcassets */,
 			);
-			path = PDFactory;
+			path = PDFMaker;
 			sourceTree = "<group>";
 		};
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
@@ -1480,7 +1480,7 @@
 				4F71D10661C44102C2C797CA /* Converter */,
 				4F71DF0F4A8F6AC135940CA5 /* ExifGhost */,
 				4F71DFD573FD5CEC2C63737D /* GIFMaker */,
-				4F71D0D8E5FF51D8A1AEC61E /* PDFactory */,
+				4F71D0D8E5FF51D8A1AEC61E /* PDFMaker */,
 				4F71D75DB1DA1212A057D796 /* Filters */,
 				4F71D2B822027F3F16F4687F /* Revert */,
 				4F71D3F573FA49160F93E076 /* Stabilizer */,
@@ -2976,7 +2976,7 @@
 				4F71DE3C3763C0DAF5EC9707 /* gifmaker_preview_frame_1.png in Resources */,
 				4F71D74081724BE45AA4A767 /* gifmaker_preview_frame_2.png in Resources */,
 				4F71DD6C85C869CEE3CEF3DD /* gifmaker_preview_frame_3.png in Resources */,
-				4F71D656E6E54297FB7632EB /* PDFactory.BApp.Assets.xcassets in Resources */,
+				4F71D656E6E54297FB7632EB /* PDFMaker.BApp.Assets.xcassets in Resources */,
 				A0DE011B216D027000F99365 /* Artist.BApp.Assets.xcassets in Resources */,
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,
@@ -3400,10 +3400,10 @@
 				4F71D2240E81511284C8C2FA /* ExifGhost.BApp.swift in Sources */,
 				4F71DCC84F86371629383638 /* ExifGhost.AppDockContent.swift in Sources */,
 				4F71D2C6467BAA687E8C9FD6 /* GIFMaker.BApp.swift in Sources */,
-				4F71D09B75C58C9F997118E7 /* PDFactory.BApp.swift in Sources */,
-				4F71DC4C6539C8DFB2D2BC97 /* PDFactory.TPPDF.swift in Sources */,
-				4F71D5523A1C92C67FD2E376 /* PDFactory.AppDefaults.swift in Sources */,
-				4F71D031B016F0F31C61B0CF /* PDFactory.AppDockContent.swift in Sources */,
+				4F71D09B75C58C9F997118E7 /* PDFMaker.BApp.swift in Sources */,
+				4F71DC4C6539C8DFB2D2BC97 /* PDFMaker.TPPDF.swift in Sources */,
+				4F71D5523A1C92C67FD2E376 /* PDFMaker.AppDefaults.swift in Sources */,
+				4F71D031B016F0F31C61B0CF /* PDFMaker.AppDockContent.swift in Sources */,
 				4F71D1DCE7E7C7BDB540E0E0 /* Filters.BApp.swift in Sources */,
 				4F71DA1A6FC8FCD009336391 /* Filters.BApp.Contents.swift in Sources */,
 				4F71D36C666F204A25ABC09F /* Revert.BApp.swift in Sources */,

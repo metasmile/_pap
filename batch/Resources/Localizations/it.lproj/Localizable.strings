@@ -82,7 +82,7 @@
 "Starting to revert..." = "Iniziare a ripristinare ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Ripristino delle foto ...";
-/*com.stells.batch.pdfactory*/
+/*com.stells.batch.pdfmaker*/
 "Create %@" = "Crea %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Iniziare a creare PDF ...";
@@ -370,7 +370,7 @@
 "Image Quality" = "Qualità dell'immagine";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "Immagine";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
 "Images" = "immagini";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Importare";
@@ -392,9 +392,9 @@
 "Join In Partnership Program" = "Partecipa al programma di partnership";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Basta selezionare le foto che ti servono e poi eseguirle.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Paesaggio";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -462,7 +462,7 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Apri Google Maps";
-/* Generated from genl10n: PDFactory.BApp.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
@@ -474,13 +474,13 @@
 "Open" = "Aperto";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Originale";
-/* Generated from genl10n: PDFactory.BApp.swift#32 */
-"PDFactory makes PDF document from multiple images with various page options." = "PDFactory rende documento PDF da più immagini con varie opzioni di pagina.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFMaker.BApp.swift#32 */
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker rende documento PDF da più immagini con varie opzioni di pagina.";
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Page Margin" = "Margine della pagina";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#91 */
 "Page Size Preset" = "Dimensioni pagina predefinite";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
 "Pages" = "pagine";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "Programma di licenza di partenariato";
@@ -506,7 +506,7 @@
 "Please try again with another code." = "Si prega di riprovare con un altro codice.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Si prega di disattivare la seguente opzione e reimpostare l'identificatore della pubblicità in Impostazioni. Quindi riprova.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Portrait" = "Ritratto";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Preparazione";
@@ -572,7 +572,7 @@
 "Save" = "Salvare";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvataggio dei risultati ...";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scala per adattarsi";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Screenshots";

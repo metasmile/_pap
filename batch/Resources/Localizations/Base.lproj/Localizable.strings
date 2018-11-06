@@ -58,7 +58,7 @@
 "Starting to revert..." = "Starting to revert...";
 "Reverting Photos..." = "Reverting Photos...";
 
-/*com.stells.batch.pdfactory*/
+/*com.stells.batch.pdfmaker*/
 "Create %@" = "Create %@";
 "Starting to create PDF..." = "Starting to create PDF...";
 "Creating PDF Pages..." = "Creating PDF Pages...";
@@ -332,11 +332,11 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Hiding Selected Items...";
-/* Generated from genl10n: GIFMaker.BApp.swift, PDFactory.AppDockContent.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "Image";
-/* Generated from genl10n: PDFactory.AppDefaults.swift */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift */
 "Images" = "Images";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Import";
@@ -358,9 +358,9 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Landscape" = "Landscape";
-/* Generated from genl10n: PDFactory.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -428,7 +428,7 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Google Maps" = "Open Google Maps";
-/* Generated from genl10n: PDFactory.BApp.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
@@ -440,13 +440,13 @@
 "Open" = "Open";
 /* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
-/* Generated from genl10n: PDFactory.BApp.swift */
-"PDFactory makes PDF document from multiple images with various page options." = "PDFactory makes PDF document from multiple images with various page options.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker makes PDF document from multiple images with various page options.";
+/* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Page Margin" = "Page Margin";
-/* Generated from genl10n: PDFactory.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Page Size Preset" = "Page Size Preset";
-/* Generated from genl10n: PDFactory.AppDefaults.swift */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift */
 "Pages" = "Pages";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "Partnership License Program";
@@ -472,7 +472,7 @@
 "Please try again with another code." = "Please try again with another code.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
-/* Generated from genl10n: PDFactory.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Portrait" = "Portrait";
 /* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
@@ -538,7 +538,7 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
-/* Generated from genl10n: PDFactory.AppDockContent.swift, Stabilizer.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Stabilizer.BApp.swift */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Screenshots" = "Screenshots";

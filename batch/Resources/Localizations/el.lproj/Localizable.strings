@@ -82,7 +82,7 @@
 "Starting to revert..." = "Ξεκινώντας να επαναφέρετε ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Επαναφορά φωτογραφιών ...";
-/*com.stells.batch.pdfactory*/
+/*com.stells.batch.pdfmaker*/
 "Create %@" = "Δημιουργία %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Ξεκινώντας τη δημιουργία PDF ...";
@@ -370,7 +370,7 @@
 "Image Quality" = "Ποιότητα εικόνας";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "Εικόνα";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
 "Images" = "Εικόνες";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "Εισαγωγή";
@@ -392,9 +392,9 @@
 "Join In Partnership Program" = "Συμμετοχή στο Πρόγραμμα Συνεργασίας";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Απλά επιλέξτε τις φωτογραφίες που χρειάζεστε και στη συνέχεια εκτελέστε την.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Διάταξη";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -462,7 +462,7 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Ανοίξτε τους Χάρτες Google";
-/* Generated from genl10n: PDFactory.BApp.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
@@ -474,13 +474,13 @@
 "Open" = "Ανοιξε";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: PDFactory.BApp.swift#32 */
-"PDFactory makes PDF document from multiple images with various page options." = "Το PDFactory κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFMaker.BApp.swift#32 */
+"PDFMaker makes PDF document from multiple images with various page options." = "Το PDFMaker κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Page Margin" = "Περιθώριο σελίδας";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#91 */
 "Page Size Preset" = "Προεπιλογή μεγέθους σελίδας";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
 "Pages" = "Σελίδες";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "Πρόγραμμα Άδειας Σύμπραξης";
@@ -506,7 +506,7 @@
 "Please try again with another code." = "Δοκιμάστε ξανά με άλλο κωδικό.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Απενεργοποιήστε την παρακάτω επιλογή και επαναφέρετε το αναγνωριστικό διαφήμισης στις Ρυθμίσεις. Στη συνέχεια προσπαθήστε ξανά.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Portrait" = "Πορτρέτο";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Προετοιμασία";
@@ -572,7 +572,7 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "Στιγμιότυπα οθόνης";

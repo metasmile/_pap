@@ -51,7 +51,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , CleanerApp.self
             , GIFMakerApp.self
             , RevertApp.self
-            , PDFactoryApp.self
+            , PDFMakerApp.self
             , CameraApp.self
             , ShopApp.self
             , AutoEditorApp.self
