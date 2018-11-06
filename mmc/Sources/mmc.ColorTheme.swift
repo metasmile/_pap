@@ -187,6 +187,14 @@ extension UISearchBar{
     }
 }
 
+extension UIScrollView {
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        indicatorStyle = colorTheme == .dark ? .white : .default
+    }
+}
+
 extension UITableView {
     open override func tintColorDidChange() {
         super.tintColorDidChange()
