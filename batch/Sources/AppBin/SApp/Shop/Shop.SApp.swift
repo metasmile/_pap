@@ -82,32 +82,41 @@ extension ShopApp{
         var mutableDefaultCollection = PayGroup.Default
 
         //INFO: get source app info
-        let localChargesOfSourceApp = (AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type)?.localCharges.nilEmpty
-        let localOwnedOfSourceAppExisted = localChargesOfSourceApp?.contains(where:{ $0.reward.isLocalOwned }) ?? false
+        let sourceApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType
 
-        let localChargesOfEntire = AppCenter.default.apps(by: .default).compactMap { appType -> [Charge]? in
-            return (appType as? ChargeableApp.Type)?.localCharges
-        }.reduce([], +).nilEmpty
+        var localOwnedOfSourceAppExisted = false
 
-        //INFO: priority: source app's localCharges > default all app's localCharges
-        if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
+        //INFO: if App is not ChargeableApp (it means "The App has Default Policy"), does not display local charges
+        let isSourceAppButUndefined = sourceApp != nil && sourceApp as? ChargeableApp.Type == nil
 
-            //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
-            for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
-                var mutablePayGroup = payGroup
-                var items = payGroup.items
-                items.append(contentsOf:localCharges.map ({
-                    let pay = PayItem(payable: $0.payment)
-                    pay.rewardIconImageStyle.useTintColor = false
-                    return pay
-                })
-                )
-                mutablePayGroup.items = items
-                mutableDefaultCollection[i] = mutablePayGroup
-                break
+        if isSourceAppButUndefined == false{
+            let localChargesOfSourceApp = (sourceApp as? ChargeableApp.Type)?.localCharges.nilEmpty
+            localOwnedOfSourceAppExisted = localChargesOfSourceApp?.contains(where:{ $0.reward.isLocalOwned }) ?? false
+
+            let localChargesOfEntire = AppCenter.default.apps(by: .default).compactMap { appType -> [Charge]? in
+                return (appType as? ChargeableApp.Type)?.localCharges
+            }.reduce([], +).nilEmpty
+
+            //INFO: priority: source app's localCharges > default all app's localCharges
+            if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
+
+                //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
+                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
+                    var mutablePayGroup = payGroup
+                    var items = payGroup.items
+                    items.append(contentsOf:localCharges.map ({
+                        let pay = PayItem(payable: $0.payment)
+                        pay.rewardIconImageStyle.useTintColor = false
+                        return pay
+                    })
+                    )
+                    mutablePayGroup.items = items
+                    mutableDefaultCollection[i] = mutablePayGroup
+                    break
+                }
+
+                mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
             }
-
-            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
         }
 
         //INFO: Apply dictionary deps
