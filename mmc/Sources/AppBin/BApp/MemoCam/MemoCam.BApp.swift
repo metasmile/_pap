@@ -393,6 +393,8 @@ fileprivate class ResultPreviewView: DesignableView {
     
     fileprivate func reset() {
         DispatchQueue.main.async {
+            self.detectResult = nil
+            
             self.resultsLayer.sublayers = nil
             self.resultsUILayer.sublayers = nil
             
