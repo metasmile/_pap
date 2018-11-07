@@ -134,28 +134,18 @@
 "%@/Day" = "%@ / Hari";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "'Alat Utama' berarti semua alat lain yang tidak ditampilkan secara khusus di sini.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "Lisensi 1 Bulan";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "Lisensi 1 Tahun";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "Penggunaan 1 Bulan untuk Semua dan Alat Baru";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "Penggunaan Alat Utama dan Baru selama 1 Bulan";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "Penggunaan 1 Tahun Semua Alat Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "Penggunaan 1 Tahun Alat Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "Penggunaan 14 Hari Alat Utama dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "Penggunaan 3 Bulan Alat Utama Dan Baru";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "Lisensi 6 Bulan";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "Penggunaan 6 Bulan Semua dan Alat Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-Bulan Penggunaan Alat Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -184,6 +174,8 @@
 "Albums" = "Album";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "Semua Lisensi Alat";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "Semua Alat Kepemilikan";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "Semua kontak berhasil disimpan.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -309,8 +301,6 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktifkan Tindakan Cepat";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Terlibat Sekarang Dan Berulang Ulang Mengisi Ulang Lisensi Alat Utama.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Catatan Teknik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Ekspor";
@@ -336,8 +326,10 @@
 "Free Use And All New Updates" = "Penggunaan Gratis Dan Semua Pembaruan Baru";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Penggunaan Gratis";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "Dari Clipboard Jarak Jauh";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "Dari clipboard di iOS";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "Dari clipboard jarak jauh";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker memungkinkan untuk membuat gambar GIF dengan mudah dan cepat dari Foto atau Foto Live dengan berbagai opsi! Dan kemudian Anda dapat membuka aplikasi konverter untuk mengonversikan ke dalam segala sesuatu seperti Live Photos atau Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -411,13 +403,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Melakukan Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "Kepemilikan Tetap Maksimum";
+"Maximum All Tools Ownership" = "Maksimum Semua Peralatan Kepemilikan";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Pesan untuk Kami";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "Lisensi Bulanan";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album Saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -436,8 +426,6 @@
 "On Standby" = "Siaga";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Penggunaan Semua Alat Utama Baru yang Sedang Berlangsung";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "Penggunaan Semua Alat Baru dan Yang Sedang Berlangsung";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Buka %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -488,8 +476,6 @@
 "Partnership License" = "Lisensi Kemitraan";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Tempel gambar dari papan klip Anda";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "Kepemilikan Permanen";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Penggunaan Permanen Dan Semua Pembaruan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -549,7 +535,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Kembalikan Semua Pembelian";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Restore From Previous Clipboard" = "Pulihkan Dari Papan Klip Sebelumnya";
+"Restore from previous clipboard" = "Pulihkan dari papan klip sebelumnya";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Mengembalikan";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -590,6 +576,8 @@
 "Select Photos To Delete." = "Pilih Foto Untuk Menghapus.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Pilih Foto Untuk Menemukan Sesuatu.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Pilih konten yang ingin Anda salin, lalu salin di iPhone atau Mac dengan Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Terpilih";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -748,8 +736,6 @@
 "Write A Review" = "Menulis review";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Menulis";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "Lisensi Tahunan";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya dapat memilih foto atau video yang dicocokkan dengan format awal.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

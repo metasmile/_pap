@@ -134,28 +134,18 @@
 "%@/Day" = "%@ / Päivä";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "'Päätyökalulla' tarkoitetaan kaikkia muita työkaluja, joita ei ole erityisesti mainittu täällä.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "1 kuukauden lisenssi";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "1 vuoden lisenssi";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "Kaikkien ja uusien työkalujen 1 kuukauden käyttö";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "1 kuukauden käyttö pää- ja uusilla työkaluilla";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "Kaikkien ja uusien työkalujen 1 vuoden käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "Päätuotteiden ja uusien työkalujen 1-vuotinen käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "14 päivän pää- ja uudet työkalut";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3 kuukauden käyttö tärkeimmistä ja uusista työkaluista";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "6 kuukauden lisenssi";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "Kaikkien ja uusien työkalujen 6 kuukauden käyttö";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6 kuukauden käyttö tärkeimmistä ja uusista työkaluista";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -184,6 +174,8 @@
 "Albums" = "albumit";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "Kaikki työkalut-lisenssi";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "Kaikki Työkalut Omistusoikeus";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "Kaikki yhteystiedot tallennettiin onnistuneesti.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -309,8 +301,6 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Aktivoi nyt ja toistuvasti lataa päätyökalujen käyttöoikeus.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
@@ -336,8 +326,10 @@
 "Free Use And All New Updates" = "Ilmainen käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Vapaa käyttö";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "Etäliitevälilehdeltä";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "Leikepöydältä iOS: ssa";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "Etäleikepöydältä";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker mahdollistaa helposti ja nopeasti GIF-kuvat valokuvista tai live-valokuvista, joissa on useita vaihtoehtoja! Ja sitten voit avata muunnossovelluksen muunnettavaksi kaiken, kuten Live-valokuvia tai videoita.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -411,13 +403,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "Suurin pysyvä omistaja";
+"Maximum All Tools Ownership" = "Suurin kaikkien työkalujen omistaja";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Viesti meille";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "Kuukausittainen lisenssi";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -436,8 +426,6 @@
 "On Standby" = "Valmiustilassa";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Kaikkien ja uusien päätyökalujen jatkuva käyttö";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "Kaikkien ja uusien työkalujen jatkuva käyttö";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Avaa %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -488,8 +476,6 @@
 "Partnership License" = "Kumppanuuslisenssi";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Liitä kuvat leikepöydiltäsi";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "Pysyvä omistaja";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Pysyvä käyttö ja kaikki uudet päivitykset";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -549,7 +535,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Palauta kaikki ostokset";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Restore From Previous Clipboard" = "Palauta edellisestä leikepöydästä";
+"Restore from previous clipboard" = "Palauta edellisestä leikepöydästä";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Palauttaa";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -590,6 +576,8 @@
 "Select Photos To Delete." = "Valitse valokuvien poistaminen.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Valokuvien valitseminen jotain löytämiseksi.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Valitse kopioitava sisältö ja kopioi se iPhonella tai Macilla kanavanvaihtoon";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "valittu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -748,8 +736,6 @@
 "Write A Review" = "Kirjoita arvostelu";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Kirjoittaa";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "Vuotuinen lisenssi";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Voit valita vain valokuvia tai videoita, jotka sopivat aloitusformaattiin.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

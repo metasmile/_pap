@@ -290,7 +290,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         , PayGroup(
                 key: .FreeCharge
                 , label: "Main Tools License".localized
-                , detailedLabel: "Engage Now And Repeatedly Recharge Main Tools License.".localized
+                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
                 , items: [
 //                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
@@ -597,7 +597,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
             let c2 = UITableViewButtonCellDescriber()
             c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Maximum Permanent Ownership".localized
+            c2.detailedLabel = "Maximum All Tools Ownership".localized
             c2.buttonTitle = "Take Part".localized
             c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
             c2.valueHandler = { _ in

@@ -204,7 +204,7 @@ private final class AppChargeManager: ChargeManager{
             , AppCharge(type: .nonConsumablePurchaseInAppStore
                     , reward: .owned, payment: AllTimeAllAppsPayment.self
                     , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Permanent Ownership".localized, description: nil, iconImage: nil)
+                    , describable: AppChargeDescription(title:"All Tools Ownership".localized, description: nil, iconImage: nil)
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All and New Tools".localized, shortTitle: "Permanent Tools License", description: nil, unit: nil, iconImage: nil)
             )
 

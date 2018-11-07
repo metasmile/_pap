@@ -134,28 +134,18 @@
 "%@/Day" = "%@ / Dzień";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d razy";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "&quot;Główne narzędzia&quot; oznaczają wszystkie inne narzędzia, które nie są tutaj specjalnie wyświetlane.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "Licencja na 1 miesiąc";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "Licencja na 1 rok";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "1-miesięczne użycie wszystkich i nowych narzędzi";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "1-miesięczne korzystanie z głównych i nowych narzędzi";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "Jednoroczne używanie wszystkich i nowych narzędzi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "Jednoroczne używanie głównych i nowych narzędzi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "14-dniowe używanie głównych i nowych narzędzi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-miesięczne używanie głównych i nowych narzędzi";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "Licencja na 6 miesięcy";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "6-miesięczne korzystanie z wszystkich i nowych narzędzi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-miesięczne korzystanie z głównych i nowych narzędzi";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -184,6 +174,8 @@
 "Albums" = "Albumy";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "Licencja na wszystkie narzędzia";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "Własność wszystkich narzędzi";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "Wszystkie kontakty zostały pomyślnie zapisane.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -309,8 +301,6 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Włącz szybkie działania";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Angażuj się teraz i wielokrotnie ładuj główne narzędzia.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Uwagi inżynierskie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
@@ -336,8 +326,10 @@
 "Free Use And All New Updates" = "Bezpłatne korzystanie i wszystkie nowe aktualizacje";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Bezpłatne korzystanie";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "Ze zdalnego schowka";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "Ze schowka na iOS";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "Ze zdalnego schowka";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker pozwala na łatwe i szybkie tworzenie obrazów GIF ze Zdjęć lub Live Photos z różnymi opcjami! Następnie możesz otworzyć aplikację konwertera, aby przekonwertować ją na wszystkie elementy, takie jak zdjęcia na żywo lub filmy.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -411,13 +403,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Nawiązywanie połączenia";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "Maksymalna stała własność";
+"Maximum All Tools Ownership" = "Maksymalna własność wszystkich narzędzi";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Wiadomość do nas";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "Miesięczna licencja";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje albumy";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -436,8 +426,6 @@
 "On Standby" = "W stanie gotowości";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Ciągłe używanie wszystkich i nowych głównych narzędzi";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "Ciągłe używanie wszystkich i nowych narzędzi";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Otwórz %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -488,8 +476,6 @@
 "Partnership License" = "Umowa partnerska";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Wklej obrazy ze schowka";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "Stała własność";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Stałe użytkowanie i wszystkie nowe aktualizacje";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -549,7 +535,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Przywróć wszystkie zakupy";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Restore From Previous Clipboard" = "Przywróć z poprzedniego schowka";
+"Restore from previous clipboard" = "Przywróć z poprzedniego schowka";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Przywracać";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -590,6 +576,8 @@
 "Select Photos To Delete." = "Wybierz Zdjęcia do usunięcia.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Wybierz zdjęcia, aby znaleźć coś.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Wybierz zawartość, którą chcesz skopiować, a następnie skopiuj ją na iPhone'a lub Maca przy użyciu funkcji Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Wybrany";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -748,8 +736,6 @@
 "Write A Review" = "Napisać recenzję";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "pisać";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "Roczna licencja";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Możesz wybrać tylko zdjęcia lub filmy odpowiadające formatowi początkowemu.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

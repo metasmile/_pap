@@ -134,28 +134,18 @@
 "%@/Day" = "%@ / Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d keer";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "'Hoofdtools' betekent alle andere hulpmiddelen die hier niet speciaal worden weergegeven.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "1 maand licentie";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "1 jaar licentie";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "Gebruik van alle en nieuwe hulpmiddelen van 1 maand";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "Gebruik van hoofd- en nieuwe hulpmiddelen van 1 maand";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "1 jaar gebruik van alle en nieuwe hulpmiddelen";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "1-jarig gebruik van hoofd- en nieuwe tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "14-daags gebruik van hoofd- en nieuwe tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "Gebruik van hoofd- en nieuwe tools van 3 maanden";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "6 maanden licentie";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "6-maands gebruik van alle en nieuwe tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-maands gebruik van hoofd- en nieuwe tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -184,6 +174,8 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "All Tools-licentie";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "Alle tools eigendom";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "Alle contacten zijn succesvol opgeslagen.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -309,8 +301,6 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Schakel Snelle acties in";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "Neem nu deel en herleef de licentie voor hoofdtools.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Technische opmerkingen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exporteren";
@@ -336,8 +326,10 @@
 "Free Use And All New Updates" = "Gratis gebruik en alle nieuwe updates";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "Gratis gebruik";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "Van extern klembord";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "Van klembord op iOS";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "Van extern klembord";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Met GIF Maker kun je eenvoudig en snel GIF-afbeeldingen maken van Foto's of Live Photos met verschillende opties! En dan kun je de converter-app openen om alles te converteren, zoals Live Photos of Video's.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -411,13 +403,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Een telefoontje plegen";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "Maximaal permanent eigendom";
+"Maximum All Tools Ownership" = "Maximaal eigendom van alle tools";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bericht aan ons";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Wijzigen";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "Maandelijkse licentie";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mijn albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -436,8 +426,6 @@
 "On Standby" = "Op standby";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Doorlopend gebruik van alle en nieuwe hoofdtools";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "Doorlopend gebruik van alle en nieuwe hulpmiddelen";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Open %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -488,8 +476,6 @@
 "Partnership License" = "Partnerschaps licentie";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Plak afbeeldingen van je klemborden";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "Permanent eigendom";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "Permanent gebruik en alle nieuwe updates";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -549,7 +535,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Herstel van alle aankopen";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Restore From Previous Clipboard" = "Herstellen van vorige klembord";
+"Restore from previous clipboard" = "Herstellen van het vorige klembord";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Herstellen";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -590,6 +576,8 @@
 "Select Photos To Delete." = "Selecteer Foto's om te verwijderen.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Selecteer Foto's om iets te vinden.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Selecteer de inhoud die u wilt kopiëren en kopieer deze vervolgens op uw iPhone of Mac met Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Gekozen";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -748,8 +736,6 @@
 "Write A Review" = "Schrijf een recensie";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Schrijven";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "Jaarlijkse licentie";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

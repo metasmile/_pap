@@ -80,28 +80,18 @@
 "%@/Day" = "%@ /日";
 /* Generated from genl10n: GIFMaker.BApp.swift#592 */
 "%d times" = "%d次";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "“主要工具”是指此處未特別顯示的所有其他工具。";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "1個月許可證";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "1年許可證";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "1個月使用全部和新工具";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "主要和新工具的1個月使用";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "1年使用全部和新工具";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "主要和新工具的1年使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "主要和新工具的14天使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "主要和新工具的3個月使用";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "6個月許可證";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "6個月使用全部和新工具";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "主要和新工具的6個月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -130,6 +120,8 @@
 "Albums" = "相冊";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "所有工具許可證";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "所有工具所有權";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "所有聯繫人都已成功保存。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
@@ -255,8 +247,6 @@
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "立即參與並反复補充主要工具許可證。";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
 "Export" = "導出";
@@ -282,8 +272,10 @@
 "Free Use And All New Updates" = "免費使用和所有新更新";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "免費使用";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "來自遠程剪貼板";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "來自iOS上的剪貼板";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "從遠程剪貼板";
 /* Generated from genl10n: GIFMaker.BApp.swift#271 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通過各種選項，讓您可以輕鬆快速地從照片或實時照片製作GIF圖像！然後您可以打開轉換器app以轉換為實時照片或視頻等所有東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#601 */
@@ -357,13 +349,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打個電話";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "最大永久所有權";
+"Maximum All Tools Ownership" = "最大所有工具所有權";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "每月許可證";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "我的相冊";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift#18 */
@@ -382,8 +372,6 @@
 "On Standby" = "隨時待命";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "正在使用所有和新的主要工具";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "正在使用所有和新工具";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "打開%@";
 /* Generated from genl10n: Finder.BApp.swift#769 */
@@ -434,8 +422,6 @@
 "Partnership License" = "合夥許可";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "粘貼剪貼板中的圖像";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "永久所有權";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Permanent Use And All New Updates" = "永久使用和所有新更新";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -495,7 +481,7 @@
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢復所有購買";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Restore From Previous Clipboard" = "從上一個剪貼板還原";
+"Restore from previous clipboard" = "從以前的剪貼板恢復";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "恢復";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -536,6 +522,8 @@
 "Select Photos To Delete." = "選擇要刪除的照片。";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "選擇照片查找內容。";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "選擇要復制的內容，然後使用Handoff將其複製到iPhone或Mac上";
 /* Generated from genl10n: Cleaner.BApp.swift#564 */
 "Selected" = "選";
 /* Generated from genl10n: Finder.BApp.swift#644, Finder.BApp.swift#655, Finder.BApp.swift#665 */
@@ -694,8 +682,6 @@
 "Write A Review" = "寫評論";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#577 */
 "Write" = "寫";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "年度許可證";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
