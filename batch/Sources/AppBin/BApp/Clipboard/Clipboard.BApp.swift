@@ -293,17 +293,23 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
             }
         }
         
+        var detailedLabel: String? = nil
         if cellDescribers.isEmpty {
             let cell = UITableViewButtonCellDescriber()
             cell.itemIdentifier = "empty".hashValue
             cell.label = "Clipboard is empty".localized
             
             cellDescribers.append(cell)
+            
+            detailedLabel = "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff".localized
         }
-        
-        var detailedLabel: String? = nil
-        if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-            detailedLabel = "From Remote Clipboard".localized
+        else {
+            if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+                detailedLabel = "From remote clipboard".localized
+            }
+            else {
+                detailedLabel = "From clipboard on iOS".localized
+            }
         }
         
         let groupDescriber = UITableViewCellDescriber()
@@ -321,7 +327,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         groups.append(cellDescriberGroupFor(pasteboard: UIPasteboard.general, title: "Clipboard".localized))
         
         if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
-            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "Backup".localized, footerText: "Restore From Previous Clipboard".localized))
+            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "", footerText: "Restore from previous clipboard".localized))
         }
         
         self.localPasteboard?.items = UIPasteboard.general.items
