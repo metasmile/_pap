@@ -94,8 +94,8 @@ EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。
 • 針對多核處理進行了優化。這取決於圖像大小和iDevice模型。
 
 
-PDFMaker
-PDFMaker使用各種頁面選項從多個圖像製作PDF文檔。
+PDFactory
+PDFactory使用各種頁面選項從多個圖像製作PDF文檔。
 
 • 頁面大小（例如，A4或美國法律），保證金，比例和佈局模式支持
 

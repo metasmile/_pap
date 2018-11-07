@@ -91,8 +91,8 @@ Apply high-quality filters on your all photos you want. This batch processing to
 • Optimized for multi-core processing. It depends on image size and iDevice models.
 
 
-PDFMaker
-PDFMaker makes PDF document from multiple images with various page options.
+PDFactory
+PDFactory makes PDF document from multiple images with various page options.
 
 • Page Size(e.g., A4 or US Legal), Margin, Scale, and Layout Mode Support
 
