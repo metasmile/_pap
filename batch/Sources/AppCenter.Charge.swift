@@ -208,42 +208,42 @@ private final class AppChargeManager: ChargeManager{
                     , rewardDescribable:AppRewardDescription(title: "Permanent Use of All and New Tools".localized, shortTitle: "Permanent Tools License", description: nil, unit: nil, iconImage: nil)
             )
 
-            , AppCharge(type: .renewableMonthlySubscriptionInAppStore
-                    , reward: .rented, payment: MonthlyAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Monthly License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Monthly Tools License", description: nil, unit: nil, iconImage: nil)
-            )
-            
-            , AppCharge(type: .renewableYearlySubscriptionInAppStore
-                    , reward: .rented
-                    , payment: YearlyAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"Yearly License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Yearly Tools License", description: nil, unit: nil, iconImage: nil)
-            )
-
-            , AppCharge(type: .nonRenewingMonthlySubscriptionInAppStore
-                    , reward: .rented
-                    , payment: OneMonthAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"1 Month License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "1-Month Use of All and New Tools".localized, shortTitle: "1-Month Tools License", description: nil, unit: nil, iconImage: nil)
-            )
-
-            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
-                    , reward: .rented, payment: SixMonthsAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"6 Months License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "6-Month Use of All and New Tools".localized, shortTitle: "6-Month Tools License", description: nil, unit: nil, iconImage: nil)
-            )
-
-            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
-                    , reward: .rented, payment: OneYearAllAppsPayment.self
-                    , priceAmount: AmountObject.min
-                    , describable: AppChargeDescription(title:"1 Year License".localized, description: nil, iconImage: nil)
-                    , rewardDescribable:AppRewardDescription(title: "1-Year Use of All and New Tools".localized, shortTitle: "1-Year Tools License", description: nil, unit: nil, iconImage: nil)
-            )
+//            , AppCharge(type: .renewableMonthlySubscriptionInAppStore
+//                    , reward: .rented, payment: MonthlyAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"Monthly License".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Monthly Tools License", description: nil, unit: nil, iconImage: nil)
+//            )
+//
+//            , AppCharge(type: .renewableYearlySubscriptionInAppStore
+//                    , reward: .rented
+//                    , payment: YearlyAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"Yearly License".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "Ongoing Use of All and New Tools".localized, shortTitle: "Yearly Tools License", description: nil, unit: nil, iconImage: nil)
+//            )
+//
+//            , AppCharge(type: .nonRenewingMonthlySubscriptionInAppStore
+//                    , reward: .rented
+//                    , payment: OneMonthAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"1 Month License".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "1-Month Use of All and New Tools".localized, shortTitle: "1-Month Tools License", description: nil, unit: nil, iconImage: nil)
+//            )
+//
+//            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
+//                    , reward: .rented, payment: SixMonthsAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"6 Months License".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "6-Month Use of All and New Tools".localized, shortTitle: "6-Month Tools License", description: nil, unit: nil, iconImage: nil)
+//            )
+//
+//            , AppCharge(type: .nonRenewingYearlySubscriptionInAppStore
+//                    , reward: .rented, payment: OneYearAllAppsPayment.self
+//                    , priceAmount: AmountObject.min
+//                    , describable: AppChargeDescription(title:"1 Year License".localized, description: nil, iconImage: nil)
+//                    , rewardDescribable:AppRewardDescription(title: "1-Year Use of All and New Tools".localized, shortTitle: "1-Year Tools License", description: nil, unit: nil, iconImage: nil)
+//            )
         ]
 
         return AppChargeManager(charges:rootCharges + (localChargesOfEachApps ?? []), banker: AppChargeBanker.self)

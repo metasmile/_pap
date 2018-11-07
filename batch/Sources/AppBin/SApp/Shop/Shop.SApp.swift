@@ -82,35 +82,32 @@ extension ShopApp{
         var mutableDefaultCollection = PayGroup.Default
 
         //INFO: get source app info
-        let localOwnedExisted:Bool
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
-            if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
-                
-                localOwnedExisted = localCharges.contains(where:{ $0.reward.isLocalOwned })
+        let localChargesOfSourceApp = (AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type)?.localCharges.nilEmpty
+        let localOwnedOfSourceAppExisted = localChargesOfSourceApp?.contains(where:{ $0.reward.isLocalOwned }) ?? false
 
-                //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
-                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
-                    var mutablePayGroup = payGroup
-                    var items = payGroup.items
-                    items.append(contentsOf:localCharges.map ({
-                            let pay = PayItem(payable: $0.payment)
-//                            pay.rewardIconImageStyle.beRound = true
-                            pay.rewardIconImageStyle.useTintColor = false
-                            return pay
-                        })
-                    )
-                    mutablePayGroup.items = items
-                    mutableDefaultCollection[i] = mutablePayGroup
-                    break
-                }
+        let localChargesOfEntire = AppCenter.default.apps(by: .default).compactMap { appType -> [Charge]? in
+            return (appType as? ChargeableApp.Type)?.localCharges
+        }.reduce([], +).nilEmpty
 
-                mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
-            }else{
-                localOwnedExisted = false
+        //INFO: priority: source app's localCharges > default all app's localCharges
+        if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
+
+            //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
+            for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
+                var mutablePayGroup = payGroup
+                var items = payGroup.items
+                items.append(contentsOf:localCharges.map ({
+                    let pay = PayItem(payable: $0.payment)
+                    pay.rewardIconImageStyle.useTintColor = false
+                    return pay
+                })
+                )
+                mutablePayGroup.items = items
+                mutableDefaultCollection[i] = mutablePayGroup
+                break
             }
 
-        }else{
-            localOwnedExisted = false
+            mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
         }
 
         //INFO: Apply dictionary deps
@@ -145,7 +142,7 @@ extension ShopApp{
 
                 //POLICY: Check if isLocalOwned has existed, but an item is not isLocalOwned(==free charge reward) will be hidden.
                 if charge.reward.isLocalOwned == false && charge.reward.isOwned == false {
-                    if localOwnedExisted{
+                    if localOwnedOfSourceAppExisted{
                         return false
                     }
                 }
@@ -164,7 +161,7 @@ extension ShopApp{
                         return false
                     }
                 }
-                
+
                 return true
             }
 
@@ -176,7 +173,7 @@ extension ShopApp{
                 mutableDefaultCollection[i] = mutablePayDict
             }
         }
-        
+
         return mutableDefaultCollection.filter {
             if let index = mutableDefaultCollection.index(of: $0), removingIndexes.contains(index) {
                 return false
@@ -273,9 +270,9 @@ private struct PayGroup:Hashable, Equatable, Section {
 //                    , PayItem(payable:YearlyAllAppsPayment.self)
 //                    , PayItem(payable:MonthlyAllAppsPayment.self)
 
-                    , PayItem(payable:OneYearAllAppsPayment.self)
-                    , PayItem(payable:SixMonthsAllAppsPayment.self)
-                    , PayItem(payable:OneMonthAllAppsPayment.self)
+//                    , PayItem(payable:OneYearAllAppsPayment.self)
+//                    , PayItem(payable:SixMonthsAllAppsPayment.self)
+//                    , PayItem(payable:OneMonthAllAppsPayment.self)
 
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
@@ -530,7 +527,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.fitConstraints(to: view)
         return view
     }()
-    
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
@@ -547,7 +544,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.delegate = self
         tableView.rowHeight = 46
         tableView.allowsSelection = false
-        tableView.allowsMultipleSelection = false        
+        tableView.allowsMultipleSelection = false
 
         reloadData()
     }
@@ -790,14 +787,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 for desc in cellGroup.describers {
                     tableView.register(describer: desc)
                 }
-            }            
+            }
             else if let cellGroup = s as? PayGroup{
                 for item in cellGroup.items {
                     tableView.register(item.cellInfo.cellClass, forCellReuseIdentifier: item.cellInfo.id)
                 }
             }
         }
-        
+
         tableView.reloadData()
     }
 

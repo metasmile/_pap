@@ -77,17 +77,17 @@ struct ChargeButtonAppearance: ChargeableButtonAppearance{
             case .rented where charge.payment is OneYearAllAppsPayment.Type:
                 return R.image.systemIconChargeRentedOneYear()
 
-            case .rented where charge.payment is SixMonthsAllAppsPayment.Type:
-                return R.image.systemIconChargeRentedSixMonth()
-
-            case .rented where charge.payment is OneMonthAllAppsPayment.Type:
-                return R.image.systemIconChargeRentedOneMonth()
-
-            case .rented where charge.payment is MonthlyAllAppsPayment.Type:
-                return R.image.systemIconChargeRentedMonthly()
-
-            case .rented where charge.payment is YearlyAllAppsPayment.Type:
-                return R.image.systemIconChargeRentedYearly()
+//            case .rented where charge.payment is SixMonthsAllAppsPayment.Type:
+//                return R.image.systemIconChargeRentedSixMonth()
+//
+//            case .rented where charge.payment is OneMonthAllAppsPayment.Type:
+//                return R.image.systemIconChargeRentedOneMonth()
+//
+//            case .rented where charge.payment is MonthlyAllAppsPayment.Type:
+//                return R.image.systemIconChargeRentedMonthly()
+//
+//            case .rented where charge.payment is YearlyAllAppsPayment.Type:
+//                return R.image.systemIconChargeRentedYearly()
 
             case .blockOfUses where charge.type == .instantAdsShowingAllowance:
                 return R.image.systemIconChargeAd()
