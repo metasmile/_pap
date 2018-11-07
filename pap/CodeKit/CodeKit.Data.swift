@@ -200,11 +200,11 @@ private struct MimeType {
             mime: "video/x-matroska",
             bytesCount: 4,
             matches: { bytes, data in
-                guard bytes[0...3] == [0x1A, 0x45, 0xDF, 0xA3] else {
+                guard bytes[0...3] == [0x1A, 0x45, 0xDF, 0xA3], let mimeData = data.readBytes(count: 4100) else {
                     return false
                 }
                 
-                let _bytes = Array(data.readBytes(count: 4100)[4 ..< 4100])
+                let _bytes = Array(mimeData[4 ..< 4100])
                 var idPos = -1
                 
                 for i in 0 ..< (_bytes.count - 1) {
@@ -239,11 +239,11 @@ private struct MimeType {
             mime: "video/webm",
             bytesCount: 4,
             matches: { bytes, data in
-                guard bytes[0...3] == [0x1A, 0x45, 0xDF, 0xA3] else {
+                guard bytes[0...3] == [0x1A, 0x45, 0xDF, 0xA3], let mimeData = data.readBytes(count: 4100) else {
                     return false
                 }
                 
-                let _bytes = Array(data.readBytes(count: 4100)[4 ..< 4100])
+                let _bytes = Array(mimeData[4 ..< 4100])
                 var idPos = -1
                 
                 for i in 0 ..< (_bytes.count - 1) {
@@ -548,15 +548,16 @@ private struct MimeType {
 
 extension Data {
     private var mimeType: MimeType? {
-        let bytes = readMimeTypeBytes()
+        guard let bytes = readMimeTypeBytes() else { return nil }
         return MimeType.all.first { $0.matches(bytes: bytes, data: self) }
     }
     
-    fileprivate func readMimeTypeBytes() -> [UInt8] {
+    fileprivate func readMimeTypeBytes() -> [UInt8]? {
         return readBytes(count: 262)
     }
     
-    fileprivate func readBytes(count: Int) -> [UInt8] {
+    fileprivate func readBytes(count: Int) -> [UInt8]? {
+        guard count < self.count else { return nil }
         var bytes = [UInt8](repeating: 0, count: count)
         copyBytes(to: &bytes, count: count)
         return bytes

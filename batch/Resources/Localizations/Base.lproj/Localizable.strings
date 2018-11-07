@@ -184,6 +184,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Backup" = "Backup";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -206,7 +208,7 @@
 "Cleaner" = "Cleaner";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard is empty" = "Clipboard is empty";
-/* Generated from genl10n: Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
@@ -300,7 +302,7 @@
 "Free Use And All New Updates" = "Free Use And All New Updates";
 /* Generated from genl10n: Shop.Payment.System.swift */
 "Free Use" = "Free Use";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift */
 "From Remote Clipboard" = "From Remote Clipboard";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
@@ -332,7 +334,7 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFactory.AppDockContent.swift */
 "Image Quality" = "Image Quality";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "Image";
 /* Generated from genl10n: PDFactory.AppDefaults.swift */
 "Images" = "Images";
@@ -434,7 +436,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift, Clipboard.BApp.swift */
 "Open" = "Open";
 /* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
@@ -632,7 +634,7 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payables.Store.LegalInfo.swift */
 "Terms of Use" = "Terms of Use";
-/* Generated from genl10n: Finder.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you %@. Soon we will contact you." = "Thank you %@. Soon we will contact you.";
@@ -658,7 +660,7 @@
 "Translation Correction" = "Translation Correction";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Type";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
@@ -680,7 +682,7 @@
 "Verification Failed." = "Verification Failed.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video Tutorials";
-/* Generated from genl10n: GIFMaker.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
+/* Generated from genl10n: Clipboard.BApp.swift, GIFMaker.BApp.swift, Clipboard.BApp.swift */
 "Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos Saved by Instagram" = "Videos Saved by Instagram";

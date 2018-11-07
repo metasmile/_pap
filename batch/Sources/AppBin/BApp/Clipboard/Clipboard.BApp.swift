@@ -137,7 +137,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         
-        reloadData()
+        if self.delegator.group.isEmpty {
+            reloadData()
+        }
         
         registerClipboardObservingTimer()
     }
@@ -192,13 +194,12 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         return UIPasteboard(name: UIPasteboard.Name(Bundle.main.bundleIdentifier ?? "com.stells.batch"), create: true)
     }
     
-    private func cellDescriberGroupsFor(pasteboard: UIPasteboard, footerText: String? = nil) -> [CellDescriberGroup] {
-        var groups = [CellDescriberGroup]()
+    private var isSafariOpened = false
+    
+    private func cellDescriberGroupFor(pasteboard: UIPasteboard, title: String, footerText: String? = nil) -> CellDescriberGroup {
+        var cellDescribers = [UITableViewButtonCellDescriber]()
         
         if pasteboard.hasImages, let images = pasteboard.images {
-            let group = ClipboardGroup(type: "Image".localized, values: images)
-            
-            var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, image) in images.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = "image \(idx)".hashValue
@@ -219,26 +220,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 
                 cellDescribers.append(cell)
             }
-            
-            if !cellDescribers.isEmpty {
-                var detailedLabel: String? = nil
-                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-                    detailedLabel = "From Remote Clipboard".localized
-                }
-                
-                let groupDescriber = UITableViewCellDescriber()
-                groupDescriber.itemIdentifier = group.hashValue
-                groupDescriber.label = group.type
-                
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-                groups.append(cellGroup)
-            }
         }
         
         if pasteboard.hasURLs, let urls = pasteboard.urls {
-            let group = ClipboardGroup(type: "URL".localized, values: urls)
-            
-            var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, url) in urls.enumerated() {
                 
                 let cell = UITableViewButtonCellDescriber()
@@ -267,68 +251,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 }
                 
                 cellDescribers.append(cell)
-            }
-            
-            if !cellDescribers.isEmpty {
-                var detailedLabel: String? = nil
-                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-                    detailedLabel = "From Remote Clipboard".localized
-                }
-                
-                let groupDescriber = UITableViewCellDescriber()
-                groupDescriber.itemIdentifier = group.hashValue
-                groupDescriber.label = group.type
-                
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-                groups.append(cellGroup)
             }
         }
-//        else if pasteboard.hasStrings, let datas = pasteboard.strings?.compactMap({ $0.data(using: String.Encoding.utf8)?.base64EncodedString() }).compactMap({ Data(base64Encoded: $0) }), !datas.isEmpty {
-//            let group = ClipboardGroup(type: "Data".localized, values: datas)
-//
-//            var cellDescribers = [UITableViewButtonCellDescriber]()
-//            for (idx, data) in datas.enumerated() {
-//                let cell = UITableViewButtonCellDescriber()
-//                cell.itemIdentifier = "data \(idx)".hashValue
-//                cell.label = "Data"
-//                cell.buttonTitle = "Save".localized
-//                cell.buttonDetailTitle = { () -> String in
-//                    let uti = data.uti
-//                    if uti?.conforms(to: UTI.image) == true { return "Image" }
-//                    else if uti?.conforms(to: UTI.movie) == true { return "Video" }
-//                    else { return "Data" }
-//                }().localized
-//                cell.valueHandler = { _ in
-//                    cell.indicating = true
-//                    DispatchQueue.main.async { self.tableView.reloadData() }
-//
-//                    self.createAssetFromData(data, completion: {
-//                        cell.indicating = false
-//                        DispatchQueue.main.async { self.tableView.reloadData() }
-//                    })
-//                }
-//
-//                cellDescribers.append(cell)
-//            }
-//
-//            if !cellDescribers.isEmpty {
-//                var detailedLabel: String? = nil
-//                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-//                    detailedLabel = "From Remote Clipboard".localized
-//                }
-//
-//                let groupDescriber = UITableViewCellDescriber()
-//                groupDescriber.itemIdentifier = group.hashValue
-//                groupDescriber.label = group.type
-//
-            //                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-//                groups.append(cellGroup)
-//            }
-//        }
         else if pasteboard.hasStrings, let urls = pasteboard.strings?.compactMap({ URL(string: $0) }).filter({ !$0.absoluteString.urls().isEmpty }), !urls.isEmpty {
-            let group = ClipboardGroup(type: "URL".localized, values: urls)
-            
-            var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, url) in urls.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = "url \(idx)".hashValue
@@ -356,26 +281,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 }
                 
                 cellDescribers.append(cell)
-            }
-            
-            if !cellDescribers.isEmpty {
-                var detailedLabel: String? = nil
-                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-                    detailedLabel = "From Remote Clipboard".localized
-                }
-                
-                let groupDescriber = UITableViewCellDescriber()
-                groupDescriber.itemIdentifier = group.hashValue
-                groupDescriber.label = group.type
-                
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-                groups.append(cellGroup)
             }
         }
         else if pasteboard.hasStrings, let strings = pasteboard.strings {
-            let group = ClipboardGroup(type: "Text".localized, values: strings)
-            
-            var cellDescribers = [UITableViewButtonCellDescriber]()
             for (idx, string) in strings.enumerated() {
                 let cell = UITableViewButtonCellDescriber()
                 cell.itemIdentifier = "text \(idx)".hashValue
@@ -383,51 +291,37 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 
                 cellDescribers.append(cell)
             }
-            
-            if !cellDescribers.isEmpty {
-                var detailedLabel: String? = nil
-                if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
-                    detailedLabel = "From Remote Clipboard".localized
-                }
-                
-                let groupDescriber = UITableViewCellDescriber()
-                groupDescriber.itemIdentifier = group.hashValue
-                groupDescriber.label = group.type
-                
-                let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-                groups.append(cellGroup)
-            }
         }
         
-        return groups
+        if cellDescribers.isEmpty {
+            let cell = UITableViewButtonCellDescriber()
+            cell.itemIdentifier = "empty".hashValue
+            cell.label = "Clipboard is empty".localized
+            
+            cellDescribers.append(cell)
+        }
+        
+        var detailedLabel: String? = nil
+        if pasteboard.contains(pasteboardTypes: ["com.apple.is-remote-clipboard"]) {
+            detailedLabel = "From Remote Clipboard".localized
+        }
+        
+        let groupDescriber = UITableViewCellDescriber()
+        groupDescriber.itemIdentifier = pasteboard.hashValue
+        groupDescriber.label = title
+        
+        let group = CellDescriberGroup(label: title, detailedLabel: footerText ?? detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
+        return group
     }
     
     private func fetchPasteboardItems() -> [CellDescriberGroup] {
         self.fetchedChangeCount = UIPasteboard.general.changeCount
         
         var groups = [CellDescriberGroup]()
-        groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: UIPasteboard.general))
-        
-        if groups.isEmpty {
-            let group = ClipboardGroup(type: "", values: ["Empty"])
-            
-            var cellDescribers = [UITableViewButtonCellDescriber]()
-            let cell = UITableViewButtonCellDescriber()
-            cell.itemIdentifier = "empty".hashValue
-            cell.label = "Clipboard is empty".localized
-            
-            cellDescribers.append(cell)
-            
-            let groupDescriber = UITableViewCellDescriber()
-            groupDescriber.itemIdentifier = group.hashValue
-            groupDescriber.label = group.type
-            
-            let cellGroup = CellDescriberGroup(label: group.type, detailedLabel: nil, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: cellDescribers)
-            groups.append(cellGroup)
-        }
+        groups.append(cellDescriberGroupFor(pasteboard: UIPasteboard.general, title: "Clipboard".localized))
         
         if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
-            groups.append(contentsOf: cellDescriberGroupsFor(pasteboard: localPasteboard, footerText: "Restore From Previous Clipboard".localized))
+            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "Backup".localized, footerText: "Restore From Previous Clipboard".localized))
         }
         
         self.localPasteboard?.items = UIPasteboard.general.items
@@ -441,6 +335,12 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 self.createAssetFromData(data, completion: completion)
             }
             else {
+                guard !self.isSafariOpened else {
+                    completion?()
+                    return
+                }
+                self.isSafariOpened = true
+                
                 let async = AsyncSignal()
                 async.begin()
                 UIApplication.openSafari(with: url, didPresent: {
@@ -450,6 +350,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 }, didDismiss: {
                     async.end()
                     completion?()
+                    self.isSafariOpened = false
                 })
                 async.waitUntilEnd()
             }
