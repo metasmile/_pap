@@ -655,6 +655,7 @@
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
+		51A9DF12219445060013BE36 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A00FDD49218235EE005EAD1B /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBE4218235EE005EAD1B /* cell_icon_depth.png */; };
 		A00FDD4A218235EE005EAD1B /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBE5218235EE005EAD1B /* cell_icon_burst.png */; };
 		A00FDD4B218235EE005EAD1B /* cell_icon_pano.png in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBE6218235EE005EAD1B /* cell_icon_pano.png */; };
@@ -1104,6 +1105,7 @@
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
+		51A9DF11219445060013BE36 /* Settings.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.SApp.swift; sourceTree = "<group>"; };
 		6DE37DA314DD07B700208587 /* Pods-batch-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71D3A436A2443042ABEE399E /* Pods-batch-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.release.xcconfig"; sourceTree = "<group>"; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2142,6 +2144,7 @@
 				4F71D384E82677E370069EFF /* Shop */,
 				4F71D560E1FB6A785B514D8F /* SApp.swift */,
 				4F71D1A1F05118B6E4FDAA49 /* Camera */,
+				51A9DF10219444CA0013BE36 /* Settings */,
 			);
 			path = SApp;
 			sourceTree = "<group>";
@@ -2224,6 +2227,14 @@
 				51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */,
 			);
 			path = Siri;
+			sourceTree = "<group>";
+		};
+		51A9DF10219444CA0013BE36 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				51A9DF11219445060013BE36 /* Settings.SApp.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		A00FDBE0218235EE005EAD1B /* mmc */ = {
@@ -3414,6 +3425,7 @@
 				4F71D41A81D16C12BB590B69 /* Transform.BApp.Contents.swift in Sources */,
 				A0DE010F216CFD4D00F99365 /* MultiArray.swift in Sources */,
 				4F71D237E0C62A1E6915D4BD /* Transform.BApp.Public.Contents.swift in Sources */,
+				51A9DF12219445060013BE36 /* Settings.SApp.swift in Sources */,
 				4F71D297B39DB140B876FDC4 /* BApp.Macro.AutoSelection.swift in Sources */,
 				4F71D55035FDEBDEDE636A04 /* Shop.SApp.swift in Sources */,
 				A0DE010B216CFD4D00F99365 /* Math.swift in Sources */,
