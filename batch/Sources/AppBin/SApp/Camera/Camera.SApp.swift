@@ -29,9 +29,9 @@ extension Defaults: CameraAppDefaults {
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
 
-    var cameraFlashMode: AVCaptureDevice.FlashMode {
+    var cameraFlashMode: CameraView.FlashMode {
         set { set(newValue.rawValue); batchLog.app.defaults.log(value:newValue.rawValue) }
-        get { return AVCaptureDevice.FlashMode(rawValue: get(or: AVCaptureDevice.FlashMode.off.rawValue)) ?? .off }
+        get { return CameraView.FlashMode(rawValue: get(or: CameraView.FlashMode.off.rawValue)) ?? .off }
     }
 }
 
