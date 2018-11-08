@@ -171,7 +171,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     
     lazy var delegator = ClipboardTableViewContentDelegator()
     
-    private func reloadData() {
+    fileprivate func reloadData(completion: (() -> Void)? = nil) {
         DispatchQueue(label: #file + "fetchPasteboardItems", qos: .utility).async {
             self.delegator.group = self.fetchPasteboardItems()
             
@@ -186,6 +186,8 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 }
                 
                 self.tableView.reloadData()
+                
+                completion?()
             }
         }
     }
@@ -320,11 +322,16 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         return group
     }
     
+    fileprivate var currentClipboardGroup: CellDescriberGroup?
+    
     private func fetchPasteboardItems() -> [CellDescriberGroup] {
         self.fetchedChangeCount = UIPasteboard.general.changeCount
         
         var groups = [CellDescriberGroup]()
-        groups.append(cellDescriberGroupFor(pasteboard: UIPasteboard.general, title: "Clipboard".localized))
+        
+        let clipboardGroup = cellDescriberGroupFor(pasteboard: UIPasteboard.general, title: "Clipboard".localized)
+        currentClipboardGroup = clipboardGroup
+        groups.append(clipboardGroup)
         
         if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
             groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "", footerText: "Restore from previous clipboard".localized))
@@ -516,5 +523,50 @@ private class ClipboardTableViewContentDelegator: NSObject, UITableViewDataSourc
         }
         
         return nil
+    }
+}
+
+import Intents
+
+extension ClipboardApp: UIApplicationDelegateLaunchableApp {
+    static var intents: [INIntent] {
+        if #available(iOS 12.0, *) {
+            var intents = [INIntent]()
+            
+            let openAppIntent = OpenIntent()
+            openAppIntent.appId = ClipboardApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ClipboardApp.info.displayName) as String
+            openAppIntent.suggestedInvocationPhrase = "Open Clipboard.".localized
+            intents.append(openAppIntent)
+            
+            let pasteImageIntent = PasteImageIntent()
+            pasteImageIntent.appId = ClipboardApp.info.identifier
+            pasteImageIntent.suggestedInvocationPhrase = "Save the copied image.".localized
+            intents.append(pasteImageIntent)
+            
+            return [openAppIntent, pasteImageIntent]
+        } else {
+            return []
+        }
+    }
+    
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent
+                , let content = self.content as? ClipboardAppDockContent else {
+                    return
+            }
+            
+            if intent is PasteImageIntent {
+                content.reloadData {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+                        content.currentClipboardGroup?.itemCellDescribers.forEach { $0.valueHandler?("") }
+                    }
+                }
+            }
+        }
+    }
+    
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
     }
 }

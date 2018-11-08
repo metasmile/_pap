@@ -142,6 +142,7 @@
 		<string>OpenCameraIntent</string>
 		<string>OpenFiltersIntent</string>
 		<string>OpenIntent</string>
+		<string>PasteImageIntent</string>
 		<string>RecognizeTextIntent</string>
 		<string>TakeAGIFWithLivePhotoIntent</string>
 		<string>TakeAPhotoIntent</string>

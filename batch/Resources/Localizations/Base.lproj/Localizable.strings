@@ -402,6 +402,8 @@
 "Open Camera." = "Open Camera.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Open Clipboard.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -422,7 +424,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Clipboard.BApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
 /* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
@@ -518,6 +520,8 @@
 "Save Contacts" = "Save Contacts";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Save and Share";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Save the copied image.";
 /* Generated from genl10n: Clipboard.BApp.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
