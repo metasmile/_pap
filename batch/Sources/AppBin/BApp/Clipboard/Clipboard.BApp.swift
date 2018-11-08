@@ -560,7 +560,7 @@ extension ClipboardApp: UIApplicationDelegateLaunchableApp {
             if intent is PasteImageIntent {
                 content.reloadData {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
-                        content.currentClipboardGroup?.itemCellDescribers.forEach { $0.valueHandler?("") }
+                        content.currentClipboardGroup?.itemCellDescribers.compactMap { $0.valueHandler }.first?("")
                     }
                 }
             }
