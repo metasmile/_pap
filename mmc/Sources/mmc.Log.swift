@@ -134,9 +134,9 @@ extension Loggable {
             }
 
             let identifier = createIdentifier(withFunction: functionName)
-            print("[i] Logged: ",identifier, parameters ?? "")
+            print("[i] Logged: ",identifier, paramToCommit)
 #if !DEBUG
-            Analytics.logEvent(identifier, parameters: parameters)
+            Analytics.logEvent(identifier, parameters: paramToCommit)
 #endif
         }
     }
