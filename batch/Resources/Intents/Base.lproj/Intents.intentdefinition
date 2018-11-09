@@ -194,7 +194,7 @@
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.0</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>18A391</string>
+	<string>18B75</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>10O35n</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -1521,7 +1521,7 @@
 			<key>INIntentCategory</key>
 			<string>download</string>
 			<key>INIntentDefaultImageName</key>
-			<string>AppActionIcon.Text</string>
+			<string>Clipboard.BApp.Icon</string>
 			<key>INIntentDescription</key>
 			<string>Save the copied image.</string>
 			<key>INIntentDescriptionID</key>

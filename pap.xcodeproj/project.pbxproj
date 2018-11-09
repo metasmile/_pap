@@ -648,6 +648,7 @@
 		4F71DFE0FEB30148444FF04C /* App.Preheatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D194EE74FC5DE7ECEBD7 /* App.Preheatable.swift */; };
 		5108A2D8218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
 		5108A2D9218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
+		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
 		511D20D8214B2CEC00056AD3 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */; };
 		51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */; };
@@ -1096,6 +1097,7 @@
 		4F71DFEBAD52B5CA78541BEC /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Data.swift; sourceTree = "<group>"; };
+		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.Intents.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
@@ -2213,6 +2215,7 @@
 			isa = PBXGroup;
 			children = (
 				515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */,
+				5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -2936,6 +2939,7 @@
 				A0956BC82095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF72095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C092095005200E680B9 /* Localizable.strings in Resources */,
+				5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */,
 				A0956C192095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C082095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BBD2095005200E680B9 /* Localizable.strings in Resources */,
