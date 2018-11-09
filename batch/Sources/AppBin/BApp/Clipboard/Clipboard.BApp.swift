@@ -57,7 +57,7 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
         , description: "Paste images from your clipboards".localized
         , keywords: ["Clipboard","Pasteboard","Copy","Paste","Cut"]
         , iconBundleName: R.image.clipboardBAppIcon.name
-        , themeColor: UIColor(red: 0.99, green: 0.98, blue: 0.27, alpha: 1)
+        , themeColor: UIColor(red: 0.67, green: 0.73, blue: 0.67, alpha: 1)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
