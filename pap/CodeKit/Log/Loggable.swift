@@ -20,15 +20,15 @@ extension Loggable{
     }
 
     static func createIdentifier(with name: String=#function) -> String {
-        return "\(String(reflecting: self))\(splitter)\(name)"
+        return "\(String(reflecting: self))\(splitter)\(name)".replace(".", "_")
     }
 
     static func createIdentifier(withFunction name: String=#function) -> String {
-        return "\(String(reflecting: self))\(splitter)\(name.loggableFunctionName)"
+        return "\(String(reflecting: self))\(splitter)\(name.loggableFunctionName)".replace(".", "_")
     }
 
     static func createIdentifier(withFile name: String=#file) -> String {
-        return URL(string: name)?.deletingPathExtension().lastPathComponent.remove(splitter) ?? String(reflecting: self)
+        return (URL(string: name)?.deletingPathExtension().lastPathComponent.remove(splitter) ?? String(reflecting: self)).replace(".", "_")
     }
 }
 
