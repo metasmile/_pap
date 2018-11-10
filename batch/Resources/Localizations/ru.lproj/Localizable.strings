@@ -474,6 +474,8 @@
 "Open" = "открыто";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "оригинал";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Наши социальные медиа";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker делает PDF-документ из нескольких изображений с различными параметрами страницы.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Использовать пробную версию";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "использование";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Пользовательское сообщество";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Горячая линия VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -474,6 +474,8 @@
 "Open" = "Otvoren";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Naši društveni mediji";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Koristite probnu verziju";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Koristiti";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Korisnička zajednica";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

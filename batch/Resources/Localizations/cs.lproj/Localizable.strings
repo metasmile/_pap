@@ -474,6 +474,8 @@
 "Open" = "otevřeno";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Originál";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Naše sociální média";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker vytváří dokument PDF z více obrázků s různými možnostmi stránky.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Použijte zkušební verzi";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Použití";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Komunita uživatelů";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

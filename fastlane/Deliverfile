@@ -2,6 +2,8 @@
 # For more information, check out the docs
 # https://docs.fastlane.tools/actions/deliver/
 
+require 'open-uri'
+
 if ENV['batch']
     username "croing09@gmail.com"
     app_identifier "com.stells.batch"
@@ -14,4 +16,10 @@ elsif ENV['mmc']
     metadata_path "./fastlane/com.stells.mmc"
     screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/mmc"
     ipa "mmc.ipa"
+elsif ENV['fap']
+    username "illhert@yahoo.com"
+    app_identifier "com.stells.fap"
+    metadata_path "./fastlane/com.stells.fap"
+    screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/fap"
+    ipa "fap.ipa"
 end

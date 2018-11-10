@@ -474,6 +474,8 @@
 "Open" = "Öffnen";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Unsere Social Media";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker erstellt PDF-Dokumente aus mehreren Bildern mit verschiedenen Seitenoptionen.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Verwenden Sie die Testversion";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Benutzen";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Benutzergemeinschaft";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -474,6 +474,8 @@
 "Open" = "열기";
 /* Generated from genl10n: Stabilizer.BApp.swift, Filters.BApp.swift */
 "Original" = "원본";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "소셜 미디어";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker는 다양한 페이지 옵션으로 여러 이미지에서 PDF 문서를 만듭니다.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "평가판 사용";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "용도";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "사용자 커뮤니티";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

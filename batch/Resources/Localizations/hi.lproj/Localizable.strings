@@ -474,6 +474,8 @@
 "Open" = "खुला";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "हमारा सोशल मीडिया";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "पीडीएफएचक विभिन्न पेज विकल्पों के साथ कई छवियों से पीडीएफ दस्तावेज बनाता है।";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "परीक्षण का प्रयोग करें";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "उपयोग";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -474,6 +474,8 @@
 "Open" = "לִפְתוֹחַ";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "מְקוֹרִי";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "המדיה החברתית שלנו";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker עושה מסמך PDF מתמונות מרובות עם אפשרויות דף שונים.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "השתמש בניסוי";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "להשתמש";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "קהילת המשתמשים";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

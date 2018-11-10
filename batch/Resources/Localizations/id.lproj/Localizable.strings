@@ -474,6 +474,8 @@
 "Open" = "Buka";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asli";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Media Sosial kami";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "Pabrikan PDF membuat dokumen PDF dari banyak gambar dengan berbagai opsi halaman.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Gunakan Uji Coba";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Menggunakan";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Komunitas Pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

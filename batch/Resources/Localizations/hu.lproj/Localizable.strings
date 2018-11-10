@@ -474,6 +474,8 @@
 "Open" = "Nyisd ki";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Eredeti";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "A szociális média";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "A PDFMaker több oldalról több képet tartalmazó PDF dokumentumot készít.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Használd a próbát";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Használat";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Felhasználói közösség";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

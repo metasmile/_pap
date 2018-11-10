@@ -474,6 +474,8 @@
 "Open" = "打开";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "原版的";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "我们的社交媒体";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker使用各种页面选项从多个图像制作PDF文档。";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "使用试用版";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "用户社区";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "贵宾热线";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

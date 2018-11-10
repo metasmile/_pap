@@ -474,6 +474,8 @@
 "Open" = "افتح";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "وسائل الاعلام الاجتماعية لدينا";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker يجعل وثيقة PDF من صور متعددة مع خيارات الصفحة المختلفة.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "استخدام المحاكمة";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "استعمال";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "مجتمع المستخدم";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "خط ساخن لكبار الشخصيات";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

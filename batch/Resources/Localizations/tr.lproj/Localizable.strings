@@ -474,6 +474,8 @@
 "Open" = "Açık";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "orijinal";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Sosyal Medyamız";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDF, çeşitli sayfa seçenekleriyle PDF belgesini birden çok görüntüden yapar.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Deneme sürümünü kullan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "kullanım";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Kullanıcı Topluluğu";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Yardım Hattı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

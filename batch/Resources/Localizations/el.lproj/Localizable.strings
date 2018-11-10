@@ -474,6 +474,8 @@
 "Open" = "Ανοιξε";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Τα κοινωνικά μας μέσα ενημέρωσης";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "Το PDFMaker κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Χρήση";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

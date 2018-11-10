@@ -474,6 +474,8 @@
 "Open" = "Buka";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asal";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Media Sosial kami";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker membuat dokumen PDF dari pelbagai imej dengan pelbagai pilihan halaman.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "Gunakan Percubaan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gunakan";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Komuniti Pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

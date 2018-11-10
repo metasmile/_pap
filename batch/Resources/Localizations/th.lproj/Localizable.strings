@@ -474,6 +474,8 @@
 "Open" = "เปิด";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "สื่อสังคมของเรา";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker ทำให้เอกสาร PDF จากภาพหลายภาพพร้อมตัวเลือกหน้าต่างๆ";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -708,8 +710,6 @@
 "Use Trial" = "ใช้การทดลองใช้";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "ใช้";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "ชุมชนผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
