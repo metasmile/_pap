@@ -106,6 +106,15 @@ class CameraView: UIView, PropertyWatchable {
         guard let videoDimensions = captureVideoDimension else { return .zero }
         return CGSize(width: Int(videoDimensions.height), height: Int(videoDimensions.width))
     }
+    
+    var flashMode: FlashMode = .off {
+        didSet {
+            photoSettingsFlashMode = flashMode.flashMode
+            sessionQueue.async {
+                self.setTorchMode(self.flashMode.torchMode)
+            }
+        }
+    }
 
     private func configureSession() {
         captureSession = AVCaptureSession()
@@ -160,6 +169,7 @@ class CameraView: UIView, PropertyWatchable {
                 self.configureSession()
             }
             self.captureSession?.startRunning()
+            self.setTorchMode(self.flashMode.torchMode)
 
             completion?()
         }
@@ -200,13 +210,13 @@ class CameraView: UIView, PropertyWatchable {
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            photoSettings.flashMode = self.currentFlashMode
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         } else {
             photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
             captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
         photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        photoSettings.flashMode = self.photoSettingsFlashMode
 
         capturesInProgress.insert(captureProcessor)
 
@@ -393,6 +403,29 @@ extension CameraView {
 }
 
 extension CameraView {
+    public enum FlashMode: Int {
+        case off
+        case on
+        case auto
+        case torch
+        
+        var flashMode: AVCaptureDevice.FlashMode {
+            switch self {
+            case .off: return .off
+            case .on: return .on
+            case .auto: return .auto
+            default: return .off
+            }
+        }
+        
+        var torchMode: AVCaptureDevice.TorchMode {
+            switch self {
+            case .torch: return .on
+            default: return .off
+            }
+        }
+    }
+    
     var isLivePhotoSupported: Bool {
         return capturePhotoOutput.isLivePhotoCaptureSupported
     }
@@ -410,7 +443,7 @@ extension CameraView {
         }
     }
 
-    var currentFlashMode: AVCaptureDevice.FlashMode {
+    var photoSettingsFlashMode: AVCaptureDevice.FlashMode {
         set {
             self.currentPhotoSettings.flashMode = newValue
             self.configurationDidUpdate?()
@@ -418,6 +451,22 @@ extension CameraView {
         get {
             return currentPhotoSettings.flashMode
         }
+    }
+    
+    fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+        beginConfiguration()
+        
+        let device = currentCaptureDeviceInput(for: .video)?.device
+        
+        try? device?.lockForConfiguration()
+        
+        if device?.hasTorch == true {
+            device?.torchMode = torchMode
+        }
+        
+        device?.unlockForConfiguration()
+        
+        commitConfiguration()
     }
 }
 
