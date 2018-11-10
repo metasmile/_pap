@@ -17,7 +17,7 @@ extension AppCenter{
 
     //POLICY: VIP == '.owned' (permanently)
     static var isPaidAsVIPInCurrentContext:Bool{
-        return charge.getChargesPaid().contains { $0.reward == .owned }
+        return charge.getChargesPaid().contains { $0.type != .none && $0.reward == .owned }
         //this is '.owned' specific. different from 'isOwned'
     }
 

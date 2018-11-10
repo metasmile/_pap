@@ -46,7 +46,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , appType: MemoCamApp.self
         , displayName: "MemoCam".localized, description:nil, keywords:nil
         , iconBundleName: R.image.memoCamBAppIcon.name
-            , themeColor: nil, policy: AppPolicy.default
+            , themeColor: UIColor(red:0.98, green:0.99, blue:0.22, alpha:1), policy: AppPolicy.default
         , minOSVersion: nil
     )
 
@@ -696,7 +696,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         stopMemoCamSession()
         
         updateToolBar()
-        
+
+        toolBar.tintColor = view.colorTheme.tintColor
+
         if let image = currentTargetImage {
             reloadDetectedResult(with: image)
         }
