@@ -1068,8 +1068,6 @@
 		A07BD37D21972626003031D5 /* App.Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D9EFA9E3848AB45AA6F8 /* App.Resources.xcassets */; };
 		A07BD37E21972626003031D5 /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D961BCA2BA89D5253DC5 /* AppUICollectionViewCell.xib */; };
 		A07BD37F21972626003031D5 /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D36DDC98A235F4BD5AAD /* App.UI.CameraView.xcassets */; };
-		A07BD38D2197467D003031D5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BD38C2197467D003031D5 /* CloudKit.framework */; };
-		A07BD38E21974689003031D5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BD38C2197467D003031D5 /* CloudKit.framework */; };
 		A07BD39021974ACA003031D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
@@ -1607,7 +1605,6 @@
 		A05987C8215402080011077B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
 		A07BD38621972626003031D5 /* fap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07BD38721973656003031D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A07BD38C2197467D003031D5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956A962095004700E680B9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1699,7 +1696,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07BD38E21974689003031D5 /* CloudKit.framework in Frameworks */,
 				511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */,
 				2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */,
 			);
@@ -1717,7 +1713,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07BD38D2197467D003031D5 /* CloudKit.framework in Frameworks */,
 				A07BD33121972626003031D5 /* StoreKit.framework in Frameworks */,
 				05FCAC5A962D15674586A0BA /* Pods_fap.framework in Frameworks */,
 			);
@@ -3109,7 +3104,6 @@
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A07BD38C2197467D003031D5 /* CloudKit.framework */,
 				511D20D2214B198000056AD3 /* StoreKit.framework */,
 				514CEBFA20E1A31D00098DFA /* Vision.framework */,
 				7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */,
@@ -3258,7 +3252,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -5580,7 +5574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = batch/batch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = fap/fap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -5608,7 +5602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = batch/batch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = fap/fap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
