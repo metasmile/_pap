@@ -33,8 +33,10 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:312167608473:ios:bc2de763d380432d</string>
+	<string>1:312167608473:ios:016849b168ea666a</string>
 	<key>DATABASE_URL</key>
 	<string>https://batch-photos.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3029312734389414~7736928915</string>
 </dict>
 </plist>
