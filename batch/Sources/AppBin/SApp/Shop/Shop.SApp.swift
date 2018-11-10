@@ -36,7 +36,7 @@ public class ShopApp: NSObject
             , description: nil
             , keywords: nil
             , iconBundleName: R.image.shopSAppIcon.name
-            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+            , themeColor: UIColor.white, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
 
@@ -693,16 +693,27 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             contactCellDescribers.append(c6)
         }
 
+//        //open later.
+//        let c3 = UITableViewButtonCellDescriber()
+//        c3.label = "User Community".localized
+//        c3.buttonTitle = "Visit".localized
+//        c3.iconImage = R.image.cellIconUserGroup.name
+//        c3.iconImageTintColor = self.view.tintColor
+//        c3.valueHandler = { _ in
+//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+//        }
+//        contactCellDescribers.append(c3)
+
         //open later.
-        let c3 = UITableViewButtonCellDescriber()
-        c3.label = "User Community".localized
-        c3.buttonTitle = "Visit".localized
-        c3.iconImage = R.image.cellIconUserGroup.name
-        c3.iconImageTintColor = self.view.tintColor
-        c3.valueHandler = { _ in
-            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+        let ccc423 = UITableViewButtonCellDescriber()
+        ccc423.label = "Our Social Media".localized
+        ccc423.buttonTitle = "Visit".localized
+        ccc423.iconImage = R.image.cellIconUserGroup.name
+        ccc423.iconImageTintColor = self.view.tintColor
+        ccc423.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeSocialPage>.self)
         }
-        contactCellDescribers.append(c3)
+        contactCellDescribers.append(ccc423)
 
         let c322 = UITableViewButtonCellDescriber()
         c322.label = "Stories of Us".localized

@@ -97,6 +97,15 @@ struct batchStrings {
 
     struct social {
 
+        static var url: String{
+            return "https://apps.photo/social"
+        }
+
+        static var communityUrl: String{
+            return "https://apps.photo/users"
+        }
+
+
         struct blog {
             static var url: String{
                 return "https://apps.photo/blog"
@@ -105,18 +114,11 @@ struct batchStrings {
 
         struct twitter{
             static var accountName:String{
-                return "PAPS"
+                return "getpaps"
             }
         }
 
         struct facebook{
-            static var url: String{
-                return "https://apps.photo/social"
-            }
-
-            static var groupUrl: String{
-                return "https://apps.photo/users"
-            }
 
             static var pageId:String{
                 return "616758765335887"
