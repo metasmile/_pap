@@ -44,7 +44,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         , version: "1.0"
         , phase: .release
         , appType: MemoCamApp.self
-        , displayName: "Camera".localized.localizedCapitalized, description:nil, keywords:nil
+        , displayName: "MemoCam".localized, description:nil, keywords:nil
         , iconBundleName: R.image.memoCamBAppIcon.name
             , themeColor: nil, policy: AppPolicy.default
         , minOSVersion: nil
@@ -885,7 +885,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             toolBar.setItems([
                 UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(title: "Tap To Detect".localized.localizedCapitalized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
+                UIBarButtonItem(title: "Tap To Detect Text".localized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)
