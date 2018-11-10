@@ -594,18 +594,15 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadYouAppCellDescribers(){
         youAppCellDescribers.removeAll()
 
-        if !AppCenter.isPaidAsOwnedInCurrentContext{
-
-            let c2 = UITableViewButtonCellDescriber()
-            c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Maximum All Tools Ownership".localized
-            c2.buttonTitle = "Take Part".localized
-            c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-            c2.valueHandler = { _ in
-                AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
-            }
-            youAppCellDescribers.append(c2)
+        let c2 = UITableViewButtonCellDescriber()
+        c2.label = "Translation Correction".localized
+        c2.detailedLabel = "Maximum All Tools Ownership".localized
+        c2.buttonTitle = "Take Part".localized
+        c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c2.valueHandler = { _ in
+            AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
         }
+        youAppCellDescribers.append(c2)
     }
 
     private func loadShopSettingsCellDescribers(){
