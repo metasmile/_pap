@@ -80,8 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #endif
         //INFO: free.
         if Bundle.main.bundleIdentifier == "com.stells.fap"{
-            if !AppCenter.charge.isPaid(payable: AllTimeAllAppsPayment.self){
-                AppCenter.charge.pay(for: AllTimeAllAppsPayment.self, skipTransaction: true)
+            if !AppCenter.charge.isPaid(payable: FreeAllAppsPayment.self){
+                AppCenter.charge.pay(for: FreeAllAppsPayment.self, skipTransaction: true)
             }
         }
 

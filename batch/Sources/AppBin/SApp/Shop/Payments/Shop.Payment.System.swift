@@ -6,6 +6,20 @@
 import Foundation
 import PropertyKit
 
+// All Tools - for unlimited free unlock
+struct FreeAllAppsPayment: Payable{
+    static var action: PayableAction {
+        return PayableAction(title: "Free Use".localized)
+    }
+
+    func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
+        return true
+    }
+
+    private(set) static var isEnable: Bool = false
+}
+
+// 1 Tool - for unlimited free unlock
 struct FreeAppPayment<T:App>: VerifiablePayable{
     static var action: PayableAction {
         return PayableAction(title: "Free Use".localized)

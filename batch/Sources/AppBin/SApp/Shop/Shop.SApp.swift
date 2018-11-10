@@ -275,6 +275,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
+                    , PayItem(payable:FreeAllAppsPayment.self)
 
 //                    , PayItem(payable:YearlyAllAppsPayment.self)
 //                    , PayItem(payable:MonthlyAllAppsPayment.self)

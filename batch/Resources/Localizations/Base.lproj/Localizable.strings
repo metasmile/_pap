@@ -138,7 +138,7 @@
 "Albums" = "Albums";
 /* Generated from genl10n: Shop.SApp.swift */
 "All Tools License" = "All Tools License";
-/* Generated from genl10n: AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
 "All Tools Ownership" = "All Tools Ownership";
 /* Generated from genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
@@ -288,7 +288,7 @@
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Free Use And All New Updates" = "Free Use And All New Updates";
-/* Generated from genl10n: Shop.Payment.System.swift */
+/* Generated from genl10n: Shop.Payment.System.swift, Shop.Payment.System.swift */
 "Free Use" = "Free Use";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "From clipboard on iOS" = "From clipboard on iOS";
@@ -424,7 +424,7 @@
 "Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
 /* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
@@ -444,7 +444,7 @@
 "Paste images from your clipboards" = "Paste images from your clipboards";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
+/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift, AppCenter.Charge.swift */
 "Permanent Use of All and New Tools" = "Permanent Use of All and New Tools";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
 "Phone Number" = "Phone Number";
@@ -486,7 +486,7 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
-/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.SApp.swift, Shop.Payment.Promotion.swift */
+/* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift, Shop.SApp.swift */
 "Rate It" = "Rate It";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
@@ -560,7 +560,7 @@
 "Share This App" = "Share This App";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.SApp.swift, Shop.Payment.SocialShare.Facebook.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Shop.Payment.SocialShare.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.Facebook.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, App.Finalizable.UIActivity.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
@@ -682,7 +682,7 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
-/* Generated from genl10n: Shop.Payment.SNSEngagement.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.URLOpen.swift */
+/* Generated from genl10n: Shop.SApp.swift, Shop.Payment.SNSEngagement.swift, Shop.Payment.URLOpen.swift, Shop.SApp.swift */
 "Visit" = "Visit";
 /* Generated from genl10n: Finder.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
