@@ -993,7 +993,6 @@
 		A07BD32D21972626003031D5 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6364863021203C245ED /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */; };
 		A07BD32E21972626003031D5 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B0B873BBBB38F7CEBB /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		A07BD32F21972626003031D5 /* AssetIO.LivePhotoResource.Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0BED0A5A97BE63676AF /* AssetIO.LivePhotoResource.Video.swift */; };
-		A07BD33121972626003031D5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
 		A07BD33521972626003031D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956B6C2095004F00E680B9 /* Localizable.strings */; };
 		A07BD33621972626003031D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF921F14B7CB0078A583 /* Assets.xcassets */; };
 		A07BD33721972626003031D5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */; };
@@ -1713,7 +1712,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07BD33121972626003031D5 /* StoreKit.framework in Frameworks */,
 				05FCAC5A962D15674586A0BA /* Pods_fap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

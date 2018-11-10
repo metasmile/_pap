@@ -78,6 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            AppCenter.charge.pay(for: p, skipTransaction: true)
 //        }
 #endif
+        //INFO: free.
+        if Bundle.main.bundleIdentifier == "com.stells.fap"{
+            if !AppCenter.charge.isPaid(payable: AllTimeAllAppsPayment.self){
+                AppCenter.charge.pay(for: AllTimeAllAppsPayment.self, skipTransaction: true)
+            }
+        }
+
         return true
     }
 
