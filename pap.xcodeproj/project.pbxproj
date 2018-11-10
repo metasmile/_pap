@@ -1036,7 +1036,6 @@
 		A07BD35C21972626003031D5 /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DA2C81A5E64BA1A98AF7 /* PreviewCollectionViewCell.xib */; };
 		A07BD35D21972626003031D5 /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB9A2D6C0695C47433B7 /* AppDockView.xib */; };
 		A07BD35E21972626003031D5 /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D7D1C9F3CFA4EA5D6B /* AppDockViewCell.xib */; };
-		A07BD35F21972626003031D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D495C6A50C4C97D67231 /* GoogleService-Info.plist */; };
 		A07BD36021972626003031D5 /* cell_icon_gif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D92382932E62756DD454 /* cell_icon_gif.png */; };
 		A07BD36121972626003031D5 /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4244E62E40BB345C65F /* cell_icon_burst.png */; };
 		A07BD36221972626003031D5 /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DDE929B4653604C65996 /* cell_icon_depth.png */; };
@@ -1071,6 +1070,7 @@
 		A07BD37F21972626003031D5 /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D36DDC98A235F4BD5AAD /* App.UI.CameraView.xcassets */; };
 		A07BD38D2197467D003031D5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BD38C2197467D003031D5 /* CloudKit.framework */; };
 		A07BD38E21974689003031D5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07BD38C2197467D003031D5 /* CloudKit.framework */; };
+		A07BD39021974ACA003031D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
@@ -1608,6 +1608,7 @@
 		A07BD38621972626003031D5 /* fap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07BD38721973656003031D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07BD38C2197467D003031D5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956A962095004700E680B9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956AA52095004700E680B9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
@@ -2295,6 +2296,7 @@
 		4F71DAD2B9615CDE086E37B3 /* fap */ = {
 			isa = PBXGroup;
 			children = (
+				A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */,
 				A07BD38721973656003031D5 /* Info.plist */,
 			);
 			path = fap;
@@ -3447,6 +3449,7 @@
 			files = (
 				A07BD33521972626003031D5 /* Localizable.strings in Resources */,
 				A07BD33621972626003031D5 /* Assets.xcassets in Resources */,
+				A07BD39021974ACA003031D5 /* GoogleService-Info.plist in Resources */,
 				A07BD33721972626003031D5 /* Launch Screen.storyboard in Resources */,
 				A07BD33821972626003031D5 /* Localizable.strings in Resources */,
 				A07BD33921972626003031D5 /* Shop.SApp.Assets.xcassets in Resources */,
@@ -3487,7 +3490,6 @@
 				A07BD35C21972626003031D5 /* PreviewCollectionViewCell.xib in Resources */,
 				A07BD35D21972626003031D5 /* AppDockView.xib in Resources */,
 				A07BD35E21972626003031D5 /* AppDockViewCell.xib in Resources */,
-				A07BD35F21972626003031D5 /* GoogleService-Info.plist in Resources */,
 				A07BD36021972626003031D5 /* cell_icon_gif.png in Resources */,
 				A07BD36121972626003031D5 /* cell_icon_burst.png in Resources */,
 				A07BD36221972626003031D5 /* cell_icon_depth.png in Resources */,
