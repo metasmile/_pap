@@ -158,6 +158,8 @@
 "Access Failed." = "アクセスに失敗しました。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "アクション";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "行動";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "カメラ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "目的のアクションをキャプチャする。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "すべてのテキストをキャプチャします。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "アクションを選択";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "限定パフォーマンス通知";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "すべてのツール所有者の最大数";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "オープンカメラ。";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "クリップボードを開きます。";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -554,6 +566,8 @@
 "Save Contacts" = "連絡先を保存";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "保存と共有";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "コピーした画像を保存します。";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +645,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "私たちの物語";
+"Stories of Us" = "私たちの話";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +664,8 @@
 "Take Part" = "テイクパート";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "タップしてテキストを検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

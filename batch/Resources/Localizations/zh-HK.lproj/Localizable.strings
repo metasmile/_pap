@@ -104,6 +104,8 @@
 "Access Failed." = "訪問失敗。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "授予訪問權限。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "行動";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "操作";
 /* Generated from genl10n: AppCenter.Charge.swift#131 */
@@ -168,6 +170,10 @@
 "Camera" = "相機";
 /* Generated from genl10n: Revert.BApp.swift#85 */
 "Cannot revert. All selected items have not edited." = "無法恢復。所有選擇的項目都沒有編輯。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "捕獲要執行的操作。";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "捕獲所有文本。";
 /* Generated from genl10n: Finder.BApp.swift#312 */
 "Choose An Action" = "選擇一個動作";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#46 */
@@ -334,6 +340,8 @@
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#112 */
 "Layout" = "佈局";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
@@ -350,6 +358,8 @@
 "Making A Call" = "打個電話";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "最大所有工具所有權";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
@@ -384,6 +394,8 @@
 "Open Camera." = "開放式攝像頭。";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "打開剪貼板。";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -500,6 +512,8 @@
 "Save Contacts" = "保存聯繫人";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
 "Save and Share" = "保存並分享";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "保存複製的圖像。";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#52 */
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
@@ -577,7 +591,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "和我們在一起";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "我們的故事";
+"Stories of Us" = "我們的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -596,6 +610,8 @@
 "Take Part" = "參與";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "採用內置攝像頭";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "點擊以檢測文本";
 /* Generated from genl10n: Cleaner.BApp.swift#565 */
 "Targeted" = "目標";
 /* Generated from genl10n: Cleaner.BApp.swift#400 */

@@ -158,6 +158,8 @@
 "Access Failed." = "Adgang mislykkedes.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Adgangstilskud.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Handling";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Handlinger";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan ikke vende tilbage. Alle udvalgte elementer er ikke redigeret.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Capture Actions to Do.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Vælg en handling";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Landskab";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Begrænset præstationsmeddelelse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Ringe op";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimal alle værktøjer Ejerskab";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Besked til os";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Åbent kamera.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Åbn Udklipsholder.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -554,6 +566,8 @@
 "Save Contacts" = "Gem kontaktpersoner";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Gem og del";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Gem det kopierede billede.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Gemme";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +645,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Opholder sig hos os";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Historier om os";
+"Stories of Us" = "Historier om os";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tænd eventuelle elementer, du vil skjule. Kvaliteten vil perfekt forblive den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +664,8 @@
 "Take Part" = "Deltage";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Taget med indbygget kamera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Tryk på for at opdage tekst";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Målrettet";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

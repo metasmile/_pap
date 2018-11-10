@@ -158,6 +158,8 @@
 "Access Failed." = "Käyttö epäonnistui.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pääsy myönnetty.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Toiminta";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Toimet";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ei voi palata. Kaikki valitut kohteet eivät ole muokattuja.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Tehdä tehtäviä.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Kaappaa kaikki teksti.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Valitse Toimi";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Maisema";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Rajoitettu suorituskykyilmoitus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Suurin kaikkien työkalujen omistaja";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Viesti meille";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Avoin kamera.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Avaa leikepöydälle.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -554,6 +566,8 @@
 "Save Contacts" = "Tallenna yhteystietoja";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Tallenna ja jaa";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Tallenna kopioitu kuva.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +645,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pysy kanssamme";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Omat tarinat";
+"Stories of Us" = "Tarinat meistä";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ota kaikki kohteet, jotka haluat piilottaa. Laatu säilyy täysin samana.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +664,8 @@
 "Take Part" = "Ottaa osaa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Otettu sisäänrakennetulla kameralla";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Napauta tekstin tunnistamista varten";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "kohdennettu";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

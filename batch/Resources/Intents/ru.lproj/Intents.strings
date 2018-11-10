@@ -22,6 +22,12 @@
 "UQnvTr" = "Автовыбор.";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "Признать текст.";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "Сохраните скопированное изображение.";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "Захват всего текста.";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "Захват действий.";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Открыть камеру для фотосъемки";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "Автовыбор.";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "Признать текст.";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "Сохраните скопированное изображение.";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "Захват всего текста.";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "Захват действий.";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Открыть ${appName}";
 /*Translated from: Open ${appName}*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "Автоматический выбор на ${appName}.";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "Признать текст.";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "Сохраните скопированное изображение.";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "Захват всего текста.";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "Захват действий.";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ОК. Вы можете взять фотографию сейчас";
 /*Translated from: OK. You can take a Live Photo now*/

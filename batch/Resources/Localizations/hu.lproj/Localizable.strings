@@ -158,6 +158,8 @@
 "Access Failed." = "A hozzáférés sikertelen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Hozzáférés biztosított.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Akció";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Hozzászólások";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nem térhet vissza. Az összes kiválasztott elem nem szerkesztett.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Akadályozza a műveleteket.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Az összes szöveg rögzítése.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Válasszon egy műveletet";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Tájkép";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Elrendezés";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Korlátozott teljesítményjelentés";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Élő fotó";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Hívás kezdeményezése";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Az összes eszköz maximális tulajdonlása";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Üzenet nekünk";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Nyitott kamera.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Nyissa meg a vágólapot.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -554,6 +566,8 @@
 "Save Contacts" = "Névjegyek mentése";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Mentés és megosztás";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Mentse el a másolt képet.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +645,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tartózkodj velünk";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Történetek a miénk";
+"Stories of Us" = "Történeteink";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Kapcsolja be az elrejteni kívánt elemeket. A minőség tökéletesen megmarad.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +664,8 @@
 "Take Part" = "Részt vesz";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Beépített kamerával";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Érintse meg a szöveg észleléséhez";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Célzott";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

@@ -22,6 +22,12 @@
 "UQnvTr" = "Αυτόματη επιλογή.";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "Αναγνώριση κειμένου.";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "Αποθηκεύστε την αντιγραφείσα εικόνα.";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "Καταγράψτε όλο το κείμενο.";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "Λήψη ενεργειών λήψης.";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Ανοίξτε τη φωτογραφική μηχανή για να κάνετε μια φωτογραφία";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "Αυτόματη επιλογή.";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "Αναγνώριση κειμένου.";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "Αποθηκεύστε την αντιγραφείσα εικόνα.";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "Καταγράψτε όλο το κείμενο.";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "Λήψη ενεργειών λήψης.";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Άνοιγμα ${appName}";
 /*Translated from: Open ${appName}*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "Αυτόματη επιλογή στο ${appName}.";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "Αναγνώριση κειμένου.";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "Αποθηκεύστε την αντιγραφείσα εικόνα.";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "Καταγράψτε όλο το κείμενο.";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "Λήψη ενεργειών λήψης.";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ΕΝΤΑΞΕΙ. Μπορείτε να πάρετε μια φωτογραφία τώρα";
 /*Translated from: OK. You can take a Live Photo now*/
