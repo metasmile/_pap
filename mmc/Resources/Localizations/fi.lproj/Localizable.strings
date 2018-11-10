@@ -82,7 +82,7 @@
 "Starting to revert..." = "Aloittaminen takaisin ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Valokuvien palauttaminen ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Luo %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "PDF-tiedoston aloittaminen ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Ei löytynyt mitään.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Luoda";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Valuutanvaihto";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Tällä hetkellä AI-tekstintunnistusmallimme on käytettävissä vain aakkosnumeerisille ja tietyille erikoismerkille, ja nykyinen järjestelmäkieli saattaa vaikuttaa siihen.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Havaitsemalla ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Nykyisten näkyvien kohteiden tunnistaminen ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Tunnistuskohteet";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Lataa nyt ILMAISEKSI osoitteessa %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Sitä ei voitu tallentaa.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Tuotteet";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Rajoitettu suorituskykyilmoitus";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Puhelinnumero";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Valmistellaan";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Hinta";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "käsittely";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

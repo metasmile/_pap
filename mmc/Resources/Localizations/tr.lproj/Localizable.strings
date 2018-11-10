@@ -82,7 +82,7 @@
 "Starting to revert..." = "Geri almaya başlıyor ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Reverting Photos...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "%@ Oluştur";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "PDF oluşturulmaya başlanıyor ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Hiçbir şey algılanamadı.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "yaratmak";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Döviz değişimi";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Şu anda bizim AI metin tanıma modelimiz yalnızca Alfanümerik ve bazı özel karakterler için kullanılabilir ve mevcut sistem dilinden etkilenebilir.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Algılanıyor ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Mevcut Görünür Öğelerin Tespit Edilmesi ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Algılama Hedefleri";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Depolanamadı.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Öğeler";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Sınırlı Performans Uyarısı";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Telefon numarası";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "hazırlama";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Fiyat";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "İşleme";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

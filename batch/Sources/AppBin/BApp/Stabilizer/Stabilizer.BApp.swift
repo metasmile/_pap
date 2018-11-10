@@ -21,7 +21,7 @@ class _StabilizerAppAsset: AppAsset {
 }
 
 public class StabilizerAppValue: ImageEditStateValue {
-    override var stabilizationMode: ImageAlignment.StabilizationMode? {
+    override public var stabilizationMode: ImageAlignment.StabilizationMode? {
         return _stabilizationMode
     }
     

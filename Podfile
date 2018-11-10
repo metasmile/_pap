@@ -5,7 +5,7 @@ def common_pods
   use_frameworks!
 
   # pod 'RealmSwift'
-  pod 'Firebase/Core', '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
+  pod 'Firebase/Core'#, '5.2.0' #TODO: when it disappears memory leak issue since 5.3+0.10 version set, use latest version
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
   pod 'Firebase/MLVisionBarcodeModel'
@@ -38,7 +38,7 @@ target 'batch' do
   # Store
   pod 'SwiftyStoreKit'
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
-  # com.stells.batch.pdfactory
+  # com.stells.batch.pdfmaker
   pod 'TPPDF'
   # com.stells.batch.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
@@ -55,7 +55,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      if ['PropertyKit','Armchair'].include? "#{target}"
+      if ['PropertyKit','Armchair','SwiftyGif','TPPDF'].include? "#{target}"
         config.build_settings['SWIFT_VERSION'] = '4.2'
       else
         config.build_settings['SWIFT_VERSION'] = '4.0'

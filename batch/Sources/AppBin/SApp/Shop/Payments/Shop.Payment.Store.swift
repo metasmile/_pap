@@ -94,7 +94,7 @@ struct OneYearAllAppsPayment: NonRenewingSubscribingPayable, RelativePayable {
 
 // 1_App
 
-struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayable, RelativePayable{
+struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, RelativePayable{
     static var superPayables: HashSet<Payable.Type> {
         return self.defaultSuperPayables
     }
@@ -102,11 +102,14 @@ struct AllTimeAppPayment<T:App>: NonConsumablePurchasingPayable, TrialablePayabl
     static var product: StoreProduct{
         return StoreProduct(identifier: "batch_\(T.info.identifier)_NC_P_owned", subscriptionPeriod: nil, legalInfo: nil)
     }
-
-    static var trialTimeLength: TimeInterval {
-        return batchTimeInterval.ofAllTimeAppPaymentTrialTimeLength
-    }
 }
+
+//INFO: Trial disabled
+//extension AllTimeAppPayment: TrialablePayable{
+//    static var trialTimeLength: TimeInterval {
+//        return batchTimeInterval.ofAllTimeAppPaymentTrialTimeLength
+//    }
+//}
 
 struct MonthlyAppPayment<T:App>: AutoRenewableSubscribingPayable{
     static var product: StoreProduct{

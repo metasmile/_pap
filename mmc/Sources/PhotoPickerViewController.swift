@@ -420,10 +420,9 @@ class PhotoPickerViewController: AppDockViewController {
 
     @objc
     private func rateButtonDidTap(sender: Any) {
-        Armchair.onDidDismissModalView { b in
-
+        Armchair.showPrompt { info in
+            return true
         }
-        Armchair.rateApp()
     }
 
     @discardableResult

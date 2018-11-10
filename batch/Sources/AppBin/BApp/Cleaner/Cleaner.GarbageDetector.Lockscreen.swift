@@ -36,7 +36,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
         super.init()
     }
 
-    private lazy var visionTextDetector = Vision.vision().textDetector()
+    private lazy var visionTextDetector = Vision.vision().onDeviceTextRecognizer()
 
     override class var label:String{
         return "Lockscreens".localized
@@ -63,7 +63,7 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
             return nil
         }
 
-        guard let visionTexts = visionTextDetector.detect(with: image, asyncSignal) else {
+        guard let visionText = visionTextDetector.detect(with: image, asyncSignal) else {
             return nil
         }
 
@@ -75,8 +75,8 @@ class PHAssetGarbageDetector_Lockscreens : PHAssetGarbageDetector{
         var foundNormalizedTimeRect:CGRect = CGRect.null
         var shouldFindSinceFoundRect = 4
 
-        for visionText in visionTexts{
-            for elems in parser.process(input: visionText) ?? []{
+        for visionTextBlock in visionText.blocks{
+            for elems in parser.process(input: visionTextBlock) ?? []{
                 for elem in elems{
 
                     if sampleDataViaLog { print(elem.frame, elem.text) }

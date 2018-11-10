@@ -82,7 +82,7 @@
 "Starting to revert..." = "Begynder at vende tilbage ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Reverting Photos...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Opret %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Begynder at oprette PDF ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Kunne ikke registrere noget.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Valutaveksling";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "I øjeblikket er vores AI-tekstgenkendelsesmodel kun tilgængelig for alfanumeriske og nogle specialtegn, og det kan blive påvirket af det nuværende systemsprog.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Opdage ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Registrering af aktuelle synlige elementer ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Detection Mål";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS ved %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Det kunne ikke gemmes.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det kræver en tilladelse til at få adgang til dine kontakter. Tillad venligst kontakter på iOS-indstillinger.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Elementer";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Begrænset præstationsmeddelelse";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Telefonnummer";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Forberedelse";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Pris";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Forarbejdning";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

@@ -26,8 +26,8 @@ extension RelativePayable{
         return [
             AllTimeAllAppsPayment.self,
             SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self,
-            MonthlyAllAppsPayment.self,
-            YearlyAllAppsPayment.self
+//            MonthlyAllAppsPayment.self,
+//            YearlyAllAppsPayment.self
         ].hashSet
     }
 

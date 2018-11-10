@@ -609,14 +609,15 @@ extension PreviewView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
-        
         if delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath), let cell = collectionView.cellForItem(at: indexPath) {
             becomeFirstResponder()
             
             UIMenuController.shared.setTargetRect(convert(cell.frame, from: collectionView), in: self)
             UIMenuController.shared.menuItems = [UIMenuItem(title: menuTitle, action: #selector(self.performActionForMenuItem))]
             UIMenuController.shared.setMenuVisible(true, animated: true)
+        }
+        else {
+            delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
         }
     }
     

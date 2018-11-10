@@ -74,7 +74,7 @@
 "Edit %d Items" = "تحرير %@ العناصر";
 /*com.stells.batch.transform*/
 "Transform" = "تحول";
-/*com.stells.batch.photosfilter*/
+/*com.stells.apps.photofilter*/
 "Apply" = "تطبيق";
 /*com.stells.batch.revert*/
 "Revert" = "Revert";
@@ -82,7 +82,7 @@
 "Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "جارٍ إرجاع الصور ...";
-/*com.stells.batch.pdfactory*/
+/*com.stells.batch.pdfmaker*/
 "Create %@" = "إنشاء %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "البدء في إنشاء PDF ...";
@@ -122,8 +122,6 @@
 "%@ Day" = "%@ اليوم";
 /* Generated from genl10n: batch.Strings.swift#41 */
 "%@ Download now for FREE!" = "%@ التنزيل الآن مجانًا!";
-/* Generated from genl10n: Shop.SApp.swift */
-"%@ License" = "%@ الترخيص";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ الملكية";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -136,28 +134,18 @@
 "%@/Day" = "%@ / يوم";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d مرة";
+/* Generated from genl10n: Shop.SApp.swift */
+"'Main Tools' means all other tools not specially displayed in here." = "تعني &quot;الأدوات الرئيسية&quot; جميع الأدوات الأخرى التي لا يتم عرضها بشكل خاص هنا.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1 Month License" = "رخصة شهر واحد";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1 Year License" = "رخصة لمدة عام";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of All and New Tools" = "الاستخدام لمدة شهر من الكل والأدوات الجديدة";
-/* Generated from genl10n: AppCenter.Charge.swift */
 "1-Month Use of Main and New Tools" = "استخدام شهر واحد للأدوات الرئيسية والجديدة";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of All and New Tools" = "استخدام 1 سنة من الكل والأدوات الجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "1-Year Use of Main And New Tools" = "استخدام لمدة سنة من الأدوات الرئيسية والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "14-Day Use of Main and New Tools" = "استخدام 14 يومًا للأدوات الرئيسية والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "استخدام لمدة 3 أشهر من الأدوات الرئيسية والجديدة";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6 Months License" = "رخصة 6 أشهر";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of All and New Tools" = "استخدام لمدة 6 أشهر للجميع والأدوات الجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "استخدام لمدة 6 أشهر من الأدوات الرئيسية والجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -170,6 +158,8 @@
 "Access Failed." = "فشل الوصول.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "لقد تم منح الوصول.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Actions" = "أفعال";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
 "Activate Ads" = "تفعيل الإعلانات";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
@@ -182,8 +172,16 @@
 "Address" = "عنوان";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "ألبومات";
+/* Generated from genl10n: Shop.SApp.swift */
+"All Tools License" = "جميع ادوات الترخيص";
+/* Generated from genl10n: AppCenter.Charge.swift */
+"All Tools Ownership" = "جميع ملكية الأدوات";
+/* Generated from genl10n: Finder.BApp.swift */
+"All contacts were successfully saved." = "تم حفظ جميع جهات الاتصال بنجاح.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
 "All not taken with Camera" = "تم الحفظ بدون الكاميرا";
+/* Generated from genl10n: Finder.BApp.swift */
+"All processes you have confirmed were finished." = "تم الانتهاء من جميع العمليات التي أكدتها.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "الكل";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
@@ -240,6 +238,8 @@
 "Clipboard" = "الحافظة";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "اللون وتذكير لكل مراحل";
+/* Generated from genl10n: Finder.BApp.swift */
+"Contacts" = "جهات الاتصال";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "قم بتحويل آخر صورة Live إلى ملف GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -258,6 +258,10 @@
 "Copy" = "نسخ";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Copying Photos..." = "نسخ الصور ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any contact." = "لا يمكن الكشف عن أي اتصال.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Could not detect any text." = "لا يمكن الكشف عن أي نص.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
 "Could not detect anything." = "لا يمكن الكشف عن أي شيء.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
@@ -268,12 +272,20 @@
 "Crop to Fit" = "المحاصيل لتناسب";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Crop" = "Crop";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "تحويل العملات";
+/* Generated from genl10n: Finder.BApp.swift */
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "حاليًا ، يتوفر نموذج التعرف على النصوص AI الخاص بنا فقط للأحرف الأبجدية الرقمية وبعض الأحرف الخاصة ، ويمكن أن يتأثر بلغة النظام الحالية.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "العادة";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "تاريخ";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "حذف الأهداف";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detecting ... %@ " = "جارٍ اكتشاف ... %@";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "أهداف الكشف";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "اتجاه";
 /* Generated from genl10n: batch.Strings.swift#45 */
@@ -289,13 +301,17 @@
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "تمكين الإجراءات السريعة";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engage Now And Repeatedly Recharge Main Tools License." = "الانخراط الآن وتكرار شحن رصيد الأدوات الرئيسية.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "ملاحظات هندسية";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "تصدير";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "مرشحات";
+/* Generated from genl10n: Finder.BApp.swift */
+"Find" = "تجد";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "يمكّن Finder من استخراج أي معلومات ذات معنى مثل أرقام الهواتف والعناوين والتواريخ وعناوين URL من صورك ، ثم الاتصال أو فتح الخرائط أو التنقل في مواقع الويب حتى البحث عن الرحلات. يمكنك أيضًا حفظها كلها كنص خام.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Finder" = "مكتشف";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "مصباح يدوي";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -310,8 +326,10 @@
 "Free Use And All New Updates" = "استخدام مجاني وجميع التحديثات الجديدة";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
 "Free Use" = "استخدام مجاني";
-/* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"From Remote Clipboard" = "من الحافظة عن بعد";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From clipboard on iOS" = "من الحافظة على iOS";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"From remote clipboard" = "من الحافظة عن بعد";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "يسمح GIF Maker بسهولة وبسرعة بصنع صور GIF من الصور أو الصور الحية بخيارات متنوعة! ثم يمكنك فتح تطبيق المحول لتحويله إلى كل شيء مثل Live Photos أو Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -344,7 +362,7 @@
 "Image Quality" = "جودة الصورة";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Image" = "صورة";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#65 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
 "Images" = "صور";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Import" = "استيراد";
@@ -356,6 +374,8 @@
 "Inquiry" = "تحقيق";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "يعرض نسبة من فترات الوصول التطبيقات المجانية المتبقية.";
+/* Generated from genl10n: Finder.BApp.swift */
+"It could not be stored." = "لا يمكن تخزينها.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "يبدو رمز غير صالح. حاول مرة اخرى.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
@@ -364,9 +384,9 @@
 "Join In Partnership Program" = "الانضمام في برنامج الشراكة";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "ما عليك سوى اختيار الصور التي تحتاجها ثم تشغيلها.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landscape";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#104 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "نسق";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -383,13 +403,11 @@
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "إجراء مكالمة";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum Permanent Ownership" = "الحد الأقصى للملكية الدائمة";
+"Maximum All Tools Ownership" = "الحد الأقصى لجميع ملكية الأدوات";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "رسالة لنا";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "تعديل";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Monthly License" = "الرخصة الشهرية";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "ألبوماتى";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -408,8 +426,6 @@
 "On Standby" = "في وضع الاستعداد";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "الاستخدام المستمر للجميع والأدوات الرئيسية الجديدة";
-/* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Ongoing Use of All and New Tools" = "الاستخدام المستمر للجميع والأدوات الجديدة";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "فتح %@";
 /* Generated from genl10n: Finder.BApp.swift#654 */
@@ -428,11 +444,13 @@
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
 "Open Filters." = "Open Filters.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Open Finder." = "افتح Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "افتح خرائط Google";
-/* Generated from genl10n: PDFactory.BApp.swift */
+/* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
@@ -444,13 +462,13 @@
 "Open" = "افتح";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
-/* Generated from genl10n: PDFactory.BApp.swift#32 */
-"PDFactory makes PDF document from multiple images with various page options." = "PDFactory يجعل وثيقة PDF من صور متعددة مع خيارات الصفحة المختلفة.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#114 */
+/* Generated from genl10n: PDFMaker.BApp.swift#32 */
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker يجعل وثيقة PDF من صور متعددة مع خيارات الصفحة المختلفة.";
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Page Margin" = "هامش الصفحة";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#91 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#91 */
 "Page Size Preset" = "حجم الصفحة";
-/* Generated from genl10n: PDFactory.AppDefaults.swift#66 */
+/* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
 "Pages" = "صفحات";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "برنامج ترخيص الشراكة";
@@ -458,8 +476,6 @@
 "Partnership License" = "رخصة الشراكة";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "لصق الصور من قصاصاتك";
-/* Generated from genl10n: AppCenter.Charge.swift#167 */
-"Permanent Ownership" = "ملكية دائمة";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
 "Permanent Use And All New Updates" = "الاستخدام الدائم وجميع التحديثات الجديدة";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
@@ -476,12 +492,14 @@
 "Please try again with another code." = "يرجى المحاولة مرة أخرى مع رمز آخر.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "الرجاء إيقاف تشغيل الخيار التالي ، وإعادة تعيين معرف الإعلان في الإعدادات. ثم أعد المحاولة.";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#106 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Portrait" = "صورة";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "خطة";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
 "Presets" = "المسبقة";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "السعر";
 /* Generated from genl10n: Shop.SApp.swift */
 "Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "الأسعار تشمل كل أدوات وتحديثات جديدة ، كما لن يتم تجديدها تلقائيًا.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
@@ -516,6 +534,8 @@
 "Repeat" = "كرر";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "استعادة جميع المشتريات";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Restore from previous clipboard" = "استعادة من الحافظة السابقة";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "استعادة";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -538,7 +558,7 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "حفظ النتائج ...";
-/* Generated from genl10n: PDFactory.AppDockContent.swift#138 */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "مقياس للتناسب";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
 "Screenshots" = "لقطات";
@@ -554,6 +574,10 @@
 "Select Format To Convert" = "حدد تنسيق لتحويل";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
 "Select Photos To Delete." = "حدد صور للحذف.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Select Photos To Find Something." = "حدد صور للبحث عن شيء ما.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "حدد المحتوى الذي تريد نسخه ، ثم انسخه على iPhone أو Mac باستخدام Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "المحدد";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -572,12 +596,12 @@
 "Share" = "Share";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Sharing on Facebook Messenger" = "المشاركة على Facebook Messenger";
-/* Generated from genl10n: AppCenter.Charge.swift#103 */
-"Sharing on Facebook" = "المشاركة على Facebook";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "تشابه";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "بحجم";
+/* Generated from genl10n: Finder.BApp.swift */
+"Some contacts were saved, but someones were not." = "تم حفظ بعض الاتصالات ، ولكن لم يكن البعض.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "برنامج ترخيص الضيف الخاص";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -596,6 +620,8 @@
 "Stabilizing Selected Items..." = "استقرار العناصر المحددة ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Start" = "بداية";
+/* Generated from genl10n: Finder.BApp.swift */
+"Starting To Find ..." = "البدء في البحث ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "بدء العملية ...";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -612,6 +638,8 @@
 "Take A GIF With Live Photo." = "خذ GIF مع صورة حية.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Live Photo." = "Take A Live Photo.";
+/* Generated from genl10n: Finder.BApp.swift */
+"Take A Photo" = "التقاط صورة";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take A Photo." = "Take A Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -652,6 +680,8 @@
 "Translate Now" = "ترجمة الآن";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "تصحيح الترجمة";
+/* Generated from genl10n: Finder.BApp.swift */
+"Type" = "نوع";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
@@ -684,14 +714,12 @@
 "Videos Without Sound" = "فيديو بدون صوت";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "أشرطة الفيديو من شاشة المسجل";
-/* Generated from genl10n: AppCenter.Charge.swift#132 */
-"Visit Social Pages" = "زيارة الصفحات الاجتماعية";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "يزور";
+/* Generated from genl10n: Finder.BApp.swift */
+"Waiting To Select ..." = "في انتظار الاختيار ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Warp" = "Warp";
-/* Generated from genl10n: AppCenter.Charge.swift#81 */
-"Welcome Free Pack" = "نرحب حزمة مجانا";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our Partnership License Program!" = "مرحبًا بك في برنامج ترخيص الشراكة لدينا!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
@@ -708,8 +736,6 @@
 "Write A Review" = "أكتب مراجعة";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "كتابة";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Yearly License" = "رخصة سنوية";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "يمكنك تحديد الصور أو مقاطع الفيديو التي تتوافق مع تنسيق البداية فقط.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

@@ -82,7 +82,7 @@
 "Starting to revert..." = "Commencer à revenir ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Rétablissement des photos ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Créer %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Commencer à créer un PDF ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Impossible de détecter quoi que ce soit.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Créer";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Échange de devises";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actuellement, notre modèle de reconnaissance de texte AI n'est disponible que pour les caractères alphanumériques et certains caractères spéciaux, et il pourrait être affecté par la langue du système en cours.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Détecter ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Détection des éléments visibles actuels ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Cibles de détection";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Téléchargez maintenant gratuitement à %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Il n'a pas pu être stocké.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Il nécessite une autorisation pour accéder à vos contacts. Veuillez autoriser les contacts sur les paramètres iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Articles";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Avis de performance limitée";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Numéro de téléphone";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "En train de préparer";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Prix";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "En traitement";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

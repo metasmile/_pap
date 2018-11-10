@@ -82,7 +82,7 @@
 "Starting to revert..." = "Starting to revert...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Vrácení fotografií ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Vytvořte %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Vytváření PDF ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Nelze zjistit nic.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Vytvořit";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Směnárna";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V současné době je náš model rozpoznávání textu AI dostupný pouze pro alfanumerické a některé speciální znaky a mohl by být ovlivněn současným systémovým jazykem.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Zjišťování ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Detekce aktuálních viditelných položek ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Detekční cíle";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Stáhnout zdarma na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Nemohl být uložen.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Položky";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Oznámení o omezené výkonnosti";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Telefonní číslo";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Připravuje se";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Cena";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "zpracovává se";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

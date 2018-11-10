@@ -63,12 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if DEBUG
         //INFO: Reset all receipt for testing
-        for c in AppCenter.charge.getChargesHasReceipt(){
-            if let r = AppCenter.charge.bank.getReceipt(for: c){
-                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
-            }
-        }
-        AppCenter.charge.synchronize()
+//        for c in AppCenter.charge.getChargesHasReceipt(){
+//            if let r = AppCenter.charge.bank.getReceipt(for: c){
+//                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
+//            }
+//        }
+//        AppCenter.charge.synchronize()
 
 //        //INFO: Unlock all for app testing.
 //        let paymentsToTest = [

@@ -15,47 +15,47 @@ private let debugMode = true
 struct batchTimeInterval {
 
     static var ofTimeOfUsesDayTimeUnit:TimeInterval{
-#if DEBUG
+        #if DEBUG
         if debugMode{
             return 8
         }
-#endif
+        #endif
         return 60*60*24
     }
 
     static var ofAllTimeAppPaymentTrialTimeLength:TimeInterval{
-#if DEBUG
+        #if DEBUG
         if debugMode{
             return 30
         }
-#endif
-        return 60*60*24*3
+        #endif
+        return 60*60*24*1
     }
 
     static var ofGADInterestialTypeBlockOfUses:TimeInterval{
-#if DEBUG
+        #if DEBUG
         if debugMode{
             return 30
         }
-#endif
-        return 60*60*1
+        #endif
+        return 60*10
     }
 
     static var ofSNSEngagementPaymentLatestPaid:TimeInterval{
-#if DEBUG
+        #if DEBUG
         if debugMode{
             return 30
         }
-#endif
+        #endif
         return 60*60*24*14
     }
 
     static var ofFBShareTypeDownloadMessagerPaymentLatestPaid:TimeInterval{
-#if DEBUG
+        #if DEBUG
         if debugMode{
             return 30
         }
-#endif
+        #endif
         return 60*60*24*14
     }
 }

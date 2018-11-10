@@ -26,7 +26,7 @@ extension Defaults: SecretCodeStore {
 private typealias SecretCodeResult = (state:SecretCodeEntry.AccessState, entry:SecretCodeEntry?)
 
 private struct SecretCodeEntry: Codable, Equatable {
-    static let container = CKContainer(identifier: "iCloud.com.stells.batch")
+    static let container = CKContainer(identifier: "iCloud.\(Bundle.main.bundleIdentifier ?? "_")")
     
     static var local:SecretCodeStore = Defaults(suiteName: "SecretCodeEntry")
 

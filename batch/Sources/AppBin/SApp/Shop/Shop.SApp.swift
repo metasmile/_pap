@@ -82,22 +82,33 @@ extension ShopApp{
         var mutableDefaultCollection = PayGroup.Default
 
         //INFO: get source app info
-        let localOwnedExisted:Bool
-        if let sourceChargeableApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType as? ChargeableApp.Type {
-            if let localCharges = sourceChargeableApp.localCharges.nilEmpty{
-                
-                localOwnedExisted = localCharges.contains(where:{ $0.reward.isLocalOwned })
+        let sourceApp = AppCenter.default.currentInstanceAs(ShopApp.self)?.sourceAppType
+
+        var localOwnedOfSourceAppExisted = false
+
+        //INFO: if App is not ChargeableApp (it means "The App has Default Policy"), does not display local charges
+        let isSourceAppButUndefined = sourceApp != nil && sourceApp as? ChargeableApp.Type == nil
+
+        if isSourceAppButUndefined == false{
+            let localChargesOfSourceApp = (sourceApp as? ChargeableApp.Type)?.localCharges.nilEmpty
+            localOwnedOfSourceAppExisted = localChargesOfSourceApp?.contains(where:{ $0.reward.isLocalOwned }) ?? false
+
+            let localChargesOfEntire = AppCenter.default.apps(by: .default).compactMap { appType -> [Charge]? in
+                return (appType as? ChargeableApp.Type)?.localCharges
+            }.reduce([], +).nilEmpty
+
+            //INFO: priority: source app's localCharges > default all app's localCharges
+            if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
 
                 //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
                 for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
                     var mutablePayGroup = payGroup
                     var items = payGroup.items
                     items.append(contentsOf:localCharges.map ({
-                            let pay = PayItem(payable: $0.payment)
-//                            pay.rewardIconImageStyle.beRound = true
-                            pay.rewardIconImageStyle.useTintColor = false
-                            return pay
-                        })
+                        let pay = PayItem(payable: $0.payment)
+                        pay.rewardIconImageStyle.useTintColor = false
+                        return pay
+                    })
                     )
                     mutablePayGroup.items = items
                     mutableDefaultCollection[i] = mutablePayGroup
@@ -105,12 +116,7 @@ extension ShopApp{
                 }
 
                 mutableDefaultCollection.sort { dictionary1, dictionary2 in return dictionary1.key.rawValue < dictionary2.key.rawValue }
-            }else{
-                localOwnedExisted = false
             }
-
-        }else{
-            localOwnedExisted = false
         }
 
         //INFO: Apply dictionary deps
@@ -145,7 +151,7 @@ extension ShopApp{
 
                 //POLICY: Check if isLocalOwned has existed, but an item is not isLocalOwned(==free charge reward) will be hidden.
                 if charge.reward.isLocalOwned == false && charge.reward.isOwned == false {
-                    if localOwnedExisted{
+                    if localOwnedOfSourceAppExisted{
                         return false
                     }
                 }
@@ -164,7 +170,7 @@ extension ShopApp{
                         return false
                     }
                 }
-                
+
                 return true
             }
 
@@ -176,7 +182,7 @@ extension ShopApp{
                 mutableDefaultCollection[i] = mutablePayDict
             }
         }
-        
+
         return mutableDefaultCollection.filter {
             if let index = mutableDefaultCollection.index(of: $0), removingIndexes.contains(index) {
                 return false
@@ -265,7 +271,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 
         PayGroup(
                 key: .PaidCharge
-                , label: "%@ License".localizedFormatted(batchStrings.name)
+                , label: "All Tools License".localized
                 , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
@@ -273,9 +279,9 @@ private struct PayGroup:Hashable, Equatable, Section {
 //                    , PayItem(payable:YearlyAllAppsPayment.self)
 //                    , PayItem(payable:MonthlyAllAppsPayment.self)
 
-                    , PayItem(payable:OneYearAllAppsPayment.self)
-                    , PayItem(payable:SixMonthsAllAppsPayment.self)
-                    , PayItem(payable:OneMonthAllAppsPayment.self)
+//                    , PayItem(payable:OneYearAllAppsPayment.self)
+//                    , PayItem(payable:SixMonthsAllAppsPayment.self)
+//                    , PayItem(payable:OneMonthAllAppsPayment.self)
 
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
@@ -284,9 +290,9 @@ private struct PayGroup:Hashable, Equatable, Section {
         , PayGroup(
                 key: .FreeCharge
                 , label: "Main Tools License".localized
-                , detailedLabel: "Engage Now And Repeatedly Recharge Main Tools License.".localized
+                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
                 , items: [
-                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
+//                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
                     PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
                     PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
                     PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
@@ -294,9 +300,9 @@ private struct PayGroup:Hashable, Equatable, Section {
                     PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
                     PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
                     PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
-                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
+//                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
                     PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
-                    PayItem(payable: SNSEngagementPayment.self)
+//                    PayItem(payable: SNSEngagementPayment.self)
                 ]
         )
     ]
@@ -530,7 +536,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.fitConstraints(to: view)
         return view
     }()
-    
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
@@ -547,7 +553,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         tableView.delegate = self
         tableView.rowHeight = 46
         tableView.allowsSelection = false
-        tableView.allowsMultipleSelection = false        
+        tableView.allowsMultipleSelection = false
 
         reloadData()
     }
@@ -591,7 +597,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
             let c2 = UITableViewButtonCellDescriber()
             c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Maximum Permanent Ownership".localized
+            c2.detailedLabel = "Maximum All Tools Ownership".localized
             c2.buttonTitle = "Take Part".localized
             c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
             c2.valueHandler = { _ in
@@ -790,14 +796,14 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
                 for desc in cellGroup.describers {
                     tableView.register(describer: desc)
                 }
-            }            
+            }
             else if let cellGroup = s as? PayGroup{
                 for item in cellGroup.items {
                     tableView.register(item.cellInfo.cellClass, forCellReuseIdentifier: item.cellInfo.id)
                 }
             }
         }
-        
+
         tableView.reloadData()
     }
 

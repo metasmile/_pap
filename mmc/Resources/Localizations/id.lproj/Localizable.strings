@@ -82,7 +82,7 @@
 "Starting to revert..." = "Mulai mengembalikan ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Mengembalikan Foto ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Create %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Mulai membuat PDF ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Tidak dapat mendeteksi apa pun.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Penukaran mata uang";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Saat ini, model pengenalan teks AI kami hanya tersedia untuk Alfanumerik dan beberapa karakter khusus, dan itu bisa terpengaruh oleh bahasa sistem saat ini.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Mendeteksi ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Mendeteksi Barang Terlihat Saat Ini ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Target Deteksi";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Unduh sekarang GRATIS di %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Itu tidak bisa disimpan.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ini membutuhkan izin untuk mengakses kontak Anda. Harap izinkan Kontak di Pengaturan iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "Item";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Pemberitahuan Performa Terbatas";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Nomor telepon";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "Mempersiapkan";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Harga";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Pengolahan";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

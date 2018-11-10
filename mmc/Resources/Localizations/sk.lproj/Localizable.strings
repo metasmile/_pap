@@ -82,7 +82,7 @@
 "Starting to revert..." = "Začal sa vrátiť ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Vrátenie fotografií ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Vytvorte %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Začína sa vytvárať PDF ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Nie je možné zistiť nič.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Zmenáreň";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V súčasnosti je náš model rozpoznávania textu AI dostupný iba pre alfanumerické a niektoré špeciálne znaky a môže to byť ovplyvnené aktuálnym systémovým jazykom.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Zisťovanie ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Zisťovanie aktuálnych viditeľných položiek ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Detekčné ciele";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Stiahnite si teraz zadarmo na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Nemohol byť uložený.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "predmety";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Oznámenie o obmedzenej výkonnosti";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Telefónne číslo";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "príprava";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "cena";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "spracovanie";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

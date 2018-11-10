@@ -31,7 +31,7 @@ struct PermanentVIPSecretCodeProgram:SecretCodeProgram{
 
     static var passCodeAppIDStack:[String] {
         return [
-            PDFactoryApp.info.identifier,
+            PDFMakerApp.info.identifier,
             ConverterApp.info.identifier,
             TransformApp.info.identifier,
             FiltersApp.info.identifier
@@ -65,7 +65,7 @@ struct SpecialGuestSecretCodeProgram:SecretCodeProgram{
     static var passCodeAppIDStack:[String] {
         return [
             ConverterApp.info.identifier,
-            PDFactoryApp.info.identifier,
+            PDFMakerApp.info.identifier,
             FiltersApp.info.identifier,
             TransformApp.info.identifier
         ]
@@ -99,7 +99,7 @@ struct GuestUserSecretCodeProgram:SecretCodeProgram{
         return [
             TransformApp.info.identifier,
             FiltersApp.info.identifier,
-            PDFactoryApp.info.identifier,
+            PDFMakerApp.info.identifier,
             ConverterApp.info.identifier
         ]
     }
@@ -133,7 +133,7 @@ struct PromotionSecretCodeProgram:SecretCodeProgram{
             FiltersApp.info.identifier,
             TransformApp.info.identifier,
             ConverterApp.info.identifier,
-            PDFactoryApp.info.identifier
+            PDFMakerApp.info.identifier
         ]
     }
 }

@@ -82,7 +82,7 @@
 "Starting to revert..." = "Početak vraćanja ...";
 /*Translated from: Reverting Photos...*/
 "Reverting Photos..." = "Vraćanje fotografija ...";
-/*com.stells.mmc.pdfactory*/
+/*com.stells.mmc.pdfmaker*/
 "Create %@" = "Stvorite %@";
 /*Translated from: Starting to create PDF...*/
 "Starting to create PDF..." = "Započinjanje stvaranja PDF-a ...";
@@ -170,6 +170,8 @@
 "Could not detect anything." = "Nije bilo moguće otkriti ništa.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Stvoriti";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+"Currency Exchange" = "Razmjena valute";
 /* Generated from genl10n: Finder.BApp.swift#1288 */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove, a na njega bi moglo utjecati trenutačni jezik sustava.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
@@ -178,6 +180,8 @@
 "Detecting ... %@ " = "Otkrivanje ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting Current Visible Items ..." = "Otkrivanje trenutačnih vidljivih stavki ...";
+/* Generated from genl10n: Finder.BApp.swift */
+"Detection Targets" = "Ciljevi otkrivanja";
 /* Generated from genl10n: mmc.Strings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -202,8 +206,6 @@
 "It could not be stored." = "Nije se moglo pohraniti.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "To zahtijeva dopuštenje za pristup vašim kontaktima. Omogućite Kontakti na iOS Postavkama.";
-/* Generated from genl10n: Finder.BApp.swift#1146 */
-"Items" = "stavke";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Obavijest o ograničenom učinku";
 /* Generated from genl10n: Finder.BApp.swift#402 */
@@ -234,6 +236,8 @@
 "Phone Number" = "Broj telefona";
 /* Generated from genl10n: ActionViewController.swift#37 */
 "Preparing" = "priprema";
+/* Generated from genl10n: Finder.BApp.swift */
+"Price" = "Cijena";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Obrada";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */

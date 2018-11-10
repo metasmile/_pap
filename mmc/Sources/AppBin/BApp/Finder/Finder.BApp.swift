@@ -347,7 +347,7 @@ private struct FinderAppDetector{
 
 
     fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
-        guard let visionTexts = vision.textDetector().detect(with: image, async) else {
+        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
             return nil
         }
 
@@ -357,11 +357,11 @@ private struct FinderAppDetector{
 
         var result = VisionTextPHAssetDetectResult(asset: asset)
 
-        result.sourceVisionTexts = visionTexts
+        result.sourceVisionText = visionText
 
         // SelectionPreset.plaintext
         if preset == SelectionPreset.plaintext.rawValue{
-            result.plainText = visionTexts.parse(type: VisionTextStringParser.self, async)?.joined()
+            result.plainText = visionText.text
         }
 
         // SelectionPreset.contact,  SelectionPreset.action
@@ -395,7 +395,7 @@ private struct FinderAppDetector{
 
             var stackedParsedContacts = [CNMutableContact]()
 
-            for visionText in visionTexts{
+            for block in visionText.blocks {
 
                 var mergingContract:CNMutableContact?
                 if stackedParsedContacts.count == 0{
@@ -405,7 +405,7 @@ private struct FinderAppDetector{
                 }
 
                 if let mergingContract = mergingContract
-                , let parsedContract = parser.process(input: visionText, mergingOutput: mergingContract){
+                , let parsedContract = parser.process(input: block, mergingOutput: mergingContract){
                     stackedParsedContacts.append(parsedContract)
                 }
             }
@@ -420,30 +420,34 @@ private struct FinderAppDetector{
             var resultGroup = VisionTextResultGroup()
 
             if selectedParserTypes.contains(ParserItem.Key.EmailAddress){
-                resultGroup.emails = visionTexts.parse(type: VisionTextEmailAddressParser.self, async)
+                resultGroup.emails = visionText.blocks.parse(type: VisionTextEmailAddressParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.PhoneNumber){
-                resultGroup.phoneNumbers = visionTexts.parse(type: VisionTextPhoneNumberParser.self, async)
+                resultGroup.phoneNumbers = visionText.blocks.parse(type: VisionTextPhoneNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.URL){
-                if let urls = visionTexts.parse(type: VisionTextURLParser.self, async){
+                if let urls = visionText.blocks.parse(type: VisionTextURLParser.self, async){
                     //excluding mail addresses
                     resultGroup.urls = urls.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty }
                 }
             }
 
             if selectedParserTypes.contains(ParserItem.Key.Address){
-                resultGroup.addresses = visionTexts.parse(type: VisionTextAddressParser.self, async)
+                resultGroup.addresses = visionText.blocks.parse(type: VisionTextAddressParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.FlightNumber){
-                resultGroup.flights = visionTexts.parse(type: VisionTextFlightNumberParser.self, async)
+                resultGroup.flights = visionText.blocks.parse(type: VisionTextFlightNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.Date){
-                resultGroup.dates = visionTexts.parse(type: VisionTextDateParser.self, async)
+                resultGroup.dates = visionText.blocks.parse(type: VisionTextDateParser.self, async)
+            }
+
+            if selectedParserTypes.contains(ParserItem.Key.Price){
+                resultGroup.currencies = visionText.blocks.parse(type: VisionTextCurrencyParser.self, async)
             }
 
             result.resultGroup = resultGroup
@@ -586,6 +590,8 @@ private struct ParserItem {
         case URL
 
         case FlightNumber
+        case Price
+
         case GPSCoordinates
     }
 
@@ -605,6 +611,7 @@ private struct ParserDictionary {
             ,ParserItem.Key.Date
             ,ParserItem.Key.URL
             ,ParserItem.Key.FlightNumber
+            ,ParserItem.Key.Price
         ]
     ]
 
@@ -622,8 +629,19 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     private var parserCollection:[ParserDictionary] {
         get{
-            if FinderApp.privateDefaults.selectionPreset == SelectionPreset.plaintext.rawValue{
+            let preset = FinderApp.privateDefaults.selectionPreset
+            if preset == SelectionPreset.plaintext.rawValue{
                 return []
+            }
+
+            if preset == SelectionPreset.contact.rawValue{
+                return type(of: self).defaultParserCollection.compactMap { dictionary -> ParserDictionary? in
+                    var _dictionary = dictionary
+                    _dictionary.items = _dictionary.items.filter { (item: ParserItem) -> Bool in
+                        return item.key != ParserItem.Key.Price
+                    }
+                    return _dictionary
+                }
             }
 
             return type(of: self).defaultParserCollection
@@ -632,7 +650,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
     fileprivate static let defaultParserCollection:[ParserDictionary] = [
 
-        ParserDictionary(key: ParserDictionary.Key.Information, label: "Items".localized,
+        ParserDictionary(key: ParserDictionary.Key.Information, label: "Detection Targets".localized,
                 items: [
                     ParserItem(key: ParserItem.Key.PhoneNumber, label:"Phone Number".localized, iconImageBundleName:R.image.appActionIconPhoneNumber.name)
                     ,ParserItem(key: ParserItem.Key.EmailAddress, label:"E-mail Address".localized, iconImageBundleName:R.image.appActionIconEmail.name)
@@ -640,6 +658,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                     ,ParserItem(key: ParserItem.Key.Date, label:"Date".localized, iconImageBundleName:R.image.appActionIconDate.name)
                     ,ParserItem(key: ParserItem.Key.URL, label:"URL", iconImageBundleName:R.image.appActionIconURL.name)
                     ,ParserItem(key: ParserItem.Key.FlightNumber, label:"Flight Number".localized, iconImageBundleName:R.image.appActionIconFlight.name)
+                    ,ParserItem(key: ParserItem.Key.Price, label:"Price".localized, iconImageBundleName:R.image.appActionIconCurrency.name)
                 ])
     ]
 
