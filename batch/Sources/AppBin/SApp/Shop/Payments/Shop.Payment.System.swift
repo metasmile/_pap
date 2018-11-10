@@ -33,9 +33,15 @@ struct FreeAppPayment<T:App>: VerifiablePayable{
     }
 }
 
-struct RestorePurchasesSystemPayment:VerifiablePayable{
+struct RestorePurchasesSystemPayment:VerifiablePayable, RelativePayable{
     static var action: PayableAction {
         return PayableAction(title: "Restore".localized)
+    }
+
+    static var superPayables: HashSet<Payable.Type> {
+        return [
+            FreeAllAppsPayment.self
+        ].hashSet
     }
 
     static var isEnable: Bool {

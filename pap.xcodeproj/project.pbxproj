@@ -577,6 +577,7 @@
 		4F71DD8A3D76FA4A7B94511D /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1B879AF707A55F77BFD /* CodeKit.URL.swift */; };
 		4F71DD8DC5937AE44C8E71B7 /* CodeKit.UIImage.Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD9C52AA520B5447254E /* CodeKit.UIImage.Transform.swift */; };
 		4F71DD8F00037E7388648AB9 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D1996654871AA77BCB /* CodeKit.UIGraphicsImageRenderer.swift */; };
+		4F71DD94694DA8FA5002BDB9 /* fap.AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */; };
 		4F71DD98A9A188BEC7DBD1CC /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7754AEF06C1B22EE140 /* Charge.Objects.Receipt.swift */; };
 		4F71DD9FFD85214279C102F9 /* AppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8430FF9D0E3449C45B6 /* AppTaskManager.swift */; };
 		4F71DDAC79D4C263D6B96028 /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8E375DF39A25FEFE8C9 /* App.UI.VideoTrimControl.swift */; };
@@ -787,7 +788,6 @@
 		A07BD25F21972626003031D5 /* Transform.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7527A6619FFA2F0BEC1 /* Transform.BApp.Contents.swift */; };
 		A07BD26021972626003031D5 /* MultiArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE00FF216CFD4D00F99365 /* MultiArray.swift */; };
 		A07BD26121972626003031D5 /* Transform.BApp.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D59A37E4763C549C6653 /* Transform.BApp.Public.Contents.swift */; };
-		A07BD26221972626003031D5 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A07BD26321972626003031D5 /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */; };
 		A07BD26421972626003031D5 /* Shop.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4884D683710D4B95189 /* Shop.SApp.swift */; };
 		A07BD26521972626003031D5 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE00FB216CFD4D00F99365 /* Math.swift */; };
@@ -1273,6 +1273,7 @@
 		4F71D6EF63C4349D3278DC9E /* Filters.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.swift; sourceTree = "<group>"; };
 		4F71D6F53CDB13CF2E2F261E /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71D6F8EE86EF92E238A282 /* App.PreviewProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PreviewProcessable.swift; sourceTree = "<group>"; };
+		4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fap.AppDelegate.swift; sourceTree = "<group>"; };
 		4F71D706AD67421BC95129A3 /* FileIO.URL.File.Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.Glob.swift; sourceTree = "<group>"; };
 		4F71D71D31328AB00AC52B3B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D720E8D148915253E277 /* AppCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.swift; sourceTree = "<group>"; };
@@ -2291,6 +2292,7 @@
 			children = (
 				A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */,
 				A07BD38721973656003031D5 /* Info.plist */,
+				4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */,
 			);
 			path = fap;
 			sourceTree = "<group>";
@@ -4519,7 +4521,6 @@
 				A07BD25F21972626003031D5 /* Transform.BApp.Contents.swift in Sources */,
 				A07BD26021972626003031D5 /* MultiArray.swift in Sources */,
 				A07BD26121972626003031D5 /* Transform.BApp.Public.Contents.swift in Sources */,
-				A07BD26221972626003031D5 /* Settings.SApp.swift in Sources */,
 				A07BD26321972626003031D5 /* BApp.Macro.AutoSelection.swift in Sources */,
 				A07BD26421972626003031D5 /* Shop.SApp.swift in Sources */,
 				A07BD26521972626003031D5 /* Math.swift in Sources */,
@@ -4725,6 +4726,7 @@
 				A07BD32D21972626003031D5 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				A07BD32E21972626003031D5 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */,
 				A07BD32F21972626003031D5 /* AssetIO.LivePhotoResource.Video.swift in Sources */,
+				4F71DD94694DA8FA5002BDB9 /* fap.AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
