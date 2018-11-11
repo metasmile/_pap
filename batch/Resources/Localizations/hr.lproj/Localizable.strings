@@ -158,6 +158,8 @@
 "Access Failed." = "Pristup nije uspio.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pristup odobren.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Radnja";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "akcije";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Fotoaparat";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne mogu se vratiti. Sve odabrane stavke nisu uređene.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Snimite radnje koje trebate učiniti.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Snimite sav tekst.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Odaberite Akciju";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "pejzaž";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "raspored";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Obavijest o ograničenom učinku";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Upućivanje poziva";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimalno vlasništvo svih alata";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Poruka nam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Otvori kameru.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Otvori međuspremnik.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -462,6 +474,8 @@
 "Open" = "Otvoren";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Naši društveni mediji";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -554,6 +568,8 @@
 "Save Contacts" = "Spremanje kontakata";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Spremi i podijeli";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Spremite kopiranu sliku.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +647,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ostati s nama";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Priče o nama";
+"Stories of Us" = "Priče o nama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će savršeno ostati ista.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +666,8 @@
 "Take Part" = "Sudjelovati";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Preuzeto s ugrađenim fotoaparatom";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Dodirnite Otkrivanje teksta";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ciljano";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -692,8 +710,6 @@
 "Use Trial" = "Koristite probnu verziju";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Koristiti";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Korisnička zajednica";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

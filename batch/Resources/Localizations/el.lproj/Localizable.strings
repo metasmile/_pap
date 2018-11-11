@@ -158,6 +158,8 @@
 "Access Failed." = "Η πρόσβαση απέτυχε.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Πρόσβαση επετράπη.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Δράση";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Ενέργειες";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Λήψη ενεργειών λήψης.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Καταγράψτε όλο το κείμενο.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Επιλέξτε μια ενέργεια";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Τοπίο";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Διάταξη";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Περιορισμένη ειδοποίηση απόδοσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Πραγματοποίηση κλήσης";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Μέγιστη ιδιότητα ιδιοκτησίας όλων των εργαλείων";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Ανοιχτή κάμερα.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Ανοίξτε το Πρόχειρο.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -462,6 +474,8 @@
 "Open" = "Ανοιξε";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Τα κοινωνικά μας μέσα ενημέρωσης";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "Το PDFMaker κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -554,6 +568,8 @@
 "Save Contacts" = "Αποθήκευση επαφών";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Αποθήκευση και κοινή χρήση";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Αποθηκεύστε την αντιγραφείσα εικόνα.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +647,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Μείνετε μαζί μας";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Ιστορίες του Εαυτού μας";
+"Stories of Us" = "Ιστορίες από εμάς";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +666,8 @@
 "Take Part" = "Συμμετέχω";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Πατήστε για την ανίχνευση κειμένου";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Στοχοθετημένη";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -692,8 +710,6 @@
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Χρήση";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

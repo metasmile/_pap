@@ -22,24 +22,15 @@ extension URLOpenType {
 }
 
 struct URLOpenTypeSocialPage: URLOpenType {
-    static var webUrl: URL?{ return batchStrings.social.facebook.url.asURL }
+    static var webUrl: URL?{ return batchStrings.social.url.asURL }
 
     static var localUrl: URL? {
-        //Facebook -> Twitter
-        let url:URL = "fb://profile/\(batchStrings.social.facebook.pageId)".asURL!
-        if UIApplication.shared.canOpenURL(url){
-            return url
-        }
         return "twitter://user?screen_name=\(batchStrings.social.twitter.accountName)".asURL
     }
 }
 
 struct URLOpenTypeUserCommunity: URLOpenType {
-    static var webUrl: URL?{ return batchStrings.social.facebook.groupUrl.asURL }
-
-    static var localUrl: URL? {
-        return "fb://group?id=\(batchStrings.social.facebook.groupId)".asURL
-    }
+    static var webUrl: URL?{ return batchStrings.social.communityUrl.asURL }
 }
 
 struct URLOpenTypeBlog: URLOpenType {

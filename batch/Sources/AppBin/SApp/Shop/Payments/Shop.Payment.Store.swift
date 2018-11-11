@@ -44,7 +44,7 @@ struct AllTimeAllAppsPayment: NonConsumablePurchasingPayable, RelativePayable {
     static let product = StoreProduct(identifier: "batch_xapp_NC_P_owned", subscriptionPeriod: nil, legalInfo: nil)
 
     static var superPayables: HashSet<Payable.Type> {
-        return [SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self].hashSet
+        return [SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self, FreeAllAppsPayment.self].hashSet
     }
 }
 

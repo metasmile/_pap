@@ -158,6 +158,8 @@
 "Access Failed." = "Tilgang mislyktes.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Granted." = "Tilgang godkjent.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Handling";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "handlinger";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -222,6 +224,10 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan ikke gå tilbake. Alle valgte elementer har ikke blitt redigert.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Capture Actions å gjøre.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Choose An Action" = "Velg en handling";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Oppsett";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Begrenset ytelsesmelding";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
@@ -404,6 +412,8 @@
 "Making A Call" = "Ringe";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimal all verktøy eierskap";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Melding til oss";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Åpent kamera.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Åpne utklippstavlen.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -462,6 +474,8 @@
 "Open" = "Åpen";
 /* Generated from genl10n: App.UI.AssetView.swift, Filters.BApp.swift */
 "Original" = "Opprinnelig";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Våre sosiale medier";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker lager PDF-dokument fra flere bilder med ulike sidealternativer.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
@@ -554,6 +568,8 @@
 "Save Contacts" = "Lagre kontakter";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Lagre og del";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Lagre det kopierte bildet.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Lagre";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +647,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Historier om oss";
+"Stories of Us" = "Historier om oss";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +666,8 @@
 "Take Part" = "Delta";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Tatt med innebygd kamera";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Trykk for å oppdage tekst";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targeted" = "målrettet";
 /* Generated from genl10n: Cleaner.BApp.swift */
@@ -692,8 +710,6 @@
 "Use Trial" = "Bruk prøveversjon";
 /* Generated from genl10n: Shop.Payment.Promotion.swift */
 "Use" = "Bruk";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Bruker fellesskap";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

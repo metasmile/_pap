@@ -22,6 +22,12 @@
 "UQnvTr" = "Automatikus választás.";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "A szöveg felismerése.";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "Mentse el a másolt képet.";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "Az összes szöveg rögzítése.";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "Akadályozza a műveleteket.";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Nyissa meg a fényképezőgépet fénykép készítéséhez";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "Automatikus választás.";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "A szöveg felismerése.";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "Mentse el a másolt képet.";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "Az összes szöveg rögzítése.";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "Akadályozza a műveleteket.";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Nyitott ${appName}";
 /*Translated from: Open ${appName}*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "Automatikus választás ${appName}.";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "A szöveg felismerése.";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "Mentse el a másolt képet.";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "Az összes szöveg rögzítése.";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "Akadályozza a műveleteket.";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "RENDBEN. Most készíthet fényképet";
 /*Translated from: OK. You can take a Live Photo now*/

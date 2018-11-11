@@ -17,7 +17,7 @@ extension AppCenter{
 
     //POLICY: VIP == '.owned' (permanently)
     static var isPaidAsVIPInCurrentContext:Bool{
-        return charge.getChargesPaid().contains { $0.reward == .owned }
+        return charge.getChargesPaid().contains { $0.type != .none && $0.reward == .owned }
         //this is '.owned' specific. different from 'isOwned'
     }
 
@@ -78,6 +78,15 @@ private final class AppChargeManager: ChargeManager{
                     , priceAmount: AmountObject.min
                     , describable: AppChargeDescription(title:"Restore All Purchases".localized, description: nil, iconImage: nil)
             )
+
+            // Unlimited
+            , AppCharge(type: .none
+                    , reward: .owned, payment: FreeAllAppsPayment.self
+                    , priceAmount: AmountObject.min
+                    , describable: AppChargeDescription(title:"All Tools Ownership".localized, description: nil, iconImage: nil)
+                    , rewardDescribable:AppRewardDescription(title: "Permanent Use of All and New Tools".localized, shortTitle: "Permanent Tools License", description: nil, unit: nil, iconImage: nil)
+            )
+
             // Initial
 //            , AppCharge(type: .freeTrial
 //                    , reward: .timeOfUses
