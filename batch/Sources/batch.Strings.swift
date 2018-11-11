@@ -13,8 +13,10 @@ import Foundation
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
 struct batchStrings {
+    private static let kAppStoreID = "AppStoreID"
+
     static var appStoreId:String{
-        return "1310420792"
+        return (Bundle.main.object(forInfoDictionaryKey: kAppStoreID) as? String) ?? ""
     }
 
     static var name:String{
@@ -97,6 +99,15 @@ struct batchStrings {
 
     struct social {
 
+        static var url: String{
+            return "https://apps.photo/social"
+        }
+
+        static var communityUrl: String{
+            return "https://apps.photo/users"
+        }
+
+
         struct blog {
             static var url: String{
                 return "https://apps.photo/blog"
@@ -105,18 +116,11 @@ struct batchStrings {
 
         struct twitter{
             static var accountName:String{
-                return "PAPS"
+                return "getpaps"
             }
         }
 
         struct facebook{
-            static var url: String{
-                return "https://apps.photo/social"
-            }
-
-            static var groupUrl: String{
-                return "https://apps.photo/users"
-            }
 
             static var pageId:String{
                 return "616758765335887"

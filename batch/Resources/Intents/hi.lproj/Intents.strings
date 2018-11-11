@@ -22,6 +22,12 @@
 "UQnvTr" = "ऑटो चयन करें।";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "पाठ पहचानें।";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "कॉपी की गई छवि को सहेजें।";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "सभी पाठ कैप्चर करें।";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "करने के लिए कार्रवाई कैप्चर करें।";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "एक फोटो लेने के लिए खुला कैमरा";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "ऑटो चयन करें।";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "पाठ पहचानें।";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "कॉपी की गई छवि को सहेजें।";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "सभी पाठ कैप्चर करें।";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "करने के लिए कार्रवाई कैप्चर करें।";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "खुला ${appName}";
 /*Translated from: Open ${appName}*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "${appName} पर ऑटो का चयन करें।";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "पाठ पहचानें।";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "कॉपी की गई छवि को सहेजें।";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "सभी पाठ कैप्चर करें।";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "करने के लिए कार्रवाई कैप्चर करें।";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ठीक। अब आप एक फोटो ले सकते हैं";
 /*Translated from: OK. You can take a Live Photo now*/

@@ -22,6 +22,12 @@
 "UQnvTr" = "เลือกอัตโนมัติ";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "จดจำข้อความ";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "บันทึกภาพที่คัดลอก";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "จับภาพการกระทำที่ต้องทำ";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "เปิดกล้องถ่ายรูปเพื่อถ่ายภาพ";
 /*Translated from: Open Photo Filters*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "เลือกอัตโนมัติ";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "จดจำข้อความ";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "บันทึกภาพที่คัดลอก";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "จับภาพการกระทำที่ต้องทำ";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "เปิด ${appName}";
 /*Translated from: Open ${appName}*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "เลือกอัตโนมัติใน ${appName}";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "จดจำข้อความ";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "บันทึกภาพที่คัดลอก";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "จับภาพข้อความทั้งหมด";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "จับภาพการกระทำที่ต้องทำ";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ตกลง. คุณสามารถถ่ายรูปตอนนี้ได้";
 /*Translated from: OK. You can take a Live Photo now*/

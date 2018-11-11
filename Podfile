@@ -24,7 +24,7 @@ def common_pods
   pod 'PhoneNumberKit', '~> 2.1'
 end
 
-target 'batch' do
+def paps_pods
   common_pods
 
   # com.stells.batch.shop
@@ -42,10 +42,17 @@ target 'batch' do
   pod 'TPPDF'
   # com.stells.batch.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
+end
 
+target 'batch' do
+  paps_pods
   target 'papTests' do
     inherit! :complete
   end
+end
+
+target 'fap' do
+  paps_pods
 end
 
 target 'mmc' do

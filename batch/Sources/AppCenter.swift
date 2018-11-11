@@ -49,6 +49,7 @@ public final class AppCenter: AppManager, AppManagerConfigurable, PropertyWatcha
             , ConverterApp.self
             , ArtistApp.self
             , CleanerApp.self
+            , MemoCamApp.self
             , GIFMakerApp.self
             , RevertApp.self
             , PDFMakerApp.self

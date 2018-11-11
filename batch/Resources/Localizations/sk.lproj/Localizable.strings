@@ -158,6 +158,8 @@
 "Access Failed." = "Prístup zlyhal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Prístup povolený.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "akčné";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Akcia";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nemožno sa vrátiť späť. Všetky vybraté položky neboli upravené.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Zachyťte akcie, ktoré chcete urobiť.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Zachytiť celý text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Vyberte položku Akcia";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "dispozície";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Oznámenie o obmedzenej výkonnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Uskutočnenie hovoru";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximálne vlastníctvo všetkých nástrojov";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Správa nám";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Otvorte fotoaparát.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Otvoriť schránku.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -462,6 +474,8 @@
 "Open" = "OTVORENÉ";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "originál";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Naše sociálne médiá";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker vytvára dokument PDF z viacerých obrázkov s rôznymi možnosťami stránky.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -554,6 +568,8 @@
 "Save Contacts" = "Uložiť kontakty";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Uložiť a zdieľať";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Uložte skopírovaný obrázok.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Uložiť";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +647,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Zostať s nami";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Príbehy nášho";
+"Stories of Us" = "Príbehy o nás";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapnite všetky položky, ktoré chcete skryť. Kvalita bude dokonale zostať rovnaká.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +666,8 @@
 "Take Part" = "Zúčastniť sa";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Klepnutím na položku Rozpoznať text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "cielená";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -692,8 +710,6 @@
 "Use Trial" = "Použite skúšku";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "použitie";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Komunita používateľa";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

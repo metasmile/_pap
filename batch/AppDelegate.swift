@@ -14,6 +14,11 @@ import PropertyKit
 import Armchair
 import FBSDKCoreKit
 
+public protocol AppExternalDelegator{
+    func willFinishLaunching()
+    func didFinishLaunching()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -37,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Version: ", Bundle.main.shortVersionString ?? "No version info")
         print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
         print("Version Description: ",Defaults.shared.shortVersionDescription)
+
+        let selfAny:AnyObject = self
+        (selfAny as? AppExternalDelegator)?.willFinishLaunching()
 
         return false
     }
@@ -78,6 +86,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            AppCenter.charge.pay(for: p, skipTransaction: true)
 //        }
 #endif
+
+        let selfAny:AnyObject = self
+        (selfAny as? AppExternalDelegator)?.didFinishLaunching()
+
         return true
     }
 

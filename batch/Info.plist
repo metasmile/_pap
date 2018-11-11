@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.3</string>
+	<string>2.0.4</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,7 +33,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>48</string>
+	<string>49</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -48,6 +48,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>AppStoreID</key>
+	<string>1310420792</string>
 	<key>FacebookAppID</key>
 	<string>443161082811578</string>
 	<key>FacebookDisplayName</key>
@@ -134,6 +136,8 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>AutoSelectIntent</string>
+		<string>CaptureActionsToDoIntent</string>
+		<string>CaptureAllTextIntent</string>
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertLatestLivePhotoIntent</string>
 		<string>ConvertLatestVideoIntent</string>

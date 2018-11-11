@@ -35,7 +35,7 @@ public class SettingsApp: NSObject
     public static let info = AppInfo(
         identifier: "com.stells.batch.settings"
         , version: "1.0"
-        , phase: .release
+        , phase: .develop
         , appType: SettingsApp.self
         , displayName: "Settings".localized
         , description: nil
