@@ -13,8 +13,10 @@ import Foundation
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
 struct batchStrings {
+    private static let kAppStoreID = "AppStoreID"
+
     static var appStoreId:String{
-        return "1310420792"
+        return (Bundle.main.object(forInfoDictionaryKey: kAppStoreID) as? String) ?? ""
     }
 
     static var name:String{
