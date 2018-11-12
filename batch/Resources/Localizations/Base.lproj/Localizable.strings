@@ -114,7 +114,7 @@
 "6-Month Use of Main And New Tools" = "6-Month Use of Main And New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "7-Day Use of Main and New Tools" = "7-Day Use of Main and New Tools";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "A Licence Is Required." = "A Licence Is Required.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Access Denied." = "Access Denied.";
@@ -400,7 +400,7 @@
 "On Standby" = "On Standby";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Open %@" = "Open %@";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Apple Maps" = "Open Apple Maps";
@@ -656,7 +656,7 @@
 "Thank you very much for your feedback! Soon we will contact you." = "Thank you very much for your feedback! Soon we will contact you.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
-/* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+/* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "To use this app needs a corresponding access license. Would you like to open %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Too Close-up Face" = "Too Close-up Face";
