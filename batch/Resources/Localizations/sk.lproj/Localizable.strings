@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Zvyšné percento";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Zmena veľkosti fotografií o rôzne veľkosti.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Resize";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Obnoviť všetky nákupy";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Použite skúšku";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "použitie";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Komunita používateľa";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP horúca linka";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

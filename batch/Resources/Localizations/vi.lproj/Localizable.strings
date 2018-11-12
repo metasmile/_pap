@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Phần trăm còn lại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Thay đổi kích thước ảnh của bạn theo các kích thước khác nhau.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Thay đổi kích thước";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Dùng thử";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Sử dụng";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Cộng đồng người dùng";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

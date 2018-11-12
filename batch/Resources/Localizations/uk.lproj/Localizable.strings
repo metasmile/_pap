@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Залишок у відсотках";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Повторити";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Змініть розмір фотографій різними розмірами.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Змінити розмір";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Відновити всі покупки";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Використовуйте Trial";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Використовуйте";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Користувацька спільнота";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

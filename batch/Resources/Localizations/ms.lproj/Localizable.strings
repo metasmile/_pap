@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Peratusan yang tinggal";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ulang";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Ubah saiz foto anda dengan pelbagai saiz.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Saiz semula";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Pulihkan Semua Pembelian";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Gunakan Percubaan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Gunakan";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Komuniti Pengguna";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Talian Hot VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

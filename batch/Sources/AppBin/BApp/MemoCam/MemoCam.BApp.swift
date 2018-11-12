@@ -746,21 +746,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
         }
 
-        //TODO: if found a cause, remove this.
-        //HOTFIX BEGIN: https://fabric.io/jessi/ios/apps/com.stells.mmc/issues/5bce01faf8b88c2963c52c20?time=last-seven-days
-        /*
-        "iPhone7,1"  : .iPhone6plus, (unknown)
-        "iPhone7,2"  : .iPhone6,   (x) unknown but expected
-        "iPhone8,1"  : .iPhone6S,  (x)
-        "iPhone8,2"  : .iPhone6Splus, (no issue)
-        "iPhone8,4"  : .iPhoneSE, (x)
-        */
-        let deviceName = UIDevice.name
-        if deviceName == "iPhone8,1" || deviceName == "iPhone8,4" || deviceName == "iPhone7,2"{
-            detectTextRequest = nil
-        }
-        //HOTFIX END
-        
         cameraView.captureVideoDataDidOutput = { sampleBuffer in
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
@@ -1027,22 +1012,6 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         }
     }
 }
-
-//HOTFIX BEGIN
-private extension UIDevice {
-    static var name: String? {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let modelCode = withUnsafePointer(to: &systemInfo.machine) {
-            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
-                ptr in
-                String(validatingUTF8: ptr)
-            }
-        }
-        return String(validatingUTF8: modelCode!)
-    }
-}
-//HOTFIX END
 
 
 import Intents

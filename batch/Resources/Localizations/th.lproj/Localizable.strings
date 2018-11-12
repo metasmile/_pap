@@ -546,6 +546,12 @@
 "Remaining Percentage" = "เปอร์เซ็นต์ที่เหลือ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "ปรับขนาดรูปภาพตามขนาดต่างๆ";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "ปรับขนาด";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "ใช้การทดลองใช้";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "ใช้";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "ชุมชนผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

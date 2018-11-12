@@ -286,7 +286,7 @@ fileprivate class SettingsAppDockContent: NSObject, AppDockContent, UITableViewD
         contactCellDescribers.append(c3)
         
         let c322 = UITableViewButtonCellDescriber()
-        c322.label = "Stories of Ours".localized
+        c322.label = "Stories of Us".localized
         c322.buttonTitle = "Visit".localized
         c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c322.iconImageTintColor = self.view.tintColor

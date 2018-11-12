@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Pourcentage restant";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Répéter";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Redimensionnez vos photos selon les différentes tailles.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Redimensionner";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurer tous les achats";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Utiliser l'essai";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilisation";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Communauté d'utilisateurs";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Hotline VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
