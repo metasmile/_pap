@@ -514,8 +514,6 @@
 "Presets" = "Presets";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Prijs";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Prijzen zijn inclusief alle nieuwe gereedschappen en updates, wordt ook niet automatisch verlengd.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Privacybeleid";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Delen op Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Gelijkenis";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Single Tools-licentie";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Grootte";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Dank voor uw aankoop.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Heel erg bedankt voor uw feedback! Binnenkort nemen we contact met u op.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "De prijs is inclusief elke nieuwe tool, en vandaag is de goedkoopste dag om het te krijgen.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Met dit eenvoudige maar grootschalige hulpprogramma voor het transformeren van batchafbeeldingen kunt u snel een groot aantal mediabestanden roteren en spiegelen, waaronder Live Photos. Er is geen limiet aan het aantal foto's om ze te bewerken.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

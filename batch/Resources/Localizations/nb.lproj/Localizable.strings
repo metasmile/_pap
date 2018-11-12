@@ -515,8 +515,6 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Pris";
 /* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Prisene er inkludert alle nye verktøy og oppdateringer, også det fornyes ikke automatisk.";
-/* Generated from genl10n: Shop.SApp.swift */
 "Privacy Policy" = "Personvernregler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Privacy" = "Personvern";
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Enkelt verktøy lisens";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift, GIFMaker.BApp.swift */
 "Size" = "Størrelse";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Takk for kjøpet.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Tusen takk for din tilbakemelding! Snart vil vi kontakte deg.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Prisen er inkludert hvert nytt verktøy, og i dag er den billigste dagen å få den.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Dette enkle, men store batch image transform verktøyet lar deg raskt rotere og vende mange mediefiler, inkludert Live Photos. Det er ingen grense for antall bilder for å redigere dem.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

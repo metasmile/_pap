@@ -514,8 +514,6 @@
 "Presets" = "프리셋";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "가격";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "가격에는 새로운 도구 및 업데이트가 모두 포함되며 자동으로 갱신되지 않습니다.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "개인 정보 정책";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Facebook Messenger에서 공유";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "단일 도구 라이센스";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "구입 주셔서 감사합니다.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "의견을 보내 주셔서 대단히 감사합니다! 곧 우리가 연락 드리겠습니다.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "가격은 모든 새로운 도구를 포함하고 있으며, 오늘은 가장 저렴한 날입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 포토을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

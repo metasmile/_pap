@@ -514,8 +514,6 @@
 "Presets" = "Presets";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Preu";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Els preus inclouen totes les eines i actualitzacions noves, també no es renovarà automàticament.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Política de privacitat";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Compartir en Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Similitud";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Llicència d'eines úniques";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Gràcies per la seva compra.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Moltes gràcies pels vostres comentaris. Aviat ens posarem en contacte amb vostè.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "El preu inclou cada nova eina, i avui és el dia més barat per aconseguir-ho.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Aquesta eina de transformació de la imatge de lot de lletra directa, però a gran escala, us permet girar i transferir ràpidament molts fitxers multimèdia, incloses Live Photos. No hi ha cap límit en la quantitat de fotos per editar-les.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

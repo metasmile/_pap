@@ -272,7 +272,8 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "All Tools License".localized
-                , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
+
+                , detailedLabel: "The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:FreeAllAppsPayment.self)

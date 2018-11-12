@@ -514,8 +514,6 @@
 "Presets" = "Hazır ayarlar";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Fiyat";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Fiyatlar Her Yeni Araç ve Güncellemeyi İçeriyor, ayrıca otomatik olarak yenilenmeyecek.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Gizlilik Politikası";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Facebook Messenger'da Paylaşım";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Benzerlik";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Tek Araçlar Lisansı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Satın aldığınız için teşekkür ederiz.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Geri bildiriminiz için teşekkürler! Yakında sizinle iletişim kuracağız.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Fiyat Her Yeni Aracı Dahil Ediyor Ve Bugün Getirmek İçin En Ucuz Gün.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

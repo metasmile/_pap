@@ -514,8 +514,6 @@
 "Presets" = "esiasetukset";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Hinta";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Hinnat sisältävät kaikki uudet työkalut ja päivitykset, mutta se ei uusi automaattisesti.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Tietosuojakäytäntö";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Single Tools lisenssi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Koko";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Kiitos ostoksestasi.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Paljon kiitoksia palautteestasi! Pian voimme ottaa sinuun yhteyttä.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Hinta sisältää kaikki uudet työkalut, ja tänään on halvin päivä saada se.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tämä yksinkertainen mutta laajamittainen eräkuvan muunnostyökalu mahdollistaa nopean kiertämisen ja kääntämisen useista mediatiedostoista, kuten Live-valokuvista. Valokuvien määrää ei ole rajoitettu muokata niitä.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

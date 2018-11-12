@@ -514,8 +514,6 @@
 "Presets" = "Προεπιλογές";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Τιμή";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Οι τιμές συμπεριλαμβάνουν κάθε νέο εργαλείο και ενημερώσεις, επίσης δε θα ανανεώνεται αυτόματα.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Πολιτική Απορρήτου";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -620,6 +618,8 @@
 "Sharing on Facebook Messenger" = "Κοινή χρήση στο Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Άδεια ενιαίου εργαλείου";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Σας ευχαριστούμε για την αγορά σας.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Σας ευχαριστούμε πολύ για τα σχόλιά σας! Σύντομα θα επικοινωνήσουμε μαζί σας.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Η τιμή συμπεριλαμβάνει κάθε νέο εργαλείο και σήμερα είναι η φθηνότερη ημέρα για να το πάρετε.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
