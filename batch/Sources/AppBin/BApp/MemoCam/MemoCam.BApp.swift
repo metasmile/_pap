@@ -56,8 +56,8 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         return false
     }
 
-    fileprivate var photoPickerCallee:PhotoPickerViewControllerOperationsCallee?
-    func didAppear(callee: PhotoPickerViewControllerOperationsCallee) {
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
         photoPickerCallee = callee
     }
 

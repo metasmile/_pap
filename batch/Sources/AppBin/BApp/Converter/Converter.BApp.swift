@@ -158,15 +158,15 @@ public class ConverterApp: NSObject, PropertyWatchable,
         return nil
     }
 
-    func didSelectWhenInserted(callee: PhotoPickerViewControllerOperationsCallee, indexPaths: [IndexPath]) {
+    func didSelectWhenInserted(callee: PhotoPickerViewControllerUniversalOperations, indexPaths: [IndexPath]) {
         if let _ = currentLaunchOption{
-            callee.performInCurrentSelectionContext()
+            callee.performInSelectionContext()
         }
     }
 
-    var photoPickerCallee:PhotoPickerViewControllerOperationsCallee?
+    var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
 
-    func didAppear(callee: PhotoPickerViewControllerOperationsCallee) {
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
         self.photoPickerCallee = callee
     }
 }
@@ -426,7 +426,7 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
                         DispatchQueue.main.async{
                             assert(self.photoPickerCallee != nil)
                             self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
-                            self.photoPickerCallee?.performInCurrentSelectionContext()
+                            self.photoPickerCallee?.performInSelectionContext()
                         }
                     }
                 }

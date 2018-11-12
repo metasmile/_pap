@@ -7,11 +7,15 @@ import Foundation
 import UIKit
 import Photos
 
-extension PhotoPickerViewController:PhotoPickerViewControllerOperationsCallee{
-    func performInCurrentSelectionContext() {
+extension PhotoPickerViewController:PhotoPickerViewControllerUniversalOperations{
+    func performInSelectionContext() {
         if let currentRightBarButtonAction = navigationItem.rightBarButtonItem?.action{
             perform(currentRightBarButtonAction, with:"")
         }
+    }
+
+    func performInNonSelectionContext(performIfAllowed: (() -> ())?) {
+        assert(false,"Not implemented yet. (e.g. run Ads.)")
     }
 
     func selectInCurrentContext(with asset: PHAsset, animated: Bool=true) -> Bool {

@@ -6,8 +6,12 @@
 import Foundation
 import Photos
 
-protocol PhotoPickerViewControllerOperationsCallee {
-    func performInCurrentSelectionContext()
+protocol PhotoPickerViewControllerUniversalOperations {
+
+    func performInSelectionContext()
+
+    //INFO: To avoid side-effect. someday integrate with Selection context such like "performInCurrentContext()"
+    func performInNonSelectionContext(performWhenAllowed:(() -> ())?)
 
     @discardableResult
     func selectInCurrentContext(with asset: PHAsset, animated:Bool) -> Bool

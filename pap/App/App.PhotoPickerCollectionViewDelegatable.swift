@@ -16,12 +16,12 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
     func shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?
 
     //INFO: if [shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?] returns nil, this method will not be called.
-    func didSelectWhenInserted(callee:PhotoPickerViewControllerOperationsCallee, indexPaths:[IndexPath])
+    func didSelectWhenInserted(callee:PhotoPickerViewControllerUniversalOperations, indexPaths:[IndexPath])
 
-    func didInsert(callee:PhotoPickerViewControllerOperationsCallee, indexPaths:[IndexPath])
+    func didInsert(callee:PhotoPickerViewControllerUniversalOperations, indexPaths:[IndexPath])
 
     //INFO: app did change -> reloaded all collections with current context -> called.
-    func didAppear(callee:PhotoPickerViewControllerOperationsCallee)
+    func didAppear(callee:PhotoPickerViewControllerUniversalOperations)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -33,9 +33,9 @@ extension PhotoPickerCollectionViewDelegatableApp{
         return nil
     }
 
-    func didInsert(callee: PhotoPickerViewControllerOperationsCallee, indexPaths: [IndexPath]) {}
+    func didInsert(callee: PhotoPickerViewControllerUniversalOperations, indexPaths: [IndexPath]) {}
 
-    func didAppear(callee: PhotoPickerViewControllerOperationsCallee) {}
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {}
 
-    func didSelectWhenInserted(callee: PhotoPickerViewControllerOperationsCallee, indexPaths: [IndexPath]) {}
+    func didSelectWhenInserted(callee: PhotoPickerViewControllerUniversalOperations, indexPaths: [IndexPath]) {}
 }
