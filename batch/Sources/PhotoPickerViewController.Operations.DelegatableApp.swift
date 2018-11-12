@@ -9,6 +9,10 @@ import Photos
 
 extension PhotoPickerViewController:PhotoPickerCollectionViewDelegatableCallee{
     func performInCurrentContext() {
+        performInCurrentSelectionContext()
+    }
+
+    private func performInCurrentSelectionContext() {
         if let currentRightBarButtonAction = navigationItem.rightBarButtonItem?.action{
             perform(currentRightBarButtonAction, with:"")
         }else{
