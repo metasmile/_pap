@@ -14,7 +14,7 @@ extension PhotoPickerViewController:PhotoPickerViewControllerUniversalOperations
         }
     }
 
-    func performInNonSelectionContext(performIfAllowed: (() -> ())?) {
+    func performInNonSelectionContext(performWhenAllowed: (() -> ())?) {
         assert(false,"Not implemented yet. (e.g. run Ads.)")
     }
 
