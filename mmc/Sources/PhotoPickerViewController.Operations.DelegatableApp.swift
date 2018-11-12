@@ -7,8 +7,8 @@ import Foundation
 import UIKit
 import Photos
 
-extension PhotoPickerViewController:PhotoPickerCollectionViewDelegatableCallee{
-    func performInCurrentContextWithSelectedItems() {
+extension PhotoPickerViewController:PhotoPickerViewControllerOperationsCallee{
+    func performInCurrentSelectionContext() {
         if let currentRightBarButtonAction = navigationItem.rightBarButtonItem?.action{
             perform(currentRightBarButtonAction, with:"")
         }

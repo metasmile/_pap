@@ -6,16 +6,6 @@
 import Foundation
 import Photos
 
-protocol PhotoPickerCollectionViewDelegatableCallee {
-    func performInCurrentContext()
-
-    @discardableResult
-    func selectInCurrentContext(with asset: PHAsset, animated:Bool) -> Bool
-
-    @discardableResult
-    func selectInCurrentContext(at indexPath: IndexPath, animated:Bool) -> Bool
-}
-
 // PhotoPickerCollectionView -> App
 protocol PhotoPickerCollectionViewDelegatableApp: App {
     func shouldSelect(item:AppAsset) -> Bool
@@ -26,12 +16,12 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
     func shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?
 
     //INFO: if [shouldSelectWhenInserted(indexPaths:[IndexPath]?) -> [IndexPath]?] returns nil, this method will not be called.
-    func didSelectWhenInserted(callee:PhotoPickerCollectionViewDelegatableCallee, indexPaths:[IndexPath])
+    func didSelectWhenInserted(callee:PhotoPickerViewControllerOperationsCallee, indexPaths:[IndexPath])
 
-    func didInsert(callee:PhotoPickerCollectionViewDelegatableCallee, indexPaths:[IndexPath])
+    func didInsert(callee:PhotoPickerViewControllerOperationsCallee, indexPaths:[IndexPath])
 
     //INFO: app did change -> reloaded all collections with current context -> called.
-    func didAppear(callee:PhotoPickerCollectionViewDelegatableCallee)
+    func didAppear(callee:PhotoPickerViewControllerOperationsCallee)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -43,9 +33,9 @@ extension PhotoPickerCollectionViewDelegatableApp{
         return nil
     }
 
-    func didInsert(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {}
+    func didInsert(callee: PhotoPickerViewControllerOperationsCallee, indexPaths: [IndexPath]) {}
 
-    func didAppear(callee: PhotoPickerCollectionViewDelegatableCallee) {}
+    func didAppear(callee: PhotoPickerViewControllerOperationsCallee) {}
 
-    func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {}
+    func didSelectWhenInserted(callee: PhotoPickerViewControllerOperationsCallee, indexPaths: [IndexPath]) {}
 }
