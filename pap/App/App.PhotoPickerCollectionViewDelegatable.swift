@@ -7,7 +7,7 @@ import Foundation
 import Photos
 
 protocol PhotoPickerCollectionViewDelegatableCallee {
-    func performInCurrentContextWithSelectedItems()
+    func performInCurrentContext()
 
     @discardableResult
     func selectInCurrentContext(with asset: PHAsset, animated:Bool) -> Bool

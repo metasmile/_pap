@@ -8,9 +8,11 @@ import UIKit
 import Photos
 
 extension PhotoPickerViewController:PhotoPickerCollectionViewDelegatableCallee{
-    func performInCurrentContextWithSelectedItems() {
+    func performInCurrentContext() {
         if let currentRightBarButtonAction = navigationItem.rightBarButtonItem?.action{
             perform(currentRightBarButtonAction, with:"")
+        }else{
+            assert(false, "current done button action is nil. it looks some leaked case.")
         }
     }
 

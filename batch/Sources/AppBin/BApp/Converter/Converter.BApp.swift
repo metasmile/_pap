@@ -160,7 +160,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
 
     func didSelectWhenInserted(callee: PhotoPickerCollectionViewDelegatableCallee, indexPaths: [IndexPath]) {
         if let _ = currentLaunchOption{
-            callee.performInCurrentContextWithSelectedItems()
+            callee.performInCurrentContext()
         }
     }
 
@@ -426,7 +426,7 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
                         DispatchQueue.main.async{
                             assert(self.photoPickerCallee != nil)
                             self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
-                            self.photoPickerCallee?.performInCurrentContextWithSelectedItems()
+                            self.photoPickerCallee?.performInCurrentContext()
                         }
                     }
                 }

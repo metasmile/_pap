@@ -734,7 +734,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.layer.addSublayer(detectTextLayer)
         cameraView.layer.addSublayer(detectBarcodesLayer)
 
-        var detectTextRequest:VNDetectTextRectanglesRequest? = VNDetectTextRectanglesRequest { (request, error) in
+        let detectTextRequest:VNDetectTextRectanglesRequest? = VNDetectTextRectanglesRequest { (request, error) in
             guard let observations = request.results as? [VNTextObservation] else {
                 return
             }
