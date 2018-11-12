@@ -101,7 +101,7 @@ extension ShopApp{
             if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
 
                 //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
-                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
+                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .LocalPaidCharge{
                     var mutablePayGroup = payGroup
                     var items = payGroup.items
                     items.append(contentsOf:localCharges.map ({
@@ -250,7 +250,7 @@ private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
-//        case LocalCharge
+        case LocalPaidCharge
         case FreeCharge
 //        case Promotion
     }
@@ -286,6 +286,13 @@ private struct PayGroup:Hashable, Equatable, Section {
 
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
+        )
+
+        , PayGroup(
+                key: .LocalPaidCharge
+                , label: "Single Tools License".localized
+                , detailedLabel: nil
+                , items: [] //INFO: LocalPaid items will be dynamically added from ChargeableApp.localCharges
         )
 
         , PayGroup(
