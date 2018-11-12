@@ -32,11 +32,11 @@ public class ShopApp: NSObject
             , version: "1.0"
             , phase: .release
             , appType: ShopApp.self
-            , displayName: "Store".localized
+            , displayName: "Settings".localized
             , description: nil
             , keywords: nil
             , iconBundleName: R.image.shopSAppIcon.name
-            , themeColor: UIColor(red:1, green:0.99, blue:0.22, alpha:1), policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+            , themeColor: UIColor.white, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )
 
@@ -275,6 +275,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
+                    , PayItem(payable:FreeAllAppsPayment.self)
 
 //                    , PayItem(payable:YearlyAllAppsPayment.self)
 //                    , PayItem(payable:MonthlyAllAppsPayment.self)
@@ -492,8 +493,10 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
     // Sections
     private lazy var payGroups:[PayGroup] = PayGroup.Default
+    private var contactCellDescribers = [UITableViewCellDefaultDescribable]()
     private var freeChargeSettingsCellDescribers = [UITableViewCellDefaultDescribable]()
     private var youAppCellDescribers = [UITableViewCellDefaultDescribable]()
+    private var informationOfUsetCellDescribers = [UITableViewCellDefaultDescribable]()
 
     private var sections:[Section] {
         var s:[Section] = payGroups
@@ -505,6 +508,18 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         if youAppCellDescribers.count > 0{
             s.append(CellDescriberGroup(label: "Join In Partnership Program".localized, detailedLabel: "Share Your Talent, Make Together. Obtain Each Reward If Adopted.".localized, describers: youAppCellDescribers))
+        }
+
+        if contactCellDescribers.count > 0{
+            s.append(CellDescriberGroup(label: "Staying With Us".localized, detailedLabel: nil, describers: contactCellDescribers))
+        }
+
+        if informationOfUsetCellDescribers.count > 0{
+            var info = "Version \(Defaults.shared.latestShortVersion ?? "-")"
+#if DEBUG
+            info = "Version \(Defaults.shared.latestShortVersion ?? "-") | Build \(Bundle.main.version ?? "-")"
+#endif
+            s.append(CellDescriberGroup(label: "Information of Use".localized, detailedLabel: info, describers: informationOfUsetCellDescribers))
         }
 
         return s
@@ -579,18 +594,15 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
     private func loadYouAppCellDescribers(){
         youAppCellDescribers.removeAll()
 
-        if !AppCenter.isPaidAsOwnedInCurrentContext{
-
-            let c2 = UITableViewButtonCellDescriber()
-            c2.label = "Translation Correction".localized
-            c2.detailedLabel = "Maximum All Tools Ownership".localized
-            c2.buttonTitle = "Take Part".localized
-            c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
-            c2.valueHandler = { _ in
-                AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
-            }
-            youAppCellDescribers.append(c2)
+        let c2 = UITableViewButtonCellDescriber()
+        c2.label = "Translation Correction".localized
+        c2.detailedLabel = "Maximum All Tools Ownership".localized
+        c2.buttonTitle = "Take Part".localized
+        c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c2.valueHandler = { _ in
+            AppCenter.charge.try(for: MailContactPayment<MailContactL10NType>.self)
         }
+        youAppCellDescribers.append(c2)
     }
 
     private func loadShopSettingsCellDescribers(){
@@ -620,11 +632,172 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
     }
 
+    private func loadContactCellDescribers(){
+        contactCellDescribers.removeAll()
+
+        let c0 = UITableViewButtonCellDescriber()
+        c0.label = "Give A Rating".localized
+        c0.buttonTitle = "Rate It".localized
+        c0.iconImage = R.image.cellIconGiveARating()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c0.iconImageTintColor = self.view.tintColor
+        c0.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = InAppPromptRatingPayment.self.init().pay(AsyncSignal())
+            }
+        }
+        contactCellDescribers.append(c0)
+
+        let c1 = UITableViewButtonCellDescriber()
+        c1.label = "Write A Review".localized
+        c1.buttonTitle = "Write".localized
+        c1.iconImage = R.image.cellIconWriteAReview()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c1.iconImageTintColor = self.view.tintColor
+        c1.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = InAppStoreRatingPayment.self.init().pay(AsyncSignal())
+            }
+        }
+        contactCellDescribers.append(c1)
+
+        let c123 = UITableViewButtonCellDescriber()
+        c123.label = "Share This App".localized
+        c123.buttonTitle = "Share".localized
+        c123.iconImage = R.image.commonCellIconShare()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c123.iconImageTintColor = self.view.tintColor
+        c123.valueHandler = { _ in
+            DispatchQueue.global().async{
+                _ = SocialSharePayment.self.init().pay(AsyncSignal())
+            }
+        }
+        contactCellDescribers.append(c123)
+
+        let c2 = UITableViewButtonCellDescriber()
+        c2.label = "Message To Us".localized
+        c2.buttonTitle = "Send".localized
+        c2.iconImage = R.image.cellIconContactUs()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c2.valueHandler = { _ in
+            AppCenter.charge.try(for: MailContactPayment<MailContactSupportType>.self)
+        }
+        contactCellDescribers.append(c2)
+
+        if AppCenter.isPaidAsVIPInCurrentContext {
+            let c6 = UITableViewButtonCellDescriber()
+            c6.label = "VIP Hotline".localized
+            c6.buttonTitle = "Inquiry".localized
+            c6.iconImage = R.image.cellIconVIPHotline()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+            c6.iconImageTintColor = self.view.tintColor
+            c6.valueHandler = { _ in
+                //TODO: add realtime messenger or in-app messaging.
+                AppCenter.charge.try(for: MailContactPayment<MailContactHotlineType>.self)
+            }
+            contactCellDescribers.append(c6)
+        }
+
+//        //open later.
+//        let c3 = UITableViewButtonCellDescriber()
+//        c3.label = "User Community".localized
+//        c3.buttonTitle = "Visit".localized
+//        c3.iconImage = R.image.cellIconUserGroup.name
+//        c3.iconImageTintColor = self.view.tintColor
+//        c3.valueHandler = { _ in
+//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeUserCommunity>.self)
+//        }
+//        contactCellDescribers.append(c3)
+
+        //open later.
+        let ccc423 = UITableViewButtonCellDescriber()
+        ccc423.label = "Our Social Media".localized
+        ccc423.buttonTitle = "Visit".localized
+        ccc423.iconImage = R.image.cellIconUserGroup.name
+        ccc423.iconImageTintColor = self.view.tintColor
+        ccc423.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeSocialPage>.self)
+        }
+        contactCellDescribers.append(ccc423)
+
+        let c322 = UITableViewButtonCellDescriber()
+        c322.label = "Stories of Us".localized
+        c322.buttonTitle = "Visit".localized
+        c322.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c322.iconImageTintColor = self.view.tintColor
+        c322.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
+        }
+        contactCellDescribers.append(c322)
+
+    }
+
+    private func loadInformationOfUsetCellDescribers(){
+        informationOfUsetCellDescribers.removeAll()
+
+//        let c42343 = UITableViewButtonCellDescriber()
+//        c42343.label = "Batch Tools List"
+//        c42343.buttonTitle = "Open".localized
+//        c42343.iconImage = R.image.cellIconAppsIndex()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+//        c42343.iconImageTintColor = self.view.tintColor
+//        c42343.valueHandler = { _ in
+//            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeAppsIndex>.self)
+//        }
+//        informationOfUsetCellDescribers.append(c42343)
+
+        let c345 = UITableViewButtonCellDescriber()
+        c345.label = "Video Tutorials".localized
+        c345.buttonTitle = "Open".localized
+        c345.iconImage = R.image.cellIconYouTubeChannel()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c345.iconImageTintColor = self.view.tintColor
+        c345.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeVideoTutorials>.self)
+        }
+        informationOfUsetCellDescribers.append(c345)
+
+        let c234 = UITableViewButtonCellDescriber()
+        c234.label = "Usage Guide".localized
+        c234.buttonTitle = "Open".localized
+        c234.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c234.iconImageTintColor = self.view.tintColor
+        c234.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeReferenceGuide>.self)
+        }
+        informationOfUsetCellDescribers.append(c234)
+
+        let c3243 = UITableViewButtonCellDescriber()
+        c3243.label = "Engineering Notes".localized
+        c3243.buttonTitle = "Open".localized
+        c3243.iconImage = R.image.cellIconReferenceGuide()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c3243.iconImageTintColor = self.view.tintColor
+        c3243.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeEngineeringNotes>.self)
+        }
+        informationOfUsetCellDescribers.append(c3243)
+
+        let c3 = UITableViewButtonCellDescriber()
+        c3.label = "Privacy Policy".localized
+        c3.buttonTitle = "Open".localized
+        c3.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c3.iconImageTintColor = self.view.tintColor
+        c3.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypePrivacyPolicy>.self)
+        }
+        informationOfUsetCellDescribers.append(c3)
+
+        let c7 = UITableViewButtonCellDescriber()
+        c7.label = "Terms of Use".localized
+        c7.buttonTitle = "Open".localized
+        c7.iconImage = R.image.commonCellIconInfo()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
+        c7.iconImageTintColor = self.view.tintColor
+        c7.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeTermsOfUse>.self)
+        }
+        informationOfUsetCellDescribers.append(c7)
+    }
+
     fileprivate func reloadData(){
         AppCenter.charge.synchronize()
 
         loadShopSettingsCellDescribers()
+        loadContactCellDescribers()
         loadYouAppCellDescribers()
+        loadInformationOfUsetCellDescribers()
         loadPayGroups()
 
         for s in self.sections{

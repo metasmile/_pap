@@ -28,7 +28,21 @@ private extension VerifiablePayable{
     }
 }
 
-struct InAppStoreRatingPayment:VerifiablePayable{
+private struct AppStoreRatingInitializer{
+    fileprivate static func initialize(){
+        Armchair.appID(batchStrings.appStoreId)
+        Armchair.useStoreKitReviewPrompt(true)
+        Armchair.resetAllCounters()
+        Armchair.shouldIncrementUseCountClosure { () -> Bool in
+            return false
+        }
+    }
+}
+
+struct InAppStoreRatingPayment:VerifiablePayable,PreparablePayable{
+    static func prepare(_ asyncSignal: AsyncWaitSignalable) {
+        AppStoreRatingInitializer.initialize()
+    }
 
     static var action:PayableAction{
         return PayableAction(title: "Rate It".localized)
@@ -57,15 +71,7 @@ struct InAppStoreRatingPayment:VerifiablePayable{
 
 struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-
-        DispatchQueue.main.async{
-            Armchair.appID(batchStrings.appStoreId)
-            Armchair.useStoreKitReviewPrompt( true)
-            Armchair.resetAllCounters()
-            Armchair.shouldIncrementUseCountClosure { () -> Bool in
-                return false
-            }
-        }
+        AppStoreRatingInitializer.initialize()
     }
 
     static var action:PayableAction{

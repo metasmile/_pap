@@ -22,6 +22,12 @@
 "UQnvTr" = "자동 선택 봇 사용.";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "텍스트 인식.";
+/*Translated from: Save the copied image.*/
+"LOB8q8" = "복사 된 이미지를 저장하십시오.";
+/*Translated from: Capture All Text.*/
+"9ymxym" = "모든 텍스트 캡처.";
+/*Translated from: Capture Actions To Do.*/
+"6wHM2F" = "할 일을 잡아라.";
 /*Translated from: Open Camera To Take A Photo.*/
 "HYZy53" = "카메라를 열어 사진을 찍기.";
 /*Translated from: Open Photo Filters App.*/
@@ -46,6 +52,12 @@
 "IMAD8C" = "자동 선택 봇 사용.";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "텍스트 인식.";
+/*Translated from: Save the copied image.*/
+"q6CFOL" = "복사 된 이미지를 저장하십시오.";
+/*Translated from: Capture All Text.*/
+"Grn5vP" = "모든 텍스트 캡처.";
+/*Translated from: Capture Actions To Do.*/
+"Zd4eti" = "할 일을 잡아라.";
 /*Translated from: Open ${appName}.*/
 "oGM42K" = "${appName} 열기.";
 /*Translated from: Open ${appName}.*/
@@ -98,6 +110,12 @@
 "Tz3aEP" = "${appName}에서 자동 선택.";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "텍스트 인식.";
+/*Translated from: Save the copied image.*/
+"yQMYnk" = "복사 된 이미지를 저장하십시오.";
+/*Translated from: Capture All Text.*/
+"MWHakF" = "모든 텍스트 캡처.";
+/*Translated from: Capture Actions To Do.*/
+"shEnHy" = "할 일을 잡아라.";
 /*Translated from: OK. You can take a Photo now.*/
 "xwyqoh-yQLzJM" = "승인. 지금 사진을 찍을 수 있습니다.";
 /*Translated from: OK. You can take a Live Photo now.*/

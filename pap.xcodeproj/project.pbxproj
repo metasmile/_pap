@@ -577,6 +577,7 @@
 		4F71DD8A3D76FA4A7B94511D /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1B879AF707A55F77BFD /* CodeKit.URL.swift */; };
 		4F71DD8DC5937AE44C8E71B7 /* CodeKit.UIImage.Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD9C52AA520B5447254E /* CodeKit.UIImage.Transform.swift */; };
 		4F71DD8F00037E7388648AB9 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D1996654871AA77BCB /* CodeKit.UIGraphicsImageRenderer.swift */; };
+		4F71DD94694DA8FA5002BDB9 /* fap.AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */; };
 		4F71DD98A9A188BEC7DBD1CC /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7754AEF06C1B22EE140 /* Charge.Objects.Receipt.swift */; };
 		4F71DD9FFD85214279C102F9 /* AppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8430FF9D0E3449C45B6 /* AppTaskManager.swift */; };
 		4F71DDAC79D4C263D6B96028 /* App.UI.VideoTrimControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8E375DF39A25FEFE8C9 /* App.UI.VideoTrimControl.swift */; };
@@ -649,6 +650,7 @@
 		4F71DFE0FEB30148444FF04C /* App.Preheatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D194EE74FC5DE7ECEBD7 /* App.Preheatable.swift */; };
 		5108A2D8218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
 		5108A2D9218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
+		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
 		511D20D8214B2CEC00056AD3 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */; };
@@ -788,7 +790,6 @@
 		A07BD25F21972626003031D5 /* Transform.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7527A6619FFA2F0BEC1 /* Transform.BApp.Contents.swift */; };
 		A07BD26021972626003031D5 /* MultiArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE00FF216CFD4D00F99365 /* MultiArray.swift */; };
 		A07BD26121972626003031D5 /* Transform.BApp.Public.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D59A37E4763C549C6653 /* Transform.BApp.Public.Contents.swift */; };
-		A07BD26221972626003031D5 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A07BD26321972626003031D5 /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */; };
 		A07BD26421972626003031D5 /* Shop.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4884D683710D4B95189 /* Shop.SApp.swift */; };
 		A07BD26521972626003031D5 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE00FB216CFD4D00F99365 /* Math.swift */; };
@@ -1069,6 +1070,12 @@
 		A07BD37E21972626003031D5 /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D961BCA2BA89D5253DC5 /* AppUICollectionViewCell.xib */; };
 		A07BD37F21972626003031D5 /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D36DDC98A235F4BD5AAD /* App.UI.CameraView.xcassets */; };
 		A07BD39021974ACA003031D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */; };
+		A07BD39821978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
+		A07BD39921978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
+		A07BD39A21978958003031D5 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
+		A07BD39B21978958003031D5 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
+		A07BD39C21978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
+		A07BD39D21978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
 		A0885A6F20AC71B900A469C1 /* Test.App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE78E969F349EB0EB06A /* Test.App.swift */; };
 		A0885A7020AC71BE00A469C1 /* App.Lib.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */; };
 		A0885A7220AC71BE00A469C1 /* ExifGhost.App.Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09ACF49BF1FDAE797B4 /* ExifGhost.App.Tests.swift */; };
@@ -1274,6 +1281,7 @@
 		4F71D6EF63C4349D3278DC9E /* Filters.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.swift; sourceTree = "<group>"; };
 		4F71D6F53CDB13CF2E2F261E /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71D6F8EE86EF92E238A282 /* App.PreviewProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PreviewProcessable.swift; sourceTree = "<group>"; };
+		4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fap.AppDelegate.swift; sourceTree = "<group>"; };
 		4F71D706AD67421BC95129A3 /* FileIO.URL.File.Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.Glob.swift; sourceTree = "<group>"; };
 		4F71D71D31328AB00AC52B3B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D720E8D148915253E277 /* AppCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.swift; sourceTree = "<group>"; };
@@ -1451,6 +1459,7 @@
 		4F71DFEBAD52B5CA78541BEC /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Data.swift; sourceTree = "<group>"; };
+		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.Intents.swift; sourceTree = "<group>"; };
@@ -1607,6 +1616,9 @@
 		A07BD38621972626003031D5 /* fap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07BD38721973656003031D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
+		A07BD39621978958003031D5 /* MemoCam.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.swift; sourceTree = "<group>"; };
+		A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		A0956A8D2095004700E680B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956A962095004700E680B9 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizable.strings; sourceTree = "<group>"; };
 		A0956AA52095004700E680B9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1844,6 +1856,8 @@
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
 			isa = PBXGroup;
 			children = (
+				A07BD39421978958003031D5 /* MemoCam */,
+				5118E9962194F7D200EB6D6A /* Resizer */,
 				A02389CE219043750039F398 /* Finder */,
 				4F71DB79973751F3580CA941 /* BApp.swift */,
 				4F71D22D17F02FB8E5D77ED3 /* AutoEditor */,
@@ -2293,6 +2307,7 @@
 			children = (
 				A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */,
 				A07BD38721973656003031D5 /* Info.plist */,
+				4F71D6FE063F036A0E4D5C1C /* fap.AppDelegate.swift */,
 			);
 			path = fap;
 			sourceTree = "<group>";
@@ -2581,6 +2596,14 @@
 			path = GIFMaker;
 			sourceTree = "<group>";
 		};
+		5118E9962194F7D200EB6D6A /* Resizer */ = {
+			isa = PBXGroup;
+			children = (
+				5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */,
+			);
+			path = Resizer;
+			sourceTree = "<group>";
+		};
 		511D20E0214B2FC600056AD3 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
@@ -2815,6 +2838,16 @@
 				A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */,
 			);
 			path = Finder;
+			sourceTree = "<group>";
+		};
+		A07BD39421978958003031D5 /* MemoCam */ = {
+			isa = PBXGroup;
+			children = (
+				A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */,
+				A07BD39621978958003031D5 /* MemoCam.BApp.swift */,
+				A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */,
+			);
+			path = MemoCam;
 			sourceTree = "<group>";
 		};
 		A0956A8B2095004700E680B9 /* ja.lproj */ = {
@@ -3403,6 +3436,7 @@
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,
 				4F71D4A97BBD774069AC6E31 /* Revert.BApp.Assets.xcassets in Resources */,
+				A07BD39821978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */,
 				4F71D58C2B40BC3B670A6A85 /* Transform.BApp.Assets.xcassets in Resources */,
 				4F71DF9085AE27ED0953C7B7 /* Camera.SApp.Assets.xcassets in Resources */,
 				4F71DD4929E40C82925D98A4 /* Localizable.strings in Resources */,
@@ -3515,6 +3549,7 @@
 				A07BD37321972626003031D5 /* Filters.BApp.Assets.xcassets in Resources */,
 				A07BD37421972626003031D5 /* Filters.jpg in Resources */,
 				A07BD37521972626003031D5 /* Revert.BApp.Assets.xcassets in Resources */,
+				A07BD39921978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */,
 				A07BD37621972626003031D5 /* Transform.BApp.Assets.xcassets in Resources */,
 				A07BD37721972626003031D5 /* Camera.SApp.Assets.xcassets in Resources */,
 				A07BD37821972626003031D5 /* Localizable.strings in Resources */,
@@ -3996,6 +4031,7 @@
 				51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */,
 				A0DE010C216CFD4D00F99365 /* UIImage+CVPixelBuffer.swift in Sources */,
 				A0DE0112216CFD4D00F99365 /* MLMultiArray+Image.swift in Sources */,
+				5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */,
 				A0D412342153C1FD00FFE2EF /* Intents.intentdefinition in Sources */,
 				4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.LaunchableApp.swift in Sources */,
 				A0DE0115216CFD4D00F99365 /* FNS-La-Muse.mlmodel in Sources */,
@@ -4064,6 +4100,7 @@
 				4F71D939F5E726A7551A4C00 /* Shop.SApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71DB86DEAFE1C117072DE2 /* Camera.SApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71D64933BDF8E0719B2DC9 /* AppDockViewController.LaunchableApp.Macro.swift in Sources */,
+				A07BD39C21978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71DA4846AB7E1D815D440B /* Converter.BApp.Launchable.OptionsKeys.swift in Sources */,
 				4F71D2DF6A3BB6176B6AD53E /* Artist.BApp.Contents.swift in Sources */,
 				4F71D2C05A9AD18DA16E981A /* Artist.BApp.swift in Sources */,
@@ -4134,6 +4171,7 @@
 				4F71D88F2B0286053853C59D /* ChargeableButton.swift in Sources */,
 				4F71D8E9AFB22B93EFA6559A /* iOSCheckMarkView.swift in Sources */,
 				4F71D55992BC7D1AD4BFA616 /* Camera.View.swift in Sources */,
+				A07BD39A21978958003031D5 /* MemoCam.BApp.swift in Sources */,
 				4F71D9D185CC6F9331E60DD3 /* Camera.CaptureProcessor.swift in Sources */,
 				4F71D287A48F0A59BC444F0F /* Charge.Types.swift in Sources */,
 				4F71D07A55E5EBBCC78C1AC0 /* Charge.Banker.swift in Sources */,
@@ -4531,7 +4569,6 @@
 				A07BD25F21972626003031D5 /* Transform.BApp.Contents.swift in Sources */,
 				A07BD26021972626003031D5 /* MultiArray.swift in Sources */,
 				A07BD26121972626003031D5 /* Transform.BApp.Public.Contents.swift in Sources */,
-				A07BD26221972626003031D5 /* Settings.SApp.swift in Sources */,
 				A07BD26321972626003031D5 /* BApp.Macro.AutoSelection.swift in Sources */,
 				A07BD26421972626003031D5 /* Shop.SApp.swift in Sources */,
 				A07BD26521972626003031D5 /* Math.swift in Sources */,
@@ -4581,6 +4618,7 @@
 				A07BD29121972626003031D5 /* Converter.Jpeg.swift in Sources */,
 				A07BD29221972626003031D5 /* Converter.Png.swift in Sources */,
 				A07BD29321972626003031D5 /* Converter.Mp4.swift in Sources */,
+				A07BD39D21978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				A07BD29421972626003031D5 /* App.AppDock.swift in Sources */,
 				A07BD29521972626003031D5 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				A07BD29621972626003031D5 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
@@ -4656,6 +4694,7 @@
 				A07BD2DC21972626003031D5 /* PHAsset.Editable.swift in Sources */,
 				A07BD2DD21972626003031D5 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				A07BD2DE21972626003031D5 /* AssetIO.LivePhoto.swift in Sources */,
+				A07BD39B21978958003031D5 /* MemoCam.BApp.swift in Sources */,
 				A07BD2DF21972626003031D5 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				A07BD2E021972626003031D5 /* AssetIO.LivePhotoResource.Image.swift in Sources */,
 				A07BD2E121972626003031D5 /* ImageIO.GIF.swift in Sources */,
@@ -4737,6 +4776,7 @@
 				A07BD32D21972626003031D5 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				A07BD32E21972626003031D5 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */,
 				A07BD32F21972626003031D5 /* AssetIO.LivePhotoResource.Video.swift in Sources */,
+				4F71DD94694DA8FA5002BDB9 /* fap.AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

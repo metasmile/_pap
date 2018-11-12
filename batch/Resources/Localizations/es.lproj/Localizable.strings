@@ -158,6 +158,8 @@
 "Access Failed." = "Acceso Fallido.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acceso permitido.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Action" = "Acción";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Comportamiento";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
@@ -222,6 +224,10 @@
 "Camera" = "Cámara";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "No puede revertir Todos los elementos seleccionados no han sido editados.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture Actions To Do." = "Captura acciones para hacer.";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Capture All Text." = "Capturar todo el texto.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Elige una acción";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -388,6 +394,8 @@
 "Landscape" = "Paisaje";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Diseño";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Limited Performance Notice" = "Aviso de rendimiento limitado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Foto en vivo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
@@ -404,6 +412,8 @@
 "Making A Call" = "Haciendo una llamada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Propiedad máxima de todas las herramientas";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mensaje a nosotros";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -438,6 +448,8 @@
 "Open Camera." = "Cámara abierta.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "Open Cleaner.";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Open Clipboard." = "Abra el portapapeles.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Open Converter." = "Open Converter.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
@@ -462,6 +474,8 @@
 "Open" = "Abierto";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our Social Media" = "Nuestras redes sociales";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker crea documentos PDF a partir de varias imágenes con varias opciones de página.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
@@ -554,6 +568,8 @@
 "Save Contacts" = "Guardar contactos";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Guardar y compartir";
+/* Generated from genl10n: Clipboard.BApp.swift */
+"Save the copied image." = "Guarda la imagen copiada.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Salvar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
@@ -631,7 +647,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Quedarse con nosotros";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Ours" = "Historias de los nuestros";
+"Stories of Us" = "Historias de nosotros";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Enciende cualquier artículo que quieras esconder. La calidad seguirá siendo la misma.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -650,6 +666,8 @@
 "Take Part" = "Participar";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Tomado con cámara incorporada";
+/* Generated from genl10n: MemoCam.BApp.swift */
+"Tap To Detect Text" = "Toque para detectar texto";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Dirigido";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -692,8 +710,6 @@
 "Use Trial" = "Usa prueba";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilizar";
-/* Generated from genl10n: Shop.SApp.swift */
-"User Community" = "Comunidad de usuarios";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línea VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

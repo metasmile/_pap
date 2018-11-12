@@ -659,7 +659,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
         let previewSize = previewContentMode == .scaleAspectFill ? self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size) : self.cameraView.captureVideoSize.aspectFit(in: self.cameraView.bounds.size)
-        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: previewSize)
+        let polygons: [CGQuad] = observations.compactMap {
+            guard $0.responds(to: #selector(getter: CIRectangleFeature.topLeft)), $0.responds(to: #selector(getter: CIRectangleFeature.topRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomLeft)) else { return nil }
+            return CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft)
+        }
+        drawPolygons(with: polygons, to: layer, in: previewSize)
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
@@ -885,7 +889,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             toolBar.setItems([
                 UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(title: "Tap To Detect".localized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
+                UIBarButtonItem(title: "Tap To Detect".localized.localizedCapitalized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)
