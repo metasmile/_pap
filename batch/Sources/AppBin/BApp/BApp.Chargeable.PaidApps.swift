@@ -28,3 +28,9 @@ extension FinderApp:ChargeableApp{
         return self.defaultNonConsumablePaidBAppLocalCharges
     }
 }
+
+extension MemoCamApp:ChargeableApp{
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
+    }
+}

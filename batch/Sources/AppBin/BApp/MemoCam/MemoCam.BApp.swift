@@ -897,22 +897,27 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     @objc fileprivate func performButtonDidTap(sender: Any) {
-        if let _ = currentTargetImage {
+
+        AppCenter.default.currentInstanceAs(MemoCamApp.self)?.photoPickerCallee?.performInNonSelectionContext {
+
+            if let _ = self.currentTargetImage {
 //            UIFeedback.select()
 //            actionButtonDidTap()
-        }
-        else {
-            let loadingView = UIActivityIndicatorView(style: .gray)
-            loadingView.startAnimating()
+            }
+            else {
+                let loadingView = UIActivityIndicatorView(style: .gray)
+                loadingView.startAnimating()
 
-            toolBar.setItems([
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(customView: loadingView),
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            ], animated: true)
+                self.toolBar.setItems([
+                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                    UIBarButtonItem(customView: loadingView),
+                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                ], animated: true)
 
-            UIFeedback.impact(.light)
-            setNeedsCaptureImage()
+                UIFeedback.impact(.light)
+                self.setNeedsCaptureImage()
+            }
+
         }
     }
 
