@@ -89,7 +89,7 @@ extension PhotoPickerViewController{
     }
 
     @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
-        self.openShopAppWithLicenseRequiredMessage()
+        self.openShopAppRequiringLicense()
     }
 
     @objc fileprivate func chargeableButtonDidTapWhenDeselected(sender: Any) {

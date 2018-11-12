@@ -9,6 +9,7 @@ import PropertyKit
 
 extension PhotoPickerViewController{
 
+    //INFO: Maintain Private.
     private func openShopApp(){
         guard let currentApp = AppCenter.default.current else {
             return
@@ -26,7 +27,7 @@ extension PhotoPickerViewController{
         }
     }
 
-    func openShopAppWithLicenseRequiredMessage(){
+    func openShopAppRequiringLicense(){
         UIAlertController.alert("To use this app needs a corresponding access license. Would you like to open %@?".localizedFormatted(ShopApp.info.displayName)
                 , title: "A Licence Is Required.".localized
                 , buttonTitle: "Open %@".localizedFormatted(ShopApp.info.displayName)
@@ -78,7 +79,7 @@ extension PhotoPickerViewController{
                 if succeedAfterTriedAtOnce {
                     perform?()
                 }else{
-                    self.openShopAppWithLicenseRequiredMessage()
+                    self.openShopAppRequiringLicense()
                 }
             }
         }
