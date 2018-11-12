@@ -650,6 +650,7 @@
 		4F71DFE0FEB30148444FF04C /* App.Preheatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D194EE74FC5DE7ECEBD7 /* App.Preheatable.swift */; };
 		5108A2D8218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
 		5108A2D9218BE8EC00A52039 /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */; };
+		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
 		511D20D8214B2CEC00056AD3 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */; };
@@ -1458,6 +1459,7 @@
 		4F71DFEBAD52B5CA78541BEC /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		5108A2D7218BE8EC00A52039 /* CodeKit.Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Data.swift; sourceTree = "<group>"; };
+		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.Intents.swift; sourceTree = "<group>"; };
@@ -1855,6 +1857,7 @@
 			isa = PBXGroup;
 			children = (
 				A07BD39421978958003031D5 /* MemoCam */,
+				5118E9962194F7D200EB6D6A /* Resizer */,
 				A02389CE219043750039F398 /* Finder */,
 				4F71DB79973751F3580CA941 /* BApp.swift */,
 				4F71D22D17F02FB8E5D77ED3 /* AutoEditor */,
@@ -2591,6 +2594,14 @@
 				4F71D4108C25B3B4D7E986FE /* GIFMaker.BApp.Assets */,
 			);
 			path = GIFMaker;
+			sourceTree = "<group>";
+		};
+		5118E9962194F7D200EB6D6A /* Resizer */ = {
+			isa = PBXGroup;
+			children = (
+				5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */,
+			);
+			path = Resizer;
 			sourceTree = "<group>";
 		};
 		511D20E0214B2FC600056AD3 /* Intents */ = {
@@ -4020,6 +4031,7 @@
 				51516D97210FC42900351175 /* AppDelegate.ShortcutItem.swift in Sources */,
 				A0DE010C216CFD4D00F99365 /* UIImage+CVPixelBuffer.swift in Sources */,
 				A0DE0112216CFD4D00F99365 /* MLMultiArray+Image.swift in Sources */,
+				5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */,
 				A0D412342153C1FD00FFE2EF /* Intents.intentdefinition in Sources */,
 				4F71DC7EABDA2C30F4A36D51 /* AppDockViewController.LaunchableApp.swift in Sources */,
 				A0DE0115216CFD4D00F99365 /* FNS-La-Muse.mlmodel in Sources */,
