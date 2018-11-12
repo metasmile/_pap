@@ -659,7 +659,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
         let previewSize = previewContentMode == .scaleAspectFill ? self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size) : self.cameraView.captureVideoSize.aspectFit(in: self.cameraView.bounds.size)
-        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: previewSize)
+        let polygons: [CGQuad] = observations.compactMap {
+            guard $0.responds(to: #selector(getter: CIRectangleFeature.topLeft)), $0.responds(to: #selector(getter: CIRectangleFeature.topRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomLeft)) else { return nil }
+            return CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft)
+        }
+        drawPolygons(with: polygons, to: layer, in: previewSize)
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
