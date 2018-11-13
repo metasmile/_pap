@@ -131,6 +131,8 @@ class AppDockView: CustomView {
     var delegate: AppDockViewDelegate?
     var dataSource: AppDockViewDataSource?
     
+    var minimumNumberOfVisibleApps: Int = 2
+    
     private var reorderAppGesture: UILongPressGestureRecognizer?
     
     func reloadData() {
@@ -502,7 +504,7 @@ extension AppDockView {
     
     fileprivate var preferredDockViewHeight: CGFloat {
 
-        if numberOfItemsInAllSections(in:appCollectionView) > 1 {
+        if numberOfItemsInAllSections(in:appCollectionView) >= minimumNumberOfVisibleApps {
             switch dockBarStyle {
             case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
             case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
