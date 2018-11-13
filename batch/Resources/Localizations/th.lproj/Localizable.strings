@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ครั้ง";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed." = "'เครื่องมือหลัก' หมายถึงเครื่องมืออื่น ๆ ที่ไม่ได้แสดงไว้เป็นพิเศษ";
+"'Main Tools' means all other tools that are not included in any specific license." = "'เครื่องมือหลัก' หมายถึงเครื่องมืออื่น ๆ ทั้งหมดที่ไม่ได้รวมอยู่ในใบอนุญาตเฉพาะใด ๆ";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */

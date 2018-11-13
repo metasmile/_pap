@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed." = "'Công cụ chính' có nghĩa là tất cả các công cụ khác không được hiển thị đặc biệt.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'Công cụ chính' có nghĩa là tất cả các công cụ khác không được bao gồm trong bất kỳ giấy phép cụ thể nào.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */

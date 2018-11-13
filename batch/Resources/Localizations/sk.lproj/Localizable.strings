@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed." = "&quot;Hlavné nástroje&quot; znamenajú všetky ostatné nástroje, ktoré nie sú osobitne zobrazené.";
+"'Main Tools' means all other tools that are not included in any specific license." = "&quot;Hlavné nástroje&quot; znamenajú všetky ostatné nástroje, ktoré nie sú zahrnuté v žiadnej konkrétnej licencii.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */

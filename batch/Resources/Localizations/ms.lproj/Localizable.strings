@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed." = "'Alat Utama' bermaksud semua alat lain tidak dipaparkan secara khusus.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'Alat Utama' bermaksud semua alat lain yang tidak termasuk dalam sebarang lesen tertentu.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */

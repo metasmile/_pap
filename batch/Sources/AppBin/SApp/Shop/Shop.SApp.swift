@@ -291,7 +291,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         , PayGroup(
                 key: .FreeCharge
                 , label: "Main Tools License".localized
-                , detailedLabel: "'Main Tools' means all other tools not specially displayed.".localized
+                , detailedLabel: "'Main Tools' means all other tools that are not included in any specific license.".localized
                 , items: [
 //                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
             PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
