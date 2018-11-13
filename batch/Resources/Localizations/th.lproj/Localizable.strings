@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "เป็นต้นฉบับ";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "%@ ของเรา";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "สื่อสังคมของเรา";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker ทำให้เอกสาร PDF จากภาพหลายภาพพร้อมตัวเลือกหน้าต่างๆ";
@@ -726,6 +728,8 @@
 "VIP License Program" = "วีไอพีโปรแกรมใบอนุญาต";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "ใบอนุญาตวีไอพี";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "สมาชิกวีไอพีของผลิตภัณฑ์ทั้งหมดของเรา";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "การยืนยันล้มเหลว";
 /* Generated from genl10n: Shop.SApp.swift */

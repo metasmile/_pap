@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "原版的";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "我们的%@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "我们的社交媒体";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker使用各种页面选项从多个图像制作PDF文档。";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIP许可计划";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP许可证";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "我们所有产品的VIP会员资格。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "验证失败。";
 /* Generated from genl10n: Shop.SApp.swift */

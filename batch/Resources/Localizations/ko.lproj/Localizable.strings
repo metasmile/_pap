@@ -475,6 +475,8 @@
 /* Generated from genl10n: Stabilizer.BApp.swift, Filters.BApp.swift */
 "Original" = "원본";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "우리의 %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "소셜 미디어";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker는 다양한 페이지 옵션으로 여러 이미지에서 PDF 문서를 만듭니다.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIP 라이선스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP 라이센스";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "우리의 모든 제품의 VIP 회원.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "확인에 실패했습니다.";
 /* Generated from genl10n: Shop.SApp.swift */

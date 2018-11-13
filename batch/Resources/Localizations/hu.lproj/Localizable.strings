@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Eredeti";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "A %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "A szociális média";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "A PDFMaker több oldalról több képet tartalmazó PDF dokumentumot készít.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIP licencprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP licenc";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP tagság az összes termékünkön.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Az ellenőrzés sikertelen.";
 /* Generated from genl10n: Shop.SApp.swift */

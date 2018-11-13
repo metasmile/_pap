@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Nguyên";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "%@ Của chúng tôi";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Truyền thông xã hội của chúng tôi";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker tạo tài liệu PDF từ nhiều hình ảnh với các tùy chọn trang khác nhau.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "Chương trình cấp phép VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "Giấy phép VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "Thành viên VIP của tất cả các sản phẩm của chúng tôi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Xác minh không hoàn thành.";
 /* Generated from genl10n: Shop.SApp.swift */

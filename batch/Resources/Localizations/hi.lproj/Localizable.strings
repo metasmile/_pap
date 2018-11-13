@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "हमारा %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "हमारा सोशल मीडिया";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "पीडीएफएचक विभिन्न पेज विकल्पों के साथ कई छवियों से पीडीएफ दस्तावेज बनाता है।";
@@ -726,6 +728,8 @@
 "VIP License Program" = "वीआईपी लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "वीआईपी लाइसेंस";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "हमारे सभी उत्पादों की वीआईपी सदस्यता।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
 /* Generated from genl10n: Shop.SApp.swift */

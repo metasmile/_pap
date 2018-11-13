@@ -607,7 +607,7 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         if !AppCenter.isPaidAsOwnedInCurrentContext{
             c2.detailedLabel = "Maximum All Tools Ownership".localized
         }else{
-            c2.detailedLabel = "VIP Benefits With Our Other Products.".localized
+            c2.detailedLabel = "VIP Membership of Our All Products.".localized
         }
         c2.buttonTitle = "Take Part".localized
         c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))

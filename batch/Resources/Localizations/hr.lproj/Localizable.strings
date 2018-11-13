@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Naš %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Naši društveni mediji";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIP licenčni program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP licenca";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP članstvo u svim našim proizvodima.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Potvrda nije uspjela.";
 /* Generated from genl10n: Shop.SApp.swift */

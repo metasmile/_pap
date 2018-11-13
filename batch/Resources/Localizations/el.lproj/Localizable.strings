@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Το %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Τα κοινωνικά μας μέσα ενημέρωσης";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "Το PDFMaker κάνει το έγγραφο PDF από πολλές εικόνες με διάφορες επιλογές σελίδας.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "Πρόγραμμα Άδειας VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "Άδεια VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP συμμετοχή όλων των προϊόντων μας.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: Shop.SApp.swift */

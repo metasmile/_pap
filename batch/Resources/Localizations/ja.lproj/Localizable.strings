@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "オリジナル";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "私たちの%@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "ソーシャルメディア";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMakerは、さまざまなページオプションを使用して複数の画像からPDFドキュメントを作成します。";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIPライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIPライセンス";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "すべての製品のVIPメンバーシップ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
 /* Generated from genl10n: Shop.SApp.swift */

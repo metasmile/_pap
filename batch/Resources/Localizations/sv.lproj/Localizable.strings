@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Vår %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Våra sociala medier";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker gör PDF-dokument från flera bilder med olika sidalternativ.";
@@ -726,6 +728,8 @@
 "VIP License Program" = "VIP Licensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP-licens";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP medlemskap av våra alla produkter.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifiering misslyckades.";
 /* Generated from genl10n: Shop.SApp.swift */
