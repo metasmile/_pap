@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A07BD21821972626003031D5"
-               BuildableName = "fap.app"
-               BlueprintName = "fap"
+               BlueprintIdentifier = "A0CBFE3B219ADBA2007A5278"
+               BuildableName = "sap.app"
+               BlueprintName = "sap"
                ReferencedContainer = "container:pap.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A07BD21821972626003031D5"
-            BuildableName = "fap.app"
-            BlueprintName = "fap"
+            BlueprintIdentifier = "A0CBFE3B219ADBA2007A5278"
+            BuildableName = "sap.app"
+            BlueprintName = "sap"
             ReferencedContainer = "container:pap.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A07BD21821972626003031D5"
-            BuildableName = "fap.app"
-            BlueprintName = "fap"
+            BlueprintIdentifier = "A0CBFE3B219ADBA2007A5278"
+            BuildableName = "sap.app"
+            BlueprintName = "sap"
             ReferencedContainer = "container:pap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A07BD21821972626003031D5"
-            BuildableName = "fap.app"
-            BlueprintName = "fap"
+            BlueprintIdentifier = "A0CBFE3B219ADBA2007A5278"
+            BuildableName = "sap.app"
+            BlueprintName = "sap"
             ReferencedContainer = "container:pap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

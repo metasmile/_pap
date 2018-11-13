@@ -26,16 +26,16 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.stells.fap</string>
+			<string>com.stells.sap</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fap</string>
+				<string>sap</string>
 				<string>fb443161082811578</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>0</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

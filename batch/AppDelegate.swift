@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if !DEBUG
         Fabric.with([Crashlytics.self])
 #endif
+        Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
 
         StoreKitPayableCenter.configure()

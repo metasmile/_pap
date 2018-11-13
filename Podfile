@@ -51,7 +51,7 @@ target 'batch' do
   end
 end
 
-target 'fap' do
+target 'sap' do
   paps_pods
 end
 
