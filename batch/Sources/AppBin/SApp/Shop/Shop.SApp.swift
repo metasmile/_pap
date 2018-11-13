@@ -604,7 +604,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let c2 = UITableViewButtonCellDescriber()
         c2.label = "Translation Correction".localized
-        c2.detailedLabel = "Maximum All Tools Ownership".localized
+        if !AppCenter.isPaidAsOwnedInCurrentContext{
+            c2.detailedLabel = "Maximum All Tools Ownership".localized
+        }else{
+            c2.detailedLabel = "VIP Benefits With Our Other Products.".localized
+        }
         c2.buttonTitle = "Take Part".localized
         c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c2.valueHandler = { _ in
