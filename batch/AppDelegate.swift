@@ -50,11 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        FirebaseApp.configure()
 #if !DEBUG
         Fabric.with([Crashlytics.self])
 #endif
-        Fabric.with([Crashlytics.self])
-        FirebaseApp.configure()
 
         StoreKitPayableCenter.configure()
 
