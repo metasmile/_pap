@@ -737,6 +737,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
         }
         contactCellDescribers.append(c322)
 
+        let ccc67232342423 = UITableViewButtonCellDescriber()
+        ccc67232342423.label = "Our %@".localizedFormatted("Instagram")
+        ccc67232342423.buttonTitle = "Visit".localized
+        ccc67232342423.iconImage = R.image.cellIconInstagram.name
+        ccc67232342423.iconImageTintColor = self.view.tintColor
+        ccc67232342423.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeInstagram>.self)
+        }
+        contactCellDescribers.append(ccc67232342423)
+
     }
 
     private func loadInformationOfUsetCellDescribers(){
