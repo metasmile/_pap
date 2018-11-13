@@ -20,6 +20,6 @@ elsif ENV['sap']
     username "illhert@yahoo.com"
     app_identifier "com.stells.sap"
     metadata_path "./fastlane/com.stells.sap"
-    screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/sap"
+    screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/batch"
     ipa "sap.ipa"
 end

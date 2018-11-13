@@ -1,1 +1,1 @@
-PAPS: Photo,Video,Camera Tools
+PAPS: All-In-One Photo Tools
