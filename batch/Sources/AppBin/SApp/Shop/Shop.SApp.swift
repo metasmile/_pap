@@ -273,7 +273,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 key: .PaidCharge
                 , label: "All Tools License".localized
 
-                , detailedLabel: "The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It.".localized
+                , detailedLabel: "The Price Is Including Every New Tool's. Today Is The Cheapest Day To Get It.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:FreeAllAppsPayment.self)
@@ -288,6 +288,22 @@ private struct PayGroup:Hashable, Equatable, Section {
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
         )
+        , PayGroup(
+                key: .FreeCharge
+                , label: "Main Tools License".localized
+                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
+                , items: [
+//                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
+            PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
+            PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
+//                    PayItem(payable: SNSEngagementPayment.self)
+        ]
+        )
 
         , PayGroup(
                 key: .LocalPaidCharge
@@ -296,24 +312,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 , items: [] //INFO: LocalPaid items will be dynamically added from ChargeableApp.localCharges
         )
 
-        , PayGroup(
-                key: .FreeCharge
-                , label: "Main Tools License".localized
-                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
-                , items: [
-//                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
-                    PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
-                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
-//                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
-                    PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
-//                    PayItem(payable: SNSEngagementPayment.self)
-                ]
-        )
+
     ]
 
     let key:Key

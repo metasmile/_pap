@@ -462,7 +462,6 @@
 		4F71DB18AC84AF785A5B4048 /* App.PreviewProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F8EE86EF92E238A282 /* App.PreviewProcessable.swift */; };
 		4F71DB1BAECA7486499E70BF /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8667C9060F09283E7F2 /* CodeKit.UUID.swift */; };
 		4F71DB1E57EBA8D50EA4510C /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8667C9060F09283E7F2 /* CodeKit.UUID.swift */; };
-		4F71DB1F125860DF9BD97E4F /* Shop.Payment.SocialShare.Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E647E8464B3406E5D /* Shop.Payment.SocialShare.Facebook.swift */; };
 		4F71DB230B4C81F27011736F /* App.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB72E844C755DE5470FD /* App.Launchable.OptionsKeys.swift */; };
 		4F71DB248626C38B8C1A1ED0 /* FirebaseMLVision.VisionText.Parser.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0C95D3E061E865ACC90 /* FirebaseMLVision.VisionText.Parser.Types.swift */; };
 		4F71DB278573CBC2B7EAAEBE /* CodeKit.SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1880C059DE345E8BE46 /* CodeKit.SKProduct.swift */; };
@@ -846,7 +845,6 @@
 		A0CBFE93219ADBA2007A5278 /* Shop.Payment.URLOpen.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36C0730E8334DE54349 /* Shop.Payment.URLOpen.Types.swift */; };
 		A0CBFE94219ADBA2007A5278 /* Shop.Payment.SocialShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEF9C1F3CBBBB44D9068 /* Shop.Payment.SocialShare.swift */; };
 		A0CBFE95219ADBA2007A5278 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */; };
-		A0CBFE96219ADBA2007A5278 /* Shop.Payment.SocialShare.Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF5E647E8464B3406E5D /* Shop.Payment.SocialShare.Facebook.swift */; };
 		A0CBFE97219ADBA2007A5278 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FAB15B8F5D756A0C9D /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		A0CBFE98219ADBA2007A5278 /* Shop.Payment.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6B216749119C09120A9 /* Shop.Payment.Store.swift */; };
 		A0CBFE99219ADBA2007A5278 /* Shop.Payment.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */; };
@@ -1456,7 +1454,6 @@
 		4F71DF55D6EB2EA78EC29275 /* FileIO.UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.UTI.swift; sourceTree = "<group>"; };
 		4F71DF568831CA005AC59CF5 /* CodeKit.UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UITableView.swift; sourceTree = "<group>"; };
 		4F71DF5929BB7A3D62EEA59F /* gifmaker_preview_frame_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_0.png; sourceTree = "<group>"; };
-		4F71DF5E647E8464B3406E5D /* Shop.Payment.SocialShare.Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.SocialShare.Facebook.swift; sourceTree = "<group>"; };
 		4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Macro.AutoSelection.swift; sourceTree = "<group>"; };
 		4F71DFD4E958BB33BAA4755D /* Cleaner.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cleaner.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFD68D8822DB21676EF6 /* App.Finalizable.UIActivity.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.UIActivity.PHAsset.swift; sourceTree = "<group>"; };
@@ -2525,7 +2522,6 @@
 				4F71D36C0730E8334DE54349 /* Shop.Payment.URLOpen.Types.swift */,
 				4F71DEF9C1F3CBBBB44D9068 /* Shop.Payment.SocialShare.swift */,
 				4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */,
-				4F71DF5E647E8464B3406E5D /* Shop.Payment.SocialShare.Facebook.swift */,
 				4F71D1FAB15B8F5D756A0C9D /* Shop.Payment.GADInterestialAdsViewing.swift */,
 				4F71D6B216749119C09120A9 /* Shop.Payment.Store.swift */,
 				4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */,
@@ -3772,10 +3768,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sap/Pods-sap-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -3792,10 +3785,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -3889,10 +3879,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -3909,10 +3896,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -3939,10 +3923,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -3959,10 +3940,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Armchair.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -4095,7 +4073,6 @@
 				4F71DEEF19EE08A0F5BC0AB7 /* Shop.Payment.URLOpen.Types.swift in Sources */,
 				4F71D7D5690F67169C70F5BD /* Shop.Payment.SocialShare.swift in Sources */,
 				4F71D6312B59A48079207438 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */,
-				4F71DB1F125860DF9BD97E4F /* Shop.Payment.SocialShare.Facebook.swift in Sources */,
 				4F71D2B777F04A2226BECFEC /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 				4F71D332AA3DE9EBC0E182DB /* Shop.Payment.Store.swift in Sources */,
 				4F71D5517593ADBBE3181F2F /* Shop.Payment.System.swift in Sources */,
@@ -4599,7 +4576,6 @@
 				A0CBFE93219ADBA2007A5278 /* Shop.Payment.URLOpen.Types.swift in Sources */,
 				A0CBFE94219ADBA2007A5278 /* Shop.Payment.SocialShare.swift in Sources */,
 				A0CBFE95219ADBA2007A5278 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */,
-				A0CBFE96219ADBA2007A5278 /* Shop.Payment.SocialShare.Facebook.swift in Sources */,
 				A0CBFE97219ADBA2007A5278 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 				A0CBFE98219ADBA2007A5278 /* Shop.Payment.Store.swift in Sources */,
 				A0CBFE99219ADBA2007A5278 /* Shop.Payment.System.swift in Sources */,
