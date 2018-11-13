@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d mal";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Hauptwerkzeuge&quot; bezeichnet alle anderen Werkzeuge, die hier nicht speziell angezeigt werden.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Hauptwerkzeuge&quot; bezeichnet alle anderen Werkzeuge, die nicht speziell angezeigt werden.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Teilen Sie Ihr Talent, machen Sie zusammen. Besorgen Sie jede Belohnung, wenn sie angenommen wird.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Aktie";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Teilen auf Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ähnlichkeit";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Vielen Dank für Ihr Feedback! Bald werden wir dich kontaktieren.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Der Preis beinhaltet jedes neue Werkzeug, und heute ist der günstigste Tag, um es zu erhalten.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Der Preis beinhaltet jedes neue Werkzeug. Heute ist der günstigste Tag, um dies zu bekommen.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Mit diesem unkomplizierten Batch-Transformationswerkzeug können Sie viele Mediendateien, einschließlich Live-Fotos, schnell drehen und spiegeln. Es gibt keine Begrenzung für die Anzahl der Fotos, um sie zu bearbeiten.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

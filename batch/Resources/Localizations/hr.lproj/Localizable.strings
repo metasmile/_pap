@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Glavni alati&quot; označavaju sve ostale alate koji nisu posebno prikazani ovdje.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Glavni alati&quot; označavaju sve druge alate koji nisu posebno prikazani.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dijelite svoj talent, napravite zajedno. Preuzmite svaku nagradu ako se usvoji.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Dijeljenje na Facebook Messengeru";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Puno vam zahvaljujemo na povratnim informacijama! Uskoro ćemo vas kontaktirati.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Cijena uključuje svaki novi alat, a danas je najjeftiniji dan da ga dobijete.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Cijena uključuje svaki novi alat. Danas je najjeftiniji dan za to.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ova jednostavna, ali velika skupna slika transformira alat omogućuje brzo rotiranje i flip puno medijskih datoteka, uključujući Live Fotografije. Ne postoji ograničenje broja fotografija za uređivanje.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

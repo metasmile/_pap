@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d बार";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'मुख्य उपकरण' का अर्थ है अन्य सभी टूल्स विशेष रूप से यहां प्रदर्शित नहीं होते हैं।";
+"'Main Tools' means all other tools not specially displayed." = "'मुख्य उपकरण' का अर्थ है अन्य सभी टूल्स विशेष रूप से प्रदर्शित नहीं होते हैं।";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "अपनी प्रतिभा साझा करें, एक साथ बनाओ। अगर अपनाया गया तो प्रत्येक पुरस्कार प्राप्त करें।";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "फेसबुक मैसेंजर पर साझा करना";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "आपके फ़ीडबैक के लिए आपका बहुत शुक्रिया! जल्द ही हम आपसे संपर्क करेंगे।";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "कीमत हर नए उपकरण को शामिल कर रही है, और आज इसे प्राप्त करने का सबसे सस्ता दिन है।";
+"The price is including every new tool. Today is the cheapest day to get this." = "कीमत हर नए उपकरण सहित है। यह पाने के लिए आज सबसे सस्ता दिन है।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "यह सीधा लेकिन बड़े पैमाने पर बैच छवि परिवर्तन उपकरण आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। उन्हें संपादित करने के लिए तस्वीरों की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

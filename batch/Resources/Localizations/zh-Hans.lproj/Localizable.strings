@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d次";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "“主要工具”是指此处未特别显示的所有其他工具。";
+"'Main Tools' means all other tools not specially displayed." = "“主要工具”是指未特别显示的所有其他工具。";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才华，团结一致。如果采纳，则获得每项奖励。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "分享";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "在Facebook Messenger上分享";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "相似";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "非常感谢您的反馈！很快我们会联系你。";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "价格包括每一个新工具，而今天是最便宜的一天。";
+"The price is including every new tool. Today is the cheapest day to get this." = "价格包括每个新工具。今天是最便宜的一天。";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "这种直观但大规模的批量图像变换工具可让您快速旋转和翻转包括实时照片在内的大量媒体文件。编辑照片的数量没有限制。";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

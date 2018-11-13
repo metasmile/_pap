@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'주요 도구'는 여기에 특별히 표시되지 않은 다른 모든 도구를 의미합니다.";
+"'Main Tools' means all other tools not specially displayed." = "'주요 도구'는 특별히 표시되지 않은 다른 모든 도구를 의미합니다.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Facebook Messenger에서 공유";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "의견을 보내 주셔서 대단히 감사합니다! 곧 우리가 연락 드리겠습니다.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "가격은 모든 새로운 도구를 포함하고 있으며, 오늘은 가장 저렴한 날입니다.";
+"The price is including every new tool. Today is the cheapest day to get this." = "가격은 모든 새로운 도구를 포함합니다. 오늘은 이것을 얻는 가장 저렴한 날입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 포토을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

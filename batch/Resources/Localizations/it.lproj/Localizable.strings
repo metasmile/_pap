@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d volte";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "Per &quot;Strumenti principali&quot; si intendono tutti gli altri strumenti non visualizzati in modo speciale qui.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Strumenti principali&quot; indica tutti gli altri strumenti non visualizzati in modo speciale.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Condividi il tuo talento, fatti insieme. Ottieni ogni premio se adottato.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Condivisione su Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Somiglianza";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Grazie mille per il tuo feedback! Presto ti contatteremo.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Il prezzo è comprensivo di ogni nuovo strumento, e oggi è il giorno più economico per ottenerlo.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Il prezzo include ogni nuovo strumento. Oggi è il giorno più economico per ottenere questo.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Questo semplice strumento per trasformare le immagini in lotti su larga scala consente di ruotare e capovolgere rapidamente molti file multimediali, tra cui le Live Photos. Non c'è limite al numero di foto per modificarle.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

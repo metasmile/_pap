@@ -250,8 +250,8 @@ private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
-        case LocalPaidCharge
         case FreeCharge
+        case LocalPaidCharge
 //        case Promotion
     }
 
@@ -273,7 +273,7 @@ private struct PayGroup:Hashable, Equatable, Section {
                 key: .PaidCharge
                 , label: "All Tools License".localized
 
-                , detailedLabel: "The Price Is Including Every New Tool's. Today Is The Cheapest Day To Get It.".localized
+                , detailedLabel: "The price is including every new tool. Today is the cheapest day to get this.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:FreeAllAppsPayment.self)
@@ -291,7 +291,7 @@ private struct PayGroup:Hashable, Equatable, Section {
         , PayGroup(
                 key: .FreeCharge
                 , label: "Main Tools License".localized
-                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
+                , detailedLabel: "'Main Tools' means all other tools not specially displayed.".localized
                 , items: [
 //                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
             PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),

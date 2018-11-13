@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ganger";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Hovedverktøy' betyr alle andre verktøy som ikke er spesielt vist her.";
+"'Main Tools' means all other tools not specially displayed." = "'Hovedverktøy' betyr alle andre verktøy som ikke vises spesielt.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Del talentet ditt, gjør sammen. Få hver belønning hvis vedtatt.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Deling på Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Tusen takk for din tilbakemelding! Snart vil vi kontakte deg.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Prisen er inkludert hvert nytt verktøy, og i dag er den billigste dagen å få den.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Prisen er inkludert hvert nytt verktøy. I dag er den billigste dagen å få dette.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Dette enkle, men store batch image transform verktøyet lar deg raskt rotere og vende mange mediefiler, inkludert Live Photos. Det er ingen grense for antall bilder for å redigere dem.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

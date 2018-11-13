@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d keer";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Hoofdtools' betekent alle andere hulpmiddelen die hier niet speciaal worden weergegeven.";
+"'Main Tools' means all other tools not specially displayed." = "'Hoofdtools' betekent alle andere tools die niet speciaal worden weergegeven.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Deel uw talent, maak samen. Verkrijg elke beloning indien aangenomen.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Delen op Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Gelijkenis";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Heel erg bedankt voor uw feedback! Binnenkort nemen we contact met u op.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "De prijs is inclusief elke nieuwe tool, en vandaag is de goedkoopste dag om het te krijgen.";
+"The price is including every new tool. Today is the cheapest day to get this." = "De prijs is inclusief elke nieuwe tool. Vandaag is de goedkoopste dag om dit te krijgen.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Met dit eenvoudige maar grootschalige hulpprogramma voor het transformeren van batchafbeeldingen kunt u snel een groot aantal mediabestanden roteren en spiegelen, waaronder Live Photos. Er is geen limiet aan het aantal foto's om ze te bewerken.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

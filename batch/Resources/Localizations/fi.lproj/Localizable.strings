@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kertaa";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Päätyökalulla' tarkoitetaan kaikkia muita työkaluja, joita ei ole erityisesti mainittu täällä.";
+"'Main Tools' means all other tools not specially displayed." = "'Päätyöllä' tarkoitetaan kaikkia muita työkaluja, joita ei ole erityisesti esitelty.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Jaa lahjakkuutesi, tee yhdessä. Hanki jokainen palkkio, jos se hyväksytään.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Paljon kiitoksia palautteestasi! Pian voimme ottaa sinuun yhteyttä.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Hinta sisältää kaikki uudet työkalut, ja tänään on halvin päivä saada se.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Hinta sisältää kaikki uudet työkalut. Tänään on halvin päivä saada tämä.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tämä yksinkertainen mutta laajamittainen eräkuvan muunnostyökalu mahdollistaa nopean kiertämisen ja kääntämisen useista mediatiedostoista, kuten Live-valokuvista. Valokuvien määrää ei ole rajoitettu muokata niitä.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

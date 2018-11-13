@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d krát";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Hlavní nástroje&quot; znamenají všechny ostatní nástroje, které zde nejsou speciálně zobrazeny.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Hlavní nástroje&quot; znamenají všechny ostatní nástroje, které nejsou speciálně zobrazeny.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Sdílejte svůj talent, udělejte spolu. Získejte každou odměnu při přijetí.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Podíl";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Děkujeme vám za vaši zpětnou vazbu! Brzy vás budeme kontaktovat.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Cena zahrnuje každý nový nástroj, a dnes je nejlevnější den, jak to dostat.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Cena zahrnuje každý nový nástroj. Dnes je nejlevnější den, abyste to dostali.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tento přímý, ale rozsáhlý nástroj pro transformaci dávkového obrazu umožňuje rychle otočit a převrátit mnoho multimediálních souborů, včetně živých fotografií. Počet fotografií, které je lze upravit, neexistuje.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

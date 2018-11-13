@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kez";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Ana Araçlar', burada özel olarak gösterilmeyen diğer tüm araçlar anlamına gelir.";
+"'Main Tools' means all other tools not specially displayed." = "'Ana Araçlar', özel olarak gösterilmeyen diğer tüm araçlar anlamına gelir.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Yeteneğini Paylaş, Birlikte Yap. Kabul Edilmiş Her Bir Ödül edinin.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Facebook Messenger'da Paylaşım";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Benzerlik";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Geri bildiriminiz için teşekkürler! Yakında sizinle iletişim kuracağız.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Fiyat Her Yeni Aracı Dahil Ediyor Ve Bugün Getirmek İçin En Ucuz Gün.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Fiyat her yeni aracı içerir. Bugün bunu almak için en ucuz gün.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Bu basit ancak büyük ölçekli toplu resim dönüştürme aracı, Canlı Fotoğraflar da dahil olmak üzere birçok medya dosyasını hızlıca döndürmenizi ve çevirmenizi sağlar. Düzenlenecek fotoğrafların sayısı için bir sınırlama yoktur.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

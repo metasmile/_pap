@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d مرة";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "تعني &quot;الأدوات الرئيسية&quot; جميع الأدوات الأخرى التي لا يتم عرضها بشكل خاص هنا.";
+"'Main Tools' means all other tools not specially displayed." = "تعني &quot;الأدوات الرئيسية&quot; جميع الأدوات الأخرى التي لا يتم عرضها بشكل خاص.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "تبادل موهبتك ، وجعل معا. الحصول على كل مكافأة إذا اعتمدت.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "المشاركة على Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "تشابه";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "شكرا جزيلا على ردك لك! قريبا سنتصل بك";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "السعر يشمل كل أداة جديدة ، واليوم هو أرخص يوم للحصول عليه.";
+"The price is including every new tool. Today is the cheapest day to get this." = "السعر يشمل كل أداة جديدة. اليوم هو أرخص يوم للحصول على هذا.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "تتيح لك أداة تحويل الصور دفعة بسيطة ولكنها واسعة النطاق سرعة تدوير الكثير من ملفات الوسائط بما في ذلك الصور المباشرة. لا يوجد حد لعدد الصور لتحريرها.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

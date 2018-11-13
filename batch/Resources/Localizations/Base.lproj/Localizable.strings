@@ -99,7 +99,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Main Tools' means all other tools not specially displayed in here.";
+"'Main Tools' means all other tools not specially displayed." = "'Main Tools' means all other tools not specially displayed.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -655,7 +655,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Thank you very much for your feedback! Soon we will contact you.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool's. Today Is The Cheapest Day To Get It." = "The Price Is Including Every New Tool's. Today Is The Cheapest Day To Get It.";
+"The price is including every new tool. Today is the cheapest day to get this." = "The price is including every new tool. Today is the cheapest day to get this.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift */

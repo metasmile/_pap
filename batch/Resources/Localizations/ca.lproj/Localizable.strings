@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d vegades";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Eines principals&quot; significa totes les altres eines que no es mostren aquí.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Eines principals&quot; significa totes les altres eines que no es mostren especialment.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Compartiu el vostre talent, feu junts. Obteniu cada recompensa si s'adopta.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Compartir en Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Similitud";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Moltes gràcies pels vostres comentaris. Aviat ens posarem en contacte amb vostè.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "El preu inclou cada nova eina, i avui és el dia més barat per aconseguir-ho.";
+"The price is including every new tool. Today is the cheapest day to get this." = "El preu inclou totes les eines noves. Avui és el dia més econòmic per aconseguir-ho.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Aquesta eina de transformació de la imatge de lot de lletra directa, però a gran escala, us permet girar i transferir ràpidament molts fitxers multimèdia, incloses Live Photos. No hi ha cap límit en la quantitat de fotos per editar-les.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

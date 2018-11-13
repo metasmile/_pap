@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d ครั้ง";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'เครื่องมือหลัก' หมายถึงเครื่องมืออื่น ๆ ที่ไม่ได้แสดงไว้เป็นพิเศษในที่นี้";
+"'Main Tools' means all other tools not specially displayed." = "'เครื่องมือหลัก' หมายถึงเครื่องมืออื่น ๆ ที่ไม่ได้แสดงไว้เป็นพิเศษ";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "การแบ่งปันบน Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "ขอบคุณมากสำหรับความคิดเห็นของคุณ! เร็ว ๆ นี้เราจะติดต่อคุณ";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "ราคารวมเครื่องมือใหม่ทุกชิ้นและวันนี้เป็นราคาที่ถูกที่สุด";
+"The price is including every new tool. Today is the cheapest day to get this." = "ราคารวมทุกเครื่องมือใหม่แล้ว วันนี้เป็นวันที่ถูกที่สุดที่จะได้รับนี้";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "เครื่องมือแปลงไฟล์ชุดภาพที่ซับซ้อนและตรงไปตรงมานี้ช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึงรูปภาพสดได้อย่างรวดเร็ว ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */

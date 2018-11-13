@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d de ori";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Instrumente principale&quot; înseamnă toate celelalte instrumente care nu sunt afișate în mod special aici.";
+"'Main Tools' means all other tools not specially displayed." = "&quot;Instrumente principale&quot; înseamnă toate celelalte instrumente care nu sunt afișate în mod special.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -616,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Împărtășește-ți talentul, fă Împreună. Obțineți fiecare recompensă dacă este adoptată.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Distribuiți pe Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Similitudine";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -693,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Vă mulțumim foarte mult pentru feedbackul dvs.! În curând vă vom contacta.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Prețul include toate instrumentele noi și astăzi este cea mai ieftină zi pentru ao obține.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Prețul include toate instrumentele noi. Astăzi este cea mai ieftină zi pentru a obține acest lucru.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Această unealtă simplă, dar la scară largă, permite transformarea și răsturnarea rapidă a multor fișiere media, inclusiv Live Photos. Nu există nicio limită a numărului de fotografii pentru a le edita.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
