@@ -131,7 +131,7 @@ class AppDockView: CustomView {
     var delegate: AppDockViewDelegate?
     var dataSource: AppDockViewDataSource?
     
-    var minimumNumberOfVisibleApps: Int = 2
+    lazy var minimumNumberOfVisibleApps: Int = (type(of: self) as? AppDockViewExternalDelegate.Type)?.minimumNumberOfVisibleApps ?? 2
     
     private var reorderAppGesture: UILongPressGestureRecognizer?
     

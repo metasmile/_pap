@@ -23,3 +23,7 @@ public protocol AppDelegateExternalDelegate {
 protocol AppCenterExternalDelegate {
     static var externalConfig:AppManagerConfig{get}
 }
+
+protocol AppDockViewExternalDelegate{
+    static var minimumNumberOfVisibleApps:Int{get}
+}

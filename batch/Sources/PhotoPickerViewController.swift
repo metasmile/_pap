@@ -55,8 +55,7 @@ class PhotoPickerViewController: AppDockViewController {
 
     override func viewDidLoad() {
         self.appDockView?.delegate = self
-        self.appDockView?.minimumNumberOfVisibleApps = 1
-        
+
         super.viewDidLoad()
 
         //preview
