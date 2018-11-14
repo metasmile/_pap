@@ -5,7 +5,7 @@
 
 import Foundation
 
-//INFO: com.stells.mmc-exclusive time interval policies in strict seconds.
+//INFO: com.stells.*-exclusive time interval policies in strict seconds.
 //CRITICAL
 struct mmcCounts {
 

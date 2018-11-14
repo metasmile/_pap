@@ -120,7 +120,7 @@
 "cs_keyword_13" = "حبيب";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ اليوم";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ التنزيل الآن مجانًا!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ الملكية";
@@ -294,7 +294,7 @@
 "Detection Targets" = "أهداف الكشف";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "اتجاه";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "التنزيل الآن مجانًا في %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "تحميل";
@@ -354,7 +354,7 @@
 "Guest User License" = "ترخيص مستخدم ضيف";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "حساب زائر";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "التعامل مع الكثير من الصور دفعة واحدة.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "مرحبًا ، %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "يتطلب الحصول على إذن للوصول إلى جهات الاتصال الخاصة بك. يرجى السماح لجهات الاتصال على إعدادات iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "الانضمام في برنامج الشراكة";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "ما عليك سوى اختيار الصور التي تحتاجها ثم تشغيلها.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landscape";

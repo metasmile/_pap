@@ -120,7 +120,7 @@
 "cs_keyword_13" = "εραστής";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Ιδιοκτησία";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Στόχοι ανίχνευσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Κατεβάστε τώρα δωρεάν στο %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Κατεβάστε";
@@ -354,7 +354,7 @@
 "Guest User License" = "Άδεια χρήσης χρήστη";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Επισκέπτης Χρήστης";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Χειριστείτε πολλές φωτογραφίες ταυτόχρονα.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Συμμετοχή στο Πρόγραμμα Συνεργασίας";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Απλά επιλέξτε τις φωτογραφίες που χρειάζεστε και στη συνέχεια εκτελέστε την.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";

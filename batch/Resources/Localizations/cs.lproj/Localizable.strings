@@ -120,7 +120,7 @@
 "cs_keyword_13" = "Milenec";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Den";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Stáhnout zdarma!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Vlastnictví";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Detekční cíle";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Stáhnout zdarma na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Stažení";
@@ -354,7 +354,7 @@
 "Guest User License" = "Uživatelská licence uživatele";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Host Guest";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Spravujte spoustu fotografií najednou.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý den, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje povolení k přístupu k vašim kontaktům. Povolte kontakty v nastavení iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Zapojte se do programu partnerství";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Stačí vybrat fotografie, které potřebujete, a poté je spustit.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Krajina";

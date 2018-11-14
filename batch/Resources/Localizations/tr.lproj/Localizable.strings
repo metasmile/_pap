@@ -120,7 +120,7 @@
 "cs_keyword_13" = "lover";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Gün";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Sahiplik";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Algılama Hedefleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "İndir";
@@ -354,7 +354,7 @@
 "Guest User License" = "Misafir Kullanıcı Lisansı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Misafir kullanıcı";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Bir seferde bol bol fotoğraf çekin.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Merhaba, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Ortaklık Programına Katılın";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Sadece ihtiyacınız olan fotoğrafları seçin ve sonra çalıştırın.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "peyzaj";

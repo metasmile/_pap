@@ -120,7 +120,7 @@
 "cs_keyword_13" = "amant";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dia";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Baixa ara GRATIS!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "Propietat %@";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Objectius de detecció";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Baixeu-vos ara GRATIS a %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "descarregar";
@@ -354,7 +354,7 @@
 "Guest User License" = "Llicència d'usuari convidada";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Usuari convidat";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Controla moltes fotos alhora.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hola, %@";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requereix un permís per accedir als vostres contactes. Permeteu contactes a la configuració de iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Uniu-vos al programa d'associacions";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Només cal seleccionar les fotos que necessiteu i, a continuació, executar-les.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Paisatge";

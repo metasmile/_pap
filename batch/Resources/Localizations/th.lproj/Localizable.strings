@@ -120,7 +120,7 @@
 "cs_keyword_13" = "คนรัก";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ ความเป็นเจ้าของ";
@@ -294,7 +294,7 @@
 "Detection Targets" = "เป้าหมายการตรวจจับ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "ทิศทาง";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "ดาวน์โหลดเดี๋ยวนี้ฟรีที่ %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "ดาวน์โหลด";
@@ -354,7 +354,7 @@
 "Guest User License" = "ใบอนุญาตผู้ใช้ Guest";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "ผู้เยี่ยมชม";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "จับภาพจำนวนมากพร้อมกัน";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "สวัสดี %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "ต้องมีสิทธิ์เข้าถึงที่อยู่ติดต่อของคุณ โปรดอนุญาตให้ผู้ติดต่อในการตั้งค่า iOS";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "เข้าร่วมโครงการหุ้นส่วน";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "เพียงแค่เลือกรูปภาพที่คุณต้องการแล้วเรียกใช้";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "ภูมิประเทศ";

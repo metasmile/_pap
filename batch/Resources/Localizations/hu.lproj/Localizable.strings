@@ -120,7 +120,7 @@
 "cs_keyword_13" = "Lover";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Nap";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Ingyen letölthető most!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Tulajdonjog";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Érzékelési célok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Irány";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Töltsd le ingyen az %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Letöltés";
@@ -354,7 +354,7 @@
 "Guest User License" = "Vendég felhasználói licenc";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Vendég felhasználó";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Rengeteg fényképet kezel egyszerre.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hello, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ehhez engedély szükséges a névjegyek eléréséhez. Engedélyezze a Kapcsolatok lehetőséget az iOS-beállításoknál.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Csatlakozzon a partnerségi programhoz";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Csak válassza ki a szükséges fotókat, majd futtassa azt.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Tájkép";

@@ -13,31 +13,22 @@ import Foundation
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
 struct batchStrings {
-    private static let kAppStoreID = "AppStoreID"
-
-    static var appStoreId:String{
-        return (Bundle.main.object(forInfoDictionaryKey: kAppStoreID) as? String) ?? ""
-    }
-
-    static var name:String{
-        return Bundle.main.displayName ?? "PAPS"
-    }
 
     static var title: String{
         return "Handle lots of photos at once.".localized
     }
 
-    static var nameTitle:String{
-        return "\(name) - \(title)"
-    }
-
     static var tagline: String{
         return "Just select photos you need and then run it.".localized
     }
-    
+
+    static var nameTitle:String{
+        return "\(InfoStrings.name) - \(title)"
+    }
+
     static var nameTitleTagLine:String{
         return "\(nameTitle): \(tagline)"
-    }    
+    }
 
     struct download{
         static var url: String{

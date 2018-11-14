@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Armchair
 
 //INFO: if remove this swift file, automatically normal policy
 
@@ -12,6 +13,13 @@ extension AppDelegate: AppDelegateExternalDelegate{
 
 
     public func didFinishLaunching() {
+
+        Armchair.appID(InfoStrings.appStoreId)
+        Armchair.useStoreKitReviewPrompt( true)
+        Armchair.resetAllCounters()
+        Armchair.shouldIncrementUseCountClosure { () -> Bool in
+            return false
+        }
 
     }
 }
@@ -23,5 +31,15 @@ extension AppCenter:AppCenterExternalDelegate{
                 , initialApp: nil
                 , taskManager: nil
         )
+    }
+}
+
+extension InfoStrings:InfoStringsExternalDelegate{
+    static var defaultTitle: String{
+        return "Get Every Info Around You.".localized
+    }
+
+    static var defaultTagline: String{
+        return "Get Text And Then Do Something.".localized
     }
 }

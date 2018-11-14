@@ -7,6 +7,10 @@ import Foundation
 
 //INFO: if remove this swift file, automatically normal policy
 
+extension AppColorTheme:AppColorDefaultThemeExternalDelegate{
+    private(set) static var theme: AppColorTheme = .dark
+}
+
 extension AppDelegate: AppDelegateExternalDelegate{
     public func willFinishLaunching() {}
 
@@ -21,10 +25,6 @@ extension AppDelegate: AppDelegateExternalDelegate{
 
 extension AppCenter:AppCenterExternalDelegate{
     static var defaultConfig: AppManagerConfig {
-        return AppManagerConfig(
-                appCollection: [ArtistApp.self]
-                , initialApp: nil
-                , taskManager: nil
-        )
+        return AppCenter.defaultConfigWholeUniversal
     }
 }

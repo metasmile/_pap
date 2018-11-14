@@ -120,7 +120,7 @@
 "cs_keyword_13" = "lover";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dag";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Download nu GRATIS!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Ejerskab";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Detection Mål";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS ved %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Hent";
@@ -354,7 +354,7 @@
 "Guest User License" = "Gæstebrugerlicens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gæstebruger";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Håndter mange billeder på én gang.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hej, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det kræver en tilladelse til at få adgang til dine kontakter. Tillad venligst kontakter på iOS-indstillinger.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Deltag i partnerskabsprogram";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Vælg bare de billeder, du har brug for, og kør det derefter.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landskab";

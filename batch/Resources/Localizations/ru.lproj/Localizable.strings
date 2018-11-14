@@ -120,7 +120,7 @@
 "cs_keyword_13" = "любовник";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Скачайте БЕСПЛАТНО!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Собственность";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Цели обнаружения";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "направление";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Бесплатно загрузить в %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Скачать";
@@ -354,7 +354,7 @@
 "Guest User License" = "Пользовательская лицензия";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Гость";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Обрабатывайте сразу несколько фотографий.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Привет, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для этого требуется разрешение на доступ к вашим контактам. Разрешите Контакты в настройках iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Присоединиться к партнерской программе";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Просто выберите нужные фотографии, а затем запустите их.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";

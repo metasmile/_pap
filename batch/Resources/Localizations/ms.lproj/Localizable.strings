@@ -120,7 +120,7 @@
 "cs_keyword_13" = "kekasih";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Pemilikan";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Sasaran Pengesanan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Muat turun sekarang secara PERCUMA di %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Muat turun";
@@ -354,7 +354,7 @@
 "Guest User License" = "Lesen Pengguna Tetamu";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Pengguna tetamu";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Mengendalikan banyak foto sekaligus.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hello, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ia memerlukan kebenaran untuk mengakses kenalan anda. Sila benarkan Kenalan pada Tetapan iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Sertai Program Perkongsian";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Hanya pilih foto yang anda perlukan dan kemudian jalankannya.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
