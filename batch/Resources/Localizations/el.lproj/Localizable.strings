@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Υπολειπόμενο ποσοστό";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Αλλάξτε το μέγεθος των φωτογραφιών σας στα διάφορα μεγέθη.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Αλλαγή μεγέθους";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Επαναφορά όλων των αγορών";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Χρησιμοποιήστε τη Δοκιμή";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Χρήση";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Κοινότητα χρηστών";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

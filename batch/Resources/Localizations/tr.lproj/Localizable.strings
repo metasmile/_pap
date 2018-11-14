@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Kalan Yüzde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Tekrar et";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Fotoğraflarınızı çeşitli boyutlara göre yeniden boyutlandırın.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "yeniden boyutlandırma";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Düzenleyici";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Tüm Satın Alma İşlemlerini Geri Yükle";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Deneme sürümünü kullan";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "kullanım";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Kullanıcı Topluluğu";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Yardım Hattı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

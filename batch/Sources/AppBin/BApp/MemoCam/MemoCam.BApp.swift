@@ -56,6 +56,11 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
         return false
     }
 
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
+        photoPickerCallee = callee
+    }
+
     fileprivate var importedLaunchOption: AppLaunchOptions? = nil
 
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
@@ -659,7 +664,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     fileprivate func drawPolygons(with observations: [VNRectangleObservation], to layer: CAShapeLayer) {
         let previewSize = previewContentMode == .scaleAspectFill ? self.cameraView.captureVideoSize.aspectFill(in: self.cameraView.bounds.size) : self.cameraView.captureVideoSize.aspectFit(in: self.cameraView.bounds.size)
-        drawPolygons(with: observations.map { CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft) }, to: layer, in: previewSize)
+        let polygons: [CGQuad] = observations.compactMap {
+            guard $0.responds(to: #selector(getter: CIRectangleFeature.topLeft)), $0.responds(to: #selector(getter: CIRectangleFeature.topRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomRight)), $0.responds(to: #selector(getter: CIRectangleFeature.bottomLeft)) else { return nil }
+            return CGQuad($0.topLeft, $0.topRight, $0.bottomRight, $0.bottomLeft)
+        }
+        drawPolygons(with: polygons, to: layer, in: previewSize)
     }
 
     fileprivate func drawPolygons(with codeObjects: [AVMetadataMachineReadableCodeObject], to layer: CAShapeLayer) {
@@ -732,7 +741,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.layer.addSublayer(detectTextLayer)
         cameraView.layer.addSublayer(detectBarcodesLayer)
 
-        var detectTextRequest:VNDetectTextRectanglesRequest? = VNDetectTextRectanglesRequest { (request, error) in
+        let detectTextRequest:VNDetectTextRectanglesRequest? = VNDetectTextRectanglesRequest { (request, error) in
             guard let observations = request.results as? [VNTextObservation] else {
                 return
             }
@@ -742,21 +751,6 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
         }
 
-        //TODO: if found a cause, remove this.
-        //HOTFIX BEGIN: https://fabric.io/jessi/ios/apps/com.stells.mmc/issues/5bce01faf8b88c2963c52c20?time=last-seven-days
-        /*
-        "iPhone7,1"  : .iPhone6plus, (unknown)
-        "iPhone7,2"  : .iPhone6,   (x) unknown but expected
-        "iPhone8,1"  : .iPhone6S,  (x)
-        "iPhone8,2"  : .iPhone6Splus, (no issue)
-        "iPhone8,4"  : .iPhoneSE, (x)
-        */
-        let deviceName = UIDevice.name
-        if deviceName == "iPhone8,1" || deviceName == "iPhone8,4" || deviceName == "iPhone7,2"{
-            detectTextRequest = nil
-        }
-        //HOTFIX END
-        
         cameraView.captureVideoDataDidOutput = { sampleBuffer in
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
@@ -903,22 +897,27 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     @objc fileprivate func performButtonDidTap(sender: Any) {
-        if let _ = currentTargetImage {
+
+        AppCenter.default.currentInstanceAs(MemoCamApp.self)?.photoPickerCallee?.performInNonSelectionContext {
+
+            if let _ = self.currentTargetImage {
 //            UIFeedback.select()
 //            actionButtonDidTap()
-        }
-        else {
-            let loadingView = UIActivityIndicatorView(style: .gray)
-            loadingView.startAnimating()
+            }
+            else {
+                let loadingView = UIActivityIndicatorView(style: .gray)
+                loadingView.startAnimating()
 
-            toolBar.setItems([
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(customView: loadingView),
-                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            ], animated: true)
+                self.toolBar.setItems([
+                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                    UIBarButtonItem(customView: loadingView),
+                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                ], animated: true)
 
-            UIFeedback.impact(.light)
-            setNeedsCaptureImage()
+                UIFeedback.impact(.light)
+                self.setNeedsCaptureImage()
+            }
+
         }
     }
 
@@ -1023,22 +1022,6 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
         }
     }
 }
-
-//HOTFIX BEGIN
-private extension UIDevice {
-    static var name: String? {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let modelCode = withUnsafePointer(to: &systemInfo.machine) {
-            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
-                ptr in
-                String(validatingUTF8: ptr)
-            }
-        }
-        return String(validatingUTF8: modelCode!)
-    }
-}
-//HOTFIX END
 
 
 import Intents

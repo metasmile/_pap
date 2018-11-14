@@ -546,6 +546,12 @@
 "Remaining Percentage" = "残りのパーセンテージ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "さまざまなサイズで写真のサイズを変更します。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "リサイズ";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "リサイザー";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "試用版を使用する";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "ユーザーコミュニティ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -546,6 +546,12 @@
 "Remaining Percentage" = "אחוז שנותר";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "שנה את גודל התמונות שלך לפי הגדלים השונים.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "שנה גודל";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "שחזר את כל הרכישות";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "השתמש בניסוי";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "להשתמש";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "קהילת המשתמשים";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "מוקד VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

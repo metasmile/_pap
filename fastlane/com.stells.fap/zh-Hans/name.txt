@@ -1,1 +1,1 @@
-PAPS: New Photo Video Tools
+PAPS: Photo,Video,Camera Tools

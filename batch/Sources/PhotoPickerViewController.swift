@@ -337,6 +337,12 @@ class PhotoPickerViewController: AppDockViewController {
                 }
             }
             
+            AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.watch(\.filter, id: "picker\(ResizerApp.info.identifier)") { (config, changed) in
+                if let value = config.filter, !AppCenter.default.task.isRunning {
+                    self.setAppValue(value)
+                }
+            }
+            
             AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
         }
     }
@@ -362,6 +368,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(RevertApp.self)?.unwatch(\.autoSelect, forIds:["picker\(RevertApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.unwatch(\.autoSelect, forIds:["picker\(ExifGhostApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(CleanerApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CleanerApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.unwatch(\.filter, forIds:["picker\(ResizerApp.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }

@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Jäljellä oleva prosenttiosuus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Muuta valokuvia eri kokoisia.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Resize";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Palauta kaikki ostokset";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Käytä kokeilua";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Käyttää";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Käyttäjäyhteisö";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -28,6 +28,12 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     
     var delegate: PreviewCollectionViewCellDelegate?
     
+    override func initialize() {
+        super.initialize()
+        
+        assetView.contentMode = .scaleAspectFit
+    }
+    
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         

@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Fennmaradó százalék";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ismétlés";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Átméretezheti fényképeit a különböző méretben.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "átméretezése";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Összes vásárlás visszaállítása";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Használd a próbát";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Használat";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Felhasználói közösség";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -546,6 +546,12 @@
 "Remaining Percentage" = "剩余百分比";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "调整各种尺寸的照片大小。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "调整";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "调整器";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢复所有购买";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "使用试用版";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "用户社区";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "贵宾热线";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

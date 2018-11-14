@@ -546,6 +546,12 @@
 "Remaining Percentage" = "शेष प्रतिशत";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "विभिन्न आकारों से अपनी तस्वीरों का आकार बदलें।";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "आकार बदलें";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "रीसाइज़र";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "परीक्षण का प्रयोग करें";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "उपयोग";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

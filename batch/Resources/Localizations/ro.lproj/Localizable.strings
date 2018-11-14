@@ -546,6 +546,12 @@
 "Remaining Percentage" = "Procentul rămas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeta";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize your photos by the various sizes." = "Redimensionați fotografiile după dimensiunile diferite.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize" = "Redimensionarea";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurați toate achizițiile";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -710,6 +716,8 @@
 "Use Trial" = "Utilizați procesul";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Utilizare";
+/* Generated from genl10n: Settings.SApp.swift */
+"User Community" = "Comunitatea utilizatorilor";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

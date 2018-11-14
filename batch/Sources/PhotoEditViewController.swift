@@ -231,6 +231,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
             
+            appCenter.currentInstanceAs(ResizerApp.self)?.config?.watch(\.filter, id:"editor\(ResizerApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.setAppValue(value)
+                }
+            }
+            
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
         }
@@ -242,6 +248,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         AppCenter.default.currentInstanceAs(ArtistApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ArtistApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(StabilizerApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ResizerApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
     // MARK: - Layout
