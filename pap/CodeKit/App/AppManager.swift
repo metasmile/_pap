@@ -7,8 +7,9 @@ import Foundation
 import UIKit
 
 public struct AppManagerConfig{
-    var appCollection:[App.Type]?
-    var taskManager:AppTaskManager?
+    let initialApp:App.Type
+    let appCollection:[App.Type]
+    let taskManager:AppTaskManager?
 }
 
 protocol AppManagerConfigurable where Self:AppManager {
@@ -24,9 +25,7 @@ open class AppManager: NSObject, SelectableCollection {
 
         //AppManagerConfigurable
         if let configurable = (self as? AppManagerConfigurable)?.configure(){
-            if let appCollection = configurable.appCollection{
-                initializingApps += appCollection
-            }
+            initializingApps += configurable.appCollection
 
             if let taskManager = configurable.taskManager{
                 _task = taskManager

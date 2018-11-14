@@ -8,8 +8,6 @@ import Foundation
 extension AppCenter:AppManagerConfigurable{
     func configure() -> AppManagerConfig? {
 
-        var config = AppManagerConfig()
-
         let defaultAppCollection:[App.Type] = [
             TransformApp.self
             , FinderApp.self
@@ -52,8 +50,6 @@ extension AppCenter:AppManagerConfigurable{
             return false
         }
 
-        config.appCollection = defaultAppCollection
-
         print("[i] App Internal Collection: ",defaultAppCollection)
 
         #if DEBUG
@@ -64,6 +60,8 @@ extension AppCenter:AppManagerConfigurable{
         }
         #endif
 
-        return config
+        return AppManagerConfig(initialApp: TransformApp.self
+                , appCollection: defaultAppCollection
+                , taskManager: nil)
     }
 }
