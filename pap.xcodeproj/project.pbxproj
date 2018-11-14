@@ -399,6 +399,7 @@
 		4F71D949F8D15FC877043829 /* Converter.Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCC6D4722F27BFAC6386 /* Converter.Gif.swift */; };
 		4F71D9517538EDF39287054E /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E98B4DD272B9BAA3CF /* ImageAlignment.swift */; };
 		4F71D959683DF735347B43F6 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D676F3FFAF7F4326FC2A /* VisionBarcodeDetector.swift */; };
+		4F71D9669BB220A9ABB30BE0 /* batch.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC06BDBB543457B2CE2F /* batch.ExternalDelegate.swift */; };
 		4F71D969B43062F9BBBD030D /* CodeKit.EventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AF25AF3787DAF21C0C /* CodeKit.EventKit.swift */; };
 		4F71D96A893F21A5EACFA123 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D239D6E80D23C986EFE0 /* Sourceable.swift */; };
 		4F71D96FE26C168A1B0D929F /* PHAsset.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB8E7710A790D7C7F438 /* PHAsset.Items.swift */; };
@@ -636,6 +637,7 @@
 		4F71DF4345A9CDA8C8AB1345 /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35734237FB3150B72E2 /* App.AppDock.swift */; };
 		4F71DF4C224C5BC8E9840351 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */; };
 		4F71DF4E23749E11E6956A6E /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D08F9E61420E0880B304 /* CodeKit.Misc.swift */; };
+		4F71DF579423E1C4B5ED16DC /* batch.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC06BDBB543457B2CE2F /* batch.ExternalDelegate.swift */; };
 		4F71DF5F97855FF3FD1F8A43 /* Shop.Payment.URLOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D12BF03BB77AE107D840 /* Shop.Payment.URLOpen.swift */; };
 		4F71DF7293BD071AEF5A1B93 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4DACD3DE4FCBFA15864 /* PhotoPickerViewController.Operations.PreheatableApp.swift */; };
 		4F71DF7E30BC79538E4BB3AF /* Converter.Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6C2E5CDEA9728299E9F /* Converter.Mp4.swift */; };
@@ -1035,7 +1037,7 @@
 		A0CBFF50219ADBA2007A5278 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6364863021203C245ED /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */; };
 		A0CBFF51219ADBA2007A5278 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B0B873BBBB38F7CEBB /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		A0CBFF52219ADBA2007A5278 /* AssetIO.LivePhotoResource.Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0BED0A5A97BE63676AF /* AssetIO.LivePhotoResource.Video.swift */; };
-		A0CBFF53219ADBA2007A5278 /* sap.AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FE063F036A0E4D5C1C /* sap.AppDelegate.swift */; };
+		A0CBFF53219ADBA2007A5278 /* sap.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FE063F036A0E4D5C1C /* sap.ExternalDelegate.swift */; };
 		A0CBFF54219ADBA2007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		A0CBFF55219ADBA2007A5278 /* App.PhotoPickerViewControllerUniversalOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D563B3D88ABB1FB32395 /* App.PhotoPickerViewControllerUniversalOperations.swift */; };
 		A0CBFF56219ADBA2007A5278 /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
@@ -1288,7 +1290,7 @@
 		4F71D6EF63C4349D3278DC9E /* Filters.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.BApp.swift; sourceTree = "<group>"; };
 		4F71D6F53CDB13CF2E2F261E /* AssetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		4F71D6F8EE86EF92E238A282 /* App.PreviewProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PreviewProcessable.swift; sourceTree = "<group>"; };
-		4F71D6FE063F036A0E4D5C1C /* sap.AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sap.AppDelegate.swift; sourceTree = "<group>"; };
+		4F71D6FE063F036A0E4D5C1C /* sap.ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sap.ExternalDelegate.swift; sourceTree = "<group>"; };
 		4F71D706AD67421BC95129A3 /* FileIO.URL.File.Glob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.Glob.swift; sourceTree = "<group>"; };
 		4F71D71D31328AB00AC52B3B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4F71D720E8D148915253E277 /* AppCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCenter.swift; sourceTree = "<group>"; };
@@ -1389,6 +1391,7 @@
 		4F71DBF9214E5F593F1EE8DB /* App.Finalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.swift; sourceTree = "<group>"; };
 		4F71DBFE2AC42272318F662C /* CodeKit.UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertController.swift; sourceTree = "<group>"; };
 		4F71DBFE349AB5938B64AF16 /* App.UI.CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.CollectionView.swift; sourceTree = "<group>"; };
+		4F71DC06BDBB543457B2CE2F /* batch.ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.ExternalDelegate.swift; sourceTree = "<group>"; };
 		4F71DC0EFDF40D8BFA94F56F /* App.Cacheable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Cacheable.swift; sourceTree = "<group>"; };
 		4F71DC1C2C056A342534A2DC /* batch.Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Log.swift; sourceTree = "<group>"; };
 		4F71DC418C808CAFB3F61DF0 /* CodeKit.UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UITableViewCell.swift; sourceTree = "<group>"; };
@@ -1805,6 +1808,7 @@
 				4F71DD6C4CC0A50CCCEA3857 /* AppDelegate.SpotlightSearch.swift */,
 				51516D96210FC42900351175 /* AppDelegate.ShortcutItem.swift */,
 				511D20D7214B2CEC00056AD3 /* AppDelegate.Intents.swift */,
+				4F71DC06BDBB543457B2CE2F /* batch.ExternalDelegate.swift */,
 			);
 			path = batch;
 			sourceTree = "<group>";
@@ -2314,7 +2318,7 @@
 			children = (
 				A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */,
 				A07BD38721973656003031D5 /* Info.plist */,
-				4F71D6FE063F036A0E4D5C1C /* sap.AppDelegate.swift */,
+				4F71D6FE063F036A0E4D5C1C /* sap.ExternalDelegate.swift */,
 			);
 			path = sap;
 			sourceTree = "<group>";
@@ -4268,6 +4272,7 @@
 				4F71D1F432FA58581135AD76 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */,
 				4F71D88AB09FB22C05788BC9 /* App.PhotoPickerViewControllerUniversalOperations.swift in Sources */,
 				4F71DD1511079B2A2E6EE888 /* AppCenter.Configurable.swift in Sources */,
+				4F71D9669BB220A9ABB30BE0 /* batch.ExternalDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4769,12 +4774,13 @@
 				A0CBFF50219ADBA2007A5278 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				A0CBFF51219ADBA2007A5278 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */,
 				A0CBFF52219ADBA2007A5278 /* AssetIO.LivePhotoResource.Video.swift in Sources */,
-				A0CBFF53219ADBA2007A5278 /* sap.AppDelegate.swift in Sources */,
+				A0CBFF53219ADBA2007A5278 /* sap.ExternalDelegate.swift in Sources */,
 				A0CBFF54219ADBA2007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */,
 				A0CBFF55219ADBA2007A5278 /* App.PhotoPickerViewControllerUniversalOperations.swift in Sources */,
 				A0CBFF56219ADBA2007A5278 /* Resizer.BApp.swift in Sources */,
 				A0CBFF57219ADBA2007A5278 /* Settings.SApp.swift in Sources */,
 				4F71DA3632B6655A652E8F9D /* AppCenter.Configurable.swift in Sources */,
+				4F71DF579423E1C4B5ED16DC /* batch.ExternalDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

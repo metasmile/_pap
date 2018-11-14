@@ -9,7 +9,7 @@ import PropertyKit
 public final class AppCenter: AppManager, PropertyWatchable {
     public static let `default` = AppCenter()
 
-    override init() {
+    private override init() {
         super.init()
 
         let apps = self.apps(by: AppQuery.default)
@@ -17,6 +17,7 @@ public final class AppCenter: AppManager, PropertyWatchable {
         if apps.count == 0{
             return
         }
+        assert(apps.first != nil,"\(apps) is wrongly defined check apps array.")
 
         self.watch(\.currentIdentifier) { (target, value) in
             Defaults.shared.appIdentifier = target.currentIdentifier
@@ -30,11 +31,7 @@ public final class AppCenter: AppManager, PropertyWatchable {
             self.current = starterApp
 
         }else{
-            self.current = initialApp
+            self.current = config?.initialApp ?? apps.first
         }
-    }
-
-    private var initialApp:App.Type{
-        return TransformApp.self
     }
 }

@@ -7,7 +7,7 @@ import Foundation
 
 //INFO: if remove this swift file, automatically normal policy
 
-extension AppDelegate: AppExternalDelegator{
+extension AppDelegate: AppDelegateExternalDelegate{
     public func willFinishLaunching() {}
 
 
@@ -16,5 +16,15 @@ extension AppDelegate: AppExternalDelegator{
         if !AppCenter.charge.isPaid(payable: FreeAllAppsPayment.self){
             AppCenter.charge.pay(for: FreeAllAppsPayment.self, skipTransaction: true)
         }
+    }
+}
+
+extension AppCenter:AppCenterExternalDelegate{
+    static var externalConfig: AppManagerConfig {
+        return AppManagerConfig(
+                appCollection: [ArtistApp.self]
+                , initialApp: nil
+                , taskManager: nil
+        )
     }
 }

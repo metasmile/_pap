@@ -13,10 +13,6 @@ import Crashlytics
 import PropertyKit
 import Armchair
 
-public protocol AppExternalDelegator{
-    func willFinishLaunching()
-    func didFinishLaunching()
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Version Description: ",Defaults.shared.shortVersionDescription)
 
         let selfAny:AnyObject = self
-        (selfAny as? AppExternalDelegator)?.willFinishLaunching()
+        (selfAny as? AppDelegateExternalDelegate)?.willFinishLaunching()
 
         return false
     }
@@ -85,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 #endif
 
-        let selfAny:AnyObject = self
-        (selfAny as? AppExternalDelegator)?.didFinishLaunching()
+        let anySelf:AnyObject = self
+        (anySelf as? AppDelegateExternalDelegate)?.didFinishLaunching()
 
         return true
     }
