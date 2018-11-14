@@ -5,25 +5,64 @@
 
 import Foundation
 
-/* INFO:
+extension AppCenter:AppCenterExternalDelegate{
+    static var defaultConfig: AppManagerConfig {
+        let defaultAppCollection:[App.Type] = [
+            TransformApp.self
+            , FinderApp.self
+            , FiltersApp.self
+            , ConverterApp.self
+            , ArtistApp.self
+            , CleanerApp.self
+            , MemoCamApp.self
+            , GIFMakerApp.self
+            , RevertApp.self
+            , PDFMakerApp.self
+            , CameraApp.self
+            , ShopApp.self
+            , SettingsApp.self
+            , AutoEditorApp.self
+            , ExifGhostApp.self
+            , SiriApp.self
+            , ClipboardApp.self
+            , ResizerApp.self
+//            , Stabilizer.self
 
-- Protocol Naming: "${Class/StructName(normally e.g. "AppDelegate" in "AppDelegate.swift")}ExternalDelegate"
-- External swift file naming:  ${SchemeName}.ExternalDelegate.swift
+        ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 
-- Globally used in child apps of 'pap'
-- Only DI style pattern. AVOID file by file "targets" configuration via "project.pbxproj"
-  if developer do remove just only related swift file on sub app project, there are no effect with base project.
-*/
+            if appType1.info.phase.rawValue > appType2.info.phase.rawValue{
+                return true
+            }
 
-public protocol AppDelegateExternalDelegate {
-    func willFinishLaunching()
-    func didFinishLaunching()
-}
+            if papCount.app.countPerformed(app: appType1) > papCount.app.countPerformed(app: appType2){
+                return true
+            }
 
-protocol AppCenterExternalDelegate {
-    static var externalConfig:AppManagerConfig{get}
-}
+            if appType1 is SApp.Type && appType2 is BApp.Type {
+                return true
+            }
 
-protocol AppDockViewExternalDelegate{
-    static var minimumNumberOfVisibleApps:Int{get}
+            if appType1 is AVCaptureDeviceApp.Type == false && appType2 is AVCaptureDeviceApp.Type{
+                return true
+            }
+
+            return false
+        }
+
+        print("[i] App Internal Collection: ",defaultAppCollection)
+
+        #if DEBUG
+        for app in defaultAppCollection{
+            print(app.info.displayName)
+            print(app.info.description ?? "")
+//            print(app.info.keywords?.joined(separator: ",") ?? "")
+        }
+        #endif
+
+        return AppManagerConfig(
+                appCollection: defaultAppCollection
+                , initialApp: TransformApp.self
+                , taskManager: nil
+        )
+    }
 }

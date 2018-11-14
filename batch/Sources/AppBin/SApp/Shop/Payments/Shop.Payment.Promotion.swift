@@ -82,7 +82,7 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
         var paid = false
         asyncSignal.begin()
 
-        batchLog.charge.userHasShownInAppPromptRating()
+        papLog.charge.userHasShownInAppPromptRating()
 
         DispatchQueue.main.async{
             Armchair.showPrompt { info in

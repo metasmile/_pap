@@ -21,37 +21,37 @@ protocol PDFMakerAppDefaults: AppDefaults{
 
 extension Defaults: PDFMakerAppDefaults {
     var sizePreset:String {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: PDFPageFormat.a4.label ) }
     }
 
     var landscape:Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     var imagesPerPage:Int {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 1 ) }
     }
 
     var scaleMode:Int {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: PDFMakerAppSettings.ScaleMode.fitPage.rawValue ) }
     }
 
     var metadataCaption:Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     var imageQuality:Double {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 1 ) }
     }
 
     var margin:Int {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 15 ) }
     }
 }

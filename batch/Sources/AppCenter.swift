@@ -6,6 +6,14 @@
 import Foundation
 import PropertyKit
 
+extension AppCenter:AppManagerConfigurable{
+    static func configure() -> AppManagerConfig? {
+
+        let anySelf:Any.Type = self
+        return (anySelf as? AppCenterExternalDelegate.Type)?.defaultConfig
+    }
+}
+
 public final class AppCenter: AppManager, PropertyWatchable {
     public static let `default` = AppCenter()
 
@@ -23,7 +31,7 @@ public final class AppCenter: AppManager, PropertyWatchable {
             Defaults.shared.appIdentifier = target.currentIdentifier
             print("Current App: \(Defaults.shared.appIdentifier ?? "nil")")
 
-            batchLog.appSelected()
+            papLog.appSelected()
         }
 
         if let configuredAppIdentifier = Defaults.shared.appIdentifier

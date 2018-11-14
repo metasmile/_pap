@@ -21,7 +21,7 @@ extension Defaults: ResizerAppDefaults {
             return get(or: nil)
         }
         
-        set { set(newValue); batchLog.app.defaults.log(value:newValue ?? "Original") }
+        set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
     }
 }
 

@@ -15,7 +15,7 @@ extension PhotoPickerViewController{
         if AppCenter.default.task.isRunning {
             batchPreviewView.cancelBatchProcessing()
 
-            mmcLog.cancelWhilePerforming()
+            papLog.cancelWhilePerforming()
         }
         else {
             if AppAssets.selected.hasChanges {
@@ -30,7 +30,7 @@ extension PhotoPickerViewController{
                 cancelAllSelection()
             }
 
-            mmcLog.cancelWhileSelecting()
+            papLog.cancelWhileSelecting()
         }
     }
 

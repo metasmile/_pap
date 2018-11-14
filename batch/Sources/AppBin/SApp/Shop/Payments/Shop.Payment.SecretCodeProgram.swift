@@ -263,7 +263,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
 
         // if not found -> input process
         else {
-            batchLog.charge.scp.triedToAccess()
+            papLog.charge.scp.triedToAccess()
 
             asyncSignal.begin()
 
@@ -302,13 +302,13 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
         DispatchQueue.main.async{
             switch result.state{
             case .error:
-                batchLog.charge.scp.accessError()
+                papLog.charge.scp.accessError()
 
                 UIAlertController.alert("Unable to verify the code currently. Please try it later.".localized, title:"Verification Failed.".localized, completion:{ action in
                     asyncSignal.end()
                 })
             case .denied:
-                batchLog.charge.scp.accessDenied(recordName: result.entry?.id.recordName)
+                papLog.charge.scp.accessDenied(recordName: result.entry?.id.recordName)
 
                 let title:String
                 let msg:String
@@ -327,7 +327,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
                 })
 
             case .granted:
-                batchLog.charge.scp.accessGranted(recordName: result.entry?.id.recordName)
+                papLog.charge.scp.accessGranted(recordName: result.entry?.id.recordName)
 
                 let userName = result.entry?.ownerName?.trimmed.nilEmpty ?? P.defaultOwnerName
                 DispatchQueue.main.async{
@@ -446,14 +446,14 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
             SecretCodeEntry.commitValue(in: SecretCodeEntry.container.publicCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: currentDate as __CKRecordObjCValue)
             { record, error in
                 if let e = error{
-                    batchLog.error.recordedError(e, parameters: ["publicCloudDatabase":"expireCurrentCodeIfNeeded"])
+                    papLog.error.recordedError(e, parameters: ["publicCloudDatabase":"expireCurrentCodeIfNeeded"])
 
                 }
             }
             SecretCodeEntry.commitValue(in: SecretCodeEntry.container.privateCloudDatabase, localStoreKey: P.localStoreKey, key: SecretCodeEntry.kExpiredAt, value: currentDate as __CKRecordObjCValue)
             { record, error in
                 if let e = error{
-                    batchLog.error.recordedError(e, parameters: ["privateCloudDatabase": "expireCurrentCodeIfNeeded"])
+                    papLog.error.recordedError(e, parameters: ["privateCloudDatabase": "expireCurrentCodeIfNeeded"])
                 }
             }
         }
@@ -493,12 +493,12 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
                     P.currentAppIDStack = nil
 
                     if isEnable{
-                        batchLog.charge.scp.activationStarted()
+                        papLog.charge.scp.activationStarted()
 
                         Timer.scheduledTimer(identifier: #function, withTimeInterval: 10, block: { _ in
                             P.isEnable = false
 
-                            batchLog.charge.scp.activationTimeout()
+                            papLog.charge.scp.activationTimeout()
                         })
                     }
                 }

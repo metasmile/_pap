@@ -12,17 +12,14 @@ extension AppDelegate: AppDelegateExternalDelegate{
 
 
     public func didFinishLaunching() {
-        //INFO: system wide free.
-        if !AppCenter.charge.isPaid(payable: FreeAllAppsPayment.self){
-            AppCenter.charge.pay(for: FreeAllAppsPayment.self, skipTransaction: true)
-        }
+
     }
 }
 
 extension AppCenter:AppCenterExternalDelegate{
     static var defaultConfig: AppManagerConfig {
         return AppManagerConfig(
-                appCollection: [ArtistApp.self]
+                appCollection: [SiriApp.self, FinderApp.self, MemoCamApp.self]
                 , initialApp: nil
                 , taskManager: nil
         )
