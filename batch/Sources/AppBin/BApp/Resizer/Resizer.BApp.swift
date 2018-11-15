@@ -251,6 +251,16 @@ class CIResizeFilter: CIFilter {
     }
 }
 
+class CIResizeFilterItem: CIFilterItem {
+    override init(_ filter: CIFilter? = nil) {
+        super.init(filter)
+    }
+    
+    override var normalizedSize: CGSize? {
+        return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
+    }
+}
+
 fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIResizeFilter] = [
         CIResizeFilter(aspectRatioOption: AspectRatioOption.square),
@@ -265,12 +275,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         var items = [AppUICollectionView.CollectionItem]()
         
         items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: nil, action: {
-            self.filterItem = CIFilterItem()
+            self.filterItem = CIResizeFilterItem()
         }))
         
         items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: (filter.aspectRatioOption.description ?? filter.name).localized, image: nil, action: {
-                let filterItem = CIFilterItem(filter)
+                let filterItem = CIResizeFilterItem(filter)
                 self.filterItem = filterItem
             })
         })
