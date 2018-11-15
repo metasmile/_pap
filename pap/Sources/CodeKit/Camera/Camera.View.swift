@@ -701,7 +701,7 @@ fileprivate class CameraPreviewView: UIView {
 
 
 final class CaptureButton: UIControl {
-//    private lazy var outerCircleLayer = CAShapeLayer()
+    private lazy var outerCircleLayer = CAShapeLayer()
     private lazy var innerCircleLayer = CAShapeLayer()
 
     override init(frame: CGRect) {
@@ -717,9 +717,9 @@ final class CaptureButton: UIControl {
     private func initialize() {
         backgroundColor = .clear
 
-//        outerCircleLayer.strokeColor = UIColor.white.cgColor
-//        outerCircleLayer.fillColor = UIColor.clear.cgColor
-//        layer.addSublayer(outerCircleLayer)
+        outerCircleLayer.strokeColor = UIColor.white.cgColor
+        outerCircleLayer.fillColor = UIColor.clear.cgColor
+        layer.addSublayer(outerCircleLayer)
 
         innerCircleLayer.strokeColor = UIColor.clear.cgColor
         innerCircleLayer.fillColor = UIColor.white.cgColor
@@ -749,14 +749,14 @@ final class CaptureButton: UIControl {
         let scale = remap(bounds.height, 0, 64, 0, 1)
         let inset = remap(scale, 0, 1, bounds.height * 0.1, 0)
         let outerCircleLineWidth: CGFloat = remap(scale, 0, 1, 0, 6)
-//        let outerCircleInset = outerCircleLineWidth / 2 + inset
+        let outerCircleInset = outerCircleLineWidth / 2 + inset
         let innerCircleInset = outerCircleLineWidth + remap(scale, 0, 1, 0, 2) + inset
 
-//        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
+        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
         let innerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
 
-//        outerCircleLayer.lineWidth = outerCircleLineWidth
-//        outerCircleLayer.path = outerCircle.cgPath
+        outerCircleLayer.lineWidth = outerCircleLineWidth
+        outerCircleLayer.path = outerCircle.cgPath
         innerCircleLayer.path = innerCircle.cgPath
     }
 }
