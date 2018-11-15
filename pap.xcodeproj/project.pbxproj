@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */; };
 		0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF921F14B7CB0078A583 /* Assets.xcassets */; };
+		20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */; };
 		29EE98E37A9DA3E0523286CC /* Pods_sap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE4F82F49B391B18CEE742 /* Pods_sap.framework */; };
 		2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */; };
 		343A0A8E9503523A9A599A57 /* Pods_batch_papTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */; };
@@ -303,6 +304,7 @@
 		4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */; };
 		4F71D4BF9445309DE3367FAC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
+		4F71D4C1E0AADB20B6F00E42 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D4C3AB38FE69AC5C1EFA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D4C638F7E6B7CEA7FC63 /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D430BFAEE78F96648FE9 /* Charge.Objects.Receipt.swift */; };
@@ -328,6 +330,7 @@
 		4F71D4FBBD2AB2434376362C /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE13080661FFFB2F9EFB /* AppDockView.xib */; };
 		4F71D4FEFCE075ADE379CECC /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D50161589C7955C6B38C /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
+		4F71D5023F54ADF3A7E09563 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D503C94497EEAF5F7BE6 /* UITableViewExpandableCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34E9FE70D9143CF80D7 /* UITableViewExpandableCell.UITableView.swift */; };
 		4F71D50AA7A75B0B2F4ED5A7 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07E7335EBBD574A9B49 /* ImageIO.GIF.swift */; };
 		4F71D5131935EBD88CFE553B /* Converter.Png.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D389D2825C0498C0F7A3 /* Converter.Png.swift */; };
@@ -337,6 +340,7 @@
 		4F71D52049D5B9088EA0F2C5 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8660EAD2D49B5AC5251 /* CustomView.swift */; };
 		4F71D52881DA5BF99B2C9EA8 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
 		4F71D5297227F9C8FDFD9D43 /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
+		4F71D52DE56CBF40DC451EA1 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D537B97487CA6B7A651D /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D53EB547B4D5512F4D45 /* Converter.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4DAC28042EF6B5EF31B /* Converter.LivePhoto.swift */; };
 		4F71D53F9AEFF7BF7EEC8011 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2641BA9E027864B3419 /* PHAssets.swift */; };
@@ -411,6 +415,7 @@
 		4F71D67E30F60E5A7EA0885C /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C9C51F6AE6DF806B59 /* Selectable.swift */; };
 		4F71D684394DC420BFEF903E /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35770081EFDB8DF0DE5 /* CodeKit.CIImage.swift */; };
 		4F71D688321F73B41A4D5E18 /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA47A8F4B409A892DEFC /* Processor.swift */; };
+		4F71D6893C63C3C94A82273B /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D6989EB55B7630FA6B6A /* PhotoEditViewController.AppConfigWatchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D42F154C570FB6023CF0 /* PhotoEditViewController.AppConfigWatchable.swift */; };
 		4F71D698E7FA98641D943E4D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D44F72B257178A110D63 /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71D6A302F5A43A0684AE98 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF76C76F5B64B406F1CE /* StateValue.swift */; };
@@ -594,6 +599,7 @@
 		4F71D98CAED60FEAC4B5D9C5 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB293E559230A649842F /* CodeKit.CoreGraphics.swift */; };
 		4F71D9916AA02024316F9F01 /* CodeKit.CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB293E559230A649842F /* CodeKit.CoreGraphics.swift */; };
 		4F71D993236D736C1E459CC8 /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E5728C39CF76B02826 /* ImageIO.Metadata.Properties.Label.swift */; };
+		4F71D996E6468EA91AF62748 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA85C98EDB773862B2DF /* GADManager.swift */; };
 		4F71D999DC0D61B1909A1DC4 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07E7335EBBD574A9B49 /* ImageIO.GIF.swift */; };
 		4F71D99E05AE096DDF492BFB /* Camera.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD6C6B1ACFE87B3EA0CA /* Camera.SApp.swift */; };
 		4F71D9A66B1350F596FAAD83 /* AssetIO.LivePhotoResource.Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3DDFB5D6CC075EEA275 /* AssetIO.LivePhotoResource.Video.swift */; };
@@ -2154,6 +2160,8 @@
 		18EE4F82F49B391B18CEE742 /* Pods_sap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB639CA86D7F085825EB367 /* Pods-pap-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.release.xcconfig"; sourceTree = "<group>"; };
 		33D37ED5B737EE655DF40FEE /* Pods-pap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.debug.xcconfig"; sourceTree = "<group>"; };
+		412390868F1C018CFF62CC0B /* Pods-ocra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ocra.release.xcconfig"; path = "Pods/Target Support Files/Pods-ocra/Pods-ocra.release.xcconfig"; sourceTree = "<group>"; };
+		4832016FF02E8E6CF7291036 /* Pods-ocra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ocra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ocra/Pods-ocra.debug.xcconfig"; sourceTree = "<group>"; };
 		4F71D002C16E07911D9C61FD /* App.Finalizable.PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Finalizable.PHAsset.swift; sourceTree = "<group>"; };
 		4F71D013F78DEDAA88B8D625 /* Numeric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		4F71D03D7AB64514D796410D /* Converter.Mov.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mov.swift; sourceTree = "<group>"; };
@@ -2181,6 +2189,7 @@
 		4F71D134C2C1CA981897CC95 /* AppDelegate.Intents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.Intents.swift; sourceTree = "<group>"; };
 		4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerViewControllerAppearanceDelegatable.swift; sourceTree = "<group>"; };
 		4F71D163B4DDA56246446806 /* cell_icon_depth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_depth.png; sourceTree = "<group>"; };
+		4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.GADInterestialAdsViewing.swift; sourceTree = "<group>"; };
 		4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.System.swift; sourceTree = "<group>"; };
 		4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.CaptureProcessor.swift; sourceTree = "<group>"; };
@@ -2689,6 +2698,7 @@
 		B9FEB7C489AB9EE273CB64D9 /* Pods-pap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.release.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.release.xcconfig"; sourceTree = "<group>"; };
 		BEA219A70AE335621269FF27 /* Pods-mmc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mmc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mmc/Pods-mmc.debug.xcconfig"; sourceTree = "<group>"; };
 		D860C018E4B22279B16D3F29 /* Pods-batch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.release.xcconfig"; sourceTree = "<group>"; };
+		E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ocra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDFFA3F89065E39859A7C3A /* Pods-mmc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mmc.release.xcconfig"; path = "Pods/Target Support Files/Pods-mmc/Pods-mmc.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2729,6 +2739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0CB038D219DE4F2007A5278 /* Pods_mmc.framework in Frameworks */,
+				20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2767,6 +2778,8 @@
 				FDDFFA3F89065E39859A7C3A /* Pods-mmc.release.xcconfig */,
 				096D2145707962057ED352C1 /* Pods-sap.debug.xcconfig */,
 				AA6BC5056AAA1755F7A26790 /* Pods-sap.release.xcconfig */,
+				4832016FF02E8E6CF7291036 /* Pods-ocra.debug.xcconfig */,
+				412390868F1C018CFF62CC0B /* Pods-ocra.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3569,6 +3582,7 @@
 				4F71DADF39B8E3B1DAB7B227 /* ocra.entitlements */,
 				4F71D2E600469544B2CDB9DA /* GoogleService-Info.plist */,
 				4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */,
+				4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */,
 			);
 			path = ocra;
 			sourceTree = "<group>";
@@ -4143,6 +4157,7 @@
 				91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */,
 				9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */,
 				18EE4F82F49B391B18CEE742 /* Pods_sap.framework */,
+				E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -5042,7 +5057,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mmc-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ocra-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5069,7 +5084,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -5098,7 +5113,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CB03A7219DE4F2007A5278 /* ShellScript */ = {
@@ -5120,7 +5135,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5129,7 +5144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CBFE3C219ADBA2007A5278 /* [CP] Check Pods Manifest.lock */ = {
@@ -5687,6 +5702,7 @@
 				4F71D0F497EAD331936B8710 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71DD53992A540770AA055F /* AppDelegate.swift in Sources */,
 				4F71D8B7E7EE55B7499170F6 /* universal.ExternalDelegate.swift in Sources */,
+				4F71D4C1E0AADB20B6F00E42 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6205,6 +6221,7 @@
 				A0CB0254219C9093007A5278 /* AppDelegate.swift in Sources */,
 				A0CB0255219C9093007A5278 /* universal.ExternalDelegate.swift in Sources */,
 				4F71DA206344F3B5FC641F18 /* xfgst.ExternalDelegate.swift in Sources */,
+				4F71D5023F54ADF3A7E09563 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6429,6 +6446,7 @@
 				A0CB038A219DE4F2007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				A0CB038B219DE4F2007A5278 /* AppDelegate.swift in Sources */,
 				4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */,
+				4F71D996E6468EA91AF62748 /* GADManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6723,6 +6741,7 @@
 				4F71D7CEC39FAFE958F06E35 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71D488AE0AD8D041DE94FB /* AppDelegate.swift in Sources */,
 				4F71D76C40B86C2219C3B444 /* universal.ExternalDelegate.swift in Sources */,
+				4F71D6893C63C3C94A82273B /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7017,6 +7036,7 @@
 				A0CB00CF219C8C64007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				A0CB00D0219C8C64007A5278 /* AppDelegate.swift in Sources */,
 				A0CB00D1219C8C64007A5278 /* universal.ExternalDelegate.swift in Sources */,
+				4F71D52DE56CBF40DC451EA1 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7967,7 +7987,7 @@
 		};
 		A0CB03AA219DE4F2007A5278 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEA219A70AE335621269FF27 /* Pods-mmc.debug.xcconfig */;
+			baseConfigurationReference = 4832016FF02E8E6CF7291036 /* Pods-ocra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -7994,7 +8014,7 @@
 		};
 		A0CB03AB219DE4F2007A5278 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDDFFA3F89065E39859A7C3A /* Pods-mmc.release.xcconfig */;
+			baseConfigurationReference = 412390868F1C018CFF62CC0B /* Pods-ocra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
