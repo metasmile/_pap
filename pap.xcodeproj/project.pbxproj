@@ -300,6 +300,7 @@
 		4F71D4A97BBD774069AC6E31 /* Revert.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */; };
 		4F71D4A9D9254129EAB06793 /* AppCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D737C3E7372155F27687 /* AppCenter.swift */; };
 		4F71D4AD732F79AE81D91FB7 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
+		4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */; };
 		4F71D4BF9445309DE3367FAC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
 		4F71D4C3AB38FE69AC5C1EFA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
@@ -1661,7 +1662,6 @@
 		A0CB02BB219DE4F2007A5278 /* SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD35218235EE005EAD1B /* SApp.swift */; };
 		A0CB02BC219DE4F2007A5278 /* mmc.Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0C1B54DC1A482C13675 /* mmc.Strings.swift */; };
 		A0CB02BD219DE4F2007A5278 /* mmc.Counts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA15198DD70887E32C6D /* mmc.Counts.swift */; };
-		A0CB02BE219DE4F2007A5278 /* mmc.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0C3778A7A5683E8D2AF /* mmc.ExternalDelegate.swift */; };
 		A0CB02BF219DE4F2007A5278 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDD775E3A20882AB465F /* App.swift */; };
 		A0CB02C0219DE4F2007A5278 /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3C59C15463CFB3D8D39 /* App.Editable.swift */; };
 		A0CB02C1219DE4F2007A5278 /* App.Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6CE37278581313A8D45 /* App.Cacheable.swift */; };
@@ -2427,6 +2427,7 @@
 		4F71DCBDA1A260F73B72E66D /* AppColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorTheme.swift; sourceTree = "<group>"; };
 		4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
 		4F71DCE64BE8A7E6A7F412E9 /* PhotoPickerViewController.Operations.PreheatableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.PreheatableApp.swift; sourceTree = "<group>"; };
+		4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ocra.ExternalDelegate.swift; sourceTree = "<group>"; };
 		4F71DD1794F6D10DAF0B017A /* PhotoPickerViewController.UICollectionView.CachingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.CachingImage.swift; sourceTree = "<group>"; };
 		4F71DD2B31C0FB25B712B7BA /* Shop.Payment.MailContact.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.MailContact.Types.swift; sourceTree = "<group>"; };
 		4F71DD2C99CADBC03C0E8BD8 /* PhotoEditViewController.AppConfigWatchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.AppConfigWatchable.swift; sourceTree = "<group>"; };
@@ -3567,6 +3568,7 @@
 				4F71DF01718A6866A2D255B3 /* Info.plist */,
 				4F71DADF39B8E3B1DAB7B227 /* ocra.entitlements */,
 				4F71D2E600469544B2CDB9DA /* GoogleService-Info.plist */,
+				4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */,
 			);
 			path = ocra;
 			sourceTree = "<group>";
@@ -6221,7 +6223,6 @@
 				A0CB02BB219DE4F2007A5278 /* SApp.swift in Sources */,
 				A0CB02BC219DE4F2007A5278 /* mmc.Strings.swift in Sources */,
 				A0CB02BD219DE4F2007A5278 /* mmc.Counts.swift in Sources */,
-				A0CB02BE219DE4F2007A5278 /* mmc.ExternalDelegate.swift in Sources */,
 				A0CB02BF219DE4F2007A5278 /* App.swift in Sources */,
 				A0CB02C0219DE4F2007A5278 /* App.Editable.swift in Sources */,
 				A0CB02C1219DE4F2007A5278 /* App.Cacheable.swift in Sources */,
@@ -6427,6 +6428,7 @@
 				A0CB0389219DE4F2007A5278 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */,
 				A0CB038A219DE4F2007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				A0CB038B219DE4F2007A5278 /* AppDelegate.swift in Sources */,
+				4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
