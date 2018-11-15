@@ -140,6 +140,16 @@ struct batchStrings {
                 return "UCqV5_LkVQMZnqDPTiG12toQ"
             }
         }
+
+        struct ig{
+            static var url:String{
+                return "https://instagram.com/\(username)"
+            }
+
+            static var username:String{
+                return "getpaps"
+            }
+        }
     }
 
     struct info{

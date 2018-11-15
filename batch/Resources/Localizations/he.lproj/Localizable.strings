@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d פעמים";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'כלים עיקריים' פירושו כל שאר הכלים שאינם מוצגים כאן.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'כלים עיקריים' פירושו כל שאר הכלים שאינם כלולים ברישיון ספציפי.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "מְקוֹרִי";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "%@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "המדיה החברתית שלנו";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker עושה מסמך PDF מתמונות מרובות עם אפשרויות דף שונים.";
@@ -514,8 +516,6 @@
 "Presets" = "Presets";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "מחיר";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "המחירים כוללים כל כלי חדש ועדכונים, גם זה לא יחודש אוטומטית.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "מדיניות פרטיות";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -616,10 +616,10 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. השג כל תגמול אם מאומץ.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "שיתוף ב - Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "דִמיוֹן";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "רישיון יחיד כלי";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "גודל";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "תודה על רכישתך.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "תודה רבה על המשוב שלך! בקרוב ניצור איתך קשר.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The price is including every new tool. Today is the cheapest day to get this." = "המחיר כולל כל כלי חדש. היום הוא היום הזול ביותר לקבל את זה.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "זה פשוט אבל בקנה מידה גדול אצווה התמונה להפוך כלי מאפשר לך לסובב במהירות להעיף הרבה קבצי מדיה כולל Live תמונות. אין הגבלה על מספר התמונות כדי לערוך אותן.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -724,6 +726,8 @@
 "VIP License Program" = "תוכנית רשיון VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "רישיון VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "חברות VIP של כל המוצרים שלנו.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "האימות נכשל.";
 /* Generated from genl10n: Shop.SApp.swift */

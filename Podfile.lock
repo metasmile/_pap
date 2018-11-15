@@ -1,19 +1,9 @@
 PODS:
   - Armchair (0.3.6)
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
   - CocoaImageHashing (1.6.1)
   - Crashlytics (3.11.1):
     - Fabric (~> 1.8.1)
   - Fabric (1.8.1)
-  - FBSDKCoreKit (4.38.1):
-    - Bolts (~> 1.9)
-  - FBSDKShareKit (4.38.1):
-    - FBSDKCoreKit
   - Firebase/AdMob (5.11.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (~> 7.35)
@@ -131,12 +121,9 @@ PODS:
 
 DEPENDENCIES:
   - Armchair (from `https://github.com/UrbanApps/Armchair`)
-  - Bolts
   - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
   - Crashlytics
   - Fabric
-  - FBSDKCoreKit
-  - FBSDKShareKit
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/MLVision
@@ -151,11 +138,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Bolts
     - Crashlytics
     - Fabric
-    - FBSDKCoreKit
-    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -198,12 +182,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Armchair: 2dd361337cf81937e73e8b9d48f9eda9a21d316c
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CocoaImageHashing: d7d3813c5aeb6ddcf4e57219dc63c741b8a16e0a
   Crashlytics: ca7ab4bc304aa216bdc2e4c1a96389ee77252203
   Fabric: 43ed7bac010f588f63ee23ab1a0276b296db5e17
-  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
-  FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
   Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
   FirebaseCore: d16552f06821489ce1affe2e5e3e5593402ddfe3
@@ -230,6 +211,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 10c1e16147764c5cc35c25c2ca14869bc069b728
 
-PODFILE CHECKSUM: 4e65fa923f3fbf101ed5e64a311fb62c7824c7fa
+PODFILE CHECKSUM: 5ea91cc9705d55b265382eda7d56832245ea41dc
 
 COCOAPODS: 1.5.3

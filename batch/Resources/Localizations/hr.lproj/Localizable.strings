@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d puta";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Glavni alati&quot; označavaju sve ostale alate koji nisu posebno prikazani ovdje.";
+"'Main Tools' means all other tools that are not included in any specific license." = "&quot;Glavni alati&quot; označavaju sve ostale alate koji nisu uključeni u bilo koju posebnu licencu.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Izvornik";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Naš %@";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Naši društveni mediji";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFCP čini PDF dokument s više slika s različitim opcijama stranice.";
@@ -514,8 +516,6 @@
 "Presets" = "Presets";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Cijena";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Cijene uključuju svaku novu alat i ažuriranja, također se neće automatski obnoviti.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Pravila o privatnosti";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -616,10 +616,10 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dijelite svoj talent, napravite zajedno. Preuzmite svaku nagradu ako se usvoji.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Dijeljenje na Facebook Messengeru";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Licenca za jednog alata";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Hvala vam na kupnji.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Puno vam zahvaljujemo na povratnim informacijama! Uskoro ćemo vas kontaktirati.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The price is including every new tool. Today is the cheapest day to get this." = "Cijena uključuje svaki novi alat. Danas je najjeftiniji dan za to.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ova jednostavna, ali velika skupna slika transformira alat omogućuje brzo rotiranje i flip puno medijskih datoteka, uključujući Live Fotografije. Ne postoji ograničenje broja fotografija za uređivanje.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -724,6 +726,8 @@
 "VIP License Program" = "VIP licenčni program";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP licenca";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP članstvo u svim našim proizvodima.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Potvrda nije uspjela.";
 /* Generated from genl10n: Shop.SApp.swift */

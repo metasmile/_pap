@@ -101,7 +101,7 @@ extension ShopApp{
             if let localCharges = localChargesOfSourceApp ?? localChargesOfEntire{
 
                 //POLICY: .LocalCharge is disabled now but it will be separated with "Global" .PaidCharge
-                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .PaidCharge{
+                for (i, payGroup) in mutableDefaultCollection.enumerated() where payGroup.key == .LocalPaidCharge{
                     var mutablePayGroup = payGroup
                     var items = payGroup.items
                     items.append(contentsOf:localCharges.map ({
@@ -250,8 +250,8 @@ private struct PayGroup:Hashable, Equatable, Section {
     enum Key: Int, Codable {
         case SystemOwned
         case PaidCharge
-//        case LocalCharge
         case FreeCharge
+        case LocalPaidCharge
 //        case Promotion
     }
 
@@ -272,7 +272,8 @@ private struct PayGroup:Hashable, Equatable, Section {
         PayGroup(
                 key: .PaidCharge
                 , label: "All Tools License".localized
-                , detailedLabel: "Prices Are Including Every New Tools and Updates, also it will not renew automatically.".localized.localizedCapitalized
+
+                , detailedLabel: "The price is including every new tool. Today is the cheapest day to get this.".localized
                 , items: [
                     PayItem(payable:AllTimeAllAppsPayment.self)
                     , PayItem(payable:FreeAllAppsPayment.self)
@@ -287,25 +288,31 @@ private struct PayGroup:Hashable, Equatable, Section {
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
                 ]
         )
-
         , PayGroup(
                 key: .FreeCharge
                 , label: "Main Tools License".localized
-                , detailedLabel: "'Main Tools' means all other tools not specially displayed in here.".localized
+                , detailedLabel: "'Main Tools' means all other tools that are not included in any specific license.".localized
                 , items: [
 //                    PayItem(payable: WelcomeTutorialPayment.self, availability: [.paid]),
-                    PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
-                    PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
-                    PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
-//                    PayItem(payable: FBShareTypeDownloadUrlPayment.self),
-                    PayItem(payable: FBShareTypeDownloadMessagerPayment.self),
+            PayItem(payable: SecretCodeProgramPayment<SpecialGuestSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<GuestUserSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<PromotionSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
+            PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
+            PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: SNSEngagementPayment.self)
-                ]
+        ]
         )
+
+        , PayGroup(
+                key: .LocalPaidCharge
+                , label: "Single Tools License".localized
+                , detailedLabel: nil
+                , items: [] //INFO: LocalPaid items will be dynamically added from ChargeableApp.localCharges
+        )
+
+
     ]
 
     let key:Key
@@ -596,7 +603,11 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
 
         let c2 = UITableViewButtonCellDescriber()
         c2.label = "Translation Correction".localized
-        c2.detailedLabel = "Maximum All Tools Ownership".localized
+        if !AppCenter.isPaidAsOwnedInCurrentContext{
+            c2.detailedLabel = "Maximum All Tools Ownership".localized
+        }else{
+            c2.detailedLabel = "VIP Membership of Our All Products.".localized
+        }
         c2.buttonTitle = "Take Part".localized
         c2.iconImage = R.image.cellIconYouAppL10N()//?.crop(aspectFillInset: CGPoint(x: 6, y: 0))
         c2.valueHandler = { _ in
@@ -724,6 +735,16 @@ fileprivate class ShopAppDockContent: NSObject, AppDockContent, UITableViewDeleg
             AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeBlog>.self)
         }
         contactCellDescribers.append(c322)
+
+        let ccc67232342423 = UITableViewButtonCellDescriber()
+        ccc67232342423.label = "Our %@".localizedFormatted("Instagram")
+        ccc67232342423.buttonTitle = "Visit".localized
+        ccc67232342423.iconImage = R.image.cellIconInstagram.name
+        ccc67232342423.iconImageTintColor = self.view.tintColor
+        ccc67232342423.valueHandler = { _ in
+            AppCenter.charge.try(for: URLOpenPayment<URLOpenTypeInstagram>.self)
+        }
+        contactCellDescribers.append(ccc67232342423)
 
     }
 

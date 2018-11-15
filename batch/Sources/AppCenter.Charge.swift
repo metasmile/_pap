@@ -109,20 +109,6 @@ private final class AppChargeManager: ChargeManager{
 //                    , describable: AppChargeDescription(title:"Write A Review".localized, description: nil, iconImage: nil)
 //            )
 
-            // Freecharge
-//            , AppCharge(type: .socialShare
-//                    , reward: .timeOfUses
-//                    , payment: FBShareTypeDownloadUrlPayment.self
-//                    , priceAmount: AmountObject(value:(0.1/3)*1)
-//                    , describable: AppChargeDescription(title:"Sharing on Facebook".localized, description: nil, iconImage: nil)
-//            )
-//
-            , AppCharge(type: .socialShare
-                    , reward: .timeOfUses
-                    , payment: FBShareTypeDownloadMessagerPayment.self
-                    , priceAmount: AmountObject(value:(0.1/3)*3)
-                    , describable: AppChargeDescription(title:"Sharing on Facebook Messenger".localized, description: nil, iconImage: nil)
-            )
 
 //            , AppCharge(type: .feedback
 //                    , reward: .timeOfUses

@@ -138,12 +138,12 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
         }
     }
 
-    static var isEnable: Bool{
-        if AppCenter.charge.isPaid(payable: self){
-            return true
-        }
-        return NetworkReachabilityManager(host: "www.google.com")?.isReachable == true
-    }
+//    static var isEnable: Bool{
+//        if AppCenter.charge.isPaid(payable: self){
+//            return true
+//        }
+//        return NetworkReachabilityManager(host: "www.google.com")?.isReachable == true
+//    }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         T.prepare(asyncSignal)

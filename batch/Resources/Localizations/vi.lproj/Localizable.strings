@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Công cụ chính' có nghĩa là tất cả các công cụ khác không được hiển thị đặc biệt ở đây.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'Công cụ chính' có nghĩa là tất cả các công cụ khác không được bao gồm trong bất kỳ giấy phép cụ thể nào.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -475,6 +475,8 @@
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Nguyên";
 /* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "%@ Của chúng tôi";
+/* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Truyền thông xã hội của chúng tôi";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
 "PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker tạo tài liệu PDF từ nhiều hình ảnh với các tùy chọn trang khác nhau.";
@@ -514,8 +516,6 @@
 "Presets" = "Cài đặt trước";
 /* Generated from genl10n: Finder.BApp.swift */
 "Price" = "Giá bán";
-/* Generated from genl10n: Shop.SApp.swift */
-"Prices Are Including Every New Tools and Updates, also it will not renew automatically." = "Giá được bao gồm tất cả các công cụ mới và cập nhật, nó cũng sẽ không tự động gia hạn.";
 /* Generated from genl10n: Shop.SApp.swift#687 */
 "Privacy Policy" = "Chính sách bảo mật";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
@@ -616,10 +616,10 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận được mỗi phần thưởng nếu được chấp nhận.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Chia sẻ trên Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
+/* Generated from genl10n: Shop.SApp.swift */
+"Single Tools License" = "Giấy phép công cụ duy nhất";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -690,6 +690,8 @@
 "Thank you for your purchase." = "Cám ơn vì đã mua hàng.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Cảm ơn bạn rất nhiều thông tin phản hồi của bạn! Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.";
+/* Generated from genl10n: Shop.SApp.swift */
+"The price is including every new tool. Today is the cheapest day to get this." = "Giá bao gồm mọi công cụ mới. Hôm nay là ngày rẻ nhất để có được điều này.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -724,6 +726,8 @@
 "VIP License Program" = "Chương trình cấp phép VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "Giấy phép VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "Thành viên VIP của tất cả các sản phẩm của chúng tôi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Xác minh không hoàn thành.";
 /* Generated from genl10n: Shop.SApp.swift */
