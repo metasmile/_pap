@@ -656,20 +656,20 @@
 "Stories of Us" = "私たちの話";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "ライブ写真でGIFを撮る";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "写真を撮る";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "テイクパート";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "ライブ写真でGIFを撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "ライブ写真を撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "写真を撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "ライブ写真で自閉症を起こす。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "セルフリーを取る。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
 /* Generated from genl10n: MemoCam.BApp.swift */

@@ -656,20 +656,20 @@
 "Stories of Us" = "Ιστορίες από εμάς";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Πάρτε ένα GIF με Live φωτογραφία.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Βγάλε μια φωτογραφία";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Συμμετέχω";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Πάρτε ένα GIF με Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Πάρτε μια ζωντανή φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Βγάλε μια φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Πάρτε μια Selfie με μια ζωντανή φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Πάρτε ένα Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
 /* Generated from genl10n: MemoCam.BApp.swift */

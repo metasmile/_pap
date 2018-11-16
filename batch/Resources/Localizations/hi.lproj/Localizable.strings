@@ -656,20 +656,20 @@
 "Stories of Us" = "हमारी कहानियां";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "किसी भी आइटम को स्विच करें जिसे आप छिपाना चाहते हैं। गुणवत्ता पूरी तरह से वही रहेगी।";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "एक तस्वीर लें";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "हिस्सा लो";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "एक लाइव फोटो ले लो।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "एक तस्वीर लें।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "एक लाइव फोटो के साथ एक सेल्फी ले लो।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "एक स्वफ़ोटो ले।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "अंतर्निहित कैमरा के साथ लिया गया";
 /* Generated from genl10n: MemoCam.BApp.swift */

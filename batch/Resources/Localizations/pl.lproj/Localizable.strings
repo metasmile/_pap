@@ -656,20 +656,20 @@
 "Stories of Us" = "Historie z nas";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Włącz wszystkie przedmioty, które chcesz ukryć. Jakość doskonale pozostanie taka sama.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Weź GIF z Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Robić zdjęcie";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Wziąć udział";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Zrób GIF z Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Zrób zdjęcie na żywo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Robić zdjęcie.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Zrób selfie ze zdjęciem na żywo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Zrobić selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Wykonano za pomocą wbudowanej kamery";
 /* Generated from genl10n: MemoCam.BApp.swift */

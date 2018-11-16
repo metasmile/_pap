@@ -656,20 +656,20 @@
 "Stories of Us" = "우리 이야기";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "라이브 포토으로 GIF 찍기.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "라이브 포토 찍기.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "사진촬영";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "사진 찍어줘.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "라이프 포토로 셀카 찍어줘.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "셀카 찍어줘.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "참여하기";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "라이브 사진으로 GIF 찍기.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "라이브 사진 찍기.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "사진을 찍다.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "라이브 사진으로 셀카를하십시오.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "셀카 찍기.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "내장 카메라로 찍음";
 /* Generated from genl10n: MemoCam.BApp.swift */

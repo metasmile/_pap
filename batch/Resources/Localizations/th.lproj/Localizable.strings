@@ -656,20 +656,20 @@
 "Stories of Us" = "เรื่องราวของเรา";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "เปิดรายการที่คุณต้องการซ่อน คุณภาพจะสมบูรณ์เหมือนเดิม";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "ใช้ GIF ด้วย Live Photo";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "ถ่ายรูป";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "มีส่วนร่วม";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "ใช้ GIF พร้อม Live Photo";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "ถ่ายภาพสด";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "ถ่ายรูป.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "ถ่ายภาพตัวเองด้วยภาพสด";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "ใช้ Selfie";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "ถ่ายด้วยกล้องในตัว";
 /* Generated from genl10n: MemoCam.BApp.swift */

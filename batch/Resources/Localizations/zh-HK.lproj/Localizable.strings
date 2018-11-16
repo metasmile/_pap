@@ -602,20 +602,20 @@
 "Stories of Us" = "我們的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打開要隱藏的任何項目。質量將完全保持不變。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "用現場照片拍攝GIF。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "拍張照片";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "參與";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "拍攝帶有實時照片的GIF。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "拍攝現場照片。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "拍張照片。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "拍攝帶有實時照片的自拍照。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "自拍吧。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "採用內置攝像頭";
 /* Generated from genl10n: MemoCam.BApp.swift */

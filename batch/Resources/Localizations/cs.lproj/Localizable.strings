@@ -656,20 +656,20 @@
 "Stories of Us" = "Příběhy o nás";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Zapněte všechny položky, které chcete skrýt. Kvalita dokonale zůstane stejná.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Take GIF s živou fotkou.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Vyfoť";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Zúčastnit se";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Vezměte GIF s Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Take Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Vyfoť.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Take Selfie s Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Take Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Vestavěný fotoaparát";
 /* Generated from genl10n: MemoCam.BApp.swift */

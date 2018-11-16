@@ -656,20 +656,20 @@
 "Stories of Us" = "Historier om os";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Tænd eventuelle elementer, du vil skjule. Kvaliteten vil perfekt forblive den samme.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Tag en GIF med Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Tag et billede";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Deltage";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Tag en GIF med et levende foto.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Tag et levende billede.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Tag et billede.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Tag en selfie med et levende foto.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Tag en Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Taget med indbygget kamera";
 /* Generated from genl10n: MemoCam.BApp.swift */

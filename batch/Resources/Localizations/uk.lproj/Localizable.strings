@@ -656,20 +656,20 @@
 "Stories of Us" = "Розповіді про нас";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде абсолютно незмінним.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Візьміть GIF з Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Взяти фото";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Брати участь";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Візьміть GIF за допомогою Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Візьміть Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Візьміть фотографію.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Візьміть Selfie за допомогою Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Візьміть себе самостійно.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Взятий з вбудованою камерою";
 /* Generated from genl10n: MemoCam.BApp.swift */

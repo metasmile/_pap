@@ -656,20 +656,20 @@
 "Stories of Us" = "סיפורים עלינו";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "הפעל את כל הפריטים שברצונך להסתיר. האיכות תהיה מושלמת.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "קח GIF עם תמונה חיה.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "קח תמונה";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "לקחת חלק";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "קח GIF עם תמונה חיה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "צלם תמונה חיה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "צלם תמונה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "קח Selfie עם תמונה חיה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "צלם סלפי.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "עם מצלמה מובנית";
 /* Generated from genl10n: MemoCam.BApp.swift */
