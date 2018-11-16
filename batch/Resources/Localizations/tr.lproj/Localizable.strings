@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Dahili Kamera ile Çekildi";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Metni Tespit Etmek İçin Dokunun";
+"Tap to detect text" = "Metni algılamak için dokunun";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Hedeflenen";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

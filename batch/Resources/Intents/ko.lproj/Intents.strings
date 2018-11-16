@@ -15,15 +15,15 @@
 /*Translated from: Take A GIF With Live Photo*/
 "ZUWAEC" = "라이브 포토로 GIF 찍기";
 /*Translated from: Convert the last Live Photo into another.*/
-"p7qwJF" = "마지막 라이브 포토를 다른 라이브 포토로 변환.";
+"p7qwJF" = "마지막 라이브 포토를 다른 라이브 포토로.";
 /*Translated from: Convert the last Video into another.*/
-"SMLHhI" = "마지막 비디오를 다른 비디오로 변환.";
+"SMLHhI" = "마지막 비디오를 다른 비디오로.";
 /*Translated from: Enable Auto Selection Bot.*/
 "UQnvTr" = "자동 선택 봇 사용.";
 /*Translated from: Recognize Text.*/
 "tRAr4x" = "텍스트 인식.";
 /*Translated from: Save the copied image.*/
-"LOB8q8" = "복사 된 이미지를 저장하십시오.";
+"LOB8q8" = "복사 된 이미지를 저장.";
 /*Translated from: Capture All Text.*/
 "9ymxym" = "모든 텍스트 캡처.";
 /*Translated from: Capture Actions To Do.*/
@@ -45,15 +45,15 @@
 /*Translated from: Take A GIF With Live Photo*/
 "gBOghJ" = "라이브 포토로 GIF 찍기";
 /*Translated from: Convert the last Live Photo into another.*/
-"PhXLyO" = "마지막 라이브 포토를 다른 라이브 포토로 변환.";
+"PhXLyO" = "마지막 라이브 포토를 다른 라이브 포토로.";
 /*Translated from: Convert the last Video into another.*/
-"wiPuF4" = "마지막 비디오를 다른 비디오로 변환.";
+"wiPuF4" = "마지막 비디오를 다른 비디오로.";
 /*Translated from: Enable Auto Selection Bot.*/
 "IMAD8C" = "자동 선택 봇 사용.";
 /*Translated from: Recognize Text.*/
 "XyhJZ4" = "텍스트 인식.";
 /*Translated from: Save the copied image.*/
-"q6CFOL" = "복사 된 이미지를 저장하십시오.";
+"q6CFOL" = "복사 된 이미지를 저장.";
 /*Translated from: Capture All Text.*/
 "Grn5vP" = "모든 텍스트 캡처.";
 /*Translated from: Capture Actions To Do.*/
@@ -91,27 +91,27 @@
 /*Translated from: Take A GIF With Live Photo*/
 "tP4mFl" = "라이브 포토로 GIF 찍기";
 /*Translated from: Convert the last Live Photo into unknown*/
-"QmvYfr-wlS6k3" = "마지막 라이브 포토를 알 수 없음으로 변환.";
+"QmvYfr-wlS6k3" = "마지막 라이브 포토를 알 수 없음으로.";
 /*Translated from: Convert the last Live Photo into Live Photo*/
-"QmvYfr-6qTqFL" = "마지막 라이브 포토를 라이브 포토로 변환.";
+"QmvYfr-6qTqFL" = "마지막 라이브 포토를 라이브 포토로.";
 /*Translated from: Convert the last Live Photo into MP4*/
-"QmvYfr-z5soyq" = "마지막 라이브 포토를 MP4로 변환.";
+"QmvYfr-z5soyq" = "마지막 라이브 포토를 MP4로.";
 /*Translated from: Convert the last Live Photo into GIF*/
-"QmvYfr-VSOU19" = "마지막 라이브 포토를 GIF로 변환";
+"QmvYfr-VSOU19" = "마지막 라이브 포토를 GIF로.";
 /*Translated from: Convert the last Video into unknown*/
-"hvJmlA-wlS6k3" = "마지막 비디오를 알 수없는 비디오로 변환.";
+"hvJmlA-wlS6k3" = "마지막 비디오를 알 수없는 비디오로.";
 /*Translated from: Convert the last Video into Live Photo*/
-"hvJmlA-6qTqFL" = "마지막 비디오를 라이브 포토로 변환.";
+"hvJmlA-6qTqFL" = "마지막 비디오를 라이브 포토로.";
 /*Translated from: Convert the last Video into MP4*/
-"hvJmlA-z5soyq" = "마지막 비디오를 MP4로 변환.";
+"hvJmlA-z5soyq" = "마지막 비디오를 MP4로.";
 /*Translated from: Convert the last Video into GIF*/
-"hvJmlA-VSOU19" = "마지막 비디오를 GIF로 변환";
+"hvJmlA-VSOU19" = "마지막 비디오를 GIF로.";
 /*Translated from: Auto Select on ${appName}.*/
 "Tz3aEP" = "${appName}에서 자동 선택.";
 /*Translated from: Recognize Text.*/
 "ZIF3u3" = "텍스트 인식.";
 /*Translated from: Save the copied image.*/
-"yQMYnk" = "복사 된 이미지를 저장하십시오.";
+"yQMYnk" = "복사 된 이미지를 저장.";
 /*Translated from: Capture All Text.*/
 "MWHakF" = "모든 텍스트 캡처.";
 /*Translated from: Capture Actions To Do.*/

@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Beépített kamerával";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Érintse meg a szöveg észleléséhez";
+"Tap to detect text" = "Érintse meg a szöveg felismeréséhez";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Célzott";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

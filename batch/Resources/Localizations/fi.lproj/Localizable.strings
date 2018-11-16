@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Otettu sisäänrakennetulla kameralla";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Napauta tekstin tunnistamista varten";
+"Tap to detect text" = "Napauta tekstin havaitsemiseksi";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "kohdennettu";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

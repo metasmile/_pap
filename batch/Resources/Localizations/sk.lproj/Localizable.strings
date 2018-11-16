@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Klepnutím na položku Rozpoznať text";
+"Tap to detect text" = "Klepnutím môžete odhaliť text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "cielená";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

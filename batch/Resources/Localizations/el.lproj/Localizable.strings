@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Πατήστε για την ανίχνευση κειμένου";
+"Tap to detect text" = "Αγγίξτε για να ανιχνεύσετε κείμενο";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Στοχοθετημένη";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

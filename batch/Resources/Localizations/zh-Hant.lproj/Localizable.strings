@@ -619,7 +619,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "採用內置攝像頭";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "點擊以檢測文本";
+"Tap to detect text" = "點按即可檢測文字";
 /* Generated from genl10n: Cleaner.BApp.swift#565 */
 "Targeted" = "目標";
 /* Generated from genl10n: Cleaner.BApp.swift#400 */

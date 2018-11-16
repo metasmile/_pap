@@ -673,7 +673,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Genommen mit eingebauter Kamera";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Tippen Sie zum Erkennen von Text";
+"Tap to detect text" = "Tippen Sie hier, um Text zu erkennen";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Gezielt";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
