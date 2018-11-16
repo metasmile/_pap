@@ -1,1 +1,1 @@
-PAPS: New Photo Video Tools
+PAPS：照片编辑器和相机工具

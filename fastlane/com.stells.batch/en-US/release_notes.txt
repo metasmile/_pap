@@ -1,1 +1,2 @@
-• Some crash fixes and feature adjustments.
+• Some crash fixes for camera tools
+• Some localization fixes and adjustments.
