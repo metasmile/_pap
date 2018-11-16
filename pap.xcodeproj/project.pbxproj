@@ -304,7 +304,6 @@
 		4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */; };
 		4F71D4BF9445309DE3367FAC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
-		4F71D4C1E0AADB20B6F00E42 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D4C3AB38FE69AC5C1EFA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D4C638F7E6B7CEA7FC63 /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D430BFAEE78F96648FE9 /* Charge.Objects.Receipt.swift */; };
@@ -330,7 +329,6 @@
 		4F71D4FBBD2AB2434376362C /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE13080661FFFB2F9EFB /* AppDockView.xib */; };
 		4F71D4FEFCE075ADE379CECC /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D50161589C7955C6B38C /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
-		4F71D5023F54ADF3A7E09563 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D503C94497EEAF5F7BE6 /* UITableViewExpandableCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34E9FE70D9143CF80D7 /* UITableViewExpandableCell.UITableView.swift */; };
 		4F71D50AA7A75B0B2F4ED5A7 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07E7335EBBD574A9B49 /* ImageIO.GIF.swift */; };
 		4F71D5131935EBD88CFE553B /* Converter.Png.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D389D2825C0498C0F7A3 /* Converter.Png.swift */; };
@@ -340,7 +338,6 @@
 		4F71D52049D5B9088EA0F2C5 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8660EAD2D49B5AC5251 /* CustomView.swift */; };
 		4F71D52881DA5BF99B2C9EA8 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
 		4F71D5297227F9C8FDFD9D43 /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
-		4F71D52DE56CBF40DC451EA1 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D537B97487CA6B7A651D /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D53EB547B4D5512F4D45 /* Converter.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4DAC28042EF6B5EF31B /* Converter.LivePhoto.swift */; };
 		4F71D53F9AEFF7BF7EEC8011 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2641BA9E027864B3419 /* PHAssets.swift */; };
@@ -415,7 +412,6 @@
 		4F71D67E30F60E5A7EA0885C /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C9C51F6AE6DF806B59 /* Selectable.swift */; };
 		4F71D684394DC420BFEF903E /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35770081EFDB8DF0DE5 /* CodeKit.CIImage.swift */; };
 		4F71D688321F73B41A4D5E18 /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA47A8F4B409A892DEFC /* Processor.swift */; };
-		4F71D6893C63C3C94A82273B /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D6989EB55B7630FA6B6A /* PhotoEditViewController.AppConfigWatchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D42F154C570FB6023CF0 /* PhotoEditViewController.AppConfigWatchable.swift */; };
 		4F71D698E7FA98641D943E4D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D44F72B257178A110D63 /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71D6A302F5A43A0684AE98 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF76C76F5B64B406F1CE /* StateValue.swift */; };
@@ -2189,7 +2185,6 @@
 		4F71D134C2C1CA981897CC95 /* AppDelegate.Intents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.Intents.swift; sourceTree = "<group>"; };
 		4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerViewControllerAppearanceDelegatable.swift; sourceTree = "<group>"; };
 		4F71D163B4DDA56246446806 /* cell_icon_depth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_depth.png; sourceTree = "<group>"; };
-		4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.GADInterestialAdsViewing.swift; sourceTree = "<group>"; };
 		4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.System.swift; sourceTree = "<group>"; };
 		4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.CaptureProcessor.swift; sourceTree = "<group>"; };
@@ -3582,7 +3577,6 @@
 				4F71DADF39B8E3B1DAB7B227 /* ocra.entitlements */,
 				4F71D2E600469544B2CDB9DA /* GoogleService-Info.plist */,
 				4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */,
-				4F71D16D5669FF2D2E69A0CC /* Shop.Payment.GADInterestialAdsViewing.swift */,
 			);
 			path = ocra;
 			sourceTree = "<group>";
@@ -5702,7 +5696,6 @@
 				4F71D0F497EAD331936B8710 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71DD53992A540770AA055F /* AppDelegate.swift in Sources */,
 				4F71D8B7E7EE55B7499170F6 /* universal.ExternalDelegate.swift in Sources */,
-				4F71D4C1E0AADB20B6F00E42 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6221,7 +6214,6 @@
 				A0CB0254219C9093007A5278 /* AppDelegate.swift in Sources */,
 				A0CB0255219C9093007A5278 /* universal.ExternalDelegate.swift in Sources */,
 				4F71DA206344F3B5FC641F18 /* xfgst.ExternalDelegate.swift in Sources */,
-				4F71D5023F54ADF3A7E09563 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6741,7 +6733,6 @@
 				4F71D7CEC39FAFE958F06E35 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71D488AE0AD8D041DE94FB /* AppDelegate.swift in Sources */,
 				4F71D76C40B86C2219C3B444 /* universal.ExternalDelegate.swift in Sources */,
-				4F71D6893C63C3C94A82273B /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7036,7 +7027,6 @@
 				A0CB00CF219C8C64007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				A0CB00D0219C8C64007A5278 /* AppDelegate.swift in Sources */,
 				A0CB00D1219C8C64007A5278 /* universal.ExternalDelegate.swift in Sources */,
-				4F71D52DE56CBF40DC451EA1 /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
