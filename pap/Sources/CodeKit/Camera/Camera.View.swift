@@ -132,8 +132,14 @@ class CameraView: UIView, PropertyWatchable {
 
         try? videoDevice.lockForConfiguration()
 
-        videoDevice.focusMode = .continuousAutoFocus
-        videoDevice.exposureMode = .continuousAutoExposure
+        if videoDevice.isFocusModeSupported(.continuousAutoFocus) {
+            videoDevice.focusMode = .continuousAutoFocus
+        }
+
+        if videoDevice.isExposureModeSupported(.continuousAutoExposure) {
+            videoDevice.exposureMode = .continuousAutoExposure
+        }
+
         videoDevice.unlockForConfiguration()
 
         if let audioDevice = AVCaptureDevice.default(for: .audio),
