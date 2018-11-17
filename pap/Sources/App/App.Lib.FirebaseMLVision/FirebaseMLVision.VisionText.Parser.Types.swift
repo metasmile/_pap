@@ -25,6 +25,8 @@ public struct VisionTextResultGroup {
     var urls:[VisionTextURLParser.OutputType]?
     var flights:[VisionTextFlightNumberParser.OutputType]?
     
+    var currencies:[VisionTextCurrencyParser.OutputType]?
+    
     var barcodes:[VisionBarcode]?
 
     var isFilled:Bool{
@@ -35,13 +37,14 @@ public struct VisionTextResultGroup {
                 || self.dates?.count ?? 0 > 0
                 || self.urls?.count ?? 0 > 0
                 || self.flights?.count ?? 0 > 0
+                || self.currencies?.count ?? 0 > 0
         
                 || self.barcodes?.count ?? 0 > 0
     }
 }
 
 private struct VisionTextNSTextCheckingResult {
-    static func detect(_ visionText: FirebaseMLVision.VisionText, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
+    static func detect(_ visionText: FirebaseMLVision.VisionTextBlock, _ types:NSTextCheckingResult.CheckingType) -> [NSTextCheckingResult]? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.process(input: visionText) else{
             return nil
@@ -64,7 +67,7 @@ public struct VisionTextPhoneNumberParser: VisionTextParser{
     // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN, (XXX) NNNN-NNNN
     private let prefixSpacePattern = "^([0-9]{2,4})|(\\([0-9]{2,4}\\))$"
 
-    func process(input: FirebaseMLVision.VisionText) -> VisionTextStringElementsParser.OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> VisionTextStringElementsParser.OutputType? {
         guard let lines = blockParser.process(input: input) else{
             return nil
         }
@@ -113,7 +116,7 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
 
     private let stringParser = VisionTextStringParser()
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         guard let rawText = stringParser.process(input: input) else{
             return nil
         }
@@ -128,7 +131,7 @@ public struct VisionTextEmailAddressParser: VisionTextParser{
 public struct VisionTextDateParser: VisionTextParser{
     typealias OutputType = [Date]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.date)?.compactMap { result -> Date? in
             return result.date
         }.nilEmpty
@@ -138,7 +141,7 @@ public struct VisionTextDateParser: VisionTextParser{
 public struct VisionTextURLParser: VisionTextParser{
     typealias OutputType = [URL]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.link)?.compactMap { result -> URL? in
             return result.url
         }.nilEmpty
@@ -148,7 +151,7 @@ public struct VisionTextURLParser: VisionTextParser{
 public struct VisionTextAddressParser: VisionTextParser{
     typealias OutputType = [NSTextCheckingAddressComponent]
 
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> OutputType? {
         return VisionTextNSTextCheckingResult.detect(input, NSTextCheckingResult.CheckingType.address)?.compactMap { result -> NSTextCheckingAddressComponent? in
             return result.address
         }.nilEmpty
@@ -183,7 +186,7 @@ public struct VisionTextFlightNumberParser: VisionTextParser{
         )).nilEmpty
     }
 
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         guard let lines = blockParser.process(input: input) else {
             return nil
         }
@@ -209,7 +212,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 
     public var parseLinkAsEmailAddress = true
 
-    func process(input: FirebaseMLVision.VisionText, mergingOutput: CNMutableContact) -> CNMutableContact? {
+    func process(input: FirebaseMLVision.VisionTextBlock, mergingOutput: CNMutableContact) -> CNMutableContact? {
         let stringParser = VisionTextStringParser()
         guard let rawText = stringParser.process(input: input) else{
             return nil
@@ -297,7 +300,7 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
         return nil
     }
 
-    func process(input: FirebaseMLVision.VisionText) -> CNMutableContact? {
+    func process(input: FirebaseMLVision.VisionTextBlock) -> CNMutableContact? {
         let contact = CNMutableContact()
         contact.contactType = .person
 
@@ -309,11 +312,124 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
 //https://github.com/danthorpe/Money
 
 public struct VisionTextCurrencyParser: VisionTextParser{
-    typealias OutputType = [Any]
-
-    func process(input: FirebaseMLVision.VisionText) -> OutputType? {
-        return nil
+    typealias OutputType = [String]
+    
+    private static let currencySymbolRegexPattern = "\\p{Currency_Symbol}"
+    private static let currencyCodeRegexPattern = "\\b[A-Z]+\\b"
+    
+    private static let commaGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3})*(?:.?[0-9]{2})?"
+    private static let dotGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:.?[0-9]{3})*(?:,?[0-9]{2})?"
+    private static let spaceGroupSeparatorRegexPattern = "[+-]?[0-9]+(?:\\s?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    private static let priceRegexPattern = "[+-]?[0-9]+(?:,?[0-9]{3}|.?[0-9]{3})*(?:.?[0-9]{2}|,?[0-9]{2})?"
+    private static let numberRegexPattern = "[1-9]{1}[0-9]*"
+    
+    private static let currencyRegexPatternType1 = "\(currencySymbolRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType2 = "\(priceRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let currencyRegexPatternType3 = "\(currencyCodeRegexPattern)\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType4 = "\(priceRegexPattern)\\s*\(currencyCodeRegexPattern)"
+    
+    private static let currencyRegexPatternType5 = "\(currencySymbolRegexPattern)\\s*\(numberRegexPattern)"
+    private static let currencyRegexPatternType6 = "\(numberRegexPattern)\\s*\(currencySymbolRegexPattern)"
+    private static let currencyRegexPatternType7 = "\(currencyCodeRegexPattern)\\s*\(numberRegexPattern)"
+    private static let currencyRegexPatternType8 = "\(numberRegexPattern)\\s*\(currencyCodeRegexPattern)"
+    
+    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4)|\(currencyRegexPatternType5)|\(currencyRegexPatternType6)|\(currencyRegexPatternType7)|\(currencyRegexPatternType8))"
+    
+    public static func matchesInText(text:String) -> [String]?{
+        if text.count==0{
+            return nil
+        }
+        
+        return Array(Set(
+            text.trimmed
+                .matchedStrings(regexPattern)
+                .compactMap { $0.trimmed.nilEmpty }
+        )).nilEmpty
     }
+    
+    func process(input: VisionTextBlock) -> OutputType? {
+        var currencies = [String]()
+        if let matches = type(of: self).matchesInText(text: input.text) {
+            for match in matches {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                formatter.usesGroupingSeparator = true
+                formatter.minimumFractionDigits = 0
+                formatter.maximumFractionDigits = 2
+                formatter.roundingMode = .down
+                
+                if let currencySymbol = match.matchedStrings(VisionTextCurrencyParser.currencySymbolRegexPattern).first {
+                    formatter.currencySymbol = currencySymbol
+                }
+                else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first {
+                    
+                    let estimatedLocale = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == currencyCode }
+                    if let currencySymbol = estimatedLocale?.currencySymbol {
+                        formatter.currencySymbol = currencySymbol
+                    }
+                    else {
+                        //INFO: https://coinmarketcap.com/all/views/all/
+                        // sort by market cap
+                        switch currencyCode {
+                            case "S", "s": formatter.currencySymbol = "$"
+                            case "E": formatter.currencySymbol = "€"
+                            case "W", "w": formatter.currencySymbol = "￦"
+                            case "Y": formatter.currencySymbol = "¥"
+                            case "BTC", "ETH", "XRP", "BCH", "EOS", "XLM", "LTC", "ADA", "USDT", "XMR", "TRX", "MIOTA", "DASH", "BNB", "NEO", "ETC", "XEM", "XTZ", "ZEC": formatter.currencyCode = currencyCode
+                            default: continue
+                        }
+                    }
+                }
+                
+                if match.matched(",[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = "."
+                    formatter.currencyDecimalSeparator = ","
+                }
+                else if match.matched(".[0-9]{2}$") {
+                    formatter.currencyGroupingSeparator = ","
+                    formatter.currencyDecimalSeparator = "."
+                }
+                
+                guard var priceString = match.matchedStrings(VisionTextCurrencyParser.priceRegexPattern).first else { continue }
+                
+                priceString = priceString.replaceIfMatched(withPattern: "\\s", replace: "")
+                
+                if let fractionString = priceString.matchedStrings(",[0-9]{2}$").first {
+                    priceString = priceString.replaceIfMatched(withPattern: ",[0-9]{2}$", replace: fractionString.replace(",", "."))
+                }
+                
+                let decimalFormatter = NumberFormatter()
+                decimalFormatter.numberStyle = .decimal
+                
+                guard let price = decimalFormatter.number(from: priceString), let currencyString = formatter.string(from: price) else { continue }
+                
+                currencies.append(currencyString)
+                
+            }
+        }
+        return !currencies.isEmpty ? currencies : nil
+    }
+
+    
+    //    $  1,234.57;          USD 99.99           100 BTC
+    
+    
+    //                          ABC 7000
+    
+//    $8,987.65;        € 900               30000
+    
+
+    //              £ 100000
+    
+    //    4 555,66 S.        Y 300               W 29,900
+    
+    
+//    7 888,99 €.
+    
+    
+    //          this is $ 7.99
+    
+//    http://trigeminal.fmsinc.com/samples/setlocalesample2.asp
 }
 
 // Bank Account

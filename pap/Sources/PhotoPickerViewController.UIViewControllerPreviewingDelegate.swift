@@ -123,7 +123,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
         }
 
         let editAction = UIPreviewAction(title: "Edit this \(typeWord)".localized, style: .default) { (action, controller) in
-            self.showPhotoEditor(with: item)
+            self.showPhotoEditor(with: item, animated: true)
         }
 
         if photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == true {

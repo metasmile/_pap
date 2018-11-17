@@ -60,6 +60,32 @@ enum AppDockBarStyle {
     case magnifying // minimum > maximum
 }
 
+internal class DockContainerView: DesignableView {
+    var cornerRadius: CGFloat = 8
+    var topMargin: CGFloat = 8
+    
+    lazy private var maskLayer = CAShapeLayer()
+    
+    override func initialize() {
+        super.initialize()
+        
+        layer.mask = maskLayer
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layoutIfNeeded()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        let roundedRectPath = UIBezierPath(roundedRect: CGRect(x: 0, y: topMargin, width: bounds.width, height: UIScreen.main.bounds.height * 1.25), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        maskLayer.path = roundedRectPath.cgPath
+    }
+}
+
 class AppDockView: CustomView {
     private struct DefaultPreferences{
         struct AppDockView {
@@ -67,7 +93,7 @@ class AppDockView: CustomView {
         }
 
         struct DrawerView {
-            static let compactDisabledHeight: CGFloat = 14
+            static let compactDisabledHeight: CGFloat = 16
             static let compactDisabledTopMargin = prominentHeight - compactDisabledHeight
 
             static let compactHeight: CGFloat = 22
@@ -82,8 +108,11 @@ class AppDockView: CustomView {
 
         static let ControlMaxPreferredHeight:CGFloat = UIScreen.main.bounds.height/3
     }
-
+    
+    @IBOutlet weak private var dockContainerView: DockContainerView!
+    
     @IBOutlet weak private var backgroundView: UIView!
+    @IBOutlet weak var backgroundToolBar: UIToolbar!
     @IBOutlet weak private var drawerView: AppDockDrawerView!
     @IBOutlet weak private var drawerViewHeightLayout: AppDockVoidableLayoutConatraint!
     @IBOutlet weak private var appContentView: UIView!
@@ -101,6 +130,8 @@ class AppDockView: CustomView {
     
     var delegate: AppDockViewDelegate?
     var dataSource: AppDockViewDataSource?
+    
+    lazy var minimumNumberOfVisibleApps: Int = (type(of: self) as? AppDockViewExternalDelegate.Type)?.minimumNumberOfVisibleApps ?? 2
     
     private var reorderAppGesture: UILongPressGestureRecognizer?
     
@@ -124,13 +155,9 @@ class AppDockView: CustomView {
     }
     
     private func updateBackgroundColors() {
-        let color = hasAnyContentAsLayout ? currentTheme.backgroundColor : .clear
-        backgroundView.backgroundColor = color
-        topAccessoryView.backgroundColor = color
-        controllerView.backgroundColor = color
+        let color = hasAnyContentAsLayout ? colorTheme.backgroundColor : .clear
+        backgroundToolBar.tintColor = colorTheme.tintColor
         drawerView.tintColor = color
-        dockView.backgroundColor = color
-        bottomAccessoryView.backgroundColor = color
     }
     
     private func updateDockBarStyle() {
@@ -153,15 +180,19 @@ class AppDockView: CustomView {
 
         setContentHuggingPriority(.defaultLow, for: .vertical)
         setContentCompressionResistancePriority(.required, for: .vertical)
+        
+        dockContainerView.topMargin = 0
+        dockContainerView.cornerRadius = DefaultPreferences.DrawerView.compactDisabledHeight
 
         appCollectionView.contentInset.top = 0
         appCollectionView.contentInset.bottom = 0
-
         appCollectionView.register(AppDockViewCell.self, forCellWithReuseIdentifier: String(describing: AppDockViewCell.self))
 //        appCollectionView.register(AppDockViewGroupSeparator.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String(describing: AppDockViewGroupSeparator.self))
 
         drawerView.compactHeight = DefaultPreferences.DrawerView.compactHeight
-        drawerView.topMargin = DefaultPreferences.DrawerView.topMargin
+        drawerView.topMargin = 0
+
+        dimmedView.backgroundColor = dimmedView.colorTheme.objectBackgroundColor
 
         let gesture = AppDockGestureRecognizer(target: self, action: #selector(self.gestureDidRecognize))
         gesture.delegate = self
@@ -268,7 +299,7 @@ class AppDockView: CustomView {
     var disabled: Bool = false {
         didSet {
             self.isUserInteractionEnabled = !disabled
-            
+
             UIView.transition(with: self.dimmedView, duration: 0.2, options: .transitionCrossDissolve, animations: {
                 self.dimmedView.isHidden = !self.disabled
             }, completion: nil)
@@ -308,7 +339,8 @@ class AppDockView: CustomView {
             }
             
             //INFO: no controller animation
-            appContentView.layoutIfNeeded()
+//            appContentView.layoutIfNeeded()
+            controllerView.layoutIfNeeded()
             
             delegate?.appDockView(self, didOpenDrawer: controller != nil && contentLayoutState == .maximized)
         }
@@ -330,17 +362,18 @@ class AppDockView: CustomView {
         controllerView.subviews.forEach({ $0.removeFromSuperview() })
         if let view = view {
             controllerView.addSubview(view)
-
-            if isNeedingFixedContentLayout {
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
-                view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
-                view.trailingAnchor.constraint(equalTo: controllerView.trailingAnchor).isActive = true
-                view.heightAnchor.constraint(equalToConstant: preferredControllerViewHeight).isActive = true
-            }
-            else {
-                view.fitConstraints(to: controllerView)
-            }
+            view.fitConstraints(to: controllerView)
+            
+//            if isNeedingFixedContentLayout {
+//                view.translatesAutoresizingMaskIntoConstraints = false
+//                view.topAnchor.constraint(equalTo: controllerView.topAnchor).isActive = true
+//                view.leadingAnchor.constraint(equalTo: controllerView.leadingAnchor).isActive = true
+//                view.trailingAnchor.constraint(equalTo: controllerView.trailingAnchor).isActive = true
+//                view.heightAnchor.constraint(equalToConstant: preferredControllerViewHeight).isActive = true
+//            }
+//            else {
+//                view.fitConstraints(to: controllerView)
+//            }
         }
 
         layoutAppContentViews()
@@ -471,7 +504,7 @@ extension AppDockView {
     
     fileprivate var preferredDockViewHeight: CGFloat {
 
-        if numberOfItemsInAllSections(in:appCollectionView) > 1 {
+        if numberOfItemsInAllSections(in:appCollectionView) >= minimumNumberOfVisibleApps {
             switch dockBarStyle {
             case .default: return AppCollectionViewLayout.LayoutConstants.defaultHeight
             case .minimized, .magnifying: return AppCollectionViewLayout.LayoutConstants.compactHeight
@@ -554,11 +587,6 @@ extension AppDockView {
         }
         
         drawerView.isBarHidden = !shouldDrawerBarEnable
-
-        //INFO: Center
-        let horizontalInset = (self.width-appCollectionView.collectionViewLayout.collectionViewContentSize.width)/2
-        appCollectionView.contentInset.left = horizontalInset
-        appCollectionView.contentInset.right = horizontalInset
         
         updateBackgroundColors()
         
@@ -1082,7 +1110,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
         case compact
         case prominent
     }
-
+    
     var layoutMetrics: LayoutMetrics = .default {
         didSet {
             invalidateLayout()
@@ -1090,7 +1118,7 @@ class AppCollectionViewLayout: UICollectionViewLayout {
     }
     
     struct LayoutConstants {
-        static let defaultHeight: CGFloat = 58
+        static let defaultHeight: CGFloat = 64
         static let compactHeight: CGFloat = 44
         static let prominentHeight: CGFloat = 75
     }
@@ -1368,7 +1396,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         self.app = app
 
         appTitleLabel.text = app.info.displayName.localized
-        appTitleLabel.textColor = app.info.themeColor ?? UIColor.gray
+        appTitleLabel.textColor = app.info.themeColor ?? appTitleLabel.colorTheme.textLightColor
 
         var status = AppDockViewCell.persistedStatusDict[app.info.identifier]
         if status == nil{
@@ -1378,8 +1406,8 @@ internal class AppDockViewCell: CustomCollectionViewCell {
         appStatusIconView.backgroundColor = status?.statusColor
 
         setIconImage()
-        selectedStateView.layer.cornerRadius = selectedStateView.height/6
-        selectedStateView.backgroundColor = (app.info.themeColor ?? UIColor.gray).withAlphaComponent(0.2)
+        selectedStateView.layer.cornerRadius = selectedStateView.height/5
+        selectedStateView.backgroundColor = app.info.themeColor?.withAlphaComponent(0.3) ?? selectedStateView.colorTheme.tintColor.withAlphaComponent(0.18)
     }
 
     func setIconImage(){
@@ -1393,9 +1421,8 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 //                appIconView.cornerRadius = 0
 //            }
 //        }
-        appIconView.cornerRadius = 0
-
         iconImage = app?.info.iconBundleName?.asUIImage
+        appIconView.cornerRadius = 0
     }
 
 }
@@ -1457,7 +1484,7 @@ internal class DockCollectionBackgroundView: UIView {
         let ctx = UIGraphicsGetCurrentContext()
         ctx?.setLineWidth(0.5)
 //        ctx?.setFillColor(UIColor(red: 246 / 255.0, green: 246 / 255.0, blue: 246 / 255.0, alpha: 1).cgColor)
-        ctx?.setStrokeColor(self.currentTheme.lineSeparatorColor.cgColor)
+        ctx?.setStrokeColor(self.colorTheme.lineSeparatorColor.cgColor)
         ctx?.move(to: .zero)
         ctx?.addLine(to: CGPoint(x: rect.width, y: 0))
 

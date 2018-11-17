@@ -93,7 +93,8 @@ class AppDockNavigationController: UINavigationController, UINavigationControlle
     private var needsScrollToBottom = false
 }
 
-class AppDockViewController: UIViewController, ColorThemable {
+
+class AppDockViewController: UIViewController, AppColorThemeable {
     var appDockView: AppDockView? {
         return (navigationController as? AppDockNavigationController)?.appDockView
     }
@@ -108,7 +109,7 @@ class AppDockViewController: UIViewController, ColorThemable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerThemable()
+        registerThemeable()
 
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
@@ -131,7 +132,7 @@ class AppDockViewController: UIViewController, ColorThemable {
         
         if !isWatchingAppConfig {
             isWatchingAppConfig = true
-            registerWatchingAppConfig()
+            (self as? AppDockViewControllerAppConfigWatchableDelegate)?.registerWatchingAppConfig()
         }
 
         SpotlightSearchAppDelegate.launchAppIfNeededWithSearchable()
@@ -142,7 +143,7 @@ class AppDockViewController: UIViewController, ColorThemable {
         
         if isWatchingAppConfig {
             isWatchingAppConfig = false
-            unregisterWatchingAppConfig()
+            (self as? AppDockViewControllerAppConfigWatchableDelegate)?.unregisterWatchingAppConfig()
         }
     }
     
@@ -150,6 +151,10 @@ class AppDockViewController: UIViewController, ColorThemable {
         super.viewWillLayoutSubviews()
         
         appDockView?.invalidateCollectionViewLayout()
+        
+        if let appDockView = appDockView {
+            content(in: appDockView)?.willLayoutSubviews()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -157,17 +162,14 @@ class AppDockViewController: UIViewController, ColorThemable {
         
         //INFO: for update bottom inset
         self.appDockView?.superview?.layoutIfNeeded()
+        
+        if let appDockView = appDockView {
+            content(in: appDockView)?.didLayoutSubviews()
+        }
     }
     
     private var isWatchingAppConfig = false
-    func registerWatchingAppConfig() {
-        
-    }
-    
-    func unregisterWatchingAppConfig() {
-        
-    }
-    
+
     func appDidChange() {
         
     }
@@ -209,7 +211,7 @@ class AppDockViewController: UIViewController, ColorThemable {
         return AppCenter.default.currentInstanceAs(AppDockApp.self)?.content
     }
     
-    func applyTheme(_ colorTheme: ColorTheme) {
+    func applyTheme(_ colorTheme: AppColorTheme) {
         appDockView?.barStyle = colorTheme.barStyle
     }
 }

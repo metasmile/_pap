@@ -236,4 +236,3 @@ final class ChargeBank: NSObject, PropertyWatchable {
         banker.didDeclineDeposit(for: charge)
     }
 }
-

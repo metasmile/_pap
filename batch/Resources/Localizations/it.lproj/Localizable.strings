@@ -120,7 +120,7 @@
 "cs_keyword_13" = "amante";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Giorno";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Scarica ora GRATIS!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Proprietà";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Obiettivi di rilevamento";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzione";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Scarica ora GRATUITAMENTE su %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Scaricare";
@@ -354,7 +354,7 @@
 "Guest User License" = "Licenza utente ospite";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Utente ospite";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Gestisci molte foto contemporaneamente.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Ciao, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Richiede un permesso per accedere ai tuoi contatti. Si prega di consentire Contatti su Impostazioni iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Partecipa al programma di partnership";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Basta selezionare le foto che ti servono e poi eseguirle.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Paesaggio";
@@ -656,24 +656,24 @@
 "Stories of Us" = "Storie di Noi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Attiva tutti gli elementi che desideri nascondere. La qualità rimarrà perfettamente la stessa.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Prendi una GIF con Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Scattare una foto";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Prendere parte";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Fai una GIF con una Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Scatta una foto dal vivo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Scattare una foto.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Fai un selfie con una foto in diretta.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Prendi un selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Preso con fotocamera integrata";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Tocca per rilevare il testo";
+"Tap to detect text" = "Tocca per rilevare il testo";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Mirata";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

@@ -10,11 +10,11 @@ import FirebaseMLVision
 INFO:
 
 'OutputType' must be Foundation supported type in this swift file.
-For other ones, use App.Lib.FirebaseMLVision.VisionText.Parser.Extensions
+For other ones, use instead ./FirebaseMLVision.VisionText.Parser.Types
 */
 
-protocol VisionTextParser: Processor where Self.InputType==VisionText {
-    func process(input:VisionText) -> OutputType?
+protocol VisionTextParser: Processor where Self.InputType==VisionTextBlock {
+    func process(input:VisionTextBlock) -> OutputType?
 }
 
 struct VisionTextStringParser: VisionTextParser {
@@ -24,7 +24,7 @@ struct VisionTextStringParser: VisionTextParser {
 
     private let blockParser = VisionTextTextBlockParser()
 
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         guard let lines = blockParser.process(input: input) else {
             return nil
         }
@@ -58,7 +58,7 @@ public struct VisionTextStringElementsParser: VisionTextParser {
 
     private let blockParser = VisionTextTextBlockParser()
 
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         return blockParser.process(input: input)?.compactMap { strings -> String? in
             return strings.joined()
         }
@@ -72,7 +72,7 @@ public struct VisionTextTextBlockParser: VisionTextParser {
 
     let parser = VisionTextElementParser()
 
-    func process(input: VisionText) -> OutputType? {
+    func process(input: VisionTextBlock) -> OutputType? {
         if let results = parser.process(input: input){
             var linesInBlock = [[String]]()
 
@@ -102,28 +102,23 @@ public struct VisionTextElementParser: VisionTextParser {
 
     static let shared = VisionTextTextBlockParser()
 
-    func process(input: VisionText) -> OutputType? {
-
-        if let block = input as? VisionTextBlock {
-            var linesInBlock = [[VisionTextElement]]()
-
-            //block
-            for line in block.lines {
-                //line
-                var wordsInLine = [VisionTextElement]()
-                for element in line.elements where element.text.count > 0 {
-                    //word
-                    wordsInLine.append(element)
-                }
-
-                if wordsInLine.count > 0{
-                    linesInBlock.append(wordsInLine)
-                }
+    func process(input: VisionTextBlock) -> OutputType? {
+        var linesInBlock = [[VisionTextElement]]()
+        
+        //block
+        for line in input.lines {
+            //line
+            var wordsInLine = [VisionTextElement]()
+            for element in line.elements where element.text.count > 0 {
+                //word
+                wordsInLine.append(element)
             }
-
-            return linesInBlock
+            
+            if wordsInLine.count > 0{
+                linesInBlock.append(wordsInLine)
+            }
         }
-
-        return nil
+        
+        return linesInBlock.isEmpty ? nil : linesInBlock
     }
 }

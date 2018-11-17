@@ -13,30 +13,6 @@ import Foundation
 //WARNING: DO NOT USE on CodeKit, Sources/App or independent codes.
 
 struct mmcStrings {
-    static var appStoreId:String{
-        return "1402594534"
-    }
-
-    static var name:String{
-        return Bundle.main.displayName ?? "Memo Cam"
-    }
-
-    static var title: String{
-        return "Get Every Info Around You.".localized
-    }
-
-    static var nameTitle:String{
-        return "\(name) - \(title)"
-    }
-
-    static var tagline: String{
-        return "Get Text And Then Do Something.".localized
-    }
-    
-    static var nameTitleTagLine:String{
-        return "\(nameTitle): \(tagline)"
-    }    
-
     struct download{
         static var url: String{
             return "https://get.memo.cam"

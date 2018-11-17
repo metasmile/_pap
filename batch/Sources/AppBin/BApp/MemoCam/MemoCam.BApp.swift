@@ -881,7 +881,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             toolBar.setItems([
                 UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-                UIBarButtonItem(title: "Tap To Detect Text".localized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
+                UIBarButtonItem(title: "Tap to detect text".localized.localizedCapitalized, style: .plain, target: self, action: #selector(self.performButtonDidTap)),
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)

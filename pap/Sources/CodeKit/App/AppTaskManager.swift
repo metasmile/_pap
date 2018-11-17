@@ -9,7 +9,7 @@ import PropertyKit
 
 public class AppTaskManager: NSObject, PropertyWatchable, AppTaskOperationQueueDelegate {
 
-    private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.mmc__internal_AppTaskManager"+UUID().uuidString)
+    private let syncQueue:DispatchQueue = DispatchQueue(label:"com.stells.batch__internal_AppTaskManager"+UUID().uuidString)
     private var queuePool = [String: AppTaskOperationQueue]()
 
     //react

@@ -55,10 +55,11 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     
     override func initialize() {
         super.initialize()
-        
+
         selectionCheckView = CheckMark(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
+//        selectionCheckView.checkedColor = colorTheme == .dark ? colorTheme.objectBackgroundColor : nil
         selectionCheckView.backgroundColor = UIColor.clear
-        
+
         selectionView.addSubview(selectionCheckView)
         selectionView.backgroundColor = UIColor(white: 1, alpha: 0.25)
         
@@ -112,7 +113,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
 
     public var isEnabled:Bool = false {
         didSet{
-            contentView.alpha = isEnabled ? 1 : 0.5
+            contentView.alpha = isEnabled ? 1 : 0.4
         }
     }
 
@@ -137,7 +138,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         updateImageViewContentMode()
         
         let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        imageViewSize = (imageContentMode == .aspectFit ? AVMakeRect(aspectRatio: imageSize, insideRect: bounds.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))) : bounds).size
+
+        //TODO: (maybe calculation with "0" can be a cause of NaN from AVMakeRect(aspectRatio ) investigate and remove this line. https://console.firebase.google.com/u/0/project/batch-photos/crashlytics/app/ios:com.stells.batch/issues/5bdf4175f8b88c29638e515b?time=last-seven-days&sessionId=5418048137684eaca48a977aeed73aa1_DNE_0_v2
+        imageViewSize = (imageContentMode == .aspectFit && imageSize.minLength > 0 ? AVMakeRect(aspectRatio: imageSize, insideRect: bounds.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))) : bounds).size
     }
     
     private func updateDecorationContents(with asset: PHAsset) {

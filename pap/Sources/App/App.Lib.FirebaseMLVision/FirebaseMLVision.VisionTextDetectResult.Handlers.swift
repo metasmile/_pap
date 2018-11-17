@@ -291,10 +291,10 @@ extension Array where Element:VisionTextDetectResult {
                                 event.endDate = date
 
                                 //insert Note with original plain text
-                                if let visionTexts = item.sourceVisionTexts{
+                                if let visionText = item.sourceVisionText {
 
                                     let syncParser = VisionTextStringParser()
-                                    event.notes = visionTexts.compactMap { syncParser.process(input: $0) }.joined()
+                                    event.notes = visionText.blocks.compactMap { syncParser.process(input: $0) }.joined()
                                 }
 
                                 EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
@@ -530,8 +530,8 @@ extension Array where Element:VisionTextDetectResult {
 
                     let param_googlemap = [
                         "q":addressString
-                        , "x-success": Bundle.main.schemes?.first ?? ""
-                        , "x-source": papStrings.name
+                        , "x-success": Bundle.main.schemes?.first ?? "undefined"
+                        , "x-source": Bundle.main.displayName ?? "Unknown"
                     ].urlQueryString
 
                     let url_googlemap = URL(string: "comgooglemaps-x-callback://?\(param_googlemap)")
@@ -688,6 +688,88 @@ extension Array where Element:VisionTextDetectResult {
             
             
             /*
+             Currency
+             */
+            for currencyString in Array<VisionTextCurrencyParser.OutputType.Element>(Set((resultGroup.currencies ?? []).reduce([],+).compactMap({ $0.nilEmpty }))){
+                if StringSet.contains(currencyString){
+                    continue
+                } else {
+                    StringSet.insert(currencyString)
+                }
+                
+                var action:UIAlertAction?
+                
+                let localeFormatter = NumberFormatter()
+                localeFormatter.numberStyle = .currency
+                
+                var exchangeURL: URL?
+                if let currencyCode = localeFormatter.currencyCode {
+                    exchangeURL = URL(string: "https://google.com/search?q=" + "\(currencyString) to \(currencyCode)".encodeAsURLQuery())
+                }
+                else {
+                    exchangeURL = URL(string: "https://google.com/search?q=" + currencyString.encodeAsURLQuery())
+                }
+                
+                let _quickAction = { (t: String) -> UIAlertAction? in
+                    if let url = exchangeURL, UIApplication.shared.canOpenURL(url){
+                        return UIAlertAction(title: t, style: .default, handler: { action in
+                            UIApplication.openSafari(with:url) {
+                                asyncSignal.end()
+                            }
+                        })
+                    }
+                    return nil
+                }
+                
+                if isQuickActionOnly{
+                    action = _quickAction(currencyString)
+                    
+                }else{
+                    let _alert = UIAlertController.actionSheet(title: actionMessage, message: nil)
+                    
+                    var _actions = [defaultCancelSubAction]
+                    
+                    if let q = _quickAction("Currency Exchange".localized){
+                        _actions.append(q)
+                    }
+                    
+                    _actions.append(
+                        UIAlertAction(title: "Copy".localized, style: .default, handler: { action in
+                            UIPasteboard.general.string = currencyString
+                            asyncSignal.end()
+                        })
+                    )
+                    
+                    _actions.append(
+                        UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                            UIActivityViewController.share(activityItems: [currencyString], excludedActivityTypes: [UIActivity.ActivityType.copyToPasteboard]) { type, b, anies, error in
+                                asyncSignal.end()
+                            }
+                        })
+                    )
+                    
+                    for _action in _actions{
+                        _alert.addAction(_action)
+                    }
+                    
+                    //root action
+                    action = UIAlertAction(title: currencyString, style: . default, handler: { action in
+                        DispatchQueue.main.async{
+                            UIViewController.present(_alert, animated: true)
+                        }
+                    })
+                }
+
+                action?.accessoryImage = R.image.appActionIconCurrency()
+                
+                if let action = action{
+                    alert.addAction(action)
+                }
+                
+            }// END OF AN ACTION
+            
+            
+            /*
              Plain Text
              */
             if let plainText = item.plainText?.trimmed {
@@ -702,7 +784,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
                 
-                let actionTitle = item.sourceVisionTexts?.count == 1 ? "Get Text".localized :  "Get All Text".localized
+                let actionTitle = item.sourceVisionText?.blocks.count == 1 ? "Get Text".localized :  "Get All Text".localized
                 
                 if isQuickActionOnly{
                     action = _quickAction(actionTitle)

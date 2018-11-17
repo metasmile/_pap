@@ -120,7 +120,7 @@
 "cs_keyword_13" = "lover";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Gün";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Hemen ÜCRETSİZ indir!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Sahiplik";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Algılama Hedefleri";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direction";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Şimdi %@ adresinden ÜCRETSİZ indirin";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "İndir";
@@ -354,7 +354,7 @@
 "Guest User License" = "Misafir Kullanıcı Lisansı";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Misafir kullanıcı";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Bir seferde bol bol fotoğraf çekin.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Merhaba, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Ortaklık Programına Katılın";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Sadece ihtiyacınız olan fotoğrafları seçin ve sonra çalıştırın.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "peyzaj";
@@ -656,24 +656,24 @@
 "Stories of Us" = "Bizleri Öyküler";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Gizlemek istediğiniz öğeleri açın. Kalite mükemmel olarak aynı kalacaktır.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Canlı Fotoğraf ile bir GIF atın.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Fotoğraf çekmek";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Yer almak";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Canlı Fotoğraflı bir GIF atın.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Canlı Fotoğraf çek.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Fotoğraf çekmek.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Canlı Fotoğraf ile bir Selfie atın.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Bir Selfie al.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Dahili Kamera ile Çekildi";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Metni Tespit Etmek İçin Dokunun";
+"Tap to detect text" = "Metni algılamak için dokunun";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Hedeflenen";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

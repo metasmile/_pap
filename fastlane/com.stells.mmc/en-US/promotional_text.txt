@@ -1,1 +1,3 @@
-
+New Detection Target: Price
+National currencies and some popular cryptocurrencies from all your photos and camera for searching exchange rate 
+- USD, EUR, WON, YEN.

@@ -13,7 +13,7 @@ import PropertyKit
 protocol AppUICameraViewOptions {
     var isLivePhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
-    var cameraFlashMode: AVCaptureDevice.FlashMode { get set }
+    var cameraFlashMode: CameraView.FlashMode { get set }
 }
 
 class AppUICameraView: UIView {
@@ -74,7 +74,7 @@ class AppUICameraView: UIView {
         if let defaults = defaults{
             self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
             self.cameraView.cameraPosition = defaults.cameraPosition
-            self.cameraView.currentFlashMode = defaults.cameraFlashMode
+            self.cameraView.flashMode = defaults.cameraFlashMode
         }
 
         cameraView.deviceMotion.watch(\.orientation){
@@ -236,13 +236,14 @@ class AppUICameraView: UIView {
             var defaults = defaults
             defaults?.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
             defaults?.cameraPosition = self.cameraView.cameraPosition
+            defaults?.cameraFlashMode = self.cameraView.flashMode
 
             DispatchQueue.mainAsyncIfNot {
                 self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 self.livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
-                self.cameraFlashButton.tintColor = self.cameraView.currentFlashMode == .on ? self.primaryColor : nil
+                self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
             }
         }
 
@@ -264,8 +265,8 @@ class AppUICameraView: UIView {
 
     private var flashModeIcon: UIImage{
         return { () -> UIImage in
-            switch cameraView.currentFlashMode{
-                case .on, .auto:
+            switch cameraView.flashMode {
+                case .on, .auto, .torch:
                     return R.image.appUICameraViewFlashOn() ?? UIImage()
                 case .off:
                     return R.image.appUICameraViewFlashOff() ?? UIImage()
@@ -294,11 +295,12 @@ class AppUICameraView: UIView {
     }
 
     @objc func switchFlash(sender: Any) {
-        cameraView.currentFlashMode = [
-            AVCaptureDevice.FlashMode.auto:AVCaptureDevice.FlashMode.on,
-            AVCaptureDevice.FlashMode.on:AVCaptureDevice.FlashMode.off,
-            AVCaptureDevice.FlashMode.off:AVCaptureDevice.FlashMode.auto
-        ][cameraView.currentFlashMode]!
+        cameraView.flashMode = [
+            CameraView.FlashMode.auto:CameraView.FlashMode.on,
+            CameraView.FlashMode.on:CameraView.FlashMode.torch,
+            CameraView.FlashMode.off:CameraView.FlashMode.auto,
+            CameraView.FlashMode.torch:CameraView.FlashMode.off
+        ][cameraView.flashMode]!
 
         UIFeedback.select()
     }

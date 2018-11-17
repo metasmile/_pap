@@ -16,6 +16,12 @@ elsif ENV['mmc']
     metadata_path "./fastlane/com.stells.mmc"
     screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/mmc"
     ipa "mmc.ipa"
+elsif ENV['ocra']
+      username "illhert@yahoo.com"
+      app_identifier "com.stells.ocra"
+      metadata_path "./fastlane/com.stells.mmc"
+      screenshots_path "/Users/blackgene/Documents/pap\-resources/appstore/screenshots/mmc"
+      ipa "ocra.ipa"
 elsif ENV['sap']
     username "illhert@yahoo.com"
     app_identifier "com.stells.sap"

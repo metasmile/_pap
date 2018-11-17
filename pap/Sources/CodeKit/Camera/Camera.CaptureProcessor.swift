@@ -38,7 +38,7 @@ struct CaptureProcessorParam {
 class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
     static var ExifUserCommentIdentifier:String{
-        return "com.stells.mmc.CaptureProcessor"
+        return "com.stells.batch.CaptureProcessor"
     }
     static var ExifUserCommentSeparator:String{
         return ","

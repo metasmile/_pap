@@ -74,6 +74,8 @@ class CameraView: UIView, PropertyWatchable {
     }
 
     func setUp() {
+        guard captureSession == nil else { return }
+        
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized: break
         case .notDetermined:
@@ -104,6 +106,15 @@ class CameraView: UIView, PropertyWatchable {
         guard let videoDimensions = captureVideoDimension else { return .zero }
         return CGSize(width: Int(videoDimensions.height), height: Int(videoDimensions.width))
     }
+    
+    var flashMode: FlashMode = .off {
+        didSet {
+            photoSettingsFlashMode = flashMode.flashMode
+            sessionQueue.async {
+                self.setTorchMode(self.flashMode.torchMode)
+            }
+        }
+    }
 
     private func configureSession() {
         captureSession = AVCaptureSession()
@@ -121,8 +132,14 @@ class CameraView: UIView, PropertyWatchable {
 
         try? videoDevice.lockForConfiguration()
 
-        videoDevice.focusMode = .continuousAutoFocus
-        videoDevice.exposureMode = .continuousAutoExposure
+        if videoDevice.isFocusModeSupported(.continuousAutoFocus) {
+            videoDevice.focusMode = .continuousAutoFocus
+        }
+
+        if videoDevice.isExposureModeSupported(.continuousAutoExposure) {
+            videoDevice.exposureMode = .continuousAutoExposure
+        }
+
         videoDevice.unlockForConfiguration()
 
         if let audioDevice = AVCaptureDevice.default(for: .audio),
@@ -158,6 +175,7 @@ class CameraView: UIView, PropertyWatchable {
                 self.configureSession()
             }
             self.captureSession?.startRunning()
+            self.setTorchMode(self.flashMode.torchMode)
 
             completion?()
         }
@@ -198,13 +216,13 @@ class CameraView: UIView, PropertyWatchable {
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            photoSettings.flashMode = self.currentFlashMode
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         } else {
             photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
             captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
         photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        photoSettings.flashMode = self.photoSettingsFlashMode
 
         capturesInProgress.insert(captureProcessor)
 
@@ -391,6 +409,29 @@ extension CameraView {
 }
 
 extension CameraView {
+    public enum FlashMode: Int {
+        case off
+        case on
+        case auto
+        case torch
+        
+        var flashMode: AVCaptureDevice.FlashMode {
+            switch self {
+            case .off: return .off
+            case .on: return .on
+            case .auto: return .auto
+            default: return .off
+            }
+        }
+        
+        var torchMode: AVCaptureDevice.TorchMode {
+            switch self {
+            case .torch: return .on
+            default: return .off
+            }
+        }
+    }
+    
     var isLivePhotoSupported: Bool {
         return capturePhotoOutput.isLivePhotoCaptureSupported
     }
@@ -408,7 +449,7 @@ extension CameraView {
         }
     }
 
-    var currentFlashMode: AVCaptureDevice.FlashMode {
+    var photoSettingsFlashMode: AVCaptureDevice.FlashMode {
         set {
             self.currentPhotoSettings.flashMode = newValue
             self.configurationDidUpdate?()
@@ -416,6 +457,22 @@ extension CameraView {
         get {
             return currentPhotoSettings.flashMode
         }
+    }
+    
+    fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+        beginConfiguration()
+        
+        let device = currentCaptureDeviceInput(for: .video)?.device
+        
+        try? device?.lockForConfiguration()
+        
+        if device?.hasTorch == true {
+            device?.torchMode = torchMode
+        }
+        
+        device?.unlockForConfiguration()
+        
+        commitConfiguration()
     }
 }
 
@@ -650,7 +707,7 @@ fileprivate class CameraPreviewView: UIView {
 
 
 final class CaptureButton: UIControl {
-//    private lazy var outerCircleLayer = CAShapeLayer()
+    private lazy var outerCircleLayer = CAShapeLayer()
     private lazy var innerCircleLayer = CAShapeLayer()
 
     override init(frame: CGRect) {
@@ -666,9 +723,9 @@ final class CaptureButton: UIControl {
     private func initialize() {
         backgroundColor = .clear
 
-//        outerCircleLayer.strokeColor = UIColor.white.cgColor
-//        outerCircleLayer.fillColor = UIColor.clear.cgColor
-//        layer.addSublayer(outerCircleLayer)
+        outerCircleLayer.strokeColor = UIColor.white.cgColor
+        outerCircleLayer.fillColor = UIColor.clear.cgColor
+        layer.addSublayer(outerCircleLayer)
 
         innerCircleLayer.strokeColor = UIColor.clear.cgColor
         innerCircleLayer.fillColor = UIColor.white.cgColor
@@ -698,14 +755,14 @@ final class CaptureButton: UIControl {
         let scale = remap(bounds.height, 0, 64, 0, 1)
         let inset = remap(scale, 0, 1, bounds.height * 0.1, 0)
         let outerCircleLineWidth: CGFloat = remap(scale, 0, 1, 0, 6)
-//        let outerCircleInset = outerCircleLineWidth / 2 + inset
+        let outerCircleInset = outerCircleLineWidth / 2 + inset
         let innerCircleInset = outerCircleLineWidth + remap(scale, 0, 1, 0, 2) + inset
 
-//        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
+        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: outerCircleInset, left: outerCircleInset, bottom: outerCircleInset, right: outerCircleInset)))
         let innerCircle = UIBezierPath(ovalIn: bounds.inset(by:UIEdgeInsets(top: innerCircleInset, left: innerCircleInset, bottom: innerCircleInset, right: innerCircleInset)))
 
-//        outerCircleLayer.lineWidth = outerCircleLineWidth
-//        outerCircleLayer.path = outerCircle.cgPath
+        outerCircleLayer.lineWidth = outerCircleLineWidth
+        outerCircleLayer.path = outerCircle.cgPath
         innerCircleLayer.path = innerCircle.cgPath
     }
 }

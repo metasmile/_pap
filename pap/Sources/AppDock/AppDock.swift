@@ -69,6 +69,9 @@ public protocol AppDockContent {
     func didSetContentView(_ view:UIView, dock:AppDock)
 
     func willRemoveContentView()
+    
+    func willLayoutSubviews()
+    func didLayoutSubviews()
 }
 
 extension AppDockContent{
@@ -79,6 +82,9 @@ extension AppDockContent{
     public func didSetContentView(_ view:UIView, dock:AppDock) {}
 
     public func willRemoveContentView() {}
+    
+    public func willLayoutSubviews() {}
+    public func didLayoutSubviews() {}
 }
 
 // AppDockContentScrollable

@@ -120,7 +120,7 @@
 "cs_keyword_13" = "ljubavnik";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Dan";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Preuzmite sada besplatno!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Vlasništvo";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Ciljevi otkrivanja";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "preuzimanje datoteka";
@@ -354,7 +354,7 @@
 "Guest User License" = "Korisnička licenca korisnika";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Korisnik gosta";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Ručke puno fotografija odjednom.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Pozdrav, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "To zahtijeva dopuštenje za pristup vašim kontaktima. Omogućite Kontakti na iOS Postavkama.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Pridružite se programu partnerstva";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Samo odaberite fotografije koje trebate, a zatim ga pokrenite.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "pejzaž";
@@ -656,24 +656,24 @@
 "Stories of Us" = "Priče o nama";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Uključite sve stavke koje želite sakriti. Kvaliteta će savršeno ostati ista.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Uzmi GIF fotografiju uživo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Slikaj";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Sudjelovati";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Uzmi GIF fotografiju uživo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Uzmi fotografiju uživo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Slikaj.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Uzmi Selfie sa Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Uzmi Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Preuzeto s ugrađenim fotoaparatom";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Dodirnite Otkrivanje teksta";
+"Tap to detect text" = "Dodirnite za otkrivanje teksta";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ciljano";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

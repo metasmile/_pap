@@ -17,6 +17,7 @@ extension UIView{
             let loadingIndicator = UIActivityIndicatorView(style: .gray)
             loadingIndicator.hidesWhenStopped = false
             loadingIndicator.tag = loadingIndicatorTag
+            loadingIndicator.tintColor = self.tintColor
             targetSubview.superview?.addSubview(loadingIndicator)
             targetSubview.isHidden = true
 

@@ -22,6 +22,10 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
     func batchPreviewViewDidEndEdit(_ view: PreviewView)
     func batchPreviewViewDidCancelEdit(_ view: PreviewView)
+    
+    func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
+    func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String?
+    func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath)
 }
 
 internal class PreviewCollectionLayout: UICollectionViewLayout {
@@ -95,11 +99,8 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         _contentSize.width += paddingLeft + paddingRight
     }
     
-    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
-        guard
-            let collectionView = self.collectionView,
-            let appAsset = AppAssets.selected.at(unsafeIndex: indexPath.item)
-        else { return .zero }
+    private func estimatedSizeForItem(at indexPath: IndexPath, in collectionView: UICollectionView) -> CGSize {
+        guard let appAsset = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return .zero }
         
         let asset = appAsset.asset
         
@@ -112,6 +113,11 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
         let cellSize = photoSize.applying(appAsset.editState.transform).magnitude
         
         return CGSize(width: cellSize.width, height: floor(contentSize.height))
+    }
+    
+    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        guard let collectionView = self.collectionView else { return .zero }
+        return estimatedSizeForItem(at: indexPath, in: collectionView)
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -128,6 +134,32 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     
     var contentSize: CGSize {
         return CGSize(width: _contentSize.width - paddingLeft - paddingRight, height: _contentSize.height)
+    }
+    
+    func estimatedContentSize(collectionView: UICollectionView) -> CGSize {
+        var itemPositionX: CGFloat = 0
+        var contentSize: CGSize = .zero
+        
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemSize = estimatedSizeForItem(at: indexPath, in: collectionView)
+            
+            let itemPosition = CGPoint(x: itemPositionX, y: (previewHeight - itemSize.height) / 2)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPositionX += itemSize.width + minimumSpacing
+            
+            contentSize.width = attributes.frame.maxX
+            contentSize.height = attributes.frame.height
+        }
+        
+        let paddingLeft = contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - contentSize.width) / 2
+        let paddingRight = paddingLeft
+        
+        contentSize.width += paddingLeft + paddingRight
+        
+        return CGSize(width: contentSize.width - paddingLeft - paddingRight, height: contentSize.height)
     }
     
     override var collectionViewContentSize: CGSize {
@@ -185,7 +217,14 @@ class PreviewView: CustomView, AppDockContentTransition {
     }
     
     private func setPreviewLayout(with height: CGFloat) {
+        if UIMenuController.shared.isMenuVisible {
+            UIMenuController.shared.setMenuVisible(false, animated: true)
+        }
+        
+        let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout
         let toLayout = PreviewCollectionLayout(previewHeight: height)
+        
+        guard fromLayout?.contentSize != toLayout.estimatedContentSize(collectionView: self.collectionView) else { return }
         
         var targetIndexPath: IndexPath? = nil
         let location = transitionBeginLocation ?? CGPoint(x: collectionView.bounds.width / 2, y: 0)
@@ -317,7 +356,7 @@ extension PreviewView {
         AppCenter.default.task.perform(createTaskReaction())
         papLog.performFromUser()
 
-        papCount.app.countToPerform()
+        papDefaults.app.countToPerform()
 
         return true
     }
@@ -357,7 +396,7 @@ extension PreviewView {
             // it is possible totalCount != numberOfItems (e.g. if an item was runtime-removed while progress as batch tasks)
             let destItem = Int(Float(totalCount-1)*progress).clamped(to: 0...numberOfItems-1)
 
-            //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.mmc/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
+            //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
             self.scrollToNeareastItem(at: IndexPath(item: destItem, section: index.section))
 
 
@@ -602,5 +641,29 @@ extension PreviewView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.batchPreviewView(self, didSelectItemAt: indexPath)
+        
+        if delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath), let cell = collectionView.cellForItem(at: indexPath) {
+            becomeFirstResponder()
+            
+            UIMenuController.shared.setTargetRect(convert(cell.frame, from: collectionView), in: self)
+            UIMenuController.shared.menuItems = [UIMenuItem(title: menuTitle, action: #selector(self.performActionForMenuItem))]
+            UIMenuController.shared.setMenuVisible(true, animated: true)
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        if let indexPath = collectionView.indexPathsForSelectedItems?.first, delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true {
+            return true
+        }
+        return super.canBecomeFirstResponder
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(self.performActionForMenuItem)
+    }
+    
+    @objc func performActionForMenuItem(sender: UIMenuController) {
+        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+        delegate?.batchPreviewView(self, didSelectMenuItemAt: indexPath)
     }
 }

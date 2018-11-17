@@ -13,6 +13,7 @@ import Crashlytics
 import PropertyKit
 import Armchair
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -37,13 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Version Distance: ",Defaults.shared.shortVersionDistance ?? "nil")
         print("Version Description: ",Defaults.shared.shortVersionDescription)
 
+        let selfAny:AnyObject = self
+        (selfAny as? AppDelegateExternalDelegate)?.willFinishLaunching()
+
         return false
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
 #if !DEBUG
         Fabric.with([Crashlytics.self])
 #endif
+
         FirebaseApp.configure()
 
         DispatchQueue.global(qos: .background).async{
@@ -56,12 +62,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        Armchair.appID(papStrings.appStoreId)
-        Armchair.useStoreKitReviewPrompt( true)
-        Armchair.resetAllCounters()
-        Armchair.shouldIncrementUseCountClosure { () -> Bool in
-            return false
-        }
+#if DEBUG
+        //INFO: Reset all receipt for testing
+//        for c in AppCenter.charge.getChargesHasReceipt(){
+//            if let r = AppCenter.charge.bank.getReceipt(for: c){
+//                ChargeableReceipt.reserveShouldFailVerification(uuid: r.uuid)
+//            }
+//        }
+//        AppCenter.charge.synchronize()
+
+//        //INFO: Unlock all for app testing.
+//        let paymentsToTest = [
+//            AllTimeAllAppsPayment.self
+//        ]
+//        for p in paymentsToTest{
+//            AppCenter.charge.pay(for: p, skipTransaction: true)
+//        }
+#endif
+
+        let anySelf:AnyObject = self
+        (anySelf as? AppDelegateExternalDelegate)?.didFinishLaunching()
 
         return true
     }
@@ -88,7 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

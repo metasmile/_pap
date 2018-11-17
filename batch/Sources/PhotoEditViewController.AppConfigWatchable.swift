@@ -1,0 +1,63 @@
+//
+// Created by BLACKGENE on 2018-11-14.
+// Copyright (c) 2018 Stells. All rights reserved.
+//
+
+import Foundation
+
+extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegate{
+
+    func registerWatchingAppConfig() {
+        AppCenter.default.watch(\.currentIdentifier, id:"editor", options:[.new, .initial]) { appCenter, dict in
+
+            appCenter.currentInstanceAs(TransformApp.self)?.config?.watch(\.transform, id:"editor\(TransformApp.info.identifier)") { (config, changed) in
+                if let value = config.transform{
+                    self.appendImageEditState(value)
+                }
+            }
+
+            appCenter.currentInstanceAs(FiltersApp.self)?.config?.watch(\.filter, id:"editor\(FiltersApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
+
+            appCenter.currentInstanceAs(ArtistApp.self)?.config?.watch(\.filter, id:"editor\(ArtistApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
+
+            appCenter.currentInstanceAs(AutoEditorApp.self)?.config?.watch(\.filter, id:"editor\(AutoEditorApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
+
+            appCenter.currentInstanceAs(StabilizerApp.self)?.config?.watch(\.stabilizationMode, id:"editor\(StabilizerApp.info.identifier)") { (config, changed) in
+                if let value = config.stabilizationMode {
+                    self.appendImageEditState(value)
+                }
+            }
+
+            appCenter.currentInstanceAs(ResizerApp.self)?.config?.watch(\.filter, id:"editor\(ResizerApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
+
+            //common ui attributes if current app is ConfigurableApp
+            appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
+        }
+    }
+
+    func unregisterWatchingAppConfig() {
+        AppCenter.default.currentInstanceAs(TransformApp.self)?.config?.unwatch(\.transform, forIds:["editor\(TransformApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(FiltersApp.self)?.config?.unwatch(\.filter, forIds:["editor\(FiltersApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ArtistApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ArtistApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(StabilizerApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ResizerApp.info.identifier)"])
+        AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
+    }
+}

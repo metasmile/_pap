@@ -7,15 +7,19 @@ import Foundation
 import UIKit
 
 public struct AppManagerConfig{
-    var appCollection:[App.Type]?
-    var taskManager:AppTaskManager?
+    let appCollection:[App.Type]
+    let initialApp:App.Type?
+    let taskManager:AppTaskManager?
 }
 
+
 protocol AppManagerConfigurable where Self:AppManager {
-    func configure() -> AppManagerConfig?
+    static func configure() -> AppManagerConfig?
 }
 
 open class AppManager: NSObject, SelectableCollection {
+
+    private(set) var config:AppManagerConfig?
 
     override init(){
         super.init()
@@ -23,10 +27,9 @@ open class AppManager: NSObject, SelectableCollection {
         var initializingApps = [App.Type]()
 
         //AppManagerConfigurable
-        if let configurable = (self as? AppManagerConfigurable)?.configure(){
-            if let appCollection = configurable.appCollection{
-                initializingApps += appCollection
-            }
+        if let configurable = (type(of: self) as? AppManagerConfigurable.Type)?.configure(){
+            config = configurable
+            initializingApps += configurable.appCollection
 
             if let taskManager = configurable.taskManager{
                 _task = taskManager

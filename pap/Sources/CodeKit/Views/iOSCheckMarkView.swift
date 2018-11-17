@@ -15,6 +15,8 @@ class CheckMark: UIView {
     private var checkedBool: Bool = false
     private var checkMarkStyleReal: CheckMarkStyle=CheckMarkStyle.GrayedOut
 
+    var checkedColor:UIColor?
+
     var checked: Bool {
         get {
             return self.checkedBool
@@ -50,7 +52,7 @@ class CheckMark: UIView {
 
     func drawRectChecked(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        let checkmarkBlue2 = UIColor(red:0.11, green:0.45, blue:0.87, alpha:1)
+        let checkmarkBlue2 = self.checkedColor ?? UIColor(red:0.11, green:0.45, blue:0.87, alpha:1)
         let shadow2 = UIColor.black
 
         let shadow2Offset = CGSize(width: 0.1, height: -0.1)

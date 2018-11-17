@@ -120,7 +120,7 @@
 "cs_keyword_13" = "情人";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@天";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@立即免费下载！";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@所有权";
@@ -294,7 +294,7 @@
 "Detection Targets" = "检测目标";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "立即免费下载%@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "下载";
@@ -354,7 +354,7 @@
 "Guest User License" = "访客用户许可";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "来宾用户";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "一次处理大量照片。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "加入伙伴关系计划";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "只需选择您需要的照片，然后运行它。";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "景观";
@@ -656,24 +656,24 @@
 "Stories of Us" = "我们的故事";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "打开要隐藏的任何项目。质量将完全保持不变。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "用现场照片拍摄GIF。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "拍张照片";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "参与";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "拍摄带有实时照片的GIF。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "拍摄现场照片。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "拍张照片。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "拍摄带有实时照片的自拍照。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "自拍吧。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "采用内置摄像头";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "点击以检测文本";
+"Tap to detect text" = "点按即可检测文字";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "目标";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

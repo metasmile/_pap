@@ -57,7 +57,7 @@ struct PHAssetContentEditingItem {
 
 struct PAPAdjustmentData {
     static let formatVersion = "1.0"
-    static let formatIdentifier = "\(Bundle.main.bundleIdentifier ?? "com.stells.mmc").PHAsset.adjustmentData"
+    static let formatIdentifier = "\(Bundle.main.bundleIdentifier ?? "com.stells.batch").PHAsset.adjustmentData"
     
     static func isVaildAdjustmentData(_ data: PHAdjustmentData?) -> Bool {
         return data?.formatIdentifier == PAPAdjustmentData.formatIdentifier

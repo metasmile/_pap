@@ -9,7 +9,7 @@ import Contacts
 extension String{
 
     public func detectAll(types: NSTextCheckingResult.CheckingType, options:NSRegularExpression.MatchingOptions=[], range:NSRange?=nil) -> [NSTextCheckingResult] {
-        guard let detector = try? NSDataDetector(types: types.rawValue) else {
+        guard types.isEmpty == false, let detector = try? NSDataDetector(types: types.rawValue) else {
             return [NSTextCheckingResult]()
         }
         return detector.matches(in: self, options: options, range: range ?? NSMakeRange(0, self.count))

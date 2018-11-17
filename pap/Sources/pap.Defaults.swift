@@ -34,7 +34,7 @@ extension Defaults:papDefaultsPrivate{
     }
 }
 
-public struct papCount {
+public struct papDefaults {
     struct app {
         static var numberOfCounted:Int{
             return Defaults.shared.appCount.keys.count

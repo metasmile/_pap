@@ -120,7 +120,7 @@
 "cs_keyword_13" = "Lover";
 /* Generated from genl10n: AppCenter.Charge.swift, Charge.Types.Trialable.swift */
 "%@ Day" = "%@ Dag";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "%@ Download now for FREE!" = "%@ Last ned nå GRATIS!";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Eierskap";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Deteksjonsmål";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Retning";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Download now for FREE at %@" = "Last ned nå GRATIS på %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "nedlasting";
@@ -354,7 +354,7 @@
 "Guest User License" = "Gjestebruker Lisens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Gjestebruker";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Håndter mange bilder samtidig.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hei, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krever tillatelse til å få tilgang til kontaktene dine. Vennligst tillat kontakter på iOS-innstillinger.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Bli med i partnerskapsprogrammet";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Bare velg bilder du trenger og kjør det.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Landscape" = "Landskap";
@@ -656,24 +656,24 @@
 "Stories of Us" = "Historier om oss";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Slå på elementer du vil gjemme. Kvaliteten vil perfekt forbli den samme.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Ta en GIF med Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Ta et bilde";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Delta";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Ta en GIF med et levende bilde.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Ta en levende bilde.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Ta et bilde.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Ta en Selfie med en Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Ta en Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Taken With Built-in Camera" = "Tatt med innebygd kamera";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Trykk for å oppdage tekst";
+"Tap to detect text" = "Trykk for å oppdage tekst";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targeted" = "målrettet";
 /* Generated from genl10n: Cleaner.BApp.swift */

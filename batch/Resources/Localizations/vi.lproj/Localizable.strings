@@ -120,7 +120,7 @@
 "cs_keyword_13" = "người yêu";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ngày";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Tải xuống miễn phí!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Quyền sở hữu";
@@ -294,7 +294,7 @@
 "Detection Targets" = "Mục tiêu phát hiện";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Phương hướng";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Tải xuống MIỄN PHÍ ngay lúc %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Tải về";
@@ -354,7 +354,7 @@
 "Guest User License" = "Giấy phép người dùng của khách";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Tài khoản khách";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Xử lý nhiều ảnh cùng một lúc.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Tham gia chương trình hợp tác";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Chỉ cần chọn ảnh bạn cần và sau đó chạy nó.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
@@ -656,24 +656,24 @@
 "Stories of Us" = "Câu chuyện của chúng tôi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Chụp ảnh GIF bằng Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Chụp một tấm";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Tham gia";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Chụp ảnh GIF bằng Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Chụp ảnh trực tiếp.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Chụp một tấm.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Chụp ảnh tự sướng bằng Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Chụp ảnh tự sướng.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Chụp với máy ảnh tích hợp";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Nhấn để phát hiện văn bản";
+"Tap to detect text" = "Nhấn để phát hiện văn bản";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

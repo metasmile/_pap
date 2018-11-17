@@ -120,7 +120,7 @@
 "cs_keyword_13" = "恋人";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@日";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@今すぐ無料でダウンロードしてください！";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@所有権";
@@ -294,7 +294,7 @@
 "Detection Targets" = "検出ターゲット";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "ダウンロード";
@@ -354,7 +354,7 @@
 "Guest User License" = "ゲストユーザライセンス";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "ゲストユーザ";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "多数の写真を一度に処理します。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "あなたの連絡先にアクセスするための許可が必要です。 iOSの設定で連絡先を許可してください。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "パートナーシッププログラムに参加する";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "必要な写真を選択して実行するだけです。";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "風景";
@@ -656,24 +656,24 @@
 "Stories of Us" = "私たちの話";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "非表示にする項目をすべてオンにします。品質は完全に同じままです。";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "ライブ写真でGIFを撮る";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "写真を撮る";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "テイクパート";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "ライブ写真でGIFを撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "ライブ写真を撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "写真を撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "ライブ写真で自閉症を起こす。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "セルフリーを取る。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "タップしてテキストを検出する";
+"Tap to detect text" = "タップしてテキストを検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */

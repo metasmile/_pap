@@ -1,0 +1,1798 @@
+Cannot revert. All selected items have not edited.
+= Impossible de revenir. Tous les éléments sélectionnés n'ont pas été modifiés.
+
+
+Enable Quick Actions
+= Activer les actions rapides
+
+
+Reverse
+= Sens inverse
+
+
+Select this photo
+= Sélectionnez cette photo
+
+
+Write
+= Écrire
+
+
+New Number
+= Nouveau numéro
+
+
+Repeat
+= Répéter
+
+
+Starting To Find ...
+= Commencer à trouver ...
+
+
+Size
+= Size
+
+
+No loop
+= No loop
+
+
+Special Guest
+= Invité spécial
+
+
+Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.
+= Le Finder permet d'extraire toutes les informations utiles telles que les numéros de téléphone, adresses, dates ou URL de vos photos, puis d'appeler, d'ouvrir des cartes ou de naviguer sur des sites Web, voire de rechercher des vols. Vous pouvez également les enregistrer en tant que texte brut.
+
+
+Crop
+= Crop
+
+
+Videos from Screen Recorder
+= Vidéos d’enregistrement d’écran
+
+
+VIP Hotline
+= Hotline VIP
+
+
+Starting the Process...
+= Commencer le processus ...
+
+
+Clipboard
+= Presse-papiers
+
+
+Revert
+= revenir
+
+
+An Error Occurred While Receiving Ads.
+= Une erreur s'est produite lors de la réception des publicités.
+
+
+Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.
+= Converter vous permet de convertir tous les formats multimédias tels que les vidéos, les photos en direct, les fichiers GIF les uns sur les autres.
+
+
+Page Size Preset
+= Taille de page prédéfinie
+
+
+Edit %d photo(s)
+= Modifier %d photo (s)
+
+
+Main Tools License
+= Licence pour les Outils Principaux
+
+
+Take A Photo.
+= Prendre une Photo.
+
+
+URL
+= URL
+
+
+Open Camera.
+= Ouvrir la caméra.
+
+
+Frame Delay
+= Frame Delay
+
+
+Targets
+= Cibles
+
+
+All not taken with Camera
+= Enregistré sans la caméra
+
+
+Artist
+= Artiste
+
+
+Animation
+= Animation
+
+
+It Displays A Ratio of Remaining Free App Access Periods.
+= Il affiche un ratio des du temps d'accès aux applications gratuites restantes.
+
+
+Rewind
+= Rembobiner
+
+
+%@ Videos
+= %@ Vidéos
+
+
+Editor
+= éditeur
+
+
+Write A Review
+= Écrire une critique
+
+
+Creating PDF Pages...
+= Créer des pages PDF ...
+
+
+Capture Actions To Do.
+= Actions de capture à faire.
+
+
+Import
+= Importer
+
+
+Layout
+= Disposition
+
+
+Free Use
+= Utilisation gratuite
+
+
+Sorry, something went wrong.
+= Désolé, quelque chose s'est mal passé.
+
+
+Stabilizer
+= Stabilisateur
+
+
+Take A Selfie.
+= Take A Selfie.
+
+
+Video
+= Vidéo
+
+
+Partnership License Program
+= Programme de licence de partenariat
+
+
+Images
+= Images
+
+
+Deleting Photos...
+= Suppression de photos ...
+
+
+Tap To Detect Text
+= Appuyez sur pour détecter le texte
+
+
+Square
+= Carré
+
+
+Actions
+= actes
+
+
+%d times
+= %d fois
+
+
+Action
+= action
+
+
+Contacts
+= Contacts
+
+
+Search Flights
+= Recherche de vols
+
+
+All Tools Ownership
+= Propriété de tous les outils
+
+
+Translation Correction
+= Correction de traduction
+
+
+Restore from previous clipboard
+= Restaurer à partir du presse-papiers précédent
+
+
+Auto Selection Bot
+= Auto Sélection Bot
+
+
+My Feedback on %@
+= Mes commentaires sur %@
+
+
+Quality
+= Qualité
+
+
+Finder
+= chercheur
+
+
+Camera
+= Caméra
+
+
+%@ Video
+= %@ Vidéo
+
+
+Hiding Selected Items...
+= Masquage des éléments sélectionnés ...
+
+
+Picture
+= Picture
+
+
+MemoCam
+= MemoCam
+
+
+'Main Tools' means all other tools not specially displayed in here.
+= «Outils principaux» signifie tous les autres outils qui ne sont pas spécialement affichés ici.
+
+
+Thank you very much for your feedback! Soon we will contact you.
+= Merci beaucoup pour vos commentaires! Bientôt, nous vous contacterons.
+
+
+Please check and restore your internet connectivity, or deactivate Ads.
+= Veuillez vérifier et restaurer votre connectivité Internet ou désactiver les annonces.
+
+
+day
+= journée
+
+
+Use
+= Utilisation
+
+
+Photos
+= Photos
+
+
+Image Quality
+= Qualité d'image
+
+
+Some contacts were saved, but someones were not.
+= Certains contacts ont été enregistrés, mais d'autres non.
+
+
+Phone Number
+= Numéro de téléphone
+
+
+Starting to check edited photos...
+= Commencer à vérifier les photos éditées ...
+
+
+Remaining Count In This Run
+= Compte restant dans cette course
+
+
+Processing...
+= En traitement...
+
+
+Input Here
+= Entrée ici
+
+
+A Licence Is Required.
+= Une licence est requise
+
+
+Maximum All Tools Ownership
+= Propriété maximale de tous les outils
+
+
+Loop
+= Boucle
+
+
+Processing
+= En traitement
+
+
+Select Format To Convert
+= Sélectionnez le format à convertir
+
+
+%@ might be found
+= %@ pourrait être trouvé
+
+
+Auto Crop
+= Auto Crop
+
+
+Deselect this photo
+= Désélectionnez cette photo
+
+
+Create %@
+= Créer %@
+
+
+All contacts were successfully saved.
+= Tous les contacts ont été enregistrés avec succès.
+
+
+Terms of Use
+= Conditions d'utilisation
+
+
+Text
+= Texte
+
+
+Restore
+= Restaurer
+
+
+All processes you have confirmed were finished.
+= Tous les processus que vous avez confirmés sont terminés.
+
+
+year
+= an
+
+
+14-Day Use of Main and New Tools
+= Utilisation des outils principaux et nouveaux pendant 14 jours
+
+
+Red-Eye Removal
+= Enlèvement des yeux rouges
+
+
+Guest User
+= Utilisateur invité
+
+
+Add an Event
+= Ajouter un événement
+
+
+Auto Editor lets you edit automatically if your photos are needed to correct.
+= Auto Editor vous permet de modifier automatiquement si vos photos sont nécessaires pour corriger.
+
+
+Targeted
+= Ciblé
+
+
+Open Restorer.
+= Open Restorer.
+
+
+No Crop
+= No Crop
+
+
+Hide
+= Cacher
+
+
+It could not be stored.
+= Il ne pouvait pas être stocké.
+
+
+Open PDF Maker.
+= Open PDF Maker.
+
+
+1-Year Use of Main And New Tools
+= Utilisation d'un an d'outils principaux et nouveaux
+
+
+Convert the last Live Photo Into Video.
+= Convertir la dernière photo en direct en vidéo.
+
+
+Type
+= Type
+
+
+Auto Straighten
+= Auto Redresser
+
+
+3-Month Use of Main And New Tools
+= Utilisation de 3 mois d'outils principaux et nouveaux
+
+
+Edit %@ Photo
+= Modifier %@ Photo
+
+
+Promotion License
+= Promotion License
+
+
+Open Finder.
+= Ouvrir le Finder.
+
+
+month
+= mois
+
+
+Sharing on Facebook Messenger
+= Partage sur Facebook Messenger
+
+
+Restore All Purchases
+= Restaurer tous les achats
+
+
+Open
+= Ouvrir
+
+
+Detection Targets
+= Cibles de détection
+
+
+Start
+= Start
+
+
+Price
+= Prix
+
+
+Add New Contact
+= Ajouter un nouveau contact
+
+
+Friend
+= Friend
+
+
+Videos Saved by Instagram
+= Vidéos sauvegardées par Instagram
+
+
+Inquiry
+= Enquête
+
+
+hour
+= heure
+
+
+Handle lots of photos at once.
+= Traitez beaucoup de photos à la fois.
+
+
+Saving Results...
+= Sauvegarder les résultats ...
+
+
+Get Text
+= Obtenir du texte
+
+
+Purchase Management
+= Gestion des achats
+
+
+E-mail Address
+= Adresse e-mail
+
+
+Unable to verify the code currently. Please try it later.
+= Impossible de vérifier le code actuellement. S'il vous plaît essayez plus tard.
+
+
+Pages
+= Pages
+
+
+Lockscreens
+= Lockscreens
+
+
+Modify
+= Modifier
+
+
+Transform
+= Transformer
+
+
+Share
+= Partager
+
+
+VIP License Program
+= Programme de licence VIP
+
+
+Landscape
+= Paysage
+
+
+Filter
+= Filtre
+
+
+Camera
+= Caméra
+
+
+Deleting Targets
+= Suppression des cibles
+
+
+Edit %d video(s)
+= Modifier %d vidéo (s)
+
+
+Open Auto Editor.
+= Open Auto Editor.
+
+
+Stabilize
+= Stabiliser
+
+
+This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.
+= Cet outil de transformation d'image par lot simple mais à grande échelle vous permet de faire pivoter et de retourner rapidement de nombreux fichiers multimédias, y compris des photos en direct. Le nombre de photos à éditer est illimité.
+
+
+Screenshots
+= Captures d'écran
+
+
+Open Clipboard.
+= Ouvrez le presse-papier.
+
+
+Transform Mode
+= Mode de transformation
+
+
+Hello, %@!
+= Bonjour, %@!
+
+
+Preparing
+= En train de préparer
+
+
+Saving Photos...
+= Enregistrement de photos ...
+
+
+Thank you for your message. Soon we will contact you.
+= Merci pour votre message. Bientôt, nous vous contacterons.
+
+
+Detail
+= Détail
+
+
+Limited Performance Notice
+= Avis de performance limitée
+
+
+Downloading...
+= Téléchargement...
+
+
+Open Filters.
+= Open Filters.
+
+
+Staying With Us
+= Rester avec nous
+
+
+Too Slow Shutter Speed
+= Vitesse d'obturation trop lente
+
+
+Get Access
+= Avoir accès
+
+
+Rotation
+= Rotation
+
+
+Stories of Us
+= Histoires de nous
+
+
+Cancel
+= Annuler
+
+
+Translate Now
+= Traduire maintenant
+
+
+Filters
+= Filtres
+
+
+Select this video
+= Sélectionnez cette vidéo
+
+
+Welcome to our guest user license program!
+= Bienvenue dans notre programme de licence utilisateur invité!
+
+
+Special Guest License
+= Licence d'invité spécial
+
+
+Thank you %@. Soon we will contact you.
+= Merci %@. Bientôt, nous vous contacterons.
+
+
+Aspect Ratio
+= Aspect Ratio
+
+
+Privacy
+= Intimité
+
+
+Permanent Use of All and New Tools
+= Utilisation permanente de tous et de nouveaux outils
+
+
+From clipboard on iOS
+= Du presse-papiers sur iOS
+
+
+Edit %d item(s)
+= Modifier %d élément (s)
+
+
+Flight Number
+= Numéro de vol
+
+
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.
+= GIF Maker permet de faire facilement et rapidement des images GIF à partir de Photos ou Live Photos avec différentes options! Et puis vous pouvez ouvrir l'application convertisseur pour convertir en tout comme des photos ou des vidéos en direct.
+
+
+Visit
+= Visite
+
+
+Open Converter.
+= Open Converter.
+
+
+Done
+= Done
+
+
+Save Contacts
+= Enregistrer les contacts
+
+
+Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!
+= Cleaner vous permet de trouver et de supprimer différents types de photos incorrectes si elles correspondent, par exemple, des images en double et des images similaires, des photos en gros plan ou des captures d'écran!
+
+
+Please open settings and allow access to your photos
+= Veuillez ouvrir les paramètres et autoriser l'accès à vos photos
+
+
+OK
+= OK
+
+
+My Albums
+= Mes albums
+
+
+Engineering Notes
+= Notes techniques
+
+
+Open EXIF Ghost.
+= Open EXIF Ghost.
+
+
+Address
+= Adresse
+
+
+Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.
+= Être un artiste. Artist vous permet de transformer radicalement toutes vos photos ou vidéos en peintures de style célèbres. Cet outil de traitement par lots n’a pas de limite au nombre de photos à convertir.
+
+
+Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
+= La restauration permet de restaurer rapidement un grand nombre de photos éditées sur l’original. De plus, il vous aide avec la sélection automatique!
+
+
+Take A Selfie With Live Photo.
+= Take A Selfie With Live Photo.
+
+
+Scale To Fit
+= Échelle à adapter
+
+
+1 %@
+= 1 %@
+
+
+Edit this video
+= Modifier cette vidéo
+
+
+Verification Failed.
+= Échec de la vérification.
+
+
+Animated GIF
+= GIF animé
+
+
+Convert the last Live Photo Into GIF.
+= Convertir la dernière photo en direct au format GIF.
+
+
+Search On Google Maps
+= Recherche sur Google Maps
+
+
+All
+= Tout
+
+
+Give A Rating
+= Donner une note
+
+
+Edit %@ Items
+= Modifier les %@ éléments
+
+
+Photos
+= Photos
+
+
+Guest User License Program
+= Programme de licence d'utilisateur invité
+
+
+Cancelling...
+= Annulation ...
+
+
+Please turn off following option, and reset advertising identifier in Settings. Then try again.
+= Désactivez l'option suivante et réinitialisez l'identifiant publicitaire dans Paramètres. Puis réessayez.
+
+
+On Standby
+= En attente
+
+
+Copy
+= Copie
+
+
+Create
+= Créer
+
+
+Edit
+= Edit
+
+
+Take A Photo
+= Prendre une photo
+
+
+Could not detect anything.
+= Impossible de détecter quoi que ce soit.
+
+
+All Tools License
+= Licence Tous Outils
+
+
+Please Input Your Secret Code
+= Veuillez saisir votre code secret
+
+
+Deselect this video
+= Désélectionner cette vidéo
+
+
+Settings
+= Paramètres
+
+
+%@ Download now for FREE!
+= %@ Téléchargez maintenant GRATUITEMENT!
+
+
+Would you like to go back to %@?
+= Voulez-vous revenir à %@?
+
+
+Converter
+= Convertisseur
+
+
+Welcome to our Partnership License Program!
+= Bienvenue dans notre programme de licence de partenariat!
+
+
+Starting to revert...
+= Commencer à revenir ...
+
+
+second
+= seconde
+
+
+Original
+= Original
+
+
+Selected
+= Choisi
+
+
+Take A Live Photo.
+= Take A Live Photo.
+
+
+Your Message Has Been Sent.
+= Votre message a été envoyé.
+
+
+%@ Item
+= %@ Article
+
+
+Rate It
+= Noter
+
+
+%@ Day
+= %@ Jour
+
+
+Smart
+= Smart
+
+
+Information of Use
+= Informations d'utilisation
+
+
+Special Guest License Program
+= Programme spécial de licence d'invité
+
+
+Copying Photos...
+= Copier des photos ...
+
+
+Forward
+= Vers l'avant
+
+
+New Event
+= Nouvel évènement
+
+
+Remaining Level
+= Niveau restant
+
+
+Your code was expired.
+= Votre code a expiré.
+
+
+Edit
+= Edit
+
+
+Purchase
+= achat
+
+
+Your code is invalid. Please try again.
+= Votre code est invalide Veuillez réessayer.
+
+
+Reverting Photos...
+= Rétablissement des photos ...
+
+
+Download
+= Télécharger
+
+
+Select Photos To Find Something.
+= Sélectionnez des photos pour trouver quelque chose.
+
+
+Hi %@ Team, I'm %@.
+= Bonjour %@ Team, je suis %@.
+
+
+Free Use And All New Updates
+= Utilisation gratuite et toutes les nouvelles mises à jour
+
+
+New Contact
+= Nouveau contact
+
+
+Videos Without Sound
+= Vidéos sans son
+
+
+Convert
+= Convertir
+
+
+Page Margin
+= Marge de page
+
+
+Save
+= Save
+
+
+Convert the last Video Into Live Photo.
+= Convertir la dernière vidéo en photo en direct.
+
+
+Detecting ... %@
+= Détecter ... %@
+
+
+Message To Us
+= Message à nous
+
+
+Switch on any items you want to hide. The quality will perfectly remain the same.
+= Allumez tous les éléments que vous souhaitez masquer. La qualité restera parfaitement la même.
+
+
+Flashlight
+= Lampe de poche
+
+
+Thank you for your purchase.
+= Merci pour votre achat.
+
+
+Just select photos you need and then run it.
+= Sélectionnez simplement les photos dont vous avez besoin, puis exécutez-les.
+
+
+Share Your Talent, Make Together. Obtain Each Reward If Adopted.
+= Partagez votre talent, faites ensemble. Obtenez chaque récompense si elle est adoptée.
+
+
+Direction
+= Direction
+
+
+Stabilizing Selected Items...
+= Stabilisation d'éléments sélectionnés ...
+
+
+Confirm
+= Confirmer
+
+
+Similarity
+= Similarité
+
+
+Get All Text
+= Obtenir tout le texte
+
+
+Auto Editor
+= Auto Editor
+
+
+Share This App
+= Partager cette application
+
+
+Prices Are Including Every New Tools and Updates, also it will not renew automatically.
+= Les prix incluent tous les nouveaux outils et mises à jour, ils ne seront pas renouvelés automatiquement.
+
+
+To use this app needs a corresponding access license. Would you like to open %@?
+= Pour utiliser cette application, vous devez disposer d'une licence d'accès correspondante. Voulez-vous ouvrir %@?
+
+
+Find
+= Trouver
+
+
+Custom
+= Douane
+
+
+Open Google Maps
+= Ouvrez Google Maps
+
+
+Anytime free cancellation.
+= Annulation gratuite à tout moment.
+
+
+week
+= la semaine
+
+
+Too Close-up Face
+= Visage trop rapproché
+
+
+Discard Changes
+= Annuler les modifications
+
+
+Starting to copy photos...
+= Commencer à copier des photos ...
+
+
+Usage Guide
+= Guide d'utilisation
+
+
+Auto Select on %@.
+= Sélection automatique sur %@.
+
+
+From remote clipboard
+= Du presse-papier à distance
+
+
+Apply
+= Appliquer
+
+
+Currency Exchange
+= Échange de devises
+
+
+Take A GIF With Live Photo.
+= Prenez un GIF avec Live Photo.
+
+
+Image
+= Image
+
+
+Date
+= Date
+
+
+Waiting To Select ...
+= En attente de sélection ...
+
+
+Videos Shorter Than 1 Second
+= Vidéos plus courtes que 1 seconde
+
+
+Promotion User
+= Promotion User
+
+
+Welcome to our special guest license program!
+= Bienvenue dans notre programme spécial de licence d'invité!
+
+
+Open Cleaner.
+= Open Cleaner.
+
+
+Open Apple Maps
+= Ouvrir les cartes Apple
+
+
+Select Photos To Delete.
+= Sélectionnez Photos à supprimer.
+
+
+Export
+= Exportation
+
+
+Download now for FREE at %@
+= Téléchargez maintenant gratuitement à %@
+
+
+%@ Photos
+= %@ Photos
+
+
+Partnership License
+= Licence de partenariat
+
+
+%@ will be hidden
+= %@ sera caché
+
+
+Paste images from your clipboards
+= Coller des images de vos presse-papiers
+
+
+Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
+= Appliquez des filtres de haute qualité à toutes vos photos. Cet outil de traitement par lots n'a pas de limite quant au nombre de photos à appliquer aux filtres.
+
+
+Albums
+= Albums
+
+
+Open Artist.
+= Artiste ouvert.
+
+
+Remaining Percentage
+= Pourcentage restant
+
+
+Taken With Built-in Camera
+= Pris avec caméra intégrée
+
+
+Send
+= Envoyer
+
+
+Make GIF
+= Faire un GIF
+
+
+Cleaner
+= Nettoyeur
+
+
+Auto Enhance
+= Auto Enhance
+
+
+Blur Rate
+= Taux de flou
+
+
+Burst
+= Éclater
+
+
+Select the content you want to copy, then copy it on your iPhone or Mac with Handoff
+= Sélectionnez le contenu que vous souhaitez copier, puis copiez-le sur votre iPhone ou Mac avec Handoff
+
+
+Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.
+= Actuellement, notre modèle de reconnaissance de texte AI n'est disponible que pour les caractères alphanumériques et certains caractères spéciaux. Il pourrait être affecté par la langue du système actuel.
+
+
+Save the copied image.
+= Enregistrez l'image copiée.
+
+
+Ongoing Use of All and New Main Tools
+= Utilisation continue de tous les outils principaux et nouveaux
+
+
+1-Month Use of Main and New Tools
+= Utilisation pendant un mois des outils principaux et nouveaux
+
+
+Live Photo
+= Live Photo
+
+
+GIF Maker
+= GIF Maker
+
+
+Open Rotation.
+= Open Rotation.
+
+
+Take Part
+= Prendre part
+
+
+Privacy Policy
+= Politique de confidentialité
+
+
+Convert the last Video Into GIF.
+= Convertir la dernière vidéo en GIF.
+
+
+Video Tutorials
+= Tutoriels vidéos
+
+
+Crop to Fit
+= Crop to Fit
+
+
+Search On Google
+= Recherche sur Google
+
+
+%@ Photo
+= %@ Photo
+
+
+Could not detect any text.
+= Impossible de détecter le texte.
+
+
+%@/Day
+= %@ / Jour
+
+
+Color And Reminder for Each Phases
+= Couleur et rappel pour chaque phase
+
+
+Guest User License
+= Licence d'utilisateur invité
+
+
+You can select only photos or videos that matched with starting format.
+= Vous ne pouvez sélectionner que des photos ou des vidéos correspondant au format de départ.
+
+
+Restorer
+= Restauration
+
+
+Delete
+= Delete
+
+
+6-Month Use of Main And New Tools
+= Utilisation de 6 mois d'outils principaux et nouveaux
+
+
+Join In Partnership Program
+= Programme de partenariat
+
+
+Save and Share
+= Sauvegarder et partager
+
+
+Could not detect any contact.
+= Impossible de détecter aucun contact.
+
+
+Edit %@ Videos
+= Modifier %@ Vidéos
+
+
+Main Tools Use of %@ Day
+= Principaux outils Utilisation de la journée %@
+
+
+Send an Email
+= Envoyer un e-mail
+
+
+Messenger
+= Messager
+
+
+Starting to create PDF...
+= Commencer à créer un PDF ...
+
+
+Welcome to our promotion license program!
+= Bienvenue dans notre programme de licence de promotion!
+
+
+7-Day Use of Main and New Tools
+= Utilisation pendant 7 jours des outils principaux et nouveaux
+
+
+Use Trial
+= Utiliser l'essai
+
+
+Edit %@ Photos
+= Modifier %@ Photos
+
+
+Access Denied.
+= Accès refusé.
+
+
+Our Social Media
+= Nos médias sociaux
+
+
+%@ Partnership License
+= %@ Licence de partenariat
+
+
+Promotion License Program
+= Promotion License Program
+
+
+Welcome to our VIP license program.
+= Bienvenue dans notre programme de licence VIP.
+
+
+Convert the last Video Into MP4.
+= Convertir la dernière vidéo en MP4.
+
+
+It looks invalid code. Please Try again.
+= Il semble code non valide. Veuillez réessayer.
+
+
+Open %@
+= Ouvrir %@
+
+
+Making A Call
+= Faire un appel
+
+
+Please try again with another code.
+= Veuillez réessayer avec un autre code.
+
+
+Presets
+= Presets
+
+
+%@ Items
+= %@ Items
+
+
+Access Failed.
+= Accès échoué.
+
+
+Activate Ads
+= Activer les annonces
+
+
+Rotate
+= Tourner
+
+
+Stabilization Mode
+= Mode de stabilisation
+
+
+Familiy
+= Famille
+
+
+Photos Access Disabled
+= Photos Accès désactivé
+
+
+Open Settings
+= Ouvrir les paramètres
+
+
+Edit this photo
+= Modifier cette photo
+
+
+Access Granted.
+= Accès autorisé.
+
+
+Lover
+= Amoureux
+
+
+EXIF Ghost lets you remove all kinds of data containing your photos including private information.
+= EXIF Ghost vous permet de supprimer toutes sortes de données contenant vos photos, y compris des informations privées.
+
+
+Permanent Use And All New Updates
+= Utilisation permanente et toutes les nouvelles mises à jour
+
+
+PDFMaker makes PDF document from multiple images with various page options.
+= PDFMaker crée un document PDF à partir de plusieurs images avec différentes options de page.
+
+
+Choose An Action
+= Choisissez une action
+
+
+It requires a permission to access your contacts. Please allow Contacts on iOS Settings.
+= Il nécessite une autorisation pour accéder à vos contacts. Veuillez autoriser les contacts sur les paramètres iOS.
+
+
+Portrait
+= Portrait
+
+
+Memory
+= Mémoire
+
+
+Open GIF Maker.
+= Open GIF Maker.
+
+
+Album
+= Album
+
+
+Edit %@ Video
+= Modifier %@ Vidéo
+
+
+Choose An Sub Action.
+= Choisissez une sous-action.
+
+
+Open Web Page
+= Ouvrir une page Web
+
+
+Image
+= Image
+
+
+Clipboard is empty
+= Presse-papiers est vide
+
+
+Capture All Text.
+= Capturer tout le texte.
+
+
+minute
+= minute
+
+
+Warp
+= Warp
+
+
+Formats
+= Formats
+
+
+Activating Current Visible Items ...
+= Activer les éléments visibles actuels ...
+
+
+Settings for Main Tools License
+= Paramètres de la licence d'outils principaux
+
+
+Could not receive Ads.
+= Impossible de recevoir des annonces.
+
+
+%@ Ownership
+= %@ Propriété
+
+
+VIP License
+= Licence VIP
+
+
+Choose An Export Option For %d Items
+= Choisissez une option d'exportation pour %d éléments
+
+
+Search for %@
+= Recherche de %@
+
+
+Open Camera To Take A Photo
+= Ouvrir l'appareil photo pour prendre une photo
+
+
+Take A Photo.
+= Prendre une photo.
+
+
+Open Photo Filters
+= Filtres photo ouverts
+
+
+Convert the last Live Photo into Live Photo
+= Convertir la dernière photo live en photo live
+
+
+Capture Actions To Do.
+= Actions de capture à faire.
+
+
+Convert the last Live Photo into unknown
+= Convertir la dernière photo live en inconnue
+
+
+Find Phone Numbers
+= Rechercher des numéros de téléphone
+
+
+Take A Live Photo
+= Prendre une photo en direct
+
+
+Convert the last Video into GIF
+= Convertir la dernière vidéo en GIF
+
+
+Find Phone Numbers
+= Rechercher des numéros de téléphone
+
+
+Open ${appName}
+= Ouvrir ${appName}
+
+
+Capture All Text.
+= Capturer tout le texte.
+
+
+Give Me That Phone Number.
+= Donnez-moi ce numéro de téléphone.
+
+
+OK. You can take a Selfie now
+= D'ACCORD. Vous pouvez prendre un selfie maintenant
+
+
+Open App
+= Ouvrir application
+
+
+Auto Select.
+= Sélection automatique.
+
+
+Recognize Text.
+= Reconnaître le texte.
+
+
+Give Me That Phone Number.
+= Donnez-moi ce numéro de téléphone.
+
+
+Open Camera.
+= Ouvrir la caméra.
+
+
+Convert the last Live Photo into another.
+= Convertissez la dernière photo en direct en une autre.
+
+
+Recognize Text.
+= Reconnaître le texte.
+
+
+Convert the last Video into unknown
+= Convertir la dernière vidéo en inconnue
+
+
+Open App
+= Ouvrir application
+
+
+OK. You can take a Selfie With Live Photo now
+= D'ACCORD. Vous pouvez prendre un Selfie avec Live Photo maintenant
+
+
+Recognize Text.
+= Reconnaître le texte.
+
+
+Convert the last Video into another.
+= Convertissez la dernière vidéo en une autre.
+
+
+Capture All Text.
+= Capturer tout le texte.
+
+
+Convert the last Live Photo into GIF
+= Convertir la dernière photo Live en GIF
+
+
+Choose Lockscreen Shots To Delete.
+= Choisissez Lockscreen Shots To Delete.
+
+
+Convert the last Video into MP4
+= Convertir la dernière vidéo en MP4
+
+
+Take A Photo
+= Prendre une photo
+
+
+Take A Photo
+= Prendre une photo
+
+
+Take A Selfie With Live Photo
+= Prendre un selfie avec photo en direct
+
+
+Open ${appName}
+= Ouvrir ${appName}
+
+
+Take A GIF With Live Photo
+= Prenez un GIF avec Live Photo
+
+
+Find Phone Numbers
+= Rechercher des numéros de téléphone
+
+
+Choose To Delete.
+= Choisissez pour supprimer.
+
+
+Open ${appName}
+= Ouvrir ${appName}
+
+
+Take A GIF With Live Photo
+= Prenez un GIF avec Live Photo
+
+
+Save the copied image.
+= Enregistrez l'image copiée.
+
+
+Convert the last Video into another.
+= Convertissez la dernière vidéo en une autre.
+
+
+Capture Actions To Do.
+= Actions de capture à faire.
+
+
+Auto Select.
+= Sélection automatique.
+
+
+Choose Screenshots To Delete.
+= Choisissez des captures d'écran à supprimer.
+
+
+Open ${appName}
+= Ouvrir ${appName}
+
+
+Convert the last Live Photo into MP4
+= Convertir la dernière photo en direct en MP4
+
+
+Convert the last Video into Live Photo
+= Convertir la dernière vidéo en photo en direct
+
+
+Give Me That Phone Number.
+= Donnez-moi ce numéro de téléphone.
+
+
+Open ${appName}
+= Ouvrir ${appName}
+
+
+Take a photo with Camera app.
+= Prenez une photo avec l'application Appareil photo.
+
+
+Capture Actions To Do.
+= Actions de capture à faire.
+
+
+Capture All Text.
+= Capturer tout le texte.
+
+
+Convert the last Live Photo into another.
+= Convertissez la dernière photo en direct en une autre.
+
+
+OK. You can take a Live Photo now
+= D'ACCORD. Vous pouvez prendre une photo en direct maintenant
+
+
+Save the copied image.
+= Enregistrez l'image copiée.
+
+
+Open Cleaner And Then Choose Items To Delete.
+= Ouvrez Cleaner puis choisissez les éléments à supprimer.
+
+
+Take A Selfie
+= Prendre un selfie
+
+
+Take A GIF With Live Photo
+= Prenez un GIF avec Live Photo
+
+
+OK. You can take a Photo now
+= D'ACCORD. Vous pouvez prendre une photo maintenant
+
+
+Choose unknown To Delete.
+= Choisissez inconnu à supprimer.
+
+
+Open Filters.
+= Filtres ouverts.
+
+
+Save the copied image.
+= Enregistrez l'image copiée.
+
+
+Auto Select on ${appName}.
+= Sélection automatique sur ${appName}.

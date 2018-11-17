@@ -643,11 +643,11 @@ private final class AppChargeBanker: ChargeBanker {
     }
 
     func didSaveDeposit(for charge: Charge, balance: Amount) {
-        batchLog.charge.paid(charge: charge)
+        papLog.charge.paid(charge: charge)
     }
 
     func didDeclineDeposit(for charge: Charge) {
-        batchLog.charge.unpaid(charge: charge)
+        papLog.charge.unpaid(charge: charge)
     }
 }
 

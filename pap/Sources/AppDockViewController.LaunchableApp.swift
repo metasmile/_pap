@@ -32,7 +32,7 @@ extension AppCenter{
 
     /* INFO:
     When set "identifier" in App internal code, use string literal instead of reference.
-    e.g. - AppCenter.default.openApp(identifier:"com.stells.mmc.camera")
+    e.g. - AppCenter.default.openApp(identifier:"com.stells.batch.camera")
 
     didOpen(Bool) - true: "changed", false: "did not changed"
     */

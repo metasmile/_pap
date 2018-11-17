@@ -128,7 +128,7 @@ class PhotoAlbumViewController: UIViewController, PHPhotoLibraryChangeObserver {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerThemable()
+        registerThemeable()
         
         collectionView.contentInset.left = 16
         collectionView.contentInset.right = 16
@@ -349,6 +349,12 @@ internal class PhotoAlbumCollectionTitleView: UICollectionReusableView {
             titleLabel.text = title
         }
     }
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        titleLabel.textColor = tintColor
+    }
 }
 
 class PhotoAlbumCollectionViewCell: UICollectionViewCell {
@@ -370,6 +376,7 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
         super.tintColorDidChange()
         
         titleLabel.textColor = tintColor
+        subtitleLabel.textColor = colorTheme.textGrayColor
     }
     
     override func prepareForReuse() {
@@ -413,8 +420,8 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension PhotoAlbumViewController: ColorThemable {
-    func applyTheme(_ colorTheme: ColorTheme) {
-        collectionView.tintColor = colorTheme.textColor
+extension PhotoAlbumViewController: AppColorThemeable {
+    func applyTheme(_ colorTheme: AppColorTheme) {
+        collectionView.tintColor = colorTheme.tintColor
     }
 }

@@ -66,46 +66,22 @@ extension AppAssetItem where StateValueType: ImageEditStateValue {}
 
 //TODO: separate later
 public class ImageEditStateValue: Object {
-    var transform: CGAffineTransform {
+    public var transform: CGAffineTransform {
         return .identity
     }
-    var transform3d: CATransform3D {
+    public var transform3d: CATransform3D {
         return CATransform3DIdentity
     }
-    var ciFilter: CIFilter? {
+    public var ciFilter: CIFilter? {
         return nil
     }
-    var stabilizationMode: ImageAlignment.StabilizationMode? {
+    public var stabilizationMode: ImageAlignment.StabilizationMode? {
         return nil
-    }
-}
-
-
-let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
-
-public extension StateValueSet where T: ImageEditStateValue {
-    var transform: CGAffineTransform {
-        var t = CGAffineTransform.identity
-
-        for value in self.iterator() {
-            t = t.concatenating(value.transform)
-        }
-        return t
-    }
-
-    var transform3d: CATransform3D {
-        var t = CATransform3DIdentity
-        t.m34 = -1 / kEditItemPreviewWidth
-
-        for value in self.iterator() {
-            t = CATransform3DConcat(t, value.transform3d)
-        }
-        return t
     }
 }
 
 public class CIFilterItem: ImageEditStateValue {
-    override var ciFilter: CIFilter? {
+    override public var ciFilter: CIFilter? {
         return _filter
     }
 
@@ -123,6 +99,32 @@ public extension StateValueSet where T: ImageEditStateValue {
         return imageEditStateValue?.ciFilter
     }
 }
+
+//From Transform.BApp
+private let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
+
+public extension StateValueSet where T: ImageEditStateValue {
+    public var transform: CGAffineTransform {
+        var t = CGAffineTransform.identity
+        
+        for value in self.iterator() {
+            t = t.concatenating(value.transform)
+        }
+        return t
+    }
+    
+    public var transform3d: CATransform3D {
+        var t = CATransform3DIdentity
+        t.m34 = -1 / kEditItemPreviewWidth
+        
+        for value in self.iterator() {
+            t = CATransform3DConcat(t, value.transform3d)
+        }
+        return t
+    }
+}
+
+
 
 //TODO: internal / locally collect
 public final class AppAssets: NSObject {

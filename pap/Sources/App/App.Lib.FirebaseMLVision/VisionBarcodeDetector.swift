@@ -9,18 +9,23 @@
 import Foundation
 import FirebaseMLVision
 
-class VisionBarcodeText: NSObject, VisionText {
-    var frame: CGRect
-    var text: String
-    var cornerPoints: [NSValue]
+class VisionBarcodeText: VisionTextBlock {
     var visionBarcode: VisionBarcode
     
     init(visionBarcode: VisionBarcode) {
         self.visionBarcode = visionBarcode
-        
-        self.frame = visionBarcode.frame
-        self.text = visionBarcode.rawValue ?? ""
-        self.cornerPoints = visionBarcode.cornerPoints ?? []
+    }
+    
+    override var cornerPoints: [NSValue]? {
+        return visionBarcode.cornerPoints
+    }
+    
+    override var frame: CGRect {
+        return visionBarcode.frame
+    }
+    
+    override var text: String {
+        return visionBarcode.rawValue ?? ""
     }
 }
 

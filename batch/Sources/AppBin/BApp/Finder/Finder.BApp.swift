@@ -535,17 +535,17 @@ extension Defaults: FinderAppDefaults {
     }
 
     fileprivate var selectionPreset: Int {
-        set{ set(newValue); batchLog.app.defaults.log(value: newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value: newValue) }
         get{ return get(or: SelectionPreset.plaintext.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue)  }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue)  }
         get{ return get(or: false ) }
     }
 }
@@ -737,9 +737,9 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             AppCenter.default.currentInstanceAs(FinderApp.self)?.autoSelect = self.autoSelect
 
             if self.autoSelect{
-                batchLog.app.userEnablesASB()
+                papLog.app.userEnablesASB()
             }else{
-                batchLog.app.userDisablesASB()
+                papLog.app.userDisablesASB()
             }
         }
         settingCellDescribers.append(cell1)
@@ -755,7 +755,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 option.identifierToReturn = FinderApp.info.identifier
                 AppCenter.default.openApp(identifier:CameraApp.info.identifier, options:option)
 
-                batchLog.app.userCalledCameraInApp()
+                papLog.app.userCalledCameraInApp()
 
             }
             settingCellDescribers.append(cell_b)
@@ -1065,7 +1065,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             AppCenter.default.currentInstanceAs(FinderApp.self)?.disposePreheatingCache()
 
             if on{
-                batchLog.app.defaults.log(value: String(describing: dict.items[indexPath.item].key))
+                papLog.app.defaults.log(value: String(describing: dict.items[indexPath.item].key))
                 FinderApp.privateDefaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{
                 FinderApp.privateDefaults.removeHandledProperty(dict.key, dict.items[indexPath.item].key)
