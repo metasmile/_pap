@@ -49,6 +49,14 @@ struct URLOpenTypeVideoTutorials: URLOpenType {
     }
 }
 
+struct URLOpenTypeInstagram: URLOpenType {
+    static var webUrl: URL?{ return batchStrings.social.ig.url.asURL }
+
+    static var localUrl: URL? {
+        return "instagram://user?username=\(batchStrings.social.ig.username)".asURL
+    }
+}
+
 struct URLOpenTypeAppsIndex: URLOpenType {
     static var webUrl: URL?{ return batchStrings.info.appsIndex.url.asURL }
 }

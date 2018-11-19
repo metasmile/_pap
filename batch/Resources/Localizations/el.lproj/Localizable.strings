@@ -120,7 +120,7 @@
 "cs_keyword_13" = "εραστής";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Ιδιοκτησία";
@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d times";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "Ως «Κύρια εργαλεία» νοούνται όλα τα άλλα εργαλεία που δεν εμφανίζονται ειδικά εδώ.";
+"'Main Tools' means all other tools that are not included in any specific license." = "Ως «βασικά εργαλεία» νοούνται όλα τα άλλα εργαλεία που δεν περιλαμβάνονται σε καμία συγκεκριμένη άδεια.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -294,7 +294,7 @@
 "Detection Targets" = "Στόχοι ανίχνευσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Κατεβάστε τώρα δωρεάν στο %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Κατεβάστε";
@@ -354,7 +354,7 @@
 "Guest User License" = "Άδεια χρήσης χρήστη";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Επισκέπτης Χρήστης";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Χειριστείτε πολλές φωτογραφίες ταυτόχρονα.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Απαιτεί άδεια πρόσβασης στις επαφές σας. Επιτρέψτε στις Επαφές στις Ρυθμίσεις iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Συμμετοχή στο Πρόγραμμα Συνεργασίας";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Απλά επιλέξτε τις φωτογραφίες που χρειάζεστε και στη συνέχεια εκτελέστε την.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";
@@ -474,6 +474,8 @@
 "Open" = "Ανοιξε";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Original";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Το %@";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Τα κοινωνικά μας μέσα ενημέρωσης";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
@@ -614,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Κοινή χρήση στο Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,24 +656,24 @@
 "Stories of Us" = "Ιστορίες από εμάς";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Ενεργοποιήστε τα στοιχεία που θέλετε να αποκρύψετε. Η ποιότητα θα παραμείνει τέλεια η ίδια.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Πάρτε ένα GIF με Live φωτογραφία.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Βγάλε μια φωτογραφία";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Συμμετέχω";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Πάρτε ένα GIF με Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Πάρτε μια ζωντανή φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Βγάλε μια φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Πάρτε μια Selfie με μια ζωντανή φωτογραφία.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Πάρτε ένα Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Πατήστε για την ανίχνευση κειμένου";
+"Tap to detect text" = "Αγγίξτε για να ανιχνεύσετε κείμενο";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Στοχοθετημένη";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -691,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Σας ευχαριστούμε πολύ για τα σχόλιά σας! Σύντομα θα επικοινωνήσουμε μαζί σας.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Η τιμή συμπεριλαμβάνει κάθε νέο εργαλείο και σήμερα είναι η φθηνότερη ημέρα για να το πάρετε.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Η τιμή περιλαμβάνει κάθε νέο εργαλείο. Σήμερα είναι η φθηνότερη ημέρα για να πάρετε αυτό.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -726,6 +726,8 @@
 "VIP License Program" = "Πρόγραμμα Άδειας VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "Άδεια VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP συμμετοχή όλων των προϊόντων μας.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: Shop.SApp.swift */

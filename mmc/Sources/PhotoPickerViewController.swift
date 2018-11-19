@@ -63,7 +63,6 @@ class PhotoPickerViewController: AppDockViewController {
 
     override func viewDidLoad() {
         self.appDockView?.delegate = self
-        self.appDockView?.minimumNumberOfVisibleApps = 1
 
         super.viewDidLoad()
 
@@ -109,7 +108,7 @@ class PhotoPickerViewController: AppDockViewController {
                 FileManager.default.clearTemporaryDirectory()
             }
 
-            mmcLog.allTasksAreFinished()
+            papLog.allTasksAreFinished()
         }
         
         navigationItem.setLeftBarButton(nil, animated: false)
@@ -277,20 +276,6 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         batchPreviewView.updatePreviews()
-    }
-
-    override func registerWatchingAppConfig() {
-        AppCenter.default.currentInstanceAs(FinderApp.self)?.watch(\.autoSelect, id: "picker\(FinderApp.info.identifier)") { (app, changed) in
-            if app.autoSelect && !AppCenter.default.task.isRunning {
-                self.cancelPreheatingIfNeeded()
-                self.performPrefetchIfNeeded(includingCurrentVisibleItems: true)
-            }
-        }
-    }
-    
-    override func unregisterWatchingAppConfig() {
-        AppCenter.default.currentInstanceAs(FinderApp.self)?.unwatch(\.autoSelect, forIds:["picker\(FinderApp.info.identifier)"])
-        AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
 
     override func viewDidLayoutSubviews() {
@@ -571,7 +556,7 @@ class PhotoPickerViewController: AppDockViewController {
         var insertedIndexes = [IndexPath]()
 
         //perform batch update
-        //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.mmc/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
+        //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.{*}}/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
         self.photoCollectionView.performBatchUpdates({
             for (section, changes) in fetchResultChanges {
                 // Update data collection before items updated
@@ -622,7 +607,7 @@ class PhotoPickerViewController: AppDockViewController {
         }, completion: { _ in
             if tasksWereRanAndRemoved {
                 AppCenter.default.task.perform(self.batchPreviewView.createTaskReaction())
-                mmcLog.performWhenPhotoLibraryDidChanged()
+                papLog.performWhenPhotoLibraryDidChanged()
             }else{
                 self.updateAllPhotosTitle()
                 self.updateUIDisplays()
@@ -677,53 +662,64 @@ extension UIView {
 }
 
 extension PhotoPickerViewController: EditViewControllerDelegate {
-    func showPhotoEditor(with editItem: AppAsset?) {
+    func showPhotoEditor(with editItem: AppAsset?, animated: Bool = false) {
         DispatchQueue.main.async{
-            self._showPhotoEditor(with:editItem)
+            self._showPhotoEditor(with:editItem, animated: animated)
         }
     }
 
-    private func _showPhotoEditor(with editItem: AppAsset?) {
+    private func _showPhotoEditor(with editItem: AppAsset?, animated: Bool = false) {
         guard let editItem = editItem else { return }
-        
+
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)
             photoEditViewController.selectedInPicker = AppAssets.selected.by(editItem.asset) != nil
-            
+
             if let index = AppAssets.selected.index(of: editItem), let cell = batchPreviewView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? PreviewCollectionViewCell {
                 let snapshot = cell.assetView.asImage()?.applyTransform(editItem.editState.transform)
                 photoEditViewController.placeholderImage = snapshot
-                
+
                 let placeholderView = UIImageView(frame: cell.assetView.frame)
                 placeholderView.image = snapshot
                 placeholderView.contentMode = .scaleAspectFit
-                cell.assetView.superview?.addSubview(placeholderView)
-                
-                photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.assetView, placeholderView: placeholderView)
-                photoEditorTransitionContext?.sourceView.isHidden = true
+
+                photoEditViewController.transitionAnimator.sourceView = cell
+                photoEditViewController.transitionAnimator.transitionView = placeholderView
+                let rectInCollectionView = cell.convert(placeholderView.frame, to: batchPreviewView.collectionView)
+                placeholderView.frame = view.convert(rectInCollectionView, from: batchPreviewView.collectionView)
+
+                photoEditViewController.transitionAnimator.sourceRect = placeholderView.frame
             }
             else if let indexPath = photoEditViewController.indexPathInPicker, let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell {
                 let snapshot = editItem.asset.requestThumbnailImage(targetSize: cell.imageView.frame.size)
                 photoEditViewController.placeholderImage = snapshot
-                
+
                 let placeholderView = UIImageView(frame: cell.imageView.frame)
                 placeholderView.image = snapshot
                 placeholderView.contentMode = .scaleAspectFill
-                cell.imageView.superview?.addSubview(placeholderView)
-                
-                photoEditorTransitionContext = PhotoEditorTransitionContext(sourceView: cell.imageView, placeholderView: placeholderView)
-                photoEditorTransitionContext?.sourceView.isHidden = true
+
+                photoEditViewController.transitionAnimator.sourceView = cell
+                photoEditViewController.transitionAnimator.transitionView = placeholderView
+                let rectInCollectionView = cell.convert(placeholderView.frame, to: photoCollectionView)
+                placeholderView.frame = view.convert(rectInCollectionView, from: photoCollectionView)
+
+                photoEditViewController.transitionAnimator.sourceRect = placeholderView.frame
             }
-            
+
+            if !animated {
+                photoEditViewController.transitionAnimator.sourceView?.isHidden = true
+            }
+
             appDockContentLayoutStateRestoringAfterProcessing = appDockView?.contentLayoutState
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
+            navigationController.transitioningDelegate = photoEditViewController
 
-            present(navigationController, animated: false) {
-                self.photoEditorTransitionContext?.sourceView.isHidden = false
+            present(navigationController, animated: animated) {
+                AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
             }
         }
     }

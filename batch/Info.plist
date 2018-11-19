@@ -35,7 +35,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>51</string>
+	<string>54</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -141,7 +141,6 @@
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertLatestLivePhotoIntent</string>
 		<string>ConvertLatestVideoIntent</string>
-		<string>FindPhoneNumbersIntent</string>
 		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenCameraIntent</string>
 		<string>OpenFiltersIntent</string>

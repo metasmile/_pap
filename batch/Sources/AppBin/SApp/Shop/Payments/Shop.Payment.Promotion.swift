@@ -30,7 +30,7 @@ private extension VerifiablePayable{
 
 private struct AppStoreRatingInitializer{
     fileprivate static func initialize(){
-        Armchair.appID(batchStrings.appStoreId)
+        Armchair.appID(InfoStrings.appStoreId)
         Armchair.useStoreKitReviewPrompt(true)
         Armchair.resetAllCounters()
         Armchair.shouldIncrementUseCountClosure { () -> Bool in
@@ -82,7 +82,7 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
         var paid = false
         asyncSignal.begin()
 
-        batchLog.charge.userHasShownInAppPromptRating()
+        papLog.charge.userHasShownInAppPromptRating()
 
         DispatchQueue.main.async{
             Armchair.showPrompt { info in

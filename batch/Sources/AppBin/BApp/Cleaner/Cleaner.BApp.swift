@@ -347,17 +347,17 @@ extension Defaults: CleanerAppDefaults {
     }
 
     fileprivate var deletingTarget: Int {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: DeletingTarget.selected.rawValue ) }
     }
 
     fileprivate var saveContactWithoutEdit: Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
     fileprivate var quickActionOnly: Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 
@@ -549,9 +549,9 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             }
 
             if enabled{
-                batchLog.app.userEnablesASB()
+                papLog.app.userEnablesASB()
             }else{
-                batchLog.app.userDisablesASB()
+                papLog.app.userDisablesASB()
             }
 
         }
@@ -787,7 +787,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             var collection = self.defaultCollections
             collection[dictIndex].items[indexPath.item].enabled = on
 
-            batchLog.app.defaults.log(key:gdIdentifier, value:on)
+            papLog.app.defaults.log(key:gdIdentifier, value:on)
             
 //            //configure relative options
 //            if identifier==PHAssetGarbageDetector_FlashlightAndCloseupFace.identifier{

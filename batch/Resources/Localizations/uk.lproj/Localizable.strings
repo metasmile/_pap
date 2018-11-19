@@ -120,7 +120,7 @@
 "cs_keyword_13" = "коханець";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ День";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Завантажити зараз БЕЗКОШТОВНО!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Власність";
@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d раз";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "&quot;Основні інструменти&quot; означає всі інші інструменти, які не відображаються тут спеціально.";
+"'Main Tools' means all other tools that are not included in any specific license." = "&quot;Основні інструменти&quot; означає всі інші інструменти, які не входять до жодної конкретної ліцензії.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -294,7 +294,7 @@
 "Detection Targets" = "Визначення цілей";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Завантажити";
@@ -354,7 +354,7 @@
 "Guest User License" = "Ліцензія користувача гостя";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Гостьовий користувач";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Обробити безліч фотографій одночасно.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Привіт, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Для цього потрібен дозвіл на доступ до ваших контактів. Дозвольте дозволити контактам в налаштуваннях iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Приєднуйтесь до Партнерської програми";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Просто виберіть потрібні фотографії, а потім запустіть його.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
@@ -474,6 +474,8 @@
 "Open" = "ВІДЧИНЕНО";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Оригінал";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "Наша %@";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Наші соціальні медіа";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
@@ -614,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Поділіться своїм талантом, зробіть разом. Отримати кожну нагороду, якщо вона буде прийнята.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Надання доступу до Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,24 +656,24 @@
 "Stories of Us" = "Розповіді про нас";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Увімкніть будь-які елементи, які потрібно сховати. Якість буде абсолютно незмінним.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Візьміть GIF з Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Взяти фото";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Брати участь";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Візьміть GIF за допомогою Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Візьміть Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Візьміть фотографію.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Візьміть Selfie за допомогою Live Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Візьміть себе самостійно.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Взятий з вбудованою камерою";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Натисніть, щоб визначити текст";
+"Tap to detect text" = "Торкніться, щоб виявляти текст";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Цілеспрямований";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -691,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Велике спасибі за ваш відгук! Скоро ми зв'яжемося з вами.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Ціна включає в себе кожен новий інструмент, і сьогодні це найдешевший день, щоб отримати це.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Ціна включає в себе кожен новий інструмент. Сьогодні це найдешевший день, щоб це зробити.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Цей простий, але широкомасштабний інструмент перетворення зображень дозволяє вам швидко обертати і перевертати багато медіа-файлів, включаючи Live Photos. Кількість фотографій для їх редагування не обмежується.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -726,6 +726,8 @@
 "VIP License Program" = "VIP ліцензійна програма";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP-ліцензія";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "VIP-членство у всіх наших продуктах.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Верифікація не вдалася.";
 /* Generated from genl10n: Shop.SApp.swift */

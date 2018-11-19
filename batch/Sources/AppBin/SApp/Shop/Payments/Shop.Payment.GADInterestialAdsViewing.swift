@@ -138,12 +138,12 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
         }
     }
 
-    static var isEnable: Bool{
-        if AppCenter.charge.isPaid(payable: self){
-            return true
-        }
-        return NetworkReachabilityManager(host: "www.google.com")?.isReachable == true
-    }
+//    static var isEnable: Bool{
+//        if AppCenter.charge.isPaid(payable: self){
+//            return true
+//        }
+//        return NetworkReachabilityManager(host: "www.google.com")?.isReachable == true
+//    }
 
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
         T.prepare(asyncSignal)
@@ -202,12 +202,12 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                 }
                 asyncSignal.waitUntilEnd()
 
-                batchLog.charge.ads.offlineModeWarning()
+                papLog.charge.ads.offlineModeWarning()
                 return true
             }
 
             //Default actions is not allowed.
-            batchLog.charge.ads.offlineModeDenied()
+            papLog.charge.ads.offlineModeDenied()
             return false
         }
 
@@ -249,7 +249,7 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                             if AppCenter.default.current != ShopApp.self{
                                 let goShopAppAction = UIAlertAction(title: "Open %@".localizedFormatted(ShopApp.info.displayName), style: .default) { action in
                                     asyncSignal.end()
-                                    batchLog.charge.ads.movedToSettingsUnableReceivingAds()
+                                    papLog.charge.ads.movedToSettingsUnableReceivingAds()
 
                                     AppCenter.default.openApp(identifier:ShopApp.info.identifier)
                                 }
@@ -264,14 +264,14 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
                                 asyncSignal.end()
                             })
 
-                            batchLog.charge.ads.occurredShowedUnableReceivingAds()
+                            papLog.charge.ads.occurredShowedUnableReceivingAds()
 
                         }else{
                             // message not required
                             asyncSignal.end()
                         }
 
-                        batchLog.error.recordedError(error)
+                        papLog.error.recordedError(error)
 
                     }else{
 

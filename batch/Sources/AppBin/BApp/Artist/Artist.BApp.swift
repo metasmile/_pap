@@ -21,7 +21,7 @@ extension Defaults: ArtistAppDefaults {
             return get(or: nil)
         }
         
-        set { set(newValue); batchLog.app.defaults.log(value:newValue ?? "Original") }
+        set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
     }
 }
  
@@ -118,7 +118,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.share]
     }
 
     public static var fixedContentLayout: Bool {

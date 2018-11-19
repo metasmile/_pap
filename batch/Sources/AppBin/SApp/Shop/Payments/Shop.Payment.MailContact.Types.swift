@@ -27,7 +27,7 @@ struct MailContactFeedbackType: MailContactType {
     static var attributes: MailContactTypeAttributes {
         return (
                 addresses: [batchStrings.contact.feedback.email]
-                , subject: "👋 " + "My Feedback on %@".localizedFormatted(batchStrings.name)
+                , subject: "👋 " + "My Feedback on %@".localizedFormatted(InfoStrings.name)
                 , messageAfterSent: "Thank you very much for your feedback! Soon we will contact you.".localized
         )
     }
@@ -48,7 +48,7 @@ struct MailContactHotlineType: MailContactType {
         let ownerName = SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.grantedOwnerName ?? PermanentVIPSecretCodeProgram.defaultOwnerName
         return (
                 addresses: [batchStrings.contact.vip.email]
-                , subject: "Hi %@ Team, I'm %@.".localizedFormatted(batchStrings.name, ownerName)
+                , subject: "Hi %@ Team, I'm %@.".localizedFormatted(InfoStrings.name, ownerName)
                 , messageAfterSent: "Thank you %@. Soon we will contact you.".localizedFormatted(ownerName)
         )
     }

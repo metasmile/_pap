@@ -120,7 +120,7 @@
 "cs_keyword_13" = "kekasih";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Unduh sekarang GRATIS!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Kepemilikan";
@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d kali";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'Alat Utama' berarti semua alat lain yang tidak ditampilkan secara khusus di sini.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'Alat Utama' berarti semua alat lain yang tidak termasuk dalam lisensi khusus apa pun.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -294,7 +294,7 @@
 "Detection Targets" = "Target Deteksi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Unduh sekarang GRATIS di %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "Unduh";
@@ -354,7 +354,7 @@
 "Guest User License" = "Lisensi Pengguna Tamu";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "Pengguna Tamu";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Tangani banyak foto sekaligus.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Halo, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Ini membutuhkan izin untuk mengakses kontak Anda. Harap izinkan Kontak di Pengaturan iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "Bergabung Dalam Program Kemitraan";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "Cukup pilih foto yang Anda butuhkan dan kemudian jalankan.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Pemandangan";
@@ -474,6 +474,8 @@
 "Open" = "Buka";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "Asli";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "%@ Kami";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "Media Sosial kami";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
@@ -614,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Bagikan Bakat Anda, Buat Bersama. Dapatkan Setiap Hadiah Jika Diadopsi.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Bagikan";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Sharing on Facebook Messenger";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,24 +656,24 @@
 "Stories of Us" = "Kisah Kami";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Aktifkan item apa pun yang ingin Anda sembunyikan. Kualitasnya akan tetap sama.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "Ambil GIF Dengan Foto Langsung.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "Mengambil foto";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Ambil bagian";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "Ambil GIF dengan Foto Langsung.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "Ambil Foto Langsung.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Mengambil foto.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "Ambil Selfie dengan Foto Hidup.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "Ambil Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Bawaan";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "Ketuk Untuk Mendeteksi Teks";
+"Tap to detect text" = "Ketuk untuk mendeteksi teks";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Ditargetkan";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -691,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "Terima kasih banyak atas tanggapan Anda! Segera kami akan menghubungi Anda.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "Harga Termasuk Setiap Alat Baru, Dan Hari Ini Adalah Hari Termurah Untuk Mendapatkannya.";
+"The price is including every new tool. Today is the cheapest day to get this." = "Harga sudah termasuk setiap alat baru. Hari ini adalah hari termurah untuk mendapatkan ini.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Alat transformasi gambar batch yang sederhana namun berskala besar ini memungkinkan Anda dengan cepat memutar dan membalik banyak file media termasuk Live Photos. Tidak ada batasan jumlah foto untuk mengeditnya.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -726,6 +726,8 @@
 "VIP License Program" = "Program Lisensi VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "Lisensi VIP";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "Keanggotaan VIP Semua Produk Kami.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifikasi gagal.";
 /* Generated from genl10n: Shop.SApp.swift */

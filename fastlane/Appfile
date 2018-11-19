@@ -1,0 +1,11 @@
+
+
+if ENV['batch']
+    itc_team_name "Ji Young Park"
+elsif ENV['mmc']
+    itc_team_name "Tae ho Lee"
+elsif ENV['ocra']
+    itc_team_name "Tae ho Lee"
+elsif ENV['sap']
+    itc_team_name "Ji Young Park"
+end

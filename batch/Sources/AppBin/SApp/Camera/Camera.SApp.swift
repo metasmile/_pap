@@ -20,17 +20,17 @@ protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
 
 extension Defaults: CameraAppDefaults {
     var isLivePhotoEnabled: Bool {
-        set { set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
 
     var cameraPosition: AVCaptureDevice.Position {
-        set { set(newValue.rawValue); batchLog.app.defaults.log(value:newValue.rawValue) }
+        set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
 
     var cameraFlashMode: CameraView.FlashMode {
-        set { set(newValue.rawValue); batchLog.app.defaults.log(value:newValue.rawValue) }
+        set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return CameraView.FlashMode(rawValue: get(or: CameraView.FlashMode.off.rawValue)) ?? .off }
     }
 }
@@ -71,7 +71,7 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     func didLaunch(previous: App.Type?, withOption: AppLaunchOptions?) {
         importedLaunchOption = withOption
 
-        batchLog.app.launch(with: withOption)
+        papLog.app.launch(with: withOption)
     }
 }
 
@@ -110,32 +110,32 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeAStillPhotoIntent.appId = CameraApp.info.identifier
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAStillPhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .stillPhoto]).rawValue)
-            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take A Photo.".localized
+            takeAStillPhotoIntent.suggestedInvocationPhrase = "Take a Photo.".localized
 
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
             takeALivePhotoIntent.appId = CameraApp.info.identifier
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeALivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto]).rawValue)
-            takeALivePhotoIntent.suggestedInvocationPhrase = "Take A Live Photo.".localized
+            takeALivePhotoIntent.suggestedInvocationPhrase = "Take a Live Photo.".localized
 
             let takeASelfieIntent = TakeAPhotoIntent()
             takeASelfieIntent.cameraMode = .selfiePhoto
             takeASelfieIntent.appId = CameraApp.info.identifier
             takeASelfieIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeASelfieIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
-            takeASelfieIntent.suggestedInvocationPhrase = "Take A Selfie.".localized
+            takeASelfieIntent.suggestedInvocationPhrase = "Take a Selfie.".localized
 
             let takeASelfieWithLivePhotoIntent = TakeAPhotoIntent()
             takeASelfieWithLivePhotoIntent.cameraMode = .selfieWithLivePhoto
             takeASelfieWithLivePhotoIntent.appId = CameraApp.info.identifier
             takeASelfieWithLivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeASelfieWithLivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
-            takeASelfieWithLivePhotoIntent.suggestedInvocationPhrase = "Take A Selfie With Live Photo.".localized
+            takeASelfieWithLivePhotoIntent.suggestedInvocationPhrase = "Take a Selfie with a Live Photo.".localized
 
             let takeAGIFWithLivePhoto = TakeAGIFWithLivePhotoIntent()
             takeAGIFWithLivePhoto.appId = CameraApp.info.identifier
-            takeAGIFWithLivePhoto.suggestedInvocationPhrase = "Take A GIF With Live Photo.".localized
+            takeAGIFWithLivePhoto.suggestedInvocationPhrase = "Take a GIF with a Live Photo.".localized
 
             return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,takeASelfieIntent,takeASelfieWithLivePhotoIntent, takeAGIFWithLivePhoto]
         } else {

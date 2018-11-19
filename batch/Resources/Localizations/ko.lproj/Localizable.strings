@@ -120,7 +120,7 @@
 "cs_keyword_13" = "연인";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ 일";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ 지금 무료로 다운로드하십시오!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ 소유권";
@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d 회";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'주요 도구'는 여기에 특별히 표시되지 않은 다른 모든 도구를 의미합니다.";
+"'Main Tools' means all other tools that are not included in any specific license." = "'주요 도구'는 특정 라이선스에 포함되지 않은 다른 모든 도구를 의미합니다.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -245,17 +245,17 @@
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "각 단계별 색상 및 알림";
 /* Generated from genl10n: Finder.BApp.swift */
-"Contacts" = "콘택트 렌즈";
+"Contacts" = "연락처";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "마지막 라이브 사진을 GIF로 변환하십시오.";
+"Convert the last Live Photo Into GIF." = "마지막 라이브 포토을 GIF로";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "마지막 라이브 사진을 비디오로 변환하십시오.";
+"Convert the last Live Photo Into Video." = "마지막 라이브 포토을 비디오로";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "마지막 비디오를 GIF로 변환하십시오.";
+"Convert the last Video Into GIF." = "마지막 비디오를 GIF로";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "마지막 비디오를 라이브 사진으로 변환하십시오.";
+"Convert the last Video Into Live Photo." = "마지막 비디오를 라이브 포토으로";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "마지막 비디오를 MP4로 변환하십시오.";
+"Convert the last Video Into MP4." = "마지막 비디오를 MP4로";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 포토, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -294,7 +294,7 @@
 "Detection Targets" = "탐지 대상";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "%@에서 지금 무료로 다운로드하십시오.";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "다운로드";
@@ -354,7 +354,7 @@
 "Guest User License" = "게스트 사용자 라이센스";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "게스트 사용자";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "한 번에 많은 사진을 다루십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "안녕하세요, %@!";
@@ -381,14 +381,14 @@
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "남은 무료 앱 액세스 시간 비율을 표시합니다.";
 /* Generated from genl10n: Finder.BApp.swift */
-"It could not be stored." = "그것은 저장할 수 없습니다.";
+"It could not be stored." = "그것을 저장할 수 없습니다.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
 "It looks invalid code. Please Try again." = "잘못된 코드로 보입니다. 다시 시도하십시오.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "연락처에 액세스하려면 권한이 필요합니다. iOS 설정에서 주소록을 허용하십시오.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "파트너십 프로그램에 참여하십시오";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "필요한 사진을 선택하고 실행하십시오.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "가로";
@@ -474,6 +474,8 @@
 "Open" = "열기";
 /* Generated from genl10n: Stabilizer.BApp.swift, Filters.BApp.swift */
 "Original" = "원본";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "우리의 %@";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "소셜 미디어";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
@@ -614,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "Facebook Messenger에서 공유";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,24 +656,24 @@
 "Stories of Us" = "우리 이야기";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "숨기려는 항목을 켭니다. 품질은 완전히 동일하게 유지됩니다.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "라이브 사진으로 GIF 찍기.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "라이브 포토 찍기.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Take A Photo" = "사진을 찍다";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "사진 찍어줘.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "라이프 포토로 셀카 찍어줘.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "셀카 찍어줘.";
+"Take A Photo" = "사진촬영";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "참여하기";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "라이브 사진으로 GIF 찍기.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "라이브 사진 찍기.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "사진을 찍다.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "라이브 사진으로 셀카를하십시오.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "셀카 찍기.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "내장 카메라로 찍음";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "텍스트 감지를 살짝 누르십시오.";
+"Tap to detect text" = "탭하여 텍스트 감지";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "타겟팅 됨";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -691,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "의견을 보내 주셔서 대단히 감사합니다! 곧 우리가 연락 드리겠습니다.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "가격은 모든 새로운 도구를 포함하고 있으며, 오늘은 가장 저렴한 날입니다.";
+"The price is including every new tool. Today is the cheapest day to get this." = "가격은 모든 새로운 도구를 포함합니다. 오늘은 이것을 얻는 가장 저렴한 날입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 포토을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -726,6 +726,8 @@
 "VIP License Program" = "VIP 라이선스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "VIP 라이센스";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "우리의 모든 제품의 VIP 회원.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "확인에 실패했습니다.";
 /* Generated from genl10n: Shop.SApp.swift */

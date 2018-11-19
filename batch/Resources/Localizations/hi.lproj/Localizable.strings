@@ -120,7 +120,7 @@
 "cs_keyword_13" = "प्रेमी";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
-/* Generated from genl10n: batch.Strings.swift#41 */
+/* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ स्वामित्व";
@@ -135,7 +135,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "%d times" = "%d बार";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools not specially displayed in here." = "'मुख्य उपकरण' का अर्थ है अन्य सभी टूल्स विशेष रूप से यहां प्रदर्शित नहीं होते हैं।";
+"'Main Tools' means all other tools that are not included in any specific license." = "'मुख्य उपकरण' का अर्थ उन सभी अन्य उपकरणों का है जो किसी विशिष्ट लाइसेंस में शामिल नहीं हैं।";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -294,7 +294,7 @@
 "Detection Targets" = "पता लगाने के लक्ष्य";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
-/* Generated from genl10n: batch.Strings.swift#45 */
+/* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "Download" = "डाउनलोड";
@@ -354,7 +354,7 @@
 "Guest User License" = "अतिथि उपयोगकर्ता लाइसेंस";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User" = "अतिथि उपयेागकर्ता";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "एक साथ कई तस्वीरें संभाल लें।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "हैलो, %@!";
@@ -388,7 +388,7 @@
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "इसे आपके संपर्कों तक पहुंचने की अनुमति की आवश्यकता है। कृपया आईओएस सेटिंग्स पर संपर्कों की अनुमति दें।";
 /* Generated from genl10n: Shop.SApp.swift */
 "Join In Partnership Program" = "साझेदारी कार्यक्रम में शामिल हों";
-/* Generated from genl10n: batch.Strings.swift */
+/* Generated from genl10n: InfoStrings.swift */
 "Just select photos you need and then run it." = "बस आपको आवश्यक तस्वीरों का चयन करें और फिर इसे चलाएं।";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "परिदृश्य";
@@ -474,6 +474,8 @@
 "Open" = "खुला";
 /* Generated from genl10n: Filters.BApp.swift */
 "Original" = "मूल";
+/* Generated from genl10n: Shop.SApp.swift */
+"Our %@" = "हमारा %@";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our Social Media" = "हमारा सोशल मीडिया";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
@@ -614,8 +616,6 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "अपनी प्रतिभा साझा करें, एक साथ बनाओ। अगर अपनाया गया तो प्रत्येक पुरस्कार प्राप्त करें।";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
-/* Generated from genl10n: AppCenter.Charge.swift */
-"Sharing on Facebook Messenger" = "फेसबुक मैसेंजर पर साझा करना";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,24 +656,24 @@
 "Stories of Us" = "हमारी कहानियां";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "किसी भी आइटम को स्विच करें जिसे आप छिपाना चाहते हैं। गुणवत्ता पूरी तरह से वही रहेगी।";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A GIF With Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Live Photo." = "Take A Live Photo.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Take A Photo" = "एक तस्वीर लें";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Photo." = "Take A Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie With Live Photo." = "Take A Selfie With Live Photo.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Take A Selfie." = "Take A Selfie.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "हिस्सा लो";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a GIF with a Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Live Photo." = "एक लाइव फोटो ले लो।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "एक तस्वीर लें।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie with a Live Photo." = "एक लाइव फोटो के साथ एक सेल्फी ले लो।";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Selfie." = "एक स्वफ़ोटो ले।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "अंतर्निहित कैमरा के साथ लिया गया";
 /* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect Text" = "पाठ का पता लगाने के लिए टैप करें";
+"Tap to detect text" = "पाठ का पता लगाने के लिए टैप करें";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "लक्षित";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
@@ -691,7 +691,7 @@
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
 "Thank you very much for your feedback! Soon we will contact you." = "आपके फ़ीडबैक के लिए आपका बहुत शुक्रिया! जल्द ही हम आपसे संपर्क करेंगे।";
 /* Generated from genl10n: Shop.SApp.swift */
-"The Price Is Including Every New Tool, And Today Is The Cheapest Day To Get It." = "कीमत हर नए उपकरण को शामिल कर रही है, और आज इसे प्राप्त करने का सबसे सस्ता दिन है।";
+"The price is including every new tool. Today is the cheapest day to get this." = "कीमत हर नए उपकरण सहित है। यह पाने के लिए आज सबसे सस्ता दिन है।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "यह सीधा लेकिन बड़े पैमाने पर बैच छवि परिवर्तन उपकरण आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। उन्हें संपादित करने के लिए तस्वीरों की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
@@ -726,6 +726,8 @@
 "VIP License Program" = "वीआईपी लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "VIP License" = "वीआईपी लाइसेंस";
+/* Generated from genl10n: Shop.SApp.swift */
+"VIP Membership of Our All Products." = "हमारे सभी उत्पादों की वीआईपी सदस्यता।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
 /* Generated from genl10n: Shop.SApp.swift */

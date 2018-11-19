@@ -42,12 +42,12 @@ extension Defaults: ExifGhostAppAppDefaults {
     }
 
     fileprivate var selectionPreset: Int {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: SelectionPresets.privacy.rawValue ) }
     }
 
     fileprivate var removeOriginal: Bool {
-        set{ set(newValue); batchLog.app.defaults.log(value:newValue) }
+        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: false ) }
     }
 }
@@ -172,9 +172,9 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             AppCenter.default.currentInstanceAs(ExifGhostApp.self)?.autoSelect = self.autoSelect
 
             if self.autoSelect{
-                batchLog.app.userEnablesASB()
+                papLog.app.userEnablesASB()
             }else{
-                batchLog.app.userDisablesASB()
+                papLog.app.userDisablesASB()
             }
         }
         cellDescribers.append(cell1)

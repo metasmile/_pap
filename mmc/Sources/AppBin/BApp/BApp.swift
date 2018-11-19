@@ -17,7 +17,7 @@ App class name: {DisplayName}App
 File name: {DisplayName(App)!}.BApp.swift
            {DisplayName(App)!}.BApp.Assets.xcassets
 
-Identifier (Optional): "com.stells.mmc.{displayname-lowercase}"
+Identifier (Optional): "com.stells.{*}}.{displayname-lowercase}"
 
 
 */
