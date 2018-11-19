@@ -300,7 +300,7 @@ class CIResizeFilterItem: CIFilterItem {
             let isOutputPortrait = outputSize.height >= outputSize.width
             let translationRatio = (isOutputPortrait ? 1 : outputAspectRatio)
             
-            let translationX = videoRect.origin.x / (isPortrait ? translationRatio : 1 / scaleX) // portrait fix
+            let translationX = videoRect.origin.x / (isPortrait ? translationRatio : 1 / scaleX)
             let translationY = videoRect.origin.y * (isPortrait ? translationRatio : 1 / scaleY)
             
             videoComposition.renderSize = outputSize
