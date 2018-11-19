@@ -274,6 +274,8 @@ class CIResizeFilterItem: CIFilterItem {
             composition.removeTrack(compositionTrack)
         }
         
+        videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
+        
         if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
             if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
                 composition.removeTrack(compositionTrack)
