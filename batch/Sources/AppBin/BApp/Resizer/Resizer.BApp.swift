@@ -291,7 +291,9 @@ class CIResizeFilterItem: CIFilterItem {
         if exporting {
             let inputSize = videoTrack.naturalSize.applying(videoTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            var videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            videoRect.size = videoRect.size.ceiled()
+            
             let outputAspectRatio = outputSize.height / outputSize.width
             
             let scaleX = videoRect.height / inputSize.height
@@ -316,7 +318,9 @@ class CIResizeFilterItem: CIFilterItem {
         else {
             let inputSize = videoTrack.naturalSize
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoTrack.preferredTransform.inverted())).magnitude
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            var videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            videoRect.size = videoRect.size.ceiled()
+            
             let outputAspectRatio = outputSize.height / outputSize.width
             
             let scaleX = isPortrait ? (videoRect.width / inputSize.width) * outputAspectRatio : (videoRect.width / inputSize.width)
