@@ -279,58 +279,21 @@ extension AppUIAssetView {
                 composition.removeTrack(compositionTrack)
             }
             
+            videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
+            
             if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
                 if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
                     composition.removeTrack(compositionTrack)
                 }
             }
             
-            if let normalizedSize = editState?.normalizedSize {
-                videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
-                
-                let inputSize = videoTrack.naturalSize.applying(videoTrack.preferredTransform).magnitude
-                let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-                let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
-                let outputAspectRatio = outputSize.height / outputSize.width
-                
-                let isPortrait = (videoTrack.imageOrientation == .right || videoTrack.imageOrientation == .left)
-                let scaleX = isPortrait ? (videoRect.width / inputSize.width) / outputAspectRatio : (videoRect.width / inputSize.width)
-                let scaleY = isPortrait ? (videoRect.height / inputSize.height) * outputAspectRatio : (videoRect.height / inputSize.height)
-                
-                let isOutputPortrait = outputSize.height >= outputSize.width
-                let translationRatio = (isOutputPortrait == isPortrait ? 1 : outputAspectRatio)
-                
-                let translationX = isPortrait ? videoRect.origin.y / translationRatio : videoRect.origin.x * translationRatio
-                let translationY = isPortrait ? videoRect.origin.x / translationRatio : videoRect.origin.y * translationRatio
-                
-                let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
-                videoComposition.renderSize = outputSize
-                
-                let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
-                let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
-                
-                let transform = CGAffineTransform.identity
-                    .concatenating(translateTransform)
-                    .concatenating(scaleTransform)
-                
-                let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
-                layerInstruction.setTransform(transform, at: CMTime.zero)
-                
-                let instruction = AVMutableVideoCompositionInstruction()
-                instruction.backgroundColor = (editState?.backgroundColor ?? UIColor(red: 1, green: 1, blue: 1, alpha: 1)).cgColor
-                instruction.timeRange = CMTimeRange(start: CMTime.zero, duration: video.duration)
-                instruction.layerInstructions = [layerInstruction]
-                
-                videoComposition.instructions = [instruction]
-                
-                playerItem?.videoComposition = videoComposition
+            if let videoComposition = editState?.videoComposition(with: video) {
+                playerItem?.videoComposition = videoComposition.videoComposition
             }
             else if let filter = editState?.ciFilter {
-                videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
                 playerItem?.videoComposition = composition.applyFilter(filter)
             }
             else if let mode = editState?.stabilizationMode {
-                videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
                 playerItem?.videoComposition = composition.stabilize(with: mode)
             }
             else {
@@ -339,24 +302,5 @@ extension AppUIAssetView {
             seekVideo(to: .zero)
             playAny()
         }
-    }
-}
-
-extension AVAssetTrack {
-    var imageOrientation: UIImage.Orientation {
-        if preferredTransform.a == 0 && preferredTransform.b == 1 && preferredTransform.c == -1 && preferredTransform.d == 0 {
-            return .right
-        }
-        else if preferredTransform.a == 0 && preferredTransform.b == -1 && preferredTransform.c == 1 && preferredTransform.d == 0 {
-            return .left
-        }
-        else if preferredTransform.a == 1 && preferredTransform.b == 0 && preferredTransform.c == 0 && preferredTransform.d == 1 {
-            return .up
-        }
-        else if preferredTransform.a == -1 && preferredTransform.b == 0 && preferredTransform.c == 0 && preferredTransform.d == -1 {
-            return .down
-        }
-        
-        return .up
     }
 }

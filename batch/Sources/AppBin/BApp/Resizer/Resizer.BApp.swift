@@ -256,8 +256,97 @@ class CIResizeFilterItem: CIFilterItem {
         super.init(filter)
     }
     
-    override var normalizedSize: CGSize? {
+    var backgroundColor: UIColor?
+    
+    var normalizedSize: CGSize? {
         return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
+    }
+    
+    override func videoComposition(with video: AVAsset, for exporting: Bool = false) -> (composition: AVComposition, videoComposition: AVVideoComposition)? {
+        guard
+            let videoTrack = video.tracks(withMediaType: .video).first,
+            let normalizedSize = self.normalizedSize
+        else { return nil }
+        
+        let composition = AVMutableComposition()
+        let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        if (try? videoCompositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil, let compositionTrack = videoCompositionTrack {
+            composition.removeTrack(compositionTrack)
+        }
+        
+        if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+            if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
+                composition.removeTrack(compositionTrack)
+            }
+        }
+        
+        let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
+        
+        let isPortrait = (videoTrack.imageOrientation == .right || videoTrack.imageOrientation == .left)
+        
+        var layerTransform = CGAffineTransform.identity
+        
+        if exporting {
+            let inputSize = videoTrack.naturalSize.applying(videoTrack.preferredTransform).magnitude
+            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            let outputAspectRatio = outputSize.height / outputSize.width
+            
+            let scaleX = videoRect.height / inputSize.height
+            let scaleY = videoRect.width / inputSize.width
+            
+            let isOutputPortrait = outputSize.height >= outputSize.width
+            let translationRatio = (isOutputPortrait ? 1 : outputAspectRatio)
+            
+            let translationX = videoRect.origin.x / (isPortrait ? translationRatio : 1 / scaleX) // portrait fix
+            let translationY = videoRect.origin.y * (isPortrait ? translationRatio : 1 / scaleY)
+            
+            videoComposition.renderSize = outputSize
+            
+            let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
+            let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
+            
+            layerTransform = CGAffineTransform.identity
+                .concatenating(videoTrack.preferredTransform)
+                .concatenating(translateTransform)
+                .concatenating(scaleTransform)
+        }
+        else {
+            let inputSize = videoTrack.naturalSize
+            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoTrack.preferredTransform.inverted())).magnitude
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            let outputAspectRatio = outputSize.height / outputSize.width
+            
+            let scaleX = isPortrait ? (videoRect.width / inputSize.width) * outputAspectRatio : (videoRect.width / inputSize.width)
+            let scaleY = isPortrait ? (videoRect.height / inputSize.height) / outputAspectRatio : (videoRect.height / inputSize.height)
+            
+            let isOutputPortrait = outputSize.height >= outputSize.width
+            let translationRatio = (isOutputPortrait ? outputAspectRatio : 1)
+            
+            let translationX = videoRect.origin.x * translationRatio
+            let translationY = videoRect.origin.y * translationRatio
+            
+            videoComposition.renderSize = outputSize.applying(videoTrack.preferredTransform).magnitude
+            
+            let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
+            let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
+            
+            layerTransform = CGAffineTransform.identity
+                .concatenating(translateTransform)
+                .concatenating(scaleTransform)
+        }
+        
+        let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+        layerInstruction.setTransform(layerTransform, at: CMTime.zero)
+        
+        let instruction = AVMutableVideoCompositionInstruction()
+        instruction.backgroundColor = (backgroundColor ?? UIColor(red: 1, green: 1, blue: 1, alpha: 1)).cgColor
+        instruction.timeRange = CMTimeRange(start: CMTime.zero, duration: video.duration)
+        instruction.layerInstructions = [layerInstruction]
+
+        videoComposition.instructions = [instruction]
+        
+        return (composition, videoComposition)
     }
 }
 
