@@ -269,12 +269,12 @@ class CIResizeFilterItem: CIFilterItem {
         else { return nil }
         
         let composition = AVMutableComposition()
-        let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-        if (try? videoCompositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil, let compositionTrack = videoCompositionTrack {
-            composition.removeTrack(compositionTrack)
+        guard let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else { return nil }
+        if (try? videoCompositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil {
+            composition.removeTrack(videoCompositionTrack)
         }
         
-        videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
+        videoCompositionTrack.preferredTransform = videoTrack.preferredTransform
         
         if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
             if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
@@ -338,7 +338,9 @@ class CIResizeFilterItem: CIFilterItem {
                 .concatenating(scaleTransform)
         }
         
-        let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+        videoComposition.renderSize = videoComposition.renderSize.floored()
+        
+        let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
         layerInstruction.setTransform(layerTransform, at: CMTime.zero)
         
         let instruction = AVMutableVideoCompositionInstruction()

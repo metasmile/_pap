@@ -287,13 +287,15 @@ extension AppUIAssetView {
                 }
             }
             
-            if let item = editState?.playerItem(with: video) {
-                playerItem?.videoComposition = item.videoComposition
+            if let item = editState?.playerItem(with: composition) {
+                playerItem = item
             }
             else if let filter = editState?.ciFilter {
+                playerItem = AVPlayerItem(asset: video)
                 playerItem?.videoComposition = composition.applyFilter(filter)
             }
             else if let mode = editState?.stabilizationMode {
+                playerItem = AVPlayerItem(asset: video)
                 playerItem?.videoComposition = composition.stabilize(with: mode)
             }
             else {

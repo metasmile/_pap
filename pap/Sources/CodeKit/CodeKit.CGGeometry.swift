@@ -12,6 +12,14 @@ extension CGSize {
     static func * (lhs: CGSize, rhs: CGFloat) -> CGSize {
         return lhs.applying(CGAffineTransform(scaleX: rhs, y: rhs))
     }
+    
+    func ceiled() -> CGSize {
+        return CGSize(width: ceil(width), height: ceil(height))
+    }
+    
+    func floored() -> CGSize {
+        return CGSize(width: floor(width), height: floor(height))
+    }
 }
 
 extension CGPoint {
