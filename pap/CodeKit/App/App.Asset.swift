@@ -78,10 +78,7 @@ public class ImageEditStateValue: Object {
     public var stabilizationMode: ImageAlignment.StabilizationMode? {
         return nil
     }
-    public func playerItem(with video: AVAsset) -> AVPlayerItem? {
-        return nil
-    }
-    public func videoComposition(with video: AVAsset, for exporting: Bool = false) -> (composition: AVComposition, videoComposition: AVVideoComposition)? {
+    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         return nil
     }
 }
@@ -107,12 +104,8 @@ public extension StateValueSet where T: ImageEditStateValue {
 }
 
 public extension StateValueSet where T: ImageEditStateValue {
-    public func playerItem(with video: AVAsset) -> AVPlayerItem? {
-        return imageEditStateValue?.playerItem(with: video)
-    }
-    
-    public func videoComposition(with video: AVAsset, for exporting: Bool = false) -> (composition: AVComposition, videoComposition: AVVideoComposition)? {
-        return imageEditStateValue?.videoComposition(with: video, for: exporting)
+    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
+        return imageEditStateValue?.playerItem(with: video, for: exporting)
     }
 }
 

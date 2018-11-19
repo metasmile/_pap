@@ -262,7 +262,7 @@ class CIResizeFilterItem: CIFilterItem {
         return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
     }
     
-    override func videoComposition(with video: AVAsset, for exporting: Bool = false) -> (composition: AVComposition, videoComposition: AVVideoComposition)? {
+    override func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         guard
             let videoTrack = video.tracks(withMediaType: .video).first,
             let normalizedSize = self.normalizedSize
@@ -346,7 +346,10 @@ class CIResizeFilterItem: CIFilterItem {
 
         videoComposition.instructions = [instruction]
         
-        return (composition, videoComposition)
+        let playerItem = AVPlayerItem(asset: composition)
+        playerItem.videoComposition = videoComposition
+        
+        return playerItem
     }
 }
 
