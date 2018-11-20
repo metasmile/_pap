@@ -292,7 +292,7 @@ class CIResizeFilterItem: CIFilterItem {
         if exporting {
             let inputSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize.ceiled()))
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
@@ -320,7 +320,7 @@ class CIResizeFilterItem: CIFilterItem {
             let inputSize = videoCompositionTrack.naturalSize
             let videoSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize.ceiled()))
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
@@ -346,7 +346,15 @@ class CIResizeFilterItem: CIFilterItem {
                 .concatenating(scaleTransform)
         }
         
-        videoComposition.renderSize = videoComposition.renderSize.floored()
+        func makeVideoRenderWidth(_ width: CGFloat) -> CGFloat {
+            return width.remainder(dividingBy: 4) == 0 ? width : width - width.truncatingRemainder(dividingBy: 4)
+        }
+        
+        func makeVideoRenderSize(_ size: CGSize) -> CGSize {
+            return CGSize(width: makeVideoRenderWidth(size.width), height: makeVideoRenderWidth(size.height))
+        }
+        
+        videoComposition.renderSize = makeVideoRenderSize(videoComposition.renderSize)
         
         let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
         layerInstruction.setTransform(layerTransform, at: CMTime.zero)
