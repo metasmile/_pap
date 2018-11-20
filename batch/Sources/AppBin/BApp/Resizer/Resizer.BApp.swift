@@ -156,8 +156,9 @@ enum AspectRatioOption: Int, Codable {
     case portrait4x5
     case landscape1_91x1
     case portrait9x16
-    case portrait9x21
     case landscape16x9
+    case portrait9x21
+    case portrait21x9
     
     var name: String {
         switch self {
@@ -168,6 +169,7 @@ enum AspectRatioOption: Int, Codable {
         case .portrait9x16: return "9:16"
         case .landscape16x9: return "16:9"
         case .portrait9x21: return "9:21"
+        case .portrait21x9: return "21:9"
         }
     }
     
@@ -191,6 +193,7 @@ enum AspectRatioOption: Int, Codable {
         case .landscape16x9: return CGSize(width: 16, height: 9)
         case .portrait9x16: return CGSize(width: 9, height: 16)
         case .portrait9x21: return CGSize(width: 9, height: 21)
+        case .portrait21x9: return CGSize(width: 21, height: 9)
         }
     }
     
@@ -303,8 +306,8 @@ class CIResizeFilterItem: CIFilterItem {
             let isOutputPortrait = outputSize.height >= outputSize.width
             let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
-            let translationX = videoRect.origin.x / (isInputPortrait ? translationRatio : 1 / scaleX)
-            let translationY = videoRect.origin.y * (isInputPortrait ? translationRatio : 1 / scaleY)
+            let translationX = videoRect.origin.x / scaleX
+            let translationY = videoRect.origin.y / scaleY
             
             videoComposition.renderSize = outputSize
             
@@ -333,8 +336,8 @@ class CIResizeFilterItem: CIFilterItem {
             let isOutputPortrait = normalizedSize.height >= normalizedSize.width
             let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
-            let translationX = videoRect.origin.x / (videoSize.height >= videoSize.width ? translationRatio : 1 / scaleX)
-            let translationY = videoRect.origin.y * (isInputPortrait ? translationRatio : 1 / scaleY)
+            let translationX = videoRect.origin.x / (videoRect.width / inputSize.width)
+            let translationY = videoRect.origin.y / (videoRect.height / inputSize.height)
             
             videoComposition.renderSize = outputSize.applying(videoCompositionTrack.preferredTransform).magnitude
             
@@ -379,7 +382,8 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait4x5),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.landscape1_91x1),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x16),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x21)
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x21),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait21x9)
     ]
     
     @objc dynamic var filterItem: CIFilterItem?
