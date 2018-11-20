@@ -26,8 +26,9 @@ class PhotoPickerDetailViewController: UIViewController {
             view.addSubview(assetView)
 
             let preferredTransform = assetItem?.editState.transform ?? .identity
-            let preferredSize = asset.pixelSize
             
+            let pixelSize = asset.pixelSize
+            let preferredSize = assetItem?.editState.normalizedSize?.applying(CGAffineTransform(scaleX: pixelSize.maxLength, y: pixelSize.maxLength)) ?? asset.pixelSize
             let boundingSize = preferredSize.width > preferredSize.height ? view.bounds.size.applying(preferredTransform).magnitude : view.bounds.size
             
             let actualContentSize = preferredSize.applying(preferredTransform).magnitude.aspectFit(in: boundingSize)

@@ -261,7 +261,7 @@ class CIResizeFilterItem: CIFilterItem {
     
     var backgroundColor: UIColor?
     
-    var normalizedSize: CGSize? {
+    override var normalizedSize: CGSize? {
         return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
     }
     
