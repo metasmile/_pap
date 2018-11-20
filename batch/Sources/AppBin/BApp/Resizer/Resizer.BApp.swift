@@ -156,6 +156,7 @@ enum AspectRatioOption: Int, Codable {
     case portrait4x5
     case landscape1_91x1
     case portrait9x16
+    case portrait9x21
     case landscape16x9
     
     var name: String {
@@ -166,6 +167,7 @@ enum AspectRatioOption: Int, Codable {
         case .landscape1_91x1: return "1.91:1"
         case .portrait9x16: return "9:16"
         case .landscape16x9: return "16:9"
+        case .portrait9x21: return "9:21"
         }
     }
     
@@ -176,7 +178,7 @@ enum AspectRatioOption: Int, Codable {
         case .portrait4x5: return "Instagram Full"
         case .landscape1_91x1: return "Instagram Landscape"
         case .portrait9x16: return "Instagram Story"
-        case .landscape16x9: return nil
+        default: return nil
         }
     }
     
@@ -188,6 +190,7 @@ enum AspectRatioOption: Int, Codable {
         case .landscape1_91x1: return CGSize(width: 1.91, height: 1)
         case .landscape16x9: return CGSize(width: 16, height: 9)
         case .portrait9x16: return CGSize(width: 9, height: 16)
+        case .portrait9x21: return CGSize(width: 9, height: 21)
         }
     }
     
@@ -284,26 +287,24 @@ class CIResizeFilterItem: CIFilterItem {
         
         let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
         
-        let isPortrait = (videoTrack.imageOrientation == .right || videoTrack.imageOrientation == .left)
-        
         var layerTransform = CGAffineTransform.identity
         
         if exporting {
-            let inputSize = videoTrack.naturalSize.applying(videoTrack.preferredTransform).magnitude
+            let inputSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            var videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
-            videoRect.size = videoRect.size.ceiled()
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize.ceiled()))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
             let scaleX = videoRect.height / inputSize.height
             let scaleY = videoRect.width / inputSize.width
             
+            let isInputPortrait = inputSize.height >= inputSize.width
             let isOutputPortrait = outputSize.height >= outputSize.width
-            let translationRatio = (isOutputPortrait ? 1 : outputAspectRatio)
+            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
-            let translationX = videoRect.origin.x / (isPortrait ? translationRatio : 1 / scaleX)
-            let translationY = videoRect.origin.y * (isPortrait ? translationRatio : 1 / scaleY)
+            let translationX = videoRect.origin.x / (isInputPortrait ? translationRatio : 1 / scaleX)
+            let translationY = videoRect.origin.y * (isInputPortrait ? translationRatio : 1 / scaleY)
             
             videoComposition.renderSize = outputSize
             
@@ -311,28 +312,31 @@ class CIResizeFilterItem: CIFilterItem {
             let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
             
             layerTransform = CGAffineTransform.identity
-                .concatenating(videoTrack.preferredTransform)
+                .concatenating(videoCompositionTrack.preferredTransform)
                 .concatenating(translateTransform)
                 .concatenating(scaleTransform)
         }
         else {
-            let inputSize = videoTrack.naturalSize
-            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoTrack.preferredTransform.inverted())).magnitude
-            var videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
-            videoRect.size = videoRect.size.ceiled()
+            let inputSize = videoCompositionTrack.naturalSize
+            let videoSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
+            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize.ceiled()))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
-            let scaleX = isPortrait ? (videoRect.width / inputSize.width) * outputAspectRatio : (videoRect.width / inputSize.width)
-            let scaleY = isPortrait ? (videoRect.height / inputSize.height) / outputAspectRatio : (videoRect.height / inputSize.height)
+            let isInputPortrait = (inputSize != videoSize && videoSize.height >= videoSize.width)
+            let scaleRatio = isInputPortrait ? outputAspectRatio : 1
             
-            let isOutputPortrait = outputSize.height >= outputSize.width
-            let translationRatio = (isOutputPortrait ? outputAspectRatio : 1)
+            let scaleX = (videoRect.width / inputSize.width) * scaleRatio
+            let scaleY = (videoRect.height / inputSize.height) / scaleRatio
             
-            let translationX = videoRect.origin.x * translationRatio
-            let translationY = videoRect.origin.y * translationRatio
+            let isOutputPortrait = normalizedSize.height >= normalizedSize.width
+            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
-            videoComposition.renderSize = outputSize.applying(videoTrack.preferredTransform).magnitude
+            let translationX = videoRect.origin.x / (videoSize.height >= videoSize.width ? translationRatio : 1 / scaleX)
+            let translationY = videoRect.origin.y * (isInputPortrait ? translationRatio : 1 / scaleY)
+            
+            videoComposition.renderSize = outputSize.applying(videoCompositionTrack.preferredTransform).magnitude
             
             let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
             let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
@@ -366,7 +370,8 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.square),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait4x5),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.landscape1_91x1),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x16)
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x16),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x21)
     ]
     
     @objc dynamic var filterItem: CIFilterItem?

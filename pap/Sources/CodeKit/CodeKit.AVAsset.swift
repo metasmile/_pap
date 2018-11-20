@@ -83,22 +83,3 @@ extension AVAsset {
         }
     }
 }
-
-extension AVAssetTrack {
-    var imageOrientation: UIImage.Orientation {
-        if preferredTransform.a == 0 && preferredTransform.b == 1 && preferredTransform.c == -1 && preferredTransform.d == 0 {
-            return .right
-        }
-        else if preferredTransform.a == 0 && preferredTransform.b == -1 && preferredTransform.c == 1 && preferredTransform.d == 0 {
-            return .left
-        }
-        else if preferredTransform.a == 1 && preferredTransform.b == 0 && preferredTransform.c == 0 && preferredTransform.d == 1 {
-            return .up
-        }
-        else if preferredTransform.a == -1 && preferredTransform.b == 0 && preferredTransform.c == 0 && preferredTransform.d == -1 {
-            return .down
-        }
-        
-        return .up
-    }
-}
