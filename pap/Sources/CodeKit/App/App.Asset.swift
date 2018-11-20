@@ -84,6 +84,9 @@ public class ImageEditStateValue: Object {
     public var normalizedSize: CGSize? {
         return nil
     }
+    public var color: UIColor? {
+        return nil
+    }
 }
 
 public class CIFilterItem: ImageEditStateValue {
@@ -109,6 +112,12 @@ public extension StateValueSet where T: ImageEditStateValue {
 public extension StateValueSet where T: ImageEditStateValue {
     var normalizedSize: CGSize? {
         return imageEditStateValue?.normalizedSize
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var color: UIColor? {
+        return imageEditStateValue?.color
     }
 }
 

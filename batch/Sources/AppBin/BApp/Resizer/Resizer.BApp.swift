@@ -153,23 +153,23 @@ PhotoEditorViewControllerDelegatableApp {
 enum AspectRatioOption: Int, Codable {
     case original
     case square
-    case portrait4x5
-    case landscape1_91x1
-    case portrait9x16
-    case landscape16x9
-    case portrait9x21
-    case portrait21x9
+    case ratio4x5
+    case ratio1_91x1
+    case ratio9x16
+    case ratio16x9
+    case ratio9x21
+    case ratio21x9
     
     var name: String {
         switch self {
         case .original: return "Original"
         case .square: return "1:1"
-        case .portrait4x5: return "4:5"
-        case .landscape1_91x1: return "1.91:1"
-        case .portrait9x16: return "9:16"
-        case .landscape16x9: return "16:9"
-        case .portrait9x21: return "9:21"
-        case .portrait21x9: return "21:9"
+        case .ratio4x5: return "4:5"
+        case .ratio1_91x1: return "1.91:1"
+        case .ratio9x16: return "9:16"
+        case .ratio16x9: return "16:9"
+        case .ratio9x21: return "9:21"
+        case .ratio21x9: return "21:9"
         }
     }
     
@@ -177,9 +177,9 @@ enum AspectRatioOption: Int, Codable {
         switch self {
         case .original: return nil
         case .square: return "Square"
-        case .portrait4x5: return "Instagram Full"
-        case .landscape1_91x1: return "Instagram Landscape"
-        case .portrait9x16: return "Instagram Story"
+        case .ratio4x5: return "Instagram Full"
+        case .ratio1_91x1: return "Instagram Landscape"
+        case .ratio9x16: return "Instagram Story"
         default: return nil
         }
     }
@@ -188,12 +188,12 @@ enum AspectRatioOption: Int, Codable {
         switch self {
         case .original: return CGSize.zero
         case .square: return CGSize(width: 1, height: 1)
-        case .portrait4x5: return CGSize(width: 4, height: 5)
-        case .landscape1_91x1: return CGSize(width: 1.91, height: 1)
-        case .landscape16x9: return CGSize(width: 16, height: 9)
-        case .portrait9x16: return CGSize(width: 9, height: 16)
-        case .portrait9x21: return CGSize(width: 9, height: 21)
-        case .portrait21x9: return CGSize(width: 21, height: 9)
+        case .ratio4x5: return CGSize(width: 4, height: 5)
+        case .ratio1_91x1: return CGSize(width: 1.91, height: 1)
+        case .ratio16x9: return CGSize(width: 16, height: 9)
+        case .ratio9x16: return CGSize(width: 9, height: 16)
+        case .ratio9x21: return CGSize(width: 9, height: 21)
+        case .ratio21x9: return CGSize(width: 21, height: 9)
         }
     }
     
@@ -266,6 +266,10 @@ class CIResizeFilterItem: CIFilterItem {
     
     override var normalizedSize: CGSize? {
         return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
+    }
+    
+    override var color: UIColor? {
+        return backgroundColor
     }
     
     override func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
@@ -376,14 +380,19 @@ class CIResizeFilterItem: CIFilterItem {
     }
 }
 
+fileprivate struct ColorItem {
+    var color: UIColor
+    var title: String
+}
+
 fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIResizeFilter] = [
         CIResizeFilter(aspectRatioOption: AspectRatioOption.square),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait4x5),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.landscape1_91x1),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x16),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait9x21),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.portrait21x9)
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9)
     ]
     
     @objc dynamic var filterItem: CIFilterItem?
@@ -405,20 +414,76 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return items
     }()
     
-    lazy var view: UIView = {
+    lazy var collectionView: AppUICollectionView = {
         let view = AppUICollectionView(items: items)
-        view.cellSize = CGSize(width: 80, height: 120)
+        view.cellSize = CGSize(width: 80, height: 80)
         view.cellSpacing = 2
         view.cellImageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         
         return view
     }()
     
+    lazy var view: UIView = {
+        let view = UIView(frame: .zero)
+        view.addSubview(collectionView)
+        view.addSubview(colorPickerButton)
+        
+        colorPickerButton.translatesAutoresizingMaskIntoConstraints = false
+        colorPickerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        colorPickerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        colorPickerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: colorPickerButton.topAnchor).isActive = true
+        
+        return view
+    }()
+    
+    lazy var colorPickerButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.system)
+        button.setTitle("White".localized, for: .normal)
+        button.addTarget(self, action: #selector(self.openColorPicker), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var colors: [ColorItem] = [
+        ColorItem(color: UIColor(red: 1, green: 1, blue: 1, alpha: 1), title: "White"),
+        ColorItem(color: UIColor(red: 0, green: 0, blue: 0, alpha: 1), title: "Black"),
+        ColorItem(color: UIColor(red: 1, green: 0, blue: 0, alpha: 1), title: "Red"),
+        ColorItem(color: UIColor(red: 0, green: 1, blue: 0, alpha: 1), title: "Green"),
+        ColorItem(color: UIColor(red: 0, green: 0, blue: 1, alpha: 1), title: "Blue"),
+        ColorItem(color: UIColor(red: 1, green: 1, blue: 0, alpha: 1), title: "RG"),
+        ColorItem(color: UIColor(red: 0, green: 1, blue: 1, alpha: 1), title: "GB"),
+        ColorItem(color: UIColor(red: 1, green: 0, blue: 1, alpha: 1), title: "RB")
+    ]
+    
+    @objc private func openColorPicker() {
+        let picker = UIAlertController.actionSheet(title: "Background Color", message: nil)
+        picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        
+        for color in colors {
+            picker.addAction(UIAlertAction(title: color.title.localized, style: .default, handler: { _ in
+                guard let filterItem = self.filterItem as? CIResizeFilterItem else { return }
+                filterItem.backgroundColor = color.color
+                self.filterItem = filterItem
+                
+                self.colorPickerButton.setTitle(color.title.localized, for: .normal)
+            }))
+        }
+        
+        DispatchQueue.main.async {
+            UIViewController.present(picker, animated: true)
+        }
+    }
+    
     var selectedEditStateValue: ImageEditStateValue?
     
     fileprivate func selectItem(by filterName: String?) {
         let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
-        (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
+        collectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
     
     fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
@@ -431,8 +496,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     var contentScrollable: AppDockContentScrollable? {
-        guard let view = view as? AppUICollectionView else { return nil }
-        return AppDockScrollableContent(view.collectionView)
+        return AppDockScrollableContent(collectionView.collectionView)
     }
     
     var preferences: AppDockContentPreferable? {
@@ -447,7 +511,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
-        (view as? AppUICollectionView)?.reloadData()
+        collectionView.reloadData()
     }
 }
 
