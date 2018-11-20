@@ -218,6 +218,10 @@ extension AppUIAssetView {
             
         }
         else if asset.imageType == .livePhoto {
+            DispatchQueue.main.async {
+                self.image = nil
+            }
+            
             if editState?.ciFilter != nil || editState?.stabilizationMode != nil {
                 self.isProcessing(true, animated: true)
                 
@@ -287,22 +291,32 @@ extension AppUIAssetView {
                 }
             }
             
+            stopAny()
+            
+            DispatchQueue.main.async {
+                self.image = nil
+            }
+            
             if let item = editState?.playerItem(with: composition) {
                 playerItem = item
             }
             else if let filter = editState?.ciFilter {
-                playerItem = AVPlayerItem(asset: video)
+                playerItem = AVPlayerItem(asset: composition)
                 playerItem?.videoComposition = composition.applyFilter(filter)
             }
             else if let mode = editState?.stabilizationMode {
-                playerItem = AVPlayerItem(asset: video)
+                playerItem = AVPlayerItem(asset: composition)
                 playerItem?.videoComposition = composition.stabilize(with: mode)
             }
             else {
-                playerItem = AVPlayerItem(asset: video)
+                playerItem = AVPlayerItem(asset: composition)
             }
             seekVideo(to: .zero)
             playAny()
         }
+    }
+    
+    override func playAny() {
+        super.playAny()
     }
 }
