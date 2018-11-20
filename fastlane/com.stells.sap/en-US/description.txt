@@ -6,8 +6,7 @@ PAPS is a fast and large-scale photo processing app lets you bulk work at once w
 The List of Tools:
 
 Finder
-Extracting every important info such as phone numbers, addresses, dates, URLs or even flight code from your photos or screenshots, and then do right things.
-You also can translate or save them all as raw text.
+Finder lets you extract every important info or text such as phone numbers, addresses, dates, URLs, price, or even flight code from your photos, screenshots or camera, and then do right actions, also can translate or save them all as raw text.
 
 Actions
 • Phone Number - Save or numbers or convert into iOS contacts.
@@ -52,7 +51,7 @@ List of Cleaner Matchers
 • All not taken with Camera
 
 
-Memo Cam 
+Memo Cam
 
 An AI-powered text info recognization camera tool, MemoCam enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
