@@ -178,6 +178,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Background Color" = "Background Color";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -198,6 +200,8 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Choose a Color" = "Choose a Color";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift */
