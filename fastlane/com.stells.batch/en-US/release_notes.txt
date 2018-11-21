@@ -1,2 +1,4 @@
-• Some crash fixes for camera tools
-• Some localization fixes and adjustments.
+• Translation correction: Vietnamese(Thanh Nam Bui), French (Pierre-Olivier Mogno)
+  - Sincerely thank you guys for sharing your talent.
+  - Share your native language skill to us and get an opportunity for obtaining maximum VIP membership.
+• Some minor fixes.
