@@ -25,7 +25,7 @@
 /*Translated from: Edit %d item(s)*/
 "Edit %d item(s)" = "Chỉnh sửa %d mục";
 /*Translated from: Edit*/
-"Edit" = "Edit";
+"Edit" = "edit";
 /*Translated from: Discard Changes*/
 "Discard Changes" = "Loại bỏ những thay đổi";
 /*Translated from: Processing...*/
@@ -221,7 +221,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "Camera";
+"Camera" = "camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.";
 /* Generated from genl10n: MemoCam.BApp.swift */
@@ -455,7 +455,7 @@
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
-"Open Filters." = "Open Filters.";
+"Open Filters." = "Mở bộ lọc.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Finder." = "Mở Trình tìm kiếm.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -499,7 +499,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Phone Number" = "Số điện thoại";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "Photos";
+"Photos" = "photos";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
 "Please Input Your Secret Code" = "Vui lòng nhập mã bí mật của bạn";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */

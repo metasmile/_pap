@@ -77,7 +77,7 @@
 /*com.stells.apps.photofilter*/
 "Apply" = "Appliquer";
 /*com.stells.batch.revert*/
-"Revert" = "Revert";
+"Revert" = "revenir";
 /*Translated from: Starting to revert...*/
 "Starting to revert..." = "Commencer à revenir ...";
 /*Translated from: Reverting Photos...*/
@@ -187,7 +187,7 @@
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tout";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
-"An Error Occurred While Receiving Ads." = "Une erreur s'est produite lors de la réception des annonces.";
+"An Error Occurred While Receiving Ads." = "Une erreur s'est produite lors de la réception des publicités.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Animated GIF" = "GIF animé";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -379,7 +379,7 @@
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Enquête";
 /* Generated from genl10n: Shop.SApp.swift#468 */
-"It Displays A Ratio of Remaining Free App Access Periods." = "Il affiche un ratio des périodes d'accès aux applications gratuites restantes.";
+"It Displays A Ratio of Remaining Free App Access Periods." = "Il affiche un ratio des du temps d'accès aux applications gratuites restantes.";
 /* Generated from genl10n: Finder.BApp.swift */
 "It could not be stored." = "Il ne pouvait pas être stocké.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
@@ -403,7 +403,7 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Boucle";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Tools License" = "Licence Outils Principaux";
+"Main Tools License" = "Licence pour les Outils Principaux";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Main Tools Use of %@ Day" = "Principaux outils Utilisation de la journée %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -455,7 +455,7 @@
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Open EXIF Ghost." = "Open EXIF Ghost.";
 /* Generated from genl10n: Filters.BApp.swift */
-"Open Filters." = "Open Filters.";
+"Open Filters." = "Filtres ouverts.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Open Finder." = "Ouvrir le Finder.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -741,7 +741,7 @@
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
 "Videos Without Sound" = "Vidéos sans son";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
-"Videos from Screen Recorder" = "Vidéos de Screen Recorder";
+"Videos from Screen Recorder" = "Vidéos d’enregistrement d’écran";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Visite";
 /* Generated from genl10n: Finder.BApp.swift */
