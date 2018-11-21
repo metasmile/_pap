@@ -47,10 +47,10 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.reloadData()
     }
     
-    override var tintColor: UIColor! {
-        didSet {
-            collectionView.tintColor = tintColor
-        }
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        collectionView.tintColor = tintColor
     }
     
     var cellSize: CGSize = .zero {
@@ -71,6 +71,8 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
             (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellSize
         }
     }
+    
+    var cellImageContentMode: UIView.ContentMode = .scaleAspectFill
     
     private(set) lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
@@ -107,6 +109,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
         cell.imageInsets = cellImageInsets
+        cell.imageContentMode = cellImageContentMode
         cell.tintColor = tintColor
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
@@ -234,6 +237,11 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
     }
     
     var imageInsets: UIEdgeInsets = .zero
+    var imageContentMode: UIView.ContentMode = .scaleAspectFill {
+        didSet {
+            imageView.contentMode = imageContentMode
+        }
+    }
     
     private func layoutContents() {
         imageViewWidthLayout.constant = image == nil ? 0 : (min(contentView.bounds.width, contentView.bounds.height) - imageInsets.left - imageInsets.right)

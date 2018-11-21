@@ -937,6 +937,12 @@
 		4F71DFF5CFD38F28C81B3087 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71DFFB991A43E5830B9081 /* App.Chargeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D448194D99CD49CBD3B6 /* App.Chargeable.swift */; };
 		4F71DFFEB73559A41CAB1253 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3D65614CA366512179C /* ActionViewController.swift */; };
+		511577CF21A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		511577D021A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		511577D121A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		511577D221A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		511577D321A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		511577D421A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
@@ -2488,6 +2494,7 @@
 		4F71DFE6F7AD720DACF7CAEB /* AutoEditor.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditor.BApp.swift; sourceTree = "<group>"; };
 		4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
+		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -3508,6 +3515,7 @@
 				4F71D73D8E69A0BA9DB5258D /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift */,
 				4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */,
 				4F71DE872A02AD13D7B4CD68 /* CodeKit.Data.swift */,
+				511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -5616,6 +5624,7 @@
 				4F71D410DE7AE09742C6F60A /* NetworkReachabilityManager.swift in Sources */,
 				4F71D2B6B122AA164CCAE838 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				4F71D83B6512D8DA7A5B84B9 /* CodeKit.AVAssetExportSession.swift in Sources */,
+				511577CF21A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				4F71DDE8F71898248DADBBFB /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71DDF1720A27EFB55EFA68 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				4F71DC783B62C0CAA70C5A23 /* CodeKit.UIActivityViewController.swift in Sources */,
@@ -5808,6 +5817,7 @@
 				4F71D48492B5B247EEDAA5B5 /* UITableViewCellDescribable.UITableView.swift in Sources */,
 				4F71DDAC82E75BF4D9E30F46 /* CodeKit.UITableView.swift in Sources */,
 				4F71DA2072D5302EF0933672 /* CodeKit.UITableViewCell.swift in Sources */,
+				511577D021A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				4F71D36DFA6693B2270D6684 /* CodeKit.UITableViewController.swift in Sources */,
 				4F71DA406146B2EC47015072 /* CodeKit.Bundle.swift in Sources */,
 				4F71D65EF826ACFD4CF7C3BC /* CodeKit.String.swift in Sources */,
@@ -6134,6 +6144,7 @@
 				A0CB0204219C9093007A5278 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				A0CB0205219C9093007A5278 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				A0CB0206219C9093007A5278 /* CodeKit.String.NSDataDetector.swift in Sources */,
+				511577D321A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				A0CB0207219C9093007A5278 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				A0CB0208219C9093007A5278 /* CodeKit.UIActivityViewController.swift in Sources */,
 				A0CB0209219C9093007A5278 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
@@ -6365,6 +6376,7 @@
 				A0CB0341219DE4F2007A5278 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
 				A0CB0342219DE4F2007A5278 /* CodeKit.String.NSRegularExpression.swift in Sources */,
 				A0CB0343219DE4F2007A5278 /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */,
+				511577D421A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				A0CB0344219DE4F2007A5278 /* CodeKit.MobileCoreSerivices.UTCoreTypes.swift in Sources */,
 				A0CB0345219DE4F2007A5278 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */,
 				A0CB0346219DE4F2007A5278 /* CodeKit.Data.swift in Sources */,
@@ -6653,6 +6665,7 @@
 				4F71D5157CF0C2359FDB3F4F /* NetworkReachabilityManager.swift in Sources */,
 				4F71D5A429B30F9C012E5A85 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				4F71D170E3AF8D9C729DB875 /* CodeKit.AVAssetExportSession.swift in Sources */,
+				511577D121A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				4F71D6C141D91C34F1FBEDC6 /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71D85327124687B0B157C4 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				4F71D5C634B9239A0463024B /* CodeKit.UIActivityViewController.swift in Sources */,
@@ -6947,6 +6960,7 @@
 				A0CB007F219C8C64007A5278 /* NetworkReachabilityManager.swift in Sources */,
 				A0CB0080219C8C64007A5278 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				A0CB0081219C8C64007A5278 /* CodeKit.AVAssetExportSession.swift in Sources */,
+				511577D221A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				A0CB0082219C8C64007A5278 /* CodeKit.String.NSDataDetector.swift in Sources */,
 				A0CB0083219C8C64007A5278 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				A0CB0084219C8C64007A5278 /* CodeKit.UIActivityViewController.swift in Sources */,

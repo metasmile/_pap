@@ -13,15 +13,21 @@ import MetalPerformanceShaders
 
 protocol ResizerAppDefaults: AppDefaults {
     var resizeFilterName: String? { get set }
+    var backgroundColor: UIColor { get set }
 }
 
 extension Defaults: ResizerAppDefaults {
     var resizeFilterName: String? {
+        get { return get(or: nil) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
+    }
+    
+    var backgroundColor: UIColor {
         get {
-            return get(or: nil)
+            return UIColor(rgba: get(or: 0xFFFFFFFF))
         }
         
-        set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
+        set { set(newValue.rgba()); papLog.app.defaults.log(value:newValue.hexCode()) }
     }
 }
 
@@ -30,7 +36,7 @@ public class ResizerAppConfigValue: NSObject, PropertyWatchable, AppConfigAdopta
     public var filter: ImageEditStateValue?
     
     public func adoptValues(fromOther: AppConfigValuable) {
-        if let other = fromOther as? ResizerAppConfigValue, let filter = other.filter{
+        if let other = fromOther as? ResizerAppConfigValue, let filter = other.filter {
             self.filter = filter
         }
     }
@@ -59,7 +65,10 @@ PhotoEditorViewControllerDelegatableApp {
         defaultEditStateValue = editStateValue
         
         var defaults = type(of: self).defaults as! ResizerAppDefaults
-        defaults.resizeFilterName = editStateValue?.ciFilter?.name
+        
+        let filter = editStateValue?.ciFilter as? CIResizeFilter
+        defaults.resizeFilterName = filter?.name
+        defaults.backgroundColor = filter?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
     }
     
     public static let info = AppInfo(
@@ -87,6 +96,8 @@ PhotoEditorViewControllerDelegatableApp {
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
+                    (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
+                    
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -101,6 +112,8 @@ PhotoEditorViewControllerDelegatableApp {
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
+                    (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
+                    
                     self.config?.filter = filterItem
                 }
             }
@@ -205,10 +218,15 @@ enum AspectRatioOption: Int, Codable {
         guard self != .original else { return CGRect(origin: .zero, size: size) }
         return AVMakeRect(aspectRatio: aspectRatio, insideRect: CGRect(origin: .zero, size: size))
     }
+    
+    var normalizedSize: CGSize {
+        return aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
+    }
 }
 
 class CIResizeFilter: CIFilter {
     var aspectRatioOption: AspectRatioOption = .original
+    var backgroundColor: UIColor = UIColor(rgb: 0xFFFFFF)
     
     init(aspectRatioOption: AspectRatioOption) {
         super.init()
@@ -243,7 +261,7 @@ class CIResizeFilter: CIFilter {
             let ctx = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
             
             ctx?.interpolationQuality = .high
-            ctx?.setFillColor(UIColor.white.cgColor)
+            ctx?.setFillColor(backgroundColor.cgColor)
             ctx?.fill(outputRect)
             ctx?.draw(cgImage, in: aspectFitRect)
             
@@ -262,14 +280,28 @@ class CIResizeFilterItem: CIFilterItem {
         super.init(filter)
     }
     
-    var backgroundColor: UIColor?
+    convenience init(_ filter: CIFilter? = nil, backgroundColor: UIColor?) {
+        self.init(filter)
+        
+        self.backgroundColor = backgroundColor ?? UIColor(rgb: 0xFFFFFF)
+    }
+    
+    private var backgroundColor: UIColor {
+        set {
+            (ciFilter as? CIResizeFilter)?.backgroundColor = newValue
+        }
+        
+        get {
+            return (ciFilter as? CIResizeFilter)?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
+        }
+    }
     
     override var normalizedSize: CGSize? {
-        return (ciFilter as? CIResizeFilter)?.aspectRatioOption.aspectRatio.aspectFit(in: CGSize(width: 1, height: 1))
+        return (ciFilter as? CIResizeFilter)?.aspectRatioOption.normalizedSize
     }
     
     override var color: UIColor? {
-        return backgroundColor
+        return self.backgroundColor
     }
     
     override func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
@@ -367,7 +399,7 @@ class CIResizeFilterItem: CIFilterItem {
         layerInstruction.setTransform(layerTransform, at: CMTime.zero)
         
         let instruction = AVMutableVideoCompositionInstruction()
-        instruction.backgroundColor = (backgroundColor ?? UIColor(red: 1, green: 1, blue: 1, alpha: 1)).cgColor
+        instruction.backgroundColor = backgroundColor.cgColor
         instruction.timeRange = CMTimeRange(start: CMTime.zero, duration: video.duration)
         instruction.layerInstructions = [layerInstruction]
 
@@ -378,11 +410,6 @@ class CIResizeFilterItem: CIFilterItem {
         
         return playerItem
     }
-}
-
-fileprivate struct ColorItem {
-    var color: UIColor
-    var title: String
 }
 
 fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
@@ -397,17 +424,27 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     @objc dynamic var filterItem: CIFilterItem?
     
+    private var selectedFilter: CIResizeFilter?
+    private var selectedBackgroundColor: UIColor? {
+        didSet {
+            colorPickerButton.setAttributedTitle(NSAttributedString(string: "Background Color".localized, attributes: [NSAttributedString.Key.foregroundColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF)]), for: .normal)
+        }
+    }
+    
     private lazy var items: [AppUICollectionView.CollectionItem] = {
         var items = [AppUICollectionView.CollectionItem]()
         
-        items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: nil, action: {
-            self.filterItem = CIResizeFilterItem()
+        let imageSize = CGSize(width: 32, height: 32)
+        
+        items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: UIImage(color: UIColor(rgba: 0xFFFFFF99), size: imageSize), action: {
+            self.selectedFilter = nil
+            self.filterItem = CIResizeFilterItem(backgroundColor: self.selectedBackgroundColor)
         }))
         
         items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
-            return AppUICollectionView.CollectionItem(title: (filter.aspectRatioOption.description ?? filter.name).localized, image: nil, action: {
-                let filterItem = CIResizeFilterItem(filter)
-                self.filterItem = filterItem
+            return AppUICollectionView.CollectionItem(title: (filter.aspectRatioOption.description ?? filter.name).localized, image: UIImage(color: UIColor.white, size: imageSize)?.applyTransform(CGAffineTransform(scaleX: filter.aspectRatioOption.normalizedSize.width, y: filter.aspectRatioOption.normalizedSize.height)), action: {
+                self.selectedFilter = filter
+                self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor)
             })
         })
         
@@ -416,9 +453,10 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     lazy var collectionView: AppUICollectionView = {
         let view = AppUICollectionView(items: items)
-        view.cellSize = CGSize(width: 80, height: 80)
-        view.cellSpacing = 2
-        view.cellImageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+        view.cellSize = CGSize(width: 64, height: 44)
+        view.cellSpacing = 1
+        view.cellImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        view.cellImageContentMode = UIView.ContentMode.scaleAspectFit
         
         return view
     }()
@@ -444,34 +482,51 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     lazy var colorPickerButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
-        button.setTitle("White".localized, for: .normal)
         button.addTarget(self, action: #selector(self.openColorPicker), for: .touchUpInside)
         return button
     }()
     
-    private lazy var colors: [ColorItem] = [
-        ColorItem(color: UIColor(red: 1, green: 1, blue: 1, alpha: 1), title: "White"),
-        ColorItem(color: UIColor(red: 0, green: 0, blue: 0, alpha: 1), title: "Black"),
-        ColorItem(color: UIColor(red: 1, green: 0, blue: 0, alpha: 1), title: "Red"),
-        ColorItem(color: UIColor(red: 0, green: 1, blue: 0, alpha: 1), title: "Green"),
-        ColorItem(color: UIColor(red: 0, green: 0, blue: 1, alpha: 1), title: "Blue"),
-        ColorItem(color: UIColor(red: 1, green: 1, blue: 0, alpha: 1), title: "RG"),
-        ColorItem(color: UIColor(red: 0, green: 1, blue: 1, alpha: 1), title: "GB"),
-        ColorItem(color: UIColor(red: 1, green: 0, blue: 1, alpha: 1), title: "RB")
+    private lazy var colors: [Int] = [
+        0xFFFFFF,
+        0x000000,
+        0x6ABB72,
+        0x3ABB9D,
+        0x4DA664,
+        0x2CA786,
+        0x5CADCF,
+        0x3585C5,
+        0x4590B6,
+        0x2F6CAD,
+        0x485675,
+        0x29334D,
+        0x9069B5,
+        0x533D7F,
+        0xF2D46F,
+        0xF7C23E,
+        0xF79E3D,
+        0xEE7841,
+        0xE66B5B,
+        0xCC4846,
+        0xDC5047,
+        0xB33234,
+        0xA28F85,
+        0xEFEFEF,
+        0xD1D5D8,
+        0x75706B
     ]
     
     @objc private func openColorPicker() {
-        let picker = UIAlertController.actionSheet(title: "Background Color", message: nil)
+        let picker = UIAlertController.actionSheet(title: "Background Color".localized, message: "Choose a Color".localized)
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
         for color in colors {
-            picker.addAction(UIAlertAction(title: color.title.localized, style: .default, handler: { _ in
-                guard let filterItem = self.filterItem as? CIResizeFilterItem else { return }
-                filterItem.backgroundColor = color.color
-                self.filterItem = filterItem
-                
-                self.colorPickerButton.setTitle(color.title.localized, for: .normal)
-            }))
+            let c = UIColor(rgb: color)
+            let action = UIAlertAction(title: c.hexCode(), style: .default, handler: { _ in
+                self.selectedBackgroundColor = c
+                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: c)
+            })
+            action.accessoryImage = UIImage(color: c, size: CGSize(width: 10, height: 10))?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal)
+            picker.addAction(action)
         }
         
         DispatchQueue.main.async {
@@ -487,12 +542,16 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
-        selectItem(by: editStateValue?.ciFilter?.name)
+        let filter = editStateValue?.ciFilter as? CIResizeFilter
+        selectItem(by: filter?.name)
+        
+        selectedFilter = filter
+        selectedBackgroundColor = filter?.backgroundColor
     }
     
-    fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {
+    fileprivate func getFilterItem(by filterName: String?) -> CIResizeFilterItem? {
         let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
-        return CIFilterItem(self.filters[safe: index - 1])
+        return CIResizeFilterItem(self.filters[safe: index - 1], backgroundColor: selectedBackgroundColor)
     }
     
     var contentScrollable: AppDockContentScrollable? {
@@ -511,6 +570,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
+        collectionView.tintColor = view.colorTheme.tintColor
         collectionView.reloadData()
     }
 }
