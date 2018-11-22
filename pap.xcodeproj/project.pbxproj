@@ -937,6 +937,10 @@
 		4F71DFF5CFD38F28C81B3087 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71DFFB991A43E5830B9081 /* App.Chargeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D448194D99CD49CBD3B6 /* App.Chargeable.swift */; };
 		4F71DFFEB73559A41CAB1253 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3D65614CA366512179C /* ActionViewController.swift */; };
+		5114401221A775B2008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
+		5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
+		5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
+		5114401621A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		511577CF21A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D021A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D121A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
@@ -2494,6 +2498,7 @@
 		4F71DFE6F7AD720DACF7CAEB /* AutoEditor.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditor.BApp.swift; sourceTree = "<group>"; };
 		4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
+		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -3673,6 +3678,7 @@
 			isa = PBXGroup;
 			children = (
 				5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */,
+				5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */,
 			);
 			path = Resizer;
 			sourceTree = "<group>";
@@ -4506,6 +4512,7 @@
 				4F71D74081724BE45AA4A767 /* gifmaker_preview_frame_2.png in Resources */,
 				4F71DD6C85C869CEE3CEF3DD /* gifmaker_preview_frame_3.png in Resources */,
 				4F71D656E6E54297FB7632EB /* PDFMaker.BApp.Assets.xcassets in Resources */,
+				5114401221A775B2008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0DE011B216D027000F99365 /* Artist.BApp.Assets.xcassets in Resources */,
 				4F71DB17035D79CB54BCAC12 /* Filters.BApp.Assets.xcassets in Resources */,
 				4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */,
@@ -4568,6 +4575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CB00D5219C8C64007A5278 /* Localizable.strings in Resources */,
 				A0CB00D6219C8C64007A5278 /* Assets.xcassets in Resources */,
 				A0CB00D8219C8C64007A5278 /* Launch Screen.storyboard in Resources */,
@@ -4653,6 +4661,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5114401621A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CB0259219C9093007A5278 /* Localizable.strings in Resources */,
 				A0CB025A219C9093007A5278 /* Assets.xcassets in Resources */,
 				A0CB025B219C9093007A5278 /* Launch Screen.storyboard in Resources */,
@@ -4769,6 +4778,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CBFF5B219ADBA2007A5278 /* Localizable.strings in Resources */,
 				A0CBFF5C219ADBA2007A5278 /* Assets.xcassets in Resources */,
 				A0CBFF5D219ADBA2007A5278 /* GoogleService-Info.plist in Resources */,

@@ -79,8 +79,8 @@ PhotoEditorViewControllerDelegatableApp {
         , displayName: "Resizer".localized.localizedCapitalized
         , description: "Resize your photos by the various sizes.".localized
         , keywords: ["Resize", "Instasize", "Instafit", "No Crop"]
-        , iconBundleName: nil
-        , themeColor: UIColor.red
+        , iconBundleName: R.image.resizerBAppIcon.name
+        , themeColor: UIColor(rgb: 0xFA7E1E)
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
