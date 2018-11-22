@@ -97,7 +97,6 @@ PhotoEditorViewControllerDelegatableApp {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
                     (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
-                    
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -195,6 +194,10 @@ enum AspectRatioOption: Int, Codable {
         case .ratio9x16: return "Instagram Story"
         default: return nil
         }
+    }
+    
+    var title: String {
+        return description ?? name
     }
     
     var aspectRatio: CGSize {
@@ -422,30 +425,44 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9)
     ]
     
+    struct CIFilterCollectionItem: AppUICollectionItem {
+        var title: String?
+        var image: UIImage?
+        var action: (() -> Void)?
+        
+        var filter: CIFilter?
+    }
+    
     @objc dynamic var filterItem: CIFilterItem?
     
     private var selectedFilter: CIResizeFilter?
     private var selectedBackgroundColor: UIColor? {
         didSet {
-            colorPickerButton.setAttributedTitle(NSAttributedString(string: "Background Color".localized, attributes: [NSAttributedString.Key.foregroundColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF)]), for: .normal)
+            let buttonSize = CGSize(width: 80, height: 20)
+            let image = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)), cornerRadius: 6), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+            colorPickerButton.setImage(image, for: .normal)
         }
     }
     
-    private lazy var items: [AppUICollectionView.CollectionItem] = {
-        var items = [AppUICollectionView.CollectionItem]()
+    private lazy var items: [CIFilterCollectionItem] = {
+        var items = [CIFilterCollectionItem]()
         
+        let imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         let imageSize = CGSize(width: 32, height: 32)
         
-        items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: UIImage(color: UIColor(rgba: 0xFFFFFF99), size: imageSize), action: {
+        items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
             self.selectedFilter = nil
             self.filterItem = CIResizeFilterItem(backgroundColor: self.selectedBackgroundColor)
-        }))
+        }, filter: nil))
         
-        items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
-            return AppUICollectionView.CollectionItem(title: (filter.aspectRatioOption.description ?? filter.name).localized, image: UIImage(color: UIColor.white, size: imageSize)?.applyTransform(CGAffineTransform(scaleX: filter.aspectRatioOption.normalizedSize.width, y: filter.aspectRatioOption.normalizedSize.height)), action: {
+        items += self.filters.map({ (filter) -> CIFilterCollectionItem in
+            let iconSize = imageSize.applying(CGAffineTransform(scaleX: filter.aspectRatioOption.normalizedSize.width, y: filter.aspectRatioOption.normalizedSize.height))
+            let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: iconSize).inset(by: imageInsets), cornerRadius: iconSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
+            
+            return CIFilterCollectionItem(title: filter.aspectRatioOption.title.localized, image: icon, action: {
                 self.selectedFilter = filter
                 self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor)
-            })
+            }, filter: filter)
         })
         
         return items
@@ -453,7 +470,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     lazy var collectionView: AppUICollectionView = {
         let view = AppUICollectionView(items: items)
-        view.cellSize = CGSize(width: 64, height: 44)
+        view.cellSize = CGSize(width: 64, height: 52)
         view.cellSpacing = 1
         view.cellImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         view.cellImageContentMode = UIView.ContentMode.scaleAspectFit
@@ -467,21 +484,26 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         view.addSubview(colorPickerButton)
         
         colorPickerButton.translatesAutoresizingMaskIntoConstraints = false
-        colorPickerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: colorPickerButton.bottomAnchor, constant: 4).isActive = true
         colorPickerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         colorPickerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        colorPickerButton.heightAnchor.constraint(lessThanOrEqualToConstant: 32).isActive = true
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: colorPickerButton.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: colorPickerButton.topAnchor, constant: 4).isActive = true
         
         return view
     }()
     
     lazy var colorPickerButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
+        button.contentVerticalAlignment = .center
+        button.contentHorizontalAlignment = .center
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 4)
         button.addTarget(self, action: #selector(self.openColorPicker), for: .touchUpInside)
         return button
     }()
@@ -516,7 +538,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     ]
     
     @objc private func openColorPicker() {
-        let picker = UIAlertController.actionSheet(title: "Background Color".localized, message: "Choose a Color".localized)
+        let picker = UIAlertController.actionSheet(title: "Background Color".localized, message: nil)
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
         for color in colors {
@@ -525,7 +547,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 self.selectedBackgroundColor = c
                 self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: c)
             })
-            action.accessoryImage = UIImage(color: c, size: CGSize(width: 10, height: 10))?.rounded(radius: 10)?.withRenderingMode(.alwaysOriginal)
+            action.accessoryImage = UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))), fillColor: c, strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
             picker.addAction(action)
         }
         
@@ -536,8 +558,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     var selectedEditStateValue: ImageEditStateValue?
     
+    fileprivate func indexOfItem(by filterName: String?) -> Int? {
+        return items.index(where: { $0.filter?.name == filterName })
+    }
+    
     fileprivate func selectItem(by filterName: String?) {
-        let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
+        let index = indexOfItem(by: filterName) ?? 0
         collectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
     
@@ -550,7 +576,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     fileprivate func getFilterItem(by filterName: String?) -> CIResizeFilterItem? {
-        let index = items.index(where: { $0.title == filterName ?? "" }) ?? 0
+        let index = indexOfItem(by: filterName) ?? 0
         return CIResizeFilterItem(self.filters[safe: index - 1], backgroundColor: selectedBackgroundColor)
     }
     
@@ -571,6 +597,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         collectionView.tintColor = view.colorTheme.tintColor
+        collectionView.cellSelectedStateColor = ResizerApp.info.themeColor
         collectionView.reloadData()
     }
 }

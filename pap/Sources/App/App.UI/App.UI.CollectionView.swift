@@ -8,15 +8,21 @@
 
 import UIKit
 
+protocol AppUICollectionItem {
+    var title: String? { get set }
+    var image: UIImage? { get set }
+    var action: (() -> Void)? { get set }
+}
 
 class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    struct CollectionItem {
+    
+    struct CollectionItem: AppUICollectionItem {
         var title: String?
         var image: UIImage?
         var action: (() -> Void)?
     }
     
-    private(set) var items = [CollectionItem]()
+    private(set) var items = [AppUICollectionItem]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +36,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         initialize()
     }
     
-    init(items: [CollectionItem]) {
+    init(items: [AppUICollectionItem]) {
         self.init()
         
         initialize()
@@ -40,7 +46,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.reloadData()
     }
 
-    func reloadData(items:[CollectionItem]?=nil){
+    func reloadData(items:[AppUICollectionItem]?=nil){
         if let items = items{
             self.items = items
         }
@@ -73,6 +79,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     }
     
     var cellImageContentMode: UIView.ContentMode = .scaleAspectFill
+    var cellSelectedStateColor: UIColor?
     
     private(set) lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
@@ -110,6 +117,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
         cell.imageInsets = cellImageInsets
         cell.imageContentMode = cellImageContentMode
+        cell.selectedStateColor = cellSelectedStateColor
         cell.tintColor = tintColor
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
@@ -240,6 +248,14 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
     var imageContentMode: UIView.ContentMode = .scaleAspectFill {
         didSet {
             imageView.contentMode = imageContentMode
+            layoutContents()
+        }
+    }
+    
+    var selectedStateColor: UIColor? {
+        didSet {
+            guard let color = selectedStateColor else { return }
+            selectionView.layer.borderColor = color.cgColor
         }
     }
     
