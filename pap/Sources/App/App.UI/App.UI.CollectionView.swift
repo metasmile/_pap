@@ -80,6 +80,8 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     var cellImageContentMode: UIView.ContentMode = .scaleAspectFill
     var cellSelectedStateColor: UIColor?
+    var cellSelectedStateCornerRadius: CGFloat?
+    var cellSelectedStateBorderWidth: CGFloat?
     
     private(set) lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
@@ -118,6 +120,8 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         cell.imageInsets = cellImageInsets
         cell.imageContentMode = cellImageContentMode
         cell.selectedStateColor = cellSelectedStateColor
+        cell.selectedStateCornerRadius = cellSelectedStateCornerRadius
+        cell.selectedStateBorderWidth = cellSelectedStateBorderWidth
         cell.tintColor = tintColor
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
@@ -258,6 +262,18 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
         didSet {
             guard let color = selectedStateColor else { return }
             selectionView.layer.borderColor = color.cgColor
+        }
+    }
+    
+    var selectedStateCornerRadius: CGFloat? {
+        didSet {
+            selectionView.layer.cornerRadius = selectedStateCornerRadius ?? 0
+        }
+    }
+    
+    var selectedStateBorderWidth: CGFloat? {
+        didSet {
+            selectionView.layer.borderWidth = selectedStateBorderWidth ?? 3
         }
     }
     

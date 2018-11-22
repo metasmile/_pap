@@ -748,6 +748,8 @@
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Your code was expired.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "Youtube Landscape";
 /* Generated from genl10n: Period.swift */
 "day" = "day";
 /* Generated from genl10n: Period.swift */

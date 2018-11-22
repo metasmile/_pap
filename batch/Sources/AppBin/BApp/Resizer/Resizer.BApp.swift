@@ -191,10 +191,10 @@ enum AspectRatioOption: Int, Codable {
         case .square: return "Square".localized
         case .ratio4x5: return "Instagram Vertical".localized
         case .ratio1_91x1: return "Instagram Landscape".localized
+        case .ratio16x9: return "Youtube Landscape".localized
         case .ratio9x16: return "Instagram Story".localized
         case .ratio21x9: return "Ultra Wide".localized
         case .ratio9x21: return "Ultra Wide Vertical".localized
-        default: return nil
         }
     }
     
@@ -423,6 +423,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio16x9),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21)
     ]
@@ -600,6 +601,8 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         view.tintColor = view.colorTheme.tintColor
         collectionView.tintColor = view.colorTheme.tintColor
         collectionView.cellSelectedStateColor = ResizerApp.info.themeColor
+        collectionView.cellSelectedStateBorderWidth = 2
+        collectionView.cellSelectedStateCornerRadius = 6
         collectionView.reloadData()
     }
 }
