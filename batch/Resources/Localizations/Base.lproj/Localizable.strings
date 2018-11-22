@@ -344,6 +344,12 @@
 "Input Here" = "Input Here";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Inquiry" = "Inquiry";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram Landscape";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Story" = "Instagram Story";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -596,7 +602,7 @@
 "Special Guest License" = "Special Guest License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Special Guest";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Resizer.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
@@ -676,6 +682,10 @@
 "Type" = "Type";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "Ultra Wide Vertical";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */

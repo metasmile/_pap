@@ -188,10 +188,12 @@ enum AspectRatioOption: Int, Codable {
     var description: String? {
         switch self {
         case .original: return nil
-        case .square: return "Square"
-        case .ratio4x5: return "Instagram Full"
-        case .ratio1_91x1: return "Instagram Landscape"
-        case .ratio9x16: return "Instagram Story"
+        case .square: return "Square".localized
+        case .ratio4x5: return "Instagram Vertical".localized
+        case .ratio1_91x1: return "Instagram Landscape".localized
+        case .ratio9x16: return "Instagram Story".localized
+        case .ratio21x9: return "Ultra Wide".localized
+        case .ratio9x21: return "Ultra Wide Vertical".localized
         default: return nil
         }
     }
@@ -421,8 +423,8 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9)
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21)
     ]
     
     struct CIFilterCollectionItem: AppUICollectionItem {
@@ -459,7 +461,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
             let iconSize = imageSize.applying(CGAffineTransform(scaleX: filter.aspectRatioOption.normalizedSize.width, y: filter.aspectRatioOption.normalizedSize.height))
             let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: iconSize).inset(by: imageInsets), cornerRadius: iconSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
             
-            return CIFilterCollectionItem(title: filter.aspectRatioOption.title.localized, image: icon, action: {
+            return CIFilterCollectionItem(title: filter.aspectRatioOption.title, image: icon, action: {
                 self.selectedFilter = filter
                 self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor)
             }, filter: filter)
