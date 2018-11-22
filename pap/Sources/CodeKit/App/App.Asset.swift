@@ -78,6 +78,15 @@ public class ImageEditStateValue: Object {
     public var stabilizationMode: ImageAlignment.StabilizationMode? {
         return nil
     }
+    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
+        return nil
+    }
+    public var normalizedSize: CGSize? {
+        return nil
+    }
+    public var color: UIColor? {
+        return nil
+    }
 }
 
 public class CIFilterItem: ImageEditStateValue {
@@ -97,6 +106,24 @@ public class CIFilterItem: ImageEditStateValue {
 public extension StateValueSet where T: ImageEditStateValue {
     var ciFilter: CIFilter? {
         return imageEditStateValue?.ciFilter
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var normalizedSize: CGSize? {
+        return imageEditStateValue?.normalizedSize
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var color: UIColor? {
+        return imageEditStateValue?.color
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
+        return imageEditStateValue?.playerItem(with: video, for: exporting)
     }
 }
 

@@ -218,6 +218,10 @@ extension AppUIAssetView {
             
         }
         else if asset.imageType == .livePhoto {
+            DispatchQueue.main.async {
+                self.image = nil
+            }
+            
             if editState?.ciFilter != nil || editState?.stabilizationMode != nil {
                 self.isProcessing(true, animated: true)
                 
@@ -274,18 +278,45 @@ extension AppUIAssetView {
             guard let videoTrack = video.tracks(withMediaType: .video).first else { return }
             
             let composition = AVMutableComposition()
-            let compositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+            let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+            if (try? videoCompositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil, let compositionTrack = videoCompositionTrack {
+                composition.removeTrack(compositionTrack)
+            }
             
-            try? compositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)
-            compositionTrack?.preferredTransform = videoTrack.preferredTransform
+            videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
             
-            if let filter = editState?.ciFilter {
+            if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+                if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
+                    composition.removeTrack(compositionTrack)
+                }
+            }
+            
+            stopAny()
+            
+            DispatchQueue.main.async {
+                self.image = nil
+            }
+            
+            if let item = editState?.playerItem(with: composition) {
+                playerItem = item
+            }
+            else if let filter = editState?.ciFilter {
+                playerItem = AVPlayerItem(asset: composition)
                 playerItem?.videoComposition = composition.applyFilter(filter)
             }
             else if let mode = editState?.stabilizationMode {
+                playerItem = AVPlayerItem(asset: composition)
                 playerItem?.videoComposition = composition.stabilize(with: mode)
             }
+            else {
+                playerItem = AVPlayerItem(asset: composition)
+            }
+            seekVideo(to: .zero)
             playAny()
         }
+    }
+    
+    override func playAny() {
+        super.playAny()
     }
 }

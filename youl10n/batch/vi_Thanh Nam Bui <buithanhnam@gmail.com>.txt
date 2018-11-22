@@ -1,0 +1,1758 @@
+6-Month Use of All and New Tools
+= Sử dụng 6 tháng và tất cả các công cụ mới
+
+
+Artist
+= Nghệ sĩ
+
+
+Select Photos To Find Something.
+= Chọn ảnh để tìm nội dung nào đó.
+
+
+Usage Guide
+= Hướng dẫn sử dụng
+
+
+Take A Photo
+= Chụp một tấm
+
+
+Picture
+= picture
+
+
+Input Here
+= Nhập vào đây
+
+
+Just select photos you need and then run it.
+= Chỉ cần chọn ảnh bạn cần và sau đó chạy nó.
+
+
+Reverse
+= Đảo ngược
+
+
+Partnership License Program
+= Chương trình Giấy phép Đối tác
+
+
+It could not be stored.
+= Nó không thể được lưu trữ.
+
+
+Formats
+= Định dạng
+
+
+Videos Without Sound
+= Video không có âm thanh
+
+
+Discard Changes
+= Loại bỏ những thay đổi
+
+
+Permanent Use And All New Updates
+= Sử dụng vĩnh viễn và tất cả cập nhật mới
+
+
+Monthly License
+= Giấy phép hàng tháng
+
+
+Camera
+= Camera
+
+
+Edit %@ Photo
+= Chỉnh sửa %@ ảnh
+
+
+Detection Targets
+= Mục tiêu phát hiện
+
+
+Animation
+= Hoạt ảnh
+
+
+Direction
+= Phương hướng
+
+
+Stories of Ours
+= Câu chuyện về chúng ta
+
+
+Edit %@ Videos
+= Chỉnh sửa %@ video
+
+
+1-Month Use of All and New Tools
+= Sử dụng 1 tháng của tất cả và công cụ mới
+
+
+Open EXIF Ghost.
+= Open EXIF Ghost.
+
+
+Search Flights
+= Tìm kiếm chuyến bay
+
+
+Stabilize
+= Ổn định
+
+
+Starting to create PDF...
+= Bắt đầu tạo PDF ...
+
+
+Filter
+= bộ lọc
+
+
+Flight Number
+= Số chuyến bay
+
+
+Taken With Built-in Camera
+= Chụp với máy ảnh tích hợp
+
+
+Videos Saved by Instagram
+= Video được lưu bởi Instagram
+
+
+No loop
+= No loop
+
+
+Converter
+= Chuyển đổi
+
+
+Crop
+= Crop
+
+
+Hello, %@!
+= Xin chào, %@!
+
+
+%@ Day
+= %@ Ngày
+
+
+It Displays A Ratio of Remaining Free App Access Periods.
+= Nó hiển thị một tỷ lệ thời gian truy cập ứng dụng miễn phí còn lại.
+
+
+Get Text
+= Nhận văn bản
+
+
+Open Apple Maps
+= Mở Apple Maps
+
+
+Lover
+= người yêu
+
+
+Deselect this photo
+= Bỏ chọn ảnh này
+
+
+Edit
+= Edit
+
+
+Select Format To Convert
+= Chọn định dạng để chuyển đổi
+
+
+Thank you very much for your feedback! Soon we will contact you.
+= Cảm ơn bạn rất nhiều thông tin phản hồi của bạn! Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.
+
+
+1 Year License
+= Giấy phép 1 năm
+
+
+Too Close-up Face
+= Khuôn mặt quá gần
+
+
+Remaining Percentage
+= Phần trăm còn lại
+
+
+Find
+= Tìm thấy
+
+
+Restore
+= Khôi phục
+
+
+Download
+= Tải về
+
+
+Transform Mode
+= Chế độ chuyển đổi
+
+
+VIP License Program
+= Chương trình cấp phép VIP
+
+
+Animated GIF
+= GIF động
+
+
+Open Cleaner.
+= Open Cleaner.
+
+
+Special Guest License
+= Giấy phép khách mời đặc biệt
+
+
+Starting To Find ...
+= Bắt đầu tìm ...
+
+
+Image
+= hình ảnh
+
+
+Share
+= Chia sẻ
+
+
+Page Size Preset
+= Kích thước trang đặt trước
+
+
+Translate Now
+= Dịch ngay bây giờ
+
+
+Save Contacts
+= Lưu liên hệ
+
+
+Use
+= Sử dụng
+
+
+day
+= ngày
+
+
+%@ Items
+= %@ Items
+
+
+Please turn off following option, and reset advertising identifier in Settings. Then try again.
+= Vui lòng tắt tùy chọn sau và đặt lại số nhận dạng quảng cáo trong Cài đặt. Sau đó thử lại.
+
+
+%@ will be hidden
+= %@ sẽ bị ẩn
+
+
+Export
+= Xuất khẩu
+
+
+Visit
+= Chuyến thăm
+
+
+Guest User License
+= Giấy phép người dùng của khách
+
+
+New Contact
+= Địa chỉ liên lạc mới
+
+
+1 %@
+= 1 %@
+
+
+Contacts
+= Danh bạ
+
+
+Write
+= Viết
+
+
+Albums
+= Album
+
+
+Engineering Notes
+= Ghi chú kỹ thuật
+
+
+Convert the last Live Photo Into GIF.
+= Chuyển đổi ảnh Live thành GIF cuối cùng.
+
+
+Activating Current Visible Items ...
+= Đang kích hoạt các mục hiển thị hiện tại ...
+
+
+Access Denied.
+= Truy cập bị từ chối.
+
+
+Permanent Ownership
+= Quyền sở hữu vĩnh viễn
+
+
+You can select only photos or videos that matched with starting format.
+= Bạn chỉ có thể chọn ảnh hoặc video phù hợp với định dạng bắt đầu.
+
+
+Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
+= Áp dụng bộ lọc Chất lượng cao trên tất cả các ảnh bạn muốn. Công cụ xử lý hàng loạt này không có giới hạn về số lượng ảnh để áp dụng bộ lọc.
+
+
+Deleting Photos...
+= Đang xóa ảnh ...
+
+
+Purchase
+= Mua, tựa vào, bám vào
+
+
+Take A Live Photo.
+= Take A Live Photo.
+
+
+My Albums
+= Album của tôi
+
+
+Search On Google
+= Tìm kiếm trên Google
+
+
+Privacy
+= Riêng tư
+
+
+Save and Share
+= Lưu và chia sẻ
+
+
+Information of Use
+= Thông tin sử dụng
+
+
+Custom
+= Tập quán
+
+
+Transform
+= Transform
+
+
+Repeat
+= Repeat
+
+
+Image Quality
+= Chất lượng hình ảnh
+
+
+Choose An Action
+= Chọn một hành động
+
+
+Reverting Photos...
+= Đang hoàn nguyên ảnh ...
+
+
+Video Tutorials
+= Video hướng dẫn
+
+
+Images
+= Hình ảnh
+
+
+Apply
+= Apply
+
+
+User Community
+= Cộng đồng người dùng
+
+
+VIP Hotline
+= VIP Hotline
+
+
+Settings for Main Tools License
+= Cài đặt cho giấy phép công cụ chính
+
+
+Starting to revert...
+= Đang bắt đầu hoàn nguyên ...
+
+
+Page Margin
+= Lề trang
+
+
+Thank you for your purchase.
+= Cám ơn vì đã mua hàng.
+
+
+%@ Photo
+= %@ Ảnh
+
+
+Auto Select on %@.
+= Tự động chọn trên %@.
+
+
+Verification Failed.
+= Xác minh không hoàn thành.
+
+
+Access Granted.
+= Chấp thuận quyền truy cập.
+
+
+Privacy Policy
+= Chính sách bảo mật
+
+
+Warp
+= Warp
+
+
+Your Message Has Been Sent.
+= Tin nhắn của bạn đã được gửi.
+
+
+Sharing on Facebook Messenger
+= Chia sẻ trên Facebook Messenger
+
+
+OK
+= OK
+
+
+Permanent Use of All and New Tools
+= Sử dụng vĩnh viễn tất cả và công cụ mới
+
+
+VIP License
+= Giấy phép VIP
+
+
+Memory
+= ký ức
+
+
+Auto Enhance
+= Tự động nâng cao
+
+
+Rotate
+= Quay
+
+
+All not taken with Camera
+= Đã lưu mà không có máy ảnh
+
+
+Your code was expired.
+= Mã của bạn đã hết hạn.
+
+
+Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.
+= Trình tìm kiếm cho phép trích xuất mọi thông tin có ý nghĩa như số điện thoại, địa chỉ, ngày hoặc URL từ ảnh của bạn và sau đó gọi, mở bản đồ hoặc điều hướng trang web ngay cả khi tìm kiếm chuyến bay. Bạn cũng có thể lưu tất cả chúng dưới dạng văn bản thô.
+
+
+Switch on any items you want to hide. The quality will perfectly remain the same.
+= Bật bất kỳ mục nào bạn muốn ẩn. Chất lượng hoàn toàn sẽ vẫn như cũ.
+
+
+URL
+= URL
+
+
+Hiding Selected Items...
+= Đang ẩn các mục đã chọn ...
+
+
+All
+= All
+
+
+Familiy
+= gia đình
+
+
+Detail
+= Chi tiết
+
+
+Could not detect anything.
+= Không thể phát hiện bất cứ điều gì.
+
+
+All processes you have confirmed were finished.
+= Tất cả các quy trình bạn đã xác nhận đã hoàn tất.
+
+
+Thank you for your message. Soon we will contact you.
+= Cảm ơn tin nhắn của bạn. Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.
+
+
+Welcome to our VIP license program.
+= Chào mừng bạn đến với chương trình cấp phép VIP của chúng tôi.
+
+
+Edit %d video(s)
+= Chỉnh sửa %d video
+
+
+Handle lots of photos at once.
+= Xử lý nhiều ảnh cùng một lúc.
+
+
+Cancelling...
+= Đang hủy ...
+
+
+Convert the last Video Into GIF.
+= Chuyển đổi video cuối cùng thành GIF.
+
+
+Landscape
+= Phong cảnh
+
+
+GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.
+= GIF Maker cho phép tạo ảnh GIF dễ dàng và nhanh chóng từ Ảnh hoặc Live Photos với nhiều tùy chọn khác nhau! Và sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.
+
+
+Confirm
+= Xác nhận
+
+
+Ongoing Use of All and New Tools
+= Đang sử dụng tất cả và công cụ mới
+
+
+Partnership License
+= Giấy phép đối tác
+
+
+Restore From Previous Clipboard
+= Khôi phục từ Clipboard trước
+
+
+1-Month Use of Main and New Tools
+= Sử dụng 1 tháng các công cụ chính và mới
+
+
+Give A Rating
+= Xếp hạng
+
+
+Quality
+= Phẩm chất
+
+
+Please try again with another code.
+= Vui lòng thử lại bằng mã khác.
+
+
+Open Rotation.
+= Open Rotation.
+
+
+Open Filters.
+= Open Filters.
+
+
+Edit %@ Video
+= Chỉnh sửa %@ video
+
+
+1-Year Use of Main And New Tools
+= Sử dụng một năm các công cụ chính và mới
+
+
+Deleting Targets
+= Xóa mục tiêu
+
+
+Free Use And All New Updates
+= Sử dụng miễn phí và tất cả cập nhật mới
+
+
+Open Artist.
+= Mở Nghệ sĩ.
+
+
+Your code is invalid. Please try again.
+= Mã của bạn không hợp lệ. Vui lòng thử lại.
+
+
+Maximum Permanent Ownership
+= Quyền sở hữu vĩnh viễn tối đa
+
+
+Live Photo
+= Live Photo
+
+
+Camera
+= camera
+
+
+Translation Correction
+= Chỉnh sửa bản dịch
+
+
+Please check and restore your internet connectivity, or deactivate Ads.
+= Vui lòng kiểm tra và khôi phục kết nối internet của bạn hoặc tắt Quảng cáo.
+
+
+Starting the Process...
+= Đang bắt đầu quá trình ...
+
+
+Text
+= Bản văn
+
+
+Color And Reminder for Each Phases
+= Màu sắc và nhắc nhở cho từng giai đoạn
+
+
+Processing
+= Chế biến
+
+
+Auto Editor
+= Auto Editor
+
+
+Rotation
+= Vòng xoay
+
+
+Open Auto Editor.
+= Open Auto Editor.
+
+
+On Standby
+= Đã sẵn sàng
+
+
+1-Year Use of All and New Tools
+= Sử dụng 1 năm của tất cả và công cụ mới
+
+
+Special Guest
+= Khách mời đặc biệt
+
+
+Select this photo
+= Chọn ảnh này
+
+
+Size
+= Size
+
+
+hour
+= giờ
+
+
+PDFactory makes PDF document from multiple images with various page options.
+= PDFactory tạo tài liệu PDF từ nhiều hình ảnh với các tùy chọn trang khác nhau.
+
+
+Welcome to our Partnership License Program!
+= Chào mừng bạn đến với Chương trình Giấy phép Đối tác của chúng tôi!
+
+
+Yearly License
+= Giấy phép hàng năm
+
+
+Engage Now And Repeatedly Recharge Main Tools License.
+= Tham gia ngay và lặp lại nạp giấy phép công cụ chính.
+
+
+Red-Eye Removal
+= Loại bỏ mắt đỏ
+
+
+Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.
+= Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt và nó có thể bị ảnh hưởng bởi ngôn ngữ hệ thống hiện tại.
+
+
+Edit this photo
+= Chỉnh sửa ảnh này
+
+
+Inquiry
+= Yêu cầu
+
+
+6-Month Use of Main And New Tools
+= 6 tháng sử dụng các công cụ chính và mới
+
+
+Download now for FREE at %@
+= Tải xuống MIỄN PHÍ ngay lúc %@
+
+
+Auto Selection Bot
+= Bot lựa chọn tự động
+
+
+Modify
+= Sửa đổi
+
+
+Some contacts were saved, but someones were not.
+= Một số địa chỉ liên lạc đã được lưu, nhưng ai đó thì không.
+
+
+Open
+= Mở
+
+
+Layout
+= Bố trí
+
+
+Pages
+= Trang
+
+
+Starting to copy photos...
+= Đang bắt đầu sao chép ảnh ...
+
+
+Edit %@ Photos
+= Chỉnh sửa %@ Ảnh
+
+
+Search for %@
+= Tìm kiếm %@
+
+
+Ongoing Use of All and New Main Tools
+= Đang sử dụng tất cả và các công cụ chính mới
+
+
+Auto Editor lets you edit automatically if your photos are needed to correct.
+= Trình chỉnh sửa tự động cho phép bạn chỉnh sửa tự động nếu ảnh của bạn là cần thiết để sửa.
+
+
+%@/Day
+= %@ / Ngày
+
+
+Targeted
+= Targeted
+
+
+To use this app needs a corresponding access license. Would you like to open %@?
+= Để sử dụng ứng dụng này cần có giấy phép truy cập tương ứng. Bạn có muốn mở %@ không?
+
+
+Convert
+= Convert
+
+
+Take A Photo.
+= Take A Photo.
+
+
+Create
+= Tạo nên
+
+
+Guest User License Program
+= Chương trình cấp phép người dùng dành cho khách
+
+
+Could not receive Ads.
+= Không thể nhận quảng cáo.
+
+
+Send
+= Gửi
+
+
+Please open settings and allow access to your photos
+= Vui lòng mở cài đặt và cho phép truy cập vào ảnh của bạn
+
+
+Processing...
+= Chế biến...
+
+
+Make GIF
+= Tạo GIF
+
+
+Copy
+= Copy
+
+
+Open Settings
+= Mở cài đặt
+
+
+Square
+= Square
+
+
+Convert the last Video Into MP4.
+= Chuyển đổi video cuối cùng thành MP4.
+
+
+Open Converter.
+= Open Converter.
+
+
+Welcome to our promotion license program!
+= Chào mừng bạn đến với chương trình giấy phép quảng cáo của chúng tôi!
+
+
+Flashlight
+= Đèn pin
+
+
+Selected
+= Đã chọn
+
+
+Editor
+= editor
+
+
+Add New Contact
+= Thêm liên hệ mới
+
+
+%@ Photos
+= %@ Ảnh
+
+
+Currency Exchange
+= Thu đổi ngoại tệ
+
+
+Date
+= Ngày
+
+
+Sorry, something went wrong.
+= Sorry, something went wrong.
+
+
+week
+= tuần
+
+
+%@ Download now for FREE!
+= %@ Tải xuống miễn phí!
+
+
+Promotion User
+= Người dùng khuyến mãi
+
+
+Album
+= album
+
+
+Remaining Count In This Run
+= Số dư còn lại trong lần chạy này
+
+
+minute
+= phút
+
+
+Preparing
+= Đang chuẩn bị
+
+
+Revert
+= Revert
+
+
+Finder
+= người tìm ra
+
+
+All Tools License
+= Tất cả giấy phép công cụ
+
+
+Choose An Export Option For %d Items
+= Chọn tùy chọn xuất cho %d mục
+
+
+Join In Partnership Program
+= Tham gia chương trình hợp tác
+
+
+EXIF Ghost lets you remove all kinds of data containing your photos including private information.
+= EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.
+
+
+6 Months License
+= 6 tháng giấy phép
+
+
+Purchase Management
+= Quản lý mua hàng
+
+
+Open Restorer.
+= Open Restorer.
+
+
+%@ Ownership
+= %@ Quyền sở hữu
+
+
+Stabilizing Selected Items...
+= Đang ổn định các mục đã chọn ...
+
+
+Would you like to go back to %@?
+= Bạn có muốn quay lại %@ không?
+
+
+Take A GIF With Live Photo.
+= Chụp ảnh GIF bằng Live Photo.
+
+
+Use Trial
+= Dùng thử
+
+
+Type
+= Kiểu
+
+
+7-Day Use of Main and New Tools
+= Sử dụng 7 ngày các công cụ chính và mới
+
+
+Open Google Maps
+= Mở Google Maps
+
+
+Select Photos To Delete.
+= Chọn Ảnh để Xóa.
+
+
+Main Tools License
+= Giấy phép công cụ chính
+
+
+Auto Straighten
+= Tự động thẳng
+
+
+Activate Ads
+= Kích hoạt quảng cáo
+
+
+Unable to verify the code currently. Please try it later.
+= Không thể xác minh mã hiện tại. Vui lòng thử lại sau.
+
+
+Hide
+= Ẩn giấu
+
+
+All contacts were successfully saved.
+= Tất cả địa chỉ liên hệ đã được lưu thành công.
+
+
+It looks invalid code. Please Try again.
+= Có vẻ mã không hợp lệ. Vui lòng thử lại.
+
+
+Edit %d item(s)
+= Chỉnh sửa %d mục
+
+
+Open %@
+= Mở %@
+
+
+Lockscreens
+= Lockscreens
+
+
+Similarity
+= Tương tự
+
+
+Crop to Fit
+= Cắt để phù hợp
+
+
+Original
+= Nguyên
+
+
+Staying With Us
+= Ở lại với chúng tôi
+
+
+My Feedback on %@
+= Phản hồi của tôi về %@
+
+
+Convert the last Video Into Live Photo.
+= Chuyển đổi video cuối cùng thành ảnh trực tiếp.
+
+
+Remaining Level
+= Mức còn lại
+
+
+Price
+= Giá bán
+
+
+Settings
+= Cài đặt
+
+
+%@ Video
+= %@ Video
+
+
+Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!
+= Cleaner cho phép bạn tìm và xóa các loại ảnh không chính xác khác nhau nếu chúng đã khớp với các hình ảnh trùng lặp và tương tự, ảnh cận cảnh hoặc ảnh chụp màn hình khóa!
+
+
+Auto Crop
+= Tự động cắt
+
+
+It requires a permission to access your contacts. Please allow Contacts on iOS Settings.
+= Nó yêu cầu quyền truy cập danh bạ của bạn. Vui lòng cho phép Danh bạ trên Cài đặt iOS.
+
+
+Thank you %@. Soon we will contact you.
+= Cảm ơn bạn %@. Chẳng bao lâu chúng tôi sẽ liên lạc với bạn.
+
+
+Could not detect any contact.
+= Không thể phát hiện bất kỳ liên hệ nào.
+
+
+Scale To Fit
+= Mở rộng để phù hợp với
+
+
+Open Finder.
+= Mở Trình tìm kiếm.
+
+
+Cancel
+= Hủy bỏ
+
+
+Main Tools Use of %@ Day
+= Công cụ chính Sử dụng %@ ngày
+
+
+Saving Results...
+= Đang lưu kết quả ...
+
+
+Edit %d photo(s)
+= Chỉnh sửa %d ảnh
+
+
+Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.
+= Hãy là một nghệ sĩ. Nghệ sĩ cho phép bạn biến tất cả ảnh hoặc video của bạn thành những bức tranh nổi tiếng. Công cụ xử lý hàng loạt này không có giới hạn về số lượng ảnh cần chuyển đổi.
+
+
+Targets
+= Mục tiêu
+
+
+Filters
+= Bộ lọc
+
+
+Message To Us
+= Thông báo cho chúng tôi
+
+
+Video
+= Video
+
+
+Paste images from your clipboards
+= Dán hình ảnh từ clipboards của bạn
+
+
+Phone Number
+= Số điện thoại
+
+
+Making A Call
+= Thực hiện cuộc gọi
+
+
+Photos Access Disabled
+= Đã tắt quyền truy cập ảnh
+
+
+Rate It
+= Xếp hạng
+
+
+Waiting To Select ...
+= Đang chờ chọn ...
+
+
+%@ Partnership License
+= %@ Giấy phép đối tác
+
+
+Access Failed.
+= Không truy cập được.
+
+
+%@ Item
+= %@ Mục
+
+
+Portrait
+= Chân dung
+
+
+Too Slow Shutter Speed
+= Tốc độ màn trập quá chậm
+
+
+Done
+= Done
+
+
+Rewind
+= Tua lại
+
+
+Screenshots
+= Ảnh chụp màn hình
+
+
+Terms of Use
+= Điều khoản sử dụng
+
+
+Write A Review
+= Viết đánh giá
+
+
+Delete
+= Xóa bỏ
+
+
+Edit %@ Items
+= Chỉnh sửa %@ mục
+
+
+Send an Email
+= Gửi email
+
+
+3-Month Use of Main And New Tools
+= 3 tháng sử dụng các công cụ chính và mới
+
+
+New Number
+= Số mới
+
+
+Presets
+= Cài đặt trước
+
+
+Open Camera.
+= Mở Camera.
+
+
+New Event
+= Sự kiện mới
+
+
+Actions
+= Hành động
+
+
+%d times
+= %d times
+
+
+Photos
+= Photos
+
+
+Edit this video
+= Chỉnh sửa video này
+
+
+Videos Shorter Than 1 Second
+= Video ngắn hơn 1 giây
+
+
+Videos from Screen Recorder
+= Video từ Trình ghi màn hình
+
+
+Frame Delay
+= Frame Delay
+
+
+Address
+= Địa chỉ nhà
+
+
+Hi %@ Team, I'm %@.
+= Xin chào %@ Nhóm, tôi là %@.
+
+
+%@ Videos
+= %@ Video
+
+
+Please Input Your Secret Code
+= Vui lòng nhập mã bí mật của bạn
+
+
+Clipboard
+= Clipboard
+
+
+Cleaner
+= Sạch hơn
+
+
+Edit
+= edit
+
+
+E-mail Address
+= Địa chỉ email
+
+
+Creating PDF Pages...
+= Đang tạo trang PDF ...
+
+
+Get Access
+= Nhận quyền truy cập
+
+
+Welcome to our guest user license program!
+= Chào mừng bạn đến với chương trình giấy phép người dùng dành cho khách của chúng tôi!
+
+
+Select this video
+= Chọn video này
+
+
+Copying Photos...
+= Đang sao chép ảnh ...
+
+
+Open PDF Maker.
+= Open PDF Maker.
+
+
+Messenger
+= messenger
+
+
+14-Day Use of Main and New Tools
+= 14 ngày sử dụng các công cụ chính và mới
+
+
+Promotion License
+= Giấy phép khuyến mãi
+
+
+Search On Google Maps
+= Tìm kiếm trên Google Maps
+
+
+Deselect this video
+= Bỏ chọn video này
+
+
+Starting to check edited photos...
+= Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...
+
+
+Share Your Talent, Make Together. Obtain Each Reward If Adopted.
+= Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận được mỗi phần thưởng nếu được chấp nhận.
+
+
+Open Web Page
+= Mở trang web
+
+
+Detecting ... %@
+= Đang phát hiện ... %@
+
+
+Take Part
+= Tham gia
+
+
+Smart
+= smart
+
+
+Take A Selfie.
+= Take A Selfie.
+
+
+Loop
+= Loop
+
+
+month
+= tháng
+
+
+Welcome to our special guest license program!
+= Chào mừng bạn đến với chương trình giấy phép khách mời đặc biệt của chúng tôi!
+
+
+An Error Occurred While Receiving Ads.
+= Đã xảy ra lỗi khi nhận quảng cáo.
+
+
+Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!
+= Phục hồi cho phép khôi phục số lượng ảnh đã chỉnh sửa thành ảnh gốc một cách nhanh chóng. Hơn nữa, nó giúp bạn với việc lựa chọn tự động!
+
+
+Create %@
+= Tạo %@
+
+
+Open GIF Maker.
+= Open GIF Maker.
+
+
+Clipboard is empty
+= Clipboard trống
+
+
+Share This App
+= Chia sẻ ứng dụng này
+
+
+Take A Selfie With Live Photo.
+= Take A Selfie With Live Photo.
+
+
+No Crop
+= No Crop
+
+
+From Remote Clipboard
+= Từ Clipboard Từ xa
+
+
+Image
+= Hình ảnh
+
+
+Saving Photos...
+= Đang lưu ảnh ...
+
+
+Forward
+= Phía trước
+
+
+Promotion License Program
+= Chương trình giấy phép quảng cáo
+
+
+Aspect Ratio
+= Aspect Ratio
+
+
+Prices Are Including Every New Tools and Updates, also it will not renew automatically.
+= Giá được bao gồm tất cả các công cụ mới và cập nhật, nó cũng sẽ không tự động gia hạn.
+
+
+Downloading...
+= Đang tải xuống ...
+
+
+Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.
+= Chuyển đổi cho phép bạn chuyển đổi mọi định dạng phương tiện như Video, Live Photos, GIF thành mỗi định dạng khác.
+
+
+Enable Quick Actions
+= Bật tác vụ nhanh
+
+
+Special Guest License Program
+= Chương trình giấy phép khách mời đặc biệt
+
+
+Anytime free cancellation.
+= Hủy miễn phí mọi lúc.
+
+
+Restore All Purchases
+= Khôi phục tất cả giao dịch mua
+
+
+Get All Text
+= Nhận tất cả văn bản
+
+
+Friend
+= người bạn
+
+
+Choose An Sub Action.
+= Chọn một hành động phụ.
+
+
+Photos
+= photos
+
+
+GIF Maker
+= GIF Maker
+
+
+%@ might be found
+= %@ có thể được tìm thấy
+
+
+Stabilizer
+= Bộ ổn định
+
+
+This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.
+= Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.
+
+
+Cannot revert. All selected items have not edited.
+= Không thể hoàn nguyên. Tất cả các mục đã chọn chưa được chỉnh sửa.
+
+
+Could not detect any text.
+= Không thể phát hiện bất kỳ văn bản nào.
+
+
+Free Use
+= Sử dụng miễn phí
+
+
+1 Month License
+= 1 tháng giấy phép
+
+
+Stabilization Mode
+= Stabilization Mode
+
+
+Guest User
+= Tài khoản khách
+
+
+Convert the last Live Photo Into Video.
+= Chuyển đổi ảnh trực tiếp cuối cùng thành video.
+
+
+Restorer
+= Phục hồi
+
+
+Save
+= Save
+
+
+Add an Event
+= Thêm sự kiện
+
+
+Import
+= Nhập
+
+
+Start
+= Khởi đầu
+
+
+year
+= năm
+
+
+Burst
+= Burst
+
+
+A Licence Is Required.
+= Giấy phép là bắt buộc.
+
+
+Blur Rate
+= Tốc độ làm mờ
+
+
+second
+= thứ hai
+
+
+Choose Screenshots To Delete.
+= Chọn Ảnh chụp màn hình để xóa.
+
+
+Convert the last Video into Live Photo
+= Chuyển đổi Video cuối cùng thành Live Photo
+
+
+Take A Selfie
+= Chụp ảnh tự sướng
+
+
+Open Camera.
+= Mở Camera.
+
+
+Take a photo with Camera app.
+= Chụp ảnh bằng ứng dụng Máy ảnh.
+
+
+Find Phone Numbers
+= Tìm số điện thoại
+
+
+Open App
+= Mở chương trình
+
+
+Convert the last Video into another.
+= Chuyển đổi video cuối cùng thành video khác.
+
+
+Open Cleaner And Then Choose Items To Delete.
+= Mở Cleaner và sau đó chọn mục để xóa.
+
+
+Take A Photo
+= Chụp một tấm
+
+
+Open ${appName}
+= Mở ${appName}
+
+
+Convert the last Live Photo into unknown
+= Chuyển đổi Live Photo cuối cùng thành không xác định
+
+
+Give Me That Phone Number.
+= Cho tôi số điện thoại đó.
+
+
+Open ${appName}
+= Mở ${appName}
+
+
+Open Filters.
+= Mở bộ lọc.
+
+
+Take A Photo.
+= Chụp một tấm.
+
+
+Convert the last Video into unknown
+= Chuyển đổi video cuối cùng thành không xác định
+
+
+Convert the last Video into MP4
+= Chuyển đổi Video cuối cùng thành MP4
+
+
+Recognize Text.
+= Nhận dạng văn bản.
+
+
+OK. You can take a Selfie now
+= ĐƯỢC. Bạn có thể chụp ảnh tự sướng ngay bây giờ
+
+
+Take A GIF With Live Photo
+= Chụp ảnh GIF bằng Live Photo
+
+
+Find Phone Numbers
+= Tìm số điện thoại
+
+
+Find Phone Numbers
+= Tìm số điện thoại
+
+
+Recognize Text.
+= Nhận dạng văn bản.
+
+
+Take A GIF With Live Photo
+= Chụp ảnh GIF bằng Live Photo
+
+
+Give Me That Phone Number.
+= Cho tôi số điện thoại đó.
+
+
+Convert the last Live Photo into another.
+= Chuyển đổi ảnh Live mới nhất thành ảnh khác.
+
+
+Convert the last Live Photo into GIF
+= Chuyển đổi Live Photo mới thành GIF
+
+
+OK. You can take a Photo now
+= ĐƯỢC. Bạn có thể chụp ảnh ngay bây giờ
+
+
+Give Me That Phone Number.
+= Cho tôi số điện thoại đó.
+
+
+Take A Photo
+= Chụp một tấm
+
+
+Open Camera To Take A Photo
+= Mở máy ảnh để chụp ảnh
+
+
+Open ${appName}
+= Mở ${appName}
+
+
+Auto Select.
+= Chọn tự động.
+
+
+Choose Lockscreen Shots To Delete.
+= Chọn Ảnh chụp màn hình khóa để xóa.
+
+
+Convert the last Video into another.
+= Chuyển đổi video cuối cùng thành video khác.
+
+
+Open Photo Filters
+= Mở bộ lọc ảnh
+
+
+Open App
+= Mở chương trình
+
+
+OK. You can take a Live Photo now
+= ĐƯỢC. Bạn có thể chụp ảnh trực tiếp ngay bây giờ
+
+
+Choose unknown To Delete.
+= Chọn không xác định để xóa.
+
+
+Take A GIF With Live Photo
+= Chụp ảnh GIF bằng Live Photo
+
+
+Auto Select.
+= Chọn tự động.
+
+
+Take A Live Photo
+= Chụp ảnh trực tiếp
+
+
+Convert the last Live Photo into another.
+= Chuyển đổi ảnh Live mới nhất thành ảnh khác.
+
+
+Choose To Delete.
+= Chọn để xóa.
+
+
+Open ${appName}
+= Mở ${appName}
+
+
+Take A Selfie With Live Photo
+= Chụp ảnh tự sướng với ảnh trực tiếp
+
+
+Convert the last Live Photo into Live Photo
+= Chuyển đổi Live Photo cuối cùng thành Live Photo
+
+
+Recognize Text.
+= Nhận dạng văn bản.
+
+
+Auto Select on ${appName}.
+= Tự động chọn trên ${appName}.
+
+
+Convert the last Video into GIF
+= Chuyển đổi Video cuối cùng thành GIF
+
+
+Open ${appName}
+= Mở ${appName}
+
+
+OK. You can take a Selfie With Live Photo now
+= ĐƯỢC. Bạn có thể chụp ảnh tự sướng với Live Photo ngay bây giờ
+
+
+Convert the last Live Photo into MP4
+= Chuyển đổi Live Photo cuối cùng thành MP4

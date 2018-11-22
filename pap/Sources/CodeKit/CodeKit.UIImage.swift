@@ -150,3 +150,14 @@ public extension UIImage {
         }?.withRenderingMode(.alwaysOriginal) ?? self
     }
 }
+
+public extension UIImage {
+    convenience init?(color: UIColor, size: CGSize) {
+        let drawRect = CGRect(origin: .zero, size: size)
+        guard let result = UIGraphicsImageRenderer(size: size).imageWithCurrentContext(actions: { (ctx) in
+            ctx.setFillColor(color.cgColor)
+            ctx.fill(drawRect)
+        })?.withRenderingMode(.alwaysOriginal).cgImage else { return nil }
+        self.init(cgImage: result)
+    }
+}
