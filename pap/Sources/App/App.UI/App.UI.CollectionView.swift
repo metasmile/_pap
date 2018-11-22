@@ -132,6 +132,8 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         if collectionView.contentSize.width > collectionView.bounds.width {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        
+        UIFeedback.select()
     }
 }
 
