@@ -14,6 +14,7 @@ import MetalPerformanceShaders
 protocol ResizerAppDefaults: AppDefaults {
     var resizeFilterName: String? { get set }
     var backgroundColor: UIColor { get set }
+    var borderWidth: Float { get set }
 }
 
 extension Defaults: ResizerAppDefaults {
@@ -28,6 +29,11 @@ extension Defaults: ResizerAppDefaults {
         }
         
         set { set(newValue.rgba()); papLog.app.defaults.log(value:newValue.hexCode()) }
+    }
+    
+    var borderWidth: Float {
+        get { return get(or: 0) }
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
     }
 }
 
@@ -69,6 +75,7 @@ PhotoEditorViewControllerDelegatableApp {
         let filter = editStateValue?.ciFilter as? CIResizeFilter
         defaults.resizeFilterName = filter?.name
         defaults.backgroundColor = filter?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
+        defaults.borderWidth = Float(filter?.borderWidth ?? 0)
     }
     
     public static let info = AppInfo(
@@ -97,6 +104,7 @@ PhotoEditorViewControllerDelegatableApp {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
                     (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
+                    (filterItem?.ciFilter as? CIResizeFilter)?.borderWidth = CGFloat(defaults.borderWidth)
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -112,6 +120,7 @@ PhotoEditorViewControllerDelegatableApp {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
                     (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
+                    (filterItem?.ciFilter as? CIResizeFilter)?.borderWidth = CGFloat(defaults.borderWidth)
                     
                     self.config?.filter = filterItem
                 }
@@ -240,6 +249,7 @@ enum AspectRatioOption: Int, Codable {
 class CIResizeFilter: CIFilter {
     var aspectRatioOption: AspectRatioOption = .original
     var backgroundColor: UIColor = UIColor(rgb: 0xFFFFFF)
+    var borderWidth: CGFloat = 0
     
     init(aspectRatioOption: AspectRatioOption) {
         super.init()
@@ -262,7 +272,9 @@ class CIResizeFilter: CIFilter {
             let inputSize = image.extent.size
             let outputSize = aspectRatioOption.aspectFitSize(in: inputSize)
             let outputRect = CGRect(origin: .zero, size: outputSize)
-            let aspectFitRect = AVMakeRect(aspectRatio: inputSize, insideRect: outputRect)
+            
+            let borderInset = borderWidth * (outputSize.minLength / 4)
+            let aspectFitRect = AVMakeRect(aspectRatio: inputSize, insideRect: outputRect.inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let width = outputSize.width
             let height = outputSize.height
@@ -293,10 +305,11 @@ class CIResizeFilterItem: CIFilterItem {
         super.init(filter)
     }
     
-    convenience init(_ filter: CIFilter? = nil, backgroundColor: UIColor?) {
+    convenience init(_ filter: CIFilter? = nil, backgroundColor: UIColor?, borderWidth: CGFloat = 0) {
         self.init(filter)
         
         self.backgroundColor = backgroundColor ?? UIColor(rgb: 0xFFFFFF)
+        (ciFilter as? CIResizeFilter)?.borderWidth = borderWidth
     }
     
     private var backgroundColor: UIColor {
@@ -307,6 +320,10 @@ class CIResizeFilterItem: CIFilterItem {
         get {
             return (ciFilter as? CIResizeFilter)?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
         }
+    }
+    
+    override var borderWidth: CGFloat {
+        return (ciFilter as? CIResizeFilter)?.borderWidth ?? 0
     }
     
     override var normalizedSize: CGSize? {
@@ -344,7 +361,8 @@ class CIResizeFilterItem: CIFilterItem {
         if exporting {
             let inputSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            let borderInset = borderWidth * (outputSize.minLength / 4)
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
@@ -372,7 +390,8 @@ class CIResizeFilterItem: CIFilterItem {
             let inputSize = videoCompositionTrack.naturalSize
             let videoSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize))
+            let borderInset = borderWidth * (outputSize.minLength / 4)
+            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let outputAspectRatio = outputSize.height / outputSize.width
             
@@ -451,11 +470,15 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     private var selectedFilter: CIResizeFilter?
     private var selectedBackgroundColor: UIColor? {
         didSet {
-            let buttonSize = CGSize(width: 80, height: 20)
-            let image = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)), cornerRadius: 6), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+            let buttonSize = CGSize(width: 20, height: 20)
+            let buttonRect = CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+            let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
             colorPickerButton.setImage(image, for: .normal)
+            
+            borderWidthDidChange()
         }
     }
+    private var selectedBorderWidth: CGFloat { return CGFloat(borderWidthSlider.value) }
     
     private lazy var items: [CIFilterCollectionItem] = {
         var items = [CIFilterCollectionItem]()
@@ -465,7 +488,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
             self.selectedFilter = nil
-            self.filterItem = CIResizeFilterItem(backgroundColor: self.selectedBackgroundColor)
+            self.filterItem = CIResizeFilterItem(backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
         }, filter: nil))
         
         items += self.filters.map({ (filter) -> CIFilterCollectionItem in
@@ -474,7 +497,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
             
             return CIFilterCollectionItem(title: filter.aspectRatioOption.title, image: icon, action: {
                 self.selectedFilter = filter
-                self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor)
+                self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
             }, filter: filter)
         })
         
@@ -493,9 +516,10 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     private lazy var toolBar: UIStackView = {
         let stackView = UIStackView(frame: .zero)
-        stackView.alignment = UIStackView.Alignment.center
+        stackView.alignment = UIStackView.Alignment.fill
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
+        stackView.spacing = 2
         return stackView
     }()
     
@@ -506,9 +530,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         view.bottomAnchor.constraint(equalTo: toolBar.bottomAnchor, constant: 4).isActive = true
-        toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        toolBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        toolBar.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 30).isActive = true
+        view.trailingAnchor.constraint(greaterThanOrEqualTo: toolBar.trailingAnchor, constant: 30).isActive = true
         toolBar.heightAnchor.constraint(lessThanOrEqualToConstant: 32).isActive = true
+        toolBar.widthAnchor.constraint(greaterThanOrEqualToConstant: 200).isActive = true
+        toolBar.widthAnchor.constraint(lessThanOrEqualToConstant: 320).isActive = true
+        toolBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -517,11 +544,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         collectionView.bottomAnchor.constraint(equalTo: toolBar.topAnchor, constant: 4).isActive = true
         
         toolBar.addArrangedSubview(colorPickerButton)
+        toolBar.addArrangedSubview(borderWidthSlider)
         
         return view
     }()
     
-    lazy var colorPickerButton: UIButton = {
+    private lazy var colorPickerButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
         button.contentVerticalAlignment = .center
         button.contentHorizontalAlignment = .center
@@ -529,6 +557,17 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 4)
         button.addTarget(self, action: #selector(self.openColorPicker), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var borderWidthSlider: UISlider = {
+        let slider = UISlider(frame: .zero)
+        slider.minimumValue = 0
+        slider.maximumValue = 1
+        slider.isContinuous = true
+        slider.addTarget(self, action: #selector(self.borderWidthDidChange), for: .valueChanged)
+        slider.addTarget(self, action: #selector(self.borderWidthDidEndChange), for: .touchUpInside)
+        slider.addTarget(self, action: #selector(self.borderWidthDidEndChange), for: .touchUpOutside)
+        return slider
     }()
     
     private lazy var colors: [Int] = [
@@ -568,7 +607,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
             let c = UIColor(rgb: color)
             let action = UIAlertAction(title: c.hexCode(), style: .default, handler: { _ in
                 self.selectedBackgroundColor = c
-                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: c)
+                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: c, borderWidth: self.selectedBorderWidth)
             })
             action.accessoryImage = UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))), fillColor: c, strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
             picker.addAction(action)
@@ -577,6 +616,21 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         DispatchQueue.main.async {
             UIViewController.present(picker, animated: true)
         }
+    }
+    
+    @objc func borderWidthDidChange() {
+        let estimatedHeight = max(4, borderWidthSlider.height * CGFloat(borderWidthSlider.value)) / 6
+        
+        let minTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.bottomLeft], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 2))
+        
+        let maxTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topRight, UIRectCorner.bottomRight], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 4))
+        
+        borderWidthSlider.setMinimumTrackImage(UIImage(path: minTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: estimatedHeight, bottom: estimatedHeight / 2, right: 0), resizingMode: .stretch), for: .normal)
+        borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)
+    }
+    
+    @objc func borderWidthDidEndChange() {
+        self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
     }
     
     var selectedEditStateValue: ImageEditStateValue?
@@ -596,11 +650,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         selectedFilter = filter
         selectedBackgroundColor = filter?.backgroundColor
+        borderWidthSlider.value = Float(filter?.borderWidth ?? 0)
     }
     
     fileprivate func getFilterItem(by filterName: String?) -> CIResizeFilterItem? {
         let index = indexOfItem(by: filterName) ?? 0
-        return CIResizeFilterItem(self.filters[safe: index - 1], backgroundColor: selectedBackgroundColor)
+        return CIResizeFilterItem(self.filters[safe: index - 1], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
     }
     
     var contentScrollable: AppDockContentScrollable? {

@@ -165,12 +165,12 @@ public extension UIImage {
         guard let result = UIGraphicsImageRenderer(size: CGSize(width: path.bounds.minX + path.bounds.maxX, height: path.bounds.minY + path.bounds.maxY)).imageWithCurrentContext(actions: { (ctx) in
             if let color = fillColor {
                 ctx.setFillColor(color.cgColor)
+                path.fill()
             }
             if let color = strokeColor {
                 ctx.setStrokeColor(color.cgColor)
+                path.stroke()
             }
-            path.fill()
-            path.stroke()
         })?.cgImage else { return nil }
         self.init(cgImage: result)
     }

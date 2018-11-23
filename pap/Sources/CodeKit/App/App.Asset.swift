@@ -87,6 +87,9 @@ public class ImageEditStateValue: Object {
     public var color: UIColor? {
         return nil
     }
+    public var borderWidth: CGFloat? {
+        return nil
+    }
 }
 
 public class CIFilterItem: ImageEditStateValue {
@@ -118,6 +121,12 @@ public extension StateValueSet where T: ImageEditStateValue {
 public extension StateValueSet where T: ImageEditStateValue {
     var color: UIColor? {
         return imageEditStateValue?.color
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var borderWidth: CGFloat? {
+        return imageEditStateValue?.borderWidth
     }
 }
 
