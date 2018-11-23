@@ -19,7 +19,7 @@ protocol ResizerAppDefaults: AppDefaults {
 
 extension Defaults: ResizerAppDefaults {
     var resizeFilterName: String? {
-        get { return get(or: nil) }
+        get { return get(or: "Original") }
         set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
     }
     
@@ -327,7 +327,9 @@ class CIResizeFilterItem: CIFilterItem {
     }
     
     override var normalizedSize: CGSize? {
-        return (ciFilter as? CIResizeFilter)?.aspectRatioOption.normalizedSize
+        let filter = ciFilter as? CIResizeFilter
+        guard filter?.aspectRatioOption != .original else { return nil }
+        return filter?.aspectRatioOption.normalizedSize
     }
     
     override var color: UIColor? {
@@ -336,8 +338,7 @@ class CIResizeFilterItem: CIFilterItem {
     
     override func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         guard
-            let videoTrack = video.tracks(withMediaType: .video).first,
-            let normalizedSize = self.normalizedSize
+            let videoTrack = video.tracks(withMediaType: .video).first
         else { return nil }
         
         let composition = AVMutableComposition()
@@ -353,6 +354,8 @@ class CIResizeFilterItem: CIFilterItem {
                 composition.removeTrack(compositionTrack)
             }
         }
+        
+        let normalizedSize = self.normalizedSize ?? videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude.aspectFit(in: CGSize(width: 1, height: 1))
         
         let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
         
@@ -446,6 +449,7 @@ class CIResizeFilterItem: CIFilterItem {
 
 fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIResizeFilter] = [
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.original),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.square),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
@@ -474,8 +478,6 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
             let buttonRect = CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
             let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
             colorPickerButton.setImage(image, for: .normal)
-            
-            borderWidthDidChange()
         }
     }
     private var selectedBorderWidth: CGFloat { return CGFloat(borderWidthSlider.value) }
@@ -486,12 +488,14 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         let imageSize = CGSize(width: 32, height: 32)
         
-        items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
-            self.selectedFilter = nil
-            self.filterItem = CIResizeFilterItem(backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
-        }, filter: nil))
+        let originalFilter = self.filters[0]
         
-        items += self.filters.map({ (filter) -> CIFilterCollectionItem in
+        items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
+            self.selectedFilter = originalFilter
+            self.filterItem = CIResizeFilterItem(originalFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+        }, filter: originalFilter))
+        
+        items += self.filters[1...].map({ (filter) -> CIFilterCollectionItem in
             let iconSize = imageSize.applying(CGAffineTransform(scaleX: filter.aspectRatioOption.normalizedSize.width, y: filter.aspectRatioOption.normalizedSize.height))
             let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: iconSize).inset(by: imageInsets), cornerRadius: iconSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
             
@@ -651,11 +655,13 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         selectedFilter = filter
         selectedBackgroundColor = filter?.backgroundColor
         borderWidthSlider.value = Float(filter?.borderWidth ?? 0)
+        
+        borderWidthDidChange()
     }
     
     fileprivate func getFilterItem(by filterName: String?) -> CIResizeFilterItem? {
         let index = indexOfItem(by: filterName) ?? 0
-        return CIResizeFilterItem(self.filters[safe: index - 1], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
+        return CIResizeFilterItem(self.filters[safe: index], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
     }
     
     var contentScrollable: AppDockContentScrollable? {
