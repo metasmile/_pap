@@ -11,7 +11,7 @@ protocol Loggable {
 
 extension Loggable{
     static var splitter:String{
-        return "."
+        return "_"
     }
 
     //custom
@@ -20,15 +20,15 @@ extension Loggable{
     }
 
     static func createIdentifier(with name: String=#function) -> String {
-        return "\(String(reflecting: self))\(splitter)\(name)".replace(".", "_")
+        return "\(String(reflecting: self))\(splitter)\(name)"
     }
 
     static func createIdentifier(withFunction name: String=#function) -> String {
-        return "\(String(reflecting: self))\(splitter)\(name.loggableFunctionName)".replace(".", "_")
+        return "\(String(reflecting: self))\(splitter)\(name.loggableFunctionName)"
     }
 
     static func createIdentifier(withFile name: String=#file) -> String {
-        return (URL(string: name)?.deletingPathExtension().lastPathComponent.remove(splitter) ?? String(reflecting: self)).replace(".", "_")
+        return (URL(string: name)?.deletingPathExtension().lastPathComponent.remove(splitter) ?? String(reflecting: self))
     }
 }
 
