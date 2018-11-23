@@ -171,6 +171,8 @@ enum AspectRatioOption: Int, Codable {
     case ratio16x9
     case ratio9x21
     case ratio21x9
+    case devicePortrait
+    case deviceLandscape
     
     var name: String {
         switch self {
@@ -182,6 +184,8 @@ enum AspectRatioOption: Int, Codable {
         case .ratio16x9: return "16:9"
         case .ratio9x21: return "9:21"
         case .ratio21x9: return "21:9"
+        case .devicePortrait: return "devicePortrait"
+        case .deviceLandscape: return "deviceLandscape"
         }
     }
     
@@ -195,6 +199,8 @@ enum AspectRatioOption: Int, Codable {
         case .ratio9x16: return "Instagram Story".localized
         case .ratio21x9: return "Ultra Wide".localized
         case .ratio9x21: return "Ultra Wide Vertical".localized
+        case .devicePortrait: return UIDevice.current.localizedModel + " Portrait".localized
+        case .deviceLandscape: return UIDevice.current.localizedModel + " Landscape".localized
         }
     }
     
@@ -212,6 +218,8 @@ enum AspectRatioOption: Int, Codable {
         case .ratio9x16: return CGSize(width: 9, height: 16)
         case .ratio9x21: return CGSize(width: 9, height: 21)
         case .ratio21x9: return CGSize(width: 21, height: 9)
+        case .devicePortrait: return UIScreen.main.nativeBounds.size
+        case .deviceLandscape: return CGSize(width: UIScreen.main.nativeBounds.size.height, height: UIScreen.main.nativeBounds.width)
         }
     }
     
@@ -425,7 +433,9 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio16x9),
         CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21)
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.devicePortrait),
+        CIResizeFilter(aspectRatioOption: AspectRatioOption.deviceLandscape),
     ]
     
     struct CIFilterCollectionItem: AppUICollectionItem {
@@ -471,7 +481,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return items
     }()
     
-    lazy var collectionView: AppUICollectionView = {
+    private lazy var collectionView: AppUICollectionView = {
         let view = AppUICollectionView(items: items)
         view.cellAppearance.size = CGSize(width: 64, height: 52)
         view.cellAppearance.spacing = 1
@@ -481,22 +491,32 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return view
     }()
     
+    private lazy var toolBar: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
         view.addSubview(collectionView)
-        view.addSubview(colorPickerButton)
+        view.addSubview(toolBar)
         
-        colorPickerButton.translatesAutoresizingMaskIntoConstraints = false
-        view.bottomAnchor.constraint(equalTo: colorPickerButton.bottomAnchor, constant: 4).isActive = true
-        colorPickerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        colorPickerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        colorPickerButton.heightAnchor.constraint(lessThanOrEqualToConstant: 32).isActive = true
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        view.bottomAnchor.constraint(equalTo: toolBar.bottomAnchor, constant: 4).isActive = true
+        toolBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        toolBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        toolBar.heightAnchor.constraint(lessThanOrEqualToConstant: 32).isActive = true
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: colorPickerButton.topAnchor, constant: 4).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: toolBar.topAnchor, constant: 4).isActive = true
+        
+        toolBar.addArrangedSubview(colorPickerButton)
         
         return view
     }()

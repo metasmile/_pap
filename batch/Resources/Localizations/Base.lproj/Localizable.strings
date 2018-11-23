@@ -82,6 +82,10 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
+/* Generated from genl10n: Resizer.BApp.swift */
+" Landscape" = " Landscape";
+/* Generated from genl10n: Resizer.BApp.swift */
+" Portrait" = " Portrait";
 /* Generated from genl10n: Charge.Types.Trialable.swift, AppCenter.Charge.swift */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: batch.Strings.swift */
@@ -602,7 +606,7 @@
 "Special Guest License" = "Special Guest License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Special Guest";
-/* Generated from genl10n: GIFMaker.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
