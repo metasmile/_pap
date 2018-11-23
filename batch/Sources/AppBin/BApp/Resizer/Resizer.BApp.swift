@@ -473,10 +473,10 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     lazy var collectionView: AppUICollectionView = {
         let view = AppUICollectionView(items: items)
-        view.cellSize = CGSize(width: 64, height: 52)
-        view.cellSpacing = 1
-        view.cellImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        view.cellImageContentMode = UIView.ContentMode.scaleAspectFit
+        view.cellAppearance.size = CGSize(width: 64, height: 52)
+        view.cellAppearance.spacing = 1
+        view.cellAppearance.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        view.cellAppearance.imageContentMode = UIView.ContentMode.scaleAspectFit
         
         return view
     }()
@@ -541,7 +541,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     ]
     
     @objc private func openColorPicker() {
-        let picker = UIAlertController.actionSheet(title: "Background Color".localized, message: nil)
+        let picker = UIAlertController.actionSheet(title: "\n" + "Background Color".localized, message: nil)
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
         for color in colors {
@@ -600,9 +600,9 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         collectionView.tintColor = view.colorTheme.tintColor
-        collectionView.cellSelectedStateColor = ResizerApp.info.themeColor
-        collectionView.cellSelectedStateBorderWidth = 2
-        collectionView.cellSelectedStateCornerRadius = 6
+        collectionView.cellAppearance.selectedStateColor = ResizerApp.info.themeColor
+        collectionView.cellAppearance.selectedStateBorderWidth = 2
+        collectionView.cellAppearance.selectedStateCornerRadius = 6
         collectionView.reloadData()
     }
 }

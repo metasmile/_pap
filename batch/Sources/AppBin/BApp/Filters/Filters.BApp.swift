@@ -228,9 +228,9 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     lazy var view: UIView = {
         let view = AppUICollectionView(items: items)
-        view.cellSize = CGSize(width: 80, height: 120)
-        view.cellSpacing = 2
-        view.cellImageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+        view.cellAppearance.size = CGSize(width: 80, height: 120)
+        view.cellAppearance.spacing = 2
+        view.cellAppearance.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         
         return view
     }()
