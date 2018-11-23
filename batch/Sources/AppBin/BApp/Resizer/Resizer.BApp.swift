@@ -81,7 +81,7 @@ PhotoEditorViewControllerDelegatableApp {
     public static let info = AppInfo(
         identifier: "com.stells.batch.resizer"
         , version: "1.0"
-        , phase: .develop
+        , phase: .beta
         , appType: ResizerApp.self
         , displayName: "Resizer".localized.localizedCapitalized
         , description: "Resize your photos by the various sizes.".localized
