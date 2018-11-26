@@ -11,16 +11,12 @@ protocol Loggable {
 
 extension Loggable{
     static var splitter:String{
-        return "_"
+        return "."
     }
 
     //custom
     static func log(domain:String=#file, key:String=#function, value:Any){
         log(self.createIdentifier(withFile: domain), parameters: [key.loggableFunctionName:value])
-    }
-
-    static func createIdentifier(with name: String=#function) -> String {
-        return "\(String(reflecting: self))\(splitter)\(name)"
     }
 
     static func createIdentifier(withFunction name: String=#function) -> String {

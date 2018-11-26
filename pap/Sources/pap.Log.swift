@@ -133,19 +133,86 @@ extension Loggable {
                 }
             }
 
-            let identifier = createIdentifier(withFunction: functionName)
-            Analytics.log(identifier, parameters: paramToCommit)
+            Analytics.log(name:createIdentifier(withFunction: functionName), parameters: paramToCommit)
         }
     }
 }
 
 extension Analytics {
-    static func log(_ identifier: String, parameters: [String: Any]?) {
-        //INFO: Event name must contain only letters, numbers, or underscores: batch.papLog_appSelected
-        let name = identifier.replaceIfMatched(withPattern: "[^\\w]", replace: "_")
-        print("[i] Logged: ",name, parameters ?? [:])
-#if !DEBUG
-        logEvent(name, parameters: parameters)
-#endif
+
+    /// Logs an app event.
+    /// 1. The event can have up to 25 parameters.
+    /// 2. Events with the same name must have the same parameters.
+    /// 3. Up to 500 event names are supported.
+    /// 4. Using predefined events and/or parameters is recommended for optimal reporting.
+
+    /// @param name The name of the event.
+    //NAME --->>
+    // 1. Should contain 1 to 40 alphanumeric characters or underscores.
+    // 2. The name must start with an alphabetic character.
+    // 3. Some event names are reserved. Use AnalyticsPredefinedLogNames.
+    // 4. for the list of reserved event names. The "firebase_", "google_", and "ga_" prefixes are reserved and should not be used.
+    // 5. Note that event names are case-sensitive
+    private static let _errLength = "WL"
+
+    private static func resolveLogName(for name:String) -> String{
+        let resolvedName = name
+                .replaceIfMatched(withPattern: "^[^A-Za-z0-9]", replace: "")
+                .replaceIfMatched(withPattern: "[^\\w]", replace: "_")
+                .trunc(maxLength: 40, trailing: _errLength)
+//        assert(resolvedName == name, "\"\(name)\" is violated for FB's logging rules: \(zip(resolvedName.characters, name.characters).filter{$0 != $1})")
+        return resolvedName
     }
+
+    //PARAM -->>
+    /// @param parameters The dictionary of event parameters.
+    // 1. Passing nil indicates that the event has no parameters.
+    // 2. names can be up to 40 characters long
+    // 3. names must start with an alphabetic character and contain only alphanumeric characters and underscores.
+    // 4. value type must be Only NSString and NSNumber (signed 64-bit integer and 64-bit floating-point number) parameter types are supported.
+    // 5. values, if they are NSString, can be up to 100 characters long.
+    // 6. The "firebase_","google_", and "ga_" prefixes are reserved and should not be used for parameter names.
+    private static let _errParamValue = "ERR_PV"
+
+    fileprivate static func log(name: String, parameters: [String: Any]?) {
+        let name = resolveLogName(for:name)
+        var params = [String:Any]()
+        for item in parameters ?? [String:Any](){
+            let k = resolveLogName(for:item.key)
+            if let v = (item.value as? NSString) ?? (item.value as? NSNumber){
+                params[k] = v
+            }else{
+                params[k] = _errParamValue
+            }
+        }
+#if !DEBUG
+        logEvent(name, parameters: params)
+#endif
+        print("[i] Logged: ",name, params)
+    }
+
+    static let names = AnalyticsPredefinedLogNames()
+}
+
+struct AnalyticsPredefinedLogNames {
+    var ad_activeview:String { return #function }
+    var ad_click:String { return #function }
+    var ad_exposure:String { return #function }
+    var ad_impression:String { return #function }
+    var ad_query:String { return #function }
+    var adunit_exposure:String { return #function }
+    var app_clear_data:String { return #function }
+    var app_remove:String { return #function }
+    var app_update:String { return #function }
+    var error:String { return #function }
+    var first_open:String { return #function }
+    var in_app_purchase:String { return #function }
+    var notification_dismiss:String { return #function }
+    var notification_foreground:String { return #function }
+    var notification_open:String { return #function }
+    var notification_receive:String { return #function }
+    var os_update:String { return #function }
+    var screen_view:String { return #function }
+    var session_start:String { return #function }
+    var user_engagement:String { return #function }
 }

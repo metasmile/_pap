@@ -40,4 +40,8 @@ extension String {
     public func encodeAsURLQuery() -> String{
         return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
+
+    public func trunc(maxLength: Int, trailing: String = "…") -> String {
+        return self.count > maxLength ? prefix(maxLength-trailing.count) + trailing : self
+    }
 }
