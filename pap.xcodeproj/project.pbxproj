@@ -126,7 +126,7 @@
 		4F71D1DCE7E7C7BDB540E0E0 /* Filters.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6EF63C4349D3278DC9E /* Filters.BApp.swift */; };
 		4F71D1E4A86DF3D6A7EFD797 /* CodeKit.Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D92AC7097A100EBE7256 /* CodeKit.Array.swift */; };
 		4F71D1E7AE0107B35027F4ED /* ImageAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4899128BDF019D4B959 /* ImageAlignment.swift */; };
-		4F71D1F14DDBEA2044AEC9A7 /* Hashify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.swift */; };
+		4F71D1F14DDBEA2044AEC9A7 /* Hashify.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */; };
 		4F71D1F3646BFBB936460706 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D558202A1E3C22541F44 /* CodeKit.Timer.swift */; };
 		4F71D1F432FA58581135AD76 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		4F71D1F7AFF1F77D339A92BE /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
@@ -176,7 +176,7 @@
 		4F71D2B777F04A2226BECFEC /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FAB15B8F5D756A0C9D /* Shop.Payment.GADInterestialAdsViewing.swift */; };
 		4F71D2B7B4C33A0CF0DAF32F /* ImageIO.Metadata.Properties.Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E5728C39CF76B02826 /* ImageIO.Metadata.Properties.Label.swift */; };
 		4F71D2B850E406A2B8356474 /* App.Finalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D592F3F1DE31FB1F6F13 /* App.Finalizable.swift */; };
-		4F71D2BDB50EA00180CEAD3B /* Hashify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.swift */; };
+		4F71D2BDB50EA00180CEAD3B /* Hashify.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */; };
 		4F71D2BFBCAD57FA86758757 /* FirebaseMLVision.VisionTextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C637ED45A50444B686 /* FirebaseMLVision.VisionTextDetector.swift */; };
 		4F71D2C05A9AD18DA16E981A /* Artist.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D871437CF205392DD62C /* Artist.BApp.swift */; };
 		4F71D2C069634FD6B858D652 /* cell_icon_pano.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D99F90E8A7C6EA165E39 /* cell_icon_pano.png */; };
@@ -337,7 +337,7 @@
 		4F71D513517E91426230F58D /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D5157CF0C2359FDB3F4F /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */; };
 		4F71D517B46257D55D2CACAB /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D654338A9E7D0FB953B6 /* PhotoCollectionViewCell.xib */; };
-		4F71D51CDF1FF7489D3F01E1 /* Hashify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.swift */; };
+		4F71D51CDF1FF7489D3F01E1 /* Hashify.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */; };
 		4F71D52049D5B9088EA0F2C5 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8660EAD2D49B5AC5251 /* CustomView.swift */; };
 		4F71D52881DA5BF99B2C9EA8 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
 		4F71D5297227F9C8FDFD9D43 /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
@@ -494,7 +494,7 @@
 		4F71D7D82416C439FC1E025D /* AppDockViewController.LaunchableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0EEFBDE618EBAC0CAB9 /* AppDockViewController.LaunchableApp.swift */; };
 		4F71D7E5950EA2C021216FAB /* FirebaseMLVision.VisionTextDetectResult.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9494D105685F7C7A242 /* FirebaseMLVision.VisionTextDetectResult.Types.swift */; };
 		4F71D7EB4CC13722261BFE01 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
-		4F71D7EE1899E1468A87EE53 /* Hashify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.swift */; };
+		4F71D7EE1899E1468A87EE53 /* Hashify.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */; };
 		4F71D7F82536D30AE6B47B1A /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D82D508CA5972A479EE1 /* CodeKit.Quadrilateral.swift */; };
 		4F71D7FC2691797F04008B38 /* App.LifecycleManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC4EFCA83FC2B577CFFC /* App.LifecycleManagable.swift */; };
 		4F71D7FE6BB3DBD8EBD69D59 /* PhotoPickerViewController.AppConfigWatchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC3417C0BDF0215DAFFA /* PhotoPickerViewController.AppConfigWatchable.swift */; };
@@ -929,7 +929,7 @@
 		4F71DFADB80379AAAB91CB77 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07E7335EBBD574A9B49 /* ImageIO.GIF.swift */; };
 		4F71DFAE4B05DFC0DA30BE99 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE09168585F4CB1016B0 /* FloatingView.swift */; };
 		4F71DFBE3B6A8C8ACDC84086 /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D80B49F4F792DC21B9CC /* CodeKit.UIImage.swift */; };
-		4F71DFC33DF325992ECCF2A4 /* Hashify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.swift */; };
+		4F71DFC33DF325992ECCF2A4 /* Hashify.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */; };
 		4F71DFD1BF69BFC9AB3B8312 /* cell_icon_depth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D163B4DDA56246446806 /* cell_icon_depth.png */; };
 		4F71DFD4F20AFFA19924B51D /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35770081EFDB8DF0DE5 /* CodeKit.CIImage.swift */; };
 		4F71DFDC5CD666359BE3BB4A /* Charge.Manager.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D77E280BF939F23C635D /* Charge.Manager.Macro.swift */; };
@@ -2221,7 +2221,7 @@
 		4F71D1F92BCDA386568EBD46 /* PDFMaker.AppDockContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.AppDockContent.swift; sourceTree = "<group>"; };
 		4F71D1FA39CE8C435998C723 /* batch.TimerInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.TimerInterval.swift; sourceTree = "<group>"; };
 		4F71D1FAB15B8F5D756A0C9D /* Shop.Payment.GADInterestialAdsViewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.GADInterestialAdsViewing.swift; sourceTree = "<group>"; };
-		4F71D209D8ABDB6E914A2C1C /* Hashify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashify.swift; sourceTree = "<group>"; };
+		4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashify.BApp.swift; sourceTree = "<group>"; };
 		4F71D20F4F2D470E79E7C4F6 /* CodeKit.CGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.CGImage.swift; sourceTree = "<group>"; };
 		4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.ShopApp.swift; sourceTree = "<group>"; };
 		4F71D21407FC99275C1F1080 /* Shop.Payment.SNSEngagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.SNSEngagement.swift; sourceTree = "<group>"; };
@@ -3659,7 +3659,7 @@
 			isa = PBXGroup;
 			children = (
 				A0CB03B021AC5167007A5278 /* Hashify.BApp.Assets.xcassets */,
-				4F71D209D8ABDB6E914A2C1C /* Hashify.swift */,
+				4F71D209D8ABDB6E914A2C1C /* Hashify.BApp.swift */,
 			);
 			path = Hashify;
 			sourceTree = "<group>";
@@ -5740,7 +5740,7 @@
 				4F71D0F497EAD331936B8710 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71DD53992A540770AA055F /* AppDelegate.swift in Sources */,
 				4F71D8B7E7EE55B7499170F6 /* universal.ExternalDelegate.swift in Sources */,
-				4F71D2BDB50EA00180CEAD3B /* Hashify.swift in Sources */,
+				4F71D2BDB50EA00180CEAD3B /* Hashify.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6261,7 +6261,7 @@
 				A0CB0254219C9093007A5278 /* AppDelegate.swift in Sources */,
 				A0CB0255219C9093007A5278 /* universal.ExternalDelegate.swift in Sources */,
 				4F71DA206344F3B5FC641F18 /* xfgst.ExternalDelegate.swift in Sources */,
-				4F71D51CDF1FF7489D3F01E1 /* Hashify.swift in Sources */,
+				4F71D51CDF1FF7489D3F01E1 /* Hashify.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6783,7 +6783,7 @@
 				4F71D7CEC39FAFE958F06E35 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71D488AE0AD8D041DE94FB /* AppDelegate.swift in Sources */,
 				4F71D76C40B86C2219C3B444 /* universal.ExternalDelegate.swift in Sources */,
-				4F71DFC33DF325992ECCF2A4 /* Hashify.swift in Sources */,
+				4F71DFC33DF325992ECCF2A4 /* Hashify.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7079,7 +7079,7 @@
 				A0CB00CF219C8C64007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				A0CB00D0219C8C64007A5278 /* AppDelegate.swift in Sources */,
 				A0CB00D1219C8C64007A5278 /* universal.ExternalDelegate.swift in Sources */,
-				4F71D1F14DDBEA2044AEC9A7 /* Hashify.swift in Sources */,
+				4F71D1F14DDBEA2044AEC9A7 /* Hashify.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7262,7 +7262,7 @@
 				4F71D86C1AF9C5100DBBD56F /* App.PreviewProcessable.swift in Sources */,
 				4F71D06C002BE8C34EB74432 /* App.PreviewView.Actionable.swift in Sources */,
 				4F71D181CA9F955146A46B30 /* App.PhotoPickerViewControllerUniversalOperations.swift in Sources */,
-				4F71D7EE1899E1468A87EE53 /* Hashify.swift in Sources */,
+				4F71D7EE1899E1468A87EE53 /* Hashify.BApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

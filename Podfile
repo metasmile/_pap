@@ -9,7 +9,7 @@ def common_pods
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
   pod 'Firebase/MLVisionBarcodeModel'
-  # pod 'Firebase/MLVisionLabelModel'
+  pod 'Firebase/MLVisionLabelModel'
   pod 'Fabric'
   pod 'Crashlytics'
 

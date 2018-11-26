@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "ऑटो चयन बॉट";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "ऑटो सीधा";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "पीछे का रंग";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "एक कलाकार बनो कलाकार आपको नाटकीय रूप से मशहूर स्टाइल चित्रों में अपनी सभी तस्वीरें या वीडियो को चालू करने देता है। इस बैच प्रोसेसिंग टूल में कनवर्ट करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "खोजक आपकी तस्वीरों से फोन नंबर, पते, तिथियां या यूआरएल जैसी प्रत्येक सार्थक जानकारी निकालने में सक्षम बनाता है, और फिर कॉल करें, मानचित्र खोलें या वेबसाइटों को नेविगेट करें यहां तक ​​कि उड़ानें भी खोजें। आप उन्हें कच्चे पाठ के रूप में भी बचा सकते हैं।";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "खोजक";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "फ़ोटो से हैशटैग ढूँढना ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "टॉर्च";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "आगे";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "नि: शुल्क उपयोग और सभी नए अपडेट";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "यहां इनपुट करें";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "जांच";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram लैंडस्केप";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram वर्टिकल";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "यह शेष नि: शुल्क ऐप एक्सेस अवधि का अनुपात प्रदर्शित करता है।";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "विभिन्न आकारों से अपनी तस्वीरों का आकार बदलें।";
+"Resize and fill to fit your photos by the various sizes." = "विभिन्न आकारों से अपनी तस्वीरों को फिट करने के लिए आकार बदलें और भरें।";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "आकार बदलें";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "रीसाइज़र";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "पिछले क्लिपबोर्ड से पुनर्स्थापित करें";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "पुनर्स्थापित";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "प्रकार";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "यूआरएल";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "अल्ट्रा वाइड वर्टिकल";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "अल्ट्रा वाइड";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "वर्तमान में कोड को सत्यापित करने में असमर्थ। कृपया बाद में कोशिश करें।";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "आपका कोड अमान्य है। कृपया पुन: प्रयास करें।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "आपका कोड समाप्त हो गया था।";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "यूट्यूब लैंडस्केप";
 /* Generated from genl10n: Period.swift */
 "day" = "दिन";
 /* Generated from genl10n: Period.swift */

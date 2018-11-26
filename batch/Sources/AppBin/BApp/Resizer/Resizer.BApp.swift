@@ -201,11 +201,11 @@ enum AspectRatioOption: Int, Codable {
         case .ratio4x5: return "Instagram Vertical".localized
         case .ratio1_91x1: return "Instagram Landscape".localized
         case .ratio16x9: return "Youtube Landscape".localized
-        case .ratio9x16: return "Instagram Story".localized
+        case .ratio9x16: return "Instagram Story"
         case .ratio21x9: return "Ultra Wide".localized
         case .ratio9x21: return "Ultra Wide Vertical".localized
-        case .devicePortrait: return UIDevice.current.localizedModel + " Portrait".localized
-        case .deviceLandscape: return UIDevice.current.localizedModel + " Landscape".localized
+        case .devicePortrait: return "\(UIDevice.current.localizedModel) \("Portrait".localized)"
+        case .deviceLandscape: return "\(UIDevice.current.localizedModel) \("Landscape".localized)"
         }
     }
     

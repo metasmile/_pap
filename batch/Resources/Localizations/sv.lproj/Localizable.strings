@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "Bakgrundsfärg";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Var en artist. Artist låter dig dramatiskt göra dina foton eller videoklipp till berömda stilade målningar. Det här batchbehandlingsverktyget har ingen gräns för antalet foton som ska konverteras.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder gör det möjligt att extrahera alla meningsfulla uppgifter som telefonnummer, adresser, datum eller webbadresser från dina bilder och sedan ringa, öppna kartor eller navigera webbplatser även sökflyg. Du kan också spara dem alla som rå text.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "Hitta Hashtags Från Foton ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Ficklampa";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "Fram";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Fri användning och alla nya uppdateringar";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "Inmatning här";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Förfrågan";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram Landskap";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertikal";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Det visar ett förhållande mellan återstående friapptillgångstider.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Upprepa";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "Ändra storlek på dina bilder med olika storlekar.";
+"Resize and fill to fit your photos by the various sizes." = "Ändra storlek och fyll på för att passa dina foton i olika storlekar.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "Ändra storlek";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Återställ alla inköp";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "Återställ från tidigare Urklipp";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Återställa";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "Typ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "Ultra Wide Vertical";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Det går inte att verifiera koden för närvarande. Vänligen prova det senare.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "Din kod är ogiltig. Var god försök igen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Din kod har löpt ut.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "Youtube Landskap";
 /* Generated from genl10n: Period.swift */
 "day" = "dag";
 /* Generated from genl10n: Period.swift */

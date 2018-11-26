@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "Automatický výběr Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Automatické vyrovnání";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "Barva pozadí";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Buď umělec. Umělec vás dramaticky změní na všechny fotografie nebo videa do slavných stylizovaných obrazů. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotografií, které je třeba převést.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Vyhledávač umožňuje vyjímat z vašich fotografií veškeré smysluplné informace, jako jsou telefonní čísla, adresy, data nebo adresy URL, a poté volat, otevřít mapy nebo navigovat na webové stránky, a dokonce i vyhledat lety. Můžete je také uložit jako surový text.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "nálezce";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "Hledání značky Hashtags z fotografií ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Svítilna";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "Vpřed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Volné použití a všechny nové aktualizace";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "Vstupte zde";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Poptávka";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram Krajina";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Zobrazuje poměr zbývajících bezplatných období přístupu k aplikacím.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Opakovat";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "Změňte velikost fotografií o různé velikosti.";
+"Resize and fill to fit your photos by the various sizes." = "Změňte velikost a výplň tak, aby odpovídaly vašim fotografiím v různých velikostech.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "Změna velikosti";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Obnovit všechny nákupy";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "Obnovit z předchozí schránky";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Obnovit";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "Typ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "Široko vertikální";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "Ultra široký";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Momentálně nelze ověřit kód. Zkuste to prosím později.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "Váš kód je neplatný. Prosím zkuste to znovu.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Váš kód vypršel.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "Youtube Krajina";
 /* Generated from genl10n: Period.swift */
 "day" = "den";
 /* Generated from genl10n: Period.swift */

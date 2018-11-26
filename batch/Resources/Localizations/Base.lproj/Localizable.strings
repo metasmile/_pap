@@ -82,10 +82,6 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* Generated from genl10n: Resizer.BApp.swift */
-" Landscape" = " Landscape";
-/* Generated from genl10n: Resizer.BApp.swift */
-" Portrait" = " Portrait";
 /* Generated from genl10n: Charge.Types.Trialable.swift, AppCenter.Charge.swift */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: batch.Strings.swift */
@@ -176,9 +172,9 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: ExifGhost.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Hashify.swift, Finder.BApp.swift */
+/* Generated from genl10n: Hashify.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Finder.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Hashify.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Hashify.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -192,7 +188,7 @@
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.SApp.swift */
 "Camera" = "Camera";
-/* Generated from genl10n: Hashify.swift, Revert.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Hashify.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Cannot revert. All selected items have not edited.";
 /* Generated from genl10n: MemoCam.BApp.swift */
 "Capture Actions To Do." = "Capture Actions To Do.";
@@ -282,12 +278,14 @@
 "Export" = "Export";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
-/* Generated from genl10n: Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, Hashify.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "Finding Hashtags From Photos...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
@@ -328,10 +326,6 @@
 "Guest User" = "Guest User";
 /* Generated from genl10n: batch.Strings.swift */
 "Handle lots of photos at once." = "Handle lots of photos at once.";
-/* Generated from genl10n: Hashify.swift */
-"Hashify" = "Hashify";
-/* Generated from genl10n: Hashify.swift */
-"Hashifying Photos..." = "Hashifying Photos...";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -357,8 +351,6 @@
 /* Generated from genl10n: Resizer.BApp.swift */
 "Instagram Landscape" = "Instagram Landscape";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Instagram Story" = "Instagram Story";
-/* Generated from genl10n: Resizer.BApp.swift */
 "Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
@@ -372,7 +364,7 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -446,7 +438,7 @@
 "Open Google Maps" = "Open Google Maps";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Hashify.swift, Revert.BApp.swift */
+/* Generated from genl10n: Hashify.BApp.swift, Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
 "Open Rotation." = "Open Rotation.";
@@ -490,7 +482,7 @@
 "Please try again with another code." = "Please try again with another code.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Portrait" = "Portrait";
 /* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
@@ -536,7 +528,7 @@
 "Restore All Purchases" = "Restore All Purchases";
 /* Generated from genl10n: Shop.Payment.System.swift */
 "Restore" = "Restore";
-/* Generated from genl10n: Revert.BApp.swift, Hashify.swift */
+/* Generated from genl10n: Revert.BApp.swift, Hashify.BApp.swift */
 "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!";
 /* Generated from genl10n: Revert.BApp.swift */
 "Restorer" = "Restorer";
@@ -624,7 +616,7 @@
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starting the Process...";
-/* Generated from genl10n: Hashify.swift, Revert.BApp.swift */
+/* Generated from genl10n: Hashify.BApp.swift, Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Starting to copy photos...";

@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "اختيار السيارات بوت";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "تسطيح السيارات";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "لون الخلفية";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "كن فنان. يتيح لك الفنان تشغيل جميع الصور أو مقاطع الفيديو بشكل كبير في اللوحات الشهيرة. أداة معالجة الدفعات هذه ليس لها حد لعدد الصور المطلوب تحويلها.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "يمكّن Finder من استخراج أي معلومات ذات معنى مثل أرقام الهواتف والعناوين والتواريخ وعناوين URL من صورك ، ثم الاتصال أو فتح الخرائط أو التنقل في مواقع الويب حتى البحث عن الرحلات. يمكنك أيضًا حفظها كلها كنص خام.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "مكتشف";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "العثور على علامات التصنيف من الصور ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "مصباح يدوي";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "إلى الأمام";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "تأجيل الإطار";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "المبروز";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "استخدام مجاني وجميع التحديثات الجديدة";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "مدخلات هنا";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "تحقيق";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram المناظر الطبيعية";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram عمودي";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "يعرض نسبة من فترات الوصول التطبيقات المجانية المتبقية.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "كرر";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "تغيير حجم الصور الخاصة بك من مختلف الأحجام.";
+"Resize and fill to fit your photos by the various sizes." = "تغيير حجم وملء لتناسب صورك من مختلف الأحجام.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "تغيير";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "رسزر";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "استعادة جميع المشتريات";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "استعادة من الحافظة السابقة";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "استعادة";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "نوع";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "عريض جدا عمودي";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "فائقة واسعة";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "غير قادر على التحقق من الرمز حاليًا. يرجى المحاولة لاحقا.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "رمزك غير صالح. حاول مرة اخرى.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "انتهت صلاحية شفرتك.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "يوتيوب المناظر الطبيعية";
 /* Generated from genl10n: Period.swift */
 "day" = "يوم";
 /* Generated from genl10n: Period.swift */

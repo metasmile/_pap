@@ -18,6 +18,9 @@ PODS:
   - Firebase/MLVisionBarcodeModel (5.11.0):
     - Firebase/CoreOnly
     - FirebaseMLVisionBarcodeModel (= 0.12.0)
+  - Firebase/MLVisionLabelModel (5.11.0):
+    - Firebase/CoreOnly
+    - FirebaseMLVisionLabelModel (= 0.12.0)
   - Firebase/MLVisionTextModel (5.11.0):
     - Firebase/CoreOnly
     - FirebaseMLVisionTextModel (= 0.12.0)
@@ -46,6 +49,8 @@ PODS:
     - GoogleMobileVision/Detector (~> 1.4)
   - FirebaseMLVisionBarcodeModel (0.12.0):
     - GoogleMobileVision/BarcodeDetector (~> 1.4)
+  - FirebaseMLVisionLabelModel (0.12.0):
+    - GoogleMobileVision/LabelDetector (~> 1.4)
   - FirebaseMLVisionTextModel (0.12.0):
     - GoogleMobileVision/TextDetector (~> 1.4)
   - Google-Mobile-Ads-SDK (7.35.1)
@@ -67,6 +72,8 @@ PODS:
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.1)
+  - GoogleMobileVision/LabelDetector (1.4.1):
+    - GoogleMobileVision/Detector (~> 1.4)
   - GoogleMobileVision/TextDetector (1.4.1):
     - GoogleMobileVision/Detector (~> 1.4)
   - GoogleToolboxForMac/Defines (2.1.4)
@@ -128,6 +135,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/MLVision
   - Firebase/MLVisionBarcodeModel
+  - Firebase/MLVisionLabelModel
   - Firebase/MLVisionTextModel
   - PhoneNumberKit (~> 2.1)
   - PropertyKit
@@ -147,6 +155,7 @@ SPEC REPOS:
     - FirebaseMLCommon
     - FirebaseMLVision
     - FirebaseMLVisionBarcodeModel
+    - FirebaseMLVisionLabelModel
     - FirebaseMLVisionTextModel
     - Google-Mobile-Ads-SDK
     - GoogleAPIClientForREST
@@ -192,6 +201,7 @@ SPEC CHECKSUMS:
   FirebaseMLCommon: 5fb0152dc0e4de69f86ec37e813fb2555566ebbd
   FirebaseMLVision: 7e9a7f2f81117be2796196f3901c36ad893366b1
   FirebaseMLVisionBarcodeModel: 1956b7b0ae267b67571260e00cc0429a6a5e3091
+  FirebaseMLVisionLabelModel: 926c57dfa63254ea22e005d39b795b560ab1eb30
   FirebaseMLVisionTextModel: 97af06fa88b45cabbe39f04d2c825b9d7001cd66
   Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   GoogleAPIClientForREST: 5b95b38a0fa912e8ac7bdcf9e124578ef1a61bf2
@@ -211,6 +221,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
   TPPDF: 10c1e16147764c5cc35c25c2ca14869bc069b728
 
-PODFILE CHECKSUM: a6acd6e7bcc846d88869a96c9a584fe3f3a397f7
+PODFILE CHECKSUM: 5d1fef220ee5c12c63ee4514ef0fe8123e21387c
 
 COCOAPODS: 1.5.3

@@ -116,11 +116,11 @@ public class HashifyApp: NSObject, PropertyWatchable, BApp
     }
 
     public var titleWillFinalize: String? {
-        return "Hashifying Photos...".localized
+        return "Finding Hashtags From Photos...".localized
     }
 
     public var doneButtonTitle: String? {
-        return "Hashify".localized
+        return "Find".localized
     }
 }
 

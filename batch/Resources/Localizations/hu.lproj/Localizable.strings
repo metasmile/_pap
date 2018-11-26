@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Automatikus egyenesítés";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "Háttérszín";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Legyen művész. Az előadó lehetővé teszi, hogy drámaian minden fényképét vagy videóját híres festményként alakítsa át. Ez a kötegelt feldolgozó eszköz nem korlátozza a konvertálandó fotók számát.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "A Finder lehetővé teszi minden fontos információ, például telefonszámok, címek, dátumok vagy URL-ek kivonását a fotókból, majd hívja fel, nyissa meg a térképeket vagy navigáljon a weboldalakon, még a keresési járatokon is. Ön is mentheti őket mindent nyers szöveg.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "kereső";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "Hashtag-ok keresése a fotókból ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Zseblámpa";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "Előre";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Keret késleltetés";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Ingyenes felhasználás és minden új frissítés";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "Bemenet itt";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Vizsgálat";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram tájkép";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Megjeleníti a fennmaradó ingyenes hozzáférési periódusok arányát.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Ismétlés";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "Átméretezheti fényképeit a különböző méretben.";
+"Resize and fill to fit your photos by the various sizes." = "Átméretezheti és töltheti fel fotóit a különböző méretű képekhez.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "átméretezése";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Összes vásárlás visszaállítása";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "Visszaállítás az előző vágólapból";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "visszaállítás";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "típus";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "Ultra Wide Vertical";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "A kód jelenleg nem ellenőrizhető. Próbálja ki később.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "A kód érvénytelen. Kérlek próbáld újra.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "A kód lejárt.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "Youtube tájkép";
 /* Generated from genl10n: Period.swift */
 "day" = "nap";
 /* Generated from genl10n: Period.swift */

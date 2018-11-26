@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "Achtergrond kleur";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto's of video's omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto's.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder maakt het mogelijk alle zinvolle informatie zoals telefoonnummers, adressen, datums of URL's uit uw foto's te extraheren en vervolgens te bellen, kaarten te openen of websites te doorzoeken, zelfs bij het zoeken van vluchten. Je kunt ze ook allemaal opslaan als onbewerkte tekst.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "vinder";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "Hashtags vinden van foto's ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Zaklamp";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "Vooruit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "Gratis gebruik en alle nieuwe updates";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "Voer hier in";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "Onderzoek";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram landschap";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram verticaal";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "Het geeft een verhouding weer van resterende vrije app-toegangsperioden.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaling";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "Pas het formaat van je foto's aan de verschillende formaten aan.";
+"Resize and fill to fit your photos by the various sizes." = "Formaat wijzigen en opvullen zodat uw foto's passen bij de verschillende formaten.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "Resize";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "Resizer";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Herstel van alle aankopen";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "Herstellen van het vorige klembord";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "Herstellen";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "Type";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "Ultra breed verticaal";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "Ultra breed";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "Kon de code momenteel niet verifiëren. Probeer het later nog eens.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "Uw code is ongeldig Probeer het opnieuw.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Uw code is verlopen.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "YouTube-landschap";
 /* Generated from genl10n: Period.swift */
 "day" = "dag";
 /* Generated from genl10n: Period.swift */

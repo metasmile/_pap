@@ -214,6 +214,8 @@
 "Auto Selection Bot" = "自動選択ボット";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "自動水平補正";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "背景色";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
@@ -318,6 +320,8 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finderを使用すると、写真から電話番号、住所、日付、URLなどの意味のある情報をすべて抽出し、電話をかけたり、地図を開いたり、ウェブサイトを検索したりすることができます。それらをすべて生のテキストとして保存することもできます。";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "ファインダ";
+/* Generated from genl10n: Hashify.BApp.swift */
+"Finding Hashtags From Photos..." = "写真からハッシュタグを見つける...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "フラッシュ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +332,8 @@
 "Forward" = "フォワード";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "フレームディレイ";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "フレーマ";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "無料で使用し、すべての新しいアップデート";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -378,6 +384,10 @@
 "Input Here" = "ここに入力";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "問い合わせ";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram Landscape";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "残りのフリーアプリアクセス期間の割合を表示します。";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -547,15 +557,11 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "さまざまなサイズで写真のサイズを変更します。";
+"Resize and fill to fit your photos by the various sizes." = "さまざまなサイズで写真に合わせてサイズを変更して塗りつぶします。";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize" = "リサイズ";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "リサイザー";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "前のクリップボードから復元する";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "リストア";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -710,6 +716,10 @@
 "Type" = "タイプ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "ウルトラワイド垂直";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "ウルトラワイド";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "現在のコードを確認できません。後で試してみてください。";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -772,6 +782,8 @@
 "Your code is invalid. Please try again." = "あなたのコードは無効です。もう一度お試しください。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "あなたのコードは期限切れです。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "YouTubeの風景";
 /* Generated from genl10n: Period.swift */
 "day" = "日";
 /* Generated from genl10n: Period.swift */
