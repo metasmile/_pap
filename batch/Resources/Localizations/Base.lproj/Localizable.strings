@@ -176,9 +176,9 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Hashify.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: ExifGhost.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Hashify.swift, Finder.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Hashify.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Hashify.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -624,7 +624,7 @@
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starting the Process...";
-/* Generated from genl10n: Revert.BApp.swift, Hashify.swift */
+/* Generated from genl10n: Hashify.swift, Revert.BApp.swift */
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Starting to copy photos...";

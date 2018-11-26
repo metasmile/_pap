@@ -45,7 +45,8 @@ public class HashifyApp: NSObject, PropertyWatchable, BApp
             , description: "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
             , keywords: ["Restore","Repair","Hashify","recovery", "Restorer"]
             , iconBundleName: R.image.hashifyBAppIcon.name
-            , themeColor: UIColor.lightGray, policy: AppPolicy.default
+            , themeColor: UIColor(rgb: 0xFF29A8)
+            , policy: AppPolicy.default
             , minOSVersion: nil
     )
 

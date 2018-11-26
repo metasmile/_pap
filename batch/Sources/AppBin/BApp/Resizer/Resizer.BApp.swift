@@ -87,7 +87,7 @@ PhotoEditorViewControllerDelegatableApp {
             , description: "Resize and fill to fit your photos by the various sizes.".localized
             , keywords: ["Resize", "Instasize", "Instafit", "No Crop", "Fit", "Scale", "Size","Transform","Instagram","Insta"]
         , iconBundleName: R.image.resizerBAppIcon.name
-        , themeColor: UIColor(rgb: 0xFA7E1E)
+        , themeColor: UIColor(rgb: 0xFFE567)
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
