@@ -320,7 +320,7 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "يمكّن Finder من استخراج أي معلومات ذات معنى مثل أرقام الهواتف والعناوين والتواريخ وعناوين URL من صورك ، ثم الاتصال أو فتح الخرائط أو التنقل في مواقع الويب حتى البحث عن الرحلات. يمكنك أيضًا حفظها كلها كنص خام.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "مكتشف";
-/* Generated from genl10n: Hashify.BApp.swift */
+/* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "العثور على علامات التصنيف من الصور ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "مصباح يدوي";

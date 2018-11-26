@@ -320,7 +320,7 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Το Finder επιτρέπει την εξαγωγή κάθε σημαντικής πληροφορίας, όπως αριθμούς τηλεφώνου, διευθύνσεις, ημερομηνίες ή διευθύνσεις URL από τις φωτογραφίες σας, και στη συνέχεια να καλέσετε, να ανοίξετε τους χάρτες ή να περιηγηθείτε σε ιστότοπους, ακόμη και να αναζητήσετε πτήσεις. Μπορείτε επίσης να τα αποθηκεύσετε ως ακατέργαστο κείμενο.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
-/* Generated from genl10n: Hashify.BApp.swift */
+/* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Βρίσκοντας Hashtags από φωτογραφίες ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Φακός";

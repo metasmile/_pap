@@ -28,7 +28,7 @@ extension AppCenter{
             , SiriApp.self
             , ClipboardApp.self
             , ResizerApp.self
-            , HashifyApp.self
+            , HashtagenApp.self
 //            , Stabilizer.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in

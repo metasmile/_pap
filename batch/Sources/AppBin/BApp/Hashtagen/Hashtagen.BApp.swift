@@ -6,57 +6,55 @@
 import Foundation
 import Photos
 import PropertyKit
+import FirebaseMLVision
 
-private typealias HashifyAppParam = AppAsset
-private struct HashifyAppResult: AppTaskResultable {
+private typealias HashtagenAppParam = AppAsset
+private struct HashtagenAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
-    fileprivate let isAdjusted:Bool
+    fileprivate let labels:[String]
 }
 
 
-private protocol HashifyAppDefaults: AppDefaults{
+private protocol HashtagenAppDefaults: AppDefaults{
     var autoSelect: Bool {get set}
 }
 
-extension Defaults: HashifyAppDefaults {
+extension Defaults: HashtagenAppDefaults {
     fileprivate var autoSelect: Bool {
         set{ set(newValue); }
         get{ return get(or: true) }
     }
 }
 
-public class HashifyApp: NSObject, PropertyWatchable, BApp
+public class HashtagenApp: NSObject, PropertyWatchable, BApp
         , AppDockApp
         , FinalizableApp
         , PhotoPickerViewControllerAppearanceDelegatableApp
         , PhotoPickerCollectionViewDelegatableApp
-        , PreheatableApp
-        , ChargeableApp {
-    public static let taskType: AppTaskable.Type = _HashifyAppTask.self
+        , PreheatableApp {
+    public static let taskType: AppTaskable.Type = _HashtagenAppTask.self
 
-    public static let paramType: AppTaskParamable.Type = HashifyAppParam.self
+    public static let paramType: AppTaskParamable.Type = HashtagenAppParam.self
 
     public static let info = AppInfo(
-            identifier: "com.stells.batch.hashify"
+            identifier: "com.stells.batch.hashtagen"
             , version: "1.0"
             , phase: .develop
-            , appType: HashifyApp.self
-            , displayName: "Hashify"
+            , appType: HashtagenApp.self
+            , displayName: "Hashtagen"
             , description: "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
-            , keywords: ["Restore","Repair","Hashify","recovery", "Restorer"]
-            , iconBundleName: R.image.hashifyBAppIcon.name
+            , keywords: ["Restore","Repair","Hashtagen","recovery", "Restorer"]
+            , iconBundleName: R.image.hashtagenBAppIcon.name
             , themeColor: UIColor(rgb: 0xFF29A8)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
-    static var localCharges: [Charge] {
-        return self.defaultFreeBAppLocalCharges
-    }
+    fileprivate lazy var vision = Vision.vision()
 
-    public private(set) lazy var content: AppDockContent? = HashifyAppDockContent()
+    public private(set) lazy var content: AppDockContent? = HashtagenAppDockContent()
 
-    private let appDefaults = HashifyApp.defaults as! HashifyAppDefaults
+    private let appDefaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
     @objc dynamic
     public fileprivate (set) lazy var autoSelect: Bool = appDefaults.autoSelect
@@ -74,41 +72,7 @@ public class HashifyApp: NSObject, PropertyWatchable, BApp
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        let adjustedAssets = result.compactMap { r -> PHAsset? in
-            let result = r.result as? HashifyAppResult
-            return result?.isAdjusted == true ? result?.asset : nil
-        }
-
-        guard adjustedAssets.count > 0 else {
-
-            asyncSignal.begin()
-            DispatchQueue.main.async {
-                UIAlertController.alert("Cannot revert. All selected items have not edited.".localized, completion:{ _ in
-                    asyncSignal.end()
-                })
-            }
-            asyncSignal.waitUntilEnd()
-
-            return result
-        }
-
-        asyncSignal.begin()
-
-        PHPhotoLibrary.shared().performChanges({
-            for asset in adjustedAssets {
-                PHAssetChangeRequest(for: asset).revertAssetContentToOriginal()
-            }
-        }, completionHandler: { success, error in
-            if success {
-
-            }else{
-                print("[!] Can't revert asset: \(String(describing: error))")
-            }
-            asyncSignal.end()
-        })
-
-        asyncSignal.waitUntilEnd()
-        return result
+        return [AppTaskRespondable]()
     }
 
     public var titleWillBegin: String? {
@@ -124,44 +88,70 @@ public class HashifyApp: NSObject, PropertyWatchable, BApp
     }
 }
 
-private class _HashifyAppTask: AppTaskPrototype, AppTaskable {
+private struct HashtagenAppDetector{
+
+    private let vision = Vision.vision()
+
+    fileprivate static func isResultFilled(result:VisionTextPHAssetDetectResult?) -> Bool{
+
+
+        return false
+    }
+
+
+    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
+        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
+            return nil
+        }
+
+        return nil
+    }
+}
+
+private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is HashifyAppParam, "TaskParamable type of this app is \(HashifyAppParam.self)")
-        guard let _param = param as? HashifyAppParam else{
+        assert(param is HashtagenAppParam, "TaskParamable type of this app is \(HashtagenAppParam.self)")
+        guard let _param = param as? HashtagenAppParam else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ revertParam: HashifyAppParam, _ async: AsyncWaitSignalable) throws -> HashifyAppResult?  {
-        guard revertParam.asset.isAdjusted else { return HashifyAppResult(asset: revertParam.asset, isAdjusted: revertParam.asset.isAdjusted) }
+    private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> HashtagenAppResult?  {
 
-        async.begin()
+        var results:HashtagenAppResult?
 
-        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
-            //INFO: prepare original version of asset
-            // it may get original version from icloud to local
-            PHImageManager.default().touchOriginalVersion(for: revertParam.asset, completion: {
+        if let image = param.asset.asUIImage  {
+            async.begin()
+
+            AppCenter.default.currentInstanceAs(HashtagenApp.self)?.vision.labelDetector().detect(in: VisionImage(image: image), completion:{ (labels,e) in
+                if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
+
+                    let detectedLabels = labels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
+                    print(detectedLabels)
+
+                    results = HashtagenAppResult(asset: param.asset, labels: detectedLabels)
+                }
                 async.end()
             })
+            async.waitUntilEnd()
         }
 
-        async.waitUntilEnd()
-        return HashifyAppResult(asset: revertParam.asset, isAdjusted: revertParam.asset.isAdjusted)
+        return results
     }
 }
 
 
 /*
-HashifyAppDockContent
+HashtagenAppDockContent
 */
 
-fileprivate class HashifyAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    private lazy var defaults = HashifyApp.defaults as! HashifyAppDefaults
+fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
-    private let primaryColor = HashifyApp.info.themeColor
+    private let primaryColor = HashtagenApp.info.themeColor
 
     lazy var view: UIView = UITableView()
 
@@ -185,7 +175,7 @@ fileprivate class HashifyAppDockContent: NSObject, PropertyWatchable, AppDockCon
             view.delegate = self
             view.rowHeight = 52
             view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: HashifyApp.info.identifier)
+            view.register(Cell.self, forCellReuseIdentifier: HashtagenApp.info.identifier)
 //            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
             view.tintColor = self.primaryColor
 //            view.separatorInset.left = view.rowHeight
@@ -210,7 +200,7 @@ fileprivate class HashifyAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HashifyApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: HashtagenApp.info.identifier) as! Cell
 
 //        cell.imageView?.image = nil
         cell.imageView?.tintColor = primaryColor
@@ -221,10 +211,10 @@ fileprivate class HashifyAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cell.imageView?.tintColor = primaryColor
 
         cell.optionSwitch.setOn(defaults.autoSelect, animated: false)
-        cell.optionSwitch.onTintColor = HashifyApp.info.themeColor
+        cell.optionSwitch.onTintColor = HashtagenApp.info.themeColor
         cell.switchDidChange = { on in
             self.defaults.autoSelect = on
-            AppCenter.default.currentInstanceAs(HashifyApp.self)?.autoSelect = on
+            AppCenter.default.currentInstanceAs(HashtagenApp.self)?.autoSelect = on
         }
 
         return cell
@@ -279,12 +269,12 @@ fileprivate class HashifyAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
 import Intents
 
-extension HashifyApp:UIApplicationDelegateLaunchableApp{
+extension HashtagenApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
             let openAppIntent = OpenIntent()
-            openAppIntent.appId = HashifyApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: HashifyApp.info.displayName) as String
+            openAppIntent.appId = HashtagenApp.info.identifier
+            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: HashtagenApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Restorer.".localized
 
             let asb = AutoSelectIntent()

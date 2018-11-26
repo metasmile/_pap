@@ -320,7 +320,7 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "खोजक आपकी तस्वीरों से फोन नंबर, पते, तिथियां या यूआरएल जैसी प्रत्येक सार्थक जानकारी निकालने में सक्षम बनाता है, और फिर कॉल करें, मानचित्र खोलें या वेबसाइटों को नेविगेट करें यहां तक ​​कि उड़ानें भी खोजें। आप उन्हें कच्चे पाठ के रूप में भी बचा सकते हैं।";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "खोजक";
-/* Generated from genl10n: Hashify.BApp.swift */
+/* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "फ़ोटो से हैशटैग ढूँढना ...";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "टॉर्च";
