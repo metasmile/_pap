@@ -72,11 +72,36 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        return [AppTaskRespondable]()
+        let labels = result.compactMap { r -> String? in
+            let result = r.result as? HashtagenAppResult
+            if let ls = result?.labels.nilEmpty{
+               return "#\(ls.joined(separator: " #"))" 
+            }
+            return nil
+        }.joined(separator: " ")
+
+        if let rootVC = UIViewController.presentable {
+            asyncSignal.begin()
+            DispatchQueue.global().async {
+
+                let activityItems = [labels]
+
+                DispatchQueue.main.async {
+                    let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+                    activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+                        asyncSignal.end()
+                    }
+                    rootVC.present(activityViewController, animated: true, completion: nil)
+                }
+            }
+            asyncSignal.waitUntilEnd()
+        }
+
+        return result
     }
 
     public var titleWillBegin: String? {
-        return "Starting to check edited photos...".localized
+        return "Starting to find...".localized
     }
 
     public var titleWillFinalize: String? {
@@ -88,25 +113,25 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 }
 
-private struct HashtagenAppDetector{
-
-    private let vision = Vision.vision()
-
-    fileprivate static func isResultFilled(result:VisionTextPHAssetDetectResult?) -> Bool{
-
-
-        return false
-    }
-
-
-    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
-        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
-            return nil
-        }
-
-        return nil
-    }
-}
+//private struct HashtagenAppDetector{
+//
+//    private let vision = Vision.vision()
+//
+//    fileprivate static func isResultFilled(result:VisionTextPHAssetDetectResult?) -> Bool{
+//
+//
+//        return false
+//    }
+//
+//
+//    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
+//        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
+//            return nil
+//        }
+//
+//        return nil
+//    }
+//}
 
 private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
@@ -130,7 +155,6 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
                 if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
 
                     let detectedLabels = labels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
-                    print(detectedLabels)
 
                     results = HashtagenAppResult(asset: param.asset, labels: detectedLabels)
                 }
