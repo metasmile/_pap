@@ -143,7 +143,7 @@ extension Analytics {
     static func log(_ identifier: String, parameters: [String: Any]?) {
         //INFO: Event name must contain only letters, numbers, or underscores: batch.papLog_appSelected
         let name = identifier.replaceIfMatched(withPattern: "[^\\w]", replace: "_")
-        print("[i] Logged: ",name, parameters)
+        print("[i] Logged: ",name, parameters ?? [:])
 #if !DEBUG
         logEvent(name, parameters: parameters)
 #endif
