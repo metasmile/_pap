@@ -49,7 +49,7 @@ public class ResizerAppConfigValue: NSObject, PropertyWatchable, AppConfigAdopta
 }
 
 class ResizerApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
-    PHAssetFinalizableApp, EditableApp, ChargeableApp, PreviewProcessableApp, AppDockApp,
+    PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
     PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
 PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _ResizerAppTask.self
@@ -81,11 +81,11 @@ PhotoEditorViewControllerDelegatableApp {
     public static let info = AppInfo(
         identifier: "com.stells.batch.resizer"
         , version: "1.0"
-        , phase: .beta
+        , phase: .release
         , appType: ResizerApp.self
-        , displayName: "Resizer".localized.localizedCapitalized
-        , description: "Resize your photos by the various sizes.".localized
-        , keywords: ["Resize", "Instasize", "Instafit", "No Crop"]
+            , displayName: "Framer".localized.localizedCapitalized
+            , description: "Resize and fill to fit your photos by the various sizes.".localized
+            , keywords: ["Resize", "Instasize", "Instafit", "No Crop", "Fit", "Scale", "Size","Transform","Instagram","Insta"]
         , iconBundleName: R.image.resizerBAppIcon.name
         , themeColor: UIColor(rgb: 0xFA7E1E)
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
@@ -142,10 +142,6 @@ PhotoEditorViewControllerDelegatableApp {
     
     public static var fixedContentLayout: Bool {
         return true
-    }
-    
-    static var localCharges: [Charge] {
-        return self.defaultFreeBAppLocalCharges
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
