@@ -30,6 +30,7 @@ extension Defaults: HashtagenAppDefaults {
     }
 }
 
+
 public class HashtagenApp: NSObject, PropertyWatchable, BApp
         , AppDockApp
         , FinalizableApp
@@ -200,7 +201,10 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
     }
 
     private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> HashtagenAppResult?  {
-        return AppCenter.default.currentInstanceAs(HashtagenApp.self)?.labelDetector.detectResult(asset: param.asset, async)
+        if let app = AppCenter.default.currentInstanceAs(HashtagenApp.self){
+            return app.preheatCachedResults[param.asset.localIdentifierWithoutSplitter] ?? app.labelDetector.detectResult(asset: param.asset, async)
+        }
+        return nil
     }
 }
 
@@ -208,6 +212,25 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
 /*
 HashtagenAppDockContent
 */
+
+extension HashtagenAppDockContent: PreheatableAppSubscribable{
+    func prepareStatusDisplaying(label:String?){
+//        var desc = self.settingCellDescribers.first { describable in
+//            describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
+//        }
+//        desc?.detailedLabel = label
+    }
+
+    func didStartPreheating() {
+//        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
+//        self.startSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+    }
+
+    func didStopPreheating() {
+//        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
+//        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+    }
+}
 
 fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
