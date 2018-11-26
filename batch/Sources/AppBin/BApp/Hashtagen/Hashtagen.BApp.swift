@@ -12,6 +12,10 @@ private typealias HashtagenAppParam = AppAsset
 private struct HashtagenAppResult: AppTaskResultable {
     fileprivate let asset:PHAsset
     fileprivate let labels:[String]
+
+    var asHashTagString:String{
+        return "#\(Array(Set(labels)).joined(separator: " #"))"
+    }
 }
 
 
@@ -42,15 +46,15 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
             , phase: .develop
             , appType: HashtagenApp.self
             , displayName: "Hashtagen"
-            , description: "Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!".localized
-            , keywords: ["Restore","Repair","Hashtagen","recovery", "Restorer"]
+            , description: "Finding and collecting hashtags from your photos you selected.".localized
+            , keywords: ["#", "Instagram", "Hashtag", "Social Network", "Twitter", "Facebook", "Digial Marketing"]
             , iconBundleName: R.image.hashtagenBAppIcon.name
-            , themeColor: UIColor(rgb: 0xFF29A8)
+            , themeColor: UIColor(rgb: 0xE429A8)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
 
-    fileprivate lazy var vision = Vision.vision()
+    fileprivate lazy var labelDetector = HashtagenAppDetector()
 
     public private(set) lazy var content: AppDockContent? = HashtagenAppDockContent()
 
@@ -67,24 +71,69 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         return true
     }
 
+
+    fileprivate var preheatCachedResults = [String:HashtagenAppResult]()
+    private var preheatingFrontQueueLabel:String?
+
+    func disposePreheatingCache(){
+        if let l = preheatingFrontQueueLabel{
+            DispatchQueue(label:l).async{
+                self.preheatCachedResults.removeAll()
+            }
+        }else{
+            preheatCachedResults.removeAll()
+        }
+    }
+
+    public func didCancelPreheating() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
+    public func didFinishCurrentPreheatingCycle() {
+        (content as? PreheatableAppSubscribable)?.didStopPreheating()
+    }
+
     public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
-        return appDefaults.autoSelect && item.asset.isAdjusted == true ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
+        if self.autoSelect == false{
+            return nil
+        }
+
+        (content as? PreheatableAppSubscribable)?.didStartPreheating()
+
+        preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
+
+        var preheated = false
+
+        if let _ = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
+            preheated = true
+        }else{
+            if let result = labelDetector.detectResult(asset: item.asset, async), result.labels.count > 0{
+                preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
+                preheated = true
+            }
+        }
+
+        return preheated
+                ? UICollectionViewPreheatableAppFinishAction.selectItem
+                : nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        let labels = result.compactMap { r -> String? in
-            let result = r.result as? HashtagenAppResult
-            if let ls = result?.labels.nilEmpty{
-               return "#\(ls.joined(separator: " #"))" 
+
+        var taggs = [String]()
+        for r in result {
+            if let rr = r.result as? HashtagenAppResult, let ls = rr.labels.nilEmpty {
+                taggs += ls
             }
-            return nil
-        }.joined(separator: " ")
+        }
+
+        let hashtagsString = "#\(Array(Set(taggs)).joined(separator: " #"))"
 
         if let rootVC = UIViewController.presentable {
             asyncSignal.begin()
             DispatchQueue.global().async {
 
-                let activityItems = [labels]
+                let activityItems = [hashtagsString]
 
                 DispatchQueue.main.async {
                     let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
@@ -113,25 +162,31 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 }
 
-//private struct HashtagenAppDetector{
-//
-//    private let vision = Vision.vision()
-//
-//    fileprivate static func isResultFilled(result:VisionTextPHAssetDetectResult?) -> Bool{
-//
-//
-//        return false
-//    }
-//
-//
-//    fileprivate func detectResult(asset:PHAsset, image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextPHAssetDetectResult? {
-//        guard let visionText = vision.onDeviceTextRecognizer().detect(with: image, async) else {
-//            return nil
-//        }
-//
-//        return nil
-//    }
-//}
+private struct HashtagenAppDetector{
+
+    private let vision = Vision.vision()
+
+    fileprivate func detectResult(asset:PHAsset, _ async: AsyncWaitSignalable) -> HashtagenAppResult? {
+        var results:HashtagenAppResult?
+
+        if let image = asset.asUIImage  {
+            async.begin()
+
+            vision.labelDetector().detect(in: VisionImage(image: image), completion:{ (labels,e) in
+                if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
+
+                    let detectedLabels = labels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
+
+                    results = HashtagenAppResult(asset: asset, labels: detectedLabels)
+                }
+                async.end()
+            })
+            async.waitUntilEnd()
+        }
+
+        return results
+    }
+}
 
 private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
@@ -145,25 +200,7 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
     }
 
     private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> HashtagenAppResult?  {
-
-        var results:HashtagenAppResult?
-
-        if let image = param.asset.asUIImage  {
-            async.begin()
-
-            AppCenter.default.currentInstanceAs(HashtagenApp.self)?.vision.labelDetector().detect(in: VisionImage(image: image), completion:{ (labels,e) in
-                if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
-
-                    let detectedLabels = labels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
-
-                    results = HashtagenAppResult(asset: param.asset, labels: detectedLabels)
-                }
-                async.end()
-            })
-            async.waitUntilEnd()
-        }
-
-        return results
+        return AppCenter.default.currentInstanceAs(HashtagenApp.self)?.labelDetector.detectResult(asset: param.asset, async)
     }
 }
 
