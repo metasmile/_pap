@@ -87,7 +87,7 @@ public class ImageEditStateValue: Object {
     public var color: UIColor? {
         return nil
     }
-    public var borderWidth: CGFloat? {
+    public var doubleValue: Double? {
         return nil
     }
 }
@@ -125,8 +125,8 @@ public extension StateValueSet where T: ImageEditStateValue {
 }
 
 public extension StateValueSet where T: ImageEditStateValue {
-    var borderWidth: CGFloat? {
-        return imageEditStateValue?.borderWidth
+    var doubleValue: Double? {
+        return imageEditStateValue?.doubleValue
     }
 }
 

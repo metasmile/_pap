@@ -45,6 +45,12 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
                     self.appendImageEditState(value)
                 }
             }
+            
+            appCenter.currentInstanceAs(AdjustmentsApp.self)?.config?.watch(\.filter, id:"editor\(AdjustmentsApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
 
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
@@ -58,6 +64,7 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
         AppCenter.default.currentInstanceAs(AutoEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AutoEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(StabilizerApp.self)?.config?.unwatch(\.stabilizationMode, forIds:["editor\(StabilizerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ResizerApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(AdjustmentsApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AdjustmentsApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
 }

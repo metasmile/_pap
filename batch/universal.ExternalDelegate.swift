@@ -29,7 +29,7 @@ extension AppCenter{
             , ClipboardApp.self
             , ResizerApp.self
             , HashtagenApp.self
-//            , Stabilizer.self
+            , AdjustmentsApp.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 

@@ -958,6 +958,10 @@
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
+		51956E6B21AB7A9A0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
+		51956E6D21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
+		51956E6E21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
+		51956E6F21AB7A9F0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
 		51A9DF12219445060013BE36 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A00FDD4E218235EE005EAD1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEA218235EE005EAD1B /* Localizable.strings */; };
 		A00FDD4F218235EE005EAD1B /* Intents.strings.deleted in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEC218235EE005EAD1B /* Intents.strings.deleted */; };
@@ -2517,6 +2521,7 @@
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
+		51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjustments.BApp.swift; sourceTree = "<group>"; };
 		51A9DF11219445060013BE36 /* Settings.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.SApp.swift; sourceTree = "<group>"; };
 		6DE37DA314DD07B700208587 /* Pods-batch-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71D3A436A2443042ABEE399E /* Pods-batch-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2906,6 +2911,7 @@
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
 			isa = PBXGroup;
 			children = (
+				51956E6921AB7A3A0067CCEA /* Adjustments */,
 				A07BD39421978958003031D5 /* MemoCam */,
 				5118E9962194F7D200EB6D6A /* Resizer */,
 				A02389CE219043750039F398 /* Finder */,
@@ -3729,6 +3735,14 @@
 				51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */,
 			);
 			path = Siri;
+			sourceTree = "<group>";
+		};
+		51956E6921AB7A3A0067CCEA /* Adjustments */ = {
+			isa = PBXGroup;
+			children = (
+				51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */,
+			);
+			path = Adjustments;
 			sourceTree = "<group>";
 		};
 		51A9DF10219444CA0013BE36 /* Settings */ = {
@@ -5650,6 +5664,7 @@
 				4F71D9AACF65430E7D508A91 /* CodeKit.UIApplication.swift in Sources */,
 				4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71DD6D9BB876B8EEA1FC5C /* CodeKit.CMMotionManager.swift in Sources */,
+				51956E6B21AB7A9A0067CCEA /* Adjustments.BApp.swift in Sources */,
 				4F71D9B2EB277F0F9380A317 /* CodeKit.UIView.Position.swift in Sources */,
 				4F71D09B435707D54F4221D4 /* CodeKit.UIView.Animation.swift in Sources */,
 				4F71D37EBE213CFCB9A9454E /* CodeKit.UIView.Hierarchy.swift in Sources */,
@@ -6171,6 +6186,7 @@
 				A0CB01FB219C9093007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				A0CB01FC219C9093007A5278 /* CodeKit.CMMotionManager.swift in Sources */,
 				A0CB01FD219C9093007A5278 /* CodeKit.UIView.Position.swift in Sources */,
+				51956E6F21AB7A9F0067CCEA /* Adjustments.BApp.swift in Sources */,
 				A0CB01FE219C9093007A5278 /* CodeKit.UIView.Animation.swift in Sources */,
 				A0CB01FF219C9093007A5278 /* CodeKit.UIView.Hierarchy.swift in Sources */,
 				A0CB0200219C9093007A5278 /* CodeKit.UIViewController.swift in Sources */,
@@ -6693,6 +6709,7 @@
 				4F71D4E8BEB5DA0147B0F549 /* CodeKit.UIApplication.swift in Sources */,
 				4F71D4C7345005CEC278A047 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71D037FAA52655624F429E /* CodeKit.CMMotionManager.swift in Sources */,
+				51956E6D21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */,
 				4F71DBED7C6830A0F4B91318 /* CodeKit.UIView.Position.swift in Sources */,
 				4F71D38028391EE52582E13B /* CodeKit.UIView.Animation.swift in Sources */,
 				4F71D3B4FD3914A2E7065484 /* CodeKit.UIView.Hierarchy.swift in Sources */,
@@ -6989,6 +7006,7 @@
 				A0CB0076219C8C64007A5278 /* CodeKit.UIApplication.swift in Sources */,
 				A0CB0077219C8C64007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				A0CB0078219C8C64007A5278 /* CodeKit.CMMotionManager.swift in Sources */,
+				51956E6E21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */,
 				A0CB0079219C8C64007A5278 /* CodeKit.UIView.Position.swift in Sources */,
 				A0CB007A219C8C64007A5278 /* CodeKit.UIView.Animation.swift in Sources */,
 				A0CB007B219C8C64007A5278 /* CodeKit.UIView.Hierarchy.swift in Sources */,

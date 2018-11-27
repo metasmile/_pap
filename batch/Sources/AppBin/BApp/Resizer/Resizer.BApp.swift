@@ -14,7 +14,7 @@ import MetalPerformanceShaders
 protocol ResizerAppDefaults: AppDefaults {
     var resizeFilterName: String? { get set }
     var backgroundColor: UIColor { get set }
-    var borderWidth: Float { get set }
+    var borderWidth: Double { get set }
 }
 
 extension Defaults: ResizerAppDefaults {
@@ -31,7 +31,7 @@ extension Defaults: ResizerAppDefaults {
         set { set(newValue.rgba()); papLog.app.defaults.log(value:newValue.hexCode()) }
     }
     
-    var borderWidth: Float {
+    var borderWidth: Double {
         get { return get(or: 0) }
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
     }
@@ -75,7 +75,7 @@ PhotoEditorViewControllerDelegatableApp {
         let filter = editStateValue?.ciFilter as? CIResizeFilter
         defaults.resizeFilterName = filter?.name
         defaults.backgroundColor = filter?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
-        defaults.borderWidth = Float(filter?.borderWidth ?? 0)
+        defaults.borderWidth = Double(filter?.borderWidth ?? 0)
     }
     
     public static let info = AppInfo(
@@ -318,8 +318,12 @@ class CIResizeFilterItem: CIFilterItem {
         }
     }
     
-    override var borderWidth: CGFloat {
+    var borderWidth: CGFloat {
         return (ciFilter as? CIResizeFilter)?.borderWidth ?? 0
+    }
+    
+    override var doubleValue: Double? {
+        return Double(borderWidth)
     }
     
     override var normalizedSize: CGSize? {
@@ -565,8 +569,6 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         slider.maximumValue = 1
         slider.isContinuous = true
         slider.addTarget(self, action: #selector(self.borderWidthDidChange), for: .valueChanged)
-        slider.addTarget(self, action: #selector(self.borderWidthDidEndChange), for: .touchUpInside)
-        slider.addTarget(self, action: #selector(self.borderWidthDidEndChange), for: .touchUpOutside)
         return slider
     }()
     
@@ -627,10 +629,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         borderWidthSlider.setMinimumTrackImage(UIImage(path: minTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: estimatedHeight, bottom: estimatedHeight / 2, right: 0), resizingMode: .stretch), for: .normal)
         borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)
-    }
-    
-    @objc func borderWidthDidEndChange() {
-        self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+        
+        Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+            DispatchQueue.main.asyncAfter(deadline: .now()){
+                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+            }
+        }
     }
     
     var selectedEditStateValue: ImageEditStateValue?
