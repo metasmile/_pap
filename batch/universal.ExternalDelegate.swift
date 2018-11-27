@@ -64,7 +64,7 @@ extension AppCenter{
 
         return AppManagerConfig(
                 appCollection: defaultAppCollection
-                , initialApp: TransformApp.self
+                , initialApp: ShopApp.self
                 , taskManager: nil
         )
     }
