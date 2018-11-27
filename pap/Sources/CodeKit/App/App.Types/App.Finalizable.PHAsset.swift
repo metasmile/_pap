@@ -12,7 +12,7 @@ public enum PHAssetFinalizingAction: Int{
     case create
     case delete
     case share
-    case showActions
+    case actions
 }
 
 public protocol PHAssetFinalizableApp: FinalizableApp, PHAssetUIAlertControllerSynchronizablePresenter {
@@ -68,7 +68,7 @@ extension PHAssetFinalizableApp {
                 if exclusiveOption{ return result }
             }
 
-            if option == .showActions {
+            if option == .actions {
                 self.showingActionsAndWait(targetResultAssets: targetResultAssets, asyncSignal)
 
                 if exclusiveOption{ return result }

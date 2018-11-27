@@ -52,7 +52,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
     public required override init() {}
 
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.showActions]
+        return [.actions]
     }
 
     public var needsCachingRequestOptions: [PHAssetRequestOption]? {

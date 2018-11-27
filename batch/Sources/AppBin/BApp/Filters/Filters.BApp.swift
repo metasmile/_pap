@@ -120,7 +120,7 @@ PhotoEditorViewControllerDelegatableApp, ChargeableApp {
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.actions]
     }
 
     public static var fixedContentLayout: Bool {
