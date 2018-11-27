@@ -172,6 +172,10 @@
 "Add an Event" = "Přidat událost";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresa";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Nastavení vám umožňuje ručně upravit fotografie.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Úpravy";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumy";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Buď umělec. Umělec vás dramaticky změní na všechny fotografie nebo videa do slavných stylizovaných obrazů. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotografií, které je třeba převést.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Rozostření";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "Jas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Barva a připomínka pro každou fázi";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontakty";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Kontrast";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Převede poslední fotku Live do GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Technické poznámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Vývozní";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Slábnout";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtry";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "nálezce";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Hledání značky Hashtags z fotografií ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Hledání a shromažďování hashtagů z vybraných fotek.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Svítilna";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Získat text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Obilí";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Skrýt";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Skrytí vybraných položek ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Hlavní body";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvalita obrazu";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Kvalitní";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ohodnoť to";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Re-rám";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Opakovat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Změňte velikost a výplň tak, aby odpovídaly vašim fotografiím v různých velikostech.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Změna velikosti";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Obnovit všechny nákupy";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Točit se";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Otáčení";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Nasycení";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Uložit kontakty";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Nastavení licence pro hlavní nástroje";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Nastavení";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Stíny";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Sdílej tuto aplikaci";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Sdílejte svůj talent, udělejte spolu. Získejte každou odměnu při přijetí.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Podíl";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Ostrost";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Začátek prohlížení upravovaných fotografií ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Začátek kopírování fotografií ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Začínáme najít ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Pobyt s námi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Cílené";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Cíle";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temparatura";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Podmínky použití";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Cena zahrnuje každý nový nástroj. Dnes je nejlevnější den, abyste to dostali.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Tento přímý, ale rozsáhlý nástroj pro transformaci dávkového obrazu umožňuje rychle otočit a převrátit mnoho multimediálních souborů, včetně živých fotografií. Počet fotografií, které je lze upravit, neexistuje.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Nádech";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Chcete-li použít tuto aplikaci, potřebujete odpovídající přístupovou licenci. Chcete otevřít %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "VIP členství všech našich produktů.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ověření se nezdařilo.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrace";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video tutoriály";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Videa bez zvuku";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videa z obrazovky";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Vibrační poloměr";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Vignette";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Návštěva";
 /* Generated from genl10n: Finder.BApp.swift */

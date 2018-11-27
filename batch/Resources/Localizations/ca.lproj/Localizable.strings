@@ -172,6 +172,10 @@
 "Add an Event" = "Afegiu un esdeveniment";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "adreça";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Els ajustos us permeten editar manualment les vostres fotos.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Ajustaments";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Àlbums";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sigues artista. L'artista us permetrà convertir les vostres fotos o vídeos en quadres famosos. Aquesta eina de processament per lots no té límit a la quantitat de fotos que es poden convertir.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "Brillantor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Explosió";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Color i recordatori per a cada fase";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contactes";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Contrast";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Converteix l'última foto en viu en GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Notes d'enginyeria";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportació";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Fade";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filtres";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "descobridor";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Trobar Hashtags a partir de fotos ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Trobar i recollir els hashtags de les teves fotos que has seleccionat.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Llanterna";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Obteniu text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Doneu una valoració";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Gra";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Programa de llicència d'usuari convidat";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Amaga";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Ocultació d'elements seleccionats ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Destacats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Qualitat de la imatge";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Qualitat";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Qualifica-ho";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Torna a marcar";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Remoció d'ulls vermells";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Repetiu";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Canvieu la mida i ompliu per adaptar-vos a les teves fotos amb les diverses mides.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Canviar la mida";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaura totes les compres";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Gira";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Rotació";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Saturació";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Desa els contactes";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Configuració de la llicència principal d'eines";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Configuració";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Ombres";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Comparteix aquesta aplicació";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Compartiu el vostre talent, feu junts. Obteniu cada recompensa si s'adopta.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Nitidez";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Similitud";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "S'està començant a verificar les fotos editades ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "S'està començant a copiar fotos ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Començant per trobar ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Mantenir-se amb nosaltres";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Orientat";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Objectius";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temporal";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Condicions d'ús";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "El preu inclou totes les eines noves. Avui és el dia més econòmic per aconseguir-ho.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Aquesta eina de transformació de la imatge de lot de lletra directa, però a gran escala, us permet girar i transferir ràpidament molts fitxers multimèdia, incloses Live Photos. No hi ha cap límit en la quantitat de fotos per editar-les.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Tint";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Per utilitzar aquesta aplicació, necessiteu una llicència d'accés corresponent. Voleu obrir %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "Membres VIP de tots els nostres productes.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "La verificació ha fallat.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrant";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Tutorials en vídeo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Videos sense so";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Vídeos de Screen Recorder";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Ràdio de la vinyeta";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Vignette";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Visita";
 /* Generated from genl10n: Finder.BApp.swift */

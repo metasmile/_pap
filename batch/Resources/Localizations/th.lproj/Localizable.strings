@@ -172,6 +172,10 @@
 "Add an Event" = "เพิ่มเหตุการณ์";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ที่อยู่";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "การปรับเปลี่ยนช่วยให้คุณสามารถแก้ไขรูปภาพของคุณเอง";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "การปรับ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "เป็นศิลปิน ศิลปินช่วยให้คุณสามารถเปลี่ยนรูปถ่ายหรือวิดีโอทั้งหมดของคุณให้เป็นภาพวาดที่มีชื่อเสียง เครื่องมือการประมวลผลชุดนี้ไม่ จำกัด จำนวนรูปภาพที่จะแปลง";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "อัตราการเบลอ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "ความสว่าง";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "สีและคำเตือนสำหรับแต่ละเฟส";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "รายชื่อผู้ติดต่อ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "ความแตกต่าง";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "แปลงรูปภาพสดล่าสุดเป็น GIF";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "วิศวกรรมหมายเหตุ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "จางหาย";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "ฟิลเตอร์";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "กำลังค้นหา Hashtags จากภาพถ่าย ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "การค้นหาและรวบรวมแฮชแท็กจากรูปภาพที่คุณเลือก";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "ไฟฉาย";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "รับข้อความ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "ให้คะแนน";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "เมล็ดข้าว";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "ไฮไลท์";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "คุณภาพ";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "ให้คะแนนมัน";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "เรื่องกรอบ";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "การกำจัดตาแดง";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "ปรับขนาดและเติมเพื่อให้พอดีกับรูปถ่ายของคุณตามขนาดต่างๆ";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "ปรับขนาด";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "เรียกคืนการซื้อทั้งหมด";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "หมุน";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "การหมุน";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "ความอิ่มตัว";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "บันทึกรายชื่อติดต่อ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "การตั้งค่าใบอนุญาตเครื่องมือหลัก";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "การตั้งค่า";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "เงา";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "แชร์แอปนี้";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "ความคม";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "เริ่มตรวจสอบรูปภาพที่แก้ไขแล้ว ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "กำลังเริ่มถ่ายสำเนารูปภาพ ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "เริ่มหา ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "อยู่กับเรา";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "เป้าหมาย";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "เป้าหมาย";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "temparature";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "ข้อกำหนดการใช้งาน";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "ราคารวมทุกเครื่องมือใหม่แล้ว วันนี้เป็นวันที่ถูกที่สุดที่จะได้รับนี้";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "เครื่องมือแปลงไฟล์ชุดภาพที่ซับซ้อนและตรงไปตรงมานี้ช่วยให้คุณสามารถหมุนและพลิกไฟล์มีเดียมากมายรวมถึงรูปภาพสดได้อย่างรวดเร็ว ไม่ จำกัด จำนวนภาพถ่ายที่จะแก้ไขได้";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "สี";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "ในการใช้แอปนี้ต้องมีใบอนุญาตการเข้าถึงที่เกี่ยวข้อง คุณต้องการเปิด %@ หรือไม่?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "สมาชิกวีไอพีของผลิตภัณฑ์ทั้งหมดของเรา";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "การยืนยันล้มเหลว";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "วิดีโอบทแนะนำ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "วิดีโอที่ไม่มีเสียง";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "วิดีโอจาก Screen Recorder";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "รัศมีวิกตอเรีย";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "บทความสั้น";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "เยือน";
 /* Generated from genl10n: Finder.BApp.swift */

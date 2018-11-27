@@ -172,6 +172,10 @@
 "Add an Event" = "Προσθέστε ένα συμβάν";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Διεύθυνση";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Οι προσαρμογές σάς δίνουν τη δυνατότητα να επεξεργαστείτε χειροκίνητα τις φωτογραφίες σας.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Προσαρμογές";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Άλμπουμ";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Γίνε καλλιτέχνης. Ο καλλιτέχνης σάς επιτρέπει να μετατρέπετε δραματικά όλες τις φωτογραφίες ή τα βίντεό σας σε διάσημα ζωγραφισμένα στυλ. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών που θα μετατραπούν.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Τιμή θολώματος";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "Λάμψη";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Χρώμα και υπενθύμιση για κάθε φάση";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Επαφές";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Αντίθεση";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Μετατροπή της τελευταίας ζωντανής φωτογραφίας σε GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Τεχνικές σημειώσεις";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Ξεθωριάζει";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Φίλτρα";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Βρίσκοντας Hashtags από φωτογραφίες ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Εύρεση και συλλογή των hashtag από τις φωτογραφίες που επιλέξατε.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Φακός";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Λήψη κειμένου";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Δώστε μια βαθμολογία";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Σιτηρά";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Πρόγραμμα Άδειας Χρήστη Guest";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Κρύβω";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Απόκρυψη επιλεγμένων στοιχείων ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Καλύτερες στιγμές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ποιότητα εικόνας";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Ποιότητα";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Βαθμολογήστε το";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Ανασχεδιάστε ξανά";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Αλλαγή μεγέθους και πλήρωση για να ταιριάζει στις φωτογραφίες σας με τα διάφορα μεγέθη.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Αλλαγή μεγέθους";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Επαναφορά όλων των αγορών";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Γυρίζω";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Περιστροφή";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Κορεσμός";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Αποθήκευση επαφών";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Ρυθμίσεις για την άδεια βασικών εργαλείων";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Ρυθμίσεις";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Σκιές";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Μοιραστείτε αυτήν την εφαρμογή";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Οξύτητα";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Starting to check edited photos...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Έναρξη αντιγραφής φωτογραφιών ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Ξεκινώντας να βρείτε ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Μείνετε μαζί μας";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Στοχοθετημένη";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Στόχοι";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Θερμοκρασία";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Οροι χρήσης";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Η τιμή περιλαμβάνει κάθε νέο εργαλείο. Σήμερα είναι η φθηνότερη ημέρα για να πάρετε αυτό.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Αυτό το απλό αλλά μεγάλης κλίμακας εργαλείο μετασχηματισμού εικόνας παρτίδας σάς επιτρέπει να περιστρέφετε γρήγορα και να αναστρέφετε πολλά αρχεία πολυμέσων, συμπεριλαμβανομένων των Live Photos. Δεν υπάρχει όριο στον αριθμό των φωτογραφιών για την επεξεργασία τους.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Απόχρωση";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Για να χρησιμοποιήσετε αυτήν την εφαρμογή χρειάζεται μια αντίστοιχη άδεια πρόσβασης. Θέλετε να ανοίξετε %@;";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "VIP συμμετοχή όλων των προϊόντων μας.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Ζώνη";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Βίντεο Tutorials";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Βίντεο χωρίς ήχο";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Βίντεο από οθόνη εγγραφής";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Ακτίνα Vignette";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Βινιέτα";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Επίσκεψη";
 /* Generated from genl10n: Finder.BApp.swift */

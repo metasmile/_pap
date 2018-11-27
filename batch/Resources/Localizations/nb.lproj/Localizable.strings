@@ -172,6 +172,10 @@
 "Add an Event" = "Legg til en hendelse";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Adresse";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Justeringer lar deg redigere bildene manuelt.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "justeringer";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "album";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Vær en kunstner. Artist lar deg dramatisk slå alle bildene eller videoene inn i berømte stilte malerier. Dette batchbehandlingsverktøyet har ingen grense for antall bilder som skal konverteres.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Blur Rate" = "Uskarphet";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "lysstyrke";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Farge og påminnelse for hver fase";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontakt";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Kontrast";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Konverter det siste Live-bildet til GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Falme";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "filtre";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Finne hashtags fra bilder ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Finne og samle hashtags fra bildene du valgte.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Flashlight" = "Lommelykt";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
@@ -354,6 +366,8 @@
 "Get Text" = "Få tekst";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.SApp.swift */
 "Give A Rating" = "Gi en vurdering";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Korn";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Gjemme seg";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Gjemmer valgte elementer ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Høydepunkter";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Bildekvalitet";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Kvalitet";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift */
 "Rate It" = "Rangere det";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Re-ramme";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Fjerning av røde øyne";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -558,8 +576,6 @@
 "Repeat" = "Gjenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Endre størrelsen og fyll den for å passe dine bilder av de forskjellige størrelsene.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Endre størrelse";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Gjenopprett alle kjøp";
 /* Generated from genl10n: Shop.Payment.System.swift */
@@ -576,6 +592,8 @@
 "Rotate" = "Rotere";
 /* Generated from genl10n: Transform.BApp.swift */
 "Rotation" = "rotasjon";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "metning";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "Save Contacts" = "Lagre kontakter";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Innstillinger for hovedverktøyslisens";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Settings" = "innstillinger";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Shadows";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share This App" = "Del denne appen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Del talentet ditt, gjør sammen. Få hver belønning hvis vedtatt.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "skarphet";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Begynner å sjekke redigerte bilder ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Begynner å kopiere bilder ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Begynner å finne ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Bor hos oss";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "målrettet";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targets" = "Targets";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "temparature";
 /* Generated from genl10n: Shop.SApp.swift */
 "Terms of Use" = "Vilkår for bruk";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Prisen er inkludert hvert nytt verktøy. I dag er den billigste dagen å få dette.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Dette enkle, men store batch image transform verktøyet lar deg raskt rotere og vende mange mediefiler, inkludert Live Photos. Det er ingen grense for antall bilder for å redigere dem.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Tint";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "For å bruke denne appen trenger du et tilsvarende tilgangslisens. Vil du åpne %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "VIP medlemskap av våre alle produkter.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Bekreftelsen mislyktes.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video Tutorials";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Videoer uten lyd";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videoer fra skjermopptaker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Vignette Radius";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Vignette";
 /* Generated from genl10n: Shop.Payment.SNSEngagement.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Visit" = "Besøk";
 /* Generated from genl10n: Finder.BApp.swift */

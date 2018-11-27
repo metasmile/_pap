@@ -172,6 +172,10 @@
 "Add an Event" = "Tambahkan Acara";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Alamat";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Penyesuaian memungkinkan Anda mengedit secara manual foto Anda.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Penyesuaian";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Jadilah seorang seniman. Artis membiarkan Anda secara dramatis mengubah semua foto atau video menjadi lukisan bergaya terkenal. Alat pengolah batch ini tidak memiliki batasan untuk jumlah foto yang akan dikonversi.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tingkat Blur";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "Kecerahan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Warna Dan Pengingat untuk Setiap Fase";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontak";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Kontras";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Konversikan Live Photo terakhir menjadi GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Catatan Teknik";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Ekspor";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Luntur";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Filter";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "penemu";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Menemukan Hashtags Dari Foto ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Menemukan dan mengumpulkan hashtag dari foto Anda yang Anda pilih.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Senter";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Dapatkan Teks";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Berikan Rating";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Gandum";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program Lisensi Pengguna Tamu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Menyembunyikan Item yang Dipilih ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Highlight";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kualitas gambar";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Kualitas";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Menilai itu";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Re-frame";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Penghilang Mata Merah";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Ulangi";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Ubah ukuran dan isi agar sesuai dengan foto Anda dengan berbagai ukuran.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Ubah ukuran";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Kembalikan Semua Pembelian";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Memutar";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Rotasi";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Kejenuhan";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Simpan Kontak";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Pengaturan untuk Lisensi Alat Utama";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Pengaturan";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Shadows";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Bagikan aplikasi ini";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Bagikan Bakat Anda, Buat Bersama. Dapatkan Setiap Hadiah Jika Diadopsi.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Bagikan";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Ketajaman";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Mulai memeriksa foto yang diedit ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Mulai menyalin foto ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Mulai mencari ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tetap Bersama Kami";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Ditargetkan";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Target";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temparature";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Syarat Penggunaan";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Harga sudah termasuk setiap alat baru. Hari ini adalah hari termurah untuk mendapatkan ini.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Alat transformasi gambar batch yang sederhana namun berskala besar ini memungkinkan Anda dengan cepat memutar dan membalik banyak file media termasuk Live Photos. Tidak ada batasan jumlah foto untuk mengeditnya.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Warna";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Untuk menggunakan aplikasi ini membutuhkan lisensi akses yang sesuai. Apakah Anda ingin membuka %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "Keanggotaan VIP Semua Produk Kami.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifikasi gagal.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Tutorial Video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Video Tanpa Suara";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Video dari Perekam Layar";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Radius Vignette";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Skema";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Mengunjungi";
 /* Generated from genl10n: Finder.BApp.swift */

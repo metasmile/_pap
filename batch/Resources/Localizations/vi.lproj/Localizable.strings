@@ -172,6 +172,10 @@
 "Add an Event" = "Thêm sự kiện";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Địa chỉ nhà";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Điều chỉnh cho phép bạn chỉnh sửa ảnh của mình theo cách thủ công.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Điều chỉnh";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Hãy là một nghệ sĩ. Nghệ sĩ cho phép bạn biến tất cả ảnh hoặc video của bạn thành những bức tranh nổi tiếng. Công cụ xử lý hàng loạt này không có giới hạn về số lượng ảnh cần chuyển đổi.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tốc độ làm mờ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "độ sáng";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Màu sắc và nhắc nhở cho từng giai đoạn";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Danh bạ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Tương phản";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Chuyển đổi ảnh Live thành GIF cuối cùng.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Ghi chú kỹ thuật";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Phai màu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "người tìm ra";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Đang tìm thẻ bắt đầu bằng # từ ảnh ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Tìm và thu thập thẻ bắt đầu bằng # từ ảnh bạn đã chọn.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Đèn pin";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Nhận văn bản";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Xếp hạng";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "ngũ cốc";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Chương trình cấp phép người dùng dành cho khách";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Ẩn giấu";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Đang ẩn các mục đã chọn ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Điểm nổi bật";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Chất lượng hình ảnh";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Phẩm chất";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Xếp hạng";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Khung lại";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Loại bỏ mắt đỏ";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Thay đổi kích thước và điền để vừa với ảnh của bạn theo các kích thước khác nhau.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Thay đổi kích thước";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Quay";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Vòng xoay";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Độ bão hòa";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Lưu liên hệ";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Cài đặt cho giấy phép công cụ chính";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Cài đặt";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Shadows";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận được mỗi phần thưởng nếu được chấp nhận.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Độ sắc nét";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Đang bắt đầu kiểm tra ảnh đã chỉnh sửa ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Đang bắt đầu sao chép ảnh ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Đang bắt đầu tìm ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ở lại với chúng tôi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Mục tiêu";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temparature";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Điều khoản sử dụng";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Giá bao gồm mọi công cụ mới. Hôm nay là ngày rẻ nhất để có được điều này.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng có quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp. Không có giới hạn về số lượng ảnh để chỉnh sửa chúng.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Tint";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Để sử dụng ứng dụng này cần có giấy phép truy cập tương ứng. Bạn có muốn mở %@ không?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "Thành viên VIP của tất cả các sản phẩm của chúng tôi.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Xác minh không hoàn thành.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Rung động";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video hướng dẫn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Video không có âm thanh";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Video từ Trình ghi màn hình";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Vignette Radius";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Làm mờ nét ảnh";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Chuyến thăm";
 /* Generated from genl10n: Finder.BApp.swift */

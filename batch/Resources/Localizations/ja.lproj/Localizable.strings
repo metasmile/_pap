@@ -172,6 +172,10 @@
 "Add an Event" = "イベントを追加";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "住所";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "調整を使用すると、写真を手動で編集できます。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "調整";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ぼかし率";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "輝度";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "バースト";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "連絡先";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "コントラスト";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "最後のライブ写真をGIFに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "エンジニアリングノート";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "輸出する";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "フェード";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "フィルタ";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "ファインダ";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "写真からハッシュタグを見つける...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "選択した写真からハッシュタグを検索して収集します。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "フラッシュ";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "テキストを取得する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "粒";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "ゲストユーザーライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "隠す";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "選択アイテムを非表示にします...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "ハイライト";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "画質";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "品質";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評価";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "再フレーム";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "赤目除去";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "繰り返し";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "さまざまなサイズで写真に合わせてサイズを変更して塗りつぶします。";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "リサイズ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "ローテート";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "ローテート";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "飽和";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "連絡先を保存";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "メインツールライセンスの設定";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "設定";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "影";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "このアプリを共有する";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "あなたの才能を共有し、一緒に作る。採用された場合、各報酬を得る。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "共有";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "シャープネス";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "類似性";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "編集した写真のチェックを開始しています...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "写真のコピーを開始しています...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "見つけることを始める...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "私たちと一緒に過ごす";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "ターゲット";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ターゲット";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "温度";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "利用規約";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "価格には新しいツールがすべて含まれています。今日はこれを得るための最も安い日です。";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "簡単で大規模なバッチ画像変換ツールを使用すると、ライブフォトを含む多くのメディアファイルを素早く回転して反転することができます。編集する写真の数に制限はありません。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "色合い";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "このアプリを使用するには、対応するアクセスライセンスが必要です。 %@を開きますか？";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "すべての製品のVIPメンバーシップ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "バイブランス";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "ビデオチュートリアル";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "音がない動画";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "スクリーンレコーダーからのビデオ";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "ビネット半径";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "ビネット";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "訪問";
 /* Generated from genl10n: Finder.BApp.swift */

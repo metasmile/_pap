@@ -172,6 +172,10 @@
 "Add an Event" = "Dodajte događaj";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Adresa";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "Prilagodbe omogućuju ručno uređivanje fotografija.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Podešavanja";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Budi umjetnik. Umjetnik vam dramatično pretvara sve fotografije ili videozapise u poznate likirane slike. Ovaj alat za obradu serija nema ograničenja broja fotografija za pretvorbu.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "svjetlost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Boja i podsjetnik za svaku fazu";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "kontakti";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Kontrast";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Pretvorite posljednju fotografiju uživo u GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Tehničke napomene";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Izvoz";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Uvenuti";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filteri";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "nalazač";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Pronalaženje izraza &quot;Hashtags&quot; iz fotografija ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Pronalaženje i prikupljanje hashtagova s ​​odabranih fotografija.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "baterija";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Nabavite tekst";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Žitarica";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program korisnika licence korisnika";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Sakriti";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Skrivanje odabranih stavki ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Naglasci";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvaliteta slike";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "kvaliteta";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ocijenite ga";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Ponovno okvir";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Uklanjanje crvenih očiju";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Ponoviti";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Promijenite veličinu i ispunite kako biste prilagodili svoje fotografije različitim veličinama.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Promjena veličine";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Vraćanje svih kupnji";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Rotirati";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "rotacija";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Zasićenje";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Spremanje kontakata";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "Postavke za glavni alat za licencu";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "postavke";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "sjene";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dijelite svoj talent, napravite zajedno. Preuzmite svaku nagradu ako se usvoji.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Oštrina";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "Početak pregledavanja uređenih fotografija ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Početak kopiranja fotografija ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Početak pronalaženja ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Ostati s nama";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "ciljano";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "ciljevi";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temparature";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Uvjeti korištenja";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Cijena uključuje svaki novi alat. Danas je najjeftiniji dan za to.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ova jednostavna, ali velika skupna slika transformira alat omogućuje brzo rotiranje i flip puno medijskih datoteka, uključujući Live Fotografije. Ne postoji ograničenje broja fotografija za uređivanje.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "boja za kosu";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Za upotrebu ove aplikacije potrebna je odgovarajuća licenca za pristup. Želite li otvoriti %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "VIP članstvo u svim našim proizvodima.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Potvrda nije uspjela.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Živost boja";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Video Tutoriali";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Videozapisi bez zvuka";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Video snimke zaslona";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Radijus vinjete";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Vinjeta";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Posjetiti";
 /* Generated from genl10n: Finder.BApp.swift */

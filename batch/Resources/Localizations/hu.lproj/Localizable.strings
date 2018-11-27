@@ -172,6 +172,10 @@
 "Add an Event" = "Esemény hozzáadása";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Cím";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "A beállítások lehetővé teszik a fényképek kézi szerkesztését.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "Korrekciók";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumok";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -220,6 +224,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Legyen művész. Az előadó lehetővé teszi, hogy drámaian minden fényképét vagy videóját híres festményként alakítsa át. Ez a kötegelt feldolgozó eszköz nem korlátozza a konvertálandó fotók számát.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur arány";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "Fényesség";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -248,6 +254,8 @@
 "Color And Reminder for Each Phases" = "Szín és emlékeztető minden egyes fázisban";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kapcsolatok";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "Kontraszt";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into GIF." = "Az utolsó élő fénykép konvertálása a GIF-be.";
 /* Generated from genl10n: Converter.BApp.swift */
@@ -312,6 +320,8 @@
 "Engineering Notes" = "Mérnöki megjegyzések";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "Áttűnés";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Szűrők";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -322,6 +332,8 @@
 "Finder" = "kereső";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags From Photos..." = "Hashtag-ok keresése a fotókból ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "Hashtagok keresése és gyűjtése a kiválasztott fotókból.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "Zseblámpa";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -354,6 +366,8 @@
 "Get Text" = "Get Text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Adj egy értékelést";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "Gabona";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Vendég felhasználói licencprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -370,6 +384,8 @@
 "Hide" = "Elrejt";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "A kijelölt elemek elrejtése ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "Főbb";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Képminőség";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -546,6 +562,8 @@
 "Quality" = "Minőség";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Értékelje";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Re-frame";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Vörösszem-eltávolítás";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -558,8 +576,6 @@
 "Repeat" = "Ismétlés";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Átméretezheti és töltheti fel fotóit a különböző méretű képekhez.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "átméretezése";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Összes vásárlás visszaállítása";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -576,6 +592,8 @@
 "Rotate" = "Forog";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "Forgás";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "Telítettség";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "Névjegyek mentése";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -616,12 +634,16 @@
 "Settings for Main Tools License" = "A főeszközök licencének beállításai";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "Beállítások";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "Shadows";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Oszd meg ezt az alkalmazást";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Ossza meg tehetségét, készíts össze. Szerezzen minden jutalmat, ha elfogadják.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Ossza meg";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Élesség";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -656,6 +678,8 @@
 "Starting to check edited photos..." = "A szerkesztett fotók ellenőrzése ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "Fotók másolásának megkezdése ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "Kezdve megkeresni ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "Tartózkodj velünk";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -684,6 +708,8 @@
 "Targeted" = "Célzott";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "Célok";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "elpárologjon";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Használati feltételek";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -700,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "Az ár minden új eszközt tartalmaz. Ma a legolcsóbb nap, hogy ezt megkapja.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Ez az egyszerű, de nagy méretű képfeldolgozó eszköz lehetővé teszi, hogy gyorsan forgassa és flip sok médiafájl, beleértve a Live Photos. Nincs korlátozás a fotók számának szerkesztésére.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "Színez";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "Az alkalmazás használatához megfelelő hozzáférési licenc szükséges. Szeretné megnyitni %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -740,6 +768,8 @@
 "VIP Membership of Our All Products." = "VIP tagság az összes termékünkön.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Az ellenőrzés sikertelen.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "Videó oktatóanyagok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -752,6 +782,10 @@
 "Videos Without Sound" = "Hang nélküli videók";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videók a képernyőfelvevőből";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "Vignette Radius";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "Címke";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "Látogatás";
 /* Generated from genl10n: Finder.BApp.swift */
