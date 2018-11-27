@@ -29,7 +29,7 @@ extension PHAssetUIActivityFinalizableApp{
                 activityViewController.completionWithItemsHandler = { (activityType:UIActivity.ActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
                     asyncSignal.end()
                 }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
+                activityViewController.setDefaultPopoverPresentationControllerIfUndefined(sourceView:rootViewController.view)
                 rootViewController.present(activityViewController, animated: true, completion: nil)
 
             }else{
@@ -135,16 +135,13 @@ extension PHAssetFinalizingActivity {
     }
 
     func sharingAndWait(items:[PHAssetFinalizingActivityItem], _ asyncSignal: AsyncWaitSignalable = AsyncSignal()){
-//        asyncSignal.begin()
-        DispatchQueue.main.async {
-            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: items.compactMap({ $0.output?.resources }).reduce([],+).map { $0.url }, applicationActivities: nil)
-            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.saveToCameraRoll]
-            activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
-//                asyncSignal.end()
-            }
+        asyncSignal.begin()
 
-            UIViewController.present(activityViewController, animated: true, completion: nil)
+        let items = items.compactMap({ $0.output?.resources }).reduce([],+).map { $0.url }
+        UIActivityViewController.share(activityItems: items, excludedActivityTypes:[UIActivity.ActivityType.saveToCameraRoll]) { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+            asyncSignal.end()
         }
-//        asyncSignal.waitUntilEnd()
+
+        asyncSignal.waitUntilEnd()
     }
 }

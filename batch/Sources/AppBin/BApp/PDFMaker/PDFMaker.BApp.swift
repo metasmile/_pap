@@ -129,13 +129,9 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
             }
 
             asyncSignal.begin()
-            DispatchQueue.main.async {
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = { (activityType:UIActivity.ActivityType?, completed:Bool, returnedItems:[Any]?, activityError:Error?) in
-                    asyncSignal.end()
-                }
-                activityViewController.popoverPresentationController?.sourceView=rootViewController.view
-                rootViewController.present(activityViewController, animated: true, completion: nil)
+
+            UIActivityViewController.share(activityItems: [pdfData]) { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+                asyncSignal.end()
             }
 
             asyncSignal.waitUntilEnd()

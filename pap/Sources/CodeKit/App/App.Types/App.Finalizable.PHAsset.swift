@@ -105,7 +105,7 @@ extension PHAssetFinalizableApp {
     }
 
     private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
-        if let rootVC = UIViewController.presentable {
+        if let _ = UIViewController.presentable {
             asyncSignal.begin()
             DispatchQueue.global().async {
 
@@ -113,12 +113,8 @@ extension PHAssetFinalizableApp {
                     return self.routeUIActivityShareItems(by:resultable)
                 }
 
-                DispatchQueue.main.async {
-                    let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-                    activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
-                        asyncSignal.end()
-                    }
-                    rootVC.present(activityViewController, animated: true, completion: nil)
+                UIActivityViewController.share(activityItems: activityItems) { _, _, _, _ in
+                    asyncSignal.end()
                 }
             }
             asyncSignal.waitUntilEnd()
