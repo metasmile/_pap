@@ -6,7 +6,6 @@
 import Foundation
 import Photos
 
-
 public enum PHAssetFinalizingAction: Int{
     case modify
     case create
@@ -137,11 +136,58 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
+
     private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
-        let urls = targetResultAssets.compactMap { resultable -> URL? in
-            resultable.contentEditingOutput?.renderedContentURL
+        let actionQueue = DispatchQueue.global()
+        let actionSignal = AsyncSignal()
+
+        let alert = UIAlertController.actionSheet(title: "Choose An Export Option For %d Items".localizedFormatted(targetResultAssets.count), message: nil)
+        alert.addAction(UIAlertAction(title: "Save".localized, style: .default, handler: { action in
+            actionQueue.async{
+                self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                DispatchQueue.main.async{
+                    asyncSignal.end()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+            actionQueue.async{
+                self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                DispatchQueue.main.async{
+                    asyncSignal.end()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Modify".localized, style: .default, handler: { action in
+            actionQueue.async{
+                self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                DispatchQueue.main.async{
+                    asyncSignal.end()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
+            actionQueue.async{
+                self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                DispatchQueue.main.async{
+                    asyncSignal.end()
+                }
+            }
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
+            asyncSignal.end()
+        }))
+
+        asyncSignal.begin()
+
+        DispatchQueue.main.async{
+            UIViewController.present(alert, animated: true)
         }
-        self.presentUIAlertControllerAndWait(items: urls, asyncSignal)
+
+        asyncSignal.waitUntilEnd()
+
     }
 
     private func routeUIActivityShareItems(by result:PHAssetResultable) -> Any?{
@@ -204,6 +250,4 @@ extension PHAssetFinalizableApp {
                 return nil
         }
     }
-
-
 }

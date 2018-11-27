@@ -202,7 +202,7 @@
 "Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Action" = "Choose An Action";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";
@@ -406,7 +406,7 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Message To Us" = "Message To Us";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
@@ -560,11 +560,11 @@
 "Saturation" = "Saturation";
 /* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "Save Contacts" = "Save Contacts";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Save the copied image." = "Save the copied image.";
-/* Generated from genl10n: Clipboard.BApp.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, Clipboard.BApp.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
@@ -604,7 +604,7 @@
 "Share This App" = "Share This App";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Share" = "Share";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Sharpness";
