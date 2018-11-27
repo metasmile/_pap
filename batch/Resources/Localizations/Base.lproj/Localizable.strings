@@ -526,6 +526,8 @@
 "Quality" = "Quality";
 /* Generated from genl10n: Settings.SApp.swift, Shop.Payment.Promotion.swift, Shop.Payment.Promotion.swift, Shop.SApp.swift */
 "Rate It" = "Rate It";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "Re-frame";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -538,8 +540,6 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Resize and fill to fit your photos by the various sizes.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "Resize";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Restore All Purchases";
 /* Generated from genl10n: Shop.Payment.System.swift */

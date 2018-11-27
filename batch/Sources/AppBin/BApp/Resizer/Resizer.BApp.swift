@@ -129,7 +129,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public var doneButtonTitle: String? {
-        return "Resize".localized
+        return "Re-frame".localized
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
@@ -137,7 +137,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.showActions]
     }
     
     public static var fixedContentLayout: Bool {
