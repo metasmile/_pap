@@ -1,4 +1,6 @@
-•翻譯校正：越南語（Thanh Nam Bui），法語（Pierre-Olivier Mogno）
-   - 真誠地感謝你們分享你的才華。
-   - 與我們分享您的母語技能，並獲得獲得最大VIP會員資格的機會。
+•推出新工具：Framer，可讓您調整大小並填充以適合各種尺寸的Instagram，Youtube或您需要的照片。
+   - 方形尺寸
+   - Instagram
+   - Youtube縮略圖
+   - iPhone型號的原生尺寸
 •一些小修復。
