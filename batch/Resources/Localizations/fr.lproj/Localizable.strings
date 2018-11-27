@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Contraste";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Convertir la dernière photo en direct au format GIF.";
+"Convert the last Live Photo Into a GIF." = "Convertir la dernière photo Live en un GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Convertir la dernière photo en direct en vidéo.";
+"Convert the last Live Photo Into a Video." = "Convertir la dernière photo en direct en une vidéo.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Convertir la dernière vidéo en GIF.";
+"Convert the last Video Into a GIF." = "Convertir la dernière vidéo en un fichier GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Convertir la dernière vidéo en photo en direct.";
+"Convert the last Video Into a Live Photo." = "Convertir la dernière vidéo en une photo en direct.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Convertir la dernière vidéo en MP4.";
+"Convert the last Video Into a MP4." = "Convertir la dernière vidéo en MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter vous permet de convertir tous les formats multimédias tels que les vidéos, les photos en direct, les fichiers GIF les uns sur les autres.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Kontrasti";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Muunna viimeinen Live Photo GIF -muotoon.";
+"Convert the last Live Photo Into a GIF." = "Muunna viimeinen Live Photo GIF-tiedostoon.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Muunna viimeinen Live Photo Into Video.";
+"Convert the last Live Photo Into a Video." = "Muunna viimeinen Live Photo in a Video.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Muunna viimeinen video GIF-tiedostoon.";
+"Convert the last Video Into a GIF." = "Muuta viimeinen video GIF-tiedostoon.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Muuta viimeinen video Live Photo -muotoon.";
+"Convert the last Video Into a Live Photo." = "Muunna viimeinen video Live Photo -muotoon.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Muunna viimeinen video MP4: hen.";
+"Convert the last Video Into a MP4." = "Muunna viimeinen video MP4-muotoon.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter avulla voit muuntaa jokaisen mediamuodon kuten videoita, live-kuvia ja GIF-tiedostoja toisiinsa.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "kontrastovať";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Previesť poslednú fotografiu naživo do formátu GIF.";
+"Convert the last Live Photo Into a GIF." = "Preveďte poslednú fotografiu naživo do GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Konvertovať posledné video v režime Live Photo Into.";
+"Convert the last Live Photo Into a Video." = "Previesť poslednú fotografiu naživo do videa.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Premeniť posledné video do formátu GIF.";
+"Convert the last Video Into a GIF." = "Premeniť posledné video na GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Previesť posledné video do fotografie naživo.";
+"Convert the last Video Into a Live Photo." = "Premeniť posledné video na živú fotografiu.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Premeniť posledné video na MP4.";
+"Convert the last Video Into a MP4." = "Previesť posledné video do MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter vám umožní konvertovať všetky formáty médií, ako sú Videá, Živé fotografie a GIF.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

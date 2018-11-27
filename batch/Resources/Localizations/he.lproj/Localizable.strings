@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "בניגוד";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "המר את התמונה האחרונה Live לתוך GIF.";
+"Convert the last Live Photo Into a GIF." = "המרת תמונה חיה האחרונה לתוך GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "המר את התמונה האחרונה לחיות לתוך וידאו.";
+"Convert the last Live Photo Into a Video." = "המר את התמונה האחרונה לחיות לתוך וידאו.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "המר את הווידאו האחרון לתוך GIF.";
+"Convert the last Video Into a GIF." = "המרת הווידאו האחרון לתוך GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "המר את הווידאו האחרון לתוך תמונה חיה.";
+"Convert the last Video Into a Live Photo." = "המרת הווידאו האחרון לתוך תמונה חיה.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "המר את הווידאו האחרון לתוך MP4.";
+"Convert the last Video Into a MP4." = "המר את הווידאו האחרון לתוך MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "ממיר מאפשר לך להמיר כל פורמטים של מדיה כגון וידאו, תמונות חיות, קבצי GIF לתוך כל אחד את השני.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

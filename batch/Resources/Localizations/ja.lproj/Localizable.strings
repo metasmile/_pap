@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "コントラスト";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "最後のライブ写真をGIFに変換します。";
+"Convert the last Live Photo Into a GIF." = "最後のライブ写真をGIFに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "最後のライブフォトをビデオに変換します。";
+"Convert the last Live Photo Into a Video." = "最後のライブ写真をビデオに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "最後のビデオをGIFに変換します。";
+"Convert the last Video Into a GIF." = "最後のビデオをGIFに変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "最後のビデオをライブ写真に変換します。";
+"Convert the last Video Into a Live Photo." = "最後のビデオをライブ写真に変換します。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "最後のビデオをMP4に変換します。";
+"Convert the last Video Into a MP4." = "最後のビデオをMP4に変換します。";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "コンバーターを使用すると、ビデオ、ライブフォト、GIFなどのすべてのメディア形式をお互いに変換することができます。";
 /* Generated from genl10n: Converter.BApp.swift#41 */

@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Kontraszt";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Az utolsó élő fénykép konvertálása a GIF-be.";
+"Convert the last Live Photo Into a GIF." = "Az utolsó élő fénykép konvertálása GIF-be.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Az utolsó élő fénykép konvertálása a videóba.";
+"Convert the last Live Photo Into a Video." = "Az utolsó élő fénykép konvertálása a videóba.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Az utolsó videó konvertálása GIF-be.";
+"Convert the last Video Into a GIF." = "Az utolsó videó konvertálása GIF-be.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Az utolsó videó konvertálása Live Photo-be.";
+"Convert the last Video Into a Live Photo." = "Az utolsó videó konvertálása élő fotóvá.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Az utolsó videó konvertálása az MP4-be.";
+"Convert the last Video Into a MP4." = "Az utolsó videó konvertálása MP4-be.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Az átalakító lehetővé teszi, hogy minden médiaformátumot, például videókat, élő fotókat és GIF-eket egymásba konvertáljon.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Sebaliknya";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Tukar Foto Langsung Ke Dalam GIF.";
+"Convert the last Live Photo Into a GIF." = "Tukar Foto Langsung terakhir Ke GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Tukar Foto Langsung Ke Dalam Video Terkini.";
+"Convert the last Live Photo Into a Video." = "Tukar Gambar Langsung terakhir Ke Video.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Tukar Video Ke GIF yang terakhir.";
+"Convert the last Video Into a GIF." = "Tukar Video terakhir ke GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Tukar Video Ke Dalam Foto Langsung.";
+"Convert the last Video Into a Live Photo." = "Tukar Video terakhir Ke dalam Foto Langsung.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Tukar Video Ke MP4 terakhir.";
+"Convert the last Video Into a MP4." = "Tukar Video terakhir Ke MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Penukar membolehkan anda menukar semua format media seperti Video, Foto Langsung, GIF ke dalam setiap satu sama lain.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

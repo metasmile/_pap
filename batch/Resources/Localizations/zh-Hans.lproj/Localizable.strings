@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "对比";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "将最后一张Live Photo转换为GIF。";
+"Convert the last Live Photo Into a GIF." = "将最后一张实时照片转换为GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "将上一张实时照片转换为视频。";
+"Convert the last Live Photo Into a Video." = "将最后一张实时照片转换为视频。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "将最后一个视频转换为GIF。";
+"Convert the last Video Into a GIF." = "将最后一个视频转换为GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "将最后一个视频转换为实时照片。";
+"Convert the last Video Into a Live Photo." = "将最后一个视频转换为实时照片。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "将最后一个视频转换为MP4。";
+"Convert the last Video Into a MP4." = "将最后一个视频转换为MP4。";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "转换器使您可以将每种媒体格式（如视频、现场照片、GIFS）转换为彼此。";
 /* Generated from genl10n: Converter.BApp.swift#41 */

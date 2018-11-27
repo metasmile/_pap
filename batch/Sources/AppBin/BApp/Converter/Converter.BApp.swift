@@ -333,31 +333,31 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()
             convertLatestLivePhotoIntent_gif.appId = ConverterApp.info.identifier
             convertLatestLivePhotoIntent_gif.into = ConvertLatestLivePhotoLivePhotoConvertingType.gif
-            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the last Live Photo Into GIF.".localized
+            convertLatestLivePhotoIntent_gif.suggestedInvocationPhrase = "Convert the last Live Photo Into a GIF.".localized
             intents.append(convertLatestLivePhotoIntent_gif)
 
             let convertLatestLivePhotoIntent_video = ConvertLatestLivePhotoIntent()
             convertLatestLivePhotoIntent_video.appId = ConverterApp.info.identifier
             convertLatestLivePhotoIntent_video.into = ConvertLatestLivePhotoLivePhotoConvertingType.video
-            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the last Live Photo Into Video.".localized
+            convertLatestLivePhotoIntent_video.suggestedInvocationPhrase = "Convert the last Live Photo Into a Video.".localized
             intents.append(convertLatestLivePhotoIntent_video)
 
             let convertLatestVideoIntent_into_livephoto = ConvertLatestVideoIntent()
             convertLatestVideoIntent_into_livephoto.appId = ConverterApp.info.identifier
             convertLatestVideoIntent_into_livephoto.into = ConvertLatestVideoVideoConvertingType.livephoto
-            convertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the last Video Into Live Photo.".localized
+            convertLatestVideoIntent_into_livephoto.suggestedInvocationPhrase = "Convert the last Video Into a Live Photo.".localized
             intents.append(convertLatestVideoIntent_into_livephoto)
 
             let convertLatestVideoIntent_into_mp4 = ConvertLatestVideoIntent()
             convertLatestVideoIntent_into_mp4.appId = ConverterApp.info.identifier
             convertLatestVideoIntent_into_mp4.into = ConvertLatestVideoVideoConvertingType.mp4
-            convertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the last Video Into MP4.".localized
+            convertLatestVideoIntent_into_mp4.suggestedInvocationPhrase = "Convert the last Video Into a MP4.".localized
             intents.append(convertLatestVideoIntent_into_mp4)
 
             let convertLatestVideoIntent_into_gif = ConvertLatestVideoIntent()
             convertLatestVideoIntent_into_gif.appId = ConverterApp.info.identifier
             convertLatestVideoIntent_into_gif.into = ConvertLatestVideoVideoConvertingType.gif
-            convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into GIF.".localized
+            convertLatestVideoIntent_into_gif.suggestedInvocationPhrase = "Convert the last Video Into a GIF.".localized
             intents.append(convertLatestVideoIntent_into_gif)
 
             let asb = AutoSelectIntent()

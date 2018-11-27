@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "ความแตกต่าง";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "แปลงรูปภาพสดล่าสุดเป็น GIF";
+"Convert the last Live Photo Into a GIF." = "แปลงรูปภาพสดล่าสุดเป็น GIF";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "แปลงภาพสดล่าสุดเป็นวิดีโอ";
+"Convert the last Live Photo Into a Video." = "แปลงรูปภาพสดล่าสุดเป็นวิดีโอ";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "แปลงวิดีโอล่าสุดเป็น GIF";
+"Convert the last Video Into a GIF." = "แปลงวิดีโอล่าสุดเป็น GIF";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "แปลงวิดีโอล่าสุดเป็นภาพสด";
+"Convert the last Video Into a Live Photo." = "แปลงวิดีโอล่าสุดเป็นภาพสด";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "แปลงวิดีโอล่าสุดเป็น MP4";
+"Convert the last Video Into a MP4." = "แปลงวิดีโอล่าสุดเป็น MP4";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter ช่วยให้คุณสามารถแปลงรูปแบบสื่อทุกรูปแบบเช่นวิดีโอ, รูปถ่ายสด, GIFs ลงในแต่ละอื่น ๆ";
 /* Generated from genl10n: Converter.BApp.swift#41 */

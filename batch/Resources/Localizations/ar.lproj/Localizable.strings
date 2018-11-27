@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "تناقض";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "قم بتحويل آخر صورة Live إلى ملف GIF.";
+"Convert the last Live Photo Into a GIF." = "قم بتحويل آخر صورة Live إلى صورة GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "تحويل آخر صورة حية إلى فيديو.";
+"Convert the last Live Photo Into a Video." = "تحويل آخر صورة حية إلى فيديو.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "تحويل آخر فيديو إلى GIF.";
+"Convert the last Video Into a GIF." = "قم بتحويل الفيديو الأخير إلى صورة GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "تحويل آخر فيديو إلى صورة حية.";
+"Convert the last Video Into a Live Photo." = "تحويل الفيديو الأخير إلى صورة حية.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "تحويل آخر فيديو إلى MP4.";
+"Convert the last Video Into a MP4." = "تحويل الفيديو الأخير إلى MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "يتيح لك المحول تحويل كل تنسيقات الوسائط مثل ملفات الفيديو والصور المباشرة وملفات GIF إلى بعضها البعض.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

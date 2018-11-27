@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Tương phản";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "Chuyển đổi ảnh Live thành GIF cuối cùng.";
+"Convert the last Live Photo Into a GIF." = "Chuyển đổi ảnh Live mới nhất thành GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "Chuyển đổi ảnh trực tiếp cuối cùng thành video.";
+"Convert the last Live Photo Into a Video." = "Chuyển đổi ảnh trực tiếp cuối cùng thành video.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "Chuyển đổi video cuối cùng thành GIF.";
+"Convert the last Video Into a GIF." = "Chuyển đổi video cuối cùng thành GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "Chuyển đổi video cuối cùng thành ảnh trực tiếp.";
+"Convert the last Video Into a Live Photo." = "Chuyển đổi video cuối cùng thành ảnh trực tiếp.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "Chuyển đổi video cuối cùng thành MP4.";
+"Convert the last Video Into a MP4." = "Chuyển đổi video cuối cùng thành MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Chuyển đổi cho phép bạn chuyển đổi mọi định dạng phương tiện như Video, Live Photos, GIF thành mỗi định dạng khác.";
 /* Generated from genl10n: Converter.BApp.swift#41 */

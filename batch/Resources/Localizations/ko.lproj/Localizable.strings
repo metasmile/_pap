@@ -257,15 +257,15 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "대조";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "마지막 라이브 포토을 GIF로";
+"Convert the last Live Photo Into a GIF." = "마지막 라이브 사진을 GIF로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "마지막 라이브 포토을 비디오로";
+"Convert the last Live Photo Into a Video." = "마지막 라이브 사진을 비디오로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "마지막 비디오를 GIF로";
+"Convert the last Video Into a GIF." = "마지막 비디오를 GIF로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "마지막 비디오를 라이브 포토으로";
+"Convert the last Video Into a Live Photo." = "마지막 비디오를 라이브 사진으로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "마지막 비디오를 MP4로";
+"Convert the last Video Into a MP4." = "마지막 비디오를 MP4로 변환";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 포토, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
