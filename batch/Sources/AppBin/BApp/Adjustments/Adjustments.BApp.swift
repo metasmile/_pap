@@ -102,7 +102,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.actions]
     }
     
     public static var fixedContentLayout: Bool {
@@ -125,12 +125,48 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
-class AdjustmentValue {
+class AdjustmentItem {
+    class SliderValue {
+        var name: AdjustmentsApp.Adjustments.Name
+        var value: Float = 0
+        var defaultValue: Float = 0
+        var minimumValue: Float = 0
+        var maximumValue: Float = 0
+        
+        init(name: AdjustmentsApp.Adjustments.Name, defaultValue: Float?, minimumValue: Float?, maximumValue: Float?) {
+            self.name = name
+            self.defaultValue = defaultValue ?? 0
+            self.minimumValue = minimumValue ?? 0
+            self.maximumValue = maximumValue ?? 0
+            
+            self.value = defaultValue ?? 0
+        }
+    }
+    
     var key: String
-    var value: Float?
-    var defaultValue: Float?
-    var minimumValue: Float?
-    var maximumValue: Float?
+    var value: Any {
+        switch attributeType {
+        case kCIAttributeTypeScalar?: return number
+        case kCIAttributeTypeOffset?: return CIVector(cgPoint: offset)
+        default: return number
+        }
+    }
+    var number: Float {
+        return sliderValue(at: 0)?.value ?? 0
+    }
+    var offset: CGPoint {
+        return CGPoint(x: CGFloat(sliderValue(at: 0)?.value ?? 0), y: CGFloat(sliderValue(at: 1)?.value ?? 0))
+    }
+    
+    private(set) var sliderValues: [SliderValue] = [SliderValue]()
+    
+    func sliderValue(at offsetIndex: Int) -> SliderValue? {
+        return sliderValues[safe: offsetIndex]
+    }
+    
+    func setSliderValue(_ value: Float, at offsetIndex: Int) {
+        sliderValues[safe: offsetIndex]?.value = value
+    }
     
     private var attributeType: String?
     private var attributeClass: AnyClass?
@@ -139,51 +175,41 @@ class AdjustmentValue {
         self.key = key
     }
     
-    func setDefaults(with filter: CIFilter?) {
-        guard let attributes = filter?.attributes[key] as? [String: Any] else { return }
+    func setDefaults(with filter: CIFilter?, name: AdjustmentsApp.Adjustments.Name?) {
+        guard let name = name, let attributes = filter?.attributes[key] as? [String: Any] else { return }
         
         attributeType = attributes[kCIAttributeType] as? String
         attributeClass = NSClassFromString(attributes[kCIAttributeClass] as? String ?? "")
         
         if attributeType == kCIAttributeTypeScalar, attributeClass == NSNumber.self {
-            self.defaultValue = defaultValue ?? attributes[kCIAttributeDefault] as? Float ?? 0
-            self.minimumValue = minimumValue ?? attributes[kCIAttributeSliderMin] as? Float ?? 0
-            self.maximumValue = maximumValue ?? attributes[kCIAttributeSliderMax] as? Float ?? 0
+            sliderValues = [SliderValue(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
         }
         else if attributeType == kCIAttributeTypeOffset, attributeClass == CIVector.self {
-            
+            switch filter?.name {
+            case "CITemperatureAndTint"?:
+                sliderValues = [
+                    SliderValue(name: .Temparature, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000),
+                    SliderValue(name: .Tint, defaultValue: 0, minimumValue: -200, maximumValue: 200)
+                ]
+            default: break
+            }
         }
-        
-        value = defaultValue
-    }
-}
-
-class CITemperatureAndTintFilter: CIBuiltInFilter {
-    override func setAdjustmentValues(to filter: CIFilter) {
-        
     }
 }
 
 class CIBuiltInFilter: CIFilter {
-    private(set) var adjustmentValues = [String: AdjustmentValue]()
+    private(set) var adjustmentItems = [String: AdjustmentItem]()
     private var builtInFilter: CIFilter?
-    fileprivate var adjustmentName: AdjustmentsApp.Adjustments.Name?
+    
     var filter: CIFilter {
         return builtInFilter ?? self
     }
     
-    init(adjustmentName: AdjustmentsApp.Adjustments.Name, adjustments: [AdjustmentValue]? = nil) {
+    init(adjustmentName: AdjustmentsApp.Adjustments.Name) {
         super.init()
         
         self.name = adjustmentName.builtInFilterName
-        self.builtInFilter = CIFilter(name: adjustmentName.builtInFilterName)
-        
-        self.adjustmentName = adjustmentName
-        
-        for adjustment in adjustments ?? [] {
-            adjustment.setDefaults(with: self.filter)
-            self.adjustmentValues[adjustment.key] = adjustment
-        }
+        self.builtInFilter = CIFilter(name: name)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -194,22 +220,19 @@ class CIBuiltInFilter: CIFilter {
         return (name == (object as? CIFilter)?.name) == true
     }
     
-    open func setAdjustmentValues(to filter: CIFilter) {
-        adjustmentValues.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
-    }
-    
-    func adjustmentValue(forKey key: String) -> AdjustmentValue? {
-        let value = adjustmentValues[key] ?? { () -> AdjustmentValue in
-            let adjustmentValue = AdjustmentValue(key: key)
-            adjustmentValue.setDefaults(with: self.filter)
+    func adjustmentItem(with adjustmentName: AdjustmentsApp.Adjustments.Name) -> AdjustmentItem? {
+        let key = adjustmentName.builtInParameterKey
+        guard let value = adjustmentItems[key] else {
+            let adjustmentValue = AdjustmentItem(key: key)
+            adjustmentValue.setDefaults(with: self.filter, name: adjustmentName)
+            adjustmentItems[key] = adjustmentValue
             return adjustmentValue
-        }()
-        adjustmentValues[key] = value
+        }
         return value
     }
     
-    func setAdjustmentValue(_ value: Float, forKey key: String) {
-        adjustmentValue(forKey: key)?.value = value
+    func setAdjustmentValue(_ value: Float, with adjustmentName: AdjustmentsApp.Adjustments.Name) {
+        adjustmentItem(with: adjustmentName)?.setSliderValue(value, at: adjustmentName.builtInParameterOffsetIndex)
     }
     
     @objc dynamic var inputImage : CIImage?
@@ -217,7 +240,7 @@ class CIBuiltInFilter: CIFilter {
     override var outputImage: CIImage? {
         guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
         filter.setValue(image, forKey: kCIInputImageKey)
-        setAdjustmentValues(to: filter)
+        adjustmentItems.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
         return filter.outputImage
     }
 }
@@ -225,19 +248,27 @@ class CIBuiltInFilter: CIFilter {
 class CIAdjustmentsFilterItem {
     private var orderedFilters = NSMutableOrderedSet()
     
-    func setAdjustmentFilter(_ filter: CIFilter?)  {
+    func setAdjustmentFilter(_ filter: CIFilter?) {
         guard let filter = filter, !orderedFilters.contains(filter) else { return }
         orderedFilters.add(filter)
     }
     
-    func adjustmentFilter(with filter: CIFilter?) -> CIFilter? {
+    func adjustmentFilter(with filter: CIFilter?) -> CIBuiltInFilter? {
         guard let filter = filter else { return nil }
         let index = orderedFilters.index(of: filter)
-        return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIFilter
+        return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIBuiltInFilter
     }
     
     var ciFilter: CIFilterGroup {
         return CIFilterGroup(filters: orderedFilters.array as? [CIFilter])
+    }
+    
+    func reset() {
+        orderedFilters.removeAllObjects()
+    }
+    
+    func setAdjustmentFilters(_ filters: [CIFilter]?) {
+        orderedFilters = NSMutableOrderedSet(array: filters ?? [])
     }
 }
 
@@ -282,11 +313,13 @@ extension AdjustmentsApp {
             case Vibrance = "Vibrance"
             case Temparature = "Temparature"
             case Tint = "Tint"
-            case Fade = "Fade"
-            case Grain = "Grain"
             case Vignette = "Vignette"
             case VignetteRadius = "Vignette Radius"
+            case Gamma = "Gamma"
+            case Exposure = "Exposure"
             case Sharpness = "Sharpness"
+            case Fade = "Fade"
+            case Grain = "Grain"
             
             var aliasName: String {
                 return Adjustments.aliasName(self)
@@ -300,8 +333,16 @@ extension AdjustmentsApp {
                 return Adjustments.parameterKey(self)
             }
             
-            var filter: CIFilter? {
+            var filter: CIBuiltInFilter? {
                 return Adjustments.filter(self)
+            }
+            
+            var builtInParameterOffsetIndex: Int {
+                switch self {
+                case .Temparature: return 0
+                case .Tint: return 1
+                default: return 0
+                }
             }
         }
         
@@ -315,6 +356,8 @@ extension AdjustmentsApp {
             case Name.Vibrance: return "Vibrance".localized
             case Name.Temparature: return "Temparature".localized
             case Name.Tint: return "Tint".localized
+            case Name.Gamma: return "Gamma".localized
+            case Name.Exposure: return "Exposure".localized
             case Name.Fade: return "Fade".localized
             case Name.Grain: return "Grain".localized
             case Name.Vignette: return "Vignette".localized
@@ -329,6 +372,8 @@ extension AdjustmentsApp {
             case Name.Highlights, Name.Shadows: return "CIHighlightShadowAdjust"
             case Name.Vibrance: return "CIVibrance"
             case Name.Temparature, Name.Tint: return "CITemperatureAndTint"
+            case Name.Gamma: return "CIGammaAdjust"
+            case Name.Exposure: return "CIExposureAdjust"
             case Name.Fade: return "Fade"
             case Name.Grain: return "Grain"
             case Name.Vignette, Name.VignetteRadius: return "CIVignette"
@@ -344,8 +389,10 @@ extension AdjustmentsApp {
             case Name.Shadows: return "inputShadowAmount"
             case Name.Saturation: return kCIInputSaturationKey
             case Name.Vibrance: return "inputAmount"
-            case Name.Temparature: return ""
-            case Name.Tint: return ""
+            case Name.Temparature: return "inputNeutral"
+            case Name.Tint: return "inputNeutral"
+            case Name.Gamma: return "inputPower"
+            case Name.Exposure: return "inputEV"
             case Name.Fade: return ""
             case Name.Grain: return ""
             case Name.Vignette: return kCIInputIntensityKey
@@ -354,7 +401,7 @@ extension AdjustmentsApp {
             }
         }
         
-        static func filter(_ name: Adjustments.Name) -> CIFilter? {
+        static func filter(_ name: Adjustments.Name) -> CIBuiltInFilter? {
             switch name {
             case Name.Brightness,
                  Name.Contrast,
@@ -362,10 +409,11 @@ extension AdjustmentsApp {
                  Name.Shadows,
                  Name.Saturation,
                  Name.Vibrance,
-                 Name.Vignette, Name.VignetteRadius:
-                return CIBuiltInFilter(adjustmentName: name, adjustments: [AdjustmentValue(key: name.builtInParameterKey)])
-            case Name.Temparature: return nil
-            case Name.Tint: return nil
+                 Name.Vignette, Name.VignetteRadius,
+                 Name.Gamma,
+                 Name.Exposure,
+                 Name.Temparature, Name.Tint:
+                return CIBuiltInFilter(adjustmentName: name)
             case Name.Fade: return nil
             case Name.Grain: return nil
             case Name.Sharpness: return nil
@@ -375,6 +423,7 @@ extension AdjustmentsApp {
     
     static let AdjustmentsNames = [
         AdjustmentsApp.Adjustments.Name.Brightness,
+        AdjustmentsApp.Adjustments.Name.Exposure,
         AdjustmentsApp.Adjustments.Name.Contrast,
         AdjustmentsApp.Adjustments.Name.Highlights,
         AdjustmentsApp.Adjustments.Name.Shadows,
@@ -386,6 +435,7 @@ extension AdjustmentsApp {
 //        AdjustmentsApp.Adjustments.Name.Grain,
         AdjustmentsApp.Adjustments.Name.Vignette,
         AdjustmentsApp.Adjustments.Name.VignetteRadius,
+        AdjustmentsApp.Adjustments.Name.Gamma,
 //        AdjustmentsApp.Adjustments.Name.Sharpness
     ]
 }
@@ -396,12 +446,12 @@ private class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
     
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
-        (param as? _FiltersAppAsset)?.cancelProcessing()
+        (param as? _AdjustmentsAppAsset)?.cancelAllRequestIDs()
+        (param as? _AdjustmentsAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is _AdjustmentsAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
+        assert(param is _AdjustmentsAppAsset, "TaskParamable type of this app is \(_AdjustmentsAppAsset.self)")
         guard let _param = param as? _AdjustmentsAppAsset else{
             throw AppTaskError.invalidParam
         }
@@ -451,6 +501,7 @@ extension Defaults: AdjustmentsAppDefaults {
 class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate static var primaryColor = AdjustmentsApp.info.themeColor
     fileprivate var adjustmentNames = AdjustmentsApp.AdjustmentsNames
+    fileprivate var adjustmentFilters = [CIBuiltInFilter]()
     
     lazy var view: UIView = {
         let view = UITableView(frame: .zero)
@@ -485,7 +536,21 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         
+        installFilters()
+        
         (view as? UITableView)?.reloadData()
+    }
+    
+    private func installFilters(with filters: [CIFilter]? = nil) {
+        adjustmentFilters = adjustmentNames.compactMap { $0.filter }.setable
+        for adjustmentFilter in adjustmentFilters {
+            guard let filter = (filters as? [CIBuiltInFilter])?.first(where: { $0.name == adjustmentFilter.name }) else { continue }
+            for adjustmentItem in filter.adjustmentItems.values {
+                for sliderValue in adjustmentItem.sliderValues {
+                    adjustmentFilter.setAdjustmentValue(sliderValue.value, with: sliderValue.name)
+                }
+            }
+        }
     }
     
     @objc dynamic var filter: CIFilterGroup?
@@ -493,7 +558,16 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
     private var filterItem = CIAdjustmentsFilterItem()
     
     func setFilterValues(_ filter: CIFilterGroup?, animated: Bool = true) {
+        guard let tableView = view as? UITableView else { return }
         
+        self.filterItem.reset()
+        self.filterItem.setAdjustmentFilters(filter?.filters)
+        self.installFilters(with: filter?.filters)
+        
+        DispatchQueue.main.async {
+            self.filter = self.filterItem.ciFilter
+            tableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -508,19 +582,19 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier) as! Cell
         let filterName = adjustmentNames[indexPath.row]
         
-        let filter = self.filterItem.adjustmentFilter(with: filterName.filter) as? CIBuiltInFilter
+        let filter = self.adjustmentFilters.first { $0.name == filterName.builtInFilterName }
         
         cell.titleLabel.text = AdjustmentsApp.Adjustments.aliasName(filterName)
         
-        if let adjustmentValue = filter?.adjustmentValue(forKey: filterName.builtInParameterKey) {
-            cell.slider.minimumValue = adjustmentValue.minimumValue ?? 0
-            cell.slider.maximumValue = adjustmentValue.maximumValue ?? 0
-            cell.slider.setValue(adjustmentValue.value ?? 0, animated: false)
+        if let adjustmentItem = filter?.adjustmentItem(with: filterName) {
+            cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
+            cell.slider.maximumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.maximumValue ?? 0
+            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
         }
         
         cell.sliderValueDidChange = { value in
             self.filterItem.setAdjustmentFilter(filter)
-            (self.filterItem.adjustmentFilter(with: filter) as? CIBuiltInFilter)?.setAdjustmentValue(value, forKey: filterName.builtInParameterKey)
+            self.filterItem.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
             
             Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
                 DispatchQueue.main.asyncAfter(deadline: .now()){
