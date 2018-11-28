@@ -8,15 +8,21 @@
 
 import UIKit
 
+protocol AppUICollectionItem {
+    var title: String? { get set }
+    var image: UIImage? { get set }
+    var action: (() -> Void)? { get set }
+}
 
 class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    struct CollectionItem {
+    
+    struct CollectionItem: AppUICollectionItem {
         var title: String?
         var image: UIImage?
         var action: (() -> Void)?
     }
     
-    private(set) var items = [CollectionItem]()
+    private(set) var items = [AppUICollectionItem]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +36,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         initialize()
     }
     
-    init(items: [CollectionItem]) {
+    init(items: [AppUICollectionItem]) {
         self.init()
         
         initialize()
@@ -40,7 +46,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.reloadData()
     }
 
-    func reloadData(items:[CollectionItem]?=nil){
+    func reloadData(items:[AppUICollectionItem]?=nil){
         if let items = items{
             self.items = items
         }
@@ -53,26 +59,15 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.tintColor = tintColor
     }
     
-    var cellSize: CGSize = .zero {
+    var cellAppearance = AppUICollectionViewCell.Appearance() {
         didSet {
-            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellSize
-        }
-    }
-    var cellSpacing: CGFloat = 0 {
-        didSet {
-            collectionView.contentInset.left = cellSpacing
-            collectionView.contentInset.right = cellSpacing
+            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellAppearance.size
             
-            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.minimumSpacing = cellSpacing
+            collectionView.contentInset.left = cellAppearance.spacing
+            collectionView.contentInset.right = cellAppearance.spacing
+            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.minimumSpacing = cellAppearance.spacing
         }
     }
-    var cellImageInsets: UIEdgeInsets = .zero {
-        didSet {
-            (collectionView.collectionViewLayout as? AppUICollectionViewLayout)?.itemSize = cellSize
-        }
-    }
-    
-    var cellImageContentMode: UIView.ContentMode = .scaleAspectFill
     
     private(set) lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: bounds, collectionViewLayout: AppUICollectionViewLayout())
@@ -89,7 +84,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         return view
     }()
     
-    private func initialize() {
+    internal func initialize() {
         addSubview(collectionView)
         collectionView.fitConstraints(to: self)
     }
@@ -108,8 +103,7 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.nib.appUICollectionViewCell.name, for: indexPath) as! AppUICollectionViewCell
-        cell.imageInsets = cellImageInsets
-        cell.imageContentMode = cellImageContentMode
+        cell.appearance = cellAppearance
         cell.tintColor = tintColor
         cell.title = items[indexPath.item].title
         cell.image = items[indexPath.item].image
@@ -124,6 +118,8 @@ class AppUICollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         if collectionView.contentSize.width > collectionView.bounds.width {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        
+        UIFeedback.select()
     }
 }
 
@@ -205,6 +201,18 @@ class AppUICollectionViewLayout: UICollectionViewLayout {
 }
 
 class AppUICollectionViewCell: CustomCollectionViewCell {
+    struct Appearance {
+        var size: CGSize = .zero
+        var spacing: CGFloat = 0
+        var imageInsets: UIEdgeInsets = .zero
+        
+        var imageContentMode: UIView.ContentMode = .scaleAspectFill
+        
+        var selectedStateColor: UIColor?
+        var selectedStateCornerRadius: CGFloat?
+        var selectedStateBorderWidth: CGFloat?
+    }
+    
     @IBOutlet private weak var selectionView: UIView!
     
     @IBOutlet private  weak var imageView: UIImageView!
@@ -214,6 +222,21 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageViewBottomLayout: NSLayoutConstraint!
     
     @IBOutlet private weak var titleLabel: UILabel!
+    
+    var appearance: Appearance = Appearance() {
+        didSet {
+            imageView.contentMode = appearance.imageContentMode
+            
+            if let color = appearance.selectedStateColor {
+                selectionView.layer.borderColor = color.cgColor
+            }
+            
+            selectionView.layer.cornerRadius = appearance.selectedStateCornerRadius ?? 0
+            selectionView.layer.borderWidth = appearance.selectedStateBorderWidth ?? 3
+            
+            layoutContents()
+        }
+    }
     
     override func initialize() {
         super.initialize()
@@ -236,11 +259,8 @@ class AppUICollectionViewCell: CustomCollectionViewCell {
         }
     }
     
-    var imageInsets: UIEdgeInsets = .zero
-    var imageContentMode: UIView.ContentMode = .scaleAspectFill {
-        didSet {
-            imageView.contentMode = imageContentMode
-        }
+    private var imageInsets: UIEdgeInsets {
+        return appearance.imageInsets
     }
     
     private func layoutContents() {

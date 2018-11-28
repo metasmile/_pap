@@ -172,6 +172,10 @@
 "Add an Event" = "이벤트 추가";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "주소";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "조정을 통해 사진을 수동으로 편집 할 수 있습니다.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "조정";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "앨범";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +218,14 @@
 "Auto Selection Bot" = "자동 선택 봇";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "자동 수평 보정";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "배경색";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "예술가가 되십시오. 아티스트는 모든 사진이나 비디오를 유명한 스타일의 그림으로 전환 할 수있게 해줍니다. 이 일괄 처리 도구는 변환 할 사진 수에 제한이 없습니다.";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "흐림 비율";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "명도";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "버스트";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -246,16 +254,18 @@
 "Color And Reminder for Each Phases" = "각 단계별 색상 및 알림";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "연락처";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "대조";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "마지막 라이브 포토을 GIF로";
+"Convert the last Live Photo Into a GIF." = "마지막 라이브 사진을 GIF로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "마지막 라이브 포토을 비디오로";
+"Convert the last Live Photo Into a Video." = "마지막 라이브 사진을 비디오로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "마지막 비디오를 GIF로";
+"Convert the last Video Into a GIF." = "마지막 비디오를 GIF로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "마지막 비디오를 라이브 포토으로";
+"Convert the last Video Into a Live Photo." = "마지막 비디오를 라이브 사진으로 변환";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "마지막 비디오를 MP4로";
+"Convert the last Video Into a MP4." = "마지막 비디오를 MP4로 변환";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "컨버터를 사용하면 비디오, 라이브 포토, GIF와 같은 모든 미디어 형식을 서로 변환 할 수 있습니다.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -310,6 +320,8 @@
 "Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "바래다";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "필터";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -318,6 +330,10 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder를 사용하면 사진에서 전화 번호, 주소, 날짜 또는 URL과 같은 모든 의미있는 정보를 추출한 다음 전화를 걸거나지도를 열고 웹 사이트를 탐색 할 수 있습니다. 또한 모두 원시 텍스트로 저장할 수 있습니다.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "파인더";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding Hashtags From Photos..." = "사진에서 해시 태그 찾기 ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "선택한 사진에서 해시 태그를 찾아 수집합니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "플래시";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +344,8 @@
 "Forward" = "앞으로";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "프레임 딜레이";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "프레이머";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "무료 사용 및 모든 새 업데이트";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -348,6 +366,8 @@
 "Get Text" = "텍스트 가져 오기";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "평가하기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "곡물";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "게스트 사용자 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -364,6 +384,8 @@
 "Hide" = "숨기기";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "선택한 항목 숨기기 ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "하이라이트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -378,6 +400,10 @@
 "Input Here" = "여기에 입력";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "문의";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram Landscape";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "남은 무료 앱 액세스 시간 비율을 표시합니다.";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -536,6 +562,8 @@
 "Quality" = "품질";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "평점";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "다시 프레임";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -547,15 +575,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "다양한 크기로 사진의 크기를 조절하십시오.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "크기 조정";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "Resizer";
+"Resize and fill to fit your photos by the various sizes." = "다양한 크기로 사진에 맞게 크기를 조정하고 채 웁니다.";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "모든 구입 복원하기";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "이전 클립 보드에서 복원";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "복원";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -570,6 +592,8 @@
 "Rotate" = "회전";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "회전";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "포화";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "찾은 연락처를 바로 저장";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -610,12 +634,16 @@
 "Settings for Main Tools License" = "기본 도구 라이센스 설정";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "설정";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "그림자";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "이 앱 공유";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "날카로움";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -650,6 +678,8 @@
 "Starting to check edited photos..." = "수정 된 사진 확인 시작 중 ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "사진 복사 시작 중 ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "찾기 시작 ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "우리와 함께 지내기";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -678,6 +708,8 @@
 "Targeted" = "타겟팅 됨";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "목표";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "온도";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "이용 약관";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -694,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "가격은 모든 새로운 도구를 포함합니다. 오늘은 이것을 얻는 가장 저렴한 날입니다.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "이 간단하지만 대규모 배치 이미지 변환 도구를 사용하면 라이브 포토을 비롯한 많은 미디어 파일을 신속하게 회전하고 뒤집을 수 있습니다. 편집 할 사진 수에는 제한이 없습니다.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "색조";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "이 응용 프로그램을 사용하려면 해당 액세스 라이센스가 필요합니다. %@을 (를)여시겠습니까?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -710,6 +744,10 @@
 "Type" = "유형";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "매우 넓은 수직";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "울트라 와이드";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "현재 코드를 확인할 수 없습니다. 나중에 다시 시도하십시오.";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -730,6 +768,8 @@
 "VIP Membership of Our All Products." = "우리의 모든 제품의 VIP 회원.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "확인에 실패했습니다.";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "활기찬";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "비디오 자습서";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -742,6 +782,10 @@
 "Videos Without Sound" = "소리가없는 비디오";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "스크린 레코더의 비디오";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "비 네트 반경";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "소품";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "방문";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -772,6 +816,8 @@
 "Your code is invalid. Please try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "코드가 만료되었습니다.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "YouTube 풍경";
 /* Generated from genl10n: Period.swift */
 "day" = "일";
 /* Generated from genl10n: Period.swift */

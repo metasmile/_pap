@@ -19,25 +19,16 @@ private struct UIAlertControllerPool{
 }
 
 public extension UIAlertController{
-    public func setDefaultPopoverPresentationController(sourceView:UIView?=nil){
-
-        if let popoverPresentationController = self.popoverPresentationController {
-            popoverPresentationController.sourceView = sourceView ?? UIViewController.presentable?.view
-            if let view = sourceView{
-                popoverPresentationController.sourceRect = view.bounds
-            }
-        }
-    }
 
     public static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
+        alert.setDefaultPopoverPresentationControllerIfUndefined(sourceView:sourceView)
         return alert
     }
     
     public static func alert(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
+        alert.setDefaultPopoverPresentationControllerIfUndefined(sourceView:sourceView)
         return alert
     }
     
@@ -98,7 +89,7 @@ public extension UIAlertController{
             alert.addTextField(configurationHandler: textField)
         }
 
-        alert.setDefaultPopoverPresentationController(sourceView:sourceView)
+        alert.setDefaultPopoverPresentationControllerIfUndefined(sourceView:sourceView)
 
         UIViewController.present(alert, animated: true) {
             if let dismissInterval = autoDismiss{

@@ -172,6 +172,10 @@
 "Add an Event" = "एक कार्यक्रम जोड़ें";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "पता";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "समायोजन आपको मैन्युअल रूप से अपनी तस्वीरों को संपादित करने देता है।";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "समायोजन";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "एल्बम";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +218,14 @@
 "Auto Selection Bot" = "ऑटो चयन बॉट";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "ऑटो सीधा";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "पीछे का रंग";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "एक कलाकार बनो कलाकार आपको नाटकीय रूप से मशहूर स्टाइल चित्रों में अपनी सभी तस्वीरें या वीडियो को चालू करने देता है। इस बैच प्रोसेसिंग टूल में कनवर्ट करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "धुंध दर";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "चमक";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "फट";
 /* Generated from genl10n: Camera.BApp.swift#44 */
@@ -246,16 +254,18 @@
 "Color And Reminder for Each Phases" = "प्रत्येक चरण के लिए रंग और अनुस्मारक";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "संपर्क";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "विरोध";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "जीआईएफ में अंतिम लाइव फोटो कनवर्ट करें।";
+"Convert the last Live Photo Into a GIF." = "एक जीआईएफ में अंतिम लाइव फोटो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "वीडियो में अंतिम लाइव फोटो कनवर्ट करें।";
+"Convert the last Live Photo Into a Video." = "एक वीडियो में अंतिम लाइव फोटो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "जीआईएफ में अंतिम वीडियो कनवर्ट करें।";
+"Convert the last Video Into a GIF." = "एक जीआईएफ में अंतिम वीडियो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "लाइव वीडियो में अंतिम वीडियो कनवर्ट करें।";
+"Convert the last Video Into a Live Photo." = "एक लाइव फोटो में अंतिम वीडियो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "एमपी 4 में अंतिम वीडियो कनवर्ट करें।";
+"Convert the last Video Into a MP4." = "एक एमपी 4 में अंतिम वीडियो कनवर्ट करें।";
 /* Generated from genl10n: Converter.BApp.swift#42 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "कनवर्टर आपको प्रत्येक मीडिया प्रारूप जैसे वीडियो, लाइव फोटो, जीआईएफ को एक-दूसरे में परिवर्तित करने में सक्षम बनाता है।";
 /* Generated from genl10n: Converter.BApp.swift#41 */
@@ -310,6 +320,8 @@
 "Engineering Notes" = "इंजीनियरिंग नोट्स";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "मुरझाना";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "फिल्टर";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -318,6 +330,10 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "खोजक आपकी तस्वीरों से फोन नंबर, पते, तिथियां या यूआरएल जैसी प्रत्येक सार्थक जानकारी निकालने में सक्षम बनाता है, और फिर कॉल करें, मानचित्र खोलें या वेबसाइटों को नेविगेट करें यहां तक ​​कि उड़ानें भी खोजें। आप उन्हें कच्चे पाठ के रूप में भी बचा सकते हैं।";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "खोजक";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding Hashtags From Photos..." = "फ़ोटो से हैशटैग ढूँढना ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "आपके द्वारा चुनी गई तस्वीरों से हैशटैग ढूंढना और एकत्र करना।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
 "Flashlight" = "टॉर्च";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
@@ -328,6 +344,8 @@
 "Forward" = "आगे";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "फ़्रेम विलंब";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
 "Free Use And All New Updates" = "नि: शुल्क उपयोग और सभी नए अपडेट";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -348,6 +366,8 @@
 "Get Text" = "पाठ प्राप्त करें";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "एक रेटिंग दें";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "अनाज";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "अतिथि उपयोगकर्ता लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -364,6 +384,8 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "चयनित आइटम छिपाना ...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "हाइलाइट";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "छवि गुणवत्ता";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -378,6 +400,10 @@
 "Input Here" = "यहां इनपुट करें";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "जांच";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram लैंडस्केप";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram वर्टिकल";
 /* Generated from genl10n: Shop.SApp.swift#468 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "यह शेष नि: शुल्क ऐप एक्सेस अवधि का अनुपात प्रदर्शित करता है।";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -536,6 +562,8 @@
 "Quality" = "गुणवत्ता";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "इसे रेट करें";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "पुन: फ्रेम";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "रेड-आई रिमूवल";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -547,15 +575,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "दोहराना";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "विभिन्न आकारों से अपनी तस्वीरों का आकार बदलें।";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "आकार बदलें";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "रीसाइज़र";
+"Resize and fill to fit your photos by the various sizes." = "विभिन्न आकारों से अपनी तस्वीरों को फिट करने के लिए आकार बदलें और भरें।";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "पिछले क्लिपबोर्ड से पुनर्स्थापित करें";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "पुनर्स्थापित";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -570,6 +592,8 @@
 "Rotate" = "घुमाएँ";
 /* Generated from genl10n: Transform.BApp.swift#54 */
 "Rotation" = "रोटेशन";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "परिपूर्णता";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
 "Save Contacts" = "संपर्क सहेजें";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
@@ -610,12 +634,16 @@
 "Settings for Main Tools License" = "मुख्य उपकरण लाइसेंस के लिए सेटिंग्स";
 /* Generated from genl10n: Shop.SApp.swift#469 */
 "Settings" = "सेटिंग्स";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "छैया छैया";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "अपनी प्रतिभा साझा करें, एक साथ बनाओ। अगर अपनाया गया तो प्रत्येक पुरस्कार प्राप्त करें।";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "तीखेपन";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -650,6 +678,8 @@
 "Starting to check edited photos..." = "संपादित फोटो जांचना शुरू कर रहा है ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "फोटो कॉपी करने के लिए शुरू कर रहा है ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "ढूंढना शुरू कर रहा है ...";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "हमारे साथ रहना";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -678,6 +708,8 @@
 "Targeted" = "लक्षित";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
 "Targets" = "लक्ष्य";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "Temparature";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "उपयोग की शर्तें";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -694,6 +726,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "कीमत हर नए उपकरण सहित है। यह पाने के लिए आज सबसे सस्ता दिन है।";
 /* Generated from genl10n: Transform.BApp.swift#55 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "यह सीधा लेकिन बड़े पैमाने पर बैच छवि परिवर्तन उपकरण आपको लाइव फ़ोटो सहित कई मीडिया फ़ाइलों को तेज़ी से घूमने और फ़्लिप करने देता है। उन्हें संपादित करने के लिए तस्वीरों की संख्या की कोई सीमा नहीं है।";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "टिंट";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "इस ऐप का उपयोग करने के लिए एक संबंधित एक्सेस लाइसेंस की आवश्यकता है। क्या आप %@ खोलना चाहते हैं?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -710,6 +744,10 @@
 "Type" = "प्रकार";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "यूआरएल";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "अल्ट्रा वाइड वर्टिकल";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "अल्ट्रा वाइड";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "वर्तमान में कोड को सत्यापित करने में असमर्थ। कृपया बाद में कोशिश करें।";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -730,6 +768,8 @@
 "VIP Membership of Our All Products." = "हमारे सभी उत्पादों की वीआईपी सदस्यता।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "वाइब्रैंस";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "वीडियो शिक्षण";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -742,6 +782,10 @@
 "Videos Without Sound" = "ध्वनि के बिना वीडियो";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "स्क्रीन रिकॉर्डर से वीडियो";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "विग्नेट त्रिज्या";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "विनेट";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
 "Visit" = "पर जाएँ";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -772,6 +816,8 @@
 "Your code is invalid. Please try again." = "आपका कोड अमान्य है। कृपया पुन: प्रयास करें।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "आपका कोड समाप्त हो गया था।";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "यूट्यूब लैंडस्केप";
 /* Generated from genl10n: Period.swift */
 "day" = "दिन";
 /* Generated from genl10n: Period.swift */

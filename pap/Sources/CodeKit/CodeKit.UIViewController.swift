@@ -53,6 +53,16 @@ extension UIViewController{
     }
     
     public class func present(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
+        viewController.setDefaultPopoverPresentationControllerIfUndefined()
         self.presentable?.present(viewController, animated: animated, completion: completion)
+    }
+
+    func setDefaultPopoverPresentationControllerIfUndefined(sourceView:UIView?=nil){
+        if let popoverPresentationController = self.popoverPresentationController{
+            //Check developer-defined sourceView, set default
+            if popoverPresentationController.sourceView == nil{
+                popoverPresentationController.sourceView = sourceView ?? UIViewController.presentable?.view
+            }
+        }
     }
 }

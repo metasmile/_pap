@@ -118,6 +118,10 @@
 "Add an Event" = "添加活動";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#255, Finder.BApp.swift#1264 */
 "Address" = "地址";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments lets you edit manually your photos." = "通過調整，您可以手動編輯照片。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Adjustments" = "調整";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
 "Albums" = "相冊";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -160,10 +164,14 @@
 "Auto Selection Bot" = "自動選擇機器人";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
 "Auto Straighten" = "自動拉直";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Background Color" = "背景顏色";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "成為一名藝術家。藝術家可以讓您將所有照片或視頻戲劇性地轉變為著名的風格畫作。此批處理工具對要轉換的照片數量沒有限制。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
 "Blur Rate" = "模糊率";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Brightness" = "亮度";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
 "Burst" = "爆裂";
 /* Generated from genl10n: Camera.SApp.swift#49 */
@@ -192,16 +200,18 @@
 "Color And Reminder for Each Phases" = "每個階段的顏色和提醒";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "往來";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Contrast" = "對比";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into GIF." = "將最後一張Live Photo轉換為GIF。";
+"Convert the last Live Photo Into a GIF." = "將最後一張實時照片轉換為GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into Video." = "將上一張實時照片轉換為視頻。";
+"Convert the last Live Photo Into a Video." = "將最後一張實時照片轉換為視頻。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into GIF." = "將最後一個視頻轉換為GIF。";
+"Convert the last Video Into a GIF." = "將最後一個視頻轉換為GIF。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into Live Photo." = "將最後一個視頻轉換為實時照片。";
+"Convert the last Video Into a Live Photo." = "將最後一個視頻轉換為實時照片。";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into MP4." = "將最後一個視頻轉換為MP4。";
+"Convert the last Video Into a MP4." = "將最後一個視頻轉換為MP4。";
 /* Generated from genl10n: Converter.BApp.swift#46 */
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "轉換器使您可以將每種媒體格式（如視頻、現場照片、GIFS）轉換為彼此。";
 /* Generated from genl10n: Converter.BApp.swift#45 */
@@ -256,6 +266,8 @@
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
 "Export" = "導出";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Fade" = "褪色";
 /* Generated from genl10n: Filters.BApp.swift#102 */
 "Filters" = "過濾器";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -264,6 +276,10 @@
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder可以從您的照片中提取每個有意義的信息，如電話號碼，地址，日期或URL，然後撥打電話，打開地圖或瀏覽網站甚至搜索航班。您也可以將它們全部保存為原始文本。";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "發現者";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding Hashtags From Photos..." = "從照片中查找Hashtags ...";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Finding and collecting hashtags from your photos you selected." = "從您選擇的照片中查找和收集主題標籤。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#77 */
 "Flashlight" = "手電筒";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#265, Finder.BApp.swift#1267 */
@@ -274,6 +290,8 @@
 "Forward" = "向前";
 /* Generated from genl10n: GIFMaker.BApp.swift#521 */
 "Frame Delay" = "幀延遲";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Framer" = "成幀器";
 /* Generated from genl10n: AppCenter.Charge.swift#379 */
 "Free Use And All New Updates" = "免費使用和所有新更新";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
@@ -294,6 +312,8 @@
 "Get Text" = "獲取文字";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
 "Give A Rating" = "給予評級";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Grain" = "糧食";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "訪客用戶許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -310,6 +330,8 @@
 "Hide" = "隱藏";
 /* Generated from genl10n: ExifGhost.BApp.swift#85 */
 "Hiding Selected Items..." = "隱藏所選項目...";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Highlights" = "強調";
 /* Generated from genl10n: GIFMaker.BApp.swift#544, PDFMaker.AppDockContent.swift#133 */
 "Image Quality" = "畫面質量";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -324,6 +346,10 @@
 "Input Here" = "輸入這裡";
 /* Generated from genl10n: Shop.SApp.swift#625 */
 "Inquiry" = "查詢";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Landscape" = "Instagram風景";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Instagram Vertical" = "Instagram垂直";
 /* Generated from genl10n: Shop.SApp.swift#473 */
 "It Displays A Ratio of Remaining Free App Access Periods." = "它顯示剩餘免費應用訪問時段的比率。";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -482,6 +508,8 @@
 "Quality" = "質量";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評分";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Re-frame" = "重制幀";
 /* Generated from genl10n: AutoEditor.BApp.swift#176 */
 "Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -493,15 +521,9 @@
 /* Generated from genl10n: GIFMaker.BApp.swift#571 */
 "Repeat" = "重複";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize your photos by the various sizes." = "調整各種尺寸的照片大小。";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize" = "調整";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resizer" = "調整器";
+"Resize and fill to fit your photos by the various sizes." = "調整大小並填充以適合各種尺寸的照片。";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢復所有購買";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Restore from previous clipboard" = "從以前的剪貼板恢復";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
 "Restore" = "恢復";
 /* Generated from genl10n: Revert.BApp.swift#45 */
@@ -516,6 +538,8 @@
 "Rotate" = "旋轉";
 /* Generated from genl10n: Transform.BApp.swift#62 */
 "Rotation" = "迴轉";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Saturation" = "飽和";
 /* Generated from genl10n: Finder.BApp.swift#1306, Cleaner.BApp.swift#484 */
 "Save Contacts" = "保存聯繫人";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift#63 */
@@ -556,12 +580,16 @@
 "Settings for Main Tools License" = "主工具許可證的設置";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#303 */
 "Settings" = "設置";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Shadows" = "陰影";
 /* Generated from genl10n: Shop.SApp.swift#589 */
 "Share This App" = "分享這個應用程式";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才華，團結一致。如果採納，則獲得每項獎勵。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payment.SocialShare.Facebook.swift#73, Shop.Payment.SocialShare.Facebook.swift#138, Shop.Payment.SocialShare.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "銳度";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -596,6 +624,8 @@
 "Starting to check edited photos..." = "開始檢查編輯的照片...";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Starting to copy photos..." = "開始復制照片......";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Starting to find..." = "開始尋找......";
 /* Generated from genl10n: Shop.SApp.swift */
 "Staying With Us" = "和我們在一起";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -624,6 +654,8 @@
 "Targeted" = "目標";
 /* Generated from genl10n: Cleaner.BApp.swift#400 */
 "Targets" = "目標";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Temparature" = "北部沿海地區";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "使用條款";
 /* Generated from genl10n: Finder.BApp.swift#1364 */
@@ -640,6 +672,8 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "價格包括每個新工具。今天是最便宜的一天。";
 /* Generated from genl10n: Transform.BApp.swift#63 */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "這種直觀但大規模的批量圖像變換工具可讓您快速旋轉和翻轉包括實時照片在內的大量媒體文件。編輯照片的數量沒有限制。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Tint" = "著色";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "要使用此應用程序，需要相應的訪問許可證。你想打開%@嗎？";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
@@ -656,6 +690,10 @@
 "Type" = "類型";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "網址";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide Vertical" = "超寬垂直";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Ultra Wide" = "超寬";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Unable to verify the code currently. Please try it later." = "目前無法驗證代碼。請稍後再試。";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -676,6 +714,8 @@
 "VIP Membership of Our All Products." = "我們所有產品的VIP會員資格。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vibrance" = "鮮豔";
 /* Generated from genl10n: Shop.SApp.swift */
 "Video Tutorials" = "視頻教程";
 /* Generated from genl10n: GIFMaker.BApp.swift#91 */
@@ -688,6 +728,10 @@
 "Videos Without Sound" = "沒有聲音的視頻";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "來自Screen Recorder的視頻";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette Radius" = "小插圖半徑";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Vignette" = "小插圖";
 /* Generated from genl10n: Shop.Payment.SNSEngagement.swift#31, Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#613 */
 "Visit" = "訪問";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -718,6 +762,8 @@
 "Your code is invalid. Please try again." = "您的代碼無效。請再試一次。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "您的代碼已過期。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Youtube Landscape" = "Youtube景觀";
 /* Generated from genl10n: Period.swift */
 "day" = "天";
 /* Generated from genl10n: Period.swift */

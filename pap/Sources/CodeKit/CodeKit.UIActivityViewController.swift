@@ -9,21 +9,11 @@ import Photos
 
 
 extension UIActivityViewController{
-    public func setDefaultPopoverPresentationController(sourceView:UIView?=nil){
-        if let popoverPresentationController = self.popoverPresentationController {
-            popoverPresentationController.sourceView = sourceView ?? UIViewController.presentable?.view
-            if let view = sourceView{
-                popoverPresentationController.sourceRect = view.bounds
-            }
-        }
-    }
-
     public static func share(activityItems:[Any], excludedActivityTypes: [UIActivity.ActivityType]?=nil, completionHandler:UIKit.UIActivityViewController.CompletionWithItemsHandler?=nil){
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        activityViewController.setDefaultPopoverPresentationController()
-        activityViewController.completionWithItemsHandler = completionHandler
-
-        DispatchQueue.main.async {
+        DispatchQueue.mainAsyncIfNot {
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            activityViewController.excludedActivityTypes = excludedActivityTypes
+            activityViewController.completionWithItemsHandler = completionHandler
             UIViewController.present(activityViewController, animated: true, completion: nil)
         }
     }

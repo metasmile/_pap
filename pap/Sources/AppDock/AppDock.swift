@@ -103,6 +103,7 @@ public struct AppDockScrollableContent: AppDockContentScrollable {
     
     public func makeScrollableContent() {
         self.scrollView.alwaysBounceVertical = false
+        self.scrollView.alwaysBounceHorizontal = false
     }
     
     public func invalidateCollectionViewLayout() {

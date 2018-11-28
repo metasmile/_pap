@@ -333,11 +333,11 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
         currentClipboardGroup = clipboardGroup
         groups.append(clipboardGroup)
         
-        if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
-            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "", footerText: "Restore from previous clipboard".localized))
-        }
-        
-        self.localPasteboard?.items = UIPasteboard.general.items
+//        if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
+//            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "", footerText: "Restore from previous clipboard".localized))
+//        }
+//        
+//        self.localPasteboard?.items = UIPasteboard.general.items
         
         return groups
     }

@@ -22,15 +22,9 @@ struct SocialSharePayment:Payable{
         var paid = false
         asyncSignal.begin()
 
-        DispatchQueue.main.async {
-            let shareActivity = UIActivityViewController(activityItems: [batchStrings.share.messageFirst], applicationActivities: nil)
-            shareActivity.excludedActivityTypes = [.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote, .addToiCloudDrive]
-            shareActivity.completionWithItemsHandler = { activityType, completed, returnedItems, error in
-                paid = completed
-                asyncSignal.end()
-            }
-            shareActivity.popoverPresentationController?.sourceView = UIViewController.presentable?.view
-            UIViewController.present(shareActivity, animated: true, completion: nil)
+        UIActivityViewController.share(activityItems: [batchStrings.share.messageFirst], excludedActivityTypes:[.copyToPasteboard, .addToReadingList, .addToReminder, .addToNote, .addToiCloudDrive]) { activityType, completed, returnedItems, error in
+            paid = completed
+            asyncSignal.end()
         }
         asyncSignal.waitUntilEnd()
         return paid

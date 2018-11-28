@@ -43,7 +43,7 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.showActions]
+        return [.actions]
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {

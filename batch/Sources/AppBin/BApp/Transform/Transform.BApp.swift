@@ -106,9 +106,9 @@ fileprivate class TransformAppDockContent: NSObject, AppDockContent {
     
     lazy var view: UIView = {
         let view = AppUICollectionStackView(items: items)
-        view.cellSize = CGSize(width: 44, height: 44)
-        view.cellSpacing = 2
-        view.cellImageInsets = UIEdgeInsets(top: 8, left: 10, bottom: 10, right: 10)
+        view.cellAppearance.size = CGSize(width: 44, height: 44)
+        view.cellAppearance.spacing = 2
+        view.cellAppearance.imageInsets = UIEdgeInsets(top: 8, left: 10, bottom: 10, right: 10)
         return view
     }()
     

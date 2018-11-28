@@ -52,7 +52,7 @@ List of Cleaner Matchers
 • All not taken with Camera
 
 
-Memo Cam 
+Memo Cam
 
 An AI-powered text info recognization camera tool, MemoCam enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
@@ -78,6 +78,10 @@ This straightforward but large-scale batch image transform tool lets you quickly
 
 • Tested processing capacity: 2000+a photos at one time.
 • Optimized for multi-core processing. It depends on iDevice models.
+
+
+Framer
+Framer lets you resize and fill to fit your photos by the various sizes of Instagram, Youtube or what you needed.
 
 
 Auto Editor
