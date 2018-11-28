@@ -952,6 +952,10 @@
 		511577D221A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D321A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D421A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		5115F32821AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
+		5115F32921AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
+		5115F32A21AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
+		5115F32B21AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
 		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
@@ -2514,6 +2518,7 @@
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
+		5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Adjustments.BApp.Shaders.metal; sourceTree = "<group>"; };
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -3701,6 +3706,14 @@
 			path = GIFMaker;
 			sourceTree = "<group>";
 		};
+		5115F32621AF490C004EB0F1 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		5118E9962194F7D200EB6D6A /* Resizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -3740,6 +3753,7 @@
 		51956E6921AB7A3A0067CCEA /* Adjustments */ = {
 			isa = PBXGroup;
 			children = (
+				5115F32621AF490C004EB0F1 /* Shaders */,
 				51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */,
 			);
 			path = Adjustments;
@@ -5528,6 +5542,7 @@
 				4F71D2B777F04A2226BECFEC /* Shop.Payment.GADInterestialAdsViewing.swift in Sources */,
 				4F71D332AA3DE9EBC0E182DB /* Shop.Payment.Store.swift in Sources */,
 				4F71D5517593ADBBE3181F2F /* Shop.Payment.System.swift in Sources */,
+				5115F32821AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */,
 				4F71D31EFB162093534C642D /* Shop.Payment.SecretCodeProgram.swift in Sources */,
 				4F71D2F8A268B672CE91A6C2 /* Shop.Payment.MailContact.swift in Sources */,
 				A02389D1219043750039F398 /* Finder.BApp.swift in Sources */,
@@ -6050,6 +6065,7 @@
 				A0CB0172219C9093007A5278 /* Shop.Payment.System.swift in Sources */,
 				A0CB0173219C9093007A5278 /* Shop.Payment.SecretCodeProgram.swift in Sources */,
 				A0CB0174219C9093007A5278 /* Shop.Payment.MailContact.swift in Sources */,
+				5115F32B21AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */,
 				A0CB0175219C9093007A5278 /* Finder.BApp.swift in Sources */,
 				A0CB0176219C9093007A5278 /* Shop.Payment.MailContact.Types.swift in Sources */,
 				A0CB0177219C9093007A5278 /* Shop.Payment.URLOpen.swift in Sources */,
@@ -6573,6 +6589,7 @@
 				A0CBFE99219ADBA2007A5278 /* Shop.Payment.System.swift in Sources */,
 				A0CBFE9A219ADBA2007A5278 /* Shop.Payment.SecretCodeProgram.swift in Sources */,
 				A0CBFE9B219ADBA2007A5278 /* Shop.Payment.MailContact.swift in Sources */,
+				5115F32921AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */,
 				A0CBFE9C219ADBA2007A5278 /* Finder.BApp.swift in Sources */,
 				A0CBFE9D219ADBA2007A5278 /* Shop.Payment.MailContact.Types.swift in Sources */,
 				A0CBFE9E219ADBA2007A5278 /* Shop.Payment.URLOpen.swift in Sources */,
@@ -6870,6 +6887,7 @@
 				A0CBFFEE219C8C64007A5278 /* Shop.Payment.System.swift in Sources */,
 				A0CBFFEF219C8C64007A5278 /* Shop.Payment.SecretCodeProgram.swift in Sources */,
 				A0CBFFF0219C8C64007A5278 /* Shop.Payment.MailContact.swift in Sources */,
+				5115F32A21AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */,
 				A0CBFFF1219C8C64007A5278 /* Finder.BApp.swift in Sources */,
 				A0CBFFF2219C8C64007A5278 /* Shop.Payment.MailContact.Types.swift in Sources */,
 				A0CBFFF3219C8C64007A5278 /* Shop.Payment.URLOpen.swift in Sources */,

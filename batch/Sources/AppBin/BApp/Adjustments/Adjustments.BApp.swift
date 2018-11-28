@@ -182,7 +182,12 @@ class AdjustmentItem {
         attributeClass = NSClassFromString(attributes[kCIAttributeClass] as? String ?? "")
         
         if attributeType == kCIAttributeTypeScalar, attributeClass == NSNumber.self {
-            sliderValues = [SliderValue(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
+            switch filter?.name {
+            case "CISepiaTone"?:
+                sliderValues = [SliderValue(name: name, defaultValue: 0, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
+            default:
+                sliderValues = [SliderValue(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
+            }
         }
         else if attributeType == kCIAttributeTypeOffset, attributeClass == CIVector.self {
             switch filter?.name {
@@ -197,7 +202,7 @@ class AdjustmentItem {
     }
 }
 
-class CIBuiltInFilter: CIFilter {
+class CIAdjustmentFilter: CIFilter {
     private(set) var adjustmentItems = [String: AdjustmentItem]()
     private var builtInFilter: CIFilter?
     
@@ -245,6 +250,46 @@ class CIBuiltInFilter: CIFilter {
     }
 }
 
+class CIFadeFilter: CIAdjustmentFilter {
+    convenience init() {
+        self.init(adjustmentName: .Fade)
+    }
+    
+    override var attributes: [String: Any] {
+        return [
+            kCIAttributeFilterDisplayName: "Fade",
+            kCIInputImageKey: [
+                kCIAttributeIdentity: 0,
+                kCIAttributeClass: NSStringFromClass(CIImage.self),
+                kCIAttributeDisplayName: "Image",
+                kCIAttributeType: kCIAttributeTypeImage
+            ],
+            kCIInputIntensityKey: [
+                kCIAttributeIdentity: 0,
+                kCIAttributeClass: NSStringFromClass(NSNumber.self),
+                kCIAttributeDefault: Float(0),
+                kCIAttributeDisplayName: "Intensity",
+                kCIAttributeMin: Float(0),
+                kCIAttributeMax: Float(1),
+                kCIAttributeSliderMin: Float(0),
+                kCIAttributeSliderMax: Float(1),
+                kCIAttributeType: kCIAttributeTypeScalar
+            ]
+        ]
+    }
+    
+    private lazy var kernel: CIColorKernel? = {
+        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
+        return try? CIColorKernel(functionName: "fade", fromMetalLibraryData: data)
+    }()
+    
+    override var outputImage: CIImage? {
+        guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+        let params = adjustmentItems.compactMap { $0.value.number }
+        return kernel?.apply(extent: image.extent, arguments: [image] + params)
+    }
+}
+
 class CIAdjustmentsFilterItem {
     private var orderedFilters = NSMutableOrderedSet()
     
@@ -253,10 +298,10 @@ class CIAdjustmentsFilterItem {
         orderedFilters.add(filter)
     }
     
-    func adjustmentFilter(with filter: CIFilter?) -> CIBuiltInFilter? {
+    func adjustmentFilter(with filter: CIFilter?) -> CIAdjustmentFilter? {
         guard let filter = filter else { return nil }
         let index = orderedFilters.index(of: filter)
-        return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIBuiltInFilter
+        return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIAdjustmentFilter
     }
     
     var ciFilter: CIFilterGroup {
@@ -317,12 +362,13 @@ extension AdjustmentsApp {
             case VignetteRadius = "Vignette Radius"
             case Gamma = "Gamma"
             case Exposure = "Exposure"
+            case SepiaTone = "SepiaTone"
             case Sharpness = "Sharpness"
             case Fade = "Fade"
             case Grain = "Grain"
             
-            var aliasName: String {
-                return Adjustments.aliasName(self)
+            var displayName: String {
+                return Adjustments.displayName(self)
             }
             
             var builtInFilterName: String {
@@ -333,7 +379,7 @@ extension AdjustmentsApp {
                 return Adjustments.parameterKey(self)
             }
             
-            var filter: CIBuiltInFilter? {
+            var filter: CIAdjustmentFilter? {
                 return Adjustments.filter(self)
             }
             
@@ -346,7 +392,7 @@ extension AdjustmentsApp {
             }
         }
         
-        static func aliasName(_ name: Adjustments.Name) -> String {
+        static func displayName(_ name: Adjustments.Name) -> String {
             switch name {
             case Name.Brightness: return "Brightness".localized
             case Name.Contrast: return "Contrast".localized
@@ -363,6 +409,7 @@ extension AdjustmentsApp {
             case Name.Vignette: return "Vignette".localized
             case Name.VignetteRadius: return "Vignette Radius".localized
             case Name.Sharpness: return "Sharpness".localized
+            case Name.SepiaTone: return "Sepia Tone".localized
             }
         }
         
@@ -378,6 +425,7 @@ extension AdjustmentsApp {
             case Name.Grain: return "Grain"
             case Name.Vignette, Name.VignetteRadius: return "CIVignette"
             case Name.Sharpness: return "Sharpness"
+            case Name.SepiaTone: return "CISepiaTone"
             }
         }
         
@@ -393,15 +441,16 @@ extension AdjustmentsApp {
             case Name.Tint: return "inputNeutral"
             case Name.Gamma: return "inputPower"
             case Name.Exposure: return "inputEV"
-            case Name.Fade: return ""
+            case Name.Fade: return kCIInputIntensityKey
             case Name.Grain: return ""
             case Name.Vignette: return kCIInputIntensityKey
             case Name.VignetteRadius: return kCIInputRadiusKey
             case Name.Sharpness: return ""
+            case Name.SepiaTone: return kCIInputIntensityKey
             }
         }
         
-        static func filter(_ name: Adjustments.Name) -> CIBuiltInFilter? {
+        static func filter(_ name: Adjustments.Name) -> CIAdjustmentFilter? {
             switch name {
             case Name.Brightness,
                  Name.Contrast,
@@ -412,9 +461,10 @@ extension AdjustmentsApp {
                  Name.Vignette, Name.VignetteRadius,
                  Name.Gamma,
                  Name.Exposure,
-                 Name.Temparature, Name.Tint:
-                return CIBuiltInFilter(adjustmentName: name)
-            case Name.Fade: return nil
+                 Name.Temparature, Name.Tint,
+                 Name.SepiaTone:
+                return CIAdjustmentFilter(adjustmentName: name)
+            case Name.Fade: return CIFadeFilter()
             case Name.Grain: return nil
             case Name.Sharpness: return nil
             }
@@ -431,11 +481,12 @@ extension AdjustmentsApp {
         AdjustmentsApp.Adjustments.Name.Vibrance,
         AdjustmentsApp.Adjustments.Name.Temparature,
         AdjustmentsApp.Adjustments.Name.Tint,
-//        AdjustmentsApp.Adjustments.Name.Fade,
+        AdjustmentsApp.Adjustments.Name.Fade,
 //        AdjustmentsApp.Adjustments.Name.Grain,
         AdjustmentsApp.Adjustments.Name.Vignette,
         AdjustmentsApp.Adjustments.Name.VignetteRadius,
         AdjustmentsApp.Adjustments.Name.Gamma,
+        AdjustmentsApp.Adjustments.Name.SepiaTone,
 //        AdjustmentsApp.Adjustments.Name.Sharpness
     ]
 }
@@ -501,7 +552,7 @@ extension Defaults: AdjustmentsAppDefaults {
 class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate static var primaryColor = AdjustmentsApp.info.themeColor
     fileprivate var adjustmentNames = AdjustmentsApp.AdjustmentsNames
-    fileprivate var adjustmentFilters = [CIBuiltInFilter]()
+    fileprivate var adjustmentFilters = [CIAdjustmentFilter]()
     
     lazy var view: UIView = {
         let view = UITableView(frame: .zero)
@@ -544,7 +595,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
     private func installFilters(with filters: [CIFilter]? = nil) {
         adjustmentFilters = adjustmentNames.compactMap { $0.filter }.setable
         for adjustmentFilter in adjustmentFilters {
-            guard let filter = (filters as? [CIBuiltInFilter])?.first(where: { $0.name == adjustmentFilter.name }) else { continue }
+            guard let filter = (filters as? [CIAdjustmentFilter])?.first(where: { $0.name == adjustmentFilter.name }) else { continue }
             for adjustmentItem in filter.adjustmentItems.values {
                 for sliderValue in adjustmentItem.sliderValues {
                     adjustmentFilter.setAdjustmentValue(sliderValue.value, with: sliderValue.name)
@@ -584,7 +635,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         
         let filter = self.adjustmentFilters.first { $0.name == filterName.builtInFilterName }
         
-        cell.titleLabel.text = AdjustmentsApp.Adjustments.aliasName(filterName)
+        cell.titleLabel.text = filterName.displayName
         
         if let adjustmentItem = filter?.adjustmentItem(with: filterName) {
             cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
