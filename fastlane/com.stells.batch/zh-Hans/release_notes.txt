@@ -1,6 +1,2 @@
-•推出新工具：Framer，可让您调整大小并填充以适合各种尺寸的Instagram，Youtube或您需要的照片。
-   - 方形尺寸
-   - Instagram
-   - Youtube缩略图
-   - iPhone型号的原生尺寸
-•一些小修复。
++ Framer 1.0.1：一些UI改进。
+• 冲突和小修复。
