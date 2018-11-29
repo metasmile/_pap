@@ -73,6 +73,10 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         return true
     }
 
+    func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {
+        (content as? HashtagenAppDockContent)?.setTagsIfNeeded([])
+    }
+
     fileprivate var preheatCachedResults = [String:HashtagenAppResult]()
     private var preheatingFrontQueueLabel:String?
 
@@ -234,8 +238,6 @@ extension HashtagenAppDockContent: PreheatableAppSubscribable{
 
 //        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
 //        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
-
-        self.setTagsIfNeeded([])
     }
 }
 
@@ -252,7 +254,7 @@ private class IntrinsicTableView: UITableView {
 }
 
 
-fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, TagListViewDelegate{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
     private let primaryColor = HashtagenApp.info.themeColor
@@ -261,18 +263,24 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
     fileprivate func setTagsIfNeeded(_ newTags:[String]){
         let addingLabels = Array(Set(newTags).subtracting(Set(tags)))
 
+        var removeAll = false
+        if newTags.count == 0 || addingLabels.count==0 && tags.count == 0{
+            tags = []
+            removeAll = true
+
+        }else if addingLabels.count>0{
+            tags += addingLabels
+        }
+
         DispatchQueue.mainAsyncIfNot {
             UIView.animate(withDuration: 0.4) {
-                if newTags.count == 0 || addingLabels.count==0 && self.tags.count == 0{
+                if removeAll{
                     self.tagsView.removeAllTags()
-
-                }else if addingLabels.count>0{
+                }else{
                     self.tagsView.addTags(addingLabels)
                 }
             }
         }
-
-        tags += addingLabels
     }
 
     fileprivate lazy var tableView:UITableView = {
@@ -293,8 +301,21 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         tagListView.cornerRadius = 10
         tagListView.textFont = UIFont.systemFont(ofSize: 24)
         tagListView.alignment = .center
+        tagListView.tagBackgroundColor = primaryColor ?? tagListView.tagBackgroundColor
+        tagListView.delegate = self
         return tagListView
     }()
+
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        tagView.isSelected = !tagView.isSelected
+    }
+
+    func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        UIView.animate(withDuration: 0.2) {
+            self.tagsView.removeTagView(tagView)
+        }
+    }
+
 
     lazy var view: UIView = {
 

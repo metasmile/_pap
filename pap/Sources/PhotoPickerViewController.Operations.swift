@@ -43,6 +43,8 @@ extension PhotoPickerViewController{
         batchPreviewView.removeAllCollectionViewItems()
         updateUIDisplays()
         updateVisibleCellsEnabled()
+
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselectAll(callee: self)
     }
 }
 

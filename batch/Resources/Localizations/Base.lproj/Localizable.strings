@@ -176,7 +176,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Hashtagen.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Converter.BApp.swift, Hashtagen.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
 /* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
