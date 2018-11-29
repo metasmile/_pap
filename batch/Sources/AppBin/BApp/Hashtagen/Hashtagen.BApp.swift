@@ -112,7 +112,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
                 preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
 
-                (content as? HashtagenAppDockContent)?.didHeat(result: result)
+                (content as? HashtagenAppDockContent)?.setTagsIfNeeded(result.labels)
 
                 preheated = true
             }
@@ -133,6 +133,8 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         }
 
         let hashtagsString = "#\(Array(Set(taggs)).joined(separator: " #"))"
+
+        (content as? HashtagenAppDockContent)?.setTagsIfNeeded(Array(Set(taggs)))
 
         if let _ = UIViewController.presentable {
             asyncSignal.begin()
@@ -229,19 +231,8 @@ extension HashtagenAppDockContent: PreheatableAppSubscribable{
 
 //        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
 //        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
-        tags = []
-    }
 
-    func didPreDetect(result:HashtagenAppResult){
-
-        let addingLabels = Array(Set(result.labels).subtracting(Set(tags)))
-
-        DispatchQueue.mainAsyncAfter {
-            self.tagsView.addTags(addingLabels)
-        }
-
-        tags += addingLabels
-
+        self.setTagsIfNeeded([])
     }
 }
 
@@ -257,15 +248,28 @@ private class IntrinsicTableView: UITableView {
     }
 }
 
+
 fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
     private let primaryColor = HashtagenApp.info.themeColor
 
-    fileprivate var tags = [String]() {
-        didSet{
+    private var tags = [String]()
+    fileprivate func setTagsIfNeeded(_ newTags:[String]){
+        let addingLabels = Array(Set(newTags).subtracting(Set(tags)))
 
+        DispatchQueue.mainAsyncIfNot {
+            UIView.animate(withDuration: 0.4) {
+                if newTags.count == 0 || addingLabels.count==0 && self.tags.count == 0{
+                    self.tagsView.removeAllTags()
+
+                }else if addingLabels.count>0{
+                    self.tagsView.addTags(addingLabels)
+                }
+            }
         }
+
+        tags += addingLabels
     }
 
     fileprivate lazy var tableView:UITableView = {
