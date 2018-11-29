@@ -176,12 +176,14 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Hashtagen.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Hashtagen.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Hashtagen.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Background Color";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -290,7 +292,7 @@
 "Fade" = "Fade";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
-/* Generated from genl10n: Hashtagen.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, Hashtagen.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.";

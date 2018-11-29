@@ -109,7 +109,11 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
             preheated = true
         }else{
             if let result = labelDetector.detectResult(asset: item.asset, async), result.labels.count > 0{
+
                 preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
+
+                (content as? HashtagenAppDockContent)?.didHeat(result: result)
+
                 preheated = true
             }
         }
@@ -222,8 +226,22 @@ extension HashtagenAppDockContent: PreheatableAppSubscribable{
     }
 
     func didStopPreheating() {
+
 //        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
 //        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+        tags = []
+    }
+
+    func didPreDetect(result:HashtagenAppResult){
+
+        let addingLabels = Array(Set(result.labels).subtracting(Set(tags)))
+
+        DispatchQueue.mainAsyncAfter {
+            self.tagsView.addTags(addingLabels)
+        }
+
+        tags += addingLabels
+
     }
 }
 
@@ -244,6 +262,12 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
 
     private let primaryColor = HashtagenApp.info.themeColor
 
+    fileprivate var tags = [String]() {
+        didSet{
+
+        }
+    }
+
     fileprivate lazy var tableView:UITableView = {
         let tableView = IntrinsicTableView()
         tableView.dataSource = self
@@ -256,34 +280,20 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         return tableView
     }()
 
+    fileprivate lazy var tagsView:TagListView = {
+        let tagListView = TagListView()
+        tagListView.enableRemoveButton = true
+        tagListView.cornerRadius = 10
+        tagListView.textFont = UIFont.systemFont(ofSize: 24)
+        tagListView.alignment = .center
+        return tagListView
+    }()
+
     lazy var view: UIView = {
 
         let scrollView = UIScrollView()
 
         let stackView = UIStackView()
-
-        let tagListView = TagListView()
-        tagListView.enableRemoveButton = true
-        tagListView.cornerRadius = 8
-        tagListView.textFont = UIFont.systemFont(ofSize: 24)
-        tagListView.alignment = .center
-
-        tagListView.addTag("TagListView")
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-        tagListView.addTags(["Add", "two", "tags"])
-
         scrollView.addSubview(stackView)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -297,13 +307,12 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         //@_@ what the?: https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll
 
         stackView.addArrangedSubview(self.tableView)
-        stackView.addArrangedSubview(tagListView)
+        stackView.addArrangedSubview(self.tagsView)
 
         return scrollView
     }()
 
     var contentScrollable: AppDockContentScrollable? {
-
         guard let scrollView = view as? UIScrollView else { return nil }
         return AppDockScrollableContent(scrollView)
     }
@@ -343,7 +352,7 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         cell.imageView?.tintColor = primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
-        cell.textLabel?.text = "Auto Selection Bot".localized
+        cell.textLabel?.text = "Auto Tagging Bot".localized
         cell.imageView?.image = R.image.commonCellIconRobot()?.withRenderingMode(.alwaysTemplate)
         cell.imageView?.tintColor = primaryColor
 
