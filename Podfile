@@ -41,6 +41,8 @@ def paps_pods
 end
 
 target 'batch' do
+  pod 'TagListView', '~> 1.0'
+
   paps_pods
   target 'papTests' do
     inherit! :complete

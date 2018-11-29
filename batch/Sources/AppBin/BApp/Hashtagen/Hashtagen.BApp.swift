@@ -7,6 +7,7 @@ import Foundation
 import Photos
 import PropertyKit
 import FirebaseMLVision
+import TagListView
 
 private typealias HashtagenAppParam = AppAsset
 private struct HashtagenAppResult: AppTaskResultable {
@@ -71,7 +72,6 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     public func shouldSelect(item: AppAsset) -> Bool {
         return true
     }
-
 
     fileprivate var preheatCachedResults = [String:HashtagenAppResult]()
     private var preheatingFrontQueueLabel:String?
@@ -209,6 +209,7 @@ HashtagenAppDockContent
 
 extension HashtagenAppDockContent: PreheatableAppSubscribable{
     func prepareStatusDisplaying(label:String?){
+
 //        var desc = self.settingCellDescribers.first { describable in
 //            describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
 //        }
@@ -226,43 +227,101 @@ extension HashtagenAppDockContent: PreheatableAppSubscribable{
     }
 }
 
+private class IntrinsicTableView: UITableView {
+    override var contentSize:CGSize {
+        didSet {
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+    override var intrinsicContentSize: CGSize {
+        self.layoutIfNeeded()
+        return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height)
+    }
+}
+
 fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
     private let primaryColor = HashtagenApp.info.themeColor
 
-    lazy var view: UIView = UITableView()
+    fileprivate lazy var tableView:UITableView = {
+        let tableView = IntrinsicTableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 52
+        tableView.allowsSelection = false
+        tableView.register(Cell.self, forCellReuseIdentifier: HashtagenApp.info.identifier)
+//            tableView.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
+        tableView.tintColor = self.primaryColor
+        return tableView
+    }()
+
+    lazy var view: UIView = {
+
+        let scrollView = UIScrollView()
+
+        let stackView = UIStackView()
+
+        let tagListView = TagListView()
+        tagListView.enableRemoveButton = true
+        tagListView.cornerRadius = 8
+        tagListView.textFont = UIFont.systemFont(ofSize: 24)
+        tagListView.alignment = .center
+
+        tagListView.addTag("TagListView")
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+        tagListView.addTags(["Add", "two", "tags"])
+
+        scrollView.addSubview(stackView)
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.topAnchor.constraint(equalTo:scrollView.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo:scrollView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo:scrollView.trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo:scrollView.bottomAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo:scrollView.widthAnchor).isActive = true
+        //@_@ what the?: https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll
+
+        stackView.addArrangedSubview(self.tableView)
+        stackView.addArrangedSubview(tagListView)
+
+        return scrollView
+    }()
 
     var contentScrollable: AppDockContentScrollable? {
-        guard let scrollView = view as? UITableView else { return nil }
+
+        guard let scrollView = view as? UIScrollView else { return nil }
         return AppDockScrollableContent(scrollView)
     }
 
     var preferences: AppDockContentPreferable? {
-        guard let tableView = view as? UITableView else{
-            return nil
-        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.rowHeight * CGFloat(1)
+        preferences.preferredHeight = tableView.rowHeight * CGFloat(4)
         return preferences
     }
 
     func willSetContentView(_ view: UIView, dock: AppDock) {
-        if let view = view as? UITableView{
-            view.dataSource = self
-            view.delegate = self
-            view.rowHeight = 52
-            view.allowsSelection = false
-            view.register(Cell.self, forCellReuseIdentifier: HashtagenApp.info.identifier)
-//            view.backgroundColor = UIColor(red: 31 / 255.0, green: 31 / 255.0, blue: 31 / 255.0, alpha: 1)
-            view.tintColor = self.primaryColor
-//            view.separatorInset.left = view.rowHeight
-        }
+
+
     }
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         if options != nil{
-            (view as? UITableView)?.reloadData()
+            tableView.reloadData()
         }
     }
 
@@ -376,7 +435,8 @@ extension HashtagenApp:UIApplicationDelegateLaunchableApp{
             if intent is AutoSelectIntent{
                 var mutableDefaults = self.appDefaults
                 mutableDefaults.autoSelect = true
-                (self.content?.view as? UITableView)?.reloadData()
+
+                (content as? HashtagenAppDockContent)?.tableView.reloadData()
             }
         }
 

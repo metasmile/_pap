@@ -176,9 +176,9 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Converter.BApp.swift, Hashtagen.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Hashtagen.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.BApp.swift, Finder.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Hashtagen.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Finder.BApp.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift, Hashtagen.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -458,7 +458,7 @@
 "Open Google Maps" = "Open Google Maps";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Hashtagen.BApp.swift, Revert.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Hashtagen.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
 "Open Rotation." = "Open Rotation.";
