@@ -23,6 +23,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
+    
+    var isRawPhotoEnabled: Bool {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: false) }
+    }
 
     var cameraPosition: AVCaptureDevice.Position {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
@@ -44,12 +49,12 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.camera"
-        , version: "1.0"
+        , version: "1.1"
         , phase: .release
         , appType: CameraApp.self
         , displayName: "Camera".localized.localizedCapitalized
         , description: "Robust Standard Built-In Camera for Capturing Live Photos."
-        , keywords:["Camera", "Capture","Take a photo", "Video", "Record"]
+        , keywords:["Camera", "Capture","Take a photo", "Video", "Record", "Raw"]
         , iconBundleName: R.image.cameraSAppIcon.name
             , themeColor: UIColor(red:0.99, green:0.34, blue:0.12, alpha:1)
                         , policy: AppPolicy.default

@@ -216,12 +216,19 @@ class CameraView: UIView, PropertyWatchable {
         if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
-        } else {
+        }
+        else if self.isRawPhotoEnabled {
             photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
+            photoSettings.isAutoStillImageStabilizationEnabled = false
+            captureProcessor = CameraViewRawPhotoCaptureProcessor(param: param)
+        }
+        else {
+            photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
             captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
-        photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
         photoSettings.flashMode = self.photoSettingsFlashMode
 
         capturesInProgress.insert(captureProcessor)
@@ -409,6 +416,62 @@ extension CameraView {
 }
 
 extension CameraView {
+    var isLivePhotoSupported: Bool {
+        return capturePhotoOutput.isLivePhotoCaptureSupported
+    }
+    
+    var isLivePhotoEnabled: Bool {
+        set {
+            sessionQueue.async {
+                let flashMode = self.photoSettingsFlashMode
+                if self.isRawPhotoEnabled && newValue {
+                    self.currentPhotoSettings = AVCapturePhotoSettings()
+                    self.currentPhotoSettings.isHighResolutionPhotoEnabled = true
+                }
+                self.capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
+                self.currentPhotoSettings.flashMode = flashMode
+                self.configurationDidUpdate?()
+            }
+        }
+        
+        get {
+            return capturePhotoOutput.isLivePhotoCaptureEnabled
+        }
+    }
+}
+
+extension CameraView {
+    var isRawPhotoSupported: Bool {
+        return capturePhotoOutput.availableRawPhotoPixelFormatTypes.first != nil
+    }
+    
+    var isRawPhotoEnabled: Bool {
+        set {
+            sessionQueue.async {
+                let flashMode = self.photoSettingsFlashMode
+                if newValue, let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
+                    self.currentPhotoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
+                    
+                    // RAW capture is incompatible with digital image stabilization.
+                    self.currentPhotoSettings.isAutoStillImageStabilizationEnabled = false
+                    self.capturePhotoOutput.isLivePhotoCaptureEnabled = false
+                }
+                else {
+                    self.currentPhotoSettings = AVCapturePhotoSettings()
+                }
+                self.currentPhotoSettings.isHighResolutionPhotoEnabled = true
+                self.currentPhotoSettings.flashMode = flashMode
+                self.configurationDidUpdate?()
+            }
+        }
+        
+        get {
+            return self.currentPhotoSettings.rawPhotoPixelFormatType != 0
+        }
+    }
+}
+
+extension CameraView {
     public enum FlashMode: Int {
         case off
         case on
@@ -429,23 +492,6 @@ extension CameraView {
             case .torch: return .on
             default: return .off
             }
-        }
-    }
-    
-    var isLivePhotoSupported: Bool {
-        return capturePhotoOutput.isLivePhotoCaptureSupported
-    }
-
-    var isLivePhotoEnabled: Bool {
-        set {
-            sessionQueue.async {
-                self.capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
-                self.configurationDidUpdate?()
-            }
-        }
-
-        get {
-            return capturePhotoOutput.isLivePhotoCaptureEnabled
         }
     }
 
