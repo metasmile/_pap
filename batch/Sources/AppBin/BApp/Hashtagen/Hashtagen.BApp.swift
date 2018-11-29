@@ -74,7 +74,21 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 
     func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {
+        self.detectingSig.done()
         (content as? HashtagenAppDockContent)?.setTagsIfNeeded([])
+    }
+
+    private let detectingSig = AsyncSignal()
+    func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
+        DispatchQueue(label: (preheatingFrontQueueLabel ?? DispatchQueue.global(qos: .utility).label)).async{
+            self.performDetectingTags(for: PHAssetItem(asset: asset, indexPath: indexPath), self.detectingSig, exclude:false)
+        }
+    }
+
+    func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
+        DispatchQueue(label: (preheatingFrontQueueLabel ?? DispatchQueue.global(qos: .utility).label)).async{
+            self.performDetectingTags(for: PHAssetItem(asset: asset, indexPath: indexPath), self.detectingSig, exclude:true)
+        }
     }
 
     fileprivate var preheatCachedResults = [String:HashtagenAppResult]()
@@ -107,24 +121,30 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
         preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
 
-        var preheated = false
+        return performDetectingTags(for: item, async)
+                ? UICollectionViewPreheatableAppFinishAction.selectItem
+                : nil
+    }
 
-        if let _ = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
-            preheated = true
+    @discardableResult
+    private func performDetectingTags(for item: PHAssetParamable, _ async: AsyncWaitSignalable, exclude:Bool=false)  -> Bool {
+        var detectedResult:HashtagenAppResult?
+
+        if let r = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
+            detectedResult = r
+
         }else{
-            if let result = labelDetector.detectResult(asset: item.asset, async), result.labels.count > 0{
-
-                preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = result
-
-                (content as? HashtagenAppDockContent)?.setTagsIfNeeded(result.labels)
-
-                preheated = true
+            if let r = labelDetector.detectResult(asset: item.asset, async), r.labels.count > 0{
+                detectedResult = r
+                preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = detectedResult
             }
         }
 
-        return preheated
-                ? UICollectionViewPreheatableAppFinishAction.selectItem
-                : nil
+        if let r = detectedResult{
+            (content as? HashtagenAppDockContent)?.setTagsIfNeeded(r.labels, remove:exclude)
+        }
+
+        return detectedResult != nil
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -260,16 +280,22 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
     private let primaryColor = HashtagenApp.info.themeColor
 
     private var tags = [String]()
-    fileprivate func setTagsIfNeeded(_ newTags:[String]){
-        let addingLabels = Array(Set(newTags).subtracting(Set(tags)))
+    //TODO: simplify states
+    fileprivate func setTagsIfNeeded(_ newTags:[String], remove:Bool=false){
+        let tagsAdding = Array(Set(newTags).subtracting(Set(tags)))
+
+        print(newTags, tagsAdding)
 
         var removeAll = false
-        if newTags.count == 0 || addingLabels.count==0 && tags.count == 0{
+        if newTags.count == 0 || tagsAdding.count==0 && tags.count == 0{
             tags = []
             removeAll = true
 
-        }else if addingLabels.count>0{
-            tags += addingLabels
+        }else if tagsAdding.count>0, remove == false{
+            tags += tagsAdding
+
+        }else if tagsAdding.count>0, remove{
+            tags = Array(Set(tags).subtracting(Set(newTags)))
         }
 
         DispatchQueue.mainAsyncIfNot {
@@ -277,7 +303,14 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
                 if removeAll{
                     self.tagsView.removeAllTags()
                 }else{
-                    self.tagsView.addTags(addingLabels)
+                    if remove{
+                        for t in newTags{
+                            self.tagsView.removeTag(t)
+                        }
+                    }else{
+                        self.tagsView.addTags(tagsAdding)
+                    }
+
                 }
             }
         }
@@ -299,7 +332,7 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         let tagListView = TagListView()
         tagListView.enableRemoveButton = true
         tagListView.cornerRadius = 10
-        tagListView.textFont = UIFont.systemFont(ofSize: 24)
+        tagListView.textFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         tagListView.alignment = .center
         tagListView.tagBackgroundColor = primaryColor ?? tagListView.tagBackgroundColor
         tagListView.delegate = self

@@ -104,7 +104,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
                 AppAssets.selected.appendValue(value, for: [item])
             }
 
-            AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didSelect(callee: self)
+            AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didSelect(asset: asset, indexPath:indexPath, callee: self)
         }
 
         if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
@@ -122,7 +122,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
             updateVisibleCellsEnabled()
         }
 
-        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselect(callee: self)
+        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselect(asset: asset, indexPath:indexPath, callee: self)
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
