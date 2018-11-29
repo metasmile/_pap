@@ -141,6 +141,9 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
             DispatchQueue.global().async {
 
                 UIActivityViewController.share(activityItems: [hashtagsString]) { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
+
+                    (self.content as? HashtagenAppDockContent)?.setTagsIfNeeded([])
+
                     asyncSignal.end()
                 }
             }
