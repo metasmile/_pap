@@ -988,6 +988,7 @@
 		A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
 		A02389D1219043750039F398 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02389CF219043750039F398 /* Finder.BApp.swift */; };
 		A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */; };
+		A0729AB121B0118300B43575 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0729AB021B0118300B43575 /* CloudKit.framework */; };
 		A07BD39821978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
 		A07BD39A21978958003031D5 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
 		A07BD39C21978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
@@ -2632,6 +2633,7 @@
 		A05987C6215401FC0011077B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Intents.strings; sourceTree = "<group>"; };
 		A05987C7215402050011077B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Intents.strings"; sourceTree = "<group>"; };
 		A05987C8215402080011077B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Intents.strings"; sourceTree = "<group>"; };
+		A0729AB021B0118300B43575 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A07BD38721973656003031D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07BD38F21974ACA003031D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -2735,6 +2737,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0729AB121B0118300B43575 /* CloudKit.framework in Frameworks */,
 				511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */,
 				2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */,
 			);
@@ -4208,6 +4211,7 @@
 		DEBB1972B2E19B0514B3BEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0729AB021B0118300B43575 /* CloudKit.framework */,
 				511D20D2214B198000056AD3 /* StoreKit.framework */,
 				514CEBFA20E1A31D00098DFA /* Vision.framework */,
 				7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */,
@@ -4391,7 +4395,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -4400,7 +4404,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
