@@ -10,15 +10,18 @@ import FirebaseMLVision
 import TagListView
 
 private typealias HashtagenAppParam = AppAsset
-private struct HashtagenAppResult: AppTaskResultable {
-    fileprivate let asset:PHAsset
-    fileprivate let labels:[String]
 
-    var asHashTagString:String{
-        return "#\(Array(Set(labels)).joined(separator: " #"))"
+private extension VisionLabelPHAssetDetectResult{
+    func getHashTagString(separator:String="#") -> String{
+        return separator + "\(Array(Set(labelTextsConfidenceDescending)).joined(separator: " "+separator))"
     }
 }
+private extension Array where Element==VisionLabelPHAssetDetectResult{
 
+    func getHashTagString(separator:String="#") -> String{
+        return separator + "\(labelTextsConfidenceDescending.joined(separator: " "+separator))"
+    }
+}
 
 private protocol HashtagenAppDefaults: AppDefaults{
     var autoSelect: Bool {get set}
@@ -75,7 +78,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
     func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {
         self.detectingSig.done()
-        (content as? HashtagenAppDockContent)?.setTagsIfNeeded([])
+        (content as? HashtagenAppDockContent)?.setLabelsIfNeeded([])
     }
 
     private let detectingSig = AsyncSignal()
@@ -91,7 +94,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         }
     }
 
-    fileprivate var preheatCachedResults = [String:HashtagenAppResult]()
+    fileprivate var preheatCachedResults = [String:VisionLabelPHAssetDetectResult]()
     private var preheatingFrontQueueLabel:String?
 
     func disposePreheatingCache(){
@@ -121,27 +124,27 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
         preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
 
-        return performDetectingTags(for: item, async)
-                ? UICollectionViewPreheatableAppFinishAction.selectItem
-                : nil
+        performDetectingTags(for: item, async)
+
+        return nil
     }
 
     @discardableResult
     private func performDetectingTags(for item: PHAssetParamable, _ async: AsyncWaitSignalable, exclude:Bool=false)  -> Bool {
-        var detectedResult:HashtagenAppResult?
+        var detectedResult:VisionLabelPHAssetDetectResult?
 
         if let r = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
             detectedResult = r
 
         }else{
-            if let r = labelDetector.detectResult(asset: item.asset, async), r.labels.count > 0{
+            if let r = labelDetector.detectResult(asset: item.asset, async), r.labelTextsConfidenceDescending.count > 0{
                 detectedResult = r
                 preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = detectedResult
             }
         }
 
         if let r = detectedResult{
-            (content as? HashtagenAppDockContent)?.setTagsIfNeeded(r.labels, remove:exclude)
+            (content as? HashtagenAppDockContent)?.setLabelsIfNeeded([r], remove:exclude)
         }
 
         return detectedResult != nil
@@ -150,15 +153,18 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 
         var taggs = [String]()
+        var visionLabels = [VisionLabelPHAssetDetectResult]()
+
         for r in result {
-            if let rr = r.result as? HashtagenAppResult, let ls = rr.labels.nilEmpty {
+            if let rr = r.result as? VisionLabelPHAssetDetectResult, let ls = rr.labelTextsConfidenceDescending.nilEmpty {
+                visionLabels.append(rr)
                 taggs += ls
             }
         }
 
         let hashtagsString = "#\(Array(Set(taggs)).joined(separator: " #"))"
 
-        (content as? HashtagenAppDockContent)?.setTagsIfNeeded(Array(Set(taggs)))
+        (content as? HashtagenAppDockContent)?.setLabelsIfNeeded(visionLabels)
 
         if let _ = UIViewController.presentable {
             asyncSignal.begin()
@@ -166,7 +172,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
                 UIActivityViewController.share(activityItems: [hashtagsString]) { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
 
-                    (self.content as? HashtagenAppDockContent)?.setTagsIfNeeded([])
+                    (self.content as? HashtagenAppDockContent)?.setLabelsIfNeeded([])
 
                     asyncSignal.end()
                 }
@@ -186,7 +192,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 
     public var doneButtonTitle: String? {
-        return "Find".localized
+        return "Get All Items".localized
     }
 }
 
@@ -194,18 +200,15 @@ private struct HashtagenAppDetector{
 
     private let vision = Vision.vision()
 
-    fileprivate func detectResult(asset:PHAsset, _ async: AsyncWaitSignalable) -> HashtagenAppResult? {
-        var results:HashtagenAppResult?
+    fileprivate func detectResult(asset:PHAsset, _ async: AsyncWaitSignalable) -> VisionLabelPHAssetDetectResult? {
+        var results:VisionLabelPHAssetDetectResult?
 
         if let image = asset.asUIImage  {
             async.begin()
 
             vision.labelDetector().detect(in: VisionImage(image: image), completion:{ (labels,e) in
                 if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
-
-                    let detectedLabels = labels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
-
-                    results = HashtagenAppResult(asset: asset, labels: detectedLabels)
+                    results = VisionLabelPHAssetDetectResult(asset: asset, visionLabels: labels)
                 }
                 async.end()
             })
@@ -227,7 +230,7 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
         return try self._perform(_param, async)
     }
 
-    private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> HashtagenAppResult?  {
+    private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> VisionLabelPHAssetDetectResult?  {
         if let app = AppCenter.default.currentInstanceAs(HashtagenApp.self){
             return app.preheatCachedResults[param.asset.localIdentifierWithoutSplitter] ?? app.labelDetector.detectResult(asset: param.asset, async)
         }
@@ -279,36 +282,33 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
 
     private let primaryColor = HashtagenApp.info.themeColor
 
-    private var tags = [String]()
-    //TODO: simplify states
-    fileprivate func setTagsIfNeeded(_ newTags:[String], remove:Bool=false){
-        let tagsAdding = Array(Set(newTags).subtracting(Set(tags)))
+    private var labelResults = [VisionLabelPHAssetDetectResult]()
+    fileprivate func setLabelsIfNeeded(_ resultsSetting:[VisionLabelPHAssetDetectResult], remove:Bool=false){
 
-        print(newTags, tagsAdding)
+        let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(resultsSetting).subtracting(Set(labelResults)))
+        let shouldRemoveAll = resultsSetting.count == 0 || resultsAdding.count==0 && labelResults.count == 0
 
-        var removeAll = false
-        if newTags.count == 0 || tagsAdding.count==0 && tags.count == 0{
-            tags = []
-            removeAll = true
+        if shouldRemoveAll{
+            labelResults = []
 
-        }else if tagsAdding.count>0, remove == false{
-            tags += tagsAdding
+        }else if resultsAdding.count>0, remove == false{
+            labelResults += resultsAdding
 
-        }else if tagsAdding.count>0, remove{
-            tags = Array(Set(tags).subtracting(Set(newTags)))
+        }else if resultsSetting.count>0, remove{
+            labelResults = Array(Set(labelResults).subtracting(Set(resultsSetting)))
         }
 
         DispatchQueue.mainAsyncIfNot {
             UIView.animate(withDuration: 0.4) {
-                if removeAll{
+                if shouldRemoveAll{
                     self.tagsView.removeAllTags()
                 }else{
                     if remove{
-                        for t in newTags{
-                            self.tagsView.removeTag(t)
+                        for l in resultsSetting.labelTextsConfidenceDescending{
+                            self.tagsView.removeTag(l)
                         }
                     }else{
-                        self.tagsView.addTags(tagsAdding)
+                        self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
                     }
 
                 }
