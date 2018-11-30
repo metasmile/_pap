@@ -11,15 +11,13 @@ import TagListView
 
 private typealias HashtagenAppParam = AppAsset
 
-private extension VisionLabelPHAssetDetectResult{
-    func getHashTagString(separator:String="#") -> String{
-        return separator + "\(Array(Set(labelTextsConfidenceDescending)).joined(separator: " "+separator))"
-    }
-}
-private extension Array where Element==VisionLabelPHAssetDetectResult{
-
-    func getHashTagString(separator:String="#") -> String{
-        return separator + "\(labelTextsConfidenceDescending.joined(separator: " "+separator))"
+private extension Array where Element==String{
+    func getHashTagString(separator:String="#", allowWhiteSpace:Bool=false) -> String{
+        var sourceStrings = self
+        if allowWhiteSpace == false{
+            sourceStrings = sourceStrings.map{ $0.remove(" ") }
+        }
+        return separator + "\(sourceStrings.joined(separator: " "+separator))"
     }
 }
 
@@ -152,21 +150,9 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
 
-        var taggs = [String]()
-        var visionLabels = [VisionLabelPHAssetDetectResult]()
+        if let _ = UIViewController.presentable,
+           let hashtagsString = (content as? HashtagenAppDockContent)?.currentTags.getHashTagString().nilEmpty {
 
-        for r in result {
-            if let rr = r.result as? VisionLabelPHAssetDetectResult, let ls = rr.labelTextsConfidenceDescending.nilEmpty {
-                visionLabels.append(rr)
-                taggs += ls
-            }
-        }
-
-        let hashtagsString = "#\(Array(Set(taggs)).joined(separator: " #"))"
-
-        (content as? HashtagenAppDockContent)?.setLabelsIfNeeded(visionLabels)
-
-        if let _ = UIViewController.presentable {
             asyncSignal.begin()
             DispatchQueue.global().async {
 
@@ -282,36 +268,45 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
 
     private let primaryColor = HashtagenApp.info.themeColor
 
-    private var labelResults = [VisionLabelPHAssetDetectResult]()
+    private var settedLabelResults = [VisionLabelPHAssetDetectResult]()
+
+    fileprivate var currentTags:[String]{
+        return self.tagsView.selectedTags().compactMap { $0.titleLabel?.text }.uniq()
+    }
+
     fileprivate func setLabelsIfNeeded(_ resultsSetting:[VisionLabelPHAssetDetectResult], remove:Bool=false){
 
-        let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(resultsSetting).subtracting(Set(labelResults)))
-        let shouldRemoveAll = resultsSetting.count == 0 || resultsAdding.count==0 && labelResults.count == 0
+        let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(resultsSetting).subtracting(Set(settedLabelResults)))
+        let shouldRemoveAll = resultsSetting.count == 0 || resultsAdding.count==0 && settedLabelResults.count == 0
 
         if shouldRemoveAll{
-            labelResults = []
+            settedLabelResults = []
 
         }else if resultsAdding.count>0, remove == false{
-            labelResults += resultsAdding
+            settedLabelResults += resultsAdding
 
         }else if resultsSetting.count>0, remove{
-            labelResults = Array(Set(labelResults).subtracting(Set(resultsSetting)))
+            settedLabelResults = Array(Set(settedLabelResults).subtracting(Set(resultsSetting)))
         }
 
         DispatchQueue.mainAsyncIfNot {
-            UIView.animate(withDuration: 0.4) {
-                if shouldRemoveAll{
-                    self.tagsView.removeAllTags()
-                }else{
-                    if remove{
-                        for l in resultsSetting.labelTextsConfidenceDescending{
-                            self.tagsView.removeTag(l)
-                        }
-                    }else{
-                        self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
-                    }
+            self.tagsView.removeAllTags()
 
-                }
+            UIView.animate(withDuration: 0.4) {
+                self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
+
+//                if shouldRemoveAll{
+//                      self.tagsView.removeAllTags()
+//                }else{
+//                    if remove{
+//                        for l in resultsSetting.labelTextsConfidenceDescending{
+//                            self.tagsView.removeTag(l)
+//                        }
+//                    }else{
+//                        self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
+//                    }
+//
+//                }
             }
         }
     }
@@ -328,13 +323,15 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
         return tableView
     }()
 
-    fileprivate lazy var tagsView:TagListView = {
+    private lazy var tagsView:TagListView = {
         let tagListView = TagListView()
         tagListView.enableRemoveButton = true
         tagListView.cornerRadius = 10
+        tagListView.paddingY = 6
+        tagListView.paddingX = 9
         tagListView.textFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         tagListView.alignment = .center
-        tagListView.tagBackgroundColor = primaryColor ?? tagListView.tagBackgroundColor
+        tagListView.tagBackgroundColor = tagListView.colorTheme.objectBackgroundColor ?? tagListView.tagBackgroundColor
         tagListView.delegate = self
         return tagListView
     }()
