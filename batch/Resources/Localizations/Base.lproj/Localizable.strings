@@ -285,6 +285,8 @@
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Exposure";
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Fade";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
@@ -322,6 +324,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -594,6 +598,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Send" = "Send";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Settings for Main Tools License";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, Settings.SApp.swift, Converter.BApp.swift, Shop.SApp.swift */

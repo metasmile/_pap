@@ -12,6 +12,7 @@ import PropertyKit
 
 protocol AppUICameraViewOptions {
     var isLivePhotoEnabled: Bool { get set }
+    var isRawPhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
     var cameraFlashMode: CameraView.FlashMode { get set }
 }
@@ -58,6 +59,7 @@ class AppUICameraView: UIView {
     private lazy var backgroundView = UIView(frame: .zero)
     private lazy var optionBackgroundView = UIView(frame: .zero)
     private lazy var livePhotoButton = UIButton(type: .system)
+    private lazy var rawPhotoButton = UIButton(type: .system)
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
     private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
@@ -73,6 +75,7 @@ class AppUICameraView: UIView {
     private func intialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
             self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
+            self.cameraView.isRawPhotoEnabled = defaults.isRawPhotoEnabled
             self.cameraView.cameraPosition = defaults.cameraPosition
             self.cameraView.flashMode = defaults.cameraFlashMode
         }
@@ -90,6 +93,7 @@ class AppUICameraView: UIView {
                 if self.livePhotoButton.transform != newTransform{
                     UIView.animate(withDuration: 0.3, delay: 0, options: .beginFromCurrentState, animations: { () -> () in
                         self.livePhotoButton.transform = newTransform
+                        self.rawPhotoButton.transform = newTransform
                         self.cameraFlashButton.transform = newTransform
                         self.cameraPositionButton.transform = newTransform
                      }, completion: nil)
@@ -151,6 +155,18 @@ class AppUICameraView: UIView {
         optionView.trailingAnchor.constraint(equalTo: cameraView.trailingAnchor).isActive = true
         optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
         optionViewHeightLayout?.isActive = true
+        
+        let photoOptionView = UIStackView(frame: .zero)
+        photoOptionView.axis = .horizontal
+        photoOptionView.alignment = UIStackView.Alignment.fill
+        photoOptionView.distribution = .fill
+        photoOptionView.spacing = 2
+        addSubview(photoOptionView)
+        
+        photoOptionView.translatesAutoresizingMaskIntoConstraints = false
+        photoOptionView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
+        photoOptionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        photoOptionView.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
 
         livePhotoButton.imageEdgeInsets = buttonImageInsets
         livePhotoButton.imageView?.contentMode = .scaleAspectFit
@@ -158,13 +174,24 @@ class AppUICameraView: UIView {
         livePhotoButton.contentVerticalAlignment = .fill
         livePhotoButton.setImage(livePhotoBadgeIcon, for: .normal)
         livePhotoButton.addTarget(self, action: #selector(self.toggleLivePhotoEnabled), for: .touchUpInside)
-        addSubview(livePhotoButton)
-
-        livePhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        livePhotoButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
-        livePhotoButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        photoOptionView.addArrangedSubview(livePhotoButton)
+        
         livePhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         livePhotoButton.widthAnchor.constraint(equalTo: livePhotoButton.heightAnchor, multiplier: 1).isActive = true
+        
+        rawPhotoButton.imageEdgeInsets = buttonImageInsets
+        rawPhotoButton.imageView?.contentMode = .scaleAspectFit
+        rawPhotoButton.contentHorizontalAlignment = .fill
+        rawPhotoButton.contentVerticalAlignment = .fill
+        rawPhotoButton.setImage(rawPhotoBadgeIcon, for: .normal)
+        rawPhotoButton.addTarget(self, action: #selector(self.toggleRawPhotoEnabled), for: .touchUpInside)
+        
+        if cameraView.isRawPhotoSupported {
+            photoOptionView.addArrangedSubview(rawPhotoButton)
+        }
+        
+        rawPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 1).isActive = true
 
         let controlView = UIView(frame: .zero)
         controlView.clipsToBounds = true
@@ -235,13 +262,17 @@ class AppUICameraView: UIView {
         cameraView.configurationDidUpdate = {
             var defaults = defaults
             defaults?.isLivePhotoEnabled = self.cameraView.isLivePhotoEnabled
+            defaults?.isRawPhotoEnabled = self.cameraView.isRawPhotoEnabled
             defaults?.cameraPosition = self.cameraView.cameraPosition
             defaults?.cameraFlashMode = self.cameraView.flashMode
 
             DispatchQueue.mainAsyncIfNot {
                 self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 self.livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
-
+                
+                self.rawPhotoButton.setImage(self.rawPhotoBadgeIcon, for: .normal)
+                self.rawPhotoButton.tintColor = self.cameraView.isRawPhotoEnabled ? .white : UIColor(white: 1, alpha: 0.25)
+                
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
             }
@@ -262,12 +293,18 @@ class AppUICameraView: UIView {
             return cameraView.isLivePhotoEnabled ? PHLivePhotoView.livePhotoBadgeImage(options: .overContent) : PHLivePhotoView.livePhotoBadgeImage(options: .liveOff)
         }().withRenderingMode(.alwaysTemplate)
     }
+    
+    private var rawPhotoBadgeIcon: UIImage {
+        return (R.image.appUICameraViewRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
 
     private var flashModeIcon: UIImage{
         return { () -> UIImage in
             switch cameraView.flashMode {
-                case .on, .auto, .torch:
+                case .on, .auto:
                     return R.image.appUICameraViewFlashOn() ?? UIImage()
+                case .torch:
+                    return R.image.appUICameraViewTorchOn() ?? UIImage()
                 case .off:
                     return R.image.appUICameraViewFlashOff() ?? UIImage()
             }
@@ -308,6 +345,14 @@ class AppUICameraView: UIView {
     @objc func toggleLivePhotoEnabled(sender: Any) {
         guard cameraView.isLivePhotoSupported else { return }
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
+        cameraView.configurationDidUpdate?()
+        
+        UIFeedback.select()
+    }
+    
+    @objc func toggleRawPhotoEnabled(sender: Any) {
+        guard cameraView.isRawPhotoSupported else { return }
+        cameraView.isRawPhotoEnabled = !cameraView.isRawPhotoEnabled
         cameraView.configurationDidUpdate?()
         
         UIFeedback.select()

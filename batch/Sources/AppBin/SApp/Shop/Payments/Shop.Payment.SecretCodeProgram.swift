@@ -276,9 +276,10 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
 
                     asyncSignal.end()
 
-                }]
-                        , textField: { f in f.placeholder = "Input Here".localized }
-                ) { a in
+                }], textField: { f in
+                    f.placeholder = "Input Here".localized
+
+                }) { a in
 
                     if let inputCode = UIAlertController.presenting?.textFields?.first?.text?.trimmed.nilEmpty{
                         payingQueue.async{
@@ -400,6 +401,7 @@ struct SecretCodeProgramPayment<P:SecretCodeProgram>:VerifiablePayable, Preparab
 
                         //1. touch public
                         SecretCodeEntry.container.publicCloudDatabase.set(records: [savingRecord]) { (r, e) in
+                            assert(e==nil, e?.localizedDescription ?? "ERROR: SecretCodeEntry.container.publicCloudDatabase.set / Please login your icloud account before use VIP membership.")
 
                             //2. add to private
                             SecretCodeEntry.container.privateCloudDatabase.set(records: [savingRecord]){ (r, e) in

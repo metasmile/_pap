@@ -80,7 +80,7 @@ PhotoEditorViewControllerDelegatableApp {
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.resizer"
-        , version: "1.0"
+        , version: "1.0.1"
         , phase: .release
         , appType: ResizerApp.self
             , displayName: "Framer".localized.localizedCapitalized
@@ -266,10 +266,19 @@ class CIResizeFilter: CIFilter {
             }
             
             let inputSize = image.extent.size
-            let outputSize = aspectRatioOption.aspectFitSize(in: inputSize)
-            let outputRect = CGRect(origin: .zero, size: outputSize)
+            var outputSize = aspectRatioOption.aspectFitSize(in: inputSize)
             
             let borderInset = borderWidth * (outputSize.minLength / 4)
+            let maximumBorderInset = borderWidth * (outputSize.maxLength / 4)
+            if aspectRatioOption == .original {
+                if outputSize.height > outputSize.width {
+                    outputSize.height -= (maximumBorderInset - borderInset) * 2
+                }
+                else {
+                    outputSize.width -= (maximumBorderInset - borderInset) * 2
+                }
+            }
+            let outputRect = CGRect(origin: .zero, size: outputSize)
             let aspectFitRect = AVMakeRect(aspectRatio: inputSize, insideRect: outputRect.inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let width = outputSize.width
@@ -363,8 +372,18 @@ class CIResizeFilterItem: CIFilterItem {
         
         if exporting {
             let inputSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
-            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            let borderInset = borderWidth * (outputSize.minLength / 4)
+            let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
+            let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
+            var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
+            if (ciFilter as? CIResizeFilter)?.aspectRatioOption == .original {
+                if outputSize.height > outputSize.width {
+                    outputSize.height -= (maximumBorderInset - borderInset) * 2
+                }
+                else {
+                    outputSize.width -= (maximumBorderInset - borderInset) * 2
+                }
+            }
+            
             let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let outputAspectRatio = outputSize.height / outputSize.width
@@ -392,8 +411,18 @@ class CIResizeFilterItem: CIFilterItem {
         else {
             let inputSize = videoCompositionTrack.naturalSize
             let videoSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
-            let outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
-            let borderInset = borderWidth * (outputSize.minLength / 4)
+            let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
+            let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
+            var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
+            if (ciFilter as? CIResizeFilter)?.aspectRatioOption == .original {
+                if outputSize.height > outputSize.width {
+                    outputSize.height -= (maximumBorderInset - borderInset) * 2
+                }
+                else {
+                    outputSize.width -= (maximumBorderInset - borderInset) * 2
+                }
+            }
+            
             let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
             let outputAspectRatio = outputSize.height / outputSize.width
