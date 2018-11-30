@@ -137,6 +137,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         }else{
             if let r = labelDetector.detectResult(asset: item.asset, async), r.labelTextsConfidenceDescending.count > 0{
                 detectedResult = r
+                //FIXME: BAD_EXEC -> use common queue.
                 preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = detectedResult
             }
         }
@@ -262,6 +263,9 @@ private class IntrinsicTableView: UITableView {
     }
 }
 
+//TODO: hashtag expanding from suggest api
+//TODO: # or commma selection
+//TODO: threshold for confidence
 
 fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, TagListViewDelegate{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
@@ -271,42 +275,48 @@ fileprivate class HashtagenAppDockContent: NSObject, PropertyWatchable, AppDockC
     private var settedLabelResults = [VisionLabelPHAssetDetectResult]()
 
     fileprivate var currentTags:[String]{
-        return self.tagsView.selectedTags().compactMap { $0.titleLabel?.text }.uniq()
+        return self.tagsView.tagViews.compactMap { $0.titleLabel?.text }.uniq()
     }
 
-    fileprivate func setLabelsIfNeeded(_ resultsSetting:[VisionLabelPHAssetDetectResult], remove:Bool=false){
-
-        let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(resultsSetting).subtracting(Set(settedLabelResults)))
-        let shouldRemoveAll = resultsSetting.count == 0 || resultsAdding.count==0 && settedLabelResults.count == 0
+    fileprivate func setLabelsIfNeeded(_ settingResults:[VisionLabelPHAssetDetectResult], remove:Bool=false){
+        let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(settingResults).subtracting(Set(settedLabelResults)))
+        let shouldRemoveAll = settingResults.count == 0 || resultsAdding.count==0 && settedLabelResults.count == 0
 
         if shouldRemoveAll{
-            settedLabelResults = []
+            self.settedLabelResults = []
 
         }else if resultsAdding.count>0, remove == false{
-            settedLabelResults += resultsAdding
+            self.settedLabelResults += resultsAdding
 
-        }else if resultsSetting.count>0, remove{
-            settedLabelResults = Array(Set(settedLabelResults).subtracting(Set(resultsSetting)))
+        }else if settingResults.count>0, remove{
+            self.settedLabelResults = Array(Set(self.settedLabelResults).subtracting(Set(settingResults)))
         }
 
         DispatchQueue.mainAsyncIfNot {
-            self.tagsView.removeAllTags()
 
-            UIView.animate(withDuration: 0.4) {
-                self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
+            let removingTags = Set(settingResults.labelTextsConfidenceDescending).subtracting(Set(self.settedLabelResults.labelTextsConfidenceDescending))
+            let currentTagsSet = Set(self.currentTags)
+            let addingTags = resultsAdding.labelTextsConfidenceDescending.filter{ !currentTagsSet.contains($0) }
 
-//                if shouldRemoveAll{
-//                      self.tagsView.removeAllTags()
-//                }else{
-//                    if remove{
-//                        for l in resultsSetting.labelTextsConfidenceDescending{
-//                            self.tagsView.removeTag(l)
-//                        }
-//                    }else{
-//                        self.tagsView.addTags(resultsAdding.labelTextsConfidenceDescending)
-//                    }
-//
-//                }
+//            self.tagsView.removeAllTags()
+//            for l in self.settedLabelResults.labelTextsConfidenceDescending{
+//                self.tagsView.addTag(l)
+//            }
+
+            UIView.animate(withDuration: 0.3){
+                if shouldRemoveAll{
+                    self.tagsView.removeAllTags()
+
+                }else if remove{
+                    for l in removingTags{
+                        self.tagsView.removeTag(l)
+                    }
+
+                }else{
+                    for l in addingTags{
+                        self.tagsView.addTag(l)
+                    }
+                }
             }
         }
     }
