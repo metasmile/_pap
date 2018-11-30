@@ -185,11 +185,8 @@ class AppUICameraView: UIView {
         rawPhotoButton.contentVerticalAlignment = .fill
         rawPhotoButton.setImage(rawPhotoBadgeIcon, for: .normal)
         rawPhotoButton.addTarget(self, action: #selector(self.toggleRawPhotoEnabled), for: .touchUpInside)
-        
-        if cameraView.isRawPhotoSupported {
-            photoOptionView.addArrangedSubview(rawPhotoButton)
-        }
-        
+        photoOptionView.addArrangedSubview(rawPhotoButton)
+    
         rawPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 1).isActive = true
 
@@ -271,7 +268,7 @@ class AppUICameraView: UIView {
                 self.livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
                 
                 self.rawPhotoButton.setImage(self.rawPhotoBadgeIcon, for: .normal)
-                self.rawPhotoButton.tintColor = self.cameraView.isRawPhotoEnabled ? .white : UIColor(white: 1, alpha: 0.25)
+                self.rawPhotoButton.tintColor = self.cameraView.isRawPhotoEnabled ? self.primaryColor : nil
                 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil

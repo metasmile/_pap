@@ -36,7 +36,6 @@ class CameraView: UIView, PropertyWatchable {
     private lazy var currentPhotoSettings: AVCapturePhotoSettings = {
         let settings = AVCapturePhotoSettings()
         settings.isHighResolutionPhotoEnabled = true
-        settings.flashMode = .off
         return settings
     }()
     private(set) lazy var deviceMotion = UIDeviceMotion()
@@ -93,7 +92,11 @@ class CameraView: UIView, PropertyWatchable {
     
     var capturePreset: AVCaptureSession.Preset = .photo {
         didSet {
-            captureSession?.sessionPreset = capturePreset
+            sessionQueue.async {
+                self.beginConfiguration()
+                self.captureSession?.sessionPreset = self.capturePreset
+                self.commitConfiguration()
+            }
         }
     }
     
@@ -115,20 +118,37 @@ class CameraView: UIView, PropertyWatchable {
             }
         }
     }
+    
+    private func configureCaptureDevice(_ captureDevice: AVCaptureDevice?) {
+        guard let device = captureDevice, let captureSession = captureSession, let videoDeviceInput = try? AVCaptureDeviceInput(device: device) else {
+            return
+        }
+        
+        if let videoDeviceInput = self.currentVideoDeviceInput {
+            captureSession.removeInput(videoDeviceInput)
+        }
+        
+        if captureSession.canAddInput(videoDeviceInput) == true {
+            captureSession.addInput(videoDeviceInput)
+        }
+        else {
+            captureSession.addInput(videoDeviceInput)
+        }
+    }
 
-    private func configureSession() {
+    private func configureSession(with device: AVCaptureDevice? = nil) {
         captureSession = AVCaptureSession()
         
         guard
-            let videoDevice = AVCaptureDevice.default(for: .video),
-            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
-            let captureSession = captureSession,
-            captureSession.canAddInput(videoDeviceInput)
+            let videoDevice = device ?? captureDevice(with: .unspecified),
+            let captureSession = captureSession
         else { return }
 
         beginConfiguration()
+        
+        configureCaptureDevice(videoDevice)
 
-        captureSession.addInput(videoDeviceInput)
+        captureSession.sessionPreset = capturePreset
 
         try? videoDevice.lockForConfiguration()
 
@@ -149,9 +169,10 @@ class CameraView: UIView, PropertyWatchable {
         }
 
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
-
-        captureSession.sessionPreset = capturePreset
-        captureSession.addOutput(capturePhotoOutput)
+        
+        if captureSession.canAddOutput(capturePhotoOutput) {
+            captureSession.addOutput(capturePhotoOutput)
+        }
         
         let captureVideoDataOutput = AVCaptureVideoDataOutput()
         captureVideoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
@@ -246,11 +267,14 @@ class CameraView: UIView, PropertyWatchable {
     }
 
     fileprivate func captureDevice(with position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        if #available(iOS 11.1, *) {
-            return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera, .builtInWideAngleCamera], mediaType: .video, position: .unspecified).devices.first { $0.position == position }
-        } else {
-            return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInWideAngleCamera], mediaType: .video, position: .unspecified).devices.first { $0.position == position }
-        }
+        let deviceTypes: [AVCaptureDevice.DeviceType] = { () -> [AVCaptureDevice.DeviceType] in
+            if #available(iOS 11.1, *) {
+                return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera]
+            } else {
+                return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
+            }
+        }()
+        return AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes, mediaType: .video, position: position).devices.first
     }
 
     fileprivate func currentCaptureDeviceInput(for mediaType: AVMediaType) -> AVCaptureDeviceInput? {
@@ -259,12 +283,16 @@ class CameraView: UIView, PropertyWatchable {
     }
 
     fileprivate var currentVideoDeviceInput:AVCaptureDeviceInput? {
-        return self.currentCaptureDeviceInput(for:.video)
+        return currentCaptureDeviceInput(for:.video)
+    }
+    
+    fileprivate var currentCaptureDevice: AVCaptureDevice? {
+        return currentCaptureDeviceInput(for: .video)?.device
     }
 
     func switchCaptureDevicePosition(animated: Bool = true, completion:((AVCaptureDevice.Position) -> ())?=nil) {
-        guard let currentDevice = self.currentVideoDeviceInput else { return }
-        let position: AVCaptureDevice.Position = currentDevice.device.position == .back ? .front : .back
+        guard let currentDevice = self.currentCaptureDevice else { return }
+        let position: AVCaptureDevice.Position = currentDevice.position == .back ? .front : .back
 
         if animated {
             let switchingView = performSwitchCameraPositionAnimation(to: position)
@@ -285,22 +313,19 @@ class CameraView: UIView, PropertyWatchable {
 
     private func setCaptureDevicePosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
         sessionQueue.async {
-            guard let currentDevice = self.currentVideoDeviceInput else { completion?(); return }
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
 
             self.beginConfiguration()
-            self.captureSession?.removeInput(currentDevice)
-
-            if let newDevice = self.captureDevice(with: position), let deviceInput = try? AVCaptureDeviceInput(device: newDevice), self.captureSession?.canAddInput(deviceInput) == true {
-                self.captureSession?.addInput(deviceInput)
-            }
-            else {
-                self.captureSession?.addInput(currentDevice)
-            }
+            
+            self.configureCaptureDevice(self.captureDevice(with: position))
 
             //INFO: keep live photo settings
             if self.capturePhotoOutput.isLivePhotoCaptureEnabled != isLivePhotoEnabled {
                 self.capturePhotoOutput.isLivePhotoCaptureEnabled = isLivePhotoEnabled
+            }
+            
+            if self.isRawPhotoEnabled, position == .front {
+                self.isRawPhotoEnabled = false
             }
             
             if let connection = self.capturePhotoOutput.connection(with: .video), connection.isVideoMirroringSupported {
@@ -384,7 +409,7 @@ extension CameraView: AVCaptureMetadataOutputObjectsDelegate {
 extension CameraView {
     var cameraPosition: AVCaptureDevice.Position {
         get {
-            return currentCaptureDeviceInput(for: .video)?.device.position ?? .unspecified
+            return currentCaptureDevice?.position ?? .unspecified
         }
         set {
             setCaptureDevicePosition(newValue)
@@ -453,7 +478,6 @@ extension CameraView {
                     self.currentPhotoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
                     
                     // RAW capture is incompatible with digital image stabilization.
-                    self.currentPhotoSettings.isAutoStillImageStabilizationEnabled = false
                     self.capturePhotoOutput.isLivePhotoCaptureEnabled = false
                 }
                 else {
@@ -508,15 +532,13 @@ extension CameraView {
     fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
         beginConfiguration()
         
-        let device = currentCaptureDeviceInput(for: .video)?.device
+        try? currentCaptureDevice?.lockForConfiguration()
         
-        try? device?.lockForConfiguration()
-        
-        if device?.hasTorch == true {
-            device?.torchMode = torchMode
+        if currentCaptureDevice?.hasTorch == true {
+            currentCaptureDevice?.torchMode = torchMode
         }
         
-        device?.unlockForConfiguration()
+        currentCaptureDevice?.unlockForConfiguration()
         
         commitConfiguration()
     }
@@ -524,29 +546,23 @@ extension CameraView {
 
 extension CameraView {
     func changeFocusMode(_ mode: AVCaptureDevice.FocusMode) {
-        guard
-            let captureDevice = captureDevice(with: cameraPosition),
-            let _ = try? captureDevice.lockForConfiguration()
-        else { return }
+        try? currentCaptureDevice?.lockForConfiguration()
         
-        if captureDevice.isFocusModeSupported(mode) {
-            captureDevice.focusMode = mode
+        if currentCaptureDevice?.isFocusModeSupported(mode) == true {
+            currentCaptureDevice?.focusMode = mode
         }
         
-        captureDevice.unlockForConfiguration()
+        currentCaptureDevice?.unlockForConfiguration()
     }
     
     func changeExposureMode(_ mode: AVCaptureDevice.ExposureMode) {
-        guard
-            let captureDevice = captureDevice(with: cameraPosition),
-            let _ = try? captureDevice.lockForConfiguration()
-        else { return }
+        try? currentCaptureDevice?.lockForConfiguration()
         
-        if captureDevice.isExposureModeSupported(mode) {
-            captureDevice.exposureMode = mode
+        if currentCaptureDevice?.isExposureModeSupported(mode) == true {
+            currentCaptureDevice?.exposureMode = mode
         }
         
-        captureDevice.unlockForConfiguration()
+        currentCaptureDevice?.unlockForConfiguration()
     }
 }
 
@@ -573,9 +589,10 @@ extension CameraView {
     
     private func setPointOfInterest(_ pointOfInterest: CGPoint) {
         guard
-            let captureDevice = captureDevice(with: cameraPosition),
-            let _ = try? captureDevice.lockForConfiguration()
+            let captureDevice = currentCaptureDevice
         else { return }
+        
+        try? captureDevice.lockForConfiguration()
         
         if captureDevice.isFocusPointOfInterestSupported {
             captureDevice.focusPointOfInterest = pointOfInterest

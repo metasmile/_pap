@@ -173,7 +173,9 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         else if asset.mediaSubtypes.contains(.photoPanorama){
             iconAsImage = PanoramaIconImage
         }
-
+        else if asset.hasRawImage {
+            iconAsImage = R.image.appUICameraViewRawPhoto()
+        }
 
         cellIconAsImageView.isHidden = iconAsImage == nil
         cellIconAsImageView.image = iconAsImage
