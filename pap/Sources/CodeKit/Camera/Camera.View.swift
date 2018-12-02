@@ -206,6 +206,7 @@ class CameraView: UIView, PropertyWatchable {
         deviceMotion.stopUpdates()
         sessionQueue.async {
             self.captureSession?.stopRunning()
+            self.captureSession = nil
         }
     }
     
@@ -268,9 +269,14 @@ class CameraView: UIView, PropertyWatchable {
 
     fileprivate func captureDevice(with position: AVCaptureDevice.Position) -> AVCaptureDevice? {
         let deviceTypes: [AVCaptureDevice.DeviceType] = { () -> [AVCaptureDevice.DeviceType] in
-            if #available(iOS 11.1, *) {
-                return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera]
-            } else {
+            if position == .front {
+                if #available(iOS 11.1, *) {
+                    return [.builtInTrueDepthCamera, .builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
+                } else {
+                    return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
+                }
+            }
+            else {
                 return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
             }
         }()

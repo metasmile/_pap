@@ -190,6 +190,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         let launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
 
         cameraView?.captureMetadataComment = launchOption?.identifierToReturn
+        cameraView?.capturePreset = .photo
         cameraView?.startSession()
 
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
