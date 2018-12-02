@@ -103,7 +103,7 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
         , PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Flashlight.self
         , PHAssetGarbageDetector_Lockscreens.self
-//        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
+        , PHAssetGarbageDetector_SavedWithBuiltInCamera.self
 //        , PHAssetGarbageDetector_Blurry.self
         , PHAssetGarbageDetector_TooCloseupFace.self
         , PHAssetGarbageDetector_TooSlowShutterSpeed.self

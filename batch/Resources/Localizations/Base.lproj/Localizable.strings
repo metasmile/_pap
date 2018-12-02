@@ -292,7 +292,7 @@
 "Fade" = "Fade";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
-/* Generated from genl10n: Finder.BApp.swift, Hashtagen.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Find" = "Find";
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text.";
@@ -330,6 +330,8 @@
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get All Items" = "Get All Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Get All Text";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
