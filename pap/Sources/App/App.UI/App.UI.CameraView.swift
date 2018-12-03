@@ -41,7 +41,7 @@ class AppUICameraView: UIView {
 
     init(frame: CGRect, options: AppUICameraViewOptions?=nil) {
         super.init(frame: frame)
-        intialize(with: options)
+        initialize(with: options)
     }
 
     override convenience init(frame:CGRect) {
@@ -50,7 +50,7 @@ class AppUICameraView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        intialize()
+        initialize()
     }
 
     private lazy var captureButton = CaptureButton(frame: .zero)
@@ -72,7 +72,7 @@ class AppUICameraView: UIView {
     )
     private lazy var CaptureButtonMinHeightAnchorConstant:CGFloat = self.ControlViewHeightAnchorConstant/1.5 //compact size
 
-    private func intialize(with defaults: AppUICameraViewOptions?=nil) {
+    private func initialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
             self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
             self.cameraView.isRawPhotoEnabled = defaults.isRawPhotoEnabled
