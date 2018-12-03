@@ -185,7 +185,6 @@ class AppUICameraView: UIView {
         rawPhotoButton.contentVerticalAlignment = .fill
         rawPhotoButton.setImage(rawPhotoBadgeIcon, for: .normal)
         rawPhotoButton.addTarget(self, action: #selector(self.toggleRawPhotoEnabled), for: .touchUpInside)
-        photoOptionView.addArrangedSubview(rawPhotoButton)
     
         rawPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 1).isActive = true
@@ -272,6 +271,13 @@ class AppUICameraView: UIView {
                 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
+                
+                if self.cameraView.isRawPhotoSupported, !photoOptionView.arrangedSubviews.contains(self.rawPhotoButton) {
+                    photoOptionView.addArrangedSubview(self.rawPhotoButton)
+                }
+                else if !self.cameraView.isRawPhotoSupported, photoOptionView.arrangedSubviews.contains(self.rawPhotoButton) {
+                    self.rawPhotoButton.removeFromSuperview()
+                }
             }
         }
 
@@ -342,7 +348,6 @@ class AppUICameraView: UIView {
     @objc func toggleLivePhotoEnabled(sender: Any) {
         guard cameraView.isLivePhotoSupported else { return }
         cameraView.isLivePhotoEnabled = !cameraView.isLivePhotoEnabled
-        cameraView.configurationDidUpdate?()
         
         UIFeedback.select()
     }
@@ -350,7 +355,6 @@ class AppUICameraView: UIView {
     @objc func toggleRawPhotoEnabled(sender: Any) {
         guard cameraView.isRawPhotoSupported else { return }
         cameraView.isRawPhotoEnabled = !cameraView.isRawPhotoEnabled
-        cameraView.configurationDidUpdate?()
         
         UIFeedback.select()
     }
