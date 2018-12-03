@@ -74,9 +74,13 @@ class AppUICameraView: UIView {
 
     private func initialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
-            self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
-            self.cameraView.isRawPhotoEnabled = defaults.isRawPhotoEnabled
-            self.cameraView.cameraPosition = defaults.cameraPosition
+            if defaults.isRawPhotoEnabled {
+                self.cameraView.isRawPhotoEnabled = defaults.isRawPhotoEnabled
+            }
+            else {
+                self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
+                self.cameraView.cameraPosition = defaults.cameraPosition
+            }
             self.cameraView.flashMode = defaults.cameraFlashMode
         }
 
@@ -185,6 +189,7 @@ class AppUICameraView: UIView {
         rawPhotoButton.contentVerticalAlignment = .fill
         rawPhotoButton.setImage(rawPhotoBadgeIcon, for: .normal)
         rawPhotoButton.addTarget(self, action: #selector(self.toggleRawPhotoEnabled), for: .touchUpInside)
+        photoOptionView.addArrangedSubview(rawPhotoButton)
     
         rawPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 1).isActive = true
@@ -271,13 +276,6 @@ class AppUICameraView: UIView {
                 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
-                
-                if self.cameraView.isRawPhotoSupported, !photoOptionView.arrangedSubviews.contains(self.rawPhotoButton) {
-                    photoOptionView.addArrangedSubview(self.rawPhotoButton)
-                }
-                else if !self.cameraView.isRawPhotoSupported, photoOptionView.arrangedSubviews.contains(self.rawPhotoButton) {
-                    self.rawPhotoButton.removeFromSuperview()
-                }
             }
         }
 
@@ -353,7 +351,6 @@ class AppUICameraView: UIView {
     }
     
     @objc func toggleRawPhotoEnabled(sender: Any) {
-        guard cameraView.isRawPhotoSupported else { return }
         cameraView.isRawPhotoEnabled = !cameraView.isRawPhotoEnabled
         
         UIFeedback.select()

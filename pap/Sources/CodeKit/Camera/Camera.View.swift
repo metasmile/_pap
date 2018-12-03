@@ -33,11 +33,31 @@ class CameraView: UIView, PropertyWatchable {
         }
     }
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
-    private lazy var currentPhotoSettings: AVCapturePhotoSettings = {
-        let settings = AVCapturePhotoSettings()
-        settings.isHighResolutionPhotoEnabled = true
-        return settings
-    }()
+    private var currentPhotoSettings: AVCapturePhotoSettings {
+        let photoSettings: AVCapturePhotoSettings
+        
+        if let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
+            photoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
+            
+            // RAW capture is incompatible with digital image stabilization.
+            photoSettings.isAutoStillImageStabilizationEnabled = false
+            self.capturePhotoOutput.isLivePhotoCaptureEnabled = false
+        }
+        else if self.capturePhotoOutput.isLivePhotoCaptureEnabled {
+            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
+            photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        }
+        else {
+            photoSettings = AVCapturePhotoSettings()
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        }
+        
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.flashMode = flashMode.flashMode
+        
+        return photoSettings
+    }
     private(set) lazy var deviceMotion = UIDeviceMotion()
 
     var configurationDidUpdate: (() -> Void)?
@@ -45,9 +65,10 @@ class CameraView: UIView, PropertyWatchable {
     var capturedResult:CameraViewCapturedResult?
     var captureMetadataComment:String?
 
-    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file+UUID().uuidString, qos: .utility)
+    private lazy var captureVideoDataQueue = DispatchQueue(label: "com.stells.internal."+#file+UUID().uuidString, qos: .utility)
+    private lazy var metadataObjectQueue = DispatchQueue(label: #file + ".metadataObjectsQueue"+UUID().uuidString, qos: .utility)
     
-    private lazy var captureVideoDataQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
     var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
     private(set) var captureVideoMetadataDidOutput: ((_ metadataObjects: [AVMetadataObject]) -> Void)?
 
@@ -112,7 +133,6 @@ class CameraView: UIView, PropertyWatchable {
     
     var flashMode: FlashMode = .off {
         didSet {
-            photoSettingsFlashMode = flashMode.flashMode
             sessionQueue.async {
                 self.setTorchMode(self.flashMode.torchMode)
             }
@@ -232,26 +252,16 @@ class CameraView: UIView, PropertyWatchable {
                 , deviceOrientation: deviceMotion.orientation
                 , metadataComment: captureMetadataComment
         )
-
-        let photoSettings:AVCapturePhotoSettings
-
-        if self.capturePhotoOutput.availablePhotoCodecTypes.contains(.hevc), capturePhotoOutput.isLivePhotoCaptureEnabled {
-            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
-            photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        
+        if capturePhotoOutput.isLivePhotoCaptureEnabled {
             captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
         }
         else if self.isRawPhotoEnabled {
-            photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
-            photoSettings.isAutoStillImageStabilizationEnabled = false
             captureProcessor = CameraViewRawPhotoCaptureProcessor(param: param)
         }
         else {
-            photoSettings = AVCapturePhotoSettings(from: self.currentPhotoSettings)
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
             captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
         }
-        photoSettings.flashMode = self.photoSettingsFlashMode
 
         capturesInProgress.insert(captureProcessor)
 
@@ -263,24 +273,30 @@ class CameraView: UIView, PropertyWatchable {
         }
 
         sessionQueue.async {
-            self.capturePhotoOutput.capturePhoto(with: photoSettings, delegate: captureProcessor)
+            self.capturePhotoOutput.capturePhoto(with: self.currentPhotoSettings, delegate: captureProcessor)
         }
     }
-
+    
+    fileprivate func captureDeviceForRawPhoto() -> AVCaptureDevice? {
+        return AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+    }
+    
+    fileprivate func captureDeviceForBack() -> AVCaptureDevice? {
+        return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
+    }
+    
+    fileprivate func captureDeviceForFront() -> AVCaptureDevice? {
+        let deviceTypes: [AVCaptureDevice.DeviceType]
+        if #available(iOS 11.1, *) {
+            deviceTypes = [.builtInTrueDepthCamera, .builtInWideAngleCamera]
+        } else {
+            deviceTypes = [.builtInWideAngleCamera]
+        }
+        return AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes, mediaType: .video, position: .front).devices.first
+    }
+    
     fileprivate func captureDevice(with position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let deviceTypes: [AVCaptureDevice.DeviceType] = { () -> [AVCaptureDevice.DeviceType] in
-            if position == .front {
-                if #available(iOS 11.1, *) {
-                    return [.builtInTrueDepthCamera, .builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
-                } else {
-                    return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
-                }
-            }
-            else {
-                return [.builtInWideAngleCamera, .builtInDualCamera, .builtInTelephotoCamera]
-            }
-        }()
-        return AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes, mediaType: .video, position: position).devices.first
+        return position == .front ? captureDeviceForFront() : captureDeviceForBack()
     }
 
     fileprivate func currentCaptureDeviceInput(for mediaType: AVMediaType) -> AVCaptureDeviceInput? {
@@ -394,7 +410,7 @@ extension CameraView: AVCaptureMetadataOutputObjectsDelegate {
             self.beginConfiguration()
             
             let metadataOutput = AVCaptureMetadataOutput()
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue(label: #file + ".metadataObjectsQueue", qos: .utility))
+            metadataOutput.setMetadataObjectsDelegate(self, queue: self.metadataObjectQueue)
             
             if captureSession.canAddOutput(metadataOutput) {
                 captureSession.addOutput(metadataOutput)
@@ -454,14 +470,15 @@ extension CameraView {
     var isLivePhotoEnabled: Bool {
         set {
             sessionQueue.async {
-                let flashMode = self.photoSettingsFlashMode
-                if self.isRawPhotoEnabled && newValue {
-                    self.currentPhotoSettings = AVCapturePhotoSettings()
-                    self.currentPhotoSettings.isHighResolutionPhotoEnabled = true
+                self.beginConfiguration()
+                
+                if self.isRawPhotoEnabled {
+                    self.configureCaptureDevice(self.captureDeviceForBack())
                 }
+                
                 self.capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
-                self.currentPhotoSettings.flashMode = flashMode
-                self.configurationDidUpdate?()
+                
+                self.commitConfiguration()
             }
         }
         
@@ -479,19 +496,17 @@ extension CameraView {
     var isRawPhotoEnabled: Bool {
         set {
             sessionQueue.async {
-                let flashMode = self.photoSettingsFlashMode
-                if newValue, let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
-                    self.currentPhotoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
-                    
-                    // RAW capture is incompatible with digital image stabilization.
+                self.beginConfiguration()
+                
+                if newValue {
+                    self.configureCaptureDevice(self.captureDeviceForRawPhoto())
                     self.capturePhotoOutput.isLivePhotoCaptureEnabled = false
                 }
                 else {
-                    self.currentPhotoSettings = AVCapturePhotoSettings()
+                    self.configureCaptureDevice(self.captureDeviceForBack())
                 }
-                self.currentPhotoSettings.isHighResolutionPhotoEnabled = true
-                self.currentPhotoSettings.flashMode = flashMode
-                self.configurationDidUpdate?()
+                
+                self.commitConfiguration()
             }
         }
         
@@ -522,16 +537,6 @@ extension CameraView {
             case .torch: return .on
             default: return .off
             }
-        }
-    }
-
-    var photoSettingsFlashMode: AVCaptureDevice.FlashMode {
-        set {
-            self.currentPhotoSettings.flashMode = newValue
-            self.configurationDidUpdate?()
-        }
-        get {
-            return currentPhotoSettings.flashMode
         }
     }
     
