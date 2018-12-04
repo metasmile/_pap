@@ -84,6 +84,14 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             , property: ImageMetadata.Property.ExifUserComment
             , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
         )
+        // https://forums.developer.apple.com/thread/87700
+        if photo.isDepthPhoto {
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.Exif
+                , property: ImageMetadata.Property.ExifCustomRendered
+                , value: NSNumber(value: 8)
+            )
+        }
         
         if #available(iOS 12.0, *) {
             class CustomReplacementation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
@@ -114,6 +122,14 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                         , property: ImageMetadata.Property.ExifUserComment
                         , value: [processor.param.metadataComment ?? "", type(of: processor).ExifUserCommentIdentifier].joined(separator: type(of: processor).ExifUserCommentSeparator).trimmed
                     )
+                    // https://forums.developer.apple.com/thread/87700
+                    if photo.isDepthPhoto {
+                        metadata = metadata.updateMetadata(
+                            dictionary: ImageMetadata.Dictionary.Exif
+                            , property: ImageMetadata.Property.ExifCustomRendered
+                            , value: 8
+                        )
+                    }
                     return metadata
                 }
                 
