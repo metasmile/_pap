@@ -47,6 +47,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
     var completionHandler:CaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
+    private lazy var ciContext = CIContext()
 
     let param: CaptureProcessorParam
 
@@ -73,10 +74,40 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
         )
         
-        return photo.fileDataRepresentation(withReplacementMetadata: metadata
-            , replacementEmbeddedThumbnailPhotoFormat: nil
-            , replacementEmbeddedThumbnailPixelBuffer: nil
-            , replacementDepthData: nil)
+        class CustomReplacementation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
+            private var _photo: AVCapturePhoto
+            private var _metadata: [String : Any] = [:]
+            
+            init(_ photo: AVCapturePhoto, metadata: [String : Any]) {
+                self._photo = photo
+                self._metadata = metadata
+                
+                super.init()
+            }
+            
+            func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
+                return _photo.depthData
+            }
+            
+            func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
+                return _metadata
+            }
+            
+            @available(iOS 12.0, *)
+            func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
+                return _photo.portraitEffectsMatte
+            }
+        }
+        
+        if #available(iOS 12.0, *) {
+            return photo.fileDataRepresentation(with: CustomReplacementation(photo, metadata: metadata))
+        }
+        else {
+            return photo.fileDataRepresentation(withReplacementMetadata: metadata
+                , replacementEmbeddedThumbnailPhotoFormat: nil
+                , replacementEmbeddedThumbnailPixelBuffer: nil
+                , replacementDepthData: photo.depthData)
+        }
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
@@ -99,6 +130,24 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         }
         return nil
     }
+    
+    final func portraitEffectMattePhoto(_ photo: AVCapturePhoto) -> Data? {
+        if #available(iOS 12.0, *) {
+            guard var portraitEffectsMatte = photo.portraitEffectsMatte else { return nil }
+            
+            if let orientation = photo.metadata[ String(kCGImagePropertyOrientation) ] as? UInt32 {
+                portraitEffectsMatte = portraitEffectsMatte.applyingExifOrientation( CGImagePropertyOrientation(rawValue: orientation)! )
+            }
+            let portraitEffectsMattePixelBuffer = portraitEffectsMatte.mattingImage
+            let portraitEffectsMatteImage = CIImage( cvImageBuffer: portraitEffectsMattePixelBuffer, options: [ .auxiliaryPortraitEffectsMatte: true ] )
+            guard let linearColorSpace = CGColorSpace(name: CGColorSpace.linearSRGB) else { return nil }
+            
+            return ciContext.heifRepresentation(of: portraitEffectsMatteImage, format: .RGBA8, colorSpace: linearColorSpace, options: [ CIImageRepresentationOption.portraitEffectsMatteImage: portraitEffectsMatteImage ] )
+        }
+        else {
+            return nil
+        }
+    }
 }
 
 final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
@@ -106,13 +155,21 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
         guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
             return
         }
+        
+        let portraitMatteData = self.portraitEffectMattePhoto(photo)
 
         captureQueue.async {
             let signal = AsyncSignal()
 
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                creationRequest.addResource(with: .photo, fileURL: url, options: nil)
+                
+                if let portraitMatteData = portraitMatteData {
+                    let creationRequest = PHAssetCreationRequest.forAsset()
+                    creationRequest.addResource(with: .photo, data: portraitMatteData, options: nil)
+                }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:url
@@ -126,6 +183,7 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
 
 final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
     private var photoURL: URL?
+    private var portraitEffectMattePhoto: Data?
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         captureQueue.async {
@@ -133,6 +191,13 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 return
             }
             self.photoURL = url
+            self.portraitEffectMattePhoto = self.portraitEffectMattePhoto(photo)
+            
+            if #available(iOS 12.0, *) {
+                print(#function, photo.depthData, photo.portraitEffectsMatte)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 
@@ -150,6 +215,11 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
+                
+                if let portraitMatteData = self.portraitEffectMattePhoto {
+                    let creationRequest = PHAssetCreationRequest.forAsset()
+                    creationRequest.addResource(with: .photo, data: portraitMatteData, options: nil)
+                }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:photoURL

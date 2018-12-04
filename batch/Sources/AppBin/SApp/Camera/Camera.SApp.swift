@@ -28,6 +28,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
+    
+    var isDepthPhotoEnabled: Bool {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: false) }
+    }
 
     var cameraPosition: AVCaptureDevice.Position {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }

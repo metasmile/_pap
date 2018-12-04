@@ -13,6 +13,7 @@ import PropertyKit
 protocol AppUICameraViewOptions {
     var isLivePhotoEnabled: Bool { get set }
     var isRawPhotoEnabled: Bool { get set }
+    var isDepthPhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
     var cameraFlashMode: CameraView.FlashMode { get set }
 }
@@ -58,8 +59,10 @@ class AppUICameraView: UIView {
     private lazy var cameraFlashButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
     private lazy var optionBackgroundView = UIView(frame: .zero)
+    private lazy var photoOptionView = UIStackView(frame: .zero)
     private lazy var livePhotoButton = UIButton(type: .system)
     private lazy var rawPhotoButton = UIButton(type: .system)
+    private lazy var depthPhotoButton = UIButton(type: .system)
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
     private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
@@ -80,6 +83,7 @@ class AppUICameraView: UIView {
             else {
                 self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
                 self.cameraView.cameraPosition = defaults.cameraPosition
+                self.cameraView.isDepthPhotoEnabled = defaults.isDepthPhotoEnabled
             }
             self.cameraView.flashMode = defaults.cameraFlashMode
         }
@@ -160,17 +164,26 @@ class AppUICameraView: UIView {
         optionViewHeightLayout = optionView.heightAnchor.constraint(equalToConstant: 0)
         optionViewHeightLayout?.isActive = true
         
-        let photoOptionView = UIStackView(frame: .zero)
         photoOptionView.axis = .horizontal
         photoOptionView.alignment = UIStackView.Alignment.fill
         photoOptionView.distribution = .fill
-        photoOptionView.spacing = 2
         addSubview(photoOptionView)
         
         photoOptionView.translatesAutoresizingMaskIntoConstraints = false
         photoOptionView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor).isActive = true
         photoOptionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         photoOptionView.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        
+        depthPhotoButton.imageEdgeInsets = buttonImageInsets
+        depthPhotoButton.imageView?.contentMode = .scaleAspectFit
+        depthPhotoButton.contentHorizontalAlignment = .fill
+        depthPhotoButton.contentVerticalAlignment = .fill
+        depthPhotoButton.setImage(depthPhotoBadgeIcon, for: .normal)
+        depthPhotoButton.addTarget(self, action: #selector(self.toggleDepthPhotoEnabled), for: .touchUpInside)
+        photoOptionView.addArrangedSubview(depthPhotoButton)
+        
+        depthPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        depthPhotoButton.widthAnchor.constraint(equalTo: depthPhotoButton.heightAnchor, multiplier: 1).isActive = true
 
         livePhotoButton.imageEdgeInsets = buttonImageInsets
         livePhotoButton.imageView?.contentMode = .scaleAspectFit
@@ -266,6 +279,7 @@ class AppUICameraView: UIView {
             defaults?.isRawPhotoEnabled = self.cameraView.isRawPhotoEnabled
             defaults?.cameraPosition = self.cameraView.cameraPosition
             defaults?.cameraFlashMode = self.cameraView.flashMode
+            defaults?.isDepthPhotoEnabled = self.cameraView.isDepthPhotoEnabled
 
             DispatchQueue.mainAsyncIfNot {
                 self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
@@ -273,6 +287,9 @@ class AppUICameraView: UIView {
                 
                 self.rawPhotoButton.setImage(self.rawPhotoBadgeIcon, for: .normal)
                 self.rawPhotoButton.tintColor = self.cameraView.isRawPhotoEnabled ? self.primaryColor : nil
+                
+                self.depthPhotoButton.setImage(self.depthPhotoBadgeIcon, for: .normal)
+                self.depthPhotoButton.tintColor = self.cameraView.isDepthPhotoEnabled ? self.primaryColor : nil
                 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
@@ -296,6 +313,10 @@ class AppUICameraView: UIView {
     }
     
     private var rawPhotoBadgeIcon: UIImage {
+        return (R.image.appUICameraViewRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
+    
+    private var depthPhotoBadgeIcon: UIImage {
         return (R.image.appUICameraViewRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
     }
 
@@ -355,6 +376,12 @@ class AppUICameraView: UIView {
         
         UIFeedback.select()
     }
+    
+    @objc func toggleDepthPhotoEnabled(sender: Any) {
+        cameraView.isDepthPhotoEnabled = !cameraView.isDepthPhotoEnabled
+        
+        UIFeedback.select()
+    }
 
     var hasZeroOptionViewMargin:Bool{
         layoutIfNeeded()
@@ -366,10 +393,12 @@ class AppUICameraView: UIView {
             if isCompactMode {
                 optionViewHeightLayout?.constant = 0
                 controlViewHeightLayout?.constant = 0
+                photoOptionView.spacing = -2
             }
             else {
                 controlViewHeightLayout?.constant = ControlViewHeightAnchorConstant
                 optionViewHeightLayout?.constant = self.hasZeroOptionViewMargin ? 0 : OptionViewHeightAnchorConstant
+                photoOptionView.spacing = 2
             }
 
             let compactControlViewLayoutRequired = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
