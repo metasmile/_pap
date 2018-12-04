@@ -36,6 +36,18 @@ struct CaptureProcessorParam {
     var metadataComment:String?
 }
 
+extension AVCapturePhoto {
+    var isDepthPhoto: Bool {
+        if let _ = depthData {
+            return true
+        }
+        else if #available(iOS 12.0, *), let _ = portraitEffectsMatte {
+            return true
+        }
+        return false
+    }
+}
+
 class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
     static var ExifUserCommentIdentifier:String{
@@ -47,7 +59,6 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
     var completionHandler:CaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
-    private lazy var ciContext = CIContext()
 
     let param: CaptureProcessorParam
 
@@ -74,33 +85,44 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
         )
         
-        class CustomReplacementation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
-            private var _photo: AVCapturePhoto
-            private var _metadata: [String : Any] = [:]
-            
-            init(_ photo: AVCapturePhoto, metadata: [String : Any]) {
-                self._photo = photo
-                self._metadata = metadata
-                
-                super.init()
-            }
-            
-            func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
-                return _photo.depthData
-            }
-            
-            func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
-                return _metadata
-            }
-            
-            @available(iOS 12.0, *)
-            func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
-                return _photo.portraitEffectsMatte
-            }
-        }
-        
         if #available(iOS 12.0, *) {
-            return photo.fileDataRepresentation(with: CustomReplacementation(photo, metadata: metadata))
+            class CustomReplacementation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
+                private var processor: CaptureProcessor
+                
+                init(_ processor: CaptureProcessor) {
+                    self.processor = processor
+                    
+                    super.init()
+                }
+                
+                func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
+                    return photo.depthData
+                }
+                
+                func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
+                    var metadata = photo.metadata
+                    //TODO: should add CLLocation but currently hold on
+                    if let displayName = Bundle.main.displayName {
+                        metadata = metadata.updateMetadata(
+                            dictionary: ImageMetadata.Dictionary.TIFF
+                            , property: ImageMetadata.Property.TIFFSoftware
+                            , value: "\(displayName) \(Bundle.main.shortVersionString ?? "") (\(Bundle.main.version ?? ""))"
+                        )
+                    }
+                    metadata = metadata.updateMetadata(
+                        dictionary: ImageMetadata.Dictionary.Exif
+                        , property: ImageMetadata.Property.ExifUserComment
+                        , value: [processor.param.metadataComment ?? "", type(of: processor).ExifUserCommentIdentifier].joined(separator: type(of: processor).ExifUserCommentSeparator).trimmed
+                    )
+                    return metadata
+                }
+                
+                func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
+                    return photo.portraitEffectsMatte
+                }
+            }
+            
+            return photo.fileDataRepresentation(with: CustomReplacementation(self))
         }
         else {
             return photo.fileDataRepresentation(withReplacementMetadata: metadata
@@ -122,9 +144,27 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
             }
             else if let ciImage = data.asCIImage {
-                let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-                if ciImage.writeJPEGRepresentationOriginally(to: url) {
-                    return url
+                if photo.isDepthPhoto {
+                    let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
+                    var options = [CIImageRepresentationOption: Any]()
+                    options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
+                    
+                    if let depthData = photo.depthData {
+                        options[CIImageRepresentationOption.avDepthData] = depthData
+                    }
+                    if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
+                        options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
+                    }
+                    
+                    if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
+                        return url
+                    }
+                }
+                else {
+                    let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                    if ciImage.writeJPEGRepresentationOriginally(to: url) {
+                        return url
+                    }
                 }
             }
         }
@@ -142,7 +182,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             let portraitEffectsMatteImage = CIImage( cvImageBuffer: portraitEffectsMattePixelBuffer, options: [ .auxiliaryPortraitEffectsMatte: true ] )
             guard let linearColorSpace = CGColorSpace(name: CGColorSpace.linearSRGB) else { return nil }
             
-            return ciContext.heifRepresentation(of: portraitEffectsMatteImage, format: .RGBA8, colorSpace: linearColorSpace, options: [ CIImageRepresentationOption.portraitEffectsMatteImage: portraitEffectsMatteImage ] )
+            return CIContext().heifRepresentation(of: portraitEffectsMatteImage, format: .RGBA8, colorSpace: linearColorSpace, options: [ CIImageRepresentationOption.portraitEffectsMatteImage: portraitEffectsMatteImage ] )
         }
         else {
             return nil
@@ -155,8 +195,6 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
         guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
             return
         }
-        
-        let portraitMatteData = self.portraitEffectMattePhoto(photo)
 
         captureQueue.async {
             let signal = AsyncSignal()
@@ -165,11 +203,6 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
             PHPhotoLibrary.shared().performChanges({
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: url, options: nil)
-                
-                if let portraitMatteData = portraitMatteData {
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, data: portraitMatteData, options: nil)
-                }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:url
@@ -183,7 +216,6 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
 
 final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
     private var photoURL: URL?
-    private var portraitEffectMattePhoto: Data?
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         captureQueue.async {
@@ -191,13 +223,6 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 return
             }
             self.photoURL = url
-            self.portraitEffectMattePhoto = self.portraitEffectMattePhoto(photo)
-            
-            if #available(iOS 12.0, *) {
-                print(#function, photo.depthData, photo.portraitEffectsMatte)
-            } else {
-                // Fallback on earlier versions
-            }
         }
     }
 
@@ -213,12 +238,16 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 options.shouldMoveFile = true
 
                 let creationRequest = PHAssetCreationRequest.forAsset()
-                creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
+                creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
                 
-                if let portraitMatteData = self.portraitEffectMattePhoto {
+                if output.isDepthDataDeliveryEnabled {
                     let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, data: portraitMatteData, options: nil)
+                    creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
+                }
+                else if #available(iOS 12.0, *), output.isPortraitEffectsMatteDeliveryEnabled {
+                    let creationRequest = PHAssetCreationRequest.forAsset()
+                    creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
                 }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
