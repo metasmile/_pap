@@ -66,7 +66,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         self.param = param
     }
     
-    private final func exportDataOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> Data? {
+    static func metadata(of photo: AVCapturePhoto, with processor: CaptureProcessor) -> [String: Any] {
         /*
          Metadata Config
          */
@@ -82,19 +82,22 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         metadata = metadata.updateMetadata(
             dictionary: ImageMetadata.Dictionary.Exif
             , property: ImageMetadata.Property.ExifUserComment
-            , value: [param.metadataComment ?? "", type(of: self).ExifUserCommentIdentifier].joined(separator: type(of: self).ExifUserCommentSeparator).trimmed
+            , value: [processor.param.metadataComment ?? "", type(of: processor).ExifUserCommentIdentifier].joined(separator: type(of: processor).ExifUserCommentSeparator).trimmed
         )
         // https://forums.developer.apple.com/thread/87700
         if photo.isDepthPhoto {
             metadata = metadata.updateMetadata(
                 dictionary: ImageMetadata.Dictionary.Exif
                 , property: ImageMetadata.Property.ExifCustomRendered
-                , value: NSNumber(value: 8)
+                , value: 8
             )
         }
-        
+        return metadata
+    }
+    
+    private final func exportDataOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> Data? {
         if #available(iOS 12.0, *) {
-            class CustomReplacementation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
+            class CaptureProcessorFileDataRepresentation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
                 private var processor: CaptureProcessor
                 
                 init(_ processor: CaptureProcessor) {
@@ -108,40 +111,17 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
-                    var metadata = photo.metadata
-                    //TODO: should add CLLocation but currently hold on
-                    if let displayName = Bundle.main.displayName {
-                        metadata = metadata.updateMetadata(
-                            dictionary: ImageMetadata.Dictionary.TIFF
-                            , property: ImageMetadata.Property.TIFFSoftware
-                            , value: "\(displayName) \(Bundle.main.shortVersionString ?? "") (\(Bundle.main.version ?? ""))"
-                        )
-                    }
-                    metadata = metadata.updateMetadata(
-                        dictionary: ImageMetadata.Dictionary.Exif
-                        , property: ImageMetadata.Property.ExifUserComment
-                        , value: [processor.param.metadataComment ?? "", type(of: processor).ExifUserCommentIdentifier].joined(separator: type(of: processor).ExifUserCommentSeparator).trimmed
-                    )
-                    // https://forums.developer.apple.com/thread/87700
-                    if photo.isDepthPhoto {
-                        metadata = metadata.updateMetadata(
-                            dictionary: ImageMetadata.Dictionary.Exif
-                            , property: ImageMetadata.Property.ExifCustomRendered
-                            , value: 8
-                        )
-                    }
-                    return metadata
+                    return CaptureProcessor.metadata(of: photo, with: processor)
                 }
                 
                 func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
                     return photo.portraitEffectsMatte
                 }
             }
-            
-            return photo.fileDataRepresentation(with: CustomReplacementation(self))
+            return photo.fileDataRepresentation(with: CaptureProcessorFileDataRepresentation(self))
         }
         else {
-            return photo.fileDataRepresentation(withReplacementMetadata: metadata
+            return photo.fileDataRepresentation(withReplacementMetadata: CaptureProcessor.metadata(of: photo, with: self)
                 , replacementEmbeddedThumbnailPhotoFormat: nil
                 , replacementEmbeddedThumbnailPixelBuffer: nil
                 , replacementDepthData: photo.depthData)
