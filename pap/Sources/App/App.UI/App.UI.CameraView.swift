@@ -183,7 +183,7 @@ class AppUICameraView: UIView {
         photoOptionView.addArrangedSubview(depthPhotoButton)
         
         depthPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
-        depthPhotoButton.widthAnchor.constraint(equalTo: depthPhotoButton.heightAnchor, multiplier: 1).isActive = true
+        depthPhotoButton.widthAnchor.constraint(equalTo: depthPhotoButton.heightAnchor, multiplier: 0.75).isActive = true
 
         livePhotoButton.imageEdgeInsets = buttonImageInsets
         livePhotoButton.imageView?.contentMode = .scaleAspectFit
@@ -205,7 +205,7 @@ class AppUICameraView: UIView {
         photoOptionView.addArrangedSubview(rawPhotoButton)
     
         rawPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
-        rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 1).isActive = true
+        rawPhotoButton.widthAnchor.constraint(equalTo: rawPhotoButton.heightAnchor, multiplier: 0.75).isActive = true
 
         let controlView = UIView(frame: .zero)
         controlView.clipsToBounds = true
@@ -317,7 +317,7 @@ class AppUICameraView: UIView {
     }
     
     private var depthPhotoBadgeIcon: UIImage {
-        return (R.image.appUICameraViewRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+        return (R.image.cell_icon_depth() ?? UIImage()).withRenderingMode(.alwaysTemplate)
     }
 
     private var flashModeIcon: UIImage{
@@ -393,7 +393,7 @@ class AppUICameraView: UIView {
             if isCompactMode {
                 optionViewHeightLayout?.constant = 0
                 controlViewHeightLayout?.constant = 0
-                photoOptionView.spacing = -2
+                photoOptionView.spacing = 0
             }
             else {
                 controlViewHeightLayout?.constant = ControlViewHeightAnchorConstant
