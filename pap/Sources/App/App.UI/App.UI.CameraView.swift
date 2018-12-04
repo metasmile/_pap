@@ -102,6 +102,7 @@ class AppUICameraView: UIView {
                     UIView.animate(withDuration: 0.3, delay: 0, options: .beginFromCurrentState, animations: { () -> () in
                         self.livePhotoButton.transform = newTransform
                         self.rawPhotoButton.transform = newTransform
+                        self.depthPhotoButton.transform = newTransform
                         self.cameraFlashButton.transform = newTransform
                         self.cameraPositionButton.transform = newTransform
                      }, completion: nil)

@@ -150,7 +150,7 @@ class CameraView: UIView, PropertyWatchable {
     }
     
     private func configureCaptureDevice(_ captureDevice: AVCaptureDevice?) {
-        guard let captureDevice = captureDevice, let captureSession = captureSession, let captureDeviceInput = try? AVCaptureDeviceInput(device: captureDevice) else {
+        guard let captureDevice = captureDevice, let captureSession = captureSession, let captureDeviceInput = try? AVCaptureDeviceInput(device: captureDevice), currentCaptureDevice != captureDevice else {
             return
         }
         
@@ -162,7 +162,7 @@ class CameraView: UIView, PropertyWatchable {
             if captureSession.canAddInput(captureDeviceInput) {
                 captureSession.addInput(captureDeviceInput)
             }
-            else {
+            else if captureSession.canAddInput(currentCaptureDeviceInput) {
                 captureSession.addInput(currentCaptureDeviceInput)
             }
         }
