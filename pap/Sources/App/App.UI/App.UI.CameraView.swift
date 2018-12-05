@@ -77,15 +77,11 @@ class AppUICameraView: UIView {
 
     private func initialize(with defaults: AppUICameraViewOptions?=nil) {
         if let defaults = defaults{
-            if defaults.isRawPhotoEnabled {
-                self.cameraView.isRawPhotoEnabled = defaults.isRawPhotoEnabled
-            }
-            else {
-                self.cameraView.isLivePhotoEnabled = defaults.isLivePhotoEnabled
-                self.cameraView.cameraPosition = defaults.cameraPosition
-                self.cameraView.isDepthPhotoEnabled = defaults.isDepthPhotoEnabled
-            }
-            self.cameraView.flashMode = defaults.cameraFlashMode
+            self.cameraView.preferredRawPhotoEnabled = defaults.isRawPhotoEnabled
+            self.cameraView.preferredLivePhotoEnabled = defaults.isLivePhotoEnabled
+            self.cameraView.preferredDepthPhotoEnabled = defaults.isDepthPhotoEnabled
+            self.cameraView.preferredCameraPosition = defaults.cameraPosition
+            self.cameraView.preferredFlashMode = defaults.cameraFlashMode
         }
 
         cameraView.deviceMotion.watch(\.orientation){

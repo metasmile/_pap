@@ -32,41 +32,16 @@ class CameraView: UIView, PropertyWatchable {
             return cameraPreviewView.session
         }
     }
-    fileprivate var preferredRawPhotoEnabled: Bool = false
-    fileprivate var preferredDepthPhotoEnabled: Bool = false
+    
+    var preferredRawPhotoEnabled: Bool = false
+    var preferredDepthPhotoEnabled: Bool = false
+    var preferredLivePhotoEnabled: Bool = false
+    var preferredCameraPosition: AVCaptureDevice.Position = .back
+    var preferredFlashMode: FlashMode = .off
     
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var captureMovieOutput = AVCaptureMovieFileOutput()
     
-    private var currentPhotoSettings: AVCapturePhotoSettings {
-        let photoSettings: AVCapturePhotoSettings
-        
-        if self.capturePhotoOutput.isLivePhotoCaptureEnabled {
-            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
-            photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
-        }
-        else if preferredRawPhotoEnabled, let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
-            photoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
-            
-            // RAW capture is incompatible with digital image stabilization.
-            photoSettings.isAutoStillImageStabilizationEnabled = false
-        }
-        else {
-            photoSettings = AVCapturePhotoSettings()
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
-        }
-        
-        photoSettings.isHighResolutionPhotoEnabled = capturePhotoOutput.isHighResolutionCaptureEnabled
-        photoSettings.flashMode = flashMode.flashMode
-        
-        photoSettings.isDepthDataDeliveryEnabled = capturePhotoOutput.isDepthDataDeliveryEnabled
-        if #available(iOS 12.0, *) {
-            photoSettings.isPortraitEffectsMatteDeliveryEnabled = capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled
-        }
-        
-        return photoSettings
-    }
     private(set) lazy var deviceMotion = UIDeviceMotion()
 
     var configurationDidUpdate: (() -> Void)?
@@ -103,24 +78,6 @@ class CameraView: UIView, PropertyWatchable {
         cameraPreviewView.previewLayer.backgroundColor = UIColor.green.cgColor
 #endif
     }
-
-    func setUp() {
-        guard captureSession == nil else { return }
-        
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized: break
-        case .notDetermined:
-            sessionQueue.suspend()
-            AVCaptureDevice.requestAccess(for: .video) { (granted) in
-                self.sessionQueue.resume()
-            }
-        default: break
-        }
-
-        sessionQueue.async {
-            self.configureSession()
-        }
-    }
     
     var capturePreset: AVCaptureSession.Preset = .photo {
         didSet {
@@ -149,9 +106,67 @@ class CameraView: UIView, PropertyWatchable {
             }
         }
     }
+
+    func startSession(completion:(() -> Void)?=nil) {
+        deviceMotion.startUpdates(interval: 0.6)
+        sessionQueue.async {
+            if self.captureSession == nil {
+                self.configureSession()
+            }
+            self.captureSession?.startRunning()
+            self.setTorchMode(self.flashMode.torchMode)
+
+            completion?()
+        }
+    }
+
+    func stopSession() {
+        deviceMotion.stopUpdates()
+        sessionQueue.async {
+            self.captureSession?.stopRunning()
+            self.captureSession = nil
+        }
+    }
+    
+    var capturesInProgress = Set<CaptureProcessor>()
+
+    override var contentMode: UIView.ContentMode {
+        didSet {
+            cameraPreviewView.contentMode = contentMode
+        }
+    }
+}
+
+extension CameraView {
+    func beginConfiguration() {
+        captureSession?.beginConfiguration()
+    }
+    
+    func commitConfiguration() {
+        captureSession?.commitConfiguration()
+        configurationDidUpdate?()
+    }
+    
+    func setUp() {
+        guard captureSession == nil else { return }
+        
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized: break
+        case .notDetermined:
+            sessionQueue.suspend()
+            AVCaptureDevice.requestAccess(for: .video) { (granted) in
+                self.sessionQueue.resume()
+            }
+        default: break
+        }
+        
+        sessionQueue.async {
+            self.configureSession()
+        }
+    }
     
     private func configureCaptureDevice(_ captureDevice: AVCaptureDevice?) {
-        guard let captureDevice = captureDevice, let captureSession = captureSession, let captureDeviceInput = try? AVCaptureDeviceInput(device: captureDevice), currentCaptureDevice != captureDevice else {
+        guard let captureDevice = captureDevice, let captureSession = captureSession, let captureDeviceInput = try? AVCaptureDeviceInput(device: captureDevice) else {
             return
         }
         
@@ -175,127 +190,74 @@ class CameraView: UIView, PropertyWatchable {
         
         configureDepthPhotoEnabled(isDepthPhotoEnabled)
         
-//        if let depthFormat = captureDevice.activeFormat.supportedDepthDataFormats.first(where: { format in
-//            let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
-//            return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
-//                pixelFormatType == kCVPixelFormatType_DepthFloat32)
-//        }) {
-//            // Set the capture device to use that depth format.
-//            captureDevice.activeDepthDataFormat = depthFormat
-//        }
+        //        if let depthFormat = captureDevice.activeFormat.supportedDepthDataFormats.first(where: { format in
+        //            let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
+        //            return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
+        //                pixelFormatType == kCVPixelFormatType_DepthFloat32)
+        //        }) {
+        //            // Set the capture device to use that depth format.
+        //            captureDevice.activeDepthDataFormat = depthFormat
+        //        }
         
         captureDevice.unlockForConfiguration()
     }
-
+    
     private func configureSession(with device: AVCaptureDevice? = nil) {
         captureSession = AVCaptureSession()
         
         guard
-            let videoDevice = device ?? captureDevice(with: .unspecified),
+            let videoDevice = device ?? preferredCaptureDevice(),
             let captureSession = captureSession
-        else { return }
-
+            else { return }
+        
         beginConfiguration()
         
         configureCaptureDevice(videoDevice)
-
+        
         captureSession.sessionPreset = capturePreset
-
+        
         try? videoDevice.lockForConfiguration()
-
+        
         if videoDevice.isFocusModeSupported(.continuousAutoFocus) {
             videoDevice.focusMode = .continuousAutoFocus
         }
-
+        
         if videoDevice.isExposureModeSupported(.continuousAutoExposure) {
             videoDevice.exposureMode = .continuousAutoExposure
         }
-
+        
         videoDevice.unlockForConfiguration()
-
+        
         if let audioDevice = AVCaptureDevice.default(for: .audio),
-           let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
-           captureSession.canAddInput(audioDeviceInput) {
+            let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
+            captureSession.canAddInput(audioDeviceInput) {
             captureSession.addInput(audioDeviceInput)
         }
-
+        
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         
         if captureSession.canAddOutput(capturePhotoOutput) {
             captureSession.addOutput(capturePhotoOutput)
         }
-
+        
+        configureDepthPhotoEnabled(preferredDepthPhotoEnabled)
+        configureLivePhotoEnabled(preferredLivePhotoEnabled)
+        flashMode = preferredFlashMode
+        
         commitConfiguration()
-
+        
         cameraPreviewView.setSession(captureSession)
         updateVideoOrientation()
     }
+}
 
-    func startSession(completion:(() -> Void)?=nil) {
-        deviceMotion.startUpdates(interval: 0.6)
-        sessionQueue.async {
-            if self.captureSession == nil {
-                self.configureSession()
-            }
-            self.captureSession?.startRunning()
-            self.setTorchMode(self.flashMode.torchMode)
-
-            completion?()
-        }
-    }
-
-    func stopSession() {
-        deviceMotion.stopUpdates()
-        sessionQueue.async {
-            self.captureSession?.stopRunning()
-            self.captureSession = nil
-        }
-    }
-    
-    func beginConfiguration() {
-        captureSession?.beginConfiguration()
-    }
-
-    func commitConfiguration() {
-        captureSession?.commitConfiguration()
-        configurationDidUpdate?()
-    }
-
-    var capturesInProgress = Set<CaptureProcessor>()
-
-    func takePhoto(completion:CaptureProcessorCompletionHandler?=nil) {
-        guard let _ = self.capturePhotoOutput.connection(with: .video) else { return }
-        
-        performShutterAnimation()
-
-        let captureProcessor: CaptureProcessor
-        let param = CaptureProcessorParam(
-                videoDeviceInput: currentVideoDeviceInput
-                , deviceOrientation: deviceMotion.orientation
-                , metadataComment: captureMetadataComment
-        )
-        
-        if self.isRawPhotoEnabled {
-            captureProcessor = CameraViewRawPhotoCaptureProcessor(param: param)
-        }
-        else if capturePhotoOutput.isLivePhotoCaptureEnabled {
-            captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
+extension CameraView {
+    fileprivate func preferredCaptureDevice() -> AVCaptureDevice? {
+        if preferredRawPhotoEnabled {
+            return captureDeviceForRawPhoto()
         }
         else {
-            captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
-        }
-
-        capturesInProgress.insert(captureProcessor)
-
-        // Schedule for the capture delegate to be removed from the set after capture.
-        captureProcessor.completionHandler = { [weak self] succeed, result in
-            self?.capturesInProgress.remove(captureProcessor)
-            self?.capturedResult = CameraViewCapturedResult(succeed: succeed, result: result)
-            completion?(succeed, succeed ? result : nil)
-        }
-
-        sessionQueue.async {
-            self.capturePhotoOutput.capturePhoto(with: self.currentPhotoSettings, delegate: captureProcessor)
+            return captureDevice(with: preferredCameraPosition)
         }
     }
     
@@ -330,12 +292,12 @@ class CameraView: UIView, PropertyWatchable {
     fileprivate func captureDevice(with position: AVCaptureDevice.Position) -> AVCaptureDevice? {
         return position == .front ? captureDeviceForFront() : captureDeviceForBack()
     }
-
+    
     fileprivate func currentCaptureDeviceInput(for mediaType: AVMediaType) -> AVCaptureDeviceInput? {
         let captureDeviceInputs = self.captureSession?.inputs as? [AVCaptureDeviceInput]
         return captureDeviceInputs?.first { $0.device.hasMediaType(mediaType) }
     }
-
+    
     fileprivate var currentVideoDeviceInput:AVCaptureDeviceInput? {
         return currentCaptureDeviceInput(for:.video)
     }
@@ -343,11 +305,11 @@ class CameraView: UIView, PropertyWatchable {
     fileprivate var currentCaptureDevice: AVCaptureDevice? {
         return currentCaptureDeviceInput(for: .video)?.device
     }
-
+    
     func switchCaptureDevicePosition(animated: Bool = true, completion:((AVCaptureDevice.Position) -> ())?=nil) {
         guard let currentDevice = self.currentCaptureDevice else { return }
         let position: AVCaptureDevice.Position = currentDevice.position == .back ? .front : .back
-
+        
         if animated {
             let switchingView = performSwitchCameraPositionAnimation(to: position)
             setCaptureDevicePosition(position) {
@@ -355,7 +317,7 @@ class CameraView: UIView, PropertyWatchable {
                     UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve, animations: {
                         switchingView.removeFromSuperview()
                     }, completion: nil)
-
+                    
                     completion?(position)
                 }
             }
@@ -364,63 +326,118 @@ class CameraView: UIView, PropertyWatchable {
             setCaptureDevicePosition(position)
         }
     }
-
+    
     private func setCaptureDevicePosition(_ position: AVCaptureDevice.Position, completion: (() -> Void)? = nil) {
         sessionQueue.async {
+            self.preferredCameraPosition = position
+            
             let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
             let isDepthPhotoEnabled = self.preferredDepthPhotoEnabled
             
             self.beginConfiguration()
             
-            if self.isRawPhotoEnabled, position == .front {
-                self.isRawPhotoEnabled = false
-            }
-            else {
-                self.configureCaptureDevice(self.captureDevice(with: position))
-            }
+            self.configureCaptureDevice(self.captureDevice(with: position))
             self.configureDepthPhotoEnabled(isDepthPhotoEnabled)
-
-            //INFO: keep live photo settings
-            if self.capturePhotoOutput.isLivePhotoCaptureEnabled != isLivePhotoEnabled {
-                self.capturePhotoOutput.isLivePhotoCaptureEnabled = isLivePhotoEnabled
-            }
+            self.configureLivePhotoEnabled(isLivePhotoEnabled)
             
             if let connection = self.capturePhotoOutput.connection(with: .video), connection.isVideoMirroringSupported {
                 connection.isVideoMirrored = position == .front
             }
-
+            
             self.commitConfiguration()
-
+            
             completion?()
         }
     }
+}
 
-    override var contentMode: UIView.ContentMode {
-        didSet {
-            cameraPreviewView.contentMode = contentMode
+extension CameraView {
+    private var currentPhotoSettings: AVCapturePhotoSettings {
+        let photoSettings: AVCapturePhotoSettings
+        
+        if self.capturePhotoOutput.isLivePhotoCaptureEnabled {
+            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
+            photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        }
+        else if preferredRawPhotoEnabled, let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
+            photoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
+            
+            // RAW capture is incompatible with digital image stabilization.
+            photoSettings.isAutoStillImageStabilizationEnabled = false
+        }
+        else {
+            photoSettings = AVCapturePhotoSettings()
+            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+        }
+        
+        photoSettings.isHighResolutionPhotoEnabled = capturePhotoOutput.isHighResolutionCaptureEnabled
+        photoSettings.flashMode = flashMode.flashMode
+        
+        photoSettings.isDepthDataDeliveryEnabled = capturePhotoOutput.isDepthDataDeliveryEnabled
+        if #available(iOS 12.0, *) {
+            photoSettings.isPortraitEffectsMatteDeliveryEnabled = capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled
+        }
+        
+        return photoSettings
+    }
+    
+    func takePhoto(completion:CaptureProcessorCompletionHandler?=nil) {
+        guard let _ = self.capturePhotoOutput.connection(with: .video) else { return }
+        
+        performShutterAnimation()
+        
+        let captureProcessor: CaptureProcessor
+        let param = CaptureProcessorParam(
+            videoDeviceInput: currentVideoDeviceInput
+            , deviceOrientation: deviceMotion.orientation
+            , metadataComment: captureMetadataComment
+        )
+        
+        if self.isRawPhotoEnabled {
+            captureProcessor = CameraViewRawPhotoCaptureProcessor(param: param)
+        }
+        else if capturePhotoOutput.isLivePhotoCaptureEnabled {
+            captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
+        }
+        else {
+            captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
+        }
+        
+        capturesInProgress.insert(captureProcessor)
+        
+        // Schedule for the capture delegate to be removed from the set after capture.
+        captureProcessor.completionHandler = { [weak self] succeed, result in
+            self?.capturesInProgress.remove(captureProcessor)
+            self?.capturedResult = CameraViewCapturedResult(succeed: succeed, result: result)
+            completion?(succeed, succeed ? result : nil)
+        }
+        
+        sessionQueue.async {
+            self.capturePhotoOutput.capturePhoto(with: self.currentPhotoSettings, delegate: captureProcessor)
         }
     }
-
+    
     func performShutterAnimation(_ completion: (() -> Void)? = nil) {
         let duration = 0.1
-
+        
         CATransaction.begin()
-
+        
         if let completion = completion {
             CATransaction.setCompletionBlock(completion)
         }
-
+        
         let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
         fadeOutAnimation.fromValue = 1.0
         fadeOutAnimation.toValue = 0.0
         layer.add(fadeOutAnimation, forKey: "opacity")
-
+        
         let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
         fadeInAnimation.fromValue = 0.0
         fadeInAnimation.toValue = 1.0
         fadeInAnimation.beginTime = CACurrentMediaTime() + duration * 2.0
         layer.add(fadeInAnimation, forKey: "opacity")
-
+        
         CATransaction.commit()
     }
 }
@@ -595,7 +612,8 @@ extension CameraView {
                     self.configureCaptureDevice(self.captureDeviceForBack())
                 }
                 
-                self.capturePhotoOutput.isLivePhotoCaptureEnabled = newValue
+                self.preferredLivePhotoEnabled = newValue
+                self.configureLivePhotoEnabled(newValue)
                 
                 self.commitConfiguration()
             }
@@ -603,6 +621,12 @@ extension CameraView {
         
         get {
             return capturePhotoOutput.isLivePhotoCaptureEnabled
+        }
+    }
+    
+    fileprivate func configureLivePhotoEnabled(_ enabled: Bool) {
+        if self.capturePhotoOutput.isLivePhotoCaptureSupported, self.capturePhotoOutput.isLivePhotoCaptureEnabled != enabled {
+            self.capturePhotoOutput.isLivePhotoCaptureEnabled = enabled
         }
     }
 }
@@ -621,10 +645,12 @@ extension CameraView {
                 
                 if newValue {
                     self.configureCaptureDevice(self.captureDeviceForRawPhoto())
-                    self.capturePhotoOutput.isLivePhotoCaptureEnabled = false
+                    self.configureLivePhotoEnabled(false)
                 }
                 else {
-                    self.configureCaptureDevice(self.captureDeviceForBack())
+                    self.configureCaptureDevice(self.preferredCaptureDevice())
+                    self.configureLivePhotoEnabled(self.preferredLivePhotoEnabled)
+                    self.configureDepthPhotoEnabled(self.preferredDepthPhotoEnabled)
                 }
                 
                 self.commitConfiguration()
@@ -640,16 +666,16 @@ extension CameraView {
 extension CameraView {
     var isDepthPhotoEnabled: Bool {
         set {
-            preferredDepthPhotoEnabled = newValue
-            
-            let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
-            self.beginConfiguration()
-            self.configureCaptureDevice(self.captureDevice(with: self.cameraPosition))
-            self.configureDepthPhotoEnabled(newValue)
-            if self.capturePhotoOutput.isLivePhotoCaptureEnabled != isLivePhotoEnabled {
-                self.capturePhotoOutput.isLivePhotoCaptureEnabled = isLivePhotoEnabled
+            sessionQueue.async {
+                self.preferredDepthPhotoEnabled = newValue
+                
+                let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
+                self.beginConfiguration()
+                self.configureCaptureDevice(self.captureDevice(with: self.cameraPosition))
+                self.configureDepthPhotoEnabled(newValue)
+                self.configureLivePhotoEnabled(isLivePhotoEnabled)
+                self.commitConfiguration()
             }
-            self.commitConfiguration()
         }
         
         get {
@@ -657,7 +683,7 @@ extension CameraView {
         }
     }
     
-    func configureDepthPhotoEnabled(_ enabled: Bool) {
+    fileprivate func configureDepthPhotoEnabled(_ enabled: Bool) {
         if self.capturePhotoOutput.isDepthDataDeliverySupported {
             self.capturePhotoOutput.isDepthDataDeliveryEnabled = enabled
         }
