@@ -66,7 +66,7 @@ class AppUICameraView: UIView {
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
     private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
-            UIScreen.main.bounds.width/UIScreen.main.bounds.height,
+            UIScreen.main.nativeBounds.width/UIScreen.main.nativeBounds.height,
             0.562218890554723, // w/h iphone 6/se (widest)
             // ... 6/7/8 Plus //
             0.461822660098522, // w/h iphone x (longest)
@@ -340,7 +340,7 @@ class AppUICameraView: UIView {
             cameraView.takePhoto()
         }
         else if let gesture = sender as? UITapGestureRecognizer {
-            cameraView.updatePointOfInterest(at: gesture.location(in: cameraView))
+            cameraView.focusAndExposure(at: gesture.location(in: cameraView), focusMode: .autoFocus, exposureMode: .autoExpose)
         }
     }
 
@@ -415,7 +415,7 @@ class AppUICameraView: UIView {
             //TODO: ignore layer implicit animation
             layoutIfNeeded()
             
-            cameraView.updatePointOfInterest(at: CGPoint(x: cameraView.width / 2, y: cameraView.height / 2), showsGuide: !isCompactMode)
+            cameraView.resetFocusAndExposure(showsGuide: !isCompactMode)
         }
     }
 }

@@ -36,6 +36,8 @@ class CameraView: UIView, PropertyWatchable {
     fileprivate var preferredDepthPhotoEnabled: Bool = false
     
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
+    private lazy var captureMovieOutput = AVCaptureMovieFileOutput()
+    
     private var currentPhotoSettings: AVCapturePhotoSettings {
         let photoSettings: AVCapturePhotoSettings
         
@@ -58,9 +60,9 @@ class CameraView: UIView, PropertyWatchable {
         photoSettings.isHighResolutionPhotoEnabled = capturePhotoOutput.isHighResolutionCaptureEnabled
         photoSettings.flashMode = flashMode.flashMode
         
-        photoSettings.isDepthDataDeliveryEnabled = isDepthDataEnabled
+        photoSettings.isDepthDataDeliveryEnabled = capturePhotoOutput.isDepthDataDeliveryEnabled
         if #available(iOS 12.0, *) {
-            photoSettings.isPortraitEffectsMatteDeliveryEnabled = isPortraitEffectsMatteEnabled
+            photoSettings.isPortraitEffectsMatteDeliveryEnabled = capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled
         }
         
         return photoSettings
@@ -77,10 +79,9 @@ class CameraView: UIView, PropertyWatchable {
     private lazy var metadataObjectQueue = DispatchQueue(label: #file+".metadataObjectsQueue."+UUID().uuidString, qos: .utility)
     private lazy var depthDataOutputQueue = DispatchQueue(label: #file+".depthDataOutputQueue."+UUID().uuidString, qos: .utility)
     
-    
-    var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
-    var depthDataDidOutput: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?
-    private(set) var captureVideoMetadataDidOutput: ((_ metadataObjects: [AVMetadataObject]) -> Void)?
+    fileprivate var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
+    fileprivate var depthDataDidOutput: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?
+    fileprivate var captureVideoMetadataDidOutput: ((_ metadataObjects: [AVMetadataObject]) -> Void)?
 
     private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
     private var cameraPointOfInterestLayer: CAShapeLayer?
@@ -170,10 +171,9 @@ class CameraView: UIView, PropertyWatchable {
             captureSession.addInput(captureDeviceInput)
         }
         
-        capturePhotoOutput.isDepthDataDeliveryEnabled = isDepthDataEnabled
-        if #available(iOS 12.0, *) {
-            capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled = isPortraitEffectsMatteEnabled
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: captureDevice)
+        
+        configureDepthPhotoEnabled(isDepthPhotoEnabled)
         
 //        if let depthFormat = captureDevice.activeFormat.supportedDepthDataFormats.first(where: { format in
 //            let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
@@ -223,24 +223,6 @@ class CameraView: UIView, PropertyWatchable {
         
         if captureSession.canAddOutput(capturePhotoOutput) {
             captureSession.addOutput(capturePhotoOutput)
-        }
-        
-        let captureVideoDataOutput = AVCaptureVideoDataOutput()
-        captureVideoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
-        captureVideoDataOutput.alwaysDiscardsLateVideoFrames = true
-        captureVideoDataOutput.setSampleBufferDelegate(self, queue: captureVideoDataQueue)
-        
-        if captureSession.canAddOutput(captureVideoDataOutput) {
-            captureSession.addOutput(captureVideoDataOutput)
-        }
-        
-        let depthDataOutput = AVCaptureDepthDataOutput()
-        depthDataOutput.alwaysDiscardsLateDepthData = true
-        depthDataOutput.isFilteringEnabled = true
-        depthDataOutput.setDelegate(self, callbackQueue: depthDataOutputQueue)
-        
-        if captureSession.canAddOutput(depthDataOutput) {
-            captureSession.addOutput(depthDataOutput)
         }
 
         commitConfiguration()
@@ -443,7 +425,62 @@ class CameraView: UIView, PropertyWatchable {
     }
 }
 
+extension CameraView {
+    func setCapturePhoto() {
+        sessionQueue.async {
+            guard let captureSession = self.captureSession else { return }
+            
+            self.beginConfiguration()
+            
+            captureSession.removeOutput(self.captureMovieOutput)
+            captureSession.sessionPreset = .photo
+            
+            self.commitConfiguration()
+        }
+    }
+    
+    func setCaptureMovie() {
+        sessionQueue.async {
+            guard let captureSession = self.captureSession else { return }
+            
+            if captureSession.canAddOutput(self.captureMovieOutput) {
+                self.beginConfiguration()
+                
+                captureSession.addOutput(self.captureMovieOutput)
+                captureSession.sessionPreset = .high
+                
+                if let connection = self.captureMovieOutput.connection(with: .video) {
+                    if connection.isVideoStabilizationSupported {
+                        connection.preferredVideoStabilizationMode = .auto
+                    }
+                }
+                
+                self.commitConfiguration()
+            }
+        }
+    }
+}
+
 extension CameraView: AVCaptureDepthDataOutputDelegate {
+    func setDepthDataOutput(_ updateBlock: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?) {
+        self.depthDataDidOutput = updateBlock
+        
+        sessionQueue.async {
+            guard let captureSession = self.captureSession else { return }
+            
+            let depthDataOutput = AVCaptureDepthDataOutput()
+            depthDataOutput.alwaysDiscardsLateDepthData = true
+            depthDataOutput.isFilteringEnabled = true
+            depthDataOutput.setDelegate(self, callbackQueue: self.depthDataOutputQueue)
+            
+            if captureSession.canAddOutput(depthDataOutput) {
+                self.beginConfiguration()
+                captureSession.addOutput(depthDataOutput)
+                self.commitConfiguration()
+            }
+        }
+    }
+    
     func depthDataOutput(_ output: AVCaptureDepthDataOutput, didDrop depthData: AVDepthData, timestamp: CMTime, connection: AVCaptureConnection, reason: AVCaptureOutput.DataDroppedReason) {
         
     }
@@ -454,6 +491,25 @@ extension CameraView: AVCaptureDepthDataOutputDelegate {
 }
 
 extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func setCaptureVideoDataOutput(_ updateBlock: ((_ sampleBuffer: CMSampleBuffer) -> Void)?) {
+        self.captureVideoDataDidOutput = updateBlock
+        
+        sessionQueue.async {
+            guard let captureSession = self.captureSession else { return }
+            
+            let captureVideoDataOutput = AVCaptureVideoDataOutput()
+            captureVideoDataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
+            captureVideoDataOutput.alwaysDiscardsLateVideoFrames = true
+            captureVideoDataOutput.setSampleBufferDelegate(self, queue: self.captureVideoDataQueue)
+            
+            if captureSession.canAddOutput(captureVideoDataOutput) {
+                self.beginConfiguration()
+                captureSession.addOutput(captureVideoDataOutput)
+                self.commitConfiguration()
+            }
+        }
+    }
+    
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
     }
@@ -687,8 +743,6 @@ extension CameraView {
     }
     
     fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
-        beginConfiguration()
-        
         try? currentCaptureDevice?.lockForConfiguration()
         
         if currentCaptureDevice?.hasTorch == true {
@@ -697,11 +751,15 @@ extension CameraView {
         
         currentCaptureDevice?.unlockForConfiguration()
         
-        commitConfiguration()
+        configurationDidUpdate?()
     }
 }
 
 extension CameraView {
+    @objc func subjectAreaDidChange() {
+        resetFocusAndExposure()
+    }
+    
     func changeFocusMode(_ mode: AVCaptureDevice.FocusMode) {
         try? currentCaptureDevice?.lockForConfiguration()
         
@@ -724,17 +782,21 @@ extension CameraView {
 }
 
 extension CameraView {
-    func pointOfInterest(at location: CGPoint) -> CGPoint {
+    private func pointOfInterest(at location: CGPoint) -> CGPoint {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         return cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
     }
     
-    func updatePointOfInterest(at location: CGPoint, showsGuide: Bool = true) {
+    func resetFocusAndExposure(showsGuide: Bool = true) {
+        focusAndExposure(at: CGPoint(x: width / 2, y: height / 2), focusMode: .continuousAutoFocus, exposureMode: .continuousAutoExposure, monitorSubjectAreaChange: false, showsGuide: showsGuide)
+    }
+    
+    func focusAndExposure(at location: CGPoint, focusMode: AVCaptureDevice.FocusMode = .autoFocus, exposureMode: AVCaptureDevice.ExposureMode = .autoExpose, monitorSubjectAreaChange: Bool = true, showsGuide: Bool = true) {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         let pointOfInterest = cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
         
         sessionQueue.async {
-            self.setPointOfInterest(pointOfInterest)
+            self.configurePointOfInterest(pointOfInterest, focusMode: focusMode, exposureMode: exposureMode, monitorSubjectAreaChange: monitorSubjectAreaChange)
         }
         
         cameraPointOfInterestLayer?.removeFromSuperlayer()
@@ -744,7 +806,7 @@ extension CameraView {
         }
     }
     
-    private func setPointOfInterest(_ pointOfInterest: CGPoint) {
+    private func configurePointOfInterest(_ pointOfInterest: CGPoint, focusMode: AVCaptureDevice.FocusMode = .continuousAutoFocus, exposureMode: AVCaptureDevice.ExposureMode = .continuousAutoExposure,  monitorSubjectAreaChange: Bool = true) {
         guard
             let captureDevice = currentCaptureDevice
         else { return }
@@ -759,13 +821,15 @@ extension CameraView {
             captureDevice.exposurePointOfInterest = pointOfInterest
         }
         
-        if captureDevice.isFocusModeSupported(.continuousAutoFocus) {
-            captureDevice.focusMode = .continuousAutoFocus
+        if captureDevice.isFocusModeSupported(focusMode) {
+            captureDevice.focusMode = focusMode
         }
         
-        if captureDevice.isExposureModeSupported(.continuousAutoExposure) {
-            captureDevice.exposureMode = .continuousAutoExposure
+        if captureDevice.isExposureModeSupported(exposureMode) {
+            captureDevice.exposureMode = exposureMode
         }
+        
+        captureDevice.isSubjectAreaChangeMonitoringEnabled = monitorSubjectAreaChange
         
         captureDevice.unlockForConfiguration()
     }
