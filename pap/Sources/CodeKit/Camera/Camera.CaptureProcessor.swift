@@ -140,9 +140,27 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
             }
             else if let ciImage = data.asCIImage {
-                let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-                if ciImage.writeJPEGRepresentationOriginally(to: url) {
-                    return url
+                if photo.isDepthPhoto {
+                    let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
+                    var options = [CIImageRepresentationOption: Any]()
+                    options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
+                    
+                    if let depthData = photo.depthData {
+                        options[CIImageRepresentationOption.avDepthData] = depthData
+                    }
+                    if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
+                        options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
+                    }
+                    
+                    if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
+                        return url
+                    }
+                }
+                else {
+                    let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                    if ciImage.writeJPEGRepresentationOriginally(to: url) {
+                        return url
+                    }
                 }
             }
         }
