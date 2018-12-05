@@ -730,6 +730,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
             }
             return cell
         }
+
         else if let cellDescriber = item as? UITableViewSegmentControlCellDescriber
         , let valueCollection = cellDescriber.valueCollection as? [(String, Int)]
         , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewSegmentedControlCell{

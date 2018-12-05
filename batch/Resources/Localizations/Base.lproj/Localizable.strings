@@ -176,7 +176,7 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: ExifGhost.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Hashtagen.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
 /* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
@@ -280,6 +280,8 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Enable Auto-tagging.";
 /* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
@@ -306,10 +308,12 @@
 "Flashlight" = "Flashlight";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
-/* Generated from genl10n: Converter.BApp.swift */
+/* Generated from genl10n: Converter.BApp.swift, Hashtagen.BApp.swift */
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "Found tags will append into the following area.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -330,10 +334,10 @@
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Get All Items" = "Get All Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Get All Text";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Get Tags";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Get Text";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift, AppCenter.Charge.swift */
@@ -460,9 +464,11 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Google Maps" = "Open Google Maps";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Open Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Hashtagen.BApp.swift, Revert.BApp.swift */
+/* Generated from genl10n: Revert.BApp.swift */
 "Open Restorer." = "Open Restorer.";
 /* Generated from genl10n: Transform.BApp.swift */
 "Open Rotation." = "Open Rotation.";
