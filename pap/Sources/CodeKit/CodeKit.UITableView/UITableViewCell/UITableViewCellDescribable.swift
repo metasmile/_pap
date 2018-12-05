@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 public protocol UITableViewCellDefaultDescribable:
-        UITableViewCellDescribable, UITableViewCellAppearanceDescribable, UITableViewCellValueDescribable {}
+        UITableViewCellDescribable, UITableViewCellAppearanceDescribable, UITableViewCellValueDescribable, UITableViewCellValuePresentable {}
 
 public protocol UITableViewCellDescribable {
     var cellIdentifier:String{get}
@@ -37,11 +37,11 @@ public protocol UITableViewCellMultipleValueDescribable {
     var valueCollection: Any? {set get}
 }
 
-public protocol UITableViewCellAccessoryDescribable {
+public protocol UITableViewCellValuePresentable {
     var valuePresenter: ((Any) -> (String))? {get}
 }
 
-extension UITableViewCellAccessoryDescribable where Self:UITableViewCellValueDescribable{
+extension UITableViewCellValuePresentable where Self:UITableViewCellValueDescribable{
     public var presentableValue: String? {
         if let value = self.valueGetter(){
             return valuePresenter?(value) ?? value as? String
@@ -50,7 +50,14 @@ extension UITableViewCellAccessoryDescribable where Self:UITableViewCellValueDes
     }
 }
 
-extension UITableViewCellAccessoryDescribable{
+extension UITableViewCellValuePresentable where Self:UITableViewCellMultipleValueDescribable{
+    public var presentableValueCollection:[String]?{
+        return (self.valueCollection as? [Any])?.compactMap{ self.valuePresenter?($0) }
+    }
+}
+
+
+extension UITableViewCellValuePresentable{
     public static var percentageAsIntValuePresenter:((Any) -> (String)) {
         return { value in
             var label:String?
@@ -77,6 +84,7 @@ public class UITableViewCellDescriber: UITableViewCellDefaultDescribable {
     public var iconImageTintColor: UIColor?
 
     public var valueGetter: () -> Any? = { nil }
+    public var valuePresenter: ((Any) -> (String))?
     public var valueHandler: ((Any) -> ())?
 
     public var indicating:Bool = false
@@ -122,21 +130,17 @@ public class UITableViewSegmentControlCellDescriber: UITableViewCellDescriber, U
     public var valueCollection: Any?
 }
 
-public class UITableViewSimpleValueCellDescriber: UITableViewCellDescriber, UITableViewCellAccessoryDescribable {
+public class UITableViewSimpleValueCellDescriber: UITableViewCellDescriber {
     public override var cellClass:Swift.AnyClass { return UITableViewSimpleValueCell.self }
-
-    public var valuePresenter: ((Any) -> (String))?
 }
 
-public class UITableViewActionSheetCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
+public class UITableViewActionSheetCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewActionSheetCell.self }
 
     public var valueCollection: Any?
-
-    public var valuePresenter: ((Any) -> (String))?
 }
 
-public class UITableViewStepperCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable, UITableViewCellAccessoryDescribable {
+public class UITableViewStepperCellDescriber: UITableViewCellDescriber, UITableViewCellMultipleValueDescribable {
     public override var cellClass:Swift.AnyClass { return UITableViewStepperCell.self }
 
 //    var isContinuous: Bool = true // if YES, value change events are sent any time the value changes during interaction. default = YES
@@ -154,6 +158,4 @@ public class UITableViewStepperCellDescriber: UITableViewCellDescriber, UITableV
     public var stepValue: Double = 1 // default 1. must be greater than 0
 
     public var valueCollection: Any?
-
-    public var valuePresenter: ((Any) -> (String))?
 }

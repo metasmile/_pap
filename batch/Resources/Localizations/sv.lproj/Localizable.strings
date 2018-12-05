@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Straighten";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Automatisk märkning Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Bakgrundsfärg";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -314,12 +316,16 @@
 "E-mail Address" = "E-postadress";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost kan du ta bort alla typer av data som innehåller dina foton, inklusive privat information.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Aktivera automatisk märkning.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivera snabba åtgärder";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Tekniska anteckningar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportera";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Exponering";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Blekna";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -342,6 +348,8 @@
 "Formats" = "format";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Fram";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "Hittade taggar kommer att läggas till i följande område.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker gör det enkelt och snabbt att göra GIF-bilder från foton eller Live Photos med olika alternativ! Och då kan du öppna konverteraren app för att konvertera till allt som Live Foton eller Videor.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Få tillgång till";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Få all text";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Få taggar";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Få text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -488,6 +500,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Open Google Maps";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Öppna Hashtag.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +644,8 @@
 "Send an Email" = "Skicka ett email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Skicka";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Inställningar för huvudverktygslicens";
 /* Generated from genl10n: Shop.SApp.swift#469 */

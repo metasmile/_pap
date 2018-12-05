@@ -164,6 +164,8 @@
 "Auto Selection Bot" = "自動選擇機器人";
 /* Generated from genl10n: AutoEditor.BApp.swift#178 */
 "Auto Straighten" = "自動拉直";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "自動標記機器人";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "背景顏色";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -260,12 +262,16 @@
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "啟用自動標記。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
 "Export" = "導出";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "曝光";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "褪色";
 /* Generated from genl10n: Filters.BApp.swift#102 */
@@ -288,6 +294,8 @@
 "Formats" = "格式";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
 "Forward" = "向前";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "找到的標籤將附加到以下區域。";
 /* Generated from genl10n: GIFMaker.BApp.swift#521 */
 "Frame Delay" = "幀延遲";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -304,10 +312,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通過各種選項，讓您可以輕鬆快速地從照片或實時照片製作GIF圖像！然後您可以打開轉換器app以轉換為實時照片或視頻等所有東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#601 */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "伽瑪";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "獲得訪問權限";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "獲取所有文字";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "獲取標籤";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "獲取文字";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
@@ -434,6 +446,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#783 */
 "Open Google Maps" = "打開Goog​​le地圖";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "打開Hashtagen。";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -576,6 +590,8 @@
 "Send an Email" = "發送電子郵件";
 /* Generated from genl10n: Shop.SApp.swift#603 */
 "Send" = "發送";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "棕褐色調";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "主工具許可證的設置";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#303 */
