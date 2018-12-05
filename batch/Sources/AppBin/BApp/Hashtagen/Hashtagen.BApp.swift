@@ -81,27 +81,23 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
     private let detectingSig = AsyncSignal()
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        DispatchQueue(label: (preheatingFrontQueueLabel ?? DispatchQueue.global(qos: .utility).label)).async{
+        preheatCachedResultsRWQueue.async(flags:.barrier){
             self.performDetectingTags(for: PHAssetItem(asset: asset, indexPath: indexPath), self.detectingSig, exclude:false)
         }
     }
 
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        DispatchQueue(label: (preheatingFrontQueueLabel ?? DispatchQueue.global(qos: .utility).label)).async{
+        preheatCachedResultsRWQueue.async(flags:.barrier){
             self.performDetectingTags(for: PHAssetItem(asset: asset, indexPath: indexPath), self.detectingSig, exclude:true)
         }
     }
 
     fileprivate var preheatCachedResults = [String:VisionLabelPHAssetDetectResult]()
-    private var preheatingFrontQueueLabel:String?
+    fileprivate lazy var preheatCachedResultsRWQueue:DispatchQueue = DispatchQueue.global(qos: .utility) //default but changed to external queue with signal.
 
     func disposePreheatingCache(){
-        if let l = preheatingFrontQueueLabel{
-            DispatchQueue(label:l).async{
-                self.preheatCachedResults.removeAll()
-            }
-        }else{
-            preheatCachedResults.removeAll()
+        preheatCachedResultsRWQueue.async(flags:.barrier){
+            self.preheatCachedResults.removeAll()
         }
     }
 
@@ -120,7 +116,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
         (content as? PreheatableAppSubscribable)?.didStartPreheating()
 
-        preheatingFrontQueueLabel = async.queueStack.first ?? DispatchQueue.currentLabel
+        preheatCachedResultsRWQueue = DispatchQueue(label:async.queueStack.first ?? DispatchQueue.currentLabel)
 
         performDetectingTags(for: item, async)
 
@@ -131,14 +127,13 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     private func performDetectingTags(for item: PHAssetParamable, _ async: AsyncWaitSignalable, exclude:Bool=false)  -> Bool {
         var detectedResult:VisionLabelPHAssetDetectResult?
 
-        if let r = preheatCachedResults[item.asset.localIdentifierWithoutSplitter]{
+        if let r = self.preheatCachedResults[item.asset.localIdentifier]{
             detectedResult = r
 
         }else{
             if let r = labelDetector.detectResult(asset: item.asset, async), r.labelTextsConfidenceDescending.count > 0{
                 detectedResult = r
-                //FIXME: BAD_EXEC -> use common queue.
-                preheatCachedResults[item.asset.localIdentifierWithoutSplitter] = detectedResult
+                preheatCachedResults[item.asset.localIdentifier] = detectedResult
             }
         }
 
@@ -219,7 +214,8 @@ private class _HashtagenAppTask: AppTaskPrototype, AppTaskable {
 
     private func _perform(_ param: HashtagenAppParam, _ async: AsyncWaitSignalable) throws -> VisionLabelPHAssetDetectResult?  {
         if let app = AppCenter.default.currentInstanceAs(HashtagenApp.self){
-            return app.preheatCachedResults[param.asset.localIdentifierWithoutSplitter] ?? app.labelDetector.detectResult(asset: param.asset, async)
+            let cachedResult = app.preheatCachedResultsRWQueue.sync{ return app.preheatCachedResults[param.asset.localIdentifier] }
+            return cachedResult ?? app.labelDetector.detectResult(asset: param.asset, async)
         }
         return nil
     }
