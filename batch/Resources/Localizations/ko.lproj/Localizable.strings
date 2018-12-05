@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "자동 선택 봇";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "자동 수평 보정";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "자동 태그 추가 봇";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "배경색";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -314,12 +316,16 @@
 "E-mail Address" = "이메일 주소";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "자동 태그 추가를 사용합니다.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "노출";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "바래다";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -342,6 +348,8 @@
 "Formats" = "형식";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "앞으로";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "발견 된 태그는 다음 영역에 추가됩니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "프레임 딜레이";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 포토에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 포토이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF 만들기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "감마";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "접근 권한 얻기";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "모든 텍스트 가져 오기";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "태그 가져 오기";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "텍스트 가져 오기";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -488,6 +500,8 @@
 "Open GIF Maker." = "GIF Maker 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Google 지도 열기";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Hashtagen을 엽니 다.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "PDF 작성기 열기";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +644,8 @@
 "Send an Email" = "이메일 보내기";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "보내기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "세피아 톤";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "기본 도구 라이센스 설정";
 /* Generated from genl10n: Shop.SApp.swift#469 */

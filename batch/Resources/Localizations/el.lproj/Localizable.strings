@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Αυτόματη επιλογή Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Αυτόματη ισοπέδωση";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Αυτόματη ετικέτα Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Χρώμα του φόντου";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -314,12 +316,16 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Ενεργοποίηση αυτόματης προσθήκης ετικετών.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Τεχνικές σημειώσεις";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Εκθεση";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Ξεθωριάζει";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -342,6 +348,8 @@
 "Formats" = "Μορφές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Προς τα εμπρός";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "Οι ετικέτες που βρέθηκαν θα επισυναφθούν στην ακόλουθη περιοχή.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Το GIF Maker επιτρέπει την εύκολη και γρήγορη δημιουργία εικόνων GIF από φωτογραφίες ή ζωντανές φωτογραφίες με διάφορες επιλογές! Και μετά μπορείτε να ανοίξετε την εφαρμογή μετατροπέα για να μετατρέψετε σε όλα, όπως Live Photos ή Βίντεο.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Απόκτησε πρόσβαση";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Πάρτε όλο το κείμενο";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Λήψη ετικετών";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Λήψη κειμένου";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -488,6 +500,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Ανοίξτε τους Χάρτες Google";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Ανοίξτε το Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +644,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Στείλετε";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Σέπια Τόνου";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Ρυθμίσεις για την άδεια βασικών εργαλείων";
 /* Generated from genl10n: Shop.SApp.swift#469 */

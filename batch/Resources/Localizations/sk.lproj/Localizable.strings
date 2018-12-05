@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Automatický výber Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Automatické vyrovnanie";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Automatické označovanie botom";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Farba pozadia";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -314,12 +316,16 @@
 "E-mail Address" = "Emailová adresa";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožňuje odstrániť všetky druhy údajov obsahujúcich vaše fotky vrátane súkromných informácií.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Povoliť automatické označovanie.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Povoliť rýchle akcie";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Technické poznámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "expozície";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "zvädnúť";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -342,6 +348,8 @@
 "Formats" = "formáty";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "vpred";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Found tags will append into the following area." = "Nájdené značky sa pripojí do nasledujúcej oblasti.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker umožňuje jednoduché a rýchle vytváranie obrázkov vo formáte GIF z fotografií alebo fotiek s rôznymi možnosťami! Potom môžete otvoriť konvertorovú aplikáciu a previesť na všetko, ako sú napríklad Fotky naživo alebo Videá.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Dostať prístup";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Získajte všetok text";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Získajte značky";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Získajte text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -488,6 +500,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Otvorte Mapy Google";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Otvorte Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +644,8 @@
 "Send an Email" = "Poslať email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "odoslať";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Sépiový tón";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Nastavenia pre licenciu na hlavné nástroje";
 /* Generated from genl10n: Shop.SApp.swift#469 */
