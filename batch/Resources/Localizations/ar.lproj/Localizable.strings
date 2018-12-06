@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "اختر خيار تصدير للعناصر %d";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "اختر إجراء فرعي.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "اختر بعض الصور التي تريد البحث عنها.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "يمكّنك منظف البحث من العثور على أنواع مختلفة من الصور غير الصحيحة وحذفها إذا كانت متطابقة مع الصور المكررة والمماثلة على سبيل المثال ، أو صور قريبة أو لقطات شاشة Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "مكتشف";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "العثور على علامات التصنيف من الصور ...";
+"Finding Hashtags In Photos..." = "العثور على علامات التصنيف في الصور ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "العثور على علامات تصنيف وجمعها من صورك التي حددتها.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "صيغ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "إلى الأمام";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "سيتم إضافة العلامات الموجودة في المنطقة التالية.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "تأجيل الإطار";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "حساب زائر";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "التعامل مع الكثير من الصور دفعة واحدة.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "رابطة هاشتاق";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "مرحبًا ، %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

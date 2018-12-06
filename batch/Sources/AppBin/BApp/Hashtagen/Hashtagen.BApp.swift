@@ -627,7 +627,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
 
     }
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Found tags will append into the following area.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Choose some photos you want to find tags.".localized)
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if 0 == section {
             footerView.sizeToFit()

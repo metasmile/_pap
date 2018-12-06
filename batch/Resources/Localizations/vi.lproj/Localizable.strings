@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Chọn tùy chọn xuất cho %d mục";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Chọn một hành động phụ.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Chọn một số ảnh bạn muốn tìm thẻ.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner cho phép bạn tìm và xóa các loại ảnh không chính xác khác nhau nếu chúng đã khớp với các hình ảnh trùng lặp và tương tự, ảnh cận cảnh hoặc ảnh chụp màn hình khóa!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "người tìm ra";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Đang tìm thẻ bắt đầu bằng # từ ảnh ...";
+"Finding Hashtags In Photos..." = "Đang tìm kiếm thẻ bắt đầu bằng # ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Tìm và thu thập thẻ bắt đầu bằng # từ ảnh bạn đã chọn.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "Định dạng";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Phía trước";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Thẻ được tìm thấy sẽ thêm vào khu vực sau.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "Tài khoản khách";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Xử lý nhiều ảnh cùng một lúc.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Dấu thăng";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

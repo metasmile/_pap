@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Επιλέξτε μια υπο-ενέργεια.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Επιλέξτε μερικές φωτογραφίες που θέλετε να βρείτε ετικέτες.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να βρείτε και να διαγράψετε διάφορα είδη λανθασμένων φωτογραφιών, αν έχουν αντιστοιχιστεί, για παράδειγμα, διπλότυπα και παρόμοιες εικόνες, φωτογραφίες κοντά στο σκοτάδι ή λήψεις Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Βρίσκοντας Hashtags από φωτογραφίες ...";
+"Finding Hashtags In Photos..." = "Βρίσκοντας Hashtags σε φωτογραφίες ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Εύρεση και συλλογή των hashtag από τις φωτογραφίες που επιλέξατε.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "Μορφές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Προς τα εμπρός";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Οι ετικέτες που βρέθηκαν θα επισυναφθούν στην ακόλουθη περιοχή.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "Επισκέπτης Χρήστης";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Χειριστείτε πολλές φωτογραφίες ταυτόχρονα.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "HashTag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

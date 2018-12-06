@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Pilih Pilihan Eksport Untuk %d Item";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Pilih Satu Tindakan Sub.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Pilih beberapa gambar yang anda mahu cari tag.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam pelbagai jenis gambar yang salah jika mereka telah dipadankan sebagai contoh pendua dan imej yang serupa, gambar rapat atau tangkapan skrin Kunci!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Mencari Hashtags Dari Foto ...";
+"Finding Hashtags In Photos..." = "Mencari Hashtags Dalam Foto ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Mencari dan mengumpul hashteg dari foto anda yang anda pilih.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "Format";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Teruskan";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Tag yang ditemui akan dimasukkan ke dalam kawasan berikut.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kelewatan Frame";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "Pengguna tetamu";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Mengendalikan banyak foto sekaligus.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
