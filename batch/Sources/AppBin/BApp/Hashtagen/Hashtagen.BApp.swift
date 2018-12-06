@@ -157,7 +157,9 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         }
 
         if let r = detectedResult{
-            (content as? HashtagenAppDockContent)?.setLabelsIfNeeded([r], remove:exclude)
+            DispatchQueue.mainAsyncIfNot {
+                (self.content as? HashtagenAppDockContent)?.setLabelsIfNeeded([r], remove:exclude)
+            }
         }
 
         return detectedResult != nil
@@ -266,7 +268,6 @@ extension HashtagenAppDockContent: PreheatableAppSubscribable{
             describable.itemIdentifier == settingCellDescribers.first?.itemIdentifier
         }
         desc?.detailedLabel = label
-        print(desc?.detailedLabel)
     }
 
     func didStartPreheating() {
@@ -307,6 +308,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
     }
 
     fileprivate func setLabelsIfNeeded(_ settingResults:[VisionLabelPHAssetDetectResult], remove:Bool=false){
+        assert(DispatchQueue.currentIsMain, "Use main queue")
         let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(settingResults).subtracting(Set(settedLabelResults)))
         let shouldRemoveAll = settingResults.count == 0 || resultsAdding.count==0 && settedLabelResults.count == 0
 
@@ -320,27 +322,24 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
             self.settedLabelResults = Array(Set(self.settedLabelResults).subtracting(Set(settingResults)))
         }
 
-        DispatchQueue.mainAsyncIfNot {
+        let removingTags = Set(settingResults.labelTextsConfidenceDescending).subtracting(Set(self.settedLabelResults.labelTextsConfidenceDescending))
+        let currentTagsSet = Set(self.currentTags)
+        let addingTags = resultsAdding.labelTextsConfidenceDescending.filter{ !currentTagsSet.contains($0) }
 
-            let removingTags = Set(settingResults.labelTextsConfidenceDescending).subtracting(Set(self.settedLabelResults.labelTextsConfidenceDescending))
-            let currentTagsSet = Set(self.currentTags)
-            let addingTags = resultsAdding.labelTextsConfidenceDescending.filter{ !currentTagsSet.contains($0) }
+        UIView.animate(withDuration: 0.3){
+            if shouldRemoveAll{
+                self.tagsView.removeAllTags()
 
-            UIView.animate(withDuration: 0.3){
-                if shouldRemoveAll{
-                    self.tagsView.removeAllTags()
-
-                }else if remove{
-                    for l in removingTags{
-                        self.tagsView.removeTag(l)
-                    }
-
-                }else{
-                    for l in addingTags{
-                        self.tagsView.addTag(l)
-                    }
-                    (self.view as? UIScrollView)?.flashScrollIndicators()
+            }else if remove{
+                for l in removingTags{
+                    self.tagsView.removeTag(l)
                 }
+
+            }else{
+                for l in addingTags{
+                    self.tagsView.addTag(l)
+                }
+                (self.view as? UIScrollView)?.flashScrollIndicators()
             }
         }
     }
