@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "%d 항목에 대한 내보내기 옵션 선택";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "하위 작업을 선택하십시오.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "태그를 찾으려는 사진을 선택하십시오.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "파인더";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "사진에서 해시 태그 찾기 ...";
+"Finding Hashtags In Photos..." = "사진에서 해시 태그 찾기 ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "선택한 사진에서 해시 태그를 찾아 수집합니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "형식";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "앞으로";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "발견 된 태그는 다음 영역에 추가됩니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "프레임 딜레이";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "게스트 사용자";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "한 번에 많은 사진을 다루십시오.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "해시 태그";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "안녕하세요, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

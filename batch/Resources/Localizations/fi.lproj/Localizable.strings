@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Valitse %d Vientivaihtoehto";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Valitse alatoiminto.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Valitse valokuvat, joista haluat etsiä tunnisteita.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Puhdistusaineella voit etsiä ja poistaa erilaisia ​​vääriä valokuvia, jos ne ovat sopineet esimerkiksi kaksoiskappaleisiin ja vastaaviin kuviin, lähikuviin tai lukkotulosteisiin!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "löytäjä";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Hashtagien löytäminen valokuvista ...";
+"Finding Hashtags In Photos..." = "Hashtagien löytäminen valokuvissa ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Haulla löytyvien valokuvien löytäminen ja kerääminen.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "formaatit";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Eteenpäin";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Löydetyt tunnisteet liitetään seuraaviin alueisiin.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Kehyksen viive";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "Vieras käyttäjä";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Käsittele paljon kuvia kerralla.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Hei, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

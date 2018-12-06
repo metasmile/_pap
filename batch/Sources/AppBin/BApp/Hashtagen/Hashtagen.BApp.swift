@@ -12,12 +12,17 @@ import TagListView
 private typealias HashtagenAppParam = AppAsset
 
 private extension Array where Element==String{
-    func getTaggedString(separator:String="#", allowWhiteSpace:Bool=false, startingAsPrefix:Bool=false) -> String{
+    func getTaggedString(separator:String="#", allowWhiteSpace:Bool=false, prefix:Bool=false) -> String{
         var sourceStrings = self
         if allowWhiteSpace == false{
             sourceStrings = sourceStrings.map{ $0.remove(" ") }
         }
-        return ((startingAsPrefix ? separator : "") + "\(sourceStrings.joined(separator: separator + " "))").trimmed
+
+        if prefix{
+            return "\(separator)\(sourceStrings.joined(separator: " "+separator))".trimmed
+        }else{
+            return "\(sourceStrings.joined(separator: separator+" "))".trimmed
+        }
     }
 }
 
@@ -54,11 +59,11 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
             , version: "1.0"
             , phase: .release
             , appType: HashtagenApp.self
-            , displayName: "Hashtagen"
+            , displayName: "HashTag".localized
             , description: "Finding and collecting hashtags from your photos you selected.".localized
             , keywords: ["#", "Instagram", "Tag List", "Tagging", "Hashtag", "Social Network", "Twitter", "Facebook", "Digial Marketing", "Keyword"]
             , iconBundleName: R.image.hashtagenBAppIcon.name
-            , themeColor: UIColor(rgb: 0xE429A8)
+            , themeColor: UIColor(rgb: 0xFF76C1)
             , policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -87,6 +92,10 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
     func didAppear(callee:PhotoPickerViewControllerUniversalOperations) {
         (content as? HashtagenAppDockContent)?.setLabelsIfNeeded([])
+    }
+
+    func didResign(current: App.Type?) {
+        self.didCancelPreheating()
     }
 
     private let detectingSig = AsyncSignal()
@@ -148,7 +157,9 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
         }
 
         if let r = detectedResult{
-            (content as? HashtagenAppDockContent)?.setLabelsIfNeeded([r], remove:exclude)
+            DispatchQueue.mainAsyncIfNot {
+                (self.content as? HashtagenAppDockContent)?.setLabelsIfNeeded([r], remove:exclude)
+            }
         }
 
         return detectedResult != nil
@@ -162,9 +173,9 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
 
         switch (template){
             case TaggingTemplate.hashtags.rawValue:
-                exportingTagStrings = tags?.getTaggedString(separator: "#", allowWhiteSpace: true, startingAsPrefix: true)
+                exportingTagStrings = tags?.getTaggedString(separator: "#", allowWhiteSpace: true, prefix: true)
             case TaggingTemplate.taglist.rawValue:
-                exportingTagStrings = tags?.getTaggedString(separator: ",", allowWhiteSpace: true, startingAsPrefix: false)
+                exportingTagStrings = tags?.getTaggedString(separator: ",", allowWhiteSpace: true, prefix: false)
             default:
                 break
         }
@@ -190,7 +201,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     }
 
     public var titleWillFinalize: String? {
-        return "Finding Hashtags From Photos...".localized
+        return "Finding Hashtags In Photos...".localized
     }
 
     public var doneButtonTitle: String? {
@@ -253,22 +264,20 @@ private enum TaggingTemplate:Int, Codable{
 
 extension HashtagenAppDockContent: PreheatableAppSubscribable{
     func prepareStatusDisplaying(label:String?){
-
-//        var desc = self.settingCellDescribers.first { describable in
-//            describable.itemIdentifier == CleanerAppSettingCells.autoSelect.hashValue
-//        }
-//        desc?.detailedLabel = label
+        var desc = self.settingCellDescribers.first { describable in
+            describable.itemIdentifier == settingCellDescribers.first?.itemIdentifier
+        }
+        desc?.detailedLabel = label
     }
 
     func didStartPreheating() {
-//        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
-//        self.startSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+        prepareStatusDisplaying(label: "Activating Current Visible Items ...".localized)
+        self.startSelectionBotIconAnimation(self.settingCellDescribers, self.settingCellDescribers.first?.itemIdentifier ?? -1)
     }
 
     func didStopPreheating() {
-
-//        prepareStatusDisplaying(label: CleanerApp.privateDefaults.autoSelect ? "On Standby".localized : nil)
-//        self.stopSelectionBotIconAnimation(self.settingCellDescribers, CleanerAppSettingCells.autoSelect.hashValue)
+        prepareStatusDisplaying(label: defaults.autoSelect ? "On Standby".localized : nil)
+        self.stopSelectionBotIconAnimation(self.settingCellDescribers, self.settingCellDescribers.first?.itemIdentifier ?? -1)
     }
 }
 
@@ -285,7 +294,6 @@ private class IntrinsicTableView: UITableView {
 }
 
 //TODO: threshold for confidence
-
 fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelegate, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource, TagListViewDelegate{
     private lazy var defaults = HashtagenApp.defaults as! HashtagenAppDefaults
 
@@ -300,6 +308,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
     }
 
     fileprivate func setLabelsIfNeeded(_ settingResults:[VisionLabelPHAssetDetectResult], remove:Bool=false){
+        assert(DispatchQueue.currentIsMain, "Use main queue")
         let resultsAdding = Array<VisionLabelPHAssetDetectResult>(Set(settingResults).subtracting(Set(settedLabelResults)))
         let shouldRemoveAll = settingResults.count == 0 || resultsAdding.count==0 && settedLabelResults.count == 0
 
@@ -313,31 +322,24 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
             self.settedLabelResults = Array(Set(self.settedLabelResults).subtracting(Set(settingResults)))
         }
 
-        DispatchQueue.mainAsyncIfNot {
+        let removingTags = Set(settingResults.labelTextsConfidenceDescending).subtracting(Set(self.settedLabelResults.labelTextsConfidenceDescending))
+        let currentTagsSet = Set(self.currentTags)
+        let addingTags = resultsAdding.labelTextsConfidenceDescending.filter{ !currentTagsSet.contains($0) }
 
-            let removingTags = Set(settingResults.labelTextsConfidenceDescending).subtracting(Set(self.settedLabelResults.labelTextsConfidenceDescending))
-            let currentTagsSet = Set(self.currentTags)
-            let addingTags = resultsAdding.labelTextsConfidenceDescending.filter{ !currentTagsSet.contains($0) }
+        UIView.animate(withDuration: 0.3){
+            if shouldRemoveAll{
+                self.tagsView.removeAllTags()
 
-//            self.tagsView.removeAllTags()
-//            for l in self.settedLabelResults.labelTextsConfidenceDescending{
-//                self.tagsView.addTag(l)
-//            }
-
-            UIView.animate(withDuration: 0.3){
-                if shouldRemoveAll{
-                    self.tagsView.removeAllTags()
-
-                }else if remove{
-                    for l in removingTags{
-                        self.tagsView.removeTag(l)
-                    }
-
-                }else{
-                    for l in addingTags{
-                        self.tagsView.addTag(l)
-                    }
+            }else if remove{
+                for l in removingTags{
+                    self.tagsView.removeTag(l)
                 }
+
+            }else{
+                for l in addingTags{
+                    self.tagsView.addTag(l)
+                }
+                (self.view as? UIScrollView)?.flashScrollIndicators()
             }
         }
     }
@@ -379,8 +381,6 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
             self.tagsView.removeTagView(tagView)
         }
     }
-
-
 
     lazy var view: UIView = {
 
@@ -626,7 +626,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
 
     }
 
-    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Found tags will append into the following area.".localized)
+    lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Choose some photos you want to find tags.".localized)
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if 0 == section {
             footerView.sizeToFit()

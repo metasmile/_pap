@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Vyberte voľbu exportu pre položky %d Položky";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Vyberte položku PoddÄ> ska.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Vyberte niektoré fotografie, ktoré chcete nájsť.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistič vám umožňuje vyhľadať a odstrániť rôzne nesprávne fotografie, ak sa zhodujú napr. S duplikátmi a podobnými obrázkami, detailnými fotografiami alebo zámkami v zámku!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "nálezcu";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Hľadanie značky Hashtag z fotografií ...";
+"Finding Hashtags In Photos..." = "Hľadanie značky Hashtags v fotografiách ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Hľadanie a zhromažďovanie hashtag z vašich fotografií, ktoré ste vybrali.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "formáty";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "vpred";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Nájdené značky sa pripojí do nasledujúcej oblasti.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "Používateľ hosťa";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Ovládajte veľa fotografií naraz.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Mriežka";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Dobrý deň, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */

@@ -128,7 +128,7 @@
 "Actions" = "Actions";
 /* Generated from genl10n: AppCenter.Charge.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Activate Ads" = "Activate Ads";
-/* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Hashtagen.BApp.swift */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Add New Contact" = "Add New Contact";
@@ -176,9 +176,9 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
+/* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -208,6 +208,8 @@
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Choose some photos you want to find tags.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* Generated from genl10n: Cleaner.BApp.swift */
@@ -301,7 +303,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Finding Hashtags From Photos...";
+"Finding Hashtags In Photos..." = "Finding Hashtags In Photos...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Finding and collecting hashtags from your photos you selected.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -312,8 +314,6 @@
 "Formats" = "Formats";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "Found tags will append into the following area.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -352,6 +352,8 @@
 "Guest User" = "Guest User";
 /* Generated from genl10n: batch.Strings.swift */
 "Handle lots of photos at once." = "Handle lots of photos at once.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "HashTag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Hello, %@!" = "Hello, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -434,7 +436,7 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
-/* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Cleaner.BApp.swift, Hashtagen.BApp.swift, Finder.BApp.swift */
 "On Standby" = "On Standby";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
@@ -476,7 +478,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Artist.BApp.swift, App.UI.AssetView.swift, Filters.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";

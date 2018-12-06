@@ -72,6 +72,7 @@
 		4F71D0C434B1FB27A03E67EC /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
 		4F71D0CDCBEDB53000E4412C /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D134C2C1CA981897CC95 /* AppDelegate.Intents.swift */; };
 		4F71D0CDE130AFBBA5E84EC5 /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
+		4F71D0D4E55E08684018B25C /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71D0D781A7D871572072AD /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D19F66C0411118A96A3D /* AppManager.swift */; };
 		4F71D0D85F27F04FD842B41C /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF76C76F5B64B406F1CE /* StateValue.swift */; };
 		4F71D0E49DFFA452E2CA0975 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7461275B4916DCBF64F /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */; };
@@ -130,6 +131,7 @@
 		4F71D1F3646BFBB936460706 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D558202A1E3C22541F44 /* CodeKit.Timer.swift */; };
 		4F71D1F432FA58581135AD76 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		4F71D1F7AFF1F77D339A92BE /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
+		4F71D1F7C74E00E47D71F392 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71D1F9DD0621A16390B63C /* auto_straighten.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */; };
 		4F71D1FAC399370D6EABFD4F /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D1FAD51908EBF56D4CFF /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA068F8C31967B109A6 /* PhotoCollectionViewCell.swift */; };
@@ -140,6 +142,7 @@
 		4F71D20A1C968865ECD40DFE /* pap.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7A31C39356AB6B60BBA /* pap.Defaults.swift */; };
 		4F71D20E1A7E17B416C4648C /* Sourceable.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D504B060FEA511EE2386 /* Sourceable.PHAsset.swift */; };
 		4F71D20F187FEC7A01C2054D /* ocra.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DADF39B8E3B1DAB7B227 /* ocra.entitlements */; };
+		4F71D20FC20D210CCCFBD080 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71D21058252E4B30D70A14 /* App.Finalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D592F3F1DE31FB1F6F13 /* App.Finalizable.swift */; };
 		4F71D210D89713C50B19227B /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4985F3D6B4D939F57CB /* Charge.Types.swift */; };
 		4F71D211C75D79846BADCFA4 /* FirebaseMLVision.VisionTextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C637ED45A50444B686 /* FirebaseMLVision.VisionTextDetector.swift */; };
@@ -279,6 +282,7 @@
 		4F71D43D8A0B5FFD525C7C33 /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D44F72B257178A110D63 /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71D443F042DB57BE4C3601 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE686659EAC3DACA5347 /* UITableViewCells.swift */; };
 		4F71D44D5F2BD48AFF0EBFED /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE8370F3642046D8FF4 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
+		4F71D44F0E2DE154CADA1309 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71D45196F578C14D341FF7 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71D46372B4D4D7F3D1CE9F /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D80B49F4F792DC21B9CC /* CodeKit.UIImage.swift */; };
 		4F71D4667618430750032D76 /* Charge.Manager.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D77E280BF939F23C635D /* Charge.Manager.Macro.swift */; };
@@ -309,6 +313,7 @@
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
 		4F71D4C3AB38FE69AC5C1EFA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
 		4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
+		4F71D4C5552C4DEC8412DE82 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71D4C638F7E6B7CEA7FC63 /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D430BFAEE78F96648FE9 /* Charge.Objects.Receipt.swift */; };
 		4F71D4C7345005CEC278A047 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D4CB303A5BF09745360B /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
@@ -376,6 +381,8 @@
 		4F71D5A429B30F9C012E5A85 /* CodeKit.UIFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4350001C8D6C89724A3 /* CodeKit.UIFeedbackGenerator.swift */; };
 		4F71D5A5CE800AA22DB411F7 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
 		4F71D5AA9304ABD3E7397830 /* PhotoPickerViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D45197AABF077C42D925 /* PhotoPickerViewController.Operations.swift */; };
+		4F71D5B6828AFEB60BAA2234 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
+		4F71D5BB4DFA8D412AE35012 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71D5BF62DA9F53E529449B /* FirebaseMLVision.VisionText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB11FC7217647C549E54 /* FirebaseMLVision.VisionText.Parser.swift */; };
 		4F71D5C0465938AD4C3FF7D4 /* CodeKit.UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D80B49F4F792DC21B9CC /* CodeKit.UIImage.swift */; };
 		4F71D5C0D002BAD3DB2959C6 /* App.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0737F0209D028753012 /* App.Launchable.OptionsKeys.swift */; };
@@ -396,6 +403,7 @@
 		4F71D6151D0BE53C0BC7DED8 /* CodeKit.UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D32CB295BCF19B2023EE /* CodeKit.UITableViewCell.swift */; };
 		4F71D616E5EE0077498C2F45 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFDEABCC02B557BB9FC4 /* VisionBarcodeDetector.swift */; };
 		4F71D618DDE8B42EA0239FFF /* App.UI.CameraView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D517075E921BC9843D7F /* App.UI.CameraView.xcassets */; };
+		4F71D61A275DA46644E601F7 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71D62203068016761F9CB8 /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D839E9433881EAEAFD00 /* App.Configurable.swift */; };
 		4F71D6266777ACED107EA3DD /* App.Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB7D9E9BD34B302CD618 /* App.Persistable.swift */; };
 		4F71D628BF1ACC36967BFD63 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */; };
@@ -717,6 +725,7 @@
 		4F71DB9EBA8DA19C46B69C7A /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D430BFAEE78F96648FE9 /* Charge.Objects.Receipt.swift */; };
 		4F71DBAA8E0160A6F0A5EA17 /* FileIO.UTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D48FE3FB970E5BF2B874 /* FileIO.UTI.swift */; };
 		4F71DBB44616DBFEF1336E3C /* CodeKit.String.NSDataDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EA2DFC266677751E41 /* CodeKit.String.NSDataDetector.swift */; };
+		4F71DBC4CBA05241973E4B72 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71DBCD1B2047297E025976 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD40A5CCF4C55889275 /* CodeKit.AVAsset.swift */; };
 		4F71DBD0B703FAB497ABC8FD /* AssetIO.LivePhotoResource.Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3DDFB5D6CC075EEA275 /* AssetIO.LivePhotoResource.Video.swift */; };
 		4F71DBD3FEF153718A85290D /* AppTaskRespondable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34344479C2B5AACA539 /* AppTaskRespondable.swift */; };
@@ -874,6 +883,7 @@
 		4F71DE7F667EEF4BE3706B6D /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE872A02AD13D7B4CD68 /* CodeKit.Data.swift */; };
 		4F71DE81915BE2A3B2D9CCA7 /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB03EF9DFA1146A969B7 /* AppTaskOperationQueue.swift */; };
 		4F71DE8744F6106FC907605A /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49B6524354B4BE1C753 /* Charge.Banker.swift */; };
+		4F71DE90C69B6A399A8D89C3 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71DE9508B2FF53233980CC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71DE9F79D0FED25BC0A3C9 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0938AB0B1C4B56F5E78 /* AppDockViewController.swift */; };
 		4F71DEA1BFE7A06A60D0BDD4 /* CodeKit.UIImage.Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5AF9138C126E59D8722 /* CodeKit.UIImage.Transform.swift */; };
@@ -883,6 +893,7 @@
 		4F71DEBEC65AE9D08F076A9B /* mmc.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0C3778A7A5683E8D2AF /* mmc.ExternalDelegate.swift */; };
 		4F71DEC3DCBA70FC7F1674E9 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3D65614CA366512179C /* ActionViewController.swift */; };
 		4F71DEC47AAA6B64F409F9C4 /* Charge.Types.Trialable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3F9F3A159709359F245 /* Charge.Types.Trialable.swift */; };
+		4F71DEC5BB8E338BE46327B8 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71DEC5F67E4C5B79A481F9 /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE8370F3642046D8FF4 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
 		4F71DEC8D6D9F26923CC7D38 /* FirebaseMLVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD3574E82899D962735 /* FirebaseMLVision.swift */; };
 		4F71DED3714285319083CA28 /* CodeKit.EventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D060B94D0D7549CAFFA7 /* CodeKit.EventKit.swift */; };
@@ -2407,6 +2418,7 @@
 		4F71D882FE27608A8D6FE870 /* CodeKit.Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Misc.swift; sourceTree = "<group>"; };
 		4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.swift; sourceTree = "<group>"; };
 		4F71D8950E35B2C6884F2BC1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Chargeable.FreeApps.swift; sourceTree = "<group>"; };
 		4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoPickerCollectionViewDelegatable.swift; sourceTree = "<group>"; };
 		4F71D8E599B3BDD84A485BFF /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UIGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		4F71D8EA2DFC266677751E41 /* CodeKit.String.NSDataDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSDataDetector.swift; sourceTree = "<group>"; };
@@ -2505,6 +2517,7 @@
 		4F71DE78E969F349EB0EB06A /* Test.App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.App.swift; sourceTree = "<group>"; };
 		4F71DE872A02AD13D7B4CD68 /* CodeKit.Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.Data.swift; sourceTree = "<group>"; };
 		4F71DEA74C449F4770D93B2B /* CodeKit.UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertController.swift; sourceTree = "<group>"; };
+		4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIScrollView.swift; sourceTree = "<group>"; };
 		4F71DEB92BBCCC0B43EA5840 /* Converter.Jpeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Jpeg.swift; sourceTree = "<group>"; };
 		4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.SecretCodeProgram.Types.swift; sourceTree = "<group>"; };
 		4F71DEEBC1694E701F39E7A2 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -2955,6 +2968,7 @@
 				515E9BCE21784D270090CEEC /* Clipboard */,
 				4F71D723D428D24D02EF2598 /* BApp.Chargeable.PaidApps.swift */,
 				4F71DE9D8A16DEA9E2225549 /* Hashtagen */,
+				4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */,
 			);
 			path = BApp;
 			sourceTree = "<group>";
@@ -3564,6 +3578,7 @@
 				4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */,
 				4F71DE872A02AD13D7B4CD68 /* CodeKit.Data.swift */,
 				511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */,
+				4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -5800,6 +5815,8 @@
 				4F71D8B7E7EE55B7499170F6 /* universal.ExternalDelegate.swift in Sources */,
 				4F71D2BDB50EA00180CEAD3B /* Hashtagen.BApp.swift in Sources */,
 				4F71DE5DE47F5487393E0EBC /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71D0D4E55E08684018B25C /* CodeKit.UIScrollView.swift in Sources */,
+				4F71DBC4CBA05241973E4B72 /* BApp.Chargeable.FreeApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6027,6 +6044,7 @@
 				4F71D0EDF53FCD236F541D11 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */,
 				4F71DB871F9EC13172B2941A /* AppDelegate.swift in Sources */,
 				4F71D40F7B2BFAF0803EC833 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71DEC5BB8E338BE46327B8 /* CodeKit.UIScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6327,6 +6345,8 @@
 				4F71DA206344F3B5FC641F18 /* xfgst.ExternalDelegate.swift in Sources */,
 				4F71D51CDF1FF7489D3F01E1 /* Hashtagen.BApp.swift in Sources */,
 				4F71DE6A0CB06F0EB27FC7F8 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71D5BB4DFA8D412AE35012 /* CodeKit.UIScrollView.swift in Sources */,
+				4F71D1F7C74E00E47D71F392 /* BApp.Chargeable.FreeApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6555,6 +6575,7 @@
 				4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */,
 				4F71D996E6468EA91AF62748 /* GADManager.swift in Sources */,
 				4F71DDE97AAB65E033999645 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71D61A275DA46644E601F7 /* CodeKit.UIScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6855,6 +6876,8 @@
 				4F71D76C40B86C2219C3B444 /* universal.ExternalDelegate.swift in Sources */,
 				4F71DFC33DF325992ECCF2A4 /* Hashtagen.BApp.swift in Sources */,
 				4F71DA68C713AFF6F8EA73AD /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71D5B6828AFEB60BAA2234 /* CodeKit.UIScrollView.swift in Sources */,
+				4F71D4C5552C4DEC8412DE82 /* BApp.Chargeable.FreeApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7155,6 +7178,8 @@
 				A0CB00D1219C8C64007A5278 /* universal.ExternalDelegate.swift in Sources */,
 				4F71D1F14DDBEA2044AEC9A7 /* Hashtagen.BApp.swift in Sources */,
 				4F71D597356C1D2AA94AD1D9 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71DE90C69B6A399A8D89C3 /* CodeKit.UIScrollView.swift in Sources */,
+				4F71D44F0E2DE154CADA1309 /* BApp.Chargeable.FreeApps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7339,6 +7364,7 @@
 				4F71D181CA9F955146A46B30 /* App.PhotoPickerViewControllerUniversalOperations.swift in Sources */,
 				4F71D7EE1899E1468A87EE53 /* Hashtagen.BApp.swift in Sources */,
 				4F71DBD75C0FFFE2F2A0FB88 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
+				4F71D20FC20D210CCCFBD080 /* CodeKit.UIScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -244,6 +244,8 @@
 "Choose An Export Option For %d Items" = "为%d项目选择导出选项";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "选择一个子动作。";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "选择一些您要查找标签的照片。";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清洁器使您能够查找和删除各种不正确的照片，如果他们匹配了例如重复和类似的图像，特写照片或锁屏拍摄！";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -337,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "发现者";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "从照片中查找Hashtags ...";
+"Finding Hashtags In Photos..." = "在照片中查找Hashtags ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "从您选择的照片中查找和收集主题标签。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -348,8 +350,6 @@
 "Formats" = "格式";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Forward" = "向前";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Found tags will append into the following area." = "找到的标签将附加到以下区域。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Frame Delay" = "帧延迟";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -388,6 +388,8 @@
 "Guest User" = "来宾用户";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "一次处理大量照片。";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "井号";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "你好，%@！";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
