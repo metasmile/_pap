@@ -22,7 +22,7 @@ public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigAdop
 }
 
 public class TransformApp: NSObject, BApp, PropertyWatchable
-        , ConfigurableApp, _ConfigurableApp, ChargeableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
+        , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp
         , PhotoEditorViewControllerDelegatableApp {
 
@@ -63,10 +63,6 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
 
     public static var fixedContentLayout: Bool {
         return true
-    }
-
-    static var localCharges: [Charge] {
-        return self.defaultFreeBAppLocalCharges
     }
 
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

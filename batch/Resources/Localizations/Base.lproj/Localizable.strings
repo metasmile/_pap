@@ -176,9 +176,9 @@
 "Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* Generated from genl10n: Revert.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
+/* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Finder.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, ExifGhost.AppDockContent.swift */
+/* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -478,7 +478,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Artist.BApp.swift, Filters.BApp.swift, App.UI.AssetView.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Artist.BApp.swift, App.UI.AssetView.swift, Filters.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
