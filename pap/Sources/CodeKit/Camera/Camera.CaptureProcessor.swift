@@ -212,11 +212,8 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
 
 final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
     private var photoURL: URL?
-    private var capturePhoto: AVCapturePhoto?
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        self.capturePhoto = photo
-        
         captureQueue.async {
             guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
                 return
@@ -239,11 +236,6 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
-                
-                if self.capturePhoto?.isDepthPhoto == true {
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
-                }
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:photoURL
