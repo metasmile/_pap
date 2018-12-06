@@ -43,6 +43,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return CameraView.FlashMode(rawValue: get(or: CameraView.FlashMode.off.rawValue)) ?? .off }
     }
+    
+    var isUsingLocation: Bool {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: false) }
+    }
 }
 
 class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {

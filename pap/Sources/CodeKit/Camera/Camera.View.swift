@@ -38,11 +38,13 @@ class CameraView: UIView, PropertyWatchable {
     var preferredLivePhotoEnabled: Bool = false
     var preferredCameraPosition: AVCaptureDevice.Position = .back
     var preferredFlashMode: FlashMode = .off
+    var preferredUsingLocation: Bool = false
     
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var captureMovieOutput = AVCaptureMovieFileOutput()
     
     private(set) lazy var deviceMotion = UIDeviceMotion()
+    private(set) lazy var locationManager = LocationManager.shared
 
     var configurationDidUpdate: (() -> Void)?
     @objc dynamic
@@ -109,10 +111,11 @@ class CameraView: UIView, PropertyWatchable {
 
     func startSession(completion:(() -> Void)?=nil) {
         deviceMotion.startUpdates(interval: 0.6)
+        if preferredUsingLocation {
+            locationManager.startUpdatingLocation()
+        }
         sessionQueue.async {
-            if self.captureSession == nil {
-                self.configureSession()
-            }
+            self.configureSession()
             self.captureSession?.startRunning()
             self.setTorchMode(self.flashMode.torchMode)
 
@@ -126,6 +129,7 @@ class CameraView: UIView, PropertyWatchable {
             self.captureSession?.stopRunning()
             self.captureSession = nil
         }
+        locationManager.stopUpdatingLocation()
     }
     
     var capturesInProgress = Set<CaptureProcessor>()
@@ -724,6 +728,27 @@ extension CameraView {
 }
 
 extension CameraView {
+    var isUsingLocationSupported: Bool {
+        return !locationManager.disabledLocation
+    }
+    
+    var usingLocation: Bool {
+        set {
+            if newValue {
+                locationManager.startUpdatingLocation()
+            }
+            else {
+                locationManager.stopUpdatingLocation()
+            }
+            configurationDidUpdate?()
+        }
+        get {
+            return locationManager.updatingLocation
+        }
+    }
+}
+
+extension CameraView {
     func videoZoomRange(with captureDevice: AVCaptureDevice) -> ClosedRange<CGFloat> {
         return (captureDevice.activeFormat.videoMinZoomFactorForDepthDataDelivery...captureDevice.activeFormat.videoMaxZoomFactorForDepthDataDelivery)
     }
@@ -1014,7 +1039,6 @@ fileprivate class CameraPreviewView: UIView {
         return previewLayer.session
     }
 }
-
 
 final class CaptureButton: UIControl {
     private lazy var outerCircleLayer = CAShapeLayer()

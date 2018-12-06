@@ -966,6 +966,12 @@
 		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
+		5120EBFC21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
+		5120EBFD21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
+		5120EBFE21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
+		5120EBFF21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
+		5120EC0021B9D247001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
+		5120EC0121B9D248001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
@@ -2531,6 +2537,7 @@
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5120EBFB21B9D211001D8696 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
@@ -3361,6 +3368,7 @@
 				4F71DD1794F6D10DAF0B017A /* PhotoPickerViewController.UICollectionView.CachingImage.swift */,
 				4F71D8E599B3BDD84A485BFF /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */,
 				4F71DDD9E77AA19B60BF026A /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */,
+				5120EBFB21B9D211001D8696 /* AppLocationManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -5680,6 +5688,7 @@
 				4F71D58F7D92597EDEF05655 /* CodeKit.CGImage.swift in Sources */,
 				4F71DFD4F20AFFA19924B51D /* CodeKit.CIImage.swift in Sources */,
 				4F71D2539BC81D17934FF3F2 /* CodeKit.UIImage.swift in Sources */,
+				5120EBFC21B9D211001D8696 /* AppLocationManager.swift in Sources */,
 				4F71DDC82E6AE45B8B355E0D /* CodeKit.Contacts.swift in Sources */,
 				4F71DDB5279D40B5338CBA7B /* CodeKit.EventKit.swift in Sources */,
 				4F71D9DCD9A6AC7CEE8DBB72 /* CodeKit.Sequence.swift in Sources */,
@@ -5978,6 +5987,7 @@
 				4F71D7E5950EA2C021216FAB /* FirebaseMLVision.VisionTextDetectResult.Types.swift in Sources */,
 				4F71DE07DC9D6C69BCC5B17F /* App.Lib.Parser.swift in Sources */,
 				4F71D10B27F1A7AFB845DC7B /* App.UICollectionViewPreheatable.swift in Sources */,
+				5120EC0021B9D247001D8696 /* AppLocationManager.swift in Sources */,
 				4F71DFF135D126BA4886543F /* AppTaskPrototype.DefaultRestrictedConcurrency.swift in Sources */,
 				4F71DA484DEBA40A98C19FCF /* App.PreviewProcessable.swift in Sources */,
 				4F71DE1032DC533EEC8BD53F /* App.PreviewView.Actionable.swift in Sources */,
@@ -6205,6 +6215,7 @@
 				A0CB01E9219C9093007A5278 /* CodeKit.CIImage.swift in Sources */,
 				A0CB01EA219C9093007A5278 /* CodeKit.UIImage.swift in Sources */,
 				A0CB01EB219C9093007A5278 /* CodeKit.Contacts.swift in Sources */,
+				5120EBFF21B9D211001D8696 /* AppLocationManager.swift in Sources */,
 				A0CB01EC219C9093007A5278 /* CodeKit.EventKit.swift in Sources */,
 				A0CB01ED219C9093007A5278 /* CodeKit.Sequence.swift in Sources */,
 				A0CB01EE219C9093007A5278 /* CodeKit.UIButton.swift in Sources */,
@@ -6326,6 +6337,7 @@
 				A0CB02B3219DE4F2007A5278 /* Intents.intentdefinition in Sources */,
 				A0CB02B4219DE4F2007A5278 /* Siri.SApp.swift in Sources */,
 				A0CB02B5219DE4F2007A5278 /* R.generated.swift in Sources */,
+				5120EC0121B9D248001D8696 /* AppLocationManager.swift in Sources */,
 				A0CB02B6219DE4F2007A5278 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				A0CB02B7219DE4F2007A5278 /* BApp.swift in Sources */,
 				A0CB02B8219DE4F2007A5278 /* BApp.Macro.AutoSelection.swift in Sources */,
@@ -6731,6 +6743,7 @@
 				4F71DD74D7ADA5960E3FEC2B /* CodeKit.CGImage.swift in Sources */,
 				4F71D5400347D0AFCAA9E0DF /* CodeKit.CIImage.swift in Sources */,
 				4F71DFBE3B6A8C8ACDC84086 /* CodeKit.UIImage.swift in Sources */,
+				5120EBFD21B9D211001D8696 /* AppLocationManager.swift in Sources */,
 				4F71D84E8D9174A3F8B4E2D9 /* CodeKit.Contacts.swift in Sources */,
 				4F71DED3714285319083CA28 /* CodeKit.EventKit.swift in Sources */,
 				4F71DF4B88EF5A5F3BD83C0A /* CodeKit.Sequence.swift in Sources */,
@@ -7030,6 +7043,7 @@
 				A0CB0064219C8C64007A5278 /* CodeKit.CGImage.swift in Sources */,
 				A0CB0065219C8C64007A5278 /* CodeKit.CIImage.swift in Sources */,
 				A0CB0066219C8C64007A5278 /* CodeKit.UIImage.swift in Sources */,
+				5120EBFE21B9D211001D8696 /* AppLocationManager.swift in Sources */,
 				A0CB0067219C8C64007A5278 /* CodeKit.Contacts.swift in Sources */,
 				A0CB0068219C8C64007A5278 /* CodeKit.EventKit.swift in Sources */,
 				A0CB0069219C8C64007A5278 /* CodeKit.Sequence.swift in Sources */,

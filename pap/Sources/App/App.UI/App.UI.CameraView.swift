@@ -16,6 +16,7 @@ protocol AppUICameraViewOptions {
     var isDepthPhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
     var cameraFlashMode: CameraView.FlashMode { get set }
+    var isUsingLocation: Bool { get set }
 }
 
 class AppUICameraView: UIView {
@@ -63,6 +64,7 @@ class AppUICameraView: UIView {
     private lazy var livePhotoButton = UIButton(type: .system)
     private lazy var rawPhotoButton = UIButton(type: .system)
     private lazy var depthPhotoButton = UIButton(type: .system)
+    private lazy var locationButton = UIButton(type: .system)
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
     private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
@@ -82,6 +84,7 @@ class AppUICameraView: UIView {
             self.cameraView.preferredDepthPhotoEnabled = defaults.isDepthPhotoEnabled
             self.cameraView.preferredCameraPosition = defaults.cameraPosition
             self.cameraView.preferredFlashMode = defaults.cameraFlashMode
+            self.cameraView.preferredUsingLocation = defaults.isUsingLocation
         }
 
         cameraView.deviceMotion.watch(\.orientation){
@@ -237,6 +240,21 @@ class AppUICameraView: UIView {
         let captureButtonCenterYLayout = captureButton.centerYAnchor.constraint(equalTo: controlView.centerYAnchor)
         captureButtonCenterYLayout.priority = .defaultLow
         captureButtonCenterYLayout.isActive = true
+        
+        //location
+        locationButton.imageEdgeInsets = buttonImageInsets
+        locationButton.imageView?.contentMode = .scaleAspectFit
+        locationButton.contentHorizontalAlignment = .fill
+        locationButton.contentVerticalAlignment = .fill
+        locationButton.setImage(locationIcon, for: .normal)
+        locationButton.addTarget(self, action: #selector(self.toggleUsingLocation), for: .touchUpInside)
+        addSubview(locationButton)
+        
+        locationButton.translatesAutoresizingMaskIntoConstraints = false
+        locationButton.centerYAnchor.constraint(greaterThanOrEqualTo: captureButton.centerYAnchor).isActive = true
+        locationButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
+        locationButton.widthAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        locationButton.heightAnchor.constraint(equalTo: locationButton.widthAnchor, multiplier: 0.75).isActive = true
 
         //position
         cameraPositionButton.imageEdgeInsets = buttonImageInsets
@@ -277,7 +295,8 @@ class AppUICameraView: UIView {
             defaults?.cameraPosition = self.cameraView.cameraPosition
             defaults?.cameraFlashMode = self.cameraView.flashMode
             defaults?.isDepthPhotoEnabled = self.cameraView.isDepthPhotoEnabled
-
+            defaults?.isUsingLocation = self.cameraView.usingLocation
+            
             DispatchQueue.mainAsyncIfNot {
                 self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
                 self.livePhotoButton.tintColor = self.cameraView.isLivePhotoEnabled ? self.primaryColor : nil
@@ -290,6 +309,10 @@ class AppUICameraView: UIView {
                 
                 self.cameraFlashButton.setImage(self.flashModeIcon, for: .normal)
                 self.cameraFlashButton.tintColor = (self.cameraView.flashMode == .on || self.cameraView.flashMode == .torch) ? self.primaryColor : nil
+                
+                self.locationButton.setImage(self.locationIcon, for: .normal)
+                self.locationButton.isEnabled = self.cameraView.isUsingLocationSupported
+                self.locationButton.tintColor = self.cameraView.usingLocation ? self.primaryColor : nil
             }
         }
 
@@ -315,6 +338,10 @@ class AppUICameraView: UIView {
     
     private var depthPhotoBadgeIcon: UIImage {
         return (R.image.cell_icon_depth() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
+    
+    private var locationIcon: UIImage {
+        return (R.image.appActionIconLocation() ?? UIImage()).withRenderingMode(.alwaysTemplate)
     }
 
     private var flashModeIcon: UIImage{
@@ -376,6 +403,12 @@ class AppUICameraView: UIView {
     
     @objc func toggleDepthPhotoEnabled(sender: Any) {
         cameraView.isDepthPhotoEnabled = !cameraView.isDepthPhotoEnabled
+        
+        UIFeedback.select()
+    }
+    
+    @objc func toggleUsingLocation(sender: Any) {
+        cameraView.usingLocation = !cameraView.usingLocation
         
         UIFeedback.select()
     }

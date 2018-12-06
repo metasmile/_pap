@@ -84,6 +84,41 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             , property: ImageMetadata.Property.ExifUserComment
             , value: [processor.param.metadataComment ?? "", type(of: processor).ExifUserCommentIdentifier].joined(separator: type(of: processor).ExifUserCommentSeparator).trimmed
         )
+        if let location = LocationManager.shared.location {
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+            
+            dateFormatter.dateFormat = "yyyy:MM:dd"
+            let isoDate = dateFormatter.string(from: location.timestamp)
+            
+            dateFormatter.dateFormat = "HH:mm:ss.SSSSSS"
+            let isoTime = dateFormatter.string(from: location.timestamp)
+            
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSLatitude, value: abs(location.coordinate.latitude))
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSLatitudeRef, value: location.coordinate.latitude < 0 ? "S" : "N")
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSLongitude, value: abs(location.coordinate.longitude))
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSLongitudeRef, value: location.coordinate.longitude < 0 ? "W" : "E")
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSAltitude, value: abs(location.altitude))
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSAltitudeRef, value: location.altitude < 0 ? 1 : 0)
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSTimeStamp, value: isoTime)
+            metadata = metadata.updateMetadata(
+                dictionary: ImageMetadata.Dictionary.GPS
+                , property: ImageMetadata.Property.GPSDateStamp, value: isoDate)
+        }
         // https://forums.developer.apple.com/thread/87700
         if photo.isDepthPhoto {
             metadata = metadata.updateMetadata(
