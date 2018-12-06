@@ -197,8 +197,11 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
 
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
+                
                 let creationRequest = PHAssetCreationRequest.forAsset()
-                creationRequest.addResource(with: .photo, fileURL: url, options: nil)
+                creationRequest.addResource(with: .photo, fileURL: url, options: options)
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
                     CaptureProcessorResultKey.photoURL:url
@@ -234,7 +237,7 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 options.shouldMoveFile = true
 
                 let creationRequest = PHAssetCreationRequest.forAsset()
-                creationRequest.addResource(with: .photo, fileURL: photoURL, options: nil)
+                creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
@@ -275,12 +278,13 @@ final class CameraViewRawPhotoCaptureProcessor: CaptureProcessor {
                 
                 signal.begin()
                 PHPhotoLibrary.shared().performChanges({
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, fileURL: compressedURL, options: nil)
-                    
-                    // Add the RAW (DNG) file as an altenate resource.
                     let options = PHAssetResourceCreationOptions()
                     options.shouldMoveFile = true
+                    
+                    let creationRequest = PHAssetCreationRequest.forAsset()
+                    creationRequest.addResource(with: .photo, fileURL: compressedURL, options: options)
+                    
+                    // Add the RAW (DNG) file as an altenate resource.
                     creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
                 }, completionHandler: { (success, info) in
                     self.completionHandler?(success, [
