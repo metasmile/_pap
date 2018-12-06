@@ -118,6 +118,15 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             metadata = metadata.updateMetadata(
                 dictionary: ImageMetadata.Dictionary.GPS
                 , property: ImageMetadata.Property.GPSDateStamp, value: isoDate)
+            
+            if let heading = LocationManager.shared.heading {
+                metadata = metadata.updateMetadata(
+                    dictionary: ImageMetadata.Dictionary.GPS
+                    , property: ImageMetadata.Property.GPSImgDirection, value: heading.trueHeading)
+                metadata = metadata.updateMetadata(
+                    dictionary: ImageMetadata.Dictionary.GPS
+                    , property: ImageMetadata.Property.GPSImgDirectionRef, value: "T")
+            }
         }
         // https://forums.developer.apple.com/thread/87700
         if photo.isDepthPhoto {

@@ -14,9 +14,7 @@ class LocationManager: NSObject {
     
     private lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
-//        locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.headingFilter = 5.0
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         return locationManager
     }()
@@ -25,6 +23,7 @@ class LocationManager: NSObject {
     var location: CLLocation? {
         return cachedLocations?.sorted { $0.horizontalAccuracy < $1.horizontalAccuracy }.first
     }
+    private(set) var heading: CLHeading?
     
     override init() {
         super.init()
@@ -44,12 +43,18 @@ class LocationManager: NSObject {
         }
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        if CLLocationManager.headingAvailable() {
+            locationManager.headingFilter = 5
+            locationManager.startUpdatingHeading()
+        }
     }
     
     func stopUpdatingLocation() {
         locationManager.delegate = nil
         locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
         cachedLocations = nil
+        heading = nil
     }
 }
 
@@ -64,5 +69,9 @@ extension LocationManager: CLLocationManagerDelegate {
         } else {
             locationManager.stopUpdatingLocation()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        heading = newHeading
     }
 }
