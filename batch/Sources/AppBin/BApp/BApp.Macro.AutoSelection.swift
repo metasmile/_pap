@@ -10,39 +10,39 @@ import UIKit
 
 extension AppDockContent {
 
-    func startSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
-        self.startTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
+    func startSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ itemIdentifier: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
+        self.startTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, itemIdentifier, sectionIndex, interval)
     }
 
-    func stopSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
-        self.stopTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, cellId, sectionIndex, interval)
+    func stopSelectionBotIconAnimation(_ cellDescribers: [UITableViewCellDefaultDescribable], _ itemIdentifier: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
+        self.stopTableViewCellIconAnimation(R.image.commonCellIconRobot.name, R.image.commonCellIconRobotActive.name, cellDescribers, itemIdentifier, sectionIndex, interval)
     }
 
 
     // Common
-    func startTableViewCellIconAnimation(_ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
+    func startTableViewCellIconAnimation(_ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ itemIdentifier: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
         DispatchQueue.mainAsyncIfNot {
-            self.animateTableViewCellIconImage(true, normalImageName, animatingImageName, cellDescribers, cellId, sectionIndex, interval)
+            self.animateTableViewCellIconImage(true, normalImageName, animatingImageName, cellDescribers, itemIdentifier, sectionIndex, interval)
         }
     }
 
-    func stopTableViewCellIconAnimation(_ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
+    func stopTableViewCellIconAnimation(_ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ itemIdentifier: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval = 0.4) {
         DispatchQueue.mainAsyncIfNot {
-            self.animateTableViewCellIconImage(false, normalImageName, animatingImageName, cellDescribers, cellId, sectionIndex, interval)
+            self.animateTableViewCellIconImage(false, normalImageName, animatingImageName, cellDescribers, itemIdentifier, sectionIndex, interval)
         }
     }
 
-    func animateTableViewCellIconImage(_ start: Bool, _ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ cellId: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval) {
+    func animateTableViewCellIconImage(_ start: Bool, _ normalImageName: String, _ animatingImageName: String, _ cellDescribers: [UITableViewCellDefaultDescribable], _ itemIdentifier: Int, _ sectionIndex: Int = 0, _ interval: TimeInterval) {
         assert(DispatchQueue.currentIsMain)
 
-        guard let tableView = self.view as? UITableView else {
+        guard let tableView = (([self.view] + self.view.getAllSubviews()).compactMap{ $0 as? UITableView }).first else {
             return
         }
 
         let timerId = #function
 
         if let index = cellDescribers.index(where: { describable in
-            return describable.itemIdentifier == cellId
+            return describable.itemIdentifier == itemIdentifier
         }) {
             var desc = cellDescribers[index]
 
