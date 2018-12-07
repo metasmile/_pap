@@ -700,7 +700,7 @@ extension CameraView {
 }
 
 extension CameraView {
-    var isDepthPhotoSupported: Bool {
+    static var isDepthPhotoSupported:Bool{
         if #available(iOS 12.0, *) {
             return !AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified).devices.isEmpty
         }
@@ -708,7 +708,7 @@ extension CameraView {
             return !AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera], mediaType: .video, position: .unspecified).devices.isEmpty
         }
     }
-    
+
     var isDepthPhotoEnabled: Bool {
         set {
             sessionQueue.async {

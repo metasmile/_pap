@@ -180,7 +180,7 @@ class AppUICameraView: UIView {
         depthPhotoButton.contentVerticalAlignment = .fill
         depthPhotoButton.setImage(depthPhotoBadgeIcon, for: .normal)
         depthPhotoButton.addTarget(self, action: #selector(self.toggleDepthPhotoEnabled), for: .touchUpInside)
-        if cameraView.isDepthPhotoSupported {
+        if CameraView.isDepthPhotoSupported {
             photoOptionView.addArrangedSubview(depthPhotoButton)
         }
         
@@ -431,7 +431,7 @@ class AppUICameraView: UIView {
         if isCompactMode {
             photoOptionView.spacing = 0
             
-            if cameraView.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
+            if CameraView.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
                 photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
             }
             if cameraView.isRawPhotoEnabled {
@@ -441,7 +441,7 @@ class AppUICameraView: UIView {
         else {
             photoOptionView.spacing = 2
             
-            if cameraView.isDepthPhotoSupported {
+            if CameraView.isDepthPhotoSupported {
                 photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
             }
             photoOptionView.addArrangedSubview(rawPhotoButton)
