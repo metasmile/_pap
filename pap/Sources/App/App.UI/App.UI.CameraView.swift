@@ -180,7 +180,9 @@ class AppUICameraView: UIView {
         depthPhotoButton.contentVerticalAlignment = .fill
         depthPhotoButton.setImage(depthPhotoBadgeIcon, for: .normal)
         depthPhotoButton.addTarget(self, action: #selector(self.toggleDepthPhotoEnabled), for: .touchUpInside)
-        photoOptionView.addArrangedSubview(depthPhotoButton)
+        if cameraView.isDepthPhotoSupported {
+            photoOptionView.addArrangedSubview(depthPhotoButton)
+        }
         
         depthPhotoButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         depthPhotoButton.widthAnchor.constraint(equalTo: depthPhotoButton.heightAnchor, multiplier: 0.75).isActive = true
@@ -227,7 +229,7 @@ class AppUICameraView: UIView {
         addSubview(captureButton)
 
         captureButton.translatesAutoresizingMaskIntoConstraints = false
-        captureButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor).isActive = true
+        bottomAnchor.constraint(greaterThanOrEqualTo: captureButton.bottomAnchor, constant: 10).isActive = true
         captureButton.centerXAnchor.constraint(equalTo: controlView.centerXAnchor).isActive = true
         captureButton.heightAnchor.constraint(greaterThanOrEqualToConstant: CaptureButtonMinHeightAnchorConstant).isActive = true
         captureButton.heightAnchor.constraint(lessThanOrEqualToConstant: ControlViewHeightAnchorConstant).isActive = true
@@ -313,6 +315,10 @@ class AppUICameraView: UIView {
                 self.locationButton.setImage(self.locationIcon, for: .normal)
                 self.locationButton.isEnabled = self.cameraView.isUsingLocationSupported
                 self.locationButton.tintColor = self.cameraView.usingLocation ? self.primaryColor : nil
+                
+                if self.isCompactMode {
+                    self.updatePhotoOptionButtons()
+                }
             }
         }
 
@@ -417,19 +423,43 @@ class AppUICameraView: UIView {
         layoutIfNeeded()
         return height-(cameraView.height + ControlViewHeightAnchorConstant) < OptionViewHeightAnchorConstant
     }
+    
+    private func updatePhotoOptionButtons() {
+        depthPhotoButton.removeFromSuperview()
+        rawPhotoButton.removeFromSuperview()
+        
+        if isCompactMode {
+            photoOptionView.spacing = 0
+            
+            if cameraView.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
+                photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
+            }
+            if cameraView.isRawPhotoEnabled {
+                photoOptionView.addArrangedSubview(rawPhotoButton)
+            }
+        }
+        else {
+            photoOptionView.spacing = 2
+            
+            if cameraView.isDepthPhotoSupported {
+                photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
+            }
+            photoOptionView.addArrangedSubview(rawPhotoButton)
+        }
+    }
 
     var isCompactMode: Bool = true {
         didSet {
             if isCompactMode {
                 optionViewHeightLayout?.constant = 0
                 controlViewHeightLayout?.constant = 0
-                photoOptionView.spacing = 0
             }
             else {
                 controlViewHeightLayout?.constant = ControlViewHeightAnchorConstant
                 optionViewHeightLayout?.constant = self.hasZeroOptionViewMargin ? 0 : OptionViewHeightAnchorConstant
-                photoOptionView.spacing = 2
             }
+            
+            updatePhotoOptionButtons()
 
             let compactControlViewLayoutRequired = isCompactMode || optionViewHeightLayout?.constant ?? 0 > 0
 

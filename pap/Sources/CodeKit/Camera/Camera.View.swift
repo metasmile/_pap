@@ -190,20 +190,11 @@ extension CameraView {
             captureSession.addInput(captureDeviceInput)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: captureDevice)
-        
         configureDepthPhotoEnabled(isDepthPhotoEnabled)
         
-        //        if let depthFormat = captureDevice.activeFormat.supportedDepthDataFormats.first(where: { format in
-        //            let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
-        //            return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
-        //                pixelFormatType == kCVPixelFormatType_DepthFloat32)
-        //        }) {
-        //            // Set the capture device to use that depth format.
-        //            captureDevice.activeDepthDataFormat = depthFormat
-        //        }
-        
         captureDevice.unlockForConfiguration()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: captureDevice)
     }
     
     private func configureSession(with device: AVCaptureDevice? = nil) {
@@ -604,6 +595,26 @@ extension CameraView {
 
 extension CameraView {
     var isLivePhotoSupported: Bool {
+// https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
+//
+// iPhone
+//        iPhone 8
+//        iPhone 8 Plus
+//        iPhone X
+//        iPhone 7
+//        iPhone 7 Plus
+//        iPhone 6s
+//        iPhone 6s Plus
+//        iPhone SE
+//        (X) iPhone 6
+//        (X) iPhone 6 Plus
+// iPad
+//        iPad Pro
+//        10.5-inch
+//        12.9-inch (2nd generation)
+//        iPad (5th generation)
+//        (X) iPad Pro (12.9-inch)
+//        iPad Pro (9.7-inch)
         return capturePhotoOutput.isLivePhotoCaptureSupported
     }
     
@@ -637,6 +648,27 @@ extension CameraView {
 
 extension CameraView {
     var isRawPhotoSupported: Bool {
+// https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
+//
+// iPhone
+//        iPhone 8
+//        iPhone 8 Plus
+//        iPhone X
+//        iPhone 7
+//        iPhone 7 Plus
+//        iPhone 6s
+//        iPhone 6s Plus
+//        iPhone SE
+//        (X) iPhone 6
+//        (X) iPhone 6 Plus
+// iPad
+//        iPad Pro
+//        10.5-inch
+//        12.9-inch (2nd generation)
+//        (X) iPad (5th generation)
+//        (X) iPad Pro (12.9-inch)
+//        iPad Pro (9.7-inch)
+
         return capturePhotoOutput.availableRawPhotoPixelFormatTypes.first != nil
     }
     
@@ -668,6 +700,15 @@ extension CameraView {
 }
 
 extension CameraView {
+    var isDepthPhotoSupported: Bool {
+        if #available(iOS 12.0, *) {
+            return !AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified).devices.isEmpty
+        }
+        else {
+            return !AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera], mediaType: .video, position: .unspecified).devices.isEmpty
+        }
+    }
+    
     var isDepthPhotoEnabled: Bool {
         set {
             sessionQueue.async {
