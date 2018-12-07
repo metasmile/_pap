@@ -1,2 +1,2 @@
-+ Framer 1.0.1: Some minor UI improvements.
-• Some crash and minor fixes.
++ Camera 1.1 - A huge update
+• RAW format, depth effect photo support, and location metadata control for your privacy.
