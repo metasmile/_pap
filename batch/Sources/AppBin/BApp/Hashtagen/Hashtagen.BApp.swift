@@ -57,7 +57,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
     public static let info = AppInfo(
             identifier: "com.stells.batch.hashtagen"
             , version: "1.0"
-            , phase: .release
+            , phase: .beta
             , appType: HashtagenApp.self
             , displayName: "HashTag".localized
             , description: "Finding and collecting hashtags from your photos you selected.".localized

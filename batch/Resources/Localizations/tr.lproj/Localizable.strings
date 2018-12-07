@@ -670,6 +670,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Bazı kişiler kurtarıldı, ancak birileri değildi.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Üzgünüz, bu dönüştürme seçeneği şu anda desteklemiyor.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Özel Misafir Lisans Programı";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Fotoğraf çekmek";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Yer almak";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Derinlik Etkisi Fotoğrafı alın.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Canlı Fotoğraflı bir GIF atın.";
 /* Generated from genl10n: Camera.SApp.swift */

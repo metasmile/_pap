@@ -616,6 +616,8 @@
 "Size" = "尺寸";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "有些聯繫人得救，但有些人沒有。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "抱歉，此轉換選項目前不支持。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "特別來賓許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -654,6 +656,8 @@
 "Take A Photo" = "拍張照片";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "參與";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "拍攝深度效果照片。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "拍攝帶有實時照片的GIF。";
 /* Generated from genl10n: Camera.SApp.swift */

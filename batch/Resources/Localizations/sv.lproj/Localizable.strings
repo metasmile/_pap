@@ -670,6 +670,8 @@
 "Size" = "Storlek";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Vissa kontakter sparades, men vissa var inte.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Tyvärr, det här konverteringsalternativet stöder inte just nu.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Särskilt gästlicensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Ta ett foto";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Ta del";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Ta ett djupseffektfoto.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Ta en GIF med ett levande foto.";
 /* Generated from genl10n: Camera.SApp.swift */

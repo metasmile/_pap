@@ -670,6 +670,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "S'han desat alguns contactes, però alguns no eren.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Ho sento, aquesta opció de conversió no és compatible actualment.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Programa especial de llicències d'invitats";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Fer una foto";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Formar part";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Feu una foto d'efecte de profunditat.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Prengui un GIF amb una foto en viu.";
 /* Generated from genl10n: Camera.SApp.swift */

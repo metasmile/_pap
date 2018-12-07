@@ -670,6 +670,8 @@
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Κάποιες επαφές σώθηκαν, αλλά κάποιοι δεν ήταν.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Λυπούμαστε, Αυτή η επιλογή μετατροπής δεν υποστηρίζει αυτήν τη στιγμή.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Ειδικό Πρόγραμμα Άδειας Χρήστη";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Βγάλε μια φωτογραφία";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Συμμετέχω";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Πραγματοποιήστε μια φωτογραφία βάθους επεκτάσεων.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Πάρτε ένα GIF με Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */

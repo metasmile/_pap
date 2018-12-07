@@ -670,6 +670,8 @@
 "Size" = "גודל";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "כמה אנשי קשר ניצלו, אבל לא היו כאלה.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "מצטערים, אפשרות המרה זו אינה תומכת כרגע.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "תוכנית רשיון אורח מיוחדת";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "קח תמונה";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "לקחת חלק";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "קח אפקט עומק תמונה.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "קח GIF עם תמונה חיה.";
 /* Generated from genl10n: Camera.SApp.swift */

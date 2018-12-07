@@ -670,6 +670,8 @@
 "Size" = "ขนาด";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "ผู้ติดต่อบางรายได้รับการบันทึกไว้ แต่บางคนก็ไม่ได้";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "ขออภัยตัวเลือกการแปลงนี้ไม่สนับสนุนในปัจจุบัน";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "โปรแกรมสิทธิพิเศษสำหรับผู้มาเยือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "ถ่ายรูป";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "มีส่วนร่วม";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "ถ่ายภาพความชัดลึก";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "ใช้ GIF พร้อม Live Photo";
 /* Generated from genl10n: Camera.SApp.swift */

@@ -670,6 +670,8 @@
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "죄송합니다.이 변환 옵션은 현재 지원되지 않습니다.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "특별 게스트 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "사진촬영";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "참여하기";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "깊이 효과 사진을 찍으십시오.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "라이브 사진으로 GIF 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */

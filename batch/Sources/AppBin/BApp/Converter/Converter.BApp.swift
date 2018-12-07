@@ -432,8 +432,7 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
                 }
 
             }else{
-
-                //TODO: alert with not supported converter direction.
+                UIAlertController.alert("Sorry, This converting option is not supporting currently.".localized)
             }
 
             /*

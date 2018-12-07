@@ -670,6 +670,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Neki su kontakti spremljeni, ali neki nisu bili.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Žao nam je, ova opcija pretvorbe trenutačno ne podržava.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Program posebne dozvole za goste";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Slikaj";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Sudjelovati";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Uzmi fotografiju dubine utjecaja.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Uzmi GIF fotografiju uživo.";
 /* Generated from genl10n: Camera.SApp.swift */

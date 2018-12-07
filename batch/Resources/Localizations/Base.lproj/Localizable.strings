@@ -178,7 +178,7 @@
 "Auto Enhance" = "Auto Enhance";
 /* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
+/* Generated from genl10n: Converter.BApp.swift, Finder.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -614,7 +614,7 @@
 "Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Settings for Main Tools License";
-/* Generated from genl10n: ExifGhost.AppDockContent.swift, Settings.SApp.swift, Converter.BApp.swift, Shop.SApp.swift */
+/* Generated from genl10n: ExifGhost.AppDockContent.swift, Converter.BApp.swift, Settings.SApp.swift, Shop.SApp.swift */
 "Settings" = "Settings";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Shadows";
@@ -634,6 +634,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Sorry, This converting option is not supporting currently.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Special Guest License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */

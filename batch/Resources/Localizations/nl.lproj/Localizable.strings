@@ -670,6 +670,8 @@
 "Size" = "Grootte";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Sommige contacten zijn opgeslagen, maar iemands waren dat niet.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Sorry, deze conversieoptie ondersteunt momenteel niet.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Speciaal gastlicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Maak een foto";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Deelnemen";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Neem een ​​diepte-effectfoto.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Neem een ​​GIF met een Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */

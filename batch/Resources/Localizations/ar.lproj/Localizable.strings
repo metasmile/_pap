@@ -670,6 +670,8 @@
 "Size" = "بحجم";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "تم حفظ بعض الاتصالات ، ولكن لم يكن البعض.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "عذرًا ، خيار التحويل هذا لا يدعم حاليًا.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "برنامج ترخيص الضيف الخاص";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "التقاط صورة";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "خذ جزء";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "خذ صورة تأثير العمق.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "يمكنك التقاط صورة GIF باستخدام صورة Live.";
 /* Generated from genl10n: Camera.SApp.swift */

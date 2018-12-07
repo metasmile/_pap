@@ -670,6 +670,8 @@
 "Size" = "Saiz";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Sesetengah kenalan disimpan, tetapi ada juga yang tidak.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Maaf, Pilihan penukaran ini tidak menyokong saat ini.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Program Lesen Tetamu Khas";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Ambil gambar";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Ambil bahagian";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Ambil Photo Kesan Kedalaman.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Ambil GIF dengan Foto Langsung.";
 /* Generated from genl10n: Camera.SApp.swift */

@@ -112,7 +112,7 @@
 		4F71D187AC2F4B38854D810A /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE8370F3642046D8FF4 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
 		4F71D187FE2C7F6566D51001 /* CodeKit.Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D558202A1E3C22541F44 /* CodeKit.Timer.swift */; };
 		4F71D18A835C292BCA043D71 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D839D0042EFE66FFE889 /* Object.swift */; };
-		4F71D18E6732BF60375E75B4 /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		4F71D18E6732BF60375E75B4 /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		4F71D1943EC06D6C0B34034F /* CodeKit.EventKitUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E5B0CD4464882A59CA /* CodeKit.EventKitUI.swift */; };
 		4F71D19C92C4FF400460E4EC /* pap.Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7A31C39356AB6B60BBA /* pap.Defaults.swift */; };
 		4F71D1A60BBBE24B0ABEF6C5 /* CodeKit.UIFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4350001C8D6C89724A3 /* CodeKit.UIFeedbackGenerator.swift */; };
@@ -187,7 +187,7 @@
 		4F71D2C5C64643B623EC0EFB /* App.Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D75E60A08E99D5E6BC0B /* App.Asset.swift */; };
 		4F71D2C6467BAA687E8C9FD6 /* GIFMaker.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE4061C997C8A012BC74 /* GIFMaker.BApp.swift */; };
 		4F71D2D695AC474CBD666B92 /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB14842189E72F5EE344 /* cell_icon_burst.png */; };
-		4F71D2DA8B12A32284067ACB /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		4F71D2DA8B12A32284067ACB /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		4F71D2DCC609B37598B46A3C /* AppDockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DE13080661FFFB2F9EFB /* AppDockView.xib */; };
 		4F71D2DEA058717878B27412 /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D882FE27608A8D6FE870 /* CodeKit.Misc.swift */; };
 		4F71D2DF6A3BB6176B6AD53E /* Artist.BApp.Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC9B5D87685C85D4E68A /* Artist.BApp.Contents.swift */; };
@@ -307,7 +307,7 @@
 		4F71D4A5F400045EC5C63E3C /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D75DC560C5472FE6CE82 /* Loggable.swift */; };
 		4F71D4A97BBD774069AC6E31 /* Revert.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */; };
 		4F71D4A9D9254129EAB06793 /* AppCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D737C3E7372155F27687 /* AppCenter.swift */; };
-		4F71D4AD732F79AE81D91FB7 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
+		4F71D4AD732F79AE81D91FB7 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
 		4F71D4B0EFD8F3BD73A6F6AC /* ocra.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */; };
 		4F71D4BF9445309DE3367FAC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
@@ -399,7 +399,7 @@
 		4F71D5F161048964DB4E1A65 /* Cleaner.GarbageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE632C5E5EA24ECFF6E6 /* Cleaner.GarbageDetector.swift */; };
 		4F71D5F169F7ECA38AF76809 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		4F71D6030B1096EA1C07283B /* BApp.Chargeable.PaidApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D723D428D24D02EF2598 /* BApp.Chargeable.PaidApps.swift */; };
-		4F71D612923F3E7D07291F2F /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		4F71D612923F3E7D07291F2F /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		4F71D6151D0BE53C0BC7DED8 /* CodeKit.UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D32CB295BCF19B2023EE /* CodeKit.UITableViewCell.swift */; };
 		4F71D616E5EE0077498C2F45 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFDEABCC02B557BB9FC4 /* VisionBarcodeDetector.swift */; };
 		4F71D618DDE8B42EA0239FFF /* App.UI.Camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D517075E921BC9843D7F /* App.UI.Camera.xcassets */; };
@@ -419,7 +419,7 @@
 		4F71D6630B84463926C8ED0A /* AppDockViewController.LaunchableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0EEFBDE618EBAC0CAB9 /* AppDockViewController.LaunchableApp.swift */; };
 		4F71D664DCBC943D3F53E882 /* FirebaseMLVision.VisionCloudText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAE8370F3642046D8FF4 /* FirebaseMLVision.VisionCloudText.Parser.swift */; };
 		4F71D66B234FFCB97A90C0E1 /* Charge.Objects.Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D197CD6BCCD0B2151DEE /* Charge.Objects.Amount.swift */; };
-		4F71D6781A3570EAF043F7FF /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
+		4F71D6781A3570EAF043F7FF /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
 		4F71D67D6D1DD310FFA9EB41 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8660EAD2D49B5AC5251 /* CustomView.swift */; };
 		4F71D67D7D69B5A655944B08 /* FirebaseMLVision.VisionTextDetectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180BA25AC257F607D0A /* FirebaseMLVision.VisionTextDetectResult.swift */; };
 		4F71D67E30F60E5A7EA0885C /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C9C51F6AE6DF806B59 /* Selectable.swift */; };
@@ -428,7 +428,7 @@
 		4F71D6989EB55B7630FA6B6A /* PhotoEditViewController.AppConfigWatchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D42F154C570FB6023CF0 /* PhotoEditViewController.AppConfigWatchable.swift */; };
 		4F71D698E7FA98641D943E4D /* ImageIO.Metadata.VoidValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D44F72B257178A110D63 /* ImageIO.Metadata.VoidValues.swift */; };
 		4F71D6A302F5A43A0684AE98 /* StateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF76C76F5B64B406F1CE /* StateValue.swift */; };
-		4F71D6A34118695B4EFD52E4 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
+		4F71D6A34118695B4EFD52E4 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
 		4F71D6A7D60327E870D40115 /* FileIO.URL.File.Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E97627CE0C276C040A /* FileIO.URL.File.Glob.swift */; };
 		4F71D6ADAD0A346C923D02C2 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71D6AF31743C0361F5C54B /* UITableViewExpandableCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34E9FE70D9143CF80D7 /* UITableViewExpandableCell.UITableView.swift */; };
@@ -781,7 +781,7 @@
 		4F71DCBE23BC70B0C61C3296 /* PhotoPickerViewController.Operations.Universal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7BA7B860A1E7CC2B796 /* PhotoPickerViewController.Operations.Universal.swift */; };
 		4F71DCC4346724E99963FA6A /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2641BA9E027864B3419 /* PHAssets.swift */; };
 		4F71DCC5C3D6911BB80DA944 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36FBD7A9C6C9A6C8A86 /* PhotosManager.swift */; };
-		4F71DCC68046E07061186595 /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		4F71DCC68046E07061186595 /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		4F71DCC75739B31261AF7AC0 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */; };
 		4F71DCC84F86371629383638 /* ExifGhost.AppDockContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC82553239CE9C10FA36 /* ExifGhost.AppDockContent.swift */; };
 		4F71DCCA7077BA0A1E899E0D /* CodeKit.SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F7AE4199DC7B4DD5B6 /* CodeKit.SKProduct.swift */; };
@@ -928,7 +928,7 @@
 		4F71DF64271F47E2CAA5A6A0 /* CodeKit.UIImage.Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5AF9138C126E59D8722 /* CodeKit.UIImage.Transform.swift */; };
 		4F71DF651634E1D3649B9E49 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC3C23984D76DB9A008 /* PhotoAlbumViewController.swift */; };
 		4F71DF65F2CE98C05B8BA180 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA63EF0D1658753F49C /* Version.swift */; };
-		4F71DF70B235E3FC4625DEC3 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
+		4F71DF70B235E3FC4625DEC3 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
 		4F71DF72C9C0EA7D56E9587D /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */; };
 		4F71DF74B11E4FF072F60BC9 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
 		4F71DF75489359C64F014CBC /* AppTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA24B62BF7604C133B98 /* AppTaskManager.swift */; };
@@ -1086,8 +1086,8 @@
 		A0CB0020219C8C64007A5278 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D56A413B9E585637B114 /* RoundedButton.swift */; };
 		A0CB0021219C8C64007A5278 /* ChargeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA68F3D184FF68C23285 /* ChargeableButton.swift */; };
 		A0CB0022219C8C64007A5278 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
-		A0CB0023219C8C64007A5278 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
-		A0CB0024219C8C64007A5278 /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		A0CB0023219C8C64007A5278 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
+		A0CB0024219C8C64007A5278 /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		A0CB0025219C8C64007A5278 /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4985F3D6B4D939F57CB /* Charge.Types.swift */; };
 		A0CB0026219C8C64007A5278 /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49B6524354B4BE1C753 /* Charge.Banker.swift */; };
 		A0CB0027219C8C64007A5278 /* Charge.Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF256F438CFD32C75BE /* Charge.Manager.swift */; };
@@ -1450,8 +1450,8 @@
 		A0CB01A4219C9093007A5278 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D56A413B9E585637B114 /* RoundedButton.swift */; };
 		A0CB01A5219C9093007A5278 /* ChargeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA68F3D184FF68C23285 /* ChargeableButton.swift */; };
 		A0CB01A6219C9093007A5278 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
-		A0CB01A7219C9093007A5278 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
-		A0CB01A8219C9093007A5278 /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		A0CB01A7219C9093007A5278 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
+		A0CB01A8219C9093007A5278 /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		A0CB01A9219C9093007A5278 /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4985F3D6B4D939F57CB /* Charge.Types.swift */; };
 		A0CB01AA219C9093007A5278 /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49B6524354B4BE1C753 /* Charge.Banker.swift */; };
 		A0CB01AB219C9093007A5278 /* Charge.Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF256F438CFD32C75BE /* Charge.Manager.swift */; };
@@ -1744,8 +1744,8 @@
 		A0CB02DC219DE4F2007A5278 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D56A413B9E585637B114 /* RoundedButton.swift */; };
 		A0CB02DD219DE4F2007A5278 /* ChargeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA68F3D184FF68C23285 /* ChargeableButton.swift */; };
 		A0CB02DE219DE4F2007A5278 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
-		A0CB02DF219DE4F2007A5278 /* Camera.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* Camera.View.swift */; };
-		A0CB02E0219DE4F2007A5278 /* Camera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */; };
+		A0CB02DF219DE4F2007A5278 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
+		A0CB02E0219DE4F2007A5278 /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		A0CB02E1219DE4F2007A5278 /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4985F3D6B4D939F57CB /* Charge.Types.swift */; };
 		A0CB02E2219DE4F2007A5278 /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49B6524354B4BE1C753 /* Charge.Banker.swift */; };
 		A0CB02E3219DE4F2007A5278 /* Charge.Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF256F438CFD32C75BE /* Charge.Manager.swift */; };
@@ -2239,7 +2239,7 @@
 		4F71D163B4DDA56246446806 /* cell_icon_depth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_icon_depth.png; sourceTree = "<group>"; };
 		4F71D1724D9B03F3F96A0D84 /* Shop.Payment.System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.System.swift; sourceTree = "<group>"; };
 		4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.CaptureProcessor.swift; sourceTree = "<group>"; };
+		4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICamera.CaptureProcessor.swift; sourceTree = "<group>"; };
 		4F71D1768CAE59DE1CE3D5DA /* FileIO.URL.File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIO.URL.File.swift; sourceTree = "<group>"; };
 		4F71D17D046074C1554FE347 /* AppStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppStoryboard.storyboard; sourceTree = "<group>"; };
 		4F71D180AB8064C98AB2B778 /* PDFMaker.TPPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFMaker.TPPDF.swift; sourceTree = "<group>"; };
@@ -2287,7 +2287,7 @@
 		4F71D36C0730E8334DE54349 /* Shop.Payment.URLOpen.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.URLOpen.Types.swift; sourceTree = "<group>"; };
 		4F71D36FBD7A9C6C9A6C8A86 /* PhotosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosManager.swift; sourceTree = "<group>"; };
 		4F71D371BF0344A431805486 /* ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalDelegate.swift; sourceTree = "<group>"; };
-		4F71D384FBE7F6296632B1BF /* Camera.View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.View.swift; sourceTree = "<group>"; };
+		4F71D384FBE7F6296632B1BF /* UICamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICamera.swift; sourceTree = "<group>"; };
 		4F71D386354D2357FADB9505 /* App.UI.VideoTrimControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.UI.VideoTrimControl.swift; sourceTree = "<group>"; };
 		4F71D389D2825C0498C0F7A3 /* Converter.Png.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Png.swift; sourceTree = "<group>"; };
 		4F71D395896B5FD1211F790E /* CodeKit.OptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.OptionSet.swift; sourceTree = "<group>"; };
@@ -3005,8 +3005,8 @@
 		4F71D17D65ACBF351C5B81D3 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				4F71D384FBE7F6296632B1BF /* Camera.View.swift */,
-				4F71D173EC2A52C9447FB78B /* Camera.CaptureProcessor.swift */,
+				4F71D384FBE7F6296632B1BF /* UICamera.swift */,
+				4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -5635,8 +5635,8 @@
 				4F71DC3BDBA1D4209198A405 /* RoundedButton.swift in Sources */,
 				4F71DA05DEDC3DE7AC239E51 /* ChargeableButton.swift in Sources */,
 				4F71D52881DA5BF99B2C9EA8 /* iOSCheckMarkView.swift in Sources */,
-				4F71D6781A3570EAF043F7FF /* Camera.View.swift in Sources */,
-				4F71D612923F3E7D07291F2F /* Camera.CaptureProcessor.swift in Sources */,
+				4F71D6781A3570EAF043F7FF /* UICamera.swift in Sources */,
+				4F71D612923F3E7D07291F2F /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71D9121D86F7E3ADB42D5B /* Charge.Types.swift in Sources */,
 				4F71DE18B2D411F3B33D639E /* Charge.Banker.swift in Sources */,
 				4F71D398E49F216CAF325CAA /* Charge.Manager.swift in Sources */,
@@ -5868,8 +5868,8 @@
 				4F71D25C4F24200D624AB5B2 /* RoundedButton.swift in Sources */,
 				4F71D4F4F7743081CA83BABD /* ChargeableButton.swift in Sources */,
 				4F71DA0C7442FBB11E3E0613 /* iOSCheckMarkView.swift in Sources */,
-				4F71D6A34118695B4EFD52E4 /* Camera.View.swift in Sources */,
-				4F71D2DA8B12A32284067ACB /* Camera.CaptureProcessor.swift in Sources */,
+				4F71D6A34118695B4EFD52E4 /* UICamera.swift in Sources */,
+				4F71D2DA8B12A32284067ACB /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71DBE75583527C4CD4A2E0 /* Charge.Types.swift in Sources */,
 				4F71DE8744F6106FC907605A /* Charge.Banker.swift in Sources */,
 				4F71D261AE30D90A05B9CE6D /* Charge.Manager.swift in Sources */,
@@ -6164,8 +6164,8 @@
 				A0CB01A4219C9093007A5278 /* RoundedButton.swift in Sources */,
 				A0CB01A5219C9093007A5278 /* ChargeableButton.swift in Sources */,
 				A0CB01A6219C9093007A5278 /* iOSCheckMarkView.swift in Sources */,
-				A0CB01A7219C9093007A5278 /* Camera.View.swift in Sources */,
-				A0CB01A8219C9093007A5278 /* Camera.CaptureProcessor.swift in Sources */,
+				A0CB01A7219C9093007A5278 /* UICamera.swift in Sources */,
+				A0CB01A8219C9093007A5278 /* UICamera.CaptureProcessor.swift in Sources */,
 				A0CB01A9219C9093007A5278 /* Charge.Types.swift in Sources */,
 				A0CB01AA219C9093007A5278 /* Charge.Banker.swift in Sources */,
 				A0CB01AB219C9093007A5278 /* Charge.Manager.swift in Sources */,
@@ -6398,8 +6398,8 @@
 				A0CB02DC219DE4F2007A5278 /* RoundedButton.swift in Sources */,
 				A0CB02DD219DE4F2007A5278 /* ChargeableButton.swift in Sources */,
 				A0CB02DE219DE4F2007A5278 /* iOSCheckMarkView.swift in Sources */,
-				A0CB02DF219DE4F2007A5278 /* Camera.View.swift in Sources */,
-				A0CB02E0219DE4F2007A5278 /* Camera.CaptureProcessor.swift in Sources */,
+				A0CB02DF219DE4F2007A5278 /* UICamera.swift in Sources */,
+				A0CB02E0219DE4F2007A5278 /* UICamera.CaptureProcessor.swift in Sources */,
 				A0CB02E1219DE4F2007A5278 /* Charge.Types.swift in Sources */,
 				A0CB02E2219DE4F2007A5278 /* Charge.Banker.swift in Sources */,
 				A0CB02E3219DE4F2007A5278 /* Charge.Manager.swift in Sources */,
@@ -6696,8 +6696,8 @@
 				4F71D41812C08A6837F62D5F /* RoundedButton.swift in Sources */,
 				4F71DD296D4574C0051DDAB9 /* ChargeableButton.swift in Sources */,
 				4F71DC781330A924D89CA7B7 /* iOSCheckMarkView.swift in Sources */,
-				4F71D4AD732F79AE81D91FB7 /* Camera.View.swift in Sources */,
-				4F71D18E6732BF60375E75B4 /* Camera.CaptureProcessor.swift in Sources */,
+				4F71D4AD732F79AE81D91FB7 /* UICamera.swift in Sources */,
+				4F71D18E6732BF60375E75B4 /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71D6B8F7172BAECCF18B7B /* Charge.Types.swift in Sources */,
 				4F71D5CCE0F17DBB47D1F6EE /* Charge.Banker.swift in Sources */,
 				4F71D954F1FE52C09CFC80AB /* Charge.Manager.swift in Sources */,
@@ -6998,8 +6998,8 @@
 				A0CB0020219C8C64007A5278 /* RoundedButton.swift in Sources */,
 				A0CB0021219C8C64007A5278 /* ChargeableButton.swift in Sources */,
 				A0CB0022219C8C64007A5278 /* iOSCheckMarkView.swift in Sources */,
-				A0CB0023219C8C64007A5278 /* Camera.View.swift in Sources */,
-				A0CB0024219C8C64007A5278 /* Camera.CaptureProcessor.swift in Sources */,
+				A0CB0023219C8C64007A5278 /* UICamera.swift in Sources */,
+				A0CB0024219C8C64007A5278 /* UICamera.CaptureProcessor.swift in Sources */,
 				A0CB0025219C8C64007A5278 /* Charge.Types.swift in Sources */,
 				A0CB0026219C8C64007A5278 /* Charge.Banker.swift in Sources */,
 				A0CB0027219C8C64007A5278 /* Charge.Manager.swift in Sources */,
@@ -7226,8 +7226,8 @@
 				4F71D5E949928ACB864E1110 /* RoundedButton.swift in Sources */,
 				4F71D0A0ABBB209FC728B644 /* ChargeableButton.swift in Sources */,
 				4F71D7EB4CC13722261BFE01 /* iOSCheckMarkView.swift in Sources */,
-				4F71DF70B235E3FC4625DEC3 /* Camera.View.swift in Sources */,
-				4F71DCC68046E07061186595 /* Camera.CaptureProcessor.swift in Sources */,
+				4F71DF70B235E3FC4625DEC3 /* UICamera.swift in Sources */,
+				4F71DCC68046E07061186595 /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71D210D89713C50B19227B /* Charge.Types.swift in Sources */,
 				4F71D310C2D1F0D26F13472F /* Charge.Banker.swift in Sources */,
 				4F71D2659F41DCD34BA84F21 /* Charge.Manager.swift in Sources */,

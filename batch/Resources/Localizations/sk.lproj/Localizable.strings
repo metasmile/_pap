@@ -670,6 +670,8 @@
 "Size" = "veľkosť";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Niektoré kontakty boli uložené, ale niektorí nie.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Je nám ľúto, táto možnosť konverzie momentálne nepodporuje.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Špeciálny program pre hosťujúcich licencií";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Odfoť";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Zúčastniť sa";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Vytvorte fotografiu s hĺbkovým efektom.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Vezmite si GIF s fotografiou Live.";
 /* Generated from genl10n: Camera.SApp.swift */

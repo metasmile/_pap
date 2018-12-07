@@ -670,6 +670,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "कुछ संपर्क सहेजे गए थे, लेकिन कुछ नहीं थे।";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "क्षमा करें, यह कनवर्टिंग विकल्प वर्तमान में समर्थन नहीं कर रहा है।";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "विशेष अतिथि लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "एक तस्वीर लें";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "हिस्सा लो";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "गहराई प्रभाव फोटो लें।";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "लाइव फोटो के साथ एक जीआईएफ लें।";
 /* Generated from genl10n: Camera.SApp.swift */

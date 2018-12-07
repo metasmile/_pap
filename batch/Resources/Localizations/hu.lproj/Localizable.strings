@@ -670,6 +670,8 @@
 "Size" = "Méret";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Egyes kapcsolatok mentésre kerültek, de valaki nem.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Sajnáljuk, ez a konverziós opció jelenleg nem támogatja.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Különleges vendégajánlat-program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +710,8 @@
 "Take A Photo" = "Fotózni";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Részt vesz";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Vegyen egy mélység hatású fényképet.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Vegyen egy GIF-et egy élő fotóval.";
 /* Generated from genl10n: Camera.SApp.swift */
