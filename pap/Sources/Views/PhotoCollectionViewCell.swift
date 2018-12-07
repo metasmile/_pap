@@ -16,7 +16,7 @@ fileprivate class PhotoCollectionViewCellImages {
     private(set) lazy var GIFIconImage = R.image.cell_icon_gif()
     private(set) lazy var PanoramaIconImage = R.image.cell_icon_pano()
     private(set) lazy var DepthIconImage = R.image.cell_icon_depth()
-    private(set) lazy var RAWIconImage = R.image.appUICameraViewRawPhoto()
+    private(set) lazy var RAWIconImage = R.image.appUICameraRawPhoto()
 
     static let CellImage = PhotoCollectionViewCellImages()
 }

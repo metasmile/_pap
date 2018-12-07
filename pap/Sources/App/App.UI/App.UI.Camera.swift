@@ -10,19 +10,19 @@ import Photos
 import PhotosUI
 import PropertyKit
 
-protocol AppUICameraViewOptions {
+protocol AppUICameraOptions {
     var isLivePhotoEnabled: Bool { get set }
     var isRawPhotoEnabled: Bool { get set }
     var isDepthPhotoEnabled: Bool { get set }
     var cameraPosition: AVCaptureDevice.Position { get set }
-    var cameraFlashMode: CameraView.FlashMode { get set }
+    var cameraFlashMode: UICamera.FlashMode { get set }
     var isUsingLocation: Bool { get set }
 }
 
-class AppUICameraView: UIView {
+class AppUICamera: UIView {
 
-    lazy var cameraView: CameraView = {
-        let cameraView = CameraView(frame: .zero)
+    lazy var cameraView: UICamera = {
+        let cameraView = UICamera(frame: .zero)
         cameraView.backgroundColor = .black
         cameraView.clipsToBounds = true
         cameraView.contentMode = .scaleAspectFill
@@ -41,7 +41,7 @@ class AppUICameraView: UIView {
 
     fileprivate var primaryColor = UIColor(red:0.99, green:0.8, blue:0.2, alpha:1)
 
-    init(frame: CGRect, options: AppUICameraViewOptions?=nil) {
+    init(frame: CGRect, options: AppUICameraOptions?=nil) {
         super.init(frame: frame)
         initialize(with: options)
     }
@@ -77,7 +77,7 @@ class AppUICameraView: UIView {
     )
     private lazy var CaptureButtonMinHeightAnchorConstant:CGFloat = self.ControlViewHeightAnchorConstant/1.5 //compact size
 
-    private func initialize(with defaults: AppUICameraViewOptions?=nil) {
+    private func initialize(with defaults: AppUICameraOptions?=nil) {
         if let defaults = defaults{
             self.cameraView.preferredRawPhotoEnabled = defaults.isRawPhotoEnabled
             self.cameraView.preferredLivePhotoEnabled = defaults.isLivePhotoEnabled
@@ -180,7 +180,7 @@ class AppUICameraView: UIView {
         depthPhotoButton.contentVerticalAlignment = .fill
         depthPhotoButton.setImage(depthPhotoBadgeIcon, for: .normal)
         depthPhotoButton.addTarget(self, action: #selector(self.toggleDepthPhotoEnabled), for: .touchUpInside)
-        if CameraView.isDepthPhotoSupported {
+        if UICamera.isDepthPhotoSupported {
             photoOptionView.addArrangedSubview(depthPhotoButton)
         }
         
@@ -327,7 +327,7 @@ class AppUICameraView: UIView {
 
     private var devicePositionIcon: UIImage {
         return { () -> UIImage in
-            return (self.isCompactMode ? R.image.appUICameraViewPositionIntaglio() : R.image.appUICameraViewPositionEmboss()) ?? UIImage()
+            return (self.isCompactMode ? R.image.appUICameraPositionIntaglio() : R.image.appUICameraPositionEmboss()) ?? UIImage()
         }().withRenderingMode(.alwaysTemplate)
     }
 
@@ -339,7 +339,7 @@ class AppUICameraView: UIView {
     }
     
     private var rawPhotoBadgeIcon: UIImage {
-        return (R.image.appUICameraViewRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+        return (R.image.appUICameraRawPhoto() ?? UIImage()).withRenderingMode(.alwaysTemplate)
     }
     
     private var depthPhotoBadgeIcon: UIImage {
@@ -354,11 +354,11 @@ class AppUICameraView: UIView {
         return { () -> UIImage in
             switch cameraView.flashMode {
                 case .on, .auto:
-                    return R.image.appUICameraViewFlashOn() ?? UIImage()
+                    return R.image.appUICameraFlashOn() ?? UIImage()
                 case .torch:
-                    return R.image.appUICameraViewTorchOn() ?? UIImage()
+                    return R.image.appUICameraTorchOn() ?? UIImage()
                 case .off:
-                    return R.image.appUICameraViewFlashOff() ?? UIImage()
+                    return R.image.appUICameraFlashOff() ?? UIImage()
             }
         }().withRenderingMode(.alwaysTemplate)
     }
@@ -385,10 +385,10 @@ class AppUICameraView: UIView {
 
     @objc func switchFlash(sender: Any) {
         cameraView.flashMode = [
-            CameraView.FlashMode.auto:CameraView.FlashMode.on,
-            CameraView.FlashMode.on:CameraView.FlashMode.torch,
-            CameraView.FlashMode.off:CameraView.FlashMode.auto,
-            CameraView.FlashMode.torch:CameraView.FlashMode.off
+            UICamera.FlashMode.auto:UICamera.FlashMode.on,
+            UICamera.FlashMode.on:UICamera.FlashMode.torch,
+            UICamera.FlashMode.off:UICamera.FlashMode.auto,
+            UICamera.FlashMode.torch:UICamera.FlashMode.off
         ][cameraView.flashMode]!
 
         UIFeedback.select()
@@ -431,7 +431,7 @@ class AppUICameraView: UIView {
         if isCompactMode {
             photoOptionView.spacing = 0
             
-            if CameraView.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
+            if UICamera.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
                 photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
             }
             if cameraView.isRawPhotoEnabled {
@@ -441,7 +441,7 @@ class AppUICameraView: UIView {
         else {
             photoOptionView.spacing = 2
             
-            if CameraView.isDepthPhotoSupported {
+            if UICamera.isDepthPhotoSupported {
                 photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
             }
             photoOptionView.addArrangedSubview(rawPhotoButton)

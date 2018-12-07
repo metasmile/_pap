@@ -10,17 +10,17 @@ import Photos
 import PhotosUI
 import PropertyKit
 
-class CameraViewCapturedResult:NSObject{
+class UICameraCapturedResult:NSObject{
     let succeed:Bool
-    let results:CaptureProcessorResult?
+    let results:UICameraCaptureProcessorResult?
 
-    init(succeed:Bool, result:CaptureProcessorResult?){
+    init(succeed:Bool, result:UICameraCaptureProcessorResult?){
         self.succeed = succeed
         self.results = result
     }
 }
 
-class CameraView: UIView, PropertyWatchable {
+class UICamera: UIView, PropertyWatchable {
     private var captureSession: AVCaptureSession? {
         set {
             if let session = newValue {
@@ -48,7 +48,7 @@ class CameraView: UIView, PropertyWatchable {
 
     var configurationDidUpdate: (() -> Void)?
     @objc dynamic
-    var capturedResult:CameraViewCapturedResult?
+    var capturedResult:UICameraCapturedResult?
     var captureMetadataComment:String?
 
     private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file+UUID().uuidString, qos: .utility)
@@ -60,7 +60,7 @@ class CameraView: UIView, PropertyWatchable {
     fileprivate var depthDataDidOutput: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?
     fileprivate var captureVideoMetadataDidOutput: ((_ metadataObjects: [AVMetadataObject]) -> Void)?
 
-    private lazy var cameraPreviewView = CameraPreviewView(frame: .zero)
+    private lazy var cameraPreviewView = UICameraPreviewView(frame: .zero)
     private var cameraPointOfInterestLayer: CAShapeLayer?
 
     override init(frame: CGRect) {
@@ -132,7 +132,7 @@ class CameraView: UIView, PropertyWatchable {
         locationManager.stopUpdatingLocation()
     }
     
-    var capturesInProgress = Set<CaptureProcessor>()
+    var capturesInProgress = Set<UICameraCaptureProcessor>()
 
     override var contentMode: UIView.ContentMode {
         didSet {
@@ -141,7 +141,7 @@ class CameraView: UIView, PropertyWatchable {
     }
 }
 
-extension CameraView {
+extension UICamera {
     func beginConfiguration() {
         captureSession?.beginConfiguration()
     }
@@ -246,7 +246,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     fileprivate func preferredCaptureDevice() -> AVCaptureDevice? {
         if preferredRawPhotoEnabled {
             return captureDeviceForRawPhoto()
@@ -346,7 +346,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     private var currentPhotoSettings: AVCapturePhotoSettings {
         let photoSettings: AVCapturePhotoSettings
         
@@ -377,26 +377,26 @@ extension CameraView {
         return photoSettings
     }
     
-    func takePhoto(completion:CaptureProcessorCompletionHandler?=nil) {
+    func takePhoto(completion:UICameraCaptureProcessorCompletionHandler?=nil) {
         guard let _ = self.capturePhotoOutput.connection(with: .video) else { return }
         
         performShutterAnimation()
         
-        let captureProcessor: CaptureProcessor
-        let param = CaptureProcessorParam(
+        let captureProcessor: UICameraCaptureProcessor
+        let param = UICameraCaptureProcessorParam(
             videoDeviceInput: currentVideoDeviceInput
             , deviceOrientation: deviceMotion.orientation
             , metadataComment: captureMetadataComment
         )
         
         if self.isRawPhotoEnabled {
-            captureProcessor = CameraViewRawPhotoCaptureProcessor(param: param)
+            captureProcessor = UICameraRawPhotoCaptureProcessor(param: param)
         }
         else if capturePhotoOutput.isLivePhotoCaptureEnabled {
-            captureProcessor = CameraViewLivePhotoCaptureProcessor(param: param)
+            captureProcessor = UICameraLivePhotoCaptureProcessor(param: param)
         }
         else {
-            captureProcessor = CameraViewStillPhotoCaptureProcessor(param: param)
+            captureProcessor = UICameraStillPhotoCaptureProcessor(param: param)
         }
         
         capturesInProgress.insert(captureProcessor)
@@ -404,7 +404,7 @@ extension CameraView {
         // Schedule for the capture delegate to be removed from the set after capture.
         captureProcessor.completionHandler = { [weak self] succeed, result in
             self?.capturesInProgress.remove(captureProcessor)
-            self?.capturedResult = CameraViewCapturedResult(succeed: succeed, result: result)
+            self?.capturedResult = UICameraCapturedResult(succeed: succeed, result: result)
             completion?(succeed, succeed ? result : nil)
         }
         
@@ -437,7 +437,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     func setCapturePhoto() {
         sessionQueue.async {
             guard let captureSession = self.captureSession else { return }
@@ -473,7 +473,7 @@ extension CameraView {
     }
 }
 
-extension CameraView: AVCaptureDepthDataOutputDelegate {
+extension UICamera: AVCaptureDepthDataOutputDelegate {
     func setDepthDataOutput(_ updateBlock: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?) {
         self.depthDataDidOutput = updateBlock
         
@@ -502,7 +502,7 @@ extension CameraView: AVCaptureDepthDataOutputDelegate {
     }
 }
 
-extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension UICamera: AVCaptureVideoDataOutputSampleBufferDelegate {
     func setCaptureVideoDataOutput(_ updateBlock: ((_ sampleBuffer: CMSampleBuffer) -> Void)?) {
         self.captureVideoDataDidOutput = updateBlock
         
@@ -531,7 +531,7 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-extension CameraView: AVCaptureMetadataOutputObjectsDelegate {
+extension UICamera: AVCaptureMetadataOutputObjectsDelegate {
     func setMetadataOutput(types metadataObjectTypes: [AVMetadataObject.ObjectType]? = nil, updateBlock: (([AVMetadataObject]) -> Void)?) {
         self.captureVideoMetadataDidOutput = updateBlock
         
@@ -559,7 +559,7 @@ extension CameraView: AVCaptureMetadataOutputObjectsDelegate {
     }
 }
 
-extension CameraView {
+extension UICamera {
     var cameraPosition: AVCaptureDevice.Position {
         get {
             return currentCaptureDevice?.position ?? .unspecified
@@ -593,7 +593,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     var isLivePhotoSupported: Bool {
 // https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
 //
@@ -646,7 +646,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     var isRawPhotoSupported: Bool {
 // https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
 //
@@ -699,7 +699,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     static var isDepthPhotoSupported:Bool{
         if #available(iOS 12.0, *) {
             return !AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified).devices.isEmpty
@@ -739,7 +739,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     fileprivate var isDepthDataSupported: Bool {
         return self.capturePhotoOutput.isDepthDataDeliverySupported
     }
@@ -749,7 +749,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     fileprivate var isPortraitEffectsMatteSupported: Bool {
         if #available(iOS 12.0, *) {
             return self.capturePhotoOutput.isPortraitEffectsMatteDeliverySupported
@@ -768,7 +768,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     var isUsingLocationSupported: Bool {
         return !locationManager.disabledLocation
     }
@@ -789,7 +789,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     func videoZoomRange(with captureDevice: AVCaptureDevice) -> ClosedRange<CGFloat> {
         return (captureDevice.activeFormat.videoMinZoomFactorForDepthDataDelivery...captureDevice.activeFormat.videoMaxZoomFactorForDepthDataDelivery)
     }
@@ -810,7 +810,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     public enum FlashMode: Int {
         case off
         case on
@@ -847,7 +847,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     @objc func subjectAreaDidChange() {
         resetFocusAndExposure()
     }
@@ -873,7 +873,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     private func pointOfInterest(at location: CGPoint) -> CGPoint {
         let layerPoint = layer.convert(location, to: cameraPreviewView.previewLayer)
         return cameraPreviewView.previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
@@ -988,7 +988,7 @@ extension CameraView {
     }
 }
 
-extension CameraView {
+extension UICamera {
     func updateVideoOrientation() {
         guard let connection = capturePhotoOutput.connection(with: .video), connection.isVideoOrientationSupported else { return }
         connection.videoOrientation = currentVideoOrientation
@@ -1049,7 +1049,7 @@ fileprivate class CameraPreviewLayer: AVCaptureVideoPreviewLayer, CALayerDelegat
     }
 }
 
-fileprivate class CameraPreviewView: UIView {
+fileprivate class UICameraPreviewView: UIView {
     override class var layerClass: AnyClass {
         return CameraPreviewLayer.self
     }

@@ -278,7 +278,7 @@ class PHAssetGarbageDetector_SavedWithouttheCamera: PHAssetGarbageDetector{
 
 class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
 //    override class var iconImageName:String?{
-//        return R.image.appUICameraViewIcon.name
+//        return R.image.appUICameraIcon.name
 //    }
 
 //    override class var iconImageShouldUseTintColor:Bool{
@@ -306,7 +306,7 @@ class PHAssetGarbageDetector_SavedWithBuiltInCamera: PHAssetGarbageDetector{
         options.isNetworkAccessAllowed = false
         if let data = input.asset.requestImageData(options: options, asyncSignal).data{
             if let v = data.getMetadataValue(dictionary: ImageMetadata.Dictionary.Exif, property: ImageMetadata.Property.ExifUserComment) as? String{
-                if v.trimmed.contains(CaptureProcessor.ExifUserCommentIdentifier){
+                if v.trimmed.contains(UICameraCaptureProcessor.ExifUserCommentIdentifier){
                     return true
                 }
             }

@@ -65,7 +65,7 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap { $0.result as? PDFMakerAppPHAssetResult }
 
-        guard let rootViewController = UIViewController.presentable else{
+        guard let _ = UIViewController.presentable else{
             return result
         }
 

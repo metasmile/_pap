@@ -13,7 +13,7 @@ import PhotosUI
 import PropertyKit
 import Intents
 
-protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
+protocol CameraAppDefaults: AppDefaults, AppUICameraOptions {
     //INFO: extend app-specific properties if needed,
     // app developer can manually implement, decide or define whether storing values or getting default in app scope.
 }
@@ -39,9 +39,9 @@ extension Defaults: CameraAppDefaults {
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
 
-    var cameraFlashMode: CameraView.FlashMode {
+    var cameraFlashMode: UICamera.FlashMode {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
-        get { return CameraView.FlashMode(rawValue: get(or: CameraView.FlashMode.off.rawValue)) ?? .off }
+        get { return UICamera.FlashMode(rawValue: get(or: UICamera.FlashMode.off.rawValue)) ?? .off }
     }
     
     var isUsingLocation: Bool {
@@ -132,7 +132,7 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take a Photo.".localized
             intents.append(takeAStillPhotoIntent)
 
-            if CameraView.isDepthPhotoSupported{
+            if UICamera.isDepthPhotoSupported{
                 let takePhotoWithDepthEffectIntent = TakeAPhotoIntent()
                 takePhotoWithDepthEffectIntent.cameraMode = .photo
                 takePhotoWithDepthEffectIntent.appId = CameraApp.info.identifier
@@ -195,14 +195,14 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
 
 }
 
-class CameraAppView: AppUICameraView {}
+class CameraAppView: AppUICamera {}
 
 fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         return CameraAppView(frame: .zero, options:CameraApp.defaults as! CameraAppDefaults)
     }()
 
-    private var cameraView: CameraView? {
+    private var cameraView: UICamera? {
         return (view as? CameraAppView)?.cameraView
     }
 
@@ -228,10 +228,10 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         cameraView?.watch(\.capturedResult) {
             if let capturedResult = self.cameraView?.capturedResult, let results = capturedResult.results{
                 var data = [AppLaunchOptionsKey: Any]()
-                if let photoUrl = results[CaptureProcessorResultKey.photoURL] {
+                if let photoUrl = results[UICameraCaptureProcessorResultKey.photoURL] {
                     data[AppLaunchOptionsKey.PhotoURL] = photoUrl
                 }
-                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL] {
+                if let pairedVideoURL = results[UICameraCaptureProcessorResultKey.pairedVideoURL] {
                     data[AppLaunchOptionsKey.PairedVideoURL] = pairedVideoURL
                 }
 

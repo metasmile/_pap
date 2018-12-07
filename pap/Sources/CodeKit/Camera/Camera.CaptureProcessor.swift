@@ -13,10 +13,10 @@ import PhotosUI
 /*
 CaptureProcessor
 */
-typealias CaptureProcessorResult = [CaptureProcessorResultKey:Any]
-typealias CaptureProcessorCompletionHandler = (_ succeed:Bool, _ result:CaptureProcessorResult?) -> ()
+typealias UICameraCaptureProcessorResult = [UICameraCaptureProcessorResultKey:Any]
+typealias UICameraCaptureProcessorCompletionHandler = (_ succeed:Bool, _ result:UICameraCaptureProcessorResult?) -> ()
 
-struct CaptureProcessorResultKey: Hashable, Equatable, RawRepresentable {
+struct UICameraCaptureProcessorResultKey: Hashable, Equatable, RawRepresentable {
     public typealias RawValue = Int
     public private(set) var rawValue: RawValue
     public init(rawValue: RawValue) {
@@ -24,13 +24,13 @@ struct CaptureProcessorResultKey: Hashable, Equatable, RawRepresentable {
     }
 }
 
-extension CaptureProcessorResultKey{
-    static let photoURL = CaptureProcessorResultKey(rawValue:PHAssetResourceType.photo.rawValue)
-    static let pairedVideoURL = CaptureProcessorResultKey(rawValue:PHAssetResourceType.pairedVideo.rawValue)
-    static let alternatePhotoURL = CaptureProcessorResultKey(rawValue:PHAssetResourceType.alternatePhoto.rawValue)
+extension UICameraCaptureProcessorResultKey{
+    static let photoURL = UICameraCaptureProcessorResultKey(rawValue:PHAssetResourceType.photo.rawValue)
+    static let pairedVideoURL = UICameraCaptureProcessorResultKey(rawValue:PHAssetResourceType.pairedVideo.rawValue)
+    static let alternatePhotoURL = UICameraCaptureProcessorResultKey(rawValue:PHAssetResourceType.alternatePhoto.rawValue)
 }
 
-struct CaptureProcessorParam {
+struct UICameraCaptureProcessorParam {
     let videoDeviceInput:AVCaptureDeviceInput?
     var deviceOrientation:UIDeviceOrientation
     var metadataComment:String?
@@ -48,7 +48,7 @@ extension AVCapturePhoto {
     }
 }
 
-class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
+class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
     static var ExifUserCommentIdentifier:String{
         return "com.stells.batch.CaptureProcessor"
@@ -57,16 +57,16 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         return ","
     }
 
-    var completionHandler:CaptureProcessorCompletionHandler?
+    var completionHandler:UICameraCaptureProcessorCompletionHandler?
     lazy var captureQueue = DispatchQueue(label: "com.stells.internal."+String(describing:type(of: self)), qos: .utility)
 
-    let param: CaptureProcessorParam
+    let param: UICameraCaptureProcessorParam
 
-    required init(param: CaptureProcessorParam){
+    required init(param: UICameraCaptureProcessorParam){
         self.param = param
     }
     
-    static func metadata(of photo: AVCapturePhoto, with processor: CaptureProcessor) -> [String: Any] {
+    static func metadata(of photo: AVCapturePhoto, with processor: UICameraCaptureProcessor) -> [String: Any] {
         /*
          Metadata Config
          */
@@ -142,9 +142,9 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     private final func exportDataOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> Data? {
         if #available(iOS 12.0, *) {
             class CaptureProcessorFileDataRepresentation: NSObject, AVCapturePhotoFileDataRepresentationCustomizer {
-                private var processor: CaptureProcessor
+                private var processor: UICameraCaptureProcessor
                 
-                init(_ processor: CaptureProcessor) {
+                init(_ processor: UICameraCaptureProcessor) {
                     self.processor = processor
                     
                     super.init()
@@ -155,7 +155,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
-                    return CaptureProcessor.metadata(of: photo, with: processor)
+                    return UICameraCaptureProcessor.metadata(of: photo, with: processor)
                 }
                 
                 func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
@@ -165,7 +165,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             return photo.fileDataRepresentation(with: CaptureProcessorFileDataRepresentation(self))
         }
         else {
-            return photo.fileDataRepresentation(withReplacementMetadata: CaptureProcessor.metadata(of: photo, with: self)
+            return photo.fileDataRepresentation(withReplacementMetadata: UICameraCaptureProcessor.metadata(of: photo, with: self)
                 , replacementEmbeddedThumbnailPhotoFormat: nil
                 , replacementEmbeddedThumbnailPixelBuffer: nil
                 , replacementDepthData: photo.depthData)
@@ -230,7 +230,7 @@ class CaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     }
 }
 
-final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
+final class UICameraStillPhotoCaptureProcessor: UICameraCaptureProcessor {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
             return
@@ -248,7 +248,7 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
                 creationRequest.addResource(with: .photo, fileURL: url, options: options)
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
-                    CaptureProcessorResultKey.photoURL:url
+                    UICameraCaptureProcessorResultKey.photoURL:url
                 ])
                 signal.end()
             })
@@ -257,7 +257,7 @@ final class CameraViewStillPhotoCaptureProcessor: CaptureProcessor {
     }
 }
 
-final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
+final class UICameraLivePhotoCaptureProcessor: UICameraCaptureProcessor {
     private var photoURL: URL?
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -285,8 +285,8 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
             }, completionHandler: { (success, info) in
                 self.completionHandler?(success, [
-                    CaptureProcessorResultKey.photoURL:photoURL
-                    , CaptureProcessorResultKey.pairedVideoURL:outputFileURL
+                    UICameraCaptureProcessorResultKey.photoURL:photoURL
+                    , UICameraCaptureProcessorResultKey.pairedVideoURL:outputFileURL
                 ])
                 signal.end()
             })
@@ -295,7 +295,7 @@ final class CameraViewLivePhotoCaptureProcessor: CaptureProcessor {
     }
 }
 
-final class CameraViewRawPhotoCaptureProcessor: CaptureProcessor {
+final class UICameraRawPhotoCaptureProcessor: UICameraCaptureProcessor {
     // https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_still_and_live_photos/capturing_photos_in_raw_format
     
     var rawImageFileURL: URL?
@@ -332,8 +332,8 @@ final class CameraViewRawPhotoCaptureProcessor: CaptureProcessor {
                     creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
                 }, completionHandler: { (success, info) in
                     self.completionHandler?(success, [
-                        CaptureProcessorResultKey.photoURL:compressedURL
-                        , CaptureProcessorResultKey.alternatePhotoURL:rawURL
+                        UICameraCaptureProcessorResultKey.photoURL:compressedURL
+                        , UICameraCaptureProcessorResultKey.alternatePhotoURL:rawURL
                 ])
                 signal.end()
             })
