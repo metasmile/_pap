@@ -38,6 +38,8 @@ def paps_pods
   pod 'TPPDF'
   # com.stells.batch.clean
   pod 'CocoaImageHashing', :git => "https://github.com/ameingast/cocoaimagehashing" #INFO: The author did not update into official pod repo for his latest version
+  # com.stells.batch.hashtagen
+  pod 'TagListView', '~> 1.0'
 end
 
 target 'batch' do

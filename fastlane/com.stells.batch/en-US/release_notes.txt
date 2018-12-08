@@ -1,6 +1,2 @@
-• Introducing new tool: Framer, which lets you resize and fill to fit your photos by the various sizes of Instagram, Youtube or what you needed.
-  - Square size
-  - Instagram
-  - Youtube thumbnails
-  - Native sizes of your iPhone model
-• Some minor fixes.
++ Camera 1.1 - A huge update
+• RAW format, depth effect photo support, and location metadata control for your privacy.

@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Bot lựa chọn tự động";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Tự động thẳng";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Tự động gắn thẻ Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Màu nền";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Chọn tùy chọn xuất cho %d mục";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Chọn một hành động phụ.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Chọn một số ảnh bạn muốn tìm thẻ.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner cho phép bạn tìm và xóa các loại ảnh không chính xác khác nhau nếu chúng đã khớp với các hình ảnh trùng lặp và tương tự, ảnh cận cảnh hoặc ảnh chụp màn hình khóa!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "Địa chỉ email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Bật Tự động gắn thẻ.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Ghi chú kỹ thuật";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Phơi bày";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Phai màu";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "người tìm ra";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Đang tìm thẻ bắt đầu bằng # từ ảnh ...";
+"Finding Hashtags In Photos..." = "Đang tìm kiếm thẻ bắt đầu bằng # ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Tìm và thu thập thẻ bắt đầu bằng # từ ảnh bạn đã chọn.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker cho phép tạo ảnh GIF dễ dàng và nhanh chóng từ Ảnh hoặc Live Photos với nhiều tùy chọn khác nhau! Và sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Nhận quyền truy cập";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Nhận tất cả văn bản";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Nhận thẻ";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Nhận văn bản";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "Tài khoản khách";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Xử lý nhiều ảnh cùng một lúc.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Dấu thăng";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Xin chào, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Mở Google Maps";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Mở Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "Gửi email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Gửi";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Cài đặt cho giấy phép công cụ chính";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "Size";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Một số địa chỉ liên lạc đã được lưu, nhưng ai đó thì không.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Rất tiếc, tùy chọn chuyển đổi này hiện không hỗ trợ.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Chương trình giấy phép khách mời đặc biệt";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -690,6 +710,8 @@
 "Take A Photo" = "Chụp một tấm";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Tham gia";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Chụp ảnh hiệu ứng sâu.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Chụp ảnh GIF bằng Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */

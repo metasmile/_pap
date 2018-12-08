@@ -10,11 +10,16 @@ import UIKit
 import Photos
 import PhotosUI
 
-private let LivePhotoIconImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
-private let BurstIconImage = R.image.cell_icon_burst()
-private let GIFIconImage = R.image.cell_icon_gif()
-private let PanoramaIconImage = R.image.cell_icon_pano()
-private let DepthIconImage = R.image.cell_icon_depth()
+fileprivate class PhotoCollectionViewCellImages {
+    private(set) lazy var LivePhotoIconImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
+    private(set) lazy var BurstIconImage = R.image.cell_icon_burst()
+    private(set) lazy var GIFIconImage = R.image.cell_icon_gif()
+    private(set) lazy var PanoramaIconImage = R.image.cell_icon_pano()
+    private(set) lazy var DepthIconImage = R.image.cell_icon_depth()
+    private(set) lazy var RAWIconImage = R.image.appUICameraRawPhoto()
+
+    static let CellImage = PhotoCollectionViewCellImages()
+}
 
 class PhotoCollectionViewCell: CustomCollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -155,30 +160,31 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             let milliseconds = asset.duration.truncatingRemainder(dividingBy: 60) / 60
             cellIconAsLabel.text = PhotoCollectionViewCell.durationLabelFormat.string(from: asset.duration + ceil(milliseconds))
         }
-        
+
         //badge icon
         var iconAsImage:UIImage? // 46
         if asset.mediaSubtypes.contains(.photoLive){
-            iconAsImage = LivePhotoIconImage
+            iconAsImage = PhotoCollectionViewCellImages.CellImage.LivePhotoIconImage
         }
         else if asset.imageType == .animatedGIF{
-            iconAsImage = GIFIconImage
+            iconAsImage = PhotoCollectionViewCellImages.CellImage.GIFIconImage
         }
         else if asset.imageType == .burst{
-            iconAsImage = BurstIconImage
+            iconAsImage = PhotoCollectionViewCellImages.CellImage.BurstIconImage
         }
         else if asset.mediaSubtypes.contains(.photoDepthEffect){
-            iconAsImage = DepthIconImage
+            iconAsImage = PhotoCollectionViewCellImages.CellImage.DepthIconImage
         }
         else if asset.mediaSubtypes.contains(.photoPanorama){
-            iconAsImage = PanoramaIconImage
+            iconAsImage = PhotoCollectionViewCellImages.CellImage.PanoramaIconImage
         }
-
-
-        cellIconAsImageView.isHidden = iconAsImage == nil
-        cellIconAsImageView.image = iconAsImage
-        
-        decorationView.isHidden = cellIconAsLabel.isHidden && cellIconAsImageView.isHidden
+        //TOOD: find some way to access directly e.g. using pattern of physical file path. impossible currently.
+//        else if asset.hasRawImage {
+//            iconAsImage = PhotoCollectionViewCellImages.CellImage.RAWIconImage
+//        }
+        self.cellIconAsImageView.isHidden = iconAsImage == nil
+        self.cellIconAsImageView.image = iconAsImage
+        self.decorationView.isHidden = self.cellIconAsLabel.isHidden && self.cellIconAsImageView.isHidden
     }
     
     private func updateImageViewContentMode() {

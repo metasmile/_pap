@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "自動選択ボット";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "自動水平補正";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "背景色";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "%dアイテムのエクスポートオプションを選択";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "サブアクションを選択";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "タグを検索する写真をいくつか選択します。";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "クリーナーを使用すると、間違った写真を見つけ出して、削除することができます。例えば、重複した画像や類似した画像、クローズアップ写真、ロック画面のスクリーンショットなどが見つかった場合には削除してください。";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "電子メールアドレス";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "自動タグ設定を有効にする。";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "エンジニアリングノート";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "輸出する";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "暴露";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "フェード";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "ファインダ";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "写真からハッシュタグを見つける...";
+"Finding Hashtags In Photos..." = "写真のハッシュタグを見つける...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "選択した写真からハッシュタグを検索して収集します。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIFメーカーは、様々なオプションで写真やライブ写真からGIF画像を簡単かつ迅速に作成できます。そしてコンバータアプリを開いて、ライブ写真や動画に変換することができます。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIFメーカー";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "ガンマ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "アクセスを取得";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "すべてのテキストを取得";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "タグを取得する";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "テキストを取得する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "ゲストユーザ";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "多数の写真を一度に処理します。";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "ハッシュタグ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "こんにちは、%@！";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Googleマップを開く";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "ハシュタゲンを開く。";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "メールを送る";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "送信";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "セピア調";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "メインツールライセンスの設定";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "サイズ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "一部の連絡先は保存されましたが、誰かが保存されませんでした。";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "申し訳ありません、この変換オプションは現在サポートしていません。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "特別ゲストライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -690,6 +710,8 @@
 "Take A Photo" = "写真を撮る";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "テイクパート";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "デプスエフェクト写真を撮る。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "ライブ写真でGIFを撮る。";
 /* Generated from genl10n: Camera.SApp.swift */

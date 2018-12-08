@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "บอทเลือกอัตโนมัติ";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "ตั้งให้ตรง";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Bot การติดแท็กอัตโนมัติ";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "สีพื้นหลัง";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "เลือกตัวเลือกการส่งออกสำหรับ %d รายการ";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "เลือกการกระทำย่อย";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "เลือกรูปภาพที่คุณต้องการหาแท็ก";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ช่วยให้คุณสามารถค้นหาและลบรูปภาพประเภทต่างๆที่ไม่ถูกต้องหากจับคู่กันได้เช่นภาพที่ซ้ำกันและภาพใกล้เคียงกันหรือภาพ Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "ที่อยู่อีเมล";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ช่วยให้คุณลบข้อมูลทุกประเภทที่มีรูปภาพของคุณรวมถึงข้อมูลส่วนตัว";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "เปิดใช้งานการติดแท็กอัตโนมัติ";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "วิศวกรรมหมายเหตุ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "ส่งออก";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "การเปิดรับแสง";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "จางหาย";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "กำลังค้นหา Hashtags จากภาพถ่าย ...";
+"Finding Hashtags In Photos..." = "กำลังค้นหา Hashtags ในรูปภาพ ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "การค้นหาและรวบรวมแฮชแท็กจากรูปภาพที่คุณเลือก";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "เครื่อง GIF Maker ช่วยให้สามารถสร้างภาพ GIF จากภาพถ่ายหรือภาพสดด้วยตัวเลือกต่างๆ! จากนั้นคุณสามารถเปิดแอปเครื่องแปลงสัญญาณเพื่อแปลงเป็นทุกอย่างเช่นรูปภาพสดหรือวิดีโอ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "เครื่อง GIF";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "แกมมา";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "ได้รับการเข้าถึง";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "รับข้อความทั้งหมด";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "รับแท็ก";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "รับข้อความ";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "ผู้เยี่ยมชม";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "จับภาพจำนวนมากพร้อมกัน";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "สวัสดี %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "เปิด Google Maps";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "เปิด Hashtagen";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "ส่งอีเมล์";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "ส่ง";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "การตั้งค่าใบอนุญาตเครื่องมือหลัก";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "ขนาด";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "ผู้ติดต่อบางรายได้รับการบันทึกไว้ แต่บางคนก็ไม่ได้";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "ขออภัยตัวเลือกการแปลงนี้ไม่สนับสนุนในปัจจุบัน";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "โปรแกรมสิทธิพิเศษสำหรับผู้มาเยือน";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -690,6 +710,8 @@
 "Take A Photo" = "ถ่ายรูป";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "มีส่วนร่วม";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "ถ่ายภาพความชัดลึก";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "ใช้ GIF พร้อม Live Photo";
 /* Generated from genl10n: Camera.SApp.swift */

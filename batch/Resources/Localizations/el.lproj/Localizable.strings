@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Αυτόματη επιλογή Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Αυτόματη ισοπέδωση";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Αυτόματη ετικέτα Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Χρώμα του φόντου";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Επιλέξτε μια επιλογή εξαγωγής για %d Στοιχεία";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Επιλέξτε μια υπο-ενέργεια.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Επιλέξτε μερικές φωτογραφίες που θέλετε να βρείτε ετικέτες.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να βρείτε και να διαγράψετε διάφορα είδη λανθασμένων φωτογραφιών, αν έχουν αντιστοιχιστεί, για παράδειγμα, διπλότυπα και παρόμοιες εικόνες, φωτογραφίες κοντά στο σκοτάδι ή λήψεις Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Ενεργοποίηση αυτόματης προσθήκης ετικετών.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ενεργοποίηση γρήγορων ενεργειών";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Τεχνικές σημειώσεις";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Εκθεση";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Ξεθωριάζει";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Βρίσκοντας Hashtags από φωτογραφίες ...";
+"Finding Hashtags In Photos..." = "Βρίσκοντας Hashtags σε φωτογραφίες ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Εύρεση και συλλογή των hashtag από τις φωτογραφίες που επιλέξατε.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Το GIF Maker επιτρέπει την εύκολη και γρήγορη δημιουργία εικόνων GIF από φωτογραφίες ή ζωντανές φωτογραφίες με διάφορες επιλογές! Και μετά μπορείτε να ανοίξετε την εφαρμογή μετατροπέα για να μετατρέψετε σε όλα, όπως Live Photos ή Βίντεο.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Απόκτησε πρόσβαση";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Πάρτε όλο το κείμενο";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Λήψη ετικετών";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Λήψη κειμένου";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "Επισκέπτης Χρήστης";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Χειριστείτε πολλές φωτογραφίες ταυτόχρονα.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "HashTag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Γεια σας, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Ανοίξτε τους Χάρτες Google";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Ανοίξτε το Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Στείλετε";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Σέπια Τόνου";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Ρυθμίσεις για την άδεια βασικών εργαλείων";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "Μέγεθος";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Κάποιες επαφές σώθηκαν, αλλά κάποιοι δεν ήταν.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Λυπούμαστε, Αυτή η επιλογή μετατροπής δεν υποστηρίζει αυτήν τη στιγμή.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Ειδικό Πρόγραμμα Άδειας Χρήστη";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -690,6 +710,8 @@
 "Take A Photo" = "Βγάλε μια φωτογραφία";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Συμμετέχω";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Πραγματοποιήστε μια φωτογραφία βάθους επεκτάσεων.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Πάρτε ένα GIF με Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */

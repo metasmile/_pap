@@ -32,7 +32,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
         
-        var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//        var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
         
 //        if let options = (editStateValue?.ciFilter as? CIFilter)?.options {
 //            var optionsToStore = [String:Bool]()
@@ -67,7 +67,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 self.config?.filter = CIFilterItem(filter)
                 
             } else {
-                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
 //                controllerContent?.options = defaults.autoAdjustmentOptions
 //
 //                let filter = CIAdjustmentFilter(options: defaults.autoAdjustmentOptions)
@@ -83,7 +83,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 self.config?.filter = CIFilterItem(filter)
                 
             } else{
-                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
 //                controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
                 
 //                let filter = CIAdjustmentFilter(value: defaults.double)

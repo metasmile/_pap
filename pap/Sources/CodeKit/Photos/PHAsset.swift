@@ -167,7 +167,7 @@ extension PHAsset {
 
     var imageType: PHAssetImageType {
         guard mediaType == .image else { return .notImage }
-
+        
         if uniformTypeIdentifier == UTCoreTypes.GIF {
             return .animatedGIF
         }
@@ -180,6 +180,11 @@ extension PHAsset {
         else {
             return .stillImage
         }
+    }
+    
+    var hasRawImage: Bool {
+        guard resources.count > 1, let uti = resources.first(where: { $0.type == PHAssetResourceType.alternatePhoto })?.uniformTypeIdentifier as CFString? else { return false }
+        return UTTypeConformsTo(uti, kUTTypeRawImage)
     }
 
     var videoType: PHAssetVideoType {

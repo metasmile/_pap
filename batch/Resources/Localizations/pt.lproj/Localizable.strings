@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "Bot de Seleção Automática";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "Auto Endireitar";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "Bot de Marcação Automática";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "Cor de fundo";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "Escolha uma opção de exportação para %d itens";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "Escolha uma sub ação.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "Escolha algumas fotos que você deseja encontrar tags.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "O Cleaner permite que você encontre e exclua vários tipos de fotos incorretas, caso tenham correspondido, por exemplo, imagens duplicadas e similares, fotos em close-up ou fotos do Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "Endereço de e-mail";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "O EXIF ​​Ghost permite remover todos os tipos de dados contendo suas fotos, incluindo informações privadas.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "Ativar marcação automática.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ativar ações rápidas";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notas de engenharia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Exportar";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "Exposição";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Desvaneça";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "inventor";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "Encontrando Hashtags De Fotos ...";
+"Finding Hashtags In Photos..." = "Encontrando hashtags em fotos ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "Encontrar e coletar hashtags de suas fotos selecionadas.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker permite fácil e rapidamente fazer imagens GIF de fotos ou fotos ao vivo com várias opções! E então você pode abrir o aplicativo conversor para converter em tudo, como fotos ao vivo ou vídeos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Criador de GIF";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "Gama";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "Conseguir acesso";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "Obter todo o texto";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "Obter tags";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "Obter texto";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "Usuário convidado";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "Lidar com muitas fotos de uma só vez.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "Hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "Olá, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Abra o Google Maps";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Abra Hashtagen.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "Open PDF Maker.";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "Enviar um email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "Enviar";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "Tom sépia";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Configurações para Licença de Ferramentas Principais";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "Tamanho";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Alguns contatos foram salvos, mas alguns não foram.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "Desculpe, esta opção de conversão não está suportando atualmente.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "Programa especial de licença de convidado";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -690,6 +710,8 @@
 "Take A Photo" = "Tire uma foto";
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "Participar";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "Tire uma foto de efeito de profundidade.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "Tome um GIF com uma foto ao vivo.";
 /* Generated from genl10n: Camera.SApp.swift */

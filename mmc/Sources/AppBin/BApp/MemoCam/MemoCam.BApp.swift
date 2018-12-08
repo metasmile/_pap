@@ -548,8 +548,8 @@ fileprivate class ResultPreviewView: DesignableView {
 }
 
 fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
-    fileprivate lazy var cameraView: CameraView = {
-        let cameraView = CameraView(frame: .zero)
+    fileprivate lazy var cameraView: UICamera = {
+        let cameraView = UICamera(frame: .zero)
         cameraView.clipsToBounds = false
         cameraView.contentMode = .scaleAspectFill
         return cameraView

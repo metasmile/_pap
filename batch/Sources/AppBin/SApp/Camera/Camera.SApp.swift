@@ -13,7 +13,7 @@ import PhotosUI
 import PropertyKit
 import Intents
 
-protocol CameraAppDefaults: AppDefaults, AppUICameraViewOptions {
+protocol CameraAppDefaults: AppDefaults, AppUICameraOptions {
     //INFO: extend app-specific properties if needed,
     // app developer can manually implement, decide or define whether storing values or getting default in app scope.
 }
@@ -28,15 +28,25 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
+    
+    var isDepthPhotoEnabled: Bool {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: false) }
+    }
 
     var cameraPosition: AVCaptureDevice.Position {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
     }
 
-    var cameraFlashMode: CameraView.FlashMode {
+    var cameraFlashMode: UICamera.FlashMode {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
-        get { return CameraView.FlashMode(rawValue: get(or: CameraView.FlashMode.off.rawValue)) ?? .off }
+        get { return UICamera.FlashMode(rawValue: get(or: UICamera.FlashMode.off.rawValue)) ?? .off }
+    }
+    
+    var isUsingLocation: Bool {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: false) }
     }
 }
 
@@ -97,6 +107,7 @@ extension CameraApp{
         static let stillPhoto = CaptureOption(1 << 2)
         static let selfiePhoto = CaptureOption(1 << 3)
         static let selfieWithLivePhoto = CaptureOption(1 << 4)
+        static let depthEffectPhoto = CaptureOption(1 << 5)
     }
 }
 
@@ -104,11 +115,14 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
 
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
+            var intents = [INIntent]()
+
             let openAppIntent = OpenCameraIntent()
             openAppIntent.mode = .photo
             openAppIntent.appId = CameraApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             openAppIntent.suggestedInvocationPhrase = "Open Camera.".localized.localized
+            intents.append(openAppIntent)
 
             let takeAStillPhotoIntent = TakeAPhotoIntent()
             takeAStillPhotoIntent.cameraMode = .photo
@@ -116,6 +130,18 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeAStillPhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeAStillPhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .stillPhoto]).rawValue)
             takeAStillPhotoIntent.suggestedInvocationPhrase = "Take a Photo.".localized
+            intents.append(takeAStillPhotoIntent)
+
+            if UICamera.isDepthPhotoSupported{
+                let takePhotoWithDepthEffectIntent = TakeAPhotoIntent()
+                takePhotoWithDepthEffectIntent.cameraMode = .photo
+                takePhotoWithDepthEffectIntent.appId = CameraApp.info.identifier
+                takePhotoWithDepthEffectIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+                takePhotoWithDepthEffectIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .depthEffectPhoto]).rawValue)
+                //INFO: Marketing line. later insert a feature with real depth effect rendering
+                takePhotoWithDepthEffectIntent.suggestedInvocationPhrase = "Take a Depth Effect Photo.".localized
+                intents.append(takePhotoWithDepthEffectIntent)
+            }
 
             let takeALivePhotoIntent = TakeAPhotoIntent()
             takeALivePhotoIntent.cameraMode = .livePhoto
@@ -123,6 +149,7 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeALivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeALivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto]).rawValue)
             takeALivePhotoIntent.suggestedInvocationPhrase = "Take a Live Photo.".localized
+            intents.append(takeALivePhotoIntent)
 
             let takeASelfieIntent = TakeAPhotoIntent()
             takeASelfieIntent.cameraMode = .selfiePhoto
@@ -130,6 +157,7 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeASelfieIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeASelfieIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .selfiePhoto]).rawValue)
             takeASelfieIntent.suggestedInvocationPhrase = "Take a Selfie.".localized
+            intents.append(takeASelfieIntent)
 
             let takeASelfieWithLivePhotoIntent = TakeAPhotoIntent()
             takeASelfieWithLivePhotoIntent.cameraMode = .selfieWithLivePhoto
@@ -137,12 +165,14 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             takeASelfieWithLivePhotoIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
             takeASelfieWithLivePhotoIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .livePhoto, .selfiePhoto]).rawValue)
             takeASelfieWithLivePhotoIntent.suggestedInvocationPhrase = "Take a Selfie with a Live Photo.".localized
+            intents.append(takeASelfieWithLivePhotoIntent)
 
             let takeAGIFWithLivePhoto = TakeAGIFWithLivePhotoIntent()
             takeAGIFWithLivePhoto.appId = CameraApp.info.identifier
             takeAGIFWithLivePhoto.suggestedInvocationPhrase = "Take a GIF with a Live Photo.".localized
+            intents.append(takeAGIFWithLivePhoto)
 
-            return [openAppIntent, takeAStillPhotoIntent, takeALivePhotoIntent,takeASelfieIntent,takeASelfieWithLivePhotoIntent, takeAGIFWithLivePhoto]
+            return intents
         } else {
             return []
         }
@@ -165,14 +195,14 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
 
 }
 
-class CameraAppView: AppUICameraView {}
+class CameraAppView: AppUICamera {}
 
 fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         return CameraAppView(frame: .zero, options:CameraApp.defaults as! CameraAppDefaults)
     }()
 
-    private var cameraView: CameraView? {
+    private var cameraView: UICamera? {
         return (view as? CameraAppView)?.cameraView
     }
 
@@ -190,6 +220,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         let launchOption = AppCenter.default.currentInstanceAs(CameraApp.self)?.importedLaunchOption
 
         cameraView?.captureMetadataComment = launchOption?.identifierToReturn
+        cameraView?.capturePreset = .photo
         cameraView?.startSession()
 
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
@@ -197,10 +228,10 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         cameraView?.watch(\.capturedResult) {
             if let capturedResult = self.cameraView?.capturedResult, let results = capturedResult.results{
                 var data = [AppLaunchOptionsKey: Any]()
-                if let photoUrl = results[CaptureProcessorResultKey.photoURL] {
+                if let photoUrl = results[UICameraCaptureProcessorResultKey.photoURL] {
                     data[AppLaunchOptionsKey.PhotoURL] = photoUrl
                 }
-                if let pairedVideoURL = results[CaptureProcessorResultKey.pairedVideoURL] {
+                if let pairedVideoURL = results[UICameraCaptureProcessorResultKey.pairedVideoURL] {
                     data[AppLaunchOptionsKey.PairedVideoURL] = pairedVideoURL
                 }
 
@@ -248,6 +279,10 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
             cameraView.isLivePhotoEnabled = false
         }
 
+        if option.contains(.depthEffectPhoto), cameraView.isDepthPhotoEnabled == false {
+            cameraView.isDepthPhotoEnabled = true
+        }
+
         if option.contains(.takePhoto) {
 
             if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
@@ -264,7 +299,23 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
                         cameraView.takePhoto()
                     }
                 }
-            }else{
+
+            }else if option.contains(.depthEffectPhoto) && cameraView.cameraPosition == .front {
+                let capturedResultId = "capturedResult"
+                cameraView.watch(\.capturedResult, id: capturedResultId) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        cameraView.switchCaptureDevicePosition()
+                    }
+                    cameraView.unwatch(forIds: [capturedResultId])
+                }
+
+                cameraView.switchCaptureDevicePosition { position in
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        cameraView.takePhoto()
+                    }
+                }
+            }
+            else{
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     cameraView.takePhoto()
                 }

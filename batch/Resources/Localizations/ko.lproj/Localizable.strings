@@ -218,6 +218,8 @@
 "Auto Selection Bot" = "자동 선택 봇";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
 "Auto Straighten" = "자동 수평 보정";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Auto Tagging Bot" = "자동 태그 추가 봇";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Color" = "배경색";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -242,6 +244,8 @@
 "Choose An Export Option For %d Items" = "%d 항목에 대한 내보내기 옵션 선택";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "하위 작업을 선택하십시오.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Choose some photos you want to find tags." = "태그를 찾으려는 사진을 선택하십시오.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -314,12 +318,16 @@
 "E-mail Address" = "이메일 주소";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Enable Auto-tagging." = "자동 태그 추가를 사용.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Exposure" = "노출";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "바래다";
 /* Generated from genl10n: Filters.BApp.swift#72 */
@@ -331,7 +339,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder" = "파인더";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags From Photos..." = "사진에서 해시 태그 찾기 ...";
+"Finding Hashtags In Photos..." = "사진에서 해시 태그 찾기 ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding and collecting hashtags from your photos you selected." = "선택한 사진에서 해시 태그를 찾아 수집합니다.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
@@ -358,10 +366,14 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 포토에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 포토이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF 만들기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Gamma" = "감마";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
 "Get Access" = "접근 권한 얻기";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get All Text" = "모든 텍스트 가져 오기";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Get Tags" = "태그 가져 오기";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Get Text" = "텍스트 가져 오기";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
@@ -376,6 +388,8 @@
 "Guest User" = "게스트 사용자";
 /* Generated from genl10n: InfoStrings.swift */
 "Handle lots of photos at once." = "한 번에 많은 사진을 다루십시오.";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"HashTag" = "해시 태그";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Hello, %@!" = "안녕하세요, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
@@ -471,7 +485,7 @@
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Open Auto Editor." = "자동 편집기 열기";
 /* Generated from genl10n: Camera.SApp.swift */
-"Open Camera." = "오픈 카메라.";
+"Open Camera." = "카메라 열기.";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Open Cleaner." = "클리너 열기";
 /* Generated from genl10n: Clipboard.BApp.swift */
@@ -488,6 +502,8 @@
 "Open GIF Maker." = "GIF Maker 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Google 지도 열기";
+/* Generated from genl10n: Hashtagen.BApp.swift */
+"Open Hashtagen." = "Hashtagen을 엽니 다.";
 /* Generated from genl10n: PDFMaker.BApp.swift */
 "Open PDF Maker." = "PDF 작성기 열기";
 /* Generated from genl10n: Revert.BApp.swift */
@@ -630,6 +646,8 @@
 "Send an Email" = "이메일 보내기";
 /* Generated from genl10n: Shop.SApp.swift#583 */
 "Send" = "보내기";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sepia Tone" = "세피아 톤";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "기본 도구 라이센스 설정";
 /* Generated from genl10n: Shop.SApp.swift#469 */
@@ -652,6 +670,8 @@
 "Size" = "크기";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "일부 연락처는 저장되었지만 일부 연락처는 저장되지 않았습니다.";
+/* Generated from genl10n: Converter.BApp.swift */
+"Sorry, This converting option is not supporting currently." = "죄송합니다.이 변환 옵션은 현재 지원되지 않습니다.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest License Program" = "특별 게스트 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -691,13 +711,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "참여하기";
 /* Generated from genl10n: Camera.SApp.swift */
+"Take a Depth Effect Photo." = "깊이 효과 사진을 찍으십시오.";
+/* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "라이브 사진으로 GIF 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Live Photo." = "라이브 사진 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Photo." = "사진을 찍다.";
+"Take a Photo." = "사진 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Selfie with a Live Photo." = "라이브 사진으로 셀카를하십시오.";
+"Take a Selfie with a Live Photo." = "라이브 사진으로 셀카 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie." = "셀카 찍기.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
@@ -817,7 +839,7 @@
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "코드가 만료되었습니다.";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "YouTube 풍경";
+"Youtube Landscape" = "YouTube 가로";
 /* Generated from genl10n: Period.swift */
 "day" = "일";
 /* Generated from genl10n: Period.swift */

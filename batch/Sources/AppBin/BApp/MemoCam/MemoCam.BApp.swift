@@ -553,8 +553,8 @@ fileprivate class ResultPreviewView: DesignableView {
 }
 
 fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
-    fileprivate lazy var cameraView: CameraView = {
-        let cameraView = CameraView(frame: .zero)
+    fileprivate lazy var cameraView: UICamera = {
+        let cameraView = UICamera(frame: .zero)
         cameraView.clipsToBounds = false
         cameraView.contentMode = .scaleAspectFill
         return cameraView
@@ -751,7 +751,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
         }
 
-        cameraView.captureVideoDataDidOutput = { sampleBuffer in
+        cameraView.setCaptureVideoDataOutput { sampleBuffer in
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             
             let deviceOrientation = self.cameraView.deviceMotion.orientation
@@ -802,7 +802,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 
     func willRemoveContentView() {
-        cameraView.captureVideoDataDidOutput = nil
+        cameraView.setCaptureVideoDataOutput(nil)
         cameraView.stopSession()
         captureSessionHasStarted = false
         

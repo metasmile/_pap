@@ -22,6 +22,13 @@ protocol PhotoPickerCollectionViewDelegatableApp: App {
 
     //INFO: app did change -> reloaded all collections with current context -> called.
     func didAppear(callee:PhotoPickerViewControllerUniversalOperations)
+
+    //INFO: Normally cancelled -> deselected
+    func didDeselectAll(callee:PhotoPickerViewControllerUniversalOperations)
+
+    //INFO: Directly coupled with did(De)SelectItemAt
+    func didSelect(asset:PHAsset, indexPath:IndexPath, callee:PhotoPickerViewControllerUniversalOperations)
+    func didDeselect(asset:PHAsset, indexPath:IndexPath, callee:PhotoPickerViewControllerUniversalOperations)
 }
 
 extension PhotoPickerCollectionViewDelegatableApp{
@@ -36,6 +43,12 @@ extension PhotoPickerCollectionViewDelegatableApp{
     func didInsert(callee: PhotoPickerViewControllerUniversalOperations, indexPaths: [IndexPath]) {}
 
     func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {}
+
+    func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {}
+
+    func didSelect(asset:PHAsset, indexPath:IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {}
+
+    func didDeselect(asset:PHAsset, indexPath:IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {}
 
     func didSelectWhenInserted(callee: PhotoPickerViewControllerUniversalOperations, indexPaths: [IndexPath]) {}
 }
