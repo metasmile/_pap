@@ -115,7 +115,9 @@ class UICamera: UIView, PropertyWatchable {
             locationManager.startUpdatingLocation()
         }
         sessionQueue.async {
-            self.configureSession()
+            if self.captureSession == nil {
+                self.configureSession()
+            }
             self.captureSession?.startRunning()
             self.setTorchMode(self.flashMode.torchMode)
 
