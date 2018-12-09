@@ -151,7 +151,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
-                    return photo.depthData
+                    return nil//photo.depthData
                 }
                 
                 func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
@@ -159,7 +159,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
-                    return photo.portraitEffectsMatte
+                    return nil//photo.portraitEffectsMatte
                 }
             }
             return photo.fileDataRepresentation(with: CaptureProcessorFileDataRepresentation(self))
@@ -168,47 +168,61 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             return photo.fileDataRepresentation(withReplacementMetadata: UICameraCaptureProcessor.metadata(of: photo, with: self)
                 , replacementEmbeddedThumbnailPhotoFormat: nil
                 , replacementEmbeddedThumbnailPixelBuffer: nil
-                , replacementDepthData: photo.depthData)
+                , replacementDepthData: nil)
         }
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
+        let signal = AsyncSignal()
+        
+        signal.begin()
+        
+        var outputURL: URL?
+        
         /*
             Writing
         */
-        if let data = exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) {
-            if photo.isRawPhoto {
-                let url = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
-                if let _ = try? data.write(to: url) {
-                    return url
-                }
-            }
-            else if let ciImage = data.asCIImage {
-                if photo.isDepthPhoto {
-                    let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
-                    var options = [CIImageRepresentationOption: Any]()
-                    options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
-                    
-                    if let depthData = photo.depthData {
-                        options[CIImageRepresentationOption.avDepthData] = depthData
-                    }
-                    if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
-                        options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
-                    }
-                    
-                    if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
+        
+        DispatchQueue(label: "com.stells.internal.exportStillImage."+String(describing:type(of: self)), qos: .utility).async {
+            outputURL = autoreleasepool(invoking: { () -> URL? in
+                guard let data = self.exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) else { return nil }
+                if photo.isRawPhoto {
+                    let url = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
+                    if let _ = try? data.write(to: url) {
                         return url
                     }
                 }
-                else {
-                    let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-                    if ciImage.writeJPEGRepresentationOriginally(to: url) {
-                        return url
+                else if let ciImage = data.asCIImage {
+                    if photo.isDepthPhoto {
+                        let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
+                        var options = [CIImageRepresentationOption: Any]()
+                        options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
+                        
+                        if let depthData = photo.depthData {
+                            options[CIImageRepresentationOption.avDepthData] = depthData
+                        }
+                        if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
+                            options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
+                        }
+                        
+                        if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
+                            return url
+                        }
+                    }
+                    else {
+                        let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                        if ciImage.writeJPEGRepresentationOriginally(to: url) {
+                            return url
+                        }
                     }
                 }
-            }
+                return nil
+            })
+            signal.end()
         }
-        return nil
+        
+        signal.waitUntilEnd()
+        return outputURL
     }
     
     final func portraitEffectMattePhoto(_ photo: AVCapturePhoto) -> Data? {
@@ -277,13 +291,18 @@ final class UICameraLivePhotoCaptureProcessor: UICameraCaptureProcessor {
 
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
+                print(#function, "request")
+                
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true
 
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
+                
+                print(#function, "add resource")
             }, completionHandler: { (success, info) in
+                print(#function, "done", info)
                 self.completionHandler?(success, [
                     UICameraCaptureProcessorResultKey.photoURL:photoURL
                     , UICameraCaptureProcessorResultKey.pairedVideoURL:outputFileURL
