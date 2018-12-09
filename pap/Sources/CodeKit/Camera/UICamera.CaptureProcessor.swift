@@ -151,7 +151,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
-                    return nil//photo.depthData
+                    return nil
                 }
                 
                 func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
@@ -159,7 +159,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
-                    return nil//photo.portraitEffectsMatte
+                    return nil
                 }
             }
             return photo.fileDataRepresentation(with: CaptureProcessorFileDataRepresentation(self))
@@ -276,10 +276,7 @@ final class UICameraLivePhotoCaptureProcessor: UICameraCaptureProcessor {
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         captureQueue.async {
-            guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
-                return
-            }
-            self.photoURL = url
+            self.photoURL = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error)
         }
     }
 
@@ -291,18 +288,13 @@ final class UICameraLivePhotoCaptureProcessor: UICameraCaptureProcessor {
 
             signal.begin()
             PHPhotoLibrary.shared().performChanges({
-                print(#function, "request")
-                
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true
 
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 creationRequest.addResource(with: .photo, fileURL: photoURL, options: options)
                 creationRequest.addResource(with: .pairedVideo, fileURL: outputFileURL, options: options)
-                
-                print(#function, "add resource")
             }, completionHandler: { (success, info) in
-                print(#function, "done", info)
                 self.completionHandler?(success, [
                     UICameraCaptureProcessorResultKey.photoURL:photoURL
                     , UICameraCaptureProcessorResultKey.pairedVideoURL:outputFileURL
@@ -334,25 +326,25 @@ final class UICameraRawPhotoCaptureProcessor: UICameraCaptureProcessor {
     
     // After both RAW and compressed versions are delivered, add them to the Photos Library.
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-            captureQueue.async {
-                guard let rawURL = self.rawImageFileURL, let compressedURL = self.compressedFileURL else { return }
+        captureQueue.async {
+            guard let rawURL = self.rawImageFileURL, let compressedURL = self.compressedFileURL else { return }
+            
+            let signal = AsyncSignal()
+            
+            signal.begin()
+            PHPhotoLibrary.shared().performChanges({
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
                 
-                let signal = AsyncSignal()
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                creationRequest.addResource(with: .photo, fileURL: compressedURL, options: options)
                 
-                signal.begin()
-                PHPhotoLibrary.shared().performChanges({
-                    let options = PHAssetResourceCreationOptions()
-                    options.shouldMoveFile = true
-                    
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, fileURL: compressedURL, options: options)
-                    
-                    // Add the RAW (DNG) file as an altenate resource.
-                    creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
-                }, completionHandler: { (success, info) in
-                    self.completionHandler?(success, [
-                        UICameraCaptureProcessorResultKey.photoURL:compressedURL
-                        , UICameraCaptureProcessorResultKey.alternatePhotoURL:rawURL
+                // Add the RAW (DNG) file as an altenate resource.
+                creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
+            }, completionHandler: { (success, info) in
+                self.completionHandler?(success, [
+                    UICameraCaptureProcessorResultKey.photoURL:compressedURL
+                    , UICameraCaptureProcessorResultKey.alternatePhotoURL:rawURL
                 ])
                 signal.end()
             })
