@@ -1,9 +1,15 @@
-Just choose all photos you need and then tap performing button. You can do everything all you needed with all your photos.
+PAPS is the infinite-purpose photo, video and camera toolbox with a fast, large-scale batch media editing. Just choose a tool and then select all the photos you need and then tap the button. You can do anything all you needed for all your photos.
 
-PAPS is a fast and large-scale photo processing app lets you bulk work at once with smart tools.
+The List of Tools -
 
 
-The List of Tools:
+Camera
+The standard built-in camera which supports Depth Effect, RAW capture, and GPS metadata saving control for your privacy.
+
+
+Auto Selection Bot (ASB System)
+ASB is a multi-purpose assistant engine for choosing the right items in the current context for each tool.
+
 
 Finder
 Extracting every important info such as phone numbers, addresses, dates, URLs or even flight code from your photos or screenshots, and then do right things.
@@ -42,7 +48,7 @@ List of Cleaner Matchers
 • Similarity
 • Screenshots
 • Flashlight included
-• Saved with Built-in Camera (in the PA)
+• Saved with Built-in Camera
 • LockScreens - Taken Screenshots with iOS locked screen.
 • Too Close-up Face
 • Too Slow Sutter Speed
@@ -50,11 +56,6 @@ List of Cleaner Matchers
 • Videos Shorter Than 1 Second
 • Videos Saved By Instagram
 • All not taken with Camera
-
-
-Memo Cam
-
-An AI-powered text info recognization camera tool, MemoCam enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
 
 GIF Maker
@@ -71,6 +72,10 @@ EXIF Ghost
 EXIF Ghost lets you remove all kinds of data containing your photos including private information.
 
 • Selective metadata purging for all properties of GPS, EXIF, TIFF support.
+
+
+Memo Cam
+An AI-powered text info recognization camera tool, MemoCam enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
 
 Rotation
@@ -104,9 +109,3 @@ PDFactory
 PDFactory makes PDF document from multiple images with various page options.
 
 • Page Size(e.g., A4 or US Legal), Margin, Scale, and Layout Mode Support
-
-
-
-Auto Selection Bot (ASB System)
-
-ASB is a multi-purpose assistant engine for choosing the right items in the current context for each app.
