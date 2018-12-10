@@ -804,16 +804,32 @@ extension UICamera {
 }
 
 extension UICamera {
-    func videoZoomRange(with captureDevice: AVCaptureDevice) -> ClosedRange<CGFloat> {
-        return (captureDevice.activeFormat.videoMinZoomFactorForDepthDataDelivery...captureDevice.activeFormat.videoMaxZoomFactorForDepthDataDelivery)
+    func zoom(_ scale: CGFloat) {
+        videoZoomFactor = scale
     }
     
-    var videoZoomFactor: CGFloat {
+    var isZoomEnabled: Bool {
+        return videoMinZoomFactor != videoMaxZoomFactor
+    }
+    
+    private var videoZoomRange: ClosedRange<CGFloat> {
+        return (videoMinZoomFactor...videoMaxZoomFactor)
+    }
+    
+    var videoMinZoomFactor: CGFloat {
+        return self.currentCaptureDevice?.activeFormat.videoMinZoomFactorForDepthDataDelivery ?? 1
+    }
+    
+    var videoMaxZoomFactor: CGFloat {
+        return self.currentCaptureDevice?.activeFormat.videoMaxZoomFactorForDepthDataDelivery ?? 1
+    }
+    
+    private(set) var videoZoomFactor: CGFloat {
         set {
             sessionQueue.async {
                 guard let captureDevice = self.currentCaptureDevice else { return }
                 try? captureDevice.lockForConfiguration()
-                captureDevice.videoZoomFactor = newValue.clamped(to: self.videoZoomRange(with: captureDevice))
+                captureDevice.videoZoomFactor = newValue.clamped(to: self.videoZoomRange)
                 captureDevice.unlockForConfiguration()
             }
         }
@@ -1098,6 +1114,10 @@ fileprivate class UICameraPreviewView: UIView {
 final class CaptureButton: UIControl {
     private lazy var outerCircleLayer = CAShapeLayer()
     private lazy var innerCircleLayer = CAShapeLayer()
+    
+    convenience init() {
+        self.init(frame: .zero)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -1153,5 +1173,80 @@ final class CaptureButton: UIControl {
         outerCircleLayer.lineWidth = outerCircleLineWidth
         outerCircleLayer.path = outerCircle.cgPath
         innerCircleLayer.path = innerCircle.cgPath
+    }
+}
+
+final class ZoomButton: UIControl {
+    private lazy var outerCircleLayer = CAShapeLayer()
+    var zoomFactor: CGFloat = 1 {
+        didSet {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
+            textLabel.text = (formatter.string(from: NSNumber(value: Float(zoomFactor))) ?? String(format: "%.2f", zoomFactor)) + "x"
+        }
+    }
+    
+    private lazy var textLabel: UILabel = UILabel(frame: .zero)
+    
+    convenience init() {
+        self.init(frame: .zero)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        backgroundColor = .clear
+        
+        outerCircleLayer.strokeColor = UIColor.white.cgColor
+        outerCircleLayer.fillColor = UIColor.black.withAlphaComponent(0.25).cgColor
+        layer.addSublayer(outerCircleLayer)
+        
+        addSubview(textLabel)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4).isActive = true
+        trailingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 4).isActive = true
+        textLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        textLabel.textAlignment = .center
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.minimumScaleFactor = 0.5
+        textLabel.font = UIFont.systemFont(ofSize: 10)
+        textLabel.textColor = .white
+        textLabel.text = "1x"
+        
+        addTarget(self, action: #selector(self.pressed), for: [.touchDown, .touchDragEnter])
+        addTarget(self, action: #selector(self.released), for: [.touchUpInside, .touchUpOutside, .touchDragExit])
+    }
+    
+    @objc func pressed(sender: Any) {
+        let scale: CGFloat = 0.9
+        
+        UIView.animateAsSpring(0.3, animations: {
+            self.transform = CGAffineTransform(scaleX: scale, y: scale)
+        })
+    }
+    
+    @objc func released(sender: Any) {
+        UIView.animateAsSpring(0.3, animations: {
+            self.transform = CGAffineTransform.identity
+        })
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by: UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)))
+        outerCircleLayer.lineWidth = 1
+        outerCircleLayer.path = outerCircle.cgPath
     }
 }

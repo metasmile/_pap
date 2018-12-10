@@ -34,6 +34,7 @@ class AppUICamera: UIView {
     }()
 
     private lazy var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToCapture))
+    private lazy var pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchToZoom))
 
     private var optionViewHeightLayout: NSLayoutConstraint?
     private var controlViewHeightLayout: NSLayoutConstraint?
@@ -55,7 +56,7 @@ class AppUICamera: UIView {
         initialize()
     }
 
-    private lazy var captureButton = CaptureButton(frame: .zero)
+    private lazy var captureButton = CaptureButton()
     private lazy var cameraPositionButton = UIButton(type: .system)
     private lazy var cameraFlashButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
@@ -65,6 +66,7 @@ class AppUICamera: UIView {
     private lazy var rawPhotoButton = UIButton(type: .system)
     private lazy var depthPhotoButton = UIButton(type: .system)
     private lazy var locationButton = UIButton(type: .system)
+    private lazy var zoomButton = ZoomButton()
 
     private let OptionViewHeightAnchorConstant:CGFloat = 44 // top
     private let ControlViewHeightAnchorConstant:CGFloat = remapClamp(
@@ -257,6 +259,16 @@ class AppUICamera: UIView {
         locationButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
         locationButton.widthAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         locationButton.heightAnchor.constraint(equalTo: locationButton.widthAnchor, multiplier: 0.75).isActive = true
+        
+        //location
+        zoomButton.addTarget(self, action: #selector(self.zoomButtonDidTap), for: .touchUpInside)
+        addSubview(zoomButton)
+        
+        zoomButton.translatesAutoresizingMaskIntoConstraints = false
+        zoomButton.centerYAnchor.constraint(greaterThanOrEqualTo: captureButton.centerYAnchor).isActive = true
+        cameraView.trailingAnchor.constraint(equalTo: zoomButton.trailingAnchor, constant: OptionViewHeightAnchorConstant - (OptionViewHeightAnchorConstant * 0.75)).isActive = true
+        zoomButton.widthAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant * 0.75).isActive = true
+        zoomButton.heightAnchor.constraint(equalTo: zoomButton.widthAnchor).isActive = true
 
         //position
         cameraPositionButton.imageEdgeInsets = buttonImageInsets
@@ -316,11 +328,16 @@ class AppUICamera: UIView {
                 self.locationButton.isEnabled = self.cameraView.isUsingLocationSupported
                 self.locationButton.tintColor = self.cameraView.usingLocation ? self.primaryColor : nil
                 
+                self.zoomButton.isHidden = !self.cameraView.isZoomEnabled
+                self.zoomButton.zoomFactor = self.cameraView.videoZoomFactor
+                
                 if self.isCompactMode {
                     self.updatePhotoOptionButtons()
                 }
             }
         }
+        
+        addGestureRecognizer(pinchGesture)
 
         self.isCompactMode = true
     }
@@ -375,6 +392,26 @@ class AppUICamera: UIView {
 
     @objc func tapDownToCapture(sender: Any) {
         UIFeedback.select()
+    }
+    
+    @objc func pinchToZoom(sender: UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            sender.scale = cameraView.videoZoomFactor
+        }
+        
+        cameraView.zoom(sender.scale)
+        zoomButton.zoomFactor = cameraView.videoZoomFactor
+    }
+    
+    @objc func zoomButtonDidTap() {
+        if cameraView.videoZoomFactor != cameraView.videoMinZoomFactor {
+            cameraView.zoom(cameraView.videoMinZoomFactor)
+            zoomButton.zoomFactor = cameraView.videoMinZoomFactor
+        }
+        else {
+            cameraView.zoom(2)
+            zoomButton.zoomFactor = 2
+        }
     }
 
     @objc func switchDevicePosition(sender: Any) {
