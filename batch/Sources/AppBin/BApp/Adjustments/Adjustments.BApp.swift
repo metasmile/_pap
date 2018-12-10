@@ -678,7 +678,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             layer.insertSublayer(defaultValueMark, at: 0)
             
             defaultValueMark.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 4, height: 4))).cgPath
-            defaultValueMark.fillColor = (minimumTrackTintColor ?? .white).cgColor
+            defaultValueMark.fillColor = UIColor.darkGray.cgColor
             defaultValueMark.actions = ["position": NSNull()]
         }
         
@@ -700,6 +700,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             super.layoutIfNeeded()
             
             defaultValueMark.position = CGPoint(x: self.defaultLocation.x - 2, y: 4)
+            updateDefaultValueMark()
         }
         
         private var defaultLocation: CGPoint {
@@ -755,22 +756,24 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         }
         
         @objc private func sliderValueDidFinishChange() {
-            if needsMagnifyToDefaultValue {
-                needsMagnifyToDefaultValue = false
+            if magnifyingToDefaultValue {
                 setValue(defaultValue, animated: true)
                 
                 sliderDidChangeHandler?(defaultValue)
+                updateDefaultValueMark(true)
             }
         }
         
-        private var needsMagnifyToDefaultValue = false
-        private func updateDefaultValueMark() {
-            needsMagnifyToDefaultValue = direction != velocityDirection && distanceFromDefaultValue.magnitude < 8
-            if needsMagnifyToDefaultValue {
-                defaultValueMark.fillColor = UIColor.white.cgColor
+        private var magnifyingToDefaultValue: Bool {
+            return direction != velocityDirection && distanceFromDefaultValue.magnitude < 8
+        }
+        
+        private func updateDefaultValueMark(_ marked: Bool? = nil) {
+            if marked ?? magnifyingToDefaultValue {
+                defaultValueMark.fillColor = UIColor.darkGray.cgColor
             }
             else {
-                defaultValueMark.fillColor = UIColor.gray.cgColor
+                defaultValueMark.fillColor = UIColor.white.cgColor
             }
         }
     }
