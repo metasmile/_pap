@@ -237,8 +237,8 @@ extension UICamera {
             captureSession.addOutput(capturePhotoOutput)
         }
         
-        configureDepthPhotoEnabled(preferredDepthPhotoEnabled)
         configureLivePhotoEnabled(preferredLivePhotoEnabled)
+        configureDepthPhotoEnabled(preferredDepthPhotoEnabled)
         flashMode = preferredFlashMode
         
         commitConfiguration()
@@ -334,8 +334,8 @@ extension UICamera {
             self.beginConfiguration()
             
             self.configureCaptureDevice(self.captureDevice(with: position))
-            self.configureDepthPhotoEnabled(isDepthPhotoEnabled)
             self.configureLivePhotoEnabled(isLivePhotoEnabled)
+            self.configureDepthPhotoEnabled(isDepthPhotoEnabled)
             
             if let connection = self.capturePhotoOutput.connection(with: .video), connection.isVideoMirroringSupported {
                 connection.isVideoMirrored = position == .front
@@ -375,7 +375,6 @@ extension UICamera {
         if #available(iOS 12.0, *) {
             photoSettings.isPortraitEffectsMatteDeliveryEnabled = capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled
         }
-        
         return photoSettings
     }
     
@@ -719,8 +718,8 @@ extension UICamera {
                 let isLivePhotoEnabled = self.capturePhotoOutput.isLivePhotoCaptureEnabled
                 self.beginConfiguration()
                 self.configureCaptureDevice(self.captureDevice(with: self.cameraPosition))
-                self.configureDepthPhotoEnabled(newValue)
                 self.configureLivePhotoEnabled(isLivePhotoEnabled)
+                self.configureDepthPhotoEnabled(newValue)
                 self.commitConfiguration()
             }
         }
@@ -736,7 +735,14 @@ extension UICamera {
         }
         
         if #available(iOS 12.0, *), self.capturePhotoOutput.isPortraitEffectsMatteDeliverySupported {
-            self.capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled = enabled
+            //POLICY: (because of memory issue)
+            // When Capture Live Photo with Back Camera, Disabled Delivering Portrait Effects Matte
+            if isLivePhotoEnabled, self.cameraPosition == .back {
+                self.capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled = false
+            }
+            else {
+                self.capturePhotoOutput.isPortraitEffectsMatteDeliveryEnabled = enabled
+            }
         }
     }
 }

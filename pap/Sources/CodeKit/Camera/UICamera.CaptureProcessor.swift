@@ -173,56 +173,43 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
     }
 
     final func exportStillImageOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) -> URL? {
-        let signal = AsyncSignal()
-        
-        signal.begin()
-        
-        var outputURL: URL?
-        
         /*
             Writing
         */
-        
-        DispatchQueue(label: "com.stells.internal.exportStillImage."+String(describing:type(of: self)), qos: .utility).async {
-            outputURL = autoreleasepool(invoking: { () -> URL? in
-                guard let data = self.exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) else { return nil }
-                if photo.isRawPhoto {
-                    let url = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
-                    if let _ = try? data.write(to: url) {
+        return autoreleasepool(invoking: { () -> URL? in
+            guard let data = self.exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) else { return nil }
+            if photo.isRawPhoto {
+                let url = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
+                if let _ = try? data.write(to: url) {
+                    return url
+                }
+            }
+            else if let ciImage = data.asCIImage {
+                if photo.isDepthPhoto {
+                    let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
+                    var options = [CIImageRepresentationOption: Any]()
+                    options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
+                    
+                    if let depthData = photo.depthData {
+                        options[CIImageRepresentationOption.avDepthData] = depthData
+                    }
+                    if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
+                        options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
+                    }
+                    
+                    if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
                         return url
                     }
                 }
-                else if let ciImage = data.asCIImage {
-                    if photo.isDepthPhoto {
-                        let url = FileURL.temp(UUID().uuidString, UTI(rawValue: AVFileType.heif.rawValue), group: FileURL.fileAndQueuePrivateGroup())
-                        var options = [CIImageRepresentationOption: Any]()
-                        options[kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption] = 1.0
-                        
-                        if let depthData = photo.depthData {
-                            options[CIImageRepresentationOption.avDepthData] = depthData
-                        }
-                        if #available(iOS 12.0, *), let portraitEffectsMatte = photo.portraitEffectsMatte {
-                            options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
-                        }
-                        
-                        if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
-                            return url
-                        }
-                    }
-                    else {
-                        let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-                        if ciImage.writeJPEGRepresentationOriginally(to: url) {
-                            return url
-                        }
+                else {
+                    let url = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                    if ciImage.writeJPEGRepresentationOriginally(to: url) {
+                        return url
                     }
                 }
-                return nil
-            })
-            signal.end()
-        }
-        
-        signal.waitUntilEnd()
-        return outputURL
+            }
+            return nil
+        })
     }
     
     final func portraitEffectMattePhoto(_ photo: AVCapturePhoto) -> Data? {
@@ -246,11 +233,11 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
 final class UICameraStillPhotoCaptureProcessor: UICameraCaptureProcessor {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
-            return
-        }
-
         captureQueue.async {
+            guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
+                return
+            }
+            
             let signal = AsyncSignal()
 
             signal.begin()
