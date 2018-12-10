@@ -1,1 +1,2 @@
-• A bug fixes for MemoCam.
+++ A new tool - HashTag: Finding and collecting hashtags from your photos you selected.
++ Camera 1.2: Added an internal feature that can simultaneously capture the Live Photo and Depth Effect Data.
