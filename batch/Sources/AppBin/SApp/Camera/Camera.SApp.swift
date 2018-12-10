@@ -59,7 +59,7 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.camera"
-        , version: "1.1"
+        , version: "1.2"
         , phase: .release
         , appType: CameraApp.self
         , displayName: "Camera".localized.localizedCapitalized
