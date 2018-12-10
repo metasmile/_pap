@@ -76,9 +76,15 @@ class UICamera: UIView, PropertyWatchable {
     private func initialize() {
         addSubview(cameraPreviewView)
         cameraPreviewView.fitConstraints(to: self)
-#if targetEnvironment(simulator)
+
+        #if targetEnvironment(simulator)
         cameraPreviewView.previewLayer.backgroundColor = UIColor.green.cgColor
-#endif
+        #endif
+
+//        let imageView = UIImageView(image: R.image.scrsJpg())
+//        cameraPreviewView.addSubview(imageView)
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.fitConstraints(to: self)
     }
     
     var capturePreset: AVCaptureSession.Preset = .photo {
