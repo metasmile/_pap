@@ -15,6 +15,13 @@ public protocol Sourceable {
 public protocol ImageSourceable:Sourceable {
     var asUIImage:UIImage? { get }
     var asCIImage:CIImage? { get }
+    var asCGImage:CGImage? { get }
+}
+
+extension ImageSourceable{
+    public var asCGImage: CGImage? {
+        return nil
+    }
 }
 
 public protocol BundleImageSourceable:Sourceable {
@@ -96,6 +103,10 @@ extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
 
     public var asCIImage: CIImage? {
         return self
+    }
+
+    public var asCGImage: CGImage? {
+        return CIContext().createCGImage(self, from: extent)
     }
 }
 

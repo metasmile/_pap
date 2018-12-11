@@ -5,10 +5,6 @@
 
 import Foundation
 
-public func CodeFileName(_ _file:String=#file) -> String{
-    return URL(fileURLWithPath: _file).deletingPathExtension().lastPathComponent
-}
-
 extension String{
     func temporaryURL(_ uti:UTI?, group:String?=nil) -> URL{
         return FileURL.temp(self, uti, group:group)
@@ -39,7 +35,7 @@ public struct FileURL {
     }
 
     public static func filePrivateGroup(_ file:String=#file) -> String{
-        return CodeFileName(file)
+        return codefile(file)
     }
 
     public static func queuePrivateGroup(_ queueName:String=DispatchQueue.currentLabel) -> String{

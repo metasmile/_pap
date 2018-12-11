@@ -72,7 +72,7 @@ PhotoEditorViewControllerDelegatableApp {
         
         var defaults = type(of: self).defaults as! ResizerAppDefaults
         
-        let filter = editStateValue?.ciFilter as? CIResizeFilter
+        let filter = editStateValue?.ciFilter as? CIFrameFillFilter
         defaults.resizeFilterName = filter?.name
         defaults.backgroundColor = filter?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
         defaults.borderWidth = Double(filter?.borderWidth ?? 0)
@@ -80,7 +80,7 @@ PhotoEditorViewControllerDelegatableApp {
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.resizer"
-        , version: "1.0.1"
+        , version: "1.1"
         , phase: .release
         , appType: ResizerApp.self
             , displayName: "Framer".localized.localizedCapitalized
@@ -103,8 +103,8 @@ PhotoEditorViewControllerDelegatableApp {
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
-                    (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
-                    (filterItem?.ciFilter as? CIResizeFilter)?.borderWidth = CGFloat(defaults.borderWidth)
+                    (filterItem?.ciFilter as? CIFrameFillFilter)?.backgroundColor = defaults.backgroundColor
+                    (filterItem?.ciFilter as? CIFrameFillFilter)?.borderWidth = CGFloat(defaults.borderWidth)
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -119,8 +119,8 @@ PhotoEditorViewControllerDelegatableApp {
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
-                    (filterItem?.ciFilter as? CIResizeFilter)?.backgroundColor = defaults.backgroundColor
-                    (filterItem?.ciFilter as? CIResizeFilter)?.borderWidth = CGFloat(defaults.borderWidth)
+                    (filterItem?.ciFilter as? CIFrameFillFilter)?.backgroundColor = defaults.backgroundColor
+                    (filterItem?.ciFilter as? CIFrameFillFilter)?.borderWidth = CGFloat(defaults.borderWidth)
                     
                     self.config?.filter = filterItem
                 }
@@ -170,6 +170,7 @@ PhotoEditorViewControllerDelegatableApp {
 enum AspectRatioOption: Int, Codable {
     case original
     case square
+    case ratio12x6_75
     case ratio4x5
     case ratio1_91x1
     case ratio9x16
@@ -183,6 +184,7 @@ enum AspectRatioOption: Int, Codable {
         switch self {
         case .original: return "Original"
         case .square: return "1:1"
+        case .ratio12x6_75: return "12:6.75"
         case .ratio4x5: return "4:5"
         case .ratio1_91x1: return "1.91:1"
         case .ratio9x16: return "9:16"
@@ -198,6 +200,7 @@ enum AspectRatioOption: Int, Codable {
         switch self {
         case .original: return nil
         case .square: return "Square".localized
+        case .ratio12x6_75: return "Twitter".localized
         case .ratio4x5: return "Instagram Vertical".localized
         case .ratio1_91x1: return "Instagram Landscape".localized
         case .ratio16x9: return "Youtube Landscape".localized
@@ -217,6 +220,7 @@ enum AspectRatioOption: Int, Codable {
         switch self {
         case .original: return CGSize.zero
         case .square: return CGSize(width: 1, height: 1)
+        case .ratio12x6_75: return CGSize(width: 12, height: 6.75)
         case .ratio4x5: return CGSize(width: 4, height: 5)
         case .ratio1_91x1: return CGSize(width: 1.91, height: 1)
         case .ratio16x9: return CGSize(width: 16, height: 9)
@@ -242,9 +246,17 @@ enum AspectRatioOption: Int, Codable {
     }
 }
 
-class CIResizeFilter: CIFilter {
+private class CIFrameFillFilter: CIFilter {
+    enum FillMode{
+        case color
+        case blurredInput
+    }
+
     var aspectRatioOption: AspectRatioOption = .original
+
     var backgroundColor: UIColor = UIColor(rgb: 0xFFFFFF)
+    var fillMode:FillMode = .color
+
     var borderWidth: CGFloat = 0
     
     init(aspectRatioOption: AspectRatioOption) {
@@ -289,10 +301,30 @@ class CIResizeFilter: CIFilter {
             let bitmapInfo = cgImage.bitmapInfo
             
             let ctx = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-            
+
             ctx?.interpolationQuality = .high
-            ctx?.setFillColor(backgroundColor.cgColor)
-            ctx?.fill(outputRect)
+
+            switch(fillMode){
+                case .color:
+                    ctx?.setFillColor(backgroundColor.cgColor)
+                    ctx?.fill(outputRect)
+                case .blurredInput:
+                    if let bgImage = cgImage.cropping(to: outputRect)?.blur(){
+                        ctx?.draw(bgImage, in: outputRect)
+                    }else{
+                        ctx?.setFillColor(backgroundColor.cgColor)
+                        ctx?.fill(outputRect)
+                    }
+            }
+
+
+//            measure{
+//                cgImage.blur()
+//            }
+//            measure{
+//                CIContext().createCGImage(image.applyingGaussianBlur(sigma: 100), from: image.extent)
+//            }
+
             ctx?.draw(cgImage, in: aspectFitRect)
             
             if let result = ctx?.makeImage() {
@@ -305,7 +337,7 @@ class CIResizeFilter: CIFilter {
     }
 }
 
-class CIResizeFilterItem: CIFilterItem {
+private class CIFrameFilterItem: CIFilterItem {
     override init(_ filter: CIFilter? = nil) {
         super.init(filter)
     }
@@ -314,21 +346,21 @@ class CIResizeFilterItem: CIFilterItem {
         self.init(filter)
         
         self.backgroundColor = backgroundColor ?? UIColor(rgb: 0xFFFFFF)
-        (ciFilter as? CIResizeFilter)?.borderWidth = borderWidth
+        (ciFilter as? CIFrameFillFilter)?.borderWidth = borderWidth
     }
     
     private var backgroundColor: UIColor {
         set {
-            (ciFilter as? CIResizeFilter)?.backgroundColor = newValue
+            (ciFilter as? CIFrameFillFilter)?.backgroundColor = newValue
         }
         
         get {
-            return (ciFilter as? CIResizeFilter)?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
+            return (ciFilter as? CIFrameFillFilter)?.backgroundColor ?? UIColor(rgb: 0xFFFFFF)
         }
     }
     
     var borderWidth: CGFloat {
-        return (ciFilter as? CIResizeFilter)?.borderWidth ?? 0
+        return (ciFilter as? CIFrameFillFilter)?.borderWidth ?? 0
     }
     
     override var doubleValue: Double? {
@@ -336,7 +368,7 @@ class CIResizeFilterItem: CIFilterItem {
     }
     
     override var normalizedSize: CGSize? {
-        let filter = ciFilter as? CIResizeFilter
+        let filter = ciFilter as? CIFrameFillFilter
         guard filter?.aspectRatioOption != .original else { return nil }
         return filter?.aspectRatioOption.normalizedSize
     }
@@ -375,7 +407,7 @@ class CIResizeFilterItem: CIFilterItem {
             let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
             let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
             var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            if (ciFilter as? CIResizeFilter)?.aspectRatioOption == .original {
+            if (ciFilter as? CIFrameFillFilter)?.aspectRatioOption == .original {
                 if outputSize.height > outputSize.width {
                     outputSize.height -= (maximumBorderInset - borderInset) * 2
                 }
@@ -414,7 +446,7 @@ class CIResizeFilterItem: CIFilterItem {
             let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
             let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
             var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
-            if (ciFilter as? CIResizeFilter)?.aspectRatioOption == .original {
+            if (ciFilter as? CIFrameFillFilter)?.aspectRatioOption == .original {
                 if outputSize.height > outputSize.width {
                     outputSize.height -= (maximumBorderInset - borderInset) * 2
                 }
@@ -477,17 +509,18 @@ class CIResizeFilterItem: CIFilterItem {
 }
 
 fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
-    private lazy var filters: [CIResizeFilter] = [
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.original),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.square),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio16x9),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio21x9),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.ratio9x21),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.devicePortrait),
-        CIResizeFilter(aspectRatioOption: AspectRatioOption.deviceLandscape),
+    private lazy var filters: [CIFrameFillFilter] = [
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.original),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.square),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio12x6_75),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio4x5),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio1_91x1),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio9x16),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio16x9),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio21x9),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.ratio9x21),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.devicePortrait),
+        CIFrameFillFilter(aspectRatioOption: AspectRatioOption.deviceLandscape),
     ]
     
     struct CIFilterCollectionItem: AppUICollectionItem {
@@ -499,14 +532,35 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     @objc dynamic var filterItem: CIFilterItem?
-    
-    private var selectedFilter: CIResizeFilter?
+
+    private var selectedFilter: CIFrameFillFilter? {
+        didSet {
+            updateSelectedFilterFillMode()
+        }
+    }
+
+    private func updateSelectedFilterFillMode(){
+        if self.selectedBackgroundColor == blurringModeBackgroundColor{
+            self.selectedFilter?.fillMode = .blurredInput
+        }else{
+            self.selectedFilter?.fillMode = .color
+        }
+    }
+
     private var selectedBackgroundColor: UIColor? {
         didSet {
             let buttonSize = CGSize(width: 20, height: 20)
             let buttonRect = CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
-            let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
-            colorPickerButton.setImage(image, for: .normal)
+
+            if selectedBackgroundColor == blurringModeBackgroundColor{
+                colorPickerButton.setImage(R.image.resizerBlurColorIcon()?.resize(aspectFit: buttonRect.size.screenScaled()), for: .normal)
+
+            } else{
+                let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+                colorPickerButton.setImage(image, for: .normal)z
+            }
+
+            updateSelectedFilterFillMode()
         }
     }
     private var selectedBorderWidth: CGFloat { return CGFloat(borderWidthSlider.value) }
@@ -521,7 +575,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
             self.selectedFilter = originalFilter
-            self.filterItem = CIResizeFilterItem(originalFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+            self.filterItem = CIFrameFilterItem(originalFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
         }, filter: originalFilter))
         
         items += self.filters[1...].map({ (filter) -> CIFilterCollectionItem in
@@ -530,7 +584,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
             
             return CIFilterCollectionItem(title: filter.aspectRatioOption.title, image: icon, action: {
                 self.selectedFilter = filter
-                self.filterItem = CIResizeFilterItem(filter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+                self.filterItem = CIFrameFilterItem(filter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
             }, filter: filter)
         })
         
@@ -600,47 +654,69 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         slider.addTarget(self, action: #selector(self.borderWidthDidChange), for: .valueChanged)
         return slider
     }()
-    
-    private lazy var colors: [Int] = [
-        0xFFFFFF,
-        0x000000,
-        0x6ABB72,
-        0x3ABB9D,
-        0x4DA664,
-        0x2CA786,
-        0x5CADCF,
-        0x3585C5,
-        0x4590B6,
-        0x2F6CAD,
-        0x485675,
-        0x29334D,
-        0x9069B5,
-        0x533D7F,
-        0xF2D46F,
-        0xF7C23E,
-        0xF79E3D,
-        0xEE7841,
-        0xE66B5B,
-        0xCC4846,
-        0xDC5047,
-        0xB33234,
-        0xA28F85,
-        0xEFEFEF,
-        0xD1D5D8,
-        0x75706B
+
+
+    private lazy var blurringModeBackgroundColor:UIColor = UIColor(rgb:0xEFFFFF)
+
+    private lazy var colors: [UIColor] = [
+        blurringModeBackgroundColor,
+        UIColor(rgb:0xFFFFFF),
+        UIColor(rgb:0x000000),
+        UIColor(rgb:0x6ABB72),
+        UIColor(rgb:0x3ABB9D),
+        UIColor(rgb:0x4DA664),
+        UIColor(rgb:0x2CA786),
+        UIColor(rgb:0x5CADCF),
+        UIColor(rgb:0x3585C5),
+        UIColor(rgb:0x4590B6),
+        UIColor(rgb:0x2F6CAD),
+        UIColor(rgb:0x485675),
+        UIColor(rgb:0x29334D),
+        UIColor(rgb:0x9069B5),
+        UIColor(rgb:0x533D7F),
+        UIColor(rgb:0xF2D46F),
+        UIColor(rgb:0xF7C23E),
+        UIColor(rgb:0xF79E3D),
+        UIColor(rgb:0xEE7841),
+        UIColor(rgb:0xE66B5B),
+        UIColor(rgb:0xCC4846),
+        UIColor(rgb:0xDC5047),
+        UIColor(rgb:0xB33234),
+        UIColor(rgb:0xA28F85),
+        UIColor(rgb:0xEFEFEF),
+        UIColor(rgb:0xD1D5D8),
+        UIColor(rgb:0x75706B)
     ]
     
     @objc private func openColorPicker() {
-        let picker = UIAlertController.actionSheet(title: "\n" + "Background Color".localized, message: nil)
+        let picker = UIAlertController.actionSheet(title: "\n" + "Background Fill Color".localized, message: nil)
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
-        
+
         for color in colors {
-            let c = UIColor(rgb: color)
-            let action = UIAlertAction(title: c.hexCode(), style: .default, handler: { _ in
-                self.selectedBackgroundColor = c
-                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: c, borderWidth: self.selectedBorderWidth)
+
+            let blurringMode = color == blurringModeBackgroundColor
+            var accessoryImage:UIImage?
+            let title:String
+
+            let accessoryImageRect = CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+
+            if blurringMode{
+                title = "Blur Background".localized
+                accessoryImage = R.image.resizerBlurColorIcon()?.resize(aspectFit: accessoryImageRect.size.screenScaled())
+            }else{
+                title = color.hexCode()
+                accessoryImage = UIImage(path: UIBezierPath(ovalIn: accessoryImageRect), fillColor: color, strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+            }
+
+            let action = UIAlertAction(title: title, style: .default, handler: { _ in
+                self.selectedBackgroundColor = color
+                self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: color, borderWidth: self.selectedBorderWidth)
             })
-            action.accessoryImage = UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))), fillColor: c, strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+
+            if let accessoryImage = accessoryImage{
+                action.accessoryImage = accessoryImage
+            }
+
             picker.addAction(action)
         }
         
@@ -661,7 +737,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
             DispatchQueue.main.asyncAfter(deadline: .now()){
-                self.filterItem = CIResizeFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
+                self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
             }
         }
     }
@@ -678,7 +754,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
-        let filter = editStateValue?.ciFilter as? CIResizeFilter
+        let filter = editStateValue?.ciFilter as? CIFrameFillFilter
         selectItem(by: filter?.name)
         
         selectedFilter = filter
@@ -688,9 +764,9 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         borderWidthDidChange()
     }
     
-    fileprivate func getFilterItem(by filterName: String?) -> CIResizeFilterItem? {
+    fileprivate func getFilterItem(by filterName: String?) -> CIFrameFilterItem? {
         let index = indexOfItem(by: filterName) ?? 0
-        return CIResizeFilterItem(self.filters[safe: index], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
+        return CIFrameFilterItem(self.filters[safe: index], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
     }
     
     var contentScrollable: AppDockContentScrollable? {

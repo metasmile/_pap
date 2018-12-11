@@ -172,7 +172,7 @@ PhotoEditorViewControllerDelegatableApp {
 fileprivate extension CIFilter{
 
     private var cacheFileURL:URL{
-        return FileURL.document(name, UTI.png, group: CodeFileName())
+        return FileURL.document(name, UTI.png, group: codefile())
     }
 
     var processedImage:UIImage?{
