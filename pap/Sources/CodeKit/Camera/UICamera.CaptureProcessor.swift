@@ -151,7 +151,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementDepthData(for photo: AVCapturePhoto) -> AVDepthData? {
-                    return photo.depthData
+                    return nil
                 }
                 
                 func replacementMetadata(for photo: AVCapturePhoto) -> [String : Any]? {
@@ -159,7 +159,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                 }
                 
                 func replacementPortraitEffectsMatte(for photo: AVCapturePhoto) -> AVPortraitEffectsMatte? {
-                    return photo.portraitEffectsMatte
+                    return nil
                 }
             }
             return photo.fileDataRepresentation(with: CaptureProcessorFileDataRepresentation(self))
@@ -168,7 +168,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             return photo.fileDataRepresentation(withReplacementMetadata: UICameraCaptureProcessor.metadata(of: photo, with: self)
                 , replacementEmbeddedThumbnailPhotoFormat: nil
                 , replacementEmbeddedThumbnailPixelBuffer: nil
-                , replacementDepthData: photo.depthData)
+                , replacementDepthData: nil)
         }
     }
 
@@ -176,7 +176,8 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
         /*
             Writing
         */
-        if let data = exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) {
+        return autoreleasepool(invoking: { () -> URL? in
+            guard let data = self.exportDataOutput(output, didFinishProcessingPhoto: photo, error: error) else { return nil }
             if photo.isRawPhoto {
                 let url = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
                 if let _ = try? data.write(to: url) {
@@ -207,8 +208,8 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                     }
                 }
             }
-        }
-        return nil
+            return nil
+        })
     }
     
     final func portraitEffectMattePhoto(_ photo: AVCapturePhoto) -> Data? {
@@ -232,11 +233,11 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
 
 final class UICameraStillPhotoCaptureProcessor: UICameraCaptureProcessor {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
-            return
-        }
-
         captureQueue.async {
+            guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
+                return
+            }
+            
             let signal = AsyncSignal()
 
             signal.begin()
@@ -262,10 +263,7 @@ final class UICameraLivePhotoCaptureProcessor: UICameraCaptureProcessor {
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         captureQueue.async {
-            guard let url = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error) else{
-                return
-            }
-            self.photoURL = url
+            self.photoURL = self.exportStillImageOutput(output, didFinishProcessingPhoto: photo, error: error)
         }
     }
 
@@ -315,25 +313,25 @@ final class UICameraRawPhotoCaptureProcessor: UICameraCaptureProcessor {
     
     // After both RAW and compressed versions are delivered, add them to the Photos Library.
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-            captureQueue.async {
-                guard let rawURL = self.rawImageFileURL, let compressedURL = self.compressedFileURL else { return }
+        captureQueue.async {
+            guard let rawURL = self.rawImageFileURL, let compressedURL = self.compressedFileURL else { return }
+            
+            let signal = AsyncSignal()
+            
+            signal.begin()
+            PHPhotoLibrary.shared().performChanges({
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
                 
-                let signal = AsyncSignal()
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                creationRequest.addResource(with: .photo, fileURL: compressedURL, options: options)
                 
-                signal.begin()
-                PHPhotoLibrary.shared().performChanges({
-                    let options = PHAssetResourceCreationOptions()
-                    options.shouldMoveFile = true
-                    
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, fileURL: compressedURL, options: options)
-                    
-                    // Add the RAW (DNG) file as an altenate resource.
-                    creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
-                }, completionHandler: { (success, info) in
-                    self.completionHandler?(success, [
-                        UICameraCaptureProcessorResultKey.photoURL:compressedURL
-                        , UICameraCaptureProcessorResultKey.alternatePhotoURL:rawURL
+                // Add the RAW (DNG) file as an altenate resource.
+                creationRequest.addResource(with: .alternatePhoto, fileURL: rawURL, options: options)
+            }, completionHandler: { (success, info) in
+                self.completionHandler?(success, [
+                    UICameraCaptureProcessorResultKey.photoURL:compressedURL
+                    , UICameraCaptureProcessorResultKey.alternatePhotoURL:rawURL
                 ])
                 signal.end()
             })

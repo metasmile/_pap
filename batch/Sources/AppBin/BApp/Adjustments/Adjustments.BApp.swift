@@ -641,9 +641,10 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
             cell.slider.maximumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.maximumValue ?? 0
             cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
+            cell.slider.defaultValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.defaultValue ?? 0
         }
         
-        cell.sliderValueDidChange = { value in
+        cell.slider.sliderDidChangeHandler = { value in
             self.filterItem.setAdjustmentFilter(filter)
             self.filterItem.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
             
@@ -661,10 +662,125 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    private class AdjustmentSlider: UISlider {
+        private lazy var defaultValueMark = CAShapeLayer()
+        var sliderDidChangeHandler: ((Float) -> Void)?
+        
+        var defaultValue: Float = 0
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+            addTarget(self, action: #selector(self.sliderValueWillChange), for: .touchDown)
+            addTarget(self, action: #selector(self.sliderValueDidChange), for: .valueChanged)
+            addTarget(self, action: #selector(self.sliderValueDidFinishChange), for: [.touchUpInside, .touchUpOutside])
+            
+            layer.insertSublayer(defaultValueMark, at: 0)
+            
+            defaultValueMark.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 4, height: 4))).cgPath
+            defaultValueMark.fillColor = UIColor.darkGray.cgColor
+            defaultValueMark.actions = ["position": NSNull()]
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
+        
+        convenience init() {
+            self.init(frame: .zero)
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            
+            layoutIfNeeded()
+        }
+        
+        override func layoutIfNeeded() {
+            super.layoutIfNeeded()
+            
+            defaultValueMark.position = CGPoint(x: self.defaultLocation.x - 2, y: 4)
+            updateDefaultValueMark()
+        }
+        
+        private var defaultLocation: CGPoint {
+            return location(with: defaultValue)
+        }
+        
+        private func location(with value: Float) -> CGPoint {
+            let trackFrame = trackRect(forBounds: bounds)
+            let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
+            return CGPoint(x: thumbFrame.midX, y: thumbFrame.midY)
+        }
+        
+        private var beginValue: Float = 0
+        @objc private func sliderValueWillChange() {
+            beginValue = value
+        }
+        
+        enum Direction {
+            case none
+            case left
+            case right
+        }
+        
+        var distanceFromDefaultValue: CGFloat {
+            return location(with: value).x - location(with: defaultValue).x
+        }
+        
+        var distanceFromBeginning: CGFloat {
+            return location(with: value).x - location(with: beginValue).x
+        }
+        
+        var direction: Direction {
+            guard distanceFromBeginning != 0 else { return .none }
+            return distanceFromBeginning > 0 ? .right : .left
+        }
+        
+        var velocity: CGFloat {
+            return location(with: value).x - location(with: previousValue).x
+        }
+        
+        var velocityDirection: Direction {
+            guard velocity != 0 else { return .none }
+            return velocity > 0 ? .right : .left
+        }
+        
+        private var previousValue: Float = 0
+        @objc private func sliderValueDidChange() {
+            updateDefaultValueMark()
+            
+            sliderDidChangeHandler?(value)
+            
+            previousValue = value
+        }
+        
+        @objc private func sliderValueDidFinishChange() {
+            if magnifyingToDefaultValue {
+                setValue(defaultValue, animated: true)
+                
+                sliderDidChangeHandler?(defaultValue)
+                updateDefaultValueMark(true)
+            }
+        }
+        
+        private var magnifyingToDefaultValue: Bool {
+            return direction != velocityDirection && distanceFromDefaultValue.magnitude < 8
+        }
+        
+        private func updateDefaultValueMark(_ marked: Bool? = nil) {
+            if marked ?? magnifyingToDefaultValue {
+                defaultValueMark.fillColor = UIColor.darkGray.cgColor
+            }
+            else {
+                defaultValueMark.fillColor = UIColor.white.cgColor
+            }
+        }
+    }
+    
     private class Cell: UITableViewCell {
-        lazy var slider: UISlider = {
-            let view = UISlider()
-            view.addTarget(self, action: #selector(self.cellSliderValueDidChange), for: .valueChanged)
+        lazy var slider: AdjustmentSlider = {
+            let view = AdjustmentSlider()
             return view
         }()
         
@@ -677,12 +793,10 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             return label
         }()
         
-        var sliderValueDidChange: ((Float) -> Void)?
-        
         override func prepareForReuse() {
             super.prepareForReuse()
             
-            sliderValueDidChange = nil
+            slider.sliderDidChangeHandler = nil
         }
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -707,10 +821,6 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
-        }
-        
-        @objc func cellSliderValueDidChange(sender: UISlider) {
-            sliderValueDidChange?(sender.value)
         }
         
         override func tintColorDidChange() {
