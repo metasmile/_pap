@@ -640,8 +640,8 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         if let adjustmentItem = filter?.adjustmentItem(with: filterName) {
             cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
             cell.slider.maximumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.maximumValue ?? 0
-            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
             cell.slider.defaultValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.defaultValue ?? 0
+            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
         }
         
         cell.slider.sliderDidChangeHandler = { value in
@@ -700,7 +700,6 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             super.layoutIfNeeded()
             
             defaultValueMark.position = CGPoint(x: self.defaultLocation.x - 2, y: 4)
-            updateDefaultValueMark()
         }
         
         private var defaultLocation: CGPoint {
@@ -748,7 +747,17 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         
         private var previousValue: Float = 0
         @objc private func sliderValueDidChange() {
-            updateDefaultValueMark()
+            if magnifyingToDefaultValue, distanceFromDefaultValue.magnitude > 8 {
+                magnifyingToDefaultValue = false
+            }
+            else if !magnifyingToDefaultValue, velocityDirection != .none, direction != velocityDirection, distanceFromDefaultValue.magnitude < 8 {
+                magnifyingToDefaultValue = true
+            }
+            else if magnifyingToDefaultValue, direction == velocityDirection, distanceFromDefaultValue.magnitude < 8 {
+                magnifyingToDefaultValue = (value == defaultValue)
+            }
+            
+            updateDefaultValueMark(magnifyingToDefaultValue)
             
             sliderDidChangeHandler?(value)
             
@@ -758,23 +767,40 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         @objc private func sliderValueDidFinishChange() {
             if magnifyingToDefaultValue {
                 setValue(defaultValue, animated: true)
-                
                 sliderDidChangeHandler?(defaultValue)
                 updateDefaultValueMark(true)
+                magnifyingToDefaultValue = false
             }
         }
         
-        private var magnifyingToDefaultValue: Bool {
-            return direction != velocityDirection && distanceFromDefaultValue.magnitude < 8
+        override var value: Float {
+            didSet {
+                updateDefaultValueMark(value == defaultValue)
+            }
         }
         
-        private func updateDefaultValueMark(_ marked: Bool? = nil) {
-            if marked ?? magnifyingToDefaultValue {
-                defaultValueMark.fillColor = UIColor.darkGray.cgColor
+        override func setValue(_ value: Float, animated: Bool) {
+            super.setValue(value, animated: animated)
+            
+            updateDefaultValueMark(value == defaultValue)
+        }
+        
+        private var magnifyingToDefaultValue: Bool = false {
+            didSet {
+                if magnifyingToDefaultValue, oldValue != magnifyingToDefaultValue {
+                    UIFeedback.select()
+                }
+            }
+        }
+        
+        private func updateDefaultValueMark(_ marked: Bool) {
+            if marked {
+                thumbTintColor = UIColor(rgb: 0x999999)
             }
             else {
-                defaultValueMark.fillColor = UIColor.white.cgColor
+                thumbTintColor = UIColor.white
             }
+            defaultValueMark.fillColor = thumbTintColor?.cgColor
         }
     }
     
