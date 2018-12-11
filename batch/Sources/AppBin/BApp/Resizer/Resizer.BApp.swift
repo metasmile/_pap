@@ -557,7 +557,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
             } else{
                 let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
-                colorPickerButton.setImage(image, for: .normal)z
+                colorPickerButton.setImage(image, for: .normal)
             }
 
             updateSelectedFilterFillMode()

@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "자동 태그 추가 봇";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "배경색";
+"Background Fill Color" = "배경 채우기 색상";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "예술가가 되십시오. 아티스트는 모든 사진이나 비디오를 유명한 스타일의 그림으로 전환 할 수있게 해줍니다. 이 일괄 처리 도구는 변환 할 사진 수에 제한이 없습니다.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "블러 배경";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "흐림 비율";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "지금 번역하기";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "번역 교정";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "지저귀다";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "유형";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Colore di sfondo";
+"Background Fill Color" = "Colore di sfondo";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sii un artista. L'artista ti consente di trasformare in modo drammatico tutte le tue foto o video in famosi dipinti in stile. Questo strumento di elaborazione batch non ha limiti al numero di foto da convertire.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Sfocatura dello sfondo";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Traduci ora";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Correzione della traduzione";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "cinguettio";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "genere";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

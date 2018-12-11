@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "תיוג אוטומטי";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "צבע רקע";
+"Background Fill Color" = "צבע מילוי רקע";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "להיות אמן. האמן מאפשר לך להפוך באופן דרמטי את כל התמונות או קטעי וידאו לתוך ציורים מנוסח מפורסם. זה כלי אצווה עיבוד אין הגבלה על מספר התמונות להמיר.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "טשטוש רקע";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "שיעור טשטוש";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "תרגם כעת";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "תיקון תרגום";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "טוויטר";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "הקלד";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

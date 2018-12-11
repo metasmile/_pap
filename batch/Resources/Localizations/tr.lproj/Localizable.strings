@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Otomatik Etiketleme Botu";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Arka plan rengi";
+"Background Fill Color" = "Arka Plan Dolgu Rengi";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Bir sanatçı ol. Sanatçı, tüm fotoğraflarınızı veya videolarınızı ünlü stil resimlere dönüştürmenizi sağlar. Bu toplu işleme aracının, dönüştürülecek fotoğraf sayısına sınırı yoktur.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Arka plan bulanıklık";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Bulanıklık Hızı";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Şimdi Çevir";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Çeviri Düzeltme";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "heyecan";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "tip";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

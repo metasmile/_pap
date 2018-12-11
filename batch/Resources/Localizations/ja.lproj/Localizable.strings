@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "背景色";
+"Background Fill Color" = "背景塗りつぶしの色";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "ぼかし背景";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ぼかし率";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "今すぐ翻訳する";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻訳訂正";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "タイプ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

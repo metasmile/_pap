@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Automatické značkování Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Barva pozadí";
+"Background Fill Color" = "Barevné pozadí naplnění";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Buď umělec. Umělec vás dramaticky změní na všechny fotografie nebo videa do slavných stylizovaných obrazů. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotografií, které je třeba převést.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Rozostření pozadí";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Rozostření";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Přeložit nyní";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Korekce překladu";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "Cvrlikání";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Typ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

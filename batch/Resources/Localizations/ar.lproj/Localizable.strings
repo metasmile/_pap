@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "وضع العلامات التلقائي بوت";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "لون الخلفية";
+"Background Fill Color" = "لون الخلفية";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "كن فنان. يتيح لك الفنان تشغيل جميع الصور أو مقاطع الفيديو بشكل كبير في اللوحات الشهيرة. أداة معالجة الدفعات هذه ليس لها حد لعدد الصور المطلوب تحويلها.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "خلفية طمس";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "معدل طمس";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "ترجمة الآن";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "تصحيح الترجمة";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "تغريد";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "نوع";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
