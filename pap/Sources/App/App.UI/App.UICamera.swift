@@ -260,7 +260,7 @@ class AppUICamera: UIView {
         locationButton.widthAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
         locationButton.heightAnchor.constraint(equalTo: locationButton.widthAnchor, multiplier: 0.75).isActive = true
         
-        //location
+        //zoom
         zoomButton.addTarget(self, action: #selector(self.zoomButtonDidTap), for: .touchUpInside)
         addSubview(zoomButton)
         

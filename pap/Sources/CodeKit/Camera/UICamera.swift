@@ -831,6 +831,10 @@ extension UICamera {
                 try? captureDevice.lockForConfiguration()
                 captureDevice.videoZoomFactor = newValue.clamped(to: self.videoZoomRange)
                 captureDevice.unlockForConfiguration()
+                
+                DispatchQueue.main.async {
+                    self.resetFocusAndExposure(showsGuide: false)
+                }
             }
         }
         
