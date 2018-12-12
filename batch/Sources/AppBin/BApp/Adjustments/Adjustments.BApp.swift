@@ -644,7 +644,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
         }
         
-        cell.slider.sliderDidChangeHandler = { value in
+        cell.sliderDidChangeHandler = { value in
             self.filterItem.setAdjustmentFilter(filter)
             self.filterItem.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
             
@@ -662,151 +662,12 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private class AdjustmentSlider: UISlider {
-        private lazy var defaultValueMark = CAShapeLayer()
-        var sliderDidChangeHandler: ((Float) -> Void)?
-        
-        var defaultValue: Float = 0
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            addTarget(self, action: #selector(self.sliderValueWillChange), for: .touchDown)
-            addTarget(self, action: #selector(self.sliderValueDidChange), for: .valueChanged)
-            addTarget(self, action: #selector(self.sliderValueDidFinishChange), for: [.touchUpInside, .touchUpOutside])
-            
-            layer.insertSublayer(defaultValueMark, at: 0)
-            
-            defaultValueMark.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 4, height: 4))).cgPath
-            defaultValueMark.fillColor = UIColor.darkGray.cgColor
-            defaultValueMark.actions = ["position": NSNull()]
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-        }
-        
-        convenience init() {
-            self.init(frame: .zero)
-        }
-        
-        override func layoutSubviews() {
-            super.layoutSubviews()
-            
-            layoutIfNeeded()
-        }
-        
-        override func layoutIfNeeded() {
-            super.layoutIfNeeded()
-            
-            defaultValueMark.position = CGPoint(x: self.defaultLocation.x - 2, y: 4)
-        }
-        
-        private var defaultLocation: CGPoint {
-            return location(with: defaultValue)
-        }
-        
-        private func location(with value: Float) -> CGPoint {
-            let trackFrame = trackRect(forBounds: bounds)
-            let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
-            return CGPoint(x: thumbFrame.midX, y: thumbFrame.midY)
-        }
-        
-        private var beginValue: Float = 0
-        @objc private func sliderValueWillChange() {
-            beginValue = value
-        }
-        
-        enum Direction {
-            case none
-            case left
-            case right
-        }
-        
-        var distanceFromDefaultValue: CGFloat {
-            return location(with: value).x - location(with: defaultValue).x
-        }
-        
-        var distanceFromBeginning: CGFloat {
-            return location(with: value).x - location(with: beginValue).x
-        }
-        
-        var direction: Direction {
-            guard distanceFromBeginning != 0 else { return .none }
-            return distanceFromBeginning > 0 ? .right : .left
-        }
-        
-        var velocity: CGFloat {
-            return location(with: value).x - location(with: previousValue).x
-        }
-        
-        var velocityDirection: Direction {
-            guard velocity != 0 else { return .none }
-            return velocity > 0 ? .right : .left
-        }
-        
-        private var previousValue: Float = 0
-        @objc private func sliderValueDidChange() {
-            if magnifyingToDefaultValue, distanceFromDefaultValue.magnitude > 8 {
-                magnifyingToDefaultValue = false
-            }
-            else if !magnifyingToDefaultValue, velocityDirection != .none, direction != velocityDirection, distanceFromDefaultValue.magnitude < 8 {
-                magnifyingToDefaultValue = true
-            }
-            else if magnifyingToDefaultValue, direction == velocityDirection, distanceFromDefaultValue.magnitude < 8 {
-                magnifyingToDefaultValue = (value == defaultValue)
-            }
-            
-            updateDefaultValueMark(magnifyingToDefaultValue)
-            
-            sliderDidChangeHandler?(value)
-            
-            previousValue = value
-        }
-        
-        @objc private func sliderValueDidFinishChange() {
-            if magnifyingToDefaultValue {
-                setValue(defaultValue, animated: true)
-                sliderDidChangeHandler?(defaultValue)
-                updateDefaultValueMark(true)
-                magnifyingToDefaultValue = false
-            }
-        }
-        
-        override var value: Float {
-            didSet {
-                updateDefaultValueMark(value == defaultValue)
-            }
-        }
-        
-        override func setValue(_ value: Float, animated: Bool) {
-            super.setValue(value, animated: animated)
-            
-            updateDefaultValueMark(value == defaultValue)
-        }
-        
-        private var magnifyingToDefaultValue: Bool = false {
-            didSet {
-                if magnifyingToDefaultValue, oldValue != magnifyingToDefaultValue {
-                    UIFeedback.select()
-                }
-            }
-        }
-        
-        private func updateDefaultValueMark(_ marked: Bool) {
-            if marked {
-                thumbTintColor = UIColor(rgb: 0x999999)
-            }
-            else {
-                thumbTintColor = UIColor.white
-            }
-            defaultValueMark.fillColor = thumbTintColor?.cgColor
-        }
-    }
-    
     private class Cell: UITableViewCell {
-        lazy var slider: AdjustmentSlider = {
-            let view = AdjustmentSlider()
+        lazy var slider: PrecisionLevelSlider = {
+            let view = PrecisionLevelSlider()
+            view.longNotchColor = .white
+            view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
+            view.centerNotchColor = .red
             return view
         }()
         
@@ -819,10 +680,12 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             return label
         }()
         
+        var sliderDidChangeHandler: ((Float) -> Void)?
+        
         override func prepareForReuse() {
             super.prepareForReuse()
             
-            slider.sliderDidChangeHandler = nil
+            sliderDidChangeHandler = nil
         }
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -839,10 +702,16 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             
             contentView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
-            slider.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            slider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            slider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: slider.bottomAnchor, constant: 0).isActive = true
             slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
             contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
+            
+            slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
+        }
+        
+        @objc private func sliderValueChanged() {
+            sliderDidChangeHandler?(slider.value)
         }
         
         required init?(coder aDecoder: NSCoder) {
@@ -854,6 +723,346 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             
             titleLabel.textColor = tintColor
             slider.tintColor = tintColor
+        }
+    }
+}
+
+// PrecisionLevelSlider.swift
+//
+// Copyright (c) 2016 muukii
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+import UIKit
+
+open class PrecisionLevelSlider: UIControl {
+    
+    // MARK: - Properties
+    open var longNotchColor: UIColor = .black {
+        didSet {
+            update()
+        }
+    }
+    
+    open var shortNotchColor: UIColor = UIColor(white: 0.2, alpha: 1) {
+        didSet {
+            update()
+        }
+    }
+    
+    open var centerNotchColor: UIColor = UIColor.orange {
+        didSet {
+            update()
+        }
+    }
+    
+    /// default 0.0. this value will be pinned to min/max
+    @objc dynamic open var value: Float = 0 {
+        didSet {
+            
+            guard !scrollView.isDecelerating && !scrollView.isDragging else {
+                return
+            }
+            
+            setValue(value, animated: true)
+        }
+    }
+    
+    open func setValue(_ value: Float, animated: Bool) {
+        let offset = valueToOffset(value: value)
+        
+        if animated {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+                
+                self.scrollView.setContentOffset(offset, animated: false)
+                
+            }) { (finish) in
+            }
+        }
+        else {
+            self.scrollView.setContentOffset(offset, animated: false)
+        }
+    }
+    
+    /// default 0.0. the current value may change if outside new min value
+    @objc dynamic open var minimumValue: Float = 0 {
+        didSet {
+            
+        }
+    }
+    
+    /// default 1.0. the current value may change if outside new max value
+    @objc dynamic open var maximumValue: Float = 1 {
+        didSet {
+            
+        }
+    }
+    
+    @objc dynamic open var defaultValue: Float = 0 {
+        didSet {
+            defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+            defaultValueMark.position.y = 6
+        }
+    }
+    
+    open var isContinuous: Bool = true
+    
+    private lazy var scrollView = UIScrollView()
+    private lazy var contentView = UIView()
+    private lazy var notchLayers: [CALayer] = {
+        return (0..<31).map { _ -> CALayer in
+            CALayer()
+        }
+    }()
+    
+    private lazy var defaultValueMark: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        
+        layer.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: -2, y: -2), size: CGSize(width: 4, height: 4))).cgPath
+        layer.actions = ["position": NSNull()]
+        
+        return layer
+    }()
+    private lazy var centerNotchLayer = CALayer()
+    
+    private lazy var gradientLayer: CAGradientLayer = {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
+        gradientLayer.locations = [0, 0.4, 0.6, 1]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        return gradientLayer
+    }()
+    
+    
+    // MARK: - Initializers
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: - Functions
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        update()
+    }
+    
+    open override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
+    }
+    
+    func update() {
+        
+        let offset = valueToOffset(value: value)
+        scrollView.setContentOffset(offset, animated: false)
+        
+        gradientLayer.frame = bounds
+        let notchWidth: CGFloat = 1
+        
+        let interval = floor((bounds.size.width) / CGFloat(notchLayers.count))
+        
+        let longNotchHeight: CGFloat = 10
+        let shortNotchHeight: CGFloat = 8
+        let offsetY = bounds.height / 2
+        
+        notchLayers.enumerated().forEach { i, l in
+            
+            let x: CGFloat = CGFloat(i) * interval
+            
+            if i % 5 == 0 {
+                l.backgroundColor = longNotchColor.cgColor
+                
+                l.frame = CGRect(
+                    x: x,
+                    y: offsetY - (longNotchHeight / 2),
+                    width: notchWidth,
+                    height: longNotchHeight)
+                
+            } else {
+                l.backgroundColor = shortNotchColor.cgColor
+                l.frame = CGRect(
+                    x: x,
+                    y: offsetY - (shortNotchHeight / 2),
+                    width: notchWidth,
+                    height: shortNotchHeight)
+            }
+        }
+        
+        defaultValueMark.fillColor = shortNotchColor.cgColor
+        defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+        defaultValueMark.position.y = 6
+        
+        centerNotchLayer.backgroundColor = centerNotchColor.cgColor
+        centerNotchLayer.frame = CGRect(x: bounds.midX - notchWidth / 2, y: 0, width: notchWidth, height: bounds.height)
+        
+        let contentSize = CGSize(
+            width: notchLayers.last!.frame.maxX - notchWidth,
+            height: bounds.height
+        )
+        
+        contentView.frame.size = contentSize
+        scrollView.contentSize = contentSize
+        
+        let inset = contentSize.width / 2 + (max(0, scrollView.bounds.width - contentSize.width) / 2)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        
+    }
+    
+    func setup() {
+        
+        layer.mask = gradientLayer
+        
+        backgroundColor = UIColor.clear
+        
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.delegate = self
+        
+        scrollView.frame = bounds
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        notchLayers.forEach { contentView.layer.addSublayer($0) }
+        contentView.layer.addSublayer(defaultValueMark)
+        layer.addSublayer(centerNotchLayer)
+    }
+    
+    fileprivate func offsetToValue() -> Float {
+        
+        let progress = (scrollView.contentOffset.x + scrollView.contentInset.left) / contentView.bounds.size.width
+        let actualProgress = Float(min(max(0, progress), 1))
+        let value = ((maximumValue - minimumValue) * actualProgress) + minimumValue
+        
+        return value
+    }
+    
+    fileprivate func valueToOffset(value: Float) -> CGPoint {
+        
+        let progress = (value - minimumValue) / (maximumValue - minimumValue)
+        let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
+        return CGPoint(x: x, y: 0)
+    }
+    
+    private var needsStickToDefaultValue: Bool = false {
+        didSet {
+            if needsStickToDefaultValue {
+                if oldValue == false {
+                    UIFeedback.select()
+                    
+                    stickTouchLocation = scrollView.panGestureRecognizer.location(in: self)
+                }
+                
+                value = defaultValue
+                setValue(defaultValue, animated: false)
+                sendActions(for: .valueChanged)
+            }
+        }
+    }
+    private var stickTouchLocation: CGPoint = .zero
+    private var beginningScrollPosition: CGPoint = .zero
+    private var previousScrollPosition: CGPoint = .zero
+}
+
+extension PrecisionLevelSlider {
+    enum Direction {
+        case none
+        case left
+        case right
+    }
+    
+    private var stickTouchDifference: CGFloat {
+        return scrollView.panGestureRecognizer.location(in: self).x - stickTouchLocation.x
+    }
+    
+    private var scrollOffsetDifference: CGFloat {
+        return scrollView.contentOffset.x - beginningScrollPosition.x
+    }
+    
+    private var scrollDirection: Direction {
+        return scrollOffsetDifference == 0 ? .none : (scrollOffsetDifference < 0 ? .left : .right)
+    }
+    
+    private var sliderDifference: CGFloat {
+        return scrollView.contentOffset.x - previousScrollPosition.x
+    }
+    
+    private var sliderDirection: Direction {
+        return sliderDifference == 0 ? .none : (sliderDifference < 0 ? .left : .right)
+    }
+    
+    private var defaultValueOffsetDifference: CGFloat {
+        return scrollView.contentOffset.x - valueToOffset(value: defaultValue).x
+    }
+    
+    private var directionFromDefault: Direction {
+        return defaultValueOffsetDifference == 0 ? .none : (defaultValueOffsetDifference < 0 ? .left : .right)
+    }
+}
+
+extension PrecisionLevelSlider: UIScrollViewDelegate {
+    public final func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        beginningScrollPosition = scrollView.contentOffset
+        previousScrollPosition = scrollView.contentOffset
+    }
+    
+    public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.bounds.width > 0 else {
+            return
+        }
+        
+        guard scrollView.isDecelerating || scrollView.isDragging else {
+            return
+        }
+        
+        if isContinuous {
+            if needsStickToDefaultValue, stickTouchDifference.magnitude < 8 {
+                scrollView.contentOffset = valueToOffset(value: defaultValue)
+                value = defaultValue
+            }
+            else {
+                value = offsetToValue()
+                
+                needsStickToDefaultValue = (scrollView.isTracking && sliderDirection != directionFromDefault && defaultValueOffsetDifference.magnitude < 8)
+            }
+            
+            sendActions(for: .valueChanged)
+            
+            previousScrollPosition = scrollView.contentOffset
+        }
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if isContinuous == false {
+            value = offsetToValue()
+            sendActions(for: .valueChanged)
+        }
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndDecelerating(scrollView)
         }
     }
 }
