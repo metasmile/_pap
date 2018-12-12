@@ -668,12 +668,15 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             view.longNotchColor = .white
             view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
             view.centerNotchColor = .red
+            view.numberOfNotches = 20
             return view
         }()
         
         lazy var titleLabel: UILabel = {
             let label = UILabel(frame: .zero)
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.byWordWrapping
             label.textAlignment = .right
             label.backgroundColor = UIColor.clear
             label.adjustsFontForContentSizeCategory = true
@@ -697,7 +700,7 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
             titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
             
             contentView.addSubview(slider)
@@ -771,6 +774,12 @@ open class PrecisionLevelSlider: UIControl {
         }
     }
     
+    open var numberOfNotches: Int = 30 {
+        didSet {
+            update()
+        }
+    }
+    
     /// default 0.0. this value will be pinned to min/max
     @objc dynamic open var value: Float = 0 {
         didSet {
@@ -816,7 +825,7 @@ open class PrecisionLevelSlider: UIControl {
     @objc dynamic open var defaultValue: Float = 0 {
         didSet {
             defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
-            defaultValueMark.position.y = 6
+            defaultValueMark.position.y = 8
         }
     }
     
@@ -824,16 +833,12 @@ open class PrecisionLevelSlider: UIControl {
     
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
-    private lazy var notchLayers: [CALayer] = {
-        return (0..<31).map { _ -> CALayer in
-            CALayer()
-        }
-    }()
     
     private lazy var defaultValueMark: CAShapeLayer = {
         let layer = CAShapeLayer()
         
-        layer.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: -2, y: -2), size: CGSize(width: 4, height: 4))).cgPath
+        let markSize: CGFloat = 6
+        layer.path = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: -markSize / 2, y: -markSize / 2), size: CGSize(width: markSize, height: markSize))).cgPath
         layer.actions = ["position": NSNull()]
         
         return layer
@@ -881,11 +886,17 @@ open class PrecisionLevelSlider: UIControl {
         gradientLayer.frame = bounds
         let notchWidth: CGFloat = 1
         
-        let interval = floor((bounds.size.width) / CGFloat(notchLayers.count))
+        let interval = floor((bounds.size.width) / CGFloat(numberOfNotches))
         
         let longNotchHeight: CGFloat = 10
         let shortNotchHeight: CGFloat = 8
         let offsetY = bounds.height / 2
+        
+        let notchLayers: [CALayer] = {
+            return (0...numberOfNotches).map { _ -> CALayer in
+                CALayer()
+            }
+        }()
         
         notchLayers.enumerated().forEach { i, l in
             
@@ -910,12 +921,13 @@ open class PrecisionLevelSlider: UIControl {
             }
         }
         
+        contentView.layer.sublayers = notchLayers
+        contentView.layer.addSublayer(defaultValueMark)
+        
         defaultValueMark.fillColor = shortNotchColor.cgColor
-        defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
-        defaultValueMark.position.y = 6
         
         centerNotchLayer.backgroundColor = centerNotchColor.cgColor
-        centerNotchLayer.frame = CGRect(x: bounds.midX - notchWidth / 2, y: 0, width: notchWidth, height: bounds.height)
+        centerNotchLayer.frame = CGRect(x: bounds.midX, y: 0, width: notchWidth, height: bounds.height)
         
         let contentSize = CGSize(
             width: notchLayers.last!.frame.maxX - notchWidth,
@@ -944,8 +956,6 @@ open class PrecisionLevelSlider: UIControl {
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(scrollView)
         scrollView.addSubview(contentView)
-        notchLayers.forEach { contentView.layer.addSublayer($0) }
-        contentView.layer.addSublayer(defaultValueMark)
         layer.addSublayer(centerNotchLayer)
     }
     
@@ -972,11 +982,19 @@ open class PrecisionLevelSlider: UIControl {
                     UIFeedback.select()
                     
                     stickTouchLocation = scrollView.panGestureRecognizer.location(in: self)
+                    
+                    defaultValueMark.isHidden = true
+                }
+                else {
+                    defaultValueMark.isHidden = false
                 }
                 
                 value = defaultValue
                 setValue(defaultValue, animated: false)
                 sendActions(for: .valueChanged)
+            }
+            else {
+                defaultValueMark.isHidden = false
             }
         }
     }
@@ -1058,6 +1076,7 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
             value = offsetToValue()
             sendActions(for: .valueChanged)
         }
+        defaultValueMark.isHidden = false
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
