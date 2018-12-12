@@ -308,22 +308,22 @@ private class CIFrameFillFilter: CIFilter {
                 case .color:
                     ctx?.setFillColor(backgroundColor.cgColor)
                     ctx?.fill(outputRect)
+                            
                 case .blurredInput:
-                    if let bgImage = cgImage.cropping(to: outputRect)?.blur(){
+
+                    var bgSourceImage:CGImage? = cgImage
+                    if outputRect.size.area != cgImage.size.area{
+                        let o = CGPoint(x: (cgImage.size.width-outputRect.width)/2, y: (cgImage.size.height-outputRect.height)/2)
+                        bgSourceImage = cgImage.cropping(to: CGRect(origin: o, size: outputRect.size))
+                    }
+
+                    if let bgImage = bgSourceImage?.blur(){
                         ctx?.draw(bgImage, in: outputRect)
                     }else{
                         ctx?.setFillColor(backgroundColor.cgColor)
                         ctx?.fill(outputRect)
                     }
             }
-
-
-//            measure{
-//                cgImage.blur()
-//            }
-//            measure{
-//                CIContext().createCGImage(image.applyingGaussianBlur(sigma: 100), from: image.extent)
-//            }
 
             ctx?.draw(cgImage, in: aspectFitRect)
             
