@@ -396,7 +396,7 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, PDFMaker.AppDockContent.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -644,7 +644,7 @@
 "Special Guest License" = "Special Guest License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Special Guest";
-/* Generated from genl10n: GIFMaker.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, GIFMaker.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";

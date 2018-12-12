@@ -133,7 +133,8 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst || item.asset.mediaType == .video
+        return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst
+            /*|| item.asset.mediaType == .video */ //TODO: after video support
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
