@@ -30,12 +30,12 @@ public struct FileURL {
         return documentsDirectory
     }
 
-    public static func fileAndQueuePrivateGroup(_ file:String=#file) -> String{
+    public static func fileAndQueuePrivateGroup(_ file:String=fileName()) -> String{
         return filePrivateGroup(file)+"_"+queuePrivateGroup()
     }
 
-    public static func filePrivateGroup(_ file:String=#file) -> String{
-        return codefile(file)
+    public static func filePrivateGroup(_ file:String=fileName()) -> String{
+        return fileName(file)
     }
 
     public static func queuePrivateGroup(_ queueName:String=DispatchQueue.currentLabel) -> String{

@@ -41,7 +41,7 @@ public extension ProcessInfo{
     }
 }
 
-public func measure(_ title: String="measured at \(#function) - \(codefile()).swift#\(#line)", _ block: () -> ()) {
+public func measure(_ title: String="measured at \(#function) - \(fileName()).swift#\(#line)", _ block: () -> ()) {
     #if DEBUG
     measure(title) { completion in
         block()
@@ -65,7 +65,8 @@ public func measure(_ title: String, _ block: (() -> ()) -> ()) {
 #endif
 }
 
-public func codefile(_ _file:String=#file) -> String{
+public func fileName(_ _file:String=#file) -> String{
+
     return URL(fileURLWithPath: _file).deletingPathExtension().lastPathComponent
 }
 

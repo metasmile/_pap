@@ -29,7 +29,7 @@ private class _ClipboardAppTask: AppTaskPrototype, AppTaskable {
         async.begin()
         
         var result: ClipboardAppResult?
-        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             if let image = clipboardParam.asset.asUIImage {
                 result = ClipboardAppResult(image: image)
             }
@@ -94,7 +94,7 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
             .compactMap { $0.result as? ClipboardAppResult }
         
         asyncSignal.begin()
-        DispatchQueue(label: #file + "exportImagesToClipboard", qos: .utility).async {
+        DispatchQueue(label: fileName() + "exportImagesToClipboard", qos: .utility).async {
             UIPasteboard.general.images = items.compactMap { $0.image }
             asyncSignal.end()
         }
@@ -149,7 +149,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     private var clipboardObservingTimerId: String {
-        return "\(#file)_clipboardObservingTimer"
+        return "\(fileName())_clipboardObservingTimer"
     }
     
     private var fetchedChangeCount: Int = 0
@@ -172,7 +172,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     lazy var delegator = ClipboardTableViewContentDelegator()
     
     fileprivate func reloadData(completion: (() -> Void)? = nil) {
-        DispatchQueue(label: #file + "fetchPasteboardItems", qos: .utility).async {
+        DispatchQueue(label: fileName() + "fetchPasteboardItems", qos: .utility).async {
             self.delegator.group = self.fetchPasteboardItems()
             
             DispatchQueue.main.async {
@@ -343,7 +343,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     private func saveImageFromURL(_ url: URL, completion: (() -> Void)?) {
-        DispatchQueue(label: #file + #function, qos: .utility).async {
+        DispatchQueue(label: fileName() + #function, qos: .utility).async {
             if let data = try? Data(contentsOf: url), let uti = data.uti, (uti.conforms(to: UTI.image) || uti.conforms(to: UTI.movie)) {
                 self.createAssetFromData(data, completion: completion)
             }
@@ -371,7 +371,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
     }
     
     private func createAssetFromData(_ data: Data, completion: (() -> Void)?) {
-        DispatchQueue(label: #file + #function, qos: .utility).async {
+        DispatchQueue(label: fileName() + #function, qos: .utility).async {
             let signal = AsyncSignal()
             signal.begin()
             PHPhotoLibrary.shared().performChanges({

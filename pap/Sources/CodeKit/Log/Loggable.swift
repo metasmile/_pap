@@ -15,7 +15,7 @@ extension Loggable{
     }
 
     //custom
-    static func log(domain:String=#file, key:String=#function, value:Any){
+    static func log(domain:String=fileName(), key:String=#function, value:Any){
         log(self.createIdentifier(withFile: domain), parameters: [key.loggableFunctionName:value])
     }
 
@@ -23,7 +23,7 @@ extension Loggable{
         return "\(String(reflecting: self))\(splitter)\(name.loggableFunctionName)"
     }
 
-    static func createIdentifier(withFile name: String=#file) -> String {
+    static func createIdentifier(withFile name: String=fileName()) -> String {
         return (URL(string: name)?.deletingPathExtension().lastPathComponent.remove(splitter) ?? String(reflecting: self))
     }
 }

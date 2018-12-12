@@ -633,7 +633,7 @@ class PhotoPickerViewController: AppDockViewController {
             }
 
             if let allowedSelectionIndexPaths = collectionViewDelegatableApp?.shouldSelectWhenInserted(indexPaths: insertedIndexes.nilEmpty){
-                Timer.scheduledTimer(identifier: #file+#function, withTimeInterval: 0) { timer in
+                Timer.scheduledTimer(identifier: fileName()+#function, withTimeInterval: 0) { timer in
                     for indexPath in allowedSelectionIndexPaths {
                         self.selectCollectionViewItem(at: indexPath)
                     }

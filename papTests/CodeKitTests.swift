@@ -283,8 +283,8 @@ class CodeKitTests: XCTestCase {
         XCTAssertTrue(FileCollectableURL.matchedInTemp("file",  UTI.png).count==4)
         XCTAssertTrue(FileCollectableURL.matchedInTemp("file",  nil).count==2)
 
-        FileURL.temp("AssetIO.LivePhoto", group:codefile())
-        XCTAssertTrue(FileCollectableURL.matchedInTemp("AssetIO.LivePhoto", group:codefile()).count==1)
+        FileURL.temp("AssetIO.LivePhoto", group:fileName())
+        XCTAssertTrue(FileCollectableURL.matchedInTemp("AssetIO.LivePhoto", group:fileName()).count==1)
 
 
         let groupname = "sd<>*fdf!:=?.@34ㄹㅎsd.fds.gif"

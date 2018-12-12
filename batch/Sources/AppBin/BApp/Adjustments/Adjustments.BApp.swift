@@ -514,7 +514,7 @@ private class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
         
         async.begin()
         
-        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in

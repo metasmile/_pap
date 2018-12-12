@@ -18,7 +18,7 @@ extension PhotoPickerViewController{
     }
     
     private var chargeObservingTimerId: String {
-        return "\(#file)_chargeObservingTimer"
+        return "\(fileName())_chargeObservingTimer"
     }
     
     internal func registerChargeObservingTimer() {

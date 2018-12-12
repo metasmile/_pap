@@ -11,7 +11,7 @@ import PropertyKit
 public final class PHAssets: NSObject, PropertyWatchable {
     public static let fetched = PHAssets()
 
-    private let syncQueue = DispatchQueue(label: #file, qos: .userInteractive)
+    private let syncQueue = DispatchQueue(label: fileName(), qos: .userInteractive)
 
     @objc dynamic
     private var _collections: PHFetchResult<PHAssetCollection>?
@@ -45,7 +45,7 @@ public final class PHAssets: NSObject, PropertyWatchable {
 
     private override init() {}
 
-    private let syncQueueGetAsset = DispatchQueue(label: #file+"syncQueueGetAsset", qos: .userInteractive)
+    private let syncQueueGetAsset = DispatchQueue(label: fileName()+"syncQueueGetAsset", qos: .userInteractive)
 
     public func asset(at indexPath: IndexPath) -> PHAsset? {
         return syncQueueGetAsset.sync{

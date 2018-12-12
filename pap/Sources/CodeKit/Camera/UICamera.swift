@@ -51,10 +51,10 @@ class UICamera: UIView, PropertyWatchable {
     var capturedResult:UICameraCapturedResult?
     var captureMetadataComment:String?
 
-    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file+UUID().uuidString, qos: .utility)
-    private lazy var captureVideoDataQueue = DispatchQueue(label: #file+".captureVideoDataQueue."+UUID().uuidString, qos: .utility)
-    private lazy var metadataObjectQueue = DispatchQueue(label: #file+".metadataObjectsQueue."+UUID().uuidString, qos: .utility)
-    private lazy var depthDataOutputQueue = DispatchQueue(label: #file+".depthDataOutputQueue."+UUID().uuidString, qos: .utility)
+    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+fileName()+UUID().uuidString, qos: .utility)
+    private lazy var captureVideoDataQueue = DispatchQueue(label: fileName()+".captureVideoDataQueue."+UUID().uuidString, qos: .utility)
+    private lazy var metadataObjectQueue = DispatchQueue(label: fileName()+".metadataObjectsQueue."+UUID().uuidString, qos: .utility)
+    private lazy var depthDataOutputQueue = DispatchQueue(label: fileName()+".depthDataOutputQueue."+UUID().uuidString, qos: .utility)
     
     fileprivate var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
     fileprivate var depthDataDidOutput: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?

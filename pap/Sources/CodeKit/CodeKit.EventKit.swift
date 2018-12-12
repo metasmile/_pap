@@ -263,7 +263,7 @@ public class EventKitUtil {
         if let calendar = self.defaultEventStore.defaultCalendarForNewEvents{
             newCalendar.source = source ?? calendar.source
         }else{
-            return NSError(domain: #file, code: 0)
+            return NSError(domain: fileName(), code: 0)
         }
 
         do {

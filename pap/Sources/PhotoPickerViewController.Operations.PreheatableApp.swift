@@ -8,7 +8,7 @@ import UIKit
 
 private struct PreheatingQueue {
 
-    fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility)
 
     //INFO: controlQueue must be higher than dispatchQueue for its priority
     fileprivate static let controlQueue =  DispatchQueue.main

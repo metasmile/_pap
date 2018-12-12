@@ -81,7 +81,7 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    fileprivate var livePhotoEditingQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    fileprivate var livePhotoEditingQueue = DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility)
     fileprivate var livePhotoEditingContext: PHLivePhotoEditingContext?
     fileprivate var contentEditingInputRequestID: PHContentEditingInputRequestID?
     
