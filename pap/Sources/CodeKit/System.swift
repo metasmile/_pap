@@ -66,8 +66,7 @@ public func measure(_ title: String, _ block: (() -> ()) -> ()) {
 }
 
 public func fileName(_ _file:String=#file) -> String{
-
-    return URL(fileURLWithPath: _file).deletingPathExtension().lastPathComponent
+    return ((_file as NSString).deletingPathExtension as NSString).lastPathComponent
 }
 
 private var machToSeconds: Double {
