@@ -134,7 +134,7 @@ PhotoEditorViewControllerDelegatableApp {
     
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst
-            /*|| item.asset.mediaType == .video */ //TODO: after video support
+        /*|| item.asset.mediaType == .video */ //TODO: after video support
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -248,15 +248,11 @@ enum AspectRatioOption: Int, Codable {
 }
 
 private class CIFrameFillFilter: CIFilter {
-    enum FillMode{
-        case color
-        case blurredInput
-    }
+    static let BlurFilledBackgroundColor:UIColor = UIColor(rgb:0xEFFFFF)
 
     var aspectRatioOption: AspectRatioOption = .original
 
     var backgroundColor: UIColor = UIColor(rgb: 0xFFFFFF)
-    var fillMode:FillMode = .color
 
     var borderWidth: CGFloat = 0
     
@@ -305,25 +301,24 @@ private class CIFrameFillFilter: CIFilter {
 
             ctx?.interpolationQuality = .high
 
-            switch(fillMode){
-                case .color:
+            //INFO: blur mode
+            if backgroundColor == type(of: self).BlurFilledBackgroundColor{
+
+                var bgSourceImage:CGImage? = cgImage
+                if outputRect.size.area != cgImage.size.area{
+                    let o = CGPoint(x: (cgImage.size.width-outputRect.width)/2, y: (cgImage.size.height-outputRect.height)/2)
+                    bgSourceImage = cgImage.cropping(to: CGRect(origin: o, size: outputRect.size))
+                }
+
+                if let bgImage = bgSourceImage?.blur(){
+                    ctx?.draw(bgImage, in: outputRect)
+                }else{
                     ctx?.setFillColor(backgroundColor.cgColor)
                     ctx?.fill(outputRect)
-                            
-                case .blurredInput:
-
-                    var bgSourceImage:CGImage? = cgImage
-                    if outputRect.size.area != cgImage.size.area{
-                        let o = CGPoint(x: (cgImage.size.width-outputRect.width)/2, y: (cgImage.size.height-outputRect.height)/2)
-                        bgSourceImage = cgImage.cropping(to: CGRect(origin: o, size: outputRect.size))
-                    }
-
-                    if let bgImage = bgSourceImage?.blur(){
-                        ctx?.draw(bgImage, in: outputRect)
-                    }else{
-                        ctx?.setFillColor(backgroundColor.cgColor)
-                        ctx?.fill(outputRect)
-                    }
+                }
+            }else{
+                ctx?.setFillColor(backgroundColor.cgColor)
+                ctx?.fill(outputRect)
             }
 
             ctx?.draw(cgImage, in: aspectFitRect)
@@ -534,34 +529,20 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     
     @objc dynamic var filterItem: CIFilterItem?
 
-    private var selectedFilter: CIFrameFillFilter? {
-        didSet {
-            updateSelectedFilterFillMode()
-        }
-    }
-
-    private func updateSelectedFilterFillMode(){
-        if self.selectedBackgroundColor == blurringModeBackgroundColor{
-            self.selectedFilter?.fillMode = .blurredInput
-        }else{
-            self.selectedFilter?.fillMode = .color
-        }
-    }
+    private var selectedFilter: CIFrameFillFilter?
 
     private var selectedBackgroundColor: UIColor? {
         didSet {
             let buttonSize = CGSize(width: 20, height: 20)
             let buttonRect = CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
 
-            if selectedBackgroundColor == blurringModeBackgroundColor{
+            if selectedBackgroundColor == CIFrameFillFilter.BlurFilledBackgroundColor{
                 colorPickerButton.setImage(R.image.resizerBlurColorIcon()?.resize(aspectFit: buttonRect.size.screenScaled()), for: .normal)
 
             } else{
                 let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
                 colorPickerButton.setImage(image, for: .normal)
             }
-
-            updateSelectedFilterFillMode()
         }
     }
     private var selectedBorderWidth: CGFloat { return CGFloat(borderWidthSlider.value) }
@@ -657,10 +638,8 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }()
 
 
-    private lazy var blurringModeBackgroundColor:UIColor = UIColor(rgb:0xEFFFFF)
-
     private lazy var colors: [UIColor] = [
-        blurringModeBackgroundColor,
+        CIFrameFillFilter.BlurFilledBackgroundColor,
         UIColor(rgb:0xFFFFFF),
         UIColor(rgb:0x000000),
         UIColor(rgb:0x6ABB72),
@@ -694,14 +673,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
         for color in colors {
-
-            let blurringMode = color == blurringModeBackgroundColor
             var accessoryImage:UIImage?
             let title:String
 
             let accessoryImageRect = CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
 
-            if blurringMode{
+            if color == CIFrameFillFilter.BlurFilledBackgroundColor{
                 title = "Blur Background".localized
                 accessoryImage = R.image.resizerBlurColorIcon()?.resize(aspectFit: accessoryImageRect.size.screenScaled())
             }else{
