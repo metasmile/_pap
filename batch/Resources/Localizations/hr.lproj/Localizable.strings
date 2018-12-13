@@ -228,6 +228,8 @@
 "Blur Background" = "Zamućivanje pozadine";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "zamagliti";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "svjetlost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Brisanje ciljeva";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Uređivač dubine";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Otkrivanje ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

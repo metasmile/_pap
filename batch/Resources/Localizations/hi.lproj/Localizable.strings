@@ -228,6 +228,8 @@
 "Blur Background" = "धुंध पृष्ठभूमि";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "धुंध दर";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "कलंक";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "चमक";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "तारीख";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "गहराई संपादक";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "पता लगा रहा है ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

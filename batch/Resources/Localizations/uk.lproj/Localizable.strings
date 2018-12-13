@@ -228,6 +228,8 @@
 "Blur Background" = "Розмивання фону";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Розмитість";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Розмити";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Яскравість";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Видалення цілей";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Редактор глибини";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

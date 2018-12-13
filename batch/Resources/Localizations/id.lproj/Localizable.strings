@@ -228,6 +228,8 @@
 "Blur Background" = "Latar Blur";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tingkat Blur";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Mengaburkan";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Kecerahan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Tanggal";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Menghapus Target";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Editor Kedalaman";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Mendeteksi ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

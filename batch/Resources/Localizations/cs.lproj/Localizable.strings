@@ -228,6 +228,8 @@
 "Blur Background" = "Rozostření pozadí";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Rozostření";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Rozmazat";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Jas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Smazání cílů";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Editor hloubky";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Zjišťování ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

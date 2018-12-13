@@ -228,6 +228,8 @@
 "Blur Background" = "Nền mờ";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Tốc độ làm mờ";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Mơ hồ";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "độ sáng";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Ngày";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Xóa mục tiêu";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Biên tập sâu";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Đang phát hiện ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

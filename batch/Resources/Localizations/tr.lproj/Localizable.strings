@@ -228,6 +228,8 @@
 "Blur Background" = "Arka plan bulanıklık";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Bulanıklık Hızı";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "bulanıklık";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Parlaklık";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "tarih";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Hedefleri Silme";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Derinlik Editör";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Algılanıyor ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

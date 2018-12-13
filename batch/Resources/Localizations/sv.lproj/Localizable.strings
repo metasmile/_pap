@@ -228,6 +228,8 @@
 "Blur Background" = "Suddig bakgrund";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Suddhastighet";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Fläck";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "ljusstyrka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Radera mål";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Djupredigerare";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detekterar ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

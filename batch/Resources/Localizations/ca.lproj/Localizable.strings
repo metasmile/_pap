@@ -228,6 +228,8 @@
 "Blur Background" = "Fons de desenfocament";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Desenfocament";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Brillantor";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "Data";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "S'estan suprimint objectius";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Editor de profunditat";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "S'està detectant ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

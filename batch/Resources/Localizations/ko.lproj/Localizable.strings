@@ -228,6 +228,8 @@
 "Blur Background" = "블러 배경";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "흐림 비율";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "흐림";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "명도";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "날짜";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "대상 삭제";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "깊이 편집기";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "감지 중 ... %@";
 /* Generated from genl10n: Finder.BApp.swift */

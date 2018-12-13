@@ -228,6 +228,8 @@
 "Blur Background" = "พื้นหลังแบบเบลอ";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "อัตราการเบลอ";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "เบลอ";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "ความสว่าง";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -304,6 +306,8 @@
 "Date" = "วันที่";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "การลบเป้าหมาย";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "ตัวแก้ไขความลึก";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
