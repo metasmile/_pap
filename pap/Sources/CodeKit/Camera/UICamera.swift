@@ -39,6 +39,7 @@ class UICamera: UIView, PropertyWatchable {
     var preferredCameraPosition: AVCaptureDevice.Position = .back
     var preferredFlashMode: FlashMode = .off
     var preferredUsingLocation: Bool = false
+    var preferredTorchLevel: Float = 1
     
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var captureMovieOutput = AVCaptureMovieFileOutput()
@@ -110,7 +111,8 @@ class UICamera: UIView, PropertyWatchable {
     var flashMode: FlashMode = .off {
         didSet {
             sessionQueue.async {
-                self.setTorchMode(self.flashMode.torchMode)
+                self.configureTorchMode(self.flashMode.torchMode)
+                self.configurationDidUpdate?()
             }
         }
     }
@@ -125,7 +127,8 @@ class UICamera: UIView, PropertyWatchable {
                 self.configureSession()
             }
             self.captureSession?.startRunning()
-            self.setTorchMode(self.flashMode.torchMode)
+            self.configureTorchMode(self.flashMode.torchMode)
+            self.configurationDidUpdate?()
 
             completion?()
         }
@@ -868,16 +871,45 @@ extension UICamera {
         }
     }
     
-    fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+    fileprivate func configureTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+        guard currentCaptureDevice?.hasTorch == true else { return }
+        
+        if torchMode == .on {
+            configureTorchLevel(preferredTorchLevel)
+        }
+        else {
+            try? currentCaptureDevice?.lockForConfiguration()
+            currentCaptureDevice?.torchMode = torchMode
+            currentCaptureDevice?.unlockForConfiguration()
+        }
+    }
+    
+    var torchLevel: Float {
+        set {
+            sessionQueue.async {
+                self.configureTorchLevel(newValue)
+                self.configurationDidUpdate?()
+            }
+        }
+        
+        get {
+            return currentCaptureDevice?.torchLevel ?? preferredTorchLevel
+        }
+    }
+    
+    private func configureTorchLevel(_ level: Float) {
+        guard currentCaptureDevice?.hasTorch == true else { return }
+        
         try? currentCaptureDevice?.lockForConfiguration()
         
-        if currentCaptureDevice?.hasTorch == true {
-            currentCaptureDevice?.torchMode = torchMode
+        if level > 0, let _ = try? currentCaptureDevice?.setTorchModeOn(level: level) {
+            preferredTorchLevel = level
+        }
+        else {
+            preferredTorchLevel = 1
         }
         
         currentCaptureDevice?.unlockForConfiguration()
-        
-        configurationDidUpdate?()
     }
 }
 

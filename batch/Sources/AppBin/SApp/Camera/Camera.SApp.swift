@@ -48,6 +48,11 @@ extension Defaults: CameraAppDefaults {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: false) }
     }
+    
+    var cameraTorchLevel: Float {
+        set { set(newValue); papLog.app.defaults.log(value:newValue) }
+        get { return get(or: 1) }
+    }
 }
 
 class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {

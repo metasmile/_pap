@@ -17,6 +17,7 @@ protocol AppUICameraOptions {
     var cameraPosition: AVCaptureDevice.Position { get set }
     var cameraFlashMode: UICamera.FlashMode { get set }
     var isUsingLocation: Bool { get set }
+    var cameraTorchLevel: Float { get set }
 }
 
 class AppUICamera: UIView {
@@ -59,6 +60,7 @@ class AppUICamera: UIView {
     private lazy var captureButton = CaptureButton()
     private lazy var cameraPositionButton = UIButton(type: .system)
     private lazy var cameraFlashButton = UIButton(type: .system)
+    private lazy var cameraTorchLevelButton = UIButton(type: .system)
     private lazy var backgroundView = UIView(frame: .zero)
     private lazy var optionBackgroundView = UIView(frame: .zero)
     private lazy var photoOptionView = UIStackView(frame: .zero)
@@ -87,6 +89,7 @@ class AppUICamera: UIView {
             self.cameraView.preferredCameraPosition = defaults.cameraPosition
             self.cameraView.preferredFlashMode = defaults.cameraFlashMode
             self.cameraView.preferredUsingLocation = defaults.isUsingLocation
+            self.cameraView.preferredTorchLevel = defaults.cameraTorchLevel
         }
 
         cameraView.deviceMotion.watch(\.orientation){
@@ -301,6 +304,20 @@ class AppUICamera: UIView {
         let cameraFlashButtonCenterYLayout = cameraFlashButton.centerYAnchor.constraint(equalTo: optionView.centerYAnchor)
         cameraFlashButtonCenterYLayout.priority = .defaultLow
         cameraFlashButtonCenterYLayout.isActive = true
+        
+        // torch level
+        cameraTorchLevelButton.imageEdgeInsets = buttonImageInsets
+        cameraTorchLevelButton.imageView?.contentMode = .scaleAspectFit
+        cameraTorchLevelButton.contentHorizontalAlignment = .fill
+        cameraTorchLevelButton.contentVerticalAlignment = .fill
+        cameraTorchLevelButton.addTarget(self, action: #selector(self.touchLevelButtonDidTap), for: .touchUpInside)
+        addSubview(cameraTorchLevelButton)
+        
+        cameraTorchLevelButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraTorchLevelButton.centerYAnchor.constraint(equalTo: cameraFlashButton.centerYAnchor).isActive = true
+        cameraTorchLevelButton.leadingAnchor.constraint(equalTo: cameraFlashButton.trailingAnchor, constant: 0).isActive = true
+        cameraTorchLevelButton.heightAnchor.constraint(equalToConstant: OptionViewHeightAnchorConstant).isActive = true
+        cameraTorchLevelButton.widthAnchor.constraint(equalTo: cameraTorchLevelButton.heightAnchor, multiplier: 0.75).isActive = true
 
         cameraView.configurationDidUpdate = {
             var defaults = defaults
@@ -310,6 +327,9 @@ class AppUICamera: UIView {
             defaults?.cameraFlashMode = self.cameraView.flashMode
             defaults?.isDepthPhotoEnabled = self.cameraView.isDepthPhotoEnabled
             defaults?.isUsingLocation = self.cameraView.usingLocation
+            if self.cameraView.flashMode == .torch {
+                defaults?.cameraTorchLevel = self.cameraView.torchLevel
+            }
             
             DispatchQueue.mainAsyncIfNot {
                 self.livePhotoButton.setImage(self.livePhotoBadgeIcon, for: .normal)
@@ -330,6 +350,9 @@ class AppUICamera: UIView {
                 
                 self.zoomButton.isHidden = !self.cameraView.isZoomEnabled
                 self.zoomButton.zoomFactor = self.cameraView.videoZoomFactor
+                
+                self.cameraTorchLevelButton.setImage(self.torchLevelIcon(self.cameraView.torchLevel), for: .normal)
+                self.cameraTorchLevelButton.isHidden = self.isCompactMode || self.cameraView.flashMode != .torch
                 
                 if self.isCompactMode {
                     self.updatePhotoOptionButtons()
@@ -365,6 +388,10 @@ class AppUICamera: UIView {
     
     private var locationIcon: UIImage {
         return (R.image.appActionIconLocation() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
+    
+    private func torchLevelIcon(_ level: Float) -> UIImage {
+        return (UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 20, height: 20)).insetBy(dx: 5, dy: 5)), fillColor: self.primaryColor.withAlphaComponent(CGFloat(level)), strokeColor: self.primaryColor) ?? UIImage()).withRenderingMode(.alwaysOriginal)
     }
 
     private var flashModeIcon: UIImage{
@@ -455,6 +482,12 @@ class AppUICamera: UIView {
         
         UIFeedback.select()
     }
+    
+    @objc func touchLevelButtonDidTap(sender: Any) {
+        cameraView.torchLevel = max(0.25, (cameraView.torchLevel + 0.25).truncatingRemainder(dividingBy: 1.25))
+        
+        UIFeedback.select()
+    }
 
     var hasZeroOptionViewMargin:Bool{
         layoutIfNeeded()
@@ -507,6 +540,8 @@ class AppUICamera: UIView {
 
             optionBackgroundView.isHidden = compactControlViewLayoutRequired
             backgroundView.isHidden = isCompactMode
+            
+            cameraTorchLevelButton.isHidden = isCompactMode || cameraView.flashMode != .torch
             
             //TODO: ignore layer implicit animation
             layoutIfNeeded()
