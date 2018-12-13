@@ -6,6 +6,8 @@
 import Foundation
 import UIKit
 import Accelerate
+import CoreVideo
+import CoreGraphics
 
 public extension CGImage{
     func re(size:CGSize) -> CGImage? {
@@ -45,9 +47,33 @@ public extension CGImage{
         return CGSize(width:width, height: height)
     }
 
-}
+    public func pixelBuffer() -> CVPixelBuffer? {
 
-import Accelerate
+        var pxbuffer: CVPixelBuffer?
+
+        guard let dataProvider = dataProvider else {
+            return nil
+        }
+
+        let dataFromImageDataProvider = CFDataCreateMutableCopy(kCFAllocatorDefault, 0, dataProvider.data)
+
+        CVPixelBufferCreateWithBytes(
+                kCFAllocatorDefault,
+                width,
+                height,
+                kCVPixelFormatType_32ARGB,
+                CFDataGetMutableBytePtr(dataFromImageDataProvider),
+                bytesPerRow,
+                nil,
+                nil,
+                nil,
+                &pxbuffer
+        )
+
+        return pxbuffer
+    }
+
+}
 
 public extension CGImage{
     //INFO: Real Device:

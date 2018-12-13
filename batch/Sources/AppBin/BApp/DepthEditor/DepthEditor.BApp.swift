@@ -473,20 +473,20 @@ extension DepthEditorApp {
     
     static let DepthEditorNames = [
         DepthEditorApp.DepthEditor.Name.Brightness,
-        DepthEditorApp.DepthEditor.Name.Exposure,
-        DepthEditorApp.DepthEditor.Name.Contrast,
-        DepthEditorApp.DepthEditor.Name.Highlights,
-        DepthEditorApp.DepthEditor.Name.Shadows,
-        DepthEditorApp.DepthEditor.Name.Saturation,
-        DepthEditorApp.DepthEditor.Name.Vibrance,
-        DepthEditorApp.DepthEditor.Name.Temparature,
-        DepthEditorApp.DepthEditor.Name.Tint,
-        DepthEditorApp.DepthEditor.Name.Fade,
+//        DepthEditorApp.DepthEditor.Name.Exposure,
+//        DepthEditorApp.DepthEditor.Name.Contrast,
+//        DepthEditorApp.DepthEditor.Name.Highlights,
+//        DepthEditorApp.DepthEditor.Name.Shadows,
+//        DepthEditorApp.DepthEditor.Name.Saturation,
+//        DepthEditorApp.DepthEditor.Name.Vibrance,
+//        DepthEditorApp.DepthEditor.Name.Temparature,
+//        DepthEditorApp.DepthEditor.Name.Tint,
+//        DepthEditorApp.DepthEditor.Name.Fade,
 //        DepthEditorApp.DepthEditor.Name.Grain,
-        DepthEditorApp.DepthEditor.Name.Vignette,
-        DepthEditorApp.DepthEditor.Name.VignetteRadius,
-        DepthEditorApp.DepthEditor.Name.Gamma,
-        DepthEditorApp.DepthEditor.Name.SepiaTone,
+//        DepthEditorApp.DepthEditor.Name.Vignette,
+//        DepthEditorApp.DepthEditor.Name.VignetteRadius,
+//        DepthEditorApp.DepthEditor.Name.Gamma,
+//        DepthEditorApp.DepthEditor.Name.SepiaTone,
 //        DepthEditorApp.DepthEditor.Name.Sharpness
     ]
 }
