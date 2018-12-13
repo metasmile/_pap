@@ -1,5 +1,5 @@
 //
-//  Adjustments.BApp.swift
+//  DepthEditor.BApp.swift
 //  batch
 //
 //  Created by HYOJIN MO on 26/11/2018.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class _AdjustmentsAppAsset: _FiltersAppAsset {}
+class _DepthEditorAppAsset: _FiltersAppAsset {}
 
-public class AdjustmentsApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
+public class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
 PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
     
-    public static let taskType: AppTaskable.Type = _AdjustmentsAppTask.self
-    public static let paramType: AppTaskParamable.Type = _AdjustmentsAppAsset.self
+    public static let taskType: AppTaskable.Type = _DepthEditorAppTask.self
+    public static let paramType: AppTaskParamable.Type = _DepthEditorAppAsset.self
     
     public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
@@ -25,14 +25,14 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = AdjustmentsAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent()
+    public private(set) lazy var content: AppDockContent? = DepthEditorAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = DepthEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
         
-//        var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//        var defaults = type(of: self).defaults as! DepthEditorAppDefaults
         
 //        if let options = (editStateValue?.ciFilter as? CIFilter)?.options {
 //            var optionsToStore = [String:Bool]()
@@ -45,12 +45,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     public static let info = AppInfo(
-        identifier: "com.stells.batch.adjustments"
+        identifier: "com.stells.batch.deptheditor"
         , version: "1.0"
         , phase: .develop
-        , appType: AdjustmentsApp.self
-        , displayName: "Adjustments".localized.localizedCapitalized
-        , description: "Adjustments lets you edit manually your photos.".localized
+        , appType: DepthEditorApp.self
+        , displayName: "DepthEditor".localized.localizedCapitalized
+        , description: "DepthEditor lets you edit manually your photos.".localized
         , keywords: ["adjustments", "brightness", "constrast", "highlight", "shadow", "saturate", "vibrance"]
         , iconBundleName: nil
         , themeColor: UIColor(red:1, green:0.964, blue:0, alpha:1)
@@ -61,13 +61,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     required public override init() {
         super.init()
         
-        let controllerContent = self.content as? AdjustmentsAppDockContent
+        let controllerContent = self.content as? DepthEditorAppDockContent
         controllerContent?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
                 
             } else {
-//                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//                var defaults = type(of: self).defaults as! DepthEditorAppDefaults
 //                controllerContent?.options = defaults.autoAdjustmentOptions
 //
 //                let filter = CIAdjustmentFilter(options: defaults.autoAdjustmentOptions)
@@ -77,13 +77,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
         
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? AdjustmentsAppDockContent
+        let controllerContentInPhotoEditor = self.photoEditorDockContent as? DepthEditorAppDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
                 
             } else{
-//                var defaults = type(of: self).defaults as! AdjustmentsAppDefaults
+//                var defaults = type(of: self).defaults as! DepthEditorAppDefaults
 //                controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
                 
 //                let filter = CIAdjustmentFilter(value: defaults.double)
@@ -121,19 +121,19 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         let filter = editStateValue?.ciFilter as? CIFilterGroup
-        (content as? AdjustmentsAppDockContent)?.setFilterValues(filter, animated: false)
+        (content as? DepthEditorAppDockContent)?.setFilterValues(filter, animated: false)
     }
 }
 
-fileprivate class AdjustmentItem {
-    fileprivate class SliderValue {
-        var name: AdjustmentsApp.Adjustments.Name
+class DepthEditItem {
+    class SliderValue {
+        var name: DepthEditorApp.DepthEditor.Name
         var value: Float = 0
         var defaultValue: Float = 0
         var minimumValue: Float = 0
         var maximumValue: Float = 0
         
-        init(name: AdjustmentsApp.Adjustments.Name, defaultValue: Float?, minimumValue: Float?, maximumValue: Float?) {
+        init(name: DepthEditorApp.DepthEditor.Name, defaultValue: Float?, minimumValue: Float?, maximumValue: Float?) {
             self.name = name
             self.defaultValue = defaultValue ?? 0
             self.minimumValue = minimumValue ?? 0
@@ -175,7 +175,7 @@ fileprivate class AdjustmentItem {
         self.key = key
     }
     
-    func setDefaults(with filter: CIFilter?, name: AdjustmentsApp.Adjustments.Name?) {
+    func setDefaults(with filter: CIFilter?, name: DepthEditorApp.DepthEditor.Name?) {
         guard let name = name, let attributes = filter?.attributes[key] as? [String: Any] else { return }
         
         attributeType = attributes[kCIAttributeType] as? String
@@ -203,14 +203,14 @@ fileprivate class AdjustmentItem {
 }
 
 fileprivate class CIAdjustmentFilter: CIFilter {
-    private(set) var adjustmentItems = [String: AdjustmentItem]()
+    private(set) var adjustmentItems = [String: DepthEditItem]()
     private var builtInFilter: CIFilter?
     
     var filter: CIFilter {
         return builtInFilter ?? self
     }
     
-    init(adjustmentName: AdjustmentsApp.Adjustments.Name) {
+    init(adjustmentName: DepthEditorApp.DepthEditor.Name) {
         super.init()
         
         self.name = adjustmentName.builtInFilterName
@@ -225,10 +225,10 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         return (name == (object as? CIFilter)?.name) == true
     }
     
-    func adjustmentItem(with adjustmentName: AdjustmentsApp.Adjustments.Name) -> AdjustmentItem? {
+    func adjustmentItem(with adjustmentName: DepthEditorApp.DepthEditor.Name) -> DepthEditItem? {
         let key = adjustmentName.builtInParameterKey
         guard let value = adjustmentItems[key] else {
-            let adjustmentValue = AdjustmentItem(key: key)
+            let adjustmentValue = DepthEditItem(key: key)
             adjustmentValue.setDefaults(with: self.filter, name: adjustmentName)
             adjustmentItems[key] = adjustmentValue
             return adjustmentValue
@@ -236,7 +236,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         return value
     }
     
-    func setAdjustmentValue(_ value: Float, with adjustmentName: AdjustmentsApp.Adjustments.Name) {
+    func setAdjustmentValue(_ value: Float, with adjustmentName: DepthEditorApp.DepthEditor.Name) {
         adjustmentItem(with: adjustmentName)?.setSliderValue(value, at: adjustmentName.builtInParameterOffsetIndex)
     }
     
@@ -290,7 +290,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
     }
 }
 
-fileprivate class CIAdjustmentsFilterItem {
+class CIDepthEditorFilterItem {
     private var orderedFilters = NSMutableOrderedSet()
     
     func setAdjustmentFilter(_ filter: CIFilter?) {
@@ -303,7 +303,7 @@ fileprivate class CIAdjustmentsFilterItem {
         let index = orderedFilters.index(of: filter)
         return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIAdjustmentFilter
     }
-    
+
     fileprivate var ciFilter: CIFilterGroup {
         return CIFilterGroup(filters: orderedFilters.array as? [CIFilter])
     }
@@ -347,8 +347,8 @@ fileprivate class CIFilterGroup: CIFilter {
     }
 }
 
-extension AdjustmentsApp {
-    struct Adjustments {
+extension DepthEditorApp {
+    struct DepthEditor {
         enum Name: String {
             case Brightness = "Brightness"
             case Contrast = "Contrast"
@@ -368,19 +368,19 @@ extension AdjustmentsApp {
             case Grain = "Grain"
             
             var displayName: String {
-                return Adjustments.displayName(self)
+                return DepthEditor.displayName(self)
             }
             
             var builtInFilterName: String {
-                return Adjustments.filterName(self)
+                return DepthEditor.filterName(self)
             }
             
             var builtInParameterKey: String {
-                return Adjustments.parameterKey(self)
+                return DepthEditor.parameterKey(self)
             }
-            
+
             fileprivate var filter: CIAdjustmentFilter? {
-                return Adjustments.filter(self)
+                return DepthEditor.filter(self)
             }
             
             var builtInParameterOffsetIndex: Int {
@@ -391,8 +391,8 @@ extension AdjustmentsApp {
                 }
             }
         }
-        
-        static func displayName(_ name: Adjustments.Name) -> String {
+
+        fileprivate static func displayName(_ name: DepthEditor.Name) -> String {
             switch name {
             case Name.Brightness: return "Brightness".localized
             case Name.Contrast: return "Contrast".localized
@@ -413,7 +413,7 @@ extension AdjustmentsApp {
             }
         }
         
-        static func filterName(_ name: Adjustments.Name) -> String {
+        static func filterName(_ name: DepthEditor.Name) -> String {
             switch name {
             case Name.Brightness, Name.Contrast, Name.Saturation: return "CIColorControls"
             case Name.Highlights, Name.Shadows: return "CIHighlightShadowAdjust"
@@ -429,7 +429,7 @@ extension AdjustmentsApp {
             }
         }
         
-        static func parameterKey(_ name: Adjustments.Name) -> String {
+        static func parameterKey(_ name: DepthEditor.Name) -> String {
             switch name {
             case Name.Brightness: return kCIInputBrightnessKey
             case Name.Contrast: return kCIInputContrastKey
@@ -450,7 +450,7 @@ extension AdjustmentsApp {
             }
         }
         
-        fileprivate static func filter(_ name: Adjustments.Name) -> CIAdjustmentFilter? {
+        fileprivate static func filter(_ name: DepthEditor.Name) -> CIAdjustmentFilter? {
             switch name {
             case Name.Brightness,
                  Name.Contrast,
@@ -471,45 +471,45 @@ extension AdjustmentsApp {
         }
     }
     
-    static let AdjustmentsNames = [
-        AdjustmentsApp.Adjustments.Name.Brightness,
-        AdjustmentsApp.Adjustments.Name.Exposure,
-        AdjustmentsApp.Adjustments.Name.Contrast,
-        AdjustmentsApp.Adjustments.Name.Highlights,
-        AdjustmentsApp.Adjustments.Name.Shadows,
-        AdjustmentsApp.Adjustments.Name.Saturation,
-        AdjustmentsApp.Adjustments.Name.Vibrance,
-        AdjustmentsApp.Adjustments.Name.Temparature,
-        AdjustmentsApp.Adjustments.Name.Tint,
-        AdjustmentsApp.Adjustments.Name.Fade,
-//        AdjustmentsApp.Adjustments.Name.Grain,
-        AdjustmentsApp.Adjustments.Name.Vignette,
-        AdjustmentsApp.Adjustments.Name.VignetteRadius,
-        AdjustmentsApp.Adjustments.Name.Gamma,
-        AdjustmentsApp.Adjustments.Name.SepiaTone,
-//        AdjustmentsApp.Adjustments.Name.Sharpness
+    static let DepthEditorNames = [
+        DepthEditorApp.DepthEditor.Name.Brightness,
+        DepthEditorApp.DepthEditor.Name.Exposure,
+        DepthEditorApp.DepthEditor.Name.Contrast,
+        DepthEditorApp.DepthEditor.Name.Highlights,
+        DepthEditorApp.DepthEditor.Name.Shadows,
+        DepthEditorApp.DepthEditor.Name.Saturation,
+        DepthEditorApp.DepthEditor.Name.Vibrance,
+        DepthEditorApp.DepthEditor.Name.Temparature,
+        DepthEditorApp.DepthEditor.Name.Tint,
+        DepthEditorApp.DepthEditor.Name.Fade,
+//        DepthEditorApp.DepthEditor.Name.Grain,
+        DepthEditorApp.DepthEditor.Name.Vignette,
+        DepthEditorApp.DepthEditor.Name.VignetteRadius,
+        DepthEditorApp.DepthEditor.Name.Gamma,
+        DepthEditorApp.DepthEditor.Name.SepiaTone,
+//        DepthEditorApp.DepthEditor.Name.Sharpness
     ]
 }
 
-fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
-    public typealias ParamType = _AdjustmentsAppAsset
+fileprivate class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
+    public typealias ParamType = _DepthEditorAppAsset
     public typealias ResultType = PHAssetResultItem
     
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _AdjustmentsAppAsset)?.cancelAllRequestIDs()
-        (param as? _AdjustmentsAppAsset)?.cancelProcessing()
+        (param as? _DepthEditorAppAsset)?.cancelAllRequestIDs()
+        (param as? _DepthEditorAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is _AdjustmentsAppAsset, "TaskParamable type of this app is \(_AdjustmentsAppAsset.self)")
-        guard let _param = param as? _AdjustmentsAppAsset else{
+        assert(param is _DepthEditorAppAsset, "TaskParamable type of this app is \(_DepthEditorAppAsset.self)")
+        guard let _param = param as? _DepthEditorAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _AdjustmentsAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _DepthEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()
@@ -519,7 +519,7 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-//                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AdjustmentsApp.self, editInfo: (assetItem.editState.ciFilter as? CIAdjustmentsFilter)?.filters.compactMap({ ["filter": $0.name] }) ?? [:], from: asset)
+//                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: DepthEditorApp.self, editInfo: (assetItem.editState.ciFilter as? CIDepthEditorFilter)?.filters.compactMap({ ["filter": $0.name] }) ?? [:], from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
@@ -535,23 +535,23 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
 }
 
 /*
- AdjustmentsAppDockContent
+ DepthEditorAppDockContent
  */
 import PropertyKit
-private protocol AdjustmentsAppDefaults: AppDefaults{
+private protocol DepthEditorAppDefaults: AppDefaults{
     var adjustments: [String: Double] {get set}
 }
 
-extension Defaults: AdjustmentsAppDefaults {
+extension Defaults: DepthEditorAppDefaults {
     fileprivate var adjustments: [String: Double] {
         set{ set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
-        get{ return get(or: AdjustmentsApp.AdjustmentsNames.dictionary { ($0.rawValue, 0) } ) }
+        get{ return get(or: DepthEditorApp.DepthEditorNames.dictionary { ($0.rawValue, 0) } ) }
     }
 }
 
-fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
-    fileprivate static var primaryColor = AdjustmentsApp.info.themeColor
-    fileprivate var adjustmentNames = AdjustmentsApp.AdjustmentsNames
+class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    fileprivate static var primaryColor = DepthEditorApp.info.themeColor
+    fileprivate var adjustmentNames = DepthEditorApp.DepthEditorNames
     fileprivate var adjustmentFilters = [CIAdjustmentFilter]()
     
     lazy var view: UIView = {
@@ -560,7 +560,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         view.delegate = self
         view.rowHeight = 52
         view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier)
+        view.register(Cell.self, forCellReuseIdentifier: DepthEditorApp.info.identifier)
         view.backgroundColor = .clear
         view.separatorStyle = .none
         return view
@@ -603,12 +603,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             }
         }
     }
+
+    @objc fileprivate dynamic var filter: CIFilterGroup?
     
-    @objc dynamic var filter: CIFilterGroup?
-    
-    private var filterItem = CIAdjustmentsFilterItem()
-    
-    func setFilterValues(_ filter: CIFilterGroup?, animated: Bool = true) {
+    private var filterItem = CIDepthEditorFilterItem()
+
+    fileprivate func setFilterValues(_ filter: CIFilterGroup?, animated: Bool = true) {
         guard let tableView = view as? UITableView else { return }
         
         self.filterItem.reset()
@@ -630,7 +630,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DepthEditorApp.info.identifier) as! Cell
         let filterName = adjustmentNames[indexPath.row]
         
         let filter = self.adjustmentFilters.first { $0.name == filterName.builtInFilterName }

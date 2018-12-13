@@ -91,6 +91,12 @@ extension PhotoPickerViewController:AppDockViewControllerAppConfigWatchableDeleg
                 }
             }
 
+            AppCenter.default.currentInstanceAs(DepthEditorApp.self)?.config?.watch(\.filter, id: "picker\(DepthEditorApp.info.identifier)") { (config, changed) in
+                if let value = config.filter, !AppCenter.default.task.isRunning {
+                    self.appendImageEditState(value)
+                }
+            }
+
             AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
         }
     }
@@ -108,6 +114,7 @@ extension PhotoPickerViewController:AppDockViewControllerAppConfigWatchableDeleg
         AppCenter.default.currentInstanceAs(CleanerApp.self)?.unwatch(\.autoSelect, forIds:["picker\(CleanerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ResizerApp.self)?.config?.unwatch(\.filter, forIds:["picker\(ResizerApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(AdjustmentsApp.self)?.config?.unwatch(\.filter, forIds:["picker\(AdjustmentsApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(DepthEditorApp.self)?.config?.unwatch(\.filter, forIds:["picker\(DepthEditorApp.info.identifier)"])
 
         AppCenter.default.unwatchAllFilePrivate(\.currentIdentifier)
     }
