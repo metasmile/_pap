@@ -807,9 +807,10 @@ extension UICamera {
 }
 
 extension UICamera {
-    func zoom(_ scale: CGFloat, animated: Bool = false) {
+    func zoom(_ scale: CGFloat) {
+        let animated = (scale - videoZoomFactor).magnitude > 3
         if animated {
-            setVideoZoomFactor(scale, withRate: 1000)
+            setVideoZoomFactor(scale, withRate: 100)
         }
         else {
             videoZoomFactor = scale

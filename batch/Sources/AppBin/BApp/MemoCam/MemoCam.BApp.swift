@@ -607,6 +607,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraFlashButton.addTarget(self, action: #selector(self.toggleTorchMode), for: .touchUpInside)
         view.addSubview(cameraFlashButton)
         
+        cameraFlashButton.tintColor = view.colorTheme.tintColor
+        
         cameraFlashButton.translatesAutoresizingMaskIntoConstraints = false
         cameraFlashButton.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor).isActive = true
         cameraFlashButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
