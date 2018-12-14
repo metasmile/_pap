@@ -15,11 +15,6 @@ public protocol App {
     static var group: AppGroup {get}
 }
 
-public protocol SubApp {
-
-    static var subInfo: AppInfo { get }
-}
-
 extension App{
 
     public static var group: AppGroup {
@@ -34,6 +29,12 @@ public protocol TaskApp: App{
 
     static var paramType: AppTaskParamable.Type { get }
 }
+
+public protocol SubApp where Self:App {
+
+    static var subInfo: AppInfo { get }
+}
+
 
 /*
     AppInfo

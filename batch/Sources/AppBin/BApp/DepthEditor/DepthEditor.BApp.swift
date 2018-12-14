@@ -729,9 +729,9 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     @objc func borderWidthDidChange() {
         let estimatedHeight = max(4, borderWidthSlider.height * CGFloat(borderWidthSlider.value)) / 6
 
-        let minTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.bottomLeft], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 2))
-
-        let maxTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topRight, UIRectCorner.bottomRight], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 4))
+//        let minTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.bottomLeft], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 2))
+//
+//        let maxTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topRight, UIRectCorner.bottomRight], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 4))
 
 //        borderWidthSlider.setMinimumTrackImage(UIImage(path: minTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: estimatedHeight, bottom: estimatedHeight / 2, right: 0), resizingMode: .stretch), for: .normal)
 //        borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)

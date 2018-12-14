@@ -10,6 +10,7 @@ import Photos
 import PhotosUI
 import PropertyKit
 
+//INFO: To extend app-specific properties if needed, app developer can manually implement, decide or define whether storing values or getting default in app scope.
 protocol AppUICameraOptions {
     var isLivePhotoEnabled: Bool { get set }
     var isRawPhotoEnabled: Bool { get set }
@@ -20,7 +21,7 @@ protocol AppUICameraOptions {
     var cameraTorchLevel: Float { get set }
 }
 
-extension Defaults: AppUICameraOptions {
+extension PropertyDefaults where Self:AppUICameraOptions, Self:Defaults {
     var isLivePhotoEnabled: Bool {
         set { set(newValue);  }
         get { return get(or: false) }
@@ -52,10 +53,11 @@ extension Defaults: AppUICameraOptions {
     }
 
     var cameraTorchLevel: Float {
-        set { set(newValue); }
+        set { set(newValue);  }
         get { return get(or: 1) }
     }
 }
+
 
 class AppUICamera: UIView {
 
