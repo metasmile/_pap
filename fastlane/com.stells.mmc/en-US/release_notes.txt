@@ -1,1 +1,1 @@
-• Some crash fixes.
++ Torch light and pinch zoom support.
