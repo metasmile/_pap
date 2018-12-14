@@ -19,7 +19,7 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-private protocol MemoCamAppDefaults: AppDefaults{
+private protocol MemoCamAppDefaults: AppDefaults, AppUICameraOptions {
     var showAllTexts:Bool{set get}
 }
 
@@ -559,6 +559,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.contentMode = .scaleAspectFill
         return cameraView
     }()
+    
+    var primaryColor: UIColor {
+        return MemoCamApp.info.themeColor ?? UIColor(red:0.98, green:0.99, blue:0.22, alpha:1)
+    }
 
     fileprivate lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
@@ -568,6 +572,11 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
+        
+        if let defaults = MemoCamApp.defaults as? MemoCamAppDefaults {
+            cameraView.preferredFlashMode = defaults.cameraFlashMode
+            cameraView.preferredTorchLevel = defaults.cameraTorchLevel
+        }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.performButtonDidTap))
         cameraView.addGestureRecognizer(tapGesture)
@@ -590,6 +599,50 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         contentView.addSubview(cameraView)
         cameraView.fitConstraints(to: contentView)
         
+        let buttonImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        
+        //flash
+        cameraFlashButton.imageEdgeInsets = buttonImageInsets
+        cameraFlashButton.setImage(torchIcon, for: .normal)
+        cameraFlashButton.addTarget(self, action: #selector(self.toggleTorchMode), for: .touchUpInside)
+        view.addSubview(cameraFlashButton)
+        
+        cameraFlashButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraFlashButton.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor).isActive = true
+        cameraFlashButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
+        cameraFlashButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraFlashButton.widthAnchor.constraint(equalTo: cameraFlashButton.heightAnchor, multiplier: 1).isActive = true
+        
+        // torch level
+        cameraTorchLevelButton.imageEdgeInsets = buttonImageInsets
+        cameraTorchLevelButton.imageView?.contentMode = .scaleAspectFit
+        cameraTorchLevelButton.contentHorizontalAlignment = .fill
+        cameraTorchLevelButton.contentVerticalAlignment = .fill
+        cameraTorchLevelButton.addTarget(self, action: #selector(self.touchLevelButtonDidTap), for: .touchUpInside)
+        view.addSubview(cameraTorchLevelButton)
+        
+        cameraTorchLevelButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraTorchLevelButton.centerYAnchor.constraint(equalTo: cameraFlashButton.centerYAnchor).isActive = true
+        cameraTorchLevelButton.leadingAnchor.constraint(equalTo: cameraFlashButton.trailingAnchor, constant: 0).isActive = true
+        cameraTorchLevelButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraTorchLevelButton.widthAnchor.constraint(equalTo: cameraTorchLevelButton.heightAnchor, multiplier: 0.75).isActive = true
+        
+        cameraView.configurationDidUpdate = {
+            var defaults = MemoCamApp.defaults as? MemoCamAppDefaults
+            defaults?.cameraFlashMode = self.cameraView.flashMode
+            if self.cameraView.flashMode == .torch {
+                defaults?.cameraTorchLevel = self.cameraView.torchLevel
+            }
+            
+            DispatchQueue.mainAsyncIfNot {
+                self.cameraFlashButton.setImage(self.torchIcon, for: .normal)
+                self.cameraFlashButton.tintColor = self.cameraView.flashMode == .torch ? self.primaryColor : view.colorTheme.tintColor
+                
+                self.cameraTorchLevelButton.setImage(self.torchLevelIcon(self.cameraView.torchLevel), for: .normal)
+                self.cameraTorchLevelButton.isHidden = self.cameraView.flashMode != .torch
+            }
+        }
+        
         return view
     }()
     
@@ -602,6 +655,32 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let toolBar = UIToolbar(frame: .zero)
         return toolBar
     }()
+    
+    private lazy var cameraFlashButton = UIButton(type: .system)
+    private lazy var cameraTorchLevelButton = UIButton(type: .system)
+    
+    private var torchIcon: UIImage{
+        return (R.image.appUICameraTorchOn() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
+    
+    private func torchLevelIcon(_ level: Float) -> UIImage {
+        return (UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 20, height: 20)).insetBy(dx: 5, dy: 5)), fillColor: self.primaryColor.withAlphaComponent(CGFloat(level)), strokeColor: self.primaryColor) ?? UIImage()).withRenderingMode(.alwaysOriginal)
+    }
+    
+    @objc func toggleTorchMode(sender: Any) {
+        cameraView.flashMode = [
+            UICamera.FlashMode.off:UICamera.FlashMode.torch,
+            UICamera.FlashMode.torch:UICamera.FlashMode.off
+        ][cameraView.flashMode]!
+        
+        UIFeedback.select()
+    }
+    
+    @objc func touchLevelButtonDidTap(sender: Any) {
+        cameraView.torchLevel = max(0.25, (cameraView.torchLevel + 0.25).truncatingRemainder(dividingBy: 1.25))
+        
+        UIFeedback.select()
+    }
     
     internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
         override func action(forKey event: String) -> CAAction? {
