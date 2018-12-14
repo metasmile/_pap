@@ -248,8 +248,7 @@ open class PrecisionLevelSlider: UIControl {
     }
 
     fileprivate func valueToOffset(value: Float) -> CGPoint {
-
-        let progress = (value - minimumValue) / (maximumValue - minimumValue)
+        let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
         let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
         return CGPoint(x: x, y: 0)
     }
@@ -281,20 +280,33 @@ open class PrecisionLevelSlider: UIControl {
     private var beginningScrollPosition: CGPoint = .zero
     private var previousScrollPosition: CGPoint = .zero
 
-    var exponentialValue: Float {
-//        let easeInExpo = CubicBezier(controlPoints: 0.95, 0.05, 0.795, 0.035)
-
-        let size = CGSize(width: scrollView.contentSize.width / 2, height: bounds.size.height)
-        let easeInExpo = CubicBezier(from: .zero, controlPoint1: CGPoint(x: size.width * 0.95, y: size.height * 0.05), controlPoint2: CGPoint(x: size.width * 0.795, y: size.height * 0.35), to: CGPoint(x: size.width, y: size.height))
-
-        let t = (value - minimumValue) / (maximumValue - minimumValue)
-
-        print(#function, t, easeInExpo.point(at: CGFloat(t)))
-
-        return value(with: CGPoint(x: easeInExpo.y(at: CGFloat(t)), y: 0))
-
-//        let actualProgress = Float(min(max(0, easeInExpo.y(at: CGFloat(t))), 1))
-//        return ((maximumValue - minimumValue) * actualProgress) + minimumValue
+    var bezierValue: Float {
+        let bezier = CubicBezier.easeInExpo
+        
+        let min = valueToOffset(value: minimumValue).x
+        let d = valueToOffset(value: defaultValue).x
+        let max = valueToOffset(value: maximumValue).x
+        let v = valueToOffset(value: value).x
+        let scale = bezier.y(at: 1)
+        let t: CGFloat
+        
+        if defaultValue != minimumValue, defaultValue != maximumValue, value < defaultValue {
+            t = 1 - ((v - min) / (d - min)).magnitude
+        }
+        else {
+            if defaultValue < maximumValue {
+                t = ((v - d) / (max - d)).magnitude
+            }
+            else {
+                t = (v / max).magnitude
+            }
+        }
+        
+        let ratio = bezier.y(at: CGFloat(t)) / scale
+        let base = defaultValue < maximumValue ? d : min
+        let offsetX = base + (v - base) * ratio
+        
+        return value(with: CGPoint(x: offsetX, y: 0))
     }
 }
 
@@ -359,6 +371,10 @@ fileprivate struct CubicBezier {
         let dydt = 3 * p0.y * t * t + 2 * p1.y * t + p2.y
         return atan2(dydt, dxdt)
     }
+}
+
+extension CubicBezier {
+    static let easeInExpo = CubicBezier(controlPoints: CGPoint(x: 0.95, y: 0.05), CGPoint(x: 0.795, y: 0.35))
 }
 
 extension PrecisionLevelSlider {

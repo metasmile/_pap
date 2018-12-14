@@ -714,7 +714,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         }
         
         @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider.value)
+            sliderDidChangeHandler?(slider.bezierValue)
         }
         
         required init?(coder aDecoder: NSCoder) {
