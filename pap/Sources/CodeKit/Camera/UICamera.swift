@@ -1307,4 +1307,14 @@ final class ZoomButton: UIControl {
         outerCircleLayer.lineWidth = 1
         outerCircleLayer.path = outerCircle.cgPath
     }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let touchBounds = bounds.inset(by: UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
+        if touchBounds.contains(point) {
+            return self
+        }
+        else {
+            return super.hitTest(point, with: event)
+        }
+    }
 }
