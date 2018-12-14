@@ -32,6 +32,7 @@ import UIKit
 
 enum MaskParams {
   static let slope: CGFloat = 4.0
+  static let sharpSlope: CGFloat = 10.0
   static let width: CGFloat = 0.1
 }
 
