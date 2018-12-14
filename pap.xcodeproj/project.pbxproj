@@ -993,6 +993,10 @@
 		5118E9982194FE6000EB6D6A /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
 		5118E99A2195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
+		511EA5AB21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
+		511EA5AC21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
+		511EA5AD21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
+		511EA5AE21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
 		5120EBFC21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFD21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFE21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
@@ -2570,6 +2574,7 @@
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		511EA5AA21C3724C00B47926 /* RawEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawEditor.swift; sourceTree = "<group>"; };
 		5120EBFB21B9D211001D8696 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
@@ -2967,6 +2972,7 @@
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
 			isa = PBXGroup;
 			children = (
+				511EA5A921C3723000B47926 /* RawEditor */,
 				51956E6921AB7A3A0067CCEA /* Adjustments */,
 				A07BD39421978958003031D5 /* MemoCam */,
 				5118E9962194F7D200EB6D6A /* Resizer */,
@@ -3797,6 +3803,14 @@
 				4F71D22FF33BD22F2AB27EEA /* Intents.strings */,
 			);
 			path = Intents;
+			sourceTree = "<group>";
+		};
+		511EA5A921C3723000B47926 /* RawEditor */ = {
+			isa = PBXGroup;
+			children = (
+				511EA5AA21C3724C00B47926 /* RawEditor.swift */,
+			);
+			path = RawEditor;
 			sourceTree = "<group>";
 		};
 		515E9BCE21784D270090CEEC /* Clipboard */ = {
@@ -5765,6 +5779,7 @@
 				4F71D2B6B122AA164CCAE838 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				4F71D83B6512D8DA7A5B84B9 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				511577CF21A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
+				511EA5AB21C3724C00B47926 /* RawEditor.swift in Sources */,
 				4F71DDE8F71898248DADBBFB /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71DDF1720A27EFB55EFA68 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				4F71DC783B62C0CAA70C5A23 /* CodeKit.UIActivityViewController.swift in Sources */,
@@ -6299,6 +6314,7 @@
 				A0CB0205219C9093007A5278 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				A0CB0206219C9093007A5278 /* CodeKit.String.NSDataDetector.swift in Sources */,
 				511577D321A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
+				511EA5AE21C3724C00B47926 /* RawEditor.swift in Sources */,
 				A0CB0207219C9093007A5278 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				A0CB0208219C9093007A5278 /* CodeKit.UIActivityViewController.swift in Sources */,
 				A0CB0209219C9093007A5278 /* CodeKit.UIView.GestureRecognizer.swift in Sources */,
@@ -6834,6 +6850,7 @@
 				4F71D5A429B30F9C012E5A85 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				4F71D170E3AF8D9C729DB875 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				511577D121A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
+				511EA5AC21C3724C00B47926 /* RawEditor.swift in Sources */,
 				4F71D6C141D91C34F1FBEDC6 /* CodeKit.String.NSDataDetector.swift in Sources */,
 				4F71D85327124687B0B157C4 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				4F71D5C634B9239A0463024B /* CodeKit.UIActivityViewController.swift in Sources */,
@@ -7140,6 +7157,7 @@
 				A0CB0080219C8C64007A5278 /* CodeKit.UIFeedbackGenerator.swift in Sources */,
 				A0CB0081219C8C64007A5278 /* CodeKit.AVAssetExportSession.swift in Sources */,
 				511577D221A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
+				511EA5AD21C3724C00B47926 /* RawEditor.swift in Sources */,
 				A0CB0082219C8C64007A5278 /* CodeKit.String.NSDataDetector.swift in Sources */,
 				A0CB0083219C8C64007A5278 /* CodeKit.UIGraphicsImageRenderer.swift in Sources */,
 				A0CB0084219C8C64007A5278 /* CodeKit.UIActivityViewController.swift in Sources */,
