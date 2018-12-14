@@ -807,8 +807,13 @@ extension UICamera {
 }
 
 extension UICamera {
-    func zoom(_ scale: CGFloat) {
-        videoZoomFactor = scale
+    func zoom(_ scale: CGFloat, animated: Bool = false) {
+        if animated {
+            setVideoZoomFactor(scale, withRate: 1000)
+        }
+        else {
+            videoZoomFactor = scale
+        }
     }
     
     var isZoomEnabled: Bool {
@@ -843,6 +848,22 @@ extension UICamera {
         
         get {
             return currentCaptureDevice?.videoZoomFactor ?? 1
+        }
+    }
+    
+    private func setVideoZoomFactor(_ scale: CGFloat, withRate rate: Float) {
+        sessionQueue.async {
+            guard let captureDevice = self.currentCaptureDevice else { return }
+            try? captureDevice.lockForConfiguration()
+            if captureDevice.isRampingVideoZoom {
+                captureDevice.cancelVideoZoomRamp()
+            }
+            captureDevice.ramp(toVideoZoomFactor: scale.clamped(to: self.videoZoomRange), withRate: rate)
+            captureDevice.unlockForConfiguration()
+            
+            DispatchQueue.main.async {
+                self.resetFocusAndExposure(showsGuide: false)
+            }
         }
     }
 }
