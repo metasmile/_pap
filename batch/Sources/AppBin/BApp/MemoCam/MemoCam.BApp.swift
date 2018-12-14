@@ -627,6 +627,18 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraTorchLevelButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         cameraTorchLevelButton.widthAnchor.constraint(equalTo: cameraTorchLevelButton.heightAnchor, multiplier: 0.75).isActive = true
         
+        //zoom
+        view.addGestureRecognizer(pinchGesture)
+        
+        zoomButton.addTarget(self, action: #selector(self.zoomButtonDidTap), for: .touchUpInside)
+        view.addSubview(zoomButton)
+        
+        zoomButton.translatesAutoresizingMaskIntoConstraints = false
+        zoomButton.centerXAnchor.constraint(equalTo: toolBar.centerXAnchor).isActive = true
+        toolBar.topAnchor.constraint(equalTo: zoomButton.bottomAnchor, constant: 10).isActive = true
+        zoomButton.widthAnchor.constraint(equalToConstant: 44 * 0.75).isActive = true
+        zoomButton.heightAnchor.constraint(equalTo: zoomButton.widthAnchor).isActive = true
+        
         cameraView.configurationDidUpdate = {
             var defaults = MemoCamApp.defaults as? MemoCamAppDefaults
             defaults?.cameraFlashMode = self.cameraView.flashMode
@@ -680,6 +692,30 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.torchLevel = max(0.25, (cameraView.torchLevel + 0.25).truncatingRemainder(dividingBy: 1.25))
         
         UIFeedback.select()
+    }
+    
+    private lazy var zoomButton = ZoomButton()
+    
+    @objc func zoomButtonDidTap() {
+        if cameraView.videoZoomFactor != cameraView.videoMinZoomFactor {
+            cameraView.zoom(cameraView.videoMinZoomFactor)
+            zoomButton.zoomFactor = cameraView.videoMinZoomFactor
+        }
+        else {
+            cameraView.zoom(2)
+            zoomButton.zoomFactor = 2
+        }
+    }
+    
+    private lazy var pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchToZoom))
+    
+    @objc func pinchToZoom(sender: UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            sender.scale = cameraView.videoZoomFactor
+        }
+        
+        cameraView.zoom(sender.scale)
+        zoomButton.zoomFactor = cameraView.videoZoomFactor
     }
     
     internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
