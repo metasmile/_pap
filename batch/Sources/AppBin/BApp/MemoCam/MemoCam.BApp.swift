@@ -574,6 +574,12 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return view
     }()
 
+    fileprivate lazy var cameraWidgetView: UIView = {
+        let view = UIView(frame: .zero)
+        view.clipsToBounds = false
+        return view
+    }()
+
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
         
@@ -599,45 +605,50 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: toolBar.topAnchor).isActive = true
-        
+
+        //Lv.1 Camera
         contentView.addSubview(cameraView)
         cameraView.fitConstraints(to: contentView)
+
+        //Lv.2 Camera Widgets - Zoom, Torch, etc
+        contentView.addSubview(cameraWidgetView)
+        cameraWidgetView.fitConstraints(to: contentView)
         
         let buttonImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         
-        //flash
-        cameraFlashButton.imageEdgeInsets = buttonImageInsets
-        cameraFlashButton.setImage(torchIcon, for: .normal)
-        cameraFlashButton.addTarget(self, action: #selector(self.toggleTorchMode), for: .touchUpInside)
-        view.addSubview(cameraFlashButton)
+        //flash >> cameraWidgetView
+        cameraTorchButton.imageEdgeInsets = buttonImageInsets
+        cameraTorchButton.setImage(torchIcon, for: .normal)
+        cameraTorchButton.addTarget(self, action: #selector(self.toggleTorchMode), for: .touchUpInside)
+        cameraWidgetView.addSubview(cameraTorchButton)
         
-        cameraFlashButton.tintColor = view.colorTheme.tintColor
+        cameraTorchButton.tintColor = view.colorTheme.tintColor
         
-        cameraFlashButton.translatesAutoresizingMaskIntoConstraints = false
-        cameraFlashButton.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor).isActive = true
-        cameraFlashButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
-        cameraFlashButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        cameraFlashButton.widthAnchor.constraint(equalTo: cameraFlashButton.heightAnchor, multiplier: 1).isActive = true
+        cameraTorchButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraTorchButton.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor).isActive = true
+        cameraTorchButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
+        cameraTorchButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraTorchButton.widthAnchor.constraint(equalTo: cameraTorchButton.heightAnchor, multiplier: 1).isActive = true
         
-        // torch level
+        // torch level >> cameraWidgetView
         cameraTorchLevelButton.imageEdgeInsets = buttonImageInsets
         cameraTorchLevelButton.imageView?.contentMode = .scaleAspectFit
         cameraTorchLevelButton.contentHorizontalAlignment = .fill
         cameraTorchLevelButton.contentVerticalAlignment = .fill
         cameraTorchLevelButton.addTarget(self, action: #selector(self.touchLevelButtonDidTap), for: .touchUpInside)
-        view.addSubview(cameraTorchLevelButton)
+        cameraWidgetView.addSubview(cameraTorchLevelButton)
         
         cameraTorchLevelButton.translatesAutoresizingMaskIntoConstraints = false
-        cameraTorchLevelButton.centerYAnchor.constraint(equalTo: cameraFlashButton.centerYAnchor).isActive = true
-        cameraTorchLevelButton.leadingAnchor.constraint(equalTo: cameraFlashButton.trailingAnchor, constant: 0).isActive = true
+        cameraTorchLevelButton.centerYAnchor.constraint(equalTo: cameraTorchButton.centerYAnchor).isActive = true
+        cameraTorchLevelButton.leadingAnchor.constraint(equalTo: cameraTorchButton.trailingAnchor, constant: 0).isActive = true
         cameraTorchLevelButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         cameraTorchLevelButton.widthAnchor.constraint(equalTo: cameraTorchLevelButton.heightAnchor, multiplier: 0.75).isActive = true
         
-        //zoom
+        //zoom >> cameraWidgetView
         view.addGestureRecognizer(pinchGesture)
         
         zoomButton.addTarget(self, action: #selector(self.zoomButtonDidTap), for: .touchUpInside)
-        view.addSubview(zoomButton)
+        cameraWidgetView.addSubview(zoomButton)
         
         zoomButton.translatesAutoresizingMaskIntoConstraints = false
         zoomButton.centerXAnchor.constraint(equalTo: toolBar.centerXAnchor).isActive = true
@@ -653,8 +664,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             }
             
             DispatchQueue.mainAsyncIfNot {
-                self.cameraFlashButton.setImage(self.torchIcon, for: .normal)
-                self.cameraFlashButton.tintColor = self.cameraView.flashMode == .torch ? self.primaryColor : view.colorTheme.tintColor
+                self.cameraTorchButton.setImage(self.torchIcon, for: .normal)
+                self.cameraTorchButton.tintColor = self.cameraView.flashMode == .torch ? self.primaryColor : view.colorTheme.tintColor
                 
                 self.cameraTorchLevelButton.setImage(self.torchLevelIcon(self.cameraView.torchLevel), for: .normal)
                 self.cameraTorchLevelButton.isHidden = self.cameraView.flashMode != .torch
@@ -674,7 +685,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return toolBar
     }()
     
-    private lazy var cameraFlashButton = UIButton(type: .system)
+    private lazy var cameraTorchButton = UIButton(type: .system)
     private lazy var cameraTorchLevelButton = UIButton(type: .system)
     
     private var torchIcon: UIImage{
@@ -997,6 +1008,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.actionButtonDidTap)),
             ], animated: true)
+
+            cameraWidgetView.visible = false
         }
         else {
             toolBar.setItems([
@@ -1006,6 +1019,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)
+
+            cameraWidgetView.visible = true
         }
 
         //INFO: without this line, switchShowAllTexts will disapear
