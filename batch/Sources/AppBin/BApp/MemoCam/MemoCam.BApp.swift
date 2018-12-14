@@ -1,5 +1,5 @@
 //
-//  MemoCam.BApp.swift
+//  MMCMemoCam.BApp.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 7. 17..
@@ -39,7 +39,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
 
     fileprivate static var privateDefaults = MemoCamApp.defaults as! MemoCamAppDefaults
 
-    public static let info = AppInfo(
+    private static let _info = AppInfo(
         identifier: "com.stells.pap.memocam"
         , version: "1.1"
         , phase: .release
@@ -49,6 +49,10 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
             , themeColor: UIColor(red:0.98, green:0.99, blue:0.22, alpha:1), policy: AppPolicy.default
         , minOSVersion: nil
     )
+
+    public static var info:AppInfo{
+        return (self as? SubApp.Type)?.subInfo ?? _info
+    }
 
     public required override init() {}
 

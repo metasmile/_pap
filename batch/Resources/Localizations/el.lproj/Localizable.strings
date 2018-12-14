@@ -158,7 +158,7 @@
 "Access Failed." = "Η πρόσβαση απέτυχε.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Πρόσβαση επετράπη.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Δράση";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Ενέργειες";
@@ -238,9 +238,9 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Δεν είναι δυνατή η επαναφορά. Όλα τα επιλεγμένα στοιχεία δεν έχουν επεξεργαστεί.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Λήψη ενεργειών λήψης.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Καταγράψτε όλο το κείμενο.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Επιλέξτε μια ενέργεια";
@@ -440,7 +440,7 @@
 "Landscape" = "Τοπίο";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Διάταξη";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Περιορισμένη ειδοποίηση απόδοσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Πραγματοποίηση κλήσης";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Μέγιστη ιδιότητα ιδιοκτησίας όλων των εργαλείων";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Πάρτε ένα Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Λήψη με ενσωματωμένη κάμερα";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Αγγίξτε για να ανιχνεύσετε κείμενο";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Στοχοθετημένη";

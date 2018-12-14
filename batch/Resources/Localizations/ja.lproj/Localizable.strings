@@ -158,7 +158,7 @@
 "Access Failed." = "アクセスに失敗しました。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "アクション";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "行動";
@@ -238,9 +238,9 @@
 "Camera" = "カメラ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "目的のアクションをキャプチャする。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "すべてのテキストをキャプチャします。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "アクションを選択";
@@ -440,7 +440,7 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "限定パフォーマンス通知";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
@@ -458,7 +458,7 @@
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "すべてのツール所有者の最大数";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "セルフリーを取る。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "タップしてテキストを検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";

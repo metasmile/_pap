@@ -158,7 +158,7 @@
 "Access Failed." = "Käyttö epäonnistui.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pääsy myönnetty.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Toiminta";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Toimet";
@@ -238,9 +238,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ei voi palata. Kaikki valitut kohteet eivät ole muokattuja.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Tehdä tehtäviä.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Kaappaa kaikki teksti.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Valitse Toimi";
@@ -440,7 +440,7 @@
 "Landscape" = "Maisema";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Rajoitettu suorituskykyilmoitus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Suurin kaikkien työkalujen omistaja";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Viesti meille";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Ota Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Otettu sisäänrakennetulla kameralla";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Napauta tekstin havaitsemiseksi";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "kohdennettu";

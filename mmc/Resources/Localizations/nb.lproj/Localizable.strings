@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ kan bli funnet";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
 "%@/Day" = "%@ / Dag";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Handling";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "handlinger";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Auto Detect på album";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Auto Detection Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Kamera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capture Actions å gjøre.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Choose An Action" = "Velg en handling";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Det kunne ikke lagres.";
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Det krever tillatelse til å få tilgang til kontaktene dine. Vennligst tillat kontakter på iOS-innstillinger.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Begrenset ytelsesmelding";
 /* Generated from genl10n: Finder.BApp.swift */
 "Making A Call" = "Ringe";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Begynner å finne ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starter prosessen ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Trykk på for å oppdage";
 /* Generated from genl10n: Finder.BApp.swift */
 "Text" = "Tekst";

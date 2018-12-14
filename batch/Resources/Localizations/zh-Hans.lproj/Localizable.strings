@@ -158,7 +158,7 @@
 "Access Failed." = "访问失败。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "授予访问权限。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "行动";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "操作";
@@ -238,9 +238,9 @@
 "Camera" = "相机";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "无法恢复。所有选择的项目都没有编辑。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "捕获要执行的操作。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "捕获所有文本。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "选择一个动作";
@@ -440,7 +440,7 @@
 "Landscape" = "景观";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "布局";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "现场照片";
@@ -458,7 +458,7 @@
 "Making A Call" = "打个电话";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "最大所有工具所有权";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "给我们留言";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "自拍吧。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "采用内置摄像头";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "点按即可检测文字";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "目标";

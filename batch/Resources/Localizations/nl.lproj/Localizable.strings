@@ -158,7 +158,7 @@
 "Access Failed." = "Toegang mislukt.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Toegang verleend.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Actie";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "acties";
@@ -238,9 +238,9 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan niet terugkeren. Alle geselecteerde items zijn niet bewerkt.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capture Actions To Do.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Kies een actie";
@@ -440,7 +440,7 @@
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Lay-out";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Beperkte prestatiemelding";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live foto";
@@ -458,7 +458,7 @@
 "Making A Call" = "Een telefoontje plegen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximaal eigendom van alle tools";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bericht aan ons";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Maak een selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Genomen met ingebouwde camera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Tik om tekst te detecteren";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Gerichte";

@@ -158,7 +158,7 @@
 "Access Failed." = "การเข้าถึงล้มเหลว";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "การเข้าถึงที่ได้รับ";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "การกระทำ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "การปฏิบัติ";
@@ -238,9 +238,9 @@
 "Camera" = "กล้อง";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "ไม่สามารถย้อนกลับได้ รายการที่เลือกทั้งหมดยังไม่ได้แก้ไข";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "จับภาพการกระทำที่ต้องทำ";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "จับภาพข้อความทั้งหมด";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "เลือกการกระทำ";
@@ -440,7 +440,7 @@
 "Landscape" = "ภูมิประเทศ";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "แบบ";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "ประกาศผลการดำเนินงานที่ จำกัด";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "การโทรออก";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "ความเป็นเจ้าของเครื่องมือทั้งหมดได้สูงสุด";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "ข้อความถึงเรา";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "ใช้ Selfie";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "ถ่ายด้วยกล้องในตัว";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "แตะเพื่อตรวจหาข้อความ";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "เป้าหมาย";

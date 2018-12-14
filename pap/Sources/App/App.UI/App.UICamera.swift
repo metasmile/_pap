@@ -20,6 +20,43 @@ protocol AppUICameraOptions {
     var cameraTorchLevel: Float { get set }
 }
 
+extension Defaults: AppUICameraOptions {
+    var isLivePhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var isRawPhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var isDepthPhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var cameraPosition: AVCaptureDevice.Position {
+        set { set(newValue.rawValue); }
+        get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
+    }
+
+    var cameraFlashMode: UICamera.FlashMode {
+        set { set(newValue.rawValue); }
+        get { return UICamera.FlashMode(rawValue: get(or: UICamera.FlashMode.off.rawValue)) ?? .off }
+    }
+
+    var isUsingLocation: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var cameraTorchLevel: Float {
+        set { set(newValue); }
+        get { return get(or: 1) }
+    }
+}
+
 class AppUICamera: UIView {
 
     lazy var cameraView: UICamera = {

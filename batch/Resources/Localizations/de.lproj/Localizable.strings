@@ -158,7 +158,7 @@
 "Access Failed." = "Zugriff fehlgeschlagen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Zugriff gewährt.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Aktion";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Aktionen";
@@ -238,9 +238,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kann nicht zurückgesetzt werden. Alle ausgewählten Objekte wurden nicht bearbeitet.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Erfassen Sie die zu erledigenden Aktionen.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Erfassen Sie den gesamten Text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Wähle eine Aktion";
@@ -440,7 +440,7 @@
 "Landscape" = "Landschaft";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Eingeschränkte Leistungserklärung";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live-Foto";
@@ -458,7 +458,7 @@
 "Making A Call" = "Einen Anruf tätigen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximaler Besitz aller Tools";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Nachricht an uns";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Ein Selfie machen.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Genommen mit eingebauter Kamera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Tippen Sie hier, um Text zu erkennen";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Gezielt";

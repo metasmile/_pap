@@ -209,6 +209,7 @@
 		4F71D3332E5CB7DCCF562C0F /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */; };
 		4F71D3362819557F5F4E26D0 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36830BF8CE04179FDE1 /* AssetView.swift */; };
 		4F71D337A1FFF210663EAE2E /* batch.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2F70D136A7E7B13C068 /* batch.ExternalDelegate.swift */; };
+		4F71D338D70F6C20DDFCE9B3 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
 		4F71D33BBAD23E5407CA228D /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA85C98EDB773862B2DF /* GADManager.swift */; };
 		4F71D33C44BAD9C45F5E9761 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71D343B187B7D005497512 /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
@@ -327,6 +328,7 @@
 		4F71D4D5B8C813D0D64D002D /* AppCenter.Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2B33CCE4070AC95E760 /* AppCenter.Charge.swift */; };
 		4F71D4DA1AFE1FBFC45A1741 /* DepthImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9DE52FC61D1ADD4ECDF /* DepthImageFilters.swift */; };
 		4F71D4DC97271DBFEEB2CE67 /* UITableViewCellDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D909447030FE71C5E223 /* UITableViewCellDescribable.swift */; };
+		4F71D4DF49484C0FD577E66A /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
 		4F71D4E0FE6C76E7A915DCEA /* AppTaskPrototype.DefaultRestrictedConcurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7461275B4916DCBF64F /* AppTaskPrototype.DefaultRestrictedConcurrency.swift */; };
 		4F71D4E44380F2EE2D485085 /* auto_redeye.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D0B5B9C7A1BF5C847D5C /* auto_redeye.png */; };
 		4F71D4E4D25FB47C4CD87D31 /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
@@ -374,6 +376,7 @@
 		4F71D56F8412CC0DD9E4C17E /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
 		4F71D57535B70AB17146F395 /* UITableViewCellDescribable.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0D481D4E3B81DE6AF5C /* UITableViewCellDescribable.UITableView.swift */; };
 		4F71D577FF669F8164DB2E2B /* AppColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DCBDA1A260F73B72E66D /* AppColorTheme.swift */; };
+		4F71D57858083C79B6E87D3C /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
 		4F71D582AAF510BFCECFCF92 /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
 		4F71D58651D27B5A0E938B12 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */; };
 		4F71D58A8625A1D2DBF7DFF6 /* sap.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D653E85ACF39126C595A /* sap.entitlements */; };
@@ -507,6 +510,7 @@
 		4F71D7B5AF60129B4664EC82 /* VisionBarcodeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFDEABCC02B557BB9FC4 /* VisionBarcodeDetector.swift */; };
 		4F71D7C095B203A23D05C0D3 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE09168585F4CB1016B0 /* FloatingView.swift */; };
 		4F71D7CEC39FAFE958F06E35 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDD9E77AA19B60BF026A /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */; };
+		4F71D7CF083147437588DB51 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39721978958003031D5 /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
 		4F71D7D48929F5D482C90E4C /* FirebaseMLVision.VisionText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB11FC7217647C549E54 /* FirebaseMLVision.VisionText.Parser.swift */; };
 		4F71D7D5690F67169C70F5BD /* Shop.Payment.SocialShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEF9C1F3CBBBB44D9068 /* Shop.Payment.SocialShare.swift */; };
 		4F71D7D79E9F32E12AD8A35F /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC8D5DF259CEB1A88B0B /* CodeKit.UIView.UIActivityIndicatorView.swift */; };
@@ -899,6 +903,7 @@
 		4F71DE7F667EEF4BE3706B6D /* CodeKit.Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE872A02AD13D7B4CD68 /* CodeKit.Data.swift */; };
 		4F71DE81915BE2A3B2D9CCA7 /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB03EF9DFA1146A969B7 /* AppTaskOperationQueue.swift */; };
 		4F71DE8744F6106FC907605A /* Charge.Banker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D49B6524354B4BE1C753 /* Charge.Banker.swift */; };
+		4F71DE8A5FBE1B7A7408BE74 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
 		4F71DE90C69B6A399A8D89C3 /* CodeKit.UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */; };
 		4F71DE9508B2FF53233980CC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71DE9F79D0FED25BC0A3C9 /* AppDockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0938AB0B1C4B56F5E78 /* AppDockViewController.swift */; };
@@ -944,6 +949,7 @@
 		4F71DF64271F47E2CAA5A6A0 /* CodeKit.UIImage.Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5AF9138C126E59D8722 /* CodeKit.UIImage.Transform.swift */; };
 		4F71DF651634E1D3649B9E49 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC3C23984D76DB9A008 /* PhotoAlbumViewController.swift */; };
 		4F71DF65F2CE98C05B8BA180 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA63EF0D1658753F49C /* Version.swift */; };
+		4F71DF66964043DC515FF322 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
 		4F71DF70B235E3FC4625DEC3 /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D384FBE7F6296632B1BF /* UICamera.swift */; };
 		4F71DF72C9C0EA7D56E9587D /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */; };
 		4F71DF74B11E4FF072F60BC9 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
@@ -1025,9 +1031,8 @@
 		A00FDE34218235EF005EAD1B /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */; };
 		A00FDE35218235EF005EAD1B /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */; };
 		A00FDE36218235EF005EAD1B /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */; };
-		A00FDE37218235EF005EAD1B /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MemoCam.BApp.Assets.xcassets */; };
-		A00FDE38218235EF005EAD1B /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MemoCam.BApp.swift */; };
-		A00FDE39218235EF005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD41218235EE005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
+		A00FDE37218235EF005EAD1B /* MMCMemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */; };
+		A00FDE38218235EF005EAD1B /* MMCMemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */; };
 		A00FDE3A218235EF005EAD1B /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD42218235EE005EAD1B /* BApp.swift */; };
 		A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
 		A02389D1219043750039F398 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02389CF219043750039F398 /* Finder.BApp.swift */; };
@@ -1724,10 +1729,9 @@
 		A0CB02B3219DE4F2007A5278 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A00FDC24218235EE005EAD1B /* Intents.intentdefinition */; };
 		A0CB02B4219DE4F2007A5278 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD38218235EE005EAD1B /* Siri.SApp.swift */; };
 		A0CB02B5219DE4F2007A5278 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
-		A0CB02B6219DE4F2007A5278 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD41218235EE005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift */; };
 		A0CB02B7219DE4F2007A5278 /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD42218235EE005EAD1B /* BApp.swift */; };
 		A0CB02B8219DE4F2007A5278 /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */; };
-		A0CB02B9219DE4F2007A5278 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MemoCam.BApp.swift */; };
+		A0CB02B9219DE4F2007A5278 /* MMCMemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */; };
 		A0CB02BA219DE4F2007A5278 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */; };
 		A0CB02BB219DE4F2007A5278 /* SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD35218235EE005EAD1B /* SApp.swift */; };
 		A0CB02BC219DE4F2007A5278 /* mmc.Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0C1B54DC1A482C13675 /* mmc.Strings.swift */; };
@@ -1940,7 +1944,7 @@
 		A0CB038D219DE4F2007A5278 /* Pods_mmc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */; };
 		A0CB0390219DE4F2007A5278 /* Intents.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC12218235EE005EAD1B /* Intents.strings */; };
 		A0CB0391219DE4F2007A5278 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEA218235EE005EAD1B /* Localizable.strings */; };
-		A0CB0392219DE4F2007A5278 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MemoCam.BApp.Assets.xcassets */; };
+		A0CB0392219DE4F2007A5278 /* MMCMemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */; };
 		A0CB0393219DE4F2007A5278 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */; };
 		A0CB0394219DE4F2007A5278 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC10218235EE005EAD1B /* Launch Screen.storyboard */; };
 		A0CB0395219DE4F2007A5278 /* Intents.strings.deleted in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEC218235EE005EAD1B /* Intents.strings.deleted */; };
@@ -2671,9 +2675,8 @@
 		A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Macro.AutoSelection.swift; sourceTree = "<group>"; };
 		A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finder.BApp.swift; sourceTree = "<group>"; };
 		A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		A00FDD3F218235EE005EAD1B /* MemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		A00FDD40218235EE005EAD1B /* MemoCam.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.swift; sourceTree = "<group>"; };
-		A00FDD41218235EE005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCam.BApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
+		A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MMCMemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
+		A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMCMemoCam.BApp.swift; sourceTree = "<group>"; };
 		A00FDD42218235EE005EAD1B /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
 		A00FDD46218235EE005EAD1B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A00FDD47218235EE005EAD1B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -3938,7 +3941,7 @@
 			children = (
 				A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */,
 				A00FDD3B218235EE005EAD1B /* Finder */,
-				A00FDD3E218235EE005EAD1B /* MemoCam */,
+				A00FDD3E218235EE005EAD1B /* MMCMemoCam */,
 				A00FDD42218235EE005EAD1B /* BApp.swift */,
 			);
 			path = BApp;
@@ -3953,14 +3956,13 @@
 			path = Finder;
 			sourceTree = "<group>";
 		};
-		A00FDD3E218235EE005EAD1B /* MemoCam */ = {
+		A00FDD3E218235EE005EAD1B /* MMCMemoCam */ = {
 			isa = PBXGroup;
 			children = (
-				A00FDD3F218235EE005EAD1B /* MemoCam.BApp.Assets.xcassets */,
-				A00FDD40218235EE005EAD1B /* MemoCam.BApp.swift */,
-				A00FDD41218235EE005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift */,
+				A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */,
+				A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */,
 			);
-			path = MemoCam;
+			path = MMCMemoCam;
 			sourceTree = "<group>";
 		};
 		A02389CE219043750039F398 /* Finder */ = {
@@ -4680,7 +4682,7 @@
 				A00FDD56218235EE005EAD1B /* GoogleService-Info.plist in Resources */,
 				A00FDD52218235EE005EAD1B /* Intents.strings in Resources */,
 				A00FDD4E218235EE005EAD1B /* Localizable.strings in Resources */,
-				A00FDE37218235EF005EAD1B /* MemoCam.BApp.Assets.xcassets in Resources */,
+				A00FDE37218235EF005EAD1B /* MMCMemoCam.BApp.Assets.xcassets in Resources */,
 				A00FDE36218235EF005EAD1B /* Finder.BApp.Assets.xcassets in Resources */,
 				A00FDD51218235EE005EAD1B /* Launch Screen.storyboard in Resources */,
 				A00FDD4F218235EE005EAD1B /* Intents.strings.deleted in Resources */,
@@ -4700,6 +4702,7 @@
 				4F71D9818AF432C8E1C5CF79 /* cell_icon_pano.png in Resources */,
 				4F71DE7872248B539E99FE2C /* cell_icon_favorite.png in Resources */,
 				4F71D326E44E89221407C2DC /* cell_icon_gif.png in Resources */,
+				4F71D57858083C79B6E87D3C /* MemoCam.BApp.Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4883,7 +4886,7 @@
 			files = (
 				A0CB0390219DE4F2007A5278 /* Intents.strings in Resources */,
 				A0CB0391219DE4F2007A5278 /* Localizable.strings in Resources */,
-				A0CB0392219DE4F2007A5278 /* MemoCam.BApp.Assets.xcassets in Resources */,
+				A0CB0392219DE4F2007A5278 /* MMCMemoCam.BApp.Assets.xcassets in Resources */,
 				A0CB0393219DE4F2007A5278 /* Finder.BApp.Assets.xcassets in Resources */,
 				A0CB0394219DE4F2007A5278 /* Launch Screen.storyboard in Resources */,
 				A0CB0395219DE4F2007A5278 /* Intents.strings.deleted in Resources */,
@@ -4905,6 +4908,7 @@
 				A0CB03A5219DE4F2007A5278 /* cell_icon_gif.png in Resources */,
 				4F71D20F187FEC7A01C2054D /* ocra.entitlements in Resources */,
 				4F71DAB7EB4BACBA54CFA0A5 /* GoogleService-Info.plist in Resources */,
+				4F71DF66964043DC515FF322 /* MemoCam.BApp.Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5878,10 +5882,9 @@
 				A00FDD53218235EE005EAD1B /* Intents.intentdefinition in Sources */,
 				A00FDE33218235EF005EAD1B /* Siri.SApp.swift in Sources */,
 				A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */,
-				A00FDE39218235EF005EAD1B /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				A00FDE3A218235EF005EAD1B /* BApp.swift in Sources */,
 				A00FDE34218235EF005EAD1B /* BApp.Macro.AutoSelection.swift in Sources */,
-				A00FDE38218235EF005EAD1B /* MemoCam.BApp.swift in Sources */,
+				A00FDE38218235EF005EAD1B /* MMCMemoCam.BApp.swift in Sources */,
 				A00FDE35218235EF005EAD1B /* Finder.BApp.swift in Sources */,
 				A00FDE31218235EF005EAD1B /* SApp.swift in Sources */,
 				4F71D14627DF2F9CC481777F /* mmc.Strings.swift in Sources */,
@@ -6096,6 +6099,8 @@
 				4F71DB871F9EC13172B2941A /* AppDelegate.swift in Sources */,
 				4F71D40F7B2BFAF0803EC833 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
 				4F71DEC5BB8E338BE46327B8 /* CodeKit.UIScrollView.swift in Sources */,
+				4F71DE8A5FBE1B7A7408BE74 /* MemoCam.BApp.swift in Sources */,
+				4F71D7CF083147437588DB51 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6414,10 +6419,9 @@
 				A0CB02B4219DE4F2007A5278 /* Siri.SApp.swift in Sources */,
 				A0CB02B5219DE4F2007A5278 /* R.generated.swift in Sources */,
 				5120EC0121B9D248001D8696 /* AppLocationManager.swift in Sources */,
-				A0CB02B6219DE4F2007A5278 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 				A0CB02B7219DE4F2007A5278 /* BApp.swift in Sources */,
 				A0CB02B8219DE4F2007A5278 /* BApp.Macro.AutoSelection.swift in Sources */,
-				A0CB02B9219DE4F2007A5278 /* MemoCam.BApp.swift in Sources */,
+				A0CB02B9219DE4F2007A5278 /* MMCMemoCam.BApp.swift in Sources */,
 				A0CB02BA219DE4F2007A5278 /* Finder.BApp.swift in Sources */,
 				A0CB02BB219DE4F2007A5278 /* SApp.swift in Sources */,
 				A0CB02BC219DE4F2007A5278 /* mmc.Strings.swift in Sources */,
@@ -6632,6 +6636,8 @@
 				4F71D996E6468EA91AF62748 /* GADManager.swift in Sources */,
 				4F71DDE97AAB65E033999645 /* FirebaseMLVision.VisionLabelDetectResult.swift in Sources */,
 				4F71D61A275DA46644E601F7 /* CodeKit.UIScrollView.swift in Sources */,
+				4F71D4DF49484C0FD577E66A /* MemoCam.BApp.swift in Sources */,
+				4F71D338D70F6C20DDFCE9B3 /* MemoCam.BApp.Launchable.OptionsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

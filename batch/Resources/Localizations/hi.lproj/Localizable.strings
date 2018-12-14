@@ -158,7 +158,7 @@
 "Access Failed." = "एक्सेस विफल";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "प्रवेश करने की अनुमति है।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "कार्य";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "क्रिया";
@@ -238,9 +238,9 @@
 "Camera" = "कैमरा";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "वापस नहीं जा सकता सभी चयनित आइटम संपादित नहीं किए गए हैं।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "करने के लिए कार्रवाई कैप्चर करें।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "सभी पाठ कैप्चर करें।";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "एक एक्शन चुनें";
@@ -440,7 +440,7 @@
 "Landscape" = "परिदृश्य";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "ख़ाका";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "सीमित प्रदर्शन सूचना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "लाइव फोटो";
@@ -458,7 +458,7 @@
 "Making A Call" = "एक फोन करना";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "अधिकतम सभी उपकरण स्वामित्व";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "हमें संदेश";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "एक स्वफ़ोटो ले।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "अंतर्निहित कैमरा के साथ लिया गया";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "पाठ का पता लगाने के लिए टैप करें";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "लक्षित";

@@ -158,7 +158,7 @@
 "Access Failed." = "Prístup zlyhal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Prístup povolený.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "akčné";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Akcia";
@@ -238,9 +238,9 @@
 "Camera" = "fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nemožno sa vrátiť späť. Všetky vybraté položky neboli upravené.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Zachyťte akcie, ktoré chcete urobiť.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Zachytiť celý text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Vyberte položku Akcia";
@@ -440,7 +440,7 @@
 "Landscape" = "krajina";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "dispozície";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Oznámenie o obmedzenej výkonnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Uskutočnenie hovoru";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximálne vlastníctvo všetkých nástrojov";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Správa nám";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Vezmite si Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Prijaté so zabudovanou kamerou";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Klepnutím môžete odhaliť text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "cielená";

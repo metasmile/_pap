@@ -158,7 +158,7 @@
 "Access Failed." = "액세스가 실패했습니다.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "액세스가 허가되었습니다.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "동작";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "행위";
@@ -238,9 +238,9 @@
 "Camera" = "카메라";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "되돌릴 수 없습니다. 선택한 모든 항목이 편집되지 않았습니다.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "할 일을 잡아라.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "모든 텍스트 캡처.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "액션 선택";
@@ -440,7 +440,7 @@
 "Landscape" = "가로";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "제한된 성능 공지";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
@@ -458,7 +458,7 @@
 "Making A Call" = "전화 걸기";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "최대 모든 도구 소유권";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "메모 캠";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "우리에게 보내는 메시지";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "셀카 찍기.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "내장 카메라로 찍음";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "탭하여 텍스트 감지";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "타겟팅 됨";

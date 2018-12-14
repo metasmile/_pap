@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ saattaa löytyä";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Päivä";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Toiminta";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Toimet";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Automaattinen tunnistus albumeissa";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Auto Detection Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Kamera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Tehdä tehtäviä.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Kaappaa kaikki teksti.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Valitse Toimi";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Sitä ei voitu tallentaa.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Se edellyttää lupaa käyttää yhteystietoja. Ota Yhteystietoja iOS-asetuksissa.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Rajoitettu suorituskykyilmoitus";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Aloittaminen löytää ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Prosessin käynnistäminen ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Napauta tunnistaaksesi";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Teksti";

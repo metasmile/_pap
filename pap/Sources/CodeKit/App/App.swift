@@ -15,6 +15,11 @@ public protocol App {
     static var group: AppGroup {get}
 }
 
+public protocol SubApp {
+
+    static var subInfo: AppInfo { get }
+}
+
 extension App{
 
     public static var group: AppGroup {

@@ -158,7 +158,7 @@
 "Access Failed." = "Akses Gagal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Akses Diberikan.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Tindakan";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Tindakan";
@@ -238,9 +238,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Tindakan Menangkap Tindakan.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Tangkap Semua Teks.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Pilih Tindakan";
@@ -440,7 +440,7 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Notis Prestasi Terhad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Membuat Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimum Kepemilikan Alat Semua";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Ambil Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Terbina Dalam";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Ketik untuk mengesan teks";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Disasarkan";

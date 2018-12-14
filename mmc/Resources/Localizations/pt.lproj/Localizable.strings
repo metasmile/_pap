@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ pode ser encontrado";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Dia";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Açao";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Ações";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Detecção automática em álbuns";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Auto Detection Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Câmera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capturar ações para fazer.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capture todo o texto.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Escolha uma ação";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Não pôde ser armazenado.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requer permissão para acessar seus contatos. Por favor, permita contatos em configurações do iOS.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Aviso de desempenho limitado";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fazer uma chamada";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Começando a encontrar ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Começando o processo ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Toque para detectar";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Texto";

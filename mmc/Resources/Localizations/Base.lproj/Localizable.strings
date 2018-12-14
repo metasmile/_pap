@@ -90,8 +90,6 @@
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: Charge.Types.StoreKit.swift */
 "%@/Day" = "%@/Day";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Action" = "Action";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Actions";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -110,15 +108,11 @@
 "Auto Detect on Albums" = "Auto Detect on Albums";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Auto Detection Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Camera";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture Actions To Do." = "Capture Actions To Do.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Action" = "Choose An Action";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";
@@ -136,7 +130,7 @@
 "Create" = "Create";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Currency Exchange" = "Currency Exchange";
-/* Generated from genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionText.Parser.Types.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Date" = "Date";
@@ -170,11 +164,9 @@
 "It could not be stored." = "It could not be stored.";
 /* Generated from genl10n: CodeKit.Contacts.swift */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "It requires a permission to access your contacts. Please allow Contacts on iOS Settings.";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Limited Performance Notice" = "Limited Performance Notice";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
@@ -208,9 +200,9 @@
 "Purchase" = "Purchase";
 /* Generated from genl10n: Finder.BApp.swift */
 "Save Contacts" = "Save Contacts";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save and Share" = "Save and Share";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
@@ -226,7 +218,7 @@
 "Select Photos To Find Something." = "Select Photos To Find Something.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Send an Email" = "Send an Email";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Share" = "Share";
 /* Generated from genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
@@ -236,9 +228,7 @@
 "Starting To Find ..." = "Starting To Find ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Starting the Process...";
-/* Generated from genl10n: MemoCam.BApp.swift */
-"Tap To Detect" = "Tap To Detect";
-/* Generated from genl10n: MemoCam.BApp.swift, Finder.BApp.swift */
+/* Generated from genl10n: Finder.BApp.swift */
 "Text" = "Text";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
 "Translate Now" = "Translate Now";

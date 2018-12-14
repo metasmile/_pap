@@ -158,7 +158,7 @@
 "Access Failed." = "Erişim Başarısız.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Erişim izni.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Aksiyon";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Eylemler";
@@ -238,9 +238,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Geri alınamaz. Seçilen tüm öğeler düzenlenmedi.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Yapılacaklar İçin Yakalama Eylemleri.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Tüm metni yakala.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Bir Eylem Seç";
@@ -440,7 +440,7 @@
 "Landscape" = "peyzaj";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "düzen";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Sınırlı Performans Uyarısı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Arama yapmak";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimum Tüm Araçlar Mülkiyeti";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bize Mesaj";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Bir Selfie al.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Dahili Kamera ile Çekildi";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Metni algılamak için dokunun";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Hedeflenen";

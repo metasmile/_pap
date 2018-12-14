@@ -158,7 +158,7 @@
 "Access Failed." = "L'accés ha fallat.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Accés garantit.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Acció";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Accions";
@@ -238,9 +238,9 @@
 "Camera" = "Càmera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "No es pot tornar. No s'han editat tots els elements seleccionats.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Captura d'accions a fer.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Captura tot el text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Trieu una acció";
@@ -440,7 +440,7 @@
 "Landscape" = "Paisatge";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Disseny";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Avís de rendiment limitat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Fer una trucada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Màxim propietat de totes les eines";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Missatge per a nosaltres";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Prengui un Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Presa amb càmera incorporada";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Toca per detectar text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Orientat";

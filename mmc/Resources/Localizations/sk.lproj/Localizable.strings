@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ možno nájsť";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Deň";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "akčné";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Akcia";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Automatická detekcia albumov";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Automatická detekcia Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "fotoaparát";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Zachyťte akcie, ktoré chcete urobiť.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Zachytiť celý text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Vyberte položku Akcia";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Nemohol byť uložený.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Vyžaduje si povolenie na prístup k vašim kontaktom. Povoľte Kontakty v nastaveniach systému iOS.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Oznámenie o obmedzenej výkonnosti";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Uskutočnenie hovoru";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Začíname nájsť ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Spustenie procesu ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Klepnite na položku Rozpoznať";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "text";

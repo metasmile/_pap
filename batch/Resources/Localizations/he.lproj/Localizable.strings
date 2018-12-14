@@ -158,7 +158,7 @@
 "Access Failed." = "הגישה נכשלה.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "כניסה מורשית.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "פעולה";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "פעולות";
@@ -238,9 +238,9 @@
 "Camera" = "מַצלֵמָה";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "לא ניתן לחזור. כל הפריטים שנבחרו לא נערכו.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "לכוד פעולות לביצוע";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "לכוד את כל הטקסט.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "בחר פעולה";
@@ -440,7 +440,7 @@
 "Landscape" = "נוֹף";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "מַעֲרָך";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "הודעת ביצועים מוגבלת";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "להתקשר";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "מקסימום כל כלי בעלות";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "זיכרון";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "צלם סלפי.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "עם מצלמה מובנית";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "הקש כדי לזהות טקסט";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ממוקד";

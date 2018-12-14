@@ -158,7 +158,7 @@
 "Access Failed." = "فشل الوصول.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "لقد تم منح الوصول.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "عمل";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "أفعال";
@@ -238,9 +238,9 @@
 "Camera" = "الة تصوير";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "لا يمكن التراجع. جميع العناصر المحددة لم يتم تحريرها.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "التقاط الإجراءات الواجب تنفيذها.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "القبض على كل النص.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "اختيار إجراء";
@@ -440,7 +440,7 @@
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "نسق";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "إشعار الأداء المحدود";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "إجراء مكالمة";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "الحد الأقصى لجميع ملكية الأدوات";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "رسالة لنا";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "خذ سيلفي.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "تؤخذ مع كاميرا مدمجة";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "اضغط للكشف عن النص";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "المستهدفة";

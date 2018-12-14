@@ -158,7 +158,7 @@
 "Access Failed." = "Accesul a eșuat.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Acces permis.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Acțiune";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "acţiuni";
@@ -238,9 +238,9 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nu se poate reveni. Toate elementele selectate nu au fost editate.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capturați acțiunile de făcut.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capturează tot textul.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Alegeți o acțiune";
@@ -440,7 +440,7 @@
 "Landscape" = "Peisaj";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "schemă";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Notificare privind performanța limitată";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -458,7 +458,7 @@
 "Making A Call" = "Efectuarea unui apel";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Proprietatea maximă a tuturor instrumentelor";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesaj către noi";
@@ -730,7 +730,7 @@
 "Take a Selfie." = "Ia-ți un autocolant.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Luat cu camera încorporată";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Apăsați pentru a detecta textul";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Vizate";
