@@ -41,7 +41,7 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
 
     public static let info = AppInfo(
         identifier: "com.stells.pap.memocam"
-        , version: "1.0"
+        , version: "1.1"
         , phase: .release
         , appType: MemoCamApp.self
         , displayName: "MemoCam".localized, description:nil, keywords:nil
