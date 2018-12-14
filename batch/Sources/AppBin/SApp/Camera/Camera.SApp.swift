@@ -13,12 +13,12 @@ import PhotosUI
 import PropertyKit
 import Intents
 
-private protocol CameraAppDefaults: AppDefaults, AppUICameraOptions {}
-
 class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {
     public static let taskType: AppTaskable.Type = _CameraAppTask.self
     
     public static let paramType: AppTaskParamable.Type = AppAsset.self
+
+    fileprivate static var privateDefaults = CameraApp.defaults as! (AppDefaults & AppUICameraOptions)
     
     public private(set) lazy var content: AppDockContent? = CameraAppDockContent()
     
@@ -164,7 +164,7 @@ class CameraAppView: AppUICamera {}
 
 fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
-        return CameraAppView(frame: .zero, options:CameraApp.defaults as! CameraAppDefaults)
+        return CameraAppView(frame: .zero, options:CameraApp.privateDefaults)
     }()
 
     private var cameraView: UICamera? {

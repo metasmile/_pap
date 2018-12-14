@@ -21,7 +21,8 @@ protocol AppUICameraOptions {
     var cameraTorchLevel: Float { get set }
 }
 
-extension PropertyDefaults where Self:AppUICameraOptions, Self:Defaults {
+extension PropertyDefaults where Self:AppUICameraOptions{}
+extension Defaults: AppUICameraOptions{
     var isLivePhotoEnabled: Bool {
         set { set(newValue);  }
         get { return get(or: false) }
