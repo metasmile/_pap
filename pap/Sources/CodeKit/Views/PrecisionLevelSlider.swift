@@ -281,7 +281,7 @@ open class PrecisionLevelSlider: UIControl {
     private var previousScrollPosition: CGPoint = .zero
 
     var bezierValue: Float {
-        let bezier = CubicBezier.easeInExpo
+        let bezier = CubicBezier.Cubic.easeOut
         
         let min = valueToOffset(value: minimumValue).x
         let d = valueToOffset(value: defaultValue).x
@@ -308,73 +308,6 @@ open class PrecisionLevelSlider: UIControl {
         
         return value(with: CGPoint(x: offsetX, y: 0))
     }
-}
-
-fileprivate struct CubicBezier {
-    // http://www.paulwrightapps.com/blog/2014/9/4/finding-the-position-and-angle-of-points-along-a-bezier-curve-on-ios
-
-    // cubic bezier control points
-    private(set) var c0 = CGPoint.zero
-    private(set) var c1 = CGPoint.zero
-    private(set) var c2 = CGPoint.zero
-    private(set) var c3 = CGPoint.zero
-
-    // cubic bezier polynomial coefficients
-    var p0: CGPoint {
-        let x = c3.x - 3 * c2.x + 3 * c1.x - c0.x
-        let y = c3.y - 3 * c2.y + 3 * c1.y - c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p1: CGPoint {
-        let x = 3 * c2.x - 6 * c1.x + 3 * c0.x
-        let y = 3 * c2.y - 6 * c1.y + 3 * c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p2: CGPoint {
-        let x = 3 * c2.x - 6 * c1.x + 3 * c0.x
-        let y = 3 * c2.y - 6 * c1.y + 3 * c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p3: CGPoint {
-        return c0
-    }
-
-    init(from c0: CGPoint, controlPoint1 c1: CGPoint, controlPoint2 c2: CGPoint, to c3: CGPoint) {
-        self.c0 = c0
-        self.c1 = c1
-        self.c2 = c2
-        self.c3 = c3
-    }
-
-    init(controlPoints c1: CGPoint, _ c2: CGPoint) {
-        self.init(from: .zero, controlPoint1: c1, controlPoint2: c2, to: CGPoint(x: 1, y: 1))
-    }
-
-    init(controlPoints c1x: CGFloat, _ c1y: CGFloat, _ c2x: CGFloat, _ c2y: CGFloat) {
-        self.init(controlPoints: CGPoint(x: c1x, y: c1y), CGPoint(x: c2x, y: c2y))
-    }
-
-    func x(at t: CGFloat) -> CGFloat {
-        return ((p0.x * t + p1.x) * t + p2.x) * t + p3.x
-    }
-
-    func y(at t: CGFloat) -> CGFloat {
-        return ((p0.y * t + p1.y) * t + p2.y) * t + p3.y
-    }
-
-    func point(at t: CGFloat) -> CGPoint {
-        return CGPoint(x: x(at: t), y: y(at: t))
-    }
-
-    func angle(at t: CGFloat) -> CGFloat {
-        let dxdt = 3 * p0.x * t * t + 2 * p1.x * t + p2.x
-        let dydt = 3 * p0.y * t * t + 2 * p1.y * t + p2.y
-        return atan2(dydt, dxdt)
-    }
-}
-
-extension CubicBezier {
-    static let easeInExpo = CubicBezier(controlPoints: CGPoint(x: 0.95, y: 0.05), CGPoint(x: 0.795, y: 0.35))
 }
 
 extension PrecisionLevelSlider {

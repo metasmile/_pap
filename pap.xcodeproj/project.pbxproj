@@ -982,6 +982,12 @@
 		4F71DFF5CFD38F28C81B3087 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71DFFB991A43E5830B9081 /* App.Chargeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D448194D99CD49CBD3B6 /* App.Chargeable.swift */; };
 		4F71DFFEB73559A41CAB1253 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3D65614CA366512179C /* ActionViewController.swift */; };
+		510C5AA621C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AA721C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AA821C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AA921C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AAA21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AAB21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
 		5114401221A775B2008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
@@ -2572,6 +2578,7 @@
 		4F71DFE6F7AD720DACF7CAEB /* AutoEditor.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEditor.BApp.swift; sourceTree = "<group>"; };
 		4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
+		510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CubicBezier.swift; sourceTree = "<group>"; };
 		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
 		5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Adjustments.BApp.Shaders.metal; sourceTree = "<group>"; };
@@ -3611,6 +3618,7 @@
 				511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */,
 				4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */,
 				4F71D0BCC7EB4DF7DC229747 /* CodeKit.CVPixelBuffer.swift */,
+				510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -5689,6 +5697,7 @@
 				4F71D612923F3E7D07291F2F /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71D9121D86F7E3ADB42D5B /* Charge.Types.swift in Sources */,
 				4F71DE18B2D411F3B33D639E /* Charge.Banker.swift in Sources */,
+				510C5AA621C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				4F71D398E49F216CAF325CAA /* Charge.Manager.swift in Sources */,
 				4F71DFDC5CD666359BE3BB4A /* Charge.Manager.Macro.swift in Sources */,
 				4F71D66B234FFCB97A90C0E1 /* Charge.Objects.Amount.swift in Sources */,
@@ -5983,6 +5992,7 @@
 				4F71D48492B5B247EEDAA5B5 /* UITableViewCellDescribable.UITableView.swift in Sources */,
 				4F71DDAC82E75BF4D9E30F46 /* CodeKit.UITableView.swift in Sources */,
 				4F71DA2072D5302EF0933672 /* CodeKit.UITableViewCell.swift in Sources */,
+				510C5AA721C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				511577D021A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */,
 				4F71D36DFA6693B2270D6684 /* CodeKit.UITableViewController.swift in Sources */,
 				4F71DA406146B2EC47015072 /* CodeKit.Bundle.swift in Sources */,
@@ -6225,6 +6235,7 @@
 				A0CB01A9219C9093007A5278 /* Charge.Types.swift in Sources */,
 				A0CB01AA219C9093007A5278 /* Charge.Banker.swift in Sources */,
 				A0CB01AB219C9093007A5278 /* Charge.Manager.swift in Sources */,
+				510C5AAA21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				A0CB01AC219C9093007A5278 /* Charge.Manager.Macro.swift in Sources */,
 				A0CB01AD219C9093007A5278 /* Charge.Objects.Amount.swift in Sources */,
 				A0CB01AE219C9093007A5278 /* Charge.Types.StoreKit.swift in Sources */,
@@ -6490,6 +6501,7 @@
 				A0CB02FC219DE4F2007A5278 /* ImageIO.Metadata.Util.swift in Sources */,
 				A0CB02FD219DE4F2007A5278 /* ImageIO.Metadata.Dictionary.swift in Sources */,
 				A0CB02FE219DE4F2007A5278 /* ImageIO.Metadata.VoidValues.swift in Sources */,
+				510C5AAB21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				A0CB02FF219DE4F2007A5278 /* ImageIO.Metadata.Properties.Label.swift in Sources */,
 				A0CB0300219DE4F2007A5278 /* ImageIO.Metadata.Properties.Collection.swift in Sources */,
 				A0CB0301219DE4F2007A5278 /* Defaults.Version.swift in Sources */,
@@ -6762,6 +6774,7 @@
 				4F71D18E6732BF60375E75B4 /* UICamera.CaptureProcessor.swift in Sources */,
 				4F71D6B8F7172BAECCF18B7B /* Charge.Types.swift in Sources */,
 				4F71D5CCE0F17DBB47D1F6EE /* Charge.Banker.swift in Sources */,
+				510C5AA821C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				4F71D954F1FE52C09CFC80AB /* Charge.Manager.swift in Sources */,
 				4F71D8769709E25F64E2A0CD /* Charge.Manager.Macro.swift in Sources */,
 				4F71DB39C72C81E8B6F1B450 /* Charge.Objects.Amount.swift in Sources */,
@@ -7069,6 +7082,7 @@
 				A0CB0024219C8C64007A5278 /* UICamera.CaptureProcessor.swift in Sources */,
 				A0CB0025219C8C64007A5278 /* Charge.Types.swift in Sources */,
 				A0CB0026219C8C64007A5278 /* Charge.Banker.swift in Sources */,
+				510C5AA921C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */,
 				A0CB0027219C8C64007A5278 /* Charge.Manager.swift in Sources */,
 				A0CB0028219C8C64007A5278 /* Charge.Manager.Macro.swift in Sources */,
 				A0CB0029219C8C64007A5278 /* Charge.Objects.Amount.swift in Sources */,
