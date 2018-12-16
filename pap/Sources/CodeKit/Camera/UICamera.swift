@@ -798,6 +798,7 @@ extension UICamera {
             else {
                 locationManager.stopUpdatingLocation()
             }
+            preferredUsingLocation = newValue
             configurationDidUpdate?()
         }
         get {
