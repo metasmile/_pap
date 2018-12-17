@@ -125,85 +125,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
-fileprivate class AdjustmentItem {
-    fileprivate class SliderValue {
-        var name: AdjustmentsApp.Adjustments.Name
-        var value: Float = 0
-        var defaultValue: Float = 0
-        var minimumValue: Float = 0
-        var maximumValue: Float = 0
-        
-        init(name: AdjustmentsApp.Adjustments.Name, defaultValue: Float?, minimumValue: Float?, maximumValue: Float?) {
-            self.name = name
-            self.defaultValue = defaultValue ?? 0
-            self.minimumValue = minimumValue ?? 0
-            self.maximumValue = maximumValue ?? 0
-            
-            self.value = defaultValue ?? 0
-        }
-    }
-    
-    var key: String
-    var value: Any {
-        switch attributeType {
-        case kCIAttributeTypeScalar?: return number
-        case kCIAttributeTypeOffset?: return CIVector(cgPoint: offset)
-        default: return number
-        }
-    }
-    var number: Float {
-        return sliderValue(at: 0)?.value ?? 0
-    }
-    var offset: CGPoint {
-        return CGPoint(x: CGFloat(sliderValue(at: 0)?.value ?? 0), y: CGFloat(sliderValue(at: 1)?.value ?? 0))
-    }
-    
-    private(set) var sliderValues: [SliderValue] = [SliderValue]()
-    
-    func sliderValue(at offsetIndex: Int) -> SliderValue? {
-        return sliderValues[safe: offsetIndex]
-    }
-    
-    func setSliderValue(_ value: Float, at offsetIndex: Int) {
-        sliderValues[safe: offsetIndex]?.value = value
-    }
-    
-    private var attributeType: String?
-    private var attributeClass: AnyClass?
-    
-    init(key: String) {
-        self.key = key
-    }
-    
-    func setDefaults(with filter: CIFilter?, name: AdjustmentsApp.Adjustments.Name?) {
-        guard let name = name, let attributes = filter?.attributes[key] as? [String: Any] else { return }
-        
-        attributeType = attributes[kCIAttributeType] as? String
-        attributeClass = NSClassFromString(attributes[kCIAttributeClass] as? String ?? "")
-        
-        if attributeType == kCIAttributeTypeScalar, attributeClass == NSNumber.self {
-            switch filter?.name {
-            case "CISepiaTone"?:
-                sliderValues = [SliderValue(name: name, defaultValue: 0, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
-            default:
-                sliderValues = [SliderValue(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
-            }
-        }
-        else if attributeType == kCIAttributeTypeOffset, attributeClass == CIVector.self {
-            switch filter?.name {
-            case "CITemperatureAndTint"?:
-                sliderValues = [
-                    SliderValue(name: .Temparature, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000),
-                    SliderValue(name: .Tint, defaultValue: 0, minimumValue: -200, maximumValue: 200)
-                ]
-            default: break
-            }
-        }
-    }
-}
-
 fileprivate class CIAdjustmentFilter: CIFilter {
-    private(set) var adjustmentItems = [String: AdjustmentItem]()
+    private(set) var adjustmentItems = [String: CIFilterAttributes]()
     private var builtInFilter: CIFilter?
     
     var filter: CIFilter {
@@ -225,11 +148,11 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         return (name == (object as? CIFilter)?.name) == true
     }
     
-    func adjustmentItem(with adjustmentName: AdjustmentsApp.Adjustments.Name) -> AdjustmentItem? {
+    func adjustmentItem(with adjustmentName: AdjustmentsApp.Adjustments.Name) -> CIFilterAttributes? {
         let key = adjustmentName.builtInParameterKey
         guard let value = adjustmentItems[key] else {
-            let adjustmentValue = AdjustmentItem(key: key)
-            adjustmentValue.setDefaults(with: self.filter, name: adjustmentName)
+            let adjustmentValue = CIFilterAttributes(key: key)
+            adjustmentValue.setDefaults(with: self.filter, name: adjustmentName.rawValue)
             adjustmentItems[key] = adjustmentValue
             return adjustmentValue
         }
@@ -237,7 +160,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     }
     
     func setAdjustmentValue(_ value: Float, with adjustmentName: AdjustmentsApp.Adjustments.Name) {
-        adjustmentItem(with: adjustmentName)?.setSliderValue(value, at: adjustmentName.builtInParameterOffsetIndex)
+        adjustmentItem(with: adjustmentName)?.setAttributes(value: value, at: adjustmentName.builtInParameterOffsetIndex)
     }
     
     @objc dynamic var inputImage : CIImage?
@@ -597,8 +520,10 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         for adjustmentFilter in adjustmentFilters {
             guard let filter = (filters as? [CIAdjustmentFilter])?.first(where: { $0.name == adjustmentFilter.name }) else { continue }
             for adjustmentItem in filter.adjustmentItems.values {
-                for sliderValue in adjustmentItem.sliderValues {
-                    adjustmentFilter.setAdjustmentValue(sliderValue.value, with: sliderValue.name)
+                for attributeItem in adjustmentItem.attributeItems {
+                    if let adjustmentName = AdjustmentsApp.Adjustments.Name(rawValue: attributeItem.name) {
+                        adjustmentFilter.setAdjustmentValue(attributeItem.value, with: adjustmentName)
+                    }
                 }
             }
         }
@@ -638,10 +563,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         cell.titleLabel.text = filterName.displayName
         
         if let adjustmentItem = filter?.adjustmentItem(with: filterName) {
-            cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
-            cell.slider.maximumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.maximumValue ?? 0
-            cell.slider.defaultValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.defaultValue ?? 0
-            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
+            if let rangedAttributes = adjustmentItem.attributes(at: filterName.builtInParameterOffsetIndex) {
+                cell.slider.minimumValue = rangedAttributes.minimumValue
+                cell.slider.maximumValue = rangedAttributes.maximumValue
+                cell.slider.defaultValue = rangedAttributes.defaultValue
+                cell.slider.setValue(rangedAttributes.value, animated: false)
+            }
         }
         
         cell.sliderDidChangeHandler = { value in

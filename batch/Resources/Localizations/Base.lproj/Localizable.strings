@@ -194,7 +194,7 @@
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "Blur";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Brightness";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Burst" = "Burst";
@@ -226,7 +226,7 @@
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contacts";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Contrast" = "Contrast";
 /* Generated from genl10n: Converter.BApp.swift */
 "Convert the last Live Photo Into a GIF." = "Convert the last Live Photo Into a GIF.";
@@ -298,9 +298,9 @@
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Export";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Exposure";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Fade";
 /* Generated from genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
@@ -338,7 +338,7 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift, GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Get Access" = "Get Access";
@@ -350,7 +350,7 @@
 "Get Text" = "Get Text";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift, AppCenter.Charge.swift */
 "Give A Rating" = "Give A Rating";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Grain" = "Grain";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
@@ -370,7 +370,7 @@
 "Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Hiding Selected Items...";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
@@ -582,7 +582,7 @@
 "Rotate" = "Rotate";
 /* Generated from genl10n: Transform.BApp.swift */
 "Rotation" = "Rotation";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Saturation" = "Saturation";
 /* Generated from genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "Save Contacts" = "Save Contacts";
@@ -620,13 +620,13 @@
 "Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Send" = "Send";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
 "Settings for Main Tools License" = "Settings for Main Tools License";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, Converter.BApp.swift, Settings.SApp.swift, Shop.SApp.swift */
 "Settings" = "Settings";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Shadows";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Share This App" = "Share This App";
@@ -634,7 +634,7 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, Shop.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Share" = "Share";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Sharpness";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
@@ -704,7 +704,7 @@
 "Targeted" = "Targeted";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Targets" = "Targets";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparature";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift, Shop.SApp.swift, Settings.SApp.swift */
 "Terms of Use" = "Terms of Use";
@@ -722,7 +722,7 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "The price is including every new tool. Today is the cheapest day to get this.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Tint" = "Tint";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "To use this app needs a corresponding access license. Would you like to open %@?";
@@ -766,7 +766,7 @@
 "VIP Membership of Our All Products." = "VIP Membership of Our All Products.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Verification Failed." = "Verification Failed.";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Video Tutorials" = "Video Tutorials";
@@ -780,9 +780,9 @@
 "Videos Without Sound" = "Videos Without Sound";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Videos from Screen Recorder" = "Videos from Screen Recorder";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Vignette Radius" = "Vignette Radius";
-/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* Generated from genl10n: Adjustments.BApp.swift */
 "Vignette" = "Vignette";
 /* Generated from genl10n: Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift */
 "Visit" = "Visit";

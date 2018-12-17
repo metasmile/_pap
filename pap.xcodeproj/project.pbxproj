@@ -988,6 +988,12 @@
 		510C5AA921C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
 		510C5AAA21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
 		510C5AAB21C70F1700F9F7EE /* CodeKit.CubicBezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */; };
+		510C5AAD21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510C5AAE21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510C5AAF21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510C5AB021C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510C5AB121C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510C5AB221C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
 		5114401221A775B2008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
@@ -2579,6 +2585,7 @@
 		4F71DFEA0C5B4A0EA36B4206 /* Revert.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Revert.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CubicBezier.swift; sourceTree = "<group>"; };
+		510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CIFilter.swift; sourceTree = "<group>"; };
 		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
 		5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Adjustments.BApp.Shaders.metal; sourceTree = "<group>"; };
@@ -3619,6 +3626,7 @@
 				4F71DEAA85CCB1D42C17F772 /* CodeKit.UIScrollView.swift */,
 				4F71D0BCC7EB4DF7DC229747 /* CodeKit.CVPixelBuffer.swift */,
 				510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */,
+				510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -5861,6 +5869,7 @@
 				4F71D8883846EB813C1DA4FF /* PhotoPickerViewController.Operations.swift in Sources */,
 				4F71D41985FBECB658756380 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */,
 				4F71DEDCB2076589070FBD24 /* PhotoPickerDetailViewController.swift in Sources */,
+				510C5AAD21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				4F71DF651634E1D3649B9E49 /* PhotoAlbumViewController.swift in Sources */,
 				4F71D735E95132308CE6CD42 /* PhotoEditViewController.AppConfigWatchable.swift in Sources */,
 				4F71DB87D9D4BBBC9E173E95 /* AppDockViewController.AppConfigWatchable.swift in Sources */,
@@ -6053,6 +6062,7 @@
 				4F71D8DE02D91F0A251B3628 /* App.AppDock.swift in Sources */,
 				4F71DF74B11E4FF072F60BC9 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71DA8B2FE54CF4BDCB4127 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
+				510C5AAE21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				4F71DC3937FC8599BCB854D6 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
 				4F71DA28A9F102B4F0A6875E /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				4F71DAF9423ED059D0EDE628 /* FirebaseMLVision.VisionText.swift in Sources */,
@@ -6399,6 +6409,7 @@
 				A0CB0248219C9093007A5278 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */,
 				A0CB0249219C9093007A5278 /* PhotoPickerDetailViewController.swift in Sources */,
 				A0CB024A219C9093007A5278 /* PhotoAlbumViewController.swift in Sources */,
+				510C5AB121C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				A0CB024B219C9093007A5278 /* PhotoEditViewController.AppConfigWatchable.swift in Sources */,
 				A0CB024C219C9093007A5278 /* AppDockViewController.AppConfigWatchable.swift in Sources */,
 				A0CB024D219C9093007A5278 /* PhotoPickerViewController.AppConfigWatchable.swift in Sources */,
@@ -6606,6 +6617,7 @@
 				A0CB0363219DE4F2007A5278 /* FirebaseMLVision.VisionTextDetectResult.Types.swift in Sources */,
 				A0CB0364219DE4F2007A5278 /* App.Lib.Parser.swift in Sources */,
 				A0CB0365219DE4F2007A5278 /* App.UICollectionViewPreheatable.swift in Sources */,
+				510C5AB221C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				A0CB0366219DE4F2007A5278 /* AppTaskPrototype.DefaultRestrictedConcurrency.swift in Sources */,
 				A0CB0367219DE4F2007A5278 /* App.PreviewProcessable.swift in Sources */,
 				A0CB0368219DE4F2007A5278 /* App.PreviewView.Actionable.swift in Sources */,
@@ -6938,6 +6950,7 @@
 				4F71D964240454F8002E2D43 /* PhotoPickerViewController.Operations.swift in Sources */,
 				4F71DD34E1DB898AA92F4E6C /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */,
 				4F71DD70AA1F667018B47A3C /* PhotoPickerDetailViewController.swift in Sources */,
+				510C5AAF21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				4F71D8C3D12EE4D8258FBC7A /* PhotoAlbumViewController.swift in Sources */,
 				4F71D6989EB55B7630FA6B6A /* PhotoEditViewController.AppConfigWatchable.swift in Sources */,
 				4F71D5503EAE73E519E42F42 /* AppDockViewController.AppConfigWatchable.swift in Sources */,
@@ -7246,6 +7259,7 @@
 				A0CB00C3219C8C64007A5278 /* PhotoPickerViewController.Operations.swift in Sources */,
 				A0CB00C4219C8C64007A5278 /* PhotoPickerViewController.Operations.PreheatableApp.swift in Sources */,
 				A0CB00C5219C8C64007A5278 /* PhotoPickerDetailViewController.swift in Sources */,
+				510C5AB021C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
 				A0CB00C6219C8C64007A5278 /* PhotoAlbumViewController.swift in Sources */,
 				A0CB00C7219C8C64007A5278 /* PhotoEditViewController.AppConfigWatchable.swift in Sources */,
 				A0CB00C8219C8C64007A5278 /* AppDockViewController.AppConfigWatchable.swift in Sources */,
