@@ -110,23 +110,21 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
         
-        let filtered = autoreleasepool { () -> UIImage? in
-            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-            rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
-            let rawImage = rawFilter?.outputImage
-            
-            let jpgURL = FileURL.temp(appAsset.asset.localIdentifierWithoutSplitter, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
-            rawImage?.writeJPEGRepresentation(to: jpgURL)
-            
-            return UIImage(contentsOfFile: jpgURL.path)?.resize(aspectFit: targetSize)
-        }
+        let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+        rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        completion(original, filtered)
+        if let cgImage = rawFilter?.outputImage?.asCGImage {
+            completion(original, UIImage(cgImage: cgImage))
+        }
+        else {
+            completion(original, nil)
+        }
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         if let rawURL = self.cachedURL {
-            setFilterToContent(CIFilter(imageURL: rawURL, options: nil))
+            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+            setFilterToContent(rawFilter)
         }
         else {
             setFilterToContent(editStateValue?.ciFilter)
@@ -145,7 +143,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 }
             }
             
-            self.setFilterToContent(CIFilter(imageURL: rawURL, options: nil))
+            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+            self.setFilterToContent(rawFilter)
         }
     }
     

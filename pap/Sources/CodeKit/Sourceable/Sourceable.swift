@@ -115,7 +115,9 @@ extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     }
 
     public var asCGImage: CGImage? {
-        return CIContext().createCGImage(self, from: extent)
+        return autoreleasepool{
+            return CIContext().createCGImage(self, from: extent)
+        }
     }
 }
 
