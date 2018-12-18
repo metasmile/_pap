@@ -391,17 +391,17 @@
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagBM" = "HueMagBM";
+"Hue Blue (BM)" = "Hue Blue (BM)";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagCB" = "HueMagCB";
+"Hue Cyan (CB)" = "Hue Cyan (CB)";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagGC" = "HueMagGC";
+"Hue Green (GC)" = "Hue Green (GC)";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagMR" = "HueMagMR";
+"Hue Magenta (MR)" = "Hue Magenta (MR)";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagRY" = "HueMagRY";
+"Hue Red (RY)" = "Hue Red (RY)";
 /* Generated from genl10n: RawEditor.swift */
-"HueMagYG" = "HueMagYG";
+"Hue Yellow (YG)" = "Hue Yellow (YG)";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
