@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Αυτόματη ετικέτα Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Χρώμα του φόντου";
+"Background Fill Color" = "Χρώμα φόντου πλήρωσης φόντου";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Γίνε καλλιτέχνης. Ο καλλιτέχνης σάς επιτρέπει να μετατρέπετε δραματικά όλες τις φωτογραφίες ή τα βίντεό σας σε διάσημα ζωγραφισμένα στυλ. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών που θα μετατραπούν.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Τιμή θολώματος";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Μετάφραση τώρα";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Διόρθωση μετάφρασης";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "Κελάδημα";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Τύπος";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

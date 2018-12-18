@@ -20,7 +20,7 @@ extension UIView{
         }
     }
 
-    public func animateAsFade(_ duration:CFTimeInterval, forKey:String="\(#file)\(#function)\(#line)"){
+    public func animateAsFade(_ duration:CFTimeInterval, forKey:String="\(fileName())\(#function)\(#line)"){
         let fadeTextAnimation = CATransition()
         fadeTextAnimation.duration = duration
         fadeTextAnimation.type = CATransitionType.fade

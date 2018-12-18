@@ -121,11 +121,11 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
             let pdfURL = try PDFGenerator.generateURL(document: document, filename: "exported_\(String(describing: type(of: self))).pdf")
 
             if FileManager.default.fileExists(atPath: pdfURL.path) == false {
-                throw "\(#function)_\(#file)"
+                throw "\(#function)_\(fileName())"
             }
 
             guard let pdfData = try? Data(contentsOf: pdfURL) else {
-                throw "\(#function)_\(#file)"
+                throw "\(#function)_\(fileName())"
             }
 
             asyncSignal.begin()

@@ -41,8 +41,8 @@ public extension ProcessInfo{
     }
 }
 
-public func measure(_ title: String="measured \(UUID().uuidString)", _ block: () -> ()) {
-#if DEBUG
+public func measure(_ title: String="measured at \(#function) - \(fileName()).swift#\(#line)", _ block: () -> ()) {
+    #if DEBUG
     measure(title) { completion in
         block()
         completion()
@@ -54,12 +54,23 @@ public func measure(_ title: String="measured \(UUID().uuidString)", _ block: ()
 
 public func measure(_ title: String, _ block: (() -> ()) -> ()) {
 #if DEBUG
-    let startTime = CFAbsoluteTimeGetCurrent()
+    let startTime = mach_absolute_time()
     block {
-        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        let endTime = mach_absolute_time()
+        let timeElapsed = (machToSeconds * Double(endTime - startTime))
         print("\(title) :: \(timeElapsed)s")
     }
 #else
     block {}
 #endif
+}
+
+public func fileName(_ _file:String=#file) -> String{
+    return ((_file as NSString).deletingPathExtension as NSString).lastPathComponent
+}
+
+private var machToSeconds: Double {
+    var timebase: mach_timebase_info_data_t = mach_timebase_info_data_t()
+    mach_timebase_info(&timebase)
+    return Double(timebase.numer) / Double(timebase.denom) * 1e-9
 }

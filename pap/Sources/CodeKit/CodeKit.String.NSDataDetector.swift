@@ -21,6 +21,12 @@ extension String{
         }
     }
 
+    public func phoneNumbers() -> [String] {
+        return self.detectAll(types: [NSTextCheckingResult.CheckingType.phoneNumber]).compactMap { result -> String? in
+            return result.phoneNumber
+        }
+    }
+
     public func emailAddresses() -> [String] {
         var emailAddresses = [String]()
         for url in self.urls() {

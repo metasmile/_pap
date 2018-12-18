@@ -40,6 +40,10 @@ extension CGRect {
 }
 
 extension CGSize {
+    var rect: CGRect {
+        return CGRect(origin: .zero, size: self)
+    }
+
     var minLength: CGFloat {
         return min(width, height)
     }

@@ -30,6 +30,7 @@ extension AppCenter{
             , ResizerApp.self
             , HashtagenApp.self
             , AdjustmentsApp.self
+            , DepthEditorApp.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 

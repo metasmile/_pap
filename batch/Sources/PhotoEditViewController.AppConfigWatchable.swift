@@ -52,6 +52,12 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
                 }
             }
 
+            appCenter.currentInstanceAs(DepthEditorApp.self)?.config?.watch(\.filter, id:"editor\(DepthEditorApp.info.identifier)") { (config, changed) in
+                if let value = config.filter {
+                    self.appendImageEditState(value)
+                }
+            }
+
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
         }

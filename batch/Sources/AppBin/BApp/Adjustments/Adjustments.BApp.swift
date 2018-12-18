@@ -125,8 +125,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
-class AdjustmentItem {
-    class SliderValue {
+fileprivate class AdjustmentItem {
+    fileprivate class SliderValue {
         var name: AdjustmentsApp.Adjustments.Name
         var value: Float = 0
         var defaultValue: Float = 0
@@ -202,7 +202,7 @@ class AdjustmentItem {
     }
 }
 
-class CIAdjustmentFilter: CIFilter {
+fileprivate class CIAdjustmentFilter: CIFilter {
     private(set) var adjustmentItems = [String: AdjustmentItem]()
     private var builtInFilter: CIFilter?
     
@@ -250,7 +250,7 @@ class CIAdjustmentFilter: CIFilter {
     }
 }
 
-class CIFadeFilter: CIAdjustmentFilter {
+fileprivate class CIFadeFilter: CIAdjustmentFilter {
     convenience init() {
         self.init(adjustmentName: .Fade)
     }
@@ -290,7 +290,7 @@ class CIFadeFilter: CIAdjustmentFilter {
     }
 }
 
-class CIAdjustmentsFilterItem {
+fileprivate class CIAdjustmentsFilterItem {
     private var orderedFilters = NSMutableOrderedSet()
     
     func setAdjustmentFilter(_ filter: CIFilter?) {
@@ -298,13 +298,13 @@ class CIAdjustmentsFilterItem {
         orderedFilters.add(filter)
     }
     
-    func adjustmentFilter(with filter: CIFilter?) -> CIAdjustmentFilter? {
+    fileprivate func adjustmentFilter(with filter: CIFilter?) -> CIAdjustmentFilter? {
         guard let filter = filter else { return nil }
         let index = orderedFilters.index(of: filter)
         return (index != NSNotFound ? orderedFilters.object(at: index) : filter) as? CIAdjustmentFilter
     }
     
-    var ciFilter: CIFilterGroup {
+    fileprivate var ciFilter: CIFilterGroup {
         return CIFilterGroup(filters: orderedFilters.array as? [CIFilter])
     }
     
@@ -317,7 +317,7 @@ class CIAdjustmentsFilterItem {
     }
 }
 
-class CIFilterGroup: CIFilter {
+fileprivate class CIFilterGroup: CIFilter {
     fileprivate(set) var filters: [CIFilter] = [CIFilter]()
     
     init(filters: [CIFilter]? = nil) {
@@ -379,7 +379,7 @@ extension AdjustmentsApp {
                 return Adjustments.parameterKey(self)
             }
             
-            var filter: CIAdjustmentFilter? {
+            fileprivate var filter: CIAdjustmentFilter? {
                 return Adjustments.filter(self)
             }
             
@@ -450,7 +450,7 @@ extension AdjustmentsApp {
             }
         }
         
-        static func filter(_ name: Adjustments.Name) -> CIAdjustmentFilter? {
+        fileprivate static func filter(_ name: Adjustments.Name) -> CIAdjustmentFilter? {
             switch name {
             case Name.Brightness,
                  Name.Contrast,
@@ -491,7 +491,7 @@ extension AdjustmentsApp {
     ]
 }
 
-private class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
+fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _AdjustmentsAppAsset
     public typealias ResultType = PHAssetResultItem
     
@@ -514,7 +514,7 @@ private class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
         
         async.begin()
         
-        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
@@ -549,7 +549,7 @@ extension Defaults: AdjustmentsAppDefaults {
     }
 }
 
-class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
     fileprivate static var primaryColor = AdjustmentsApp.info.themeColor
     fileprivate var adjustmentNames = AdjustmentsApp.AdjustmentsNames
     fileprivate var adjustmentFilters = [CIAdjustmentFilter]()
@@ -640,11 +640,11 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         if let adjustmentItem = filter?.adjustmentItem(with: filterName) {
             cell.slider.minimumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.minimumValue ?? 0
             cell.slider.maximumValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.maximumValue ?? 0
-            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
             cell.slider.defaultValue = adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.defaultValue ?? 0
+            cell.slider.setValue(adjustmentItem.sliderValue(at: filterName.builtInParameterOffsetIndex)?.value ?? 0, animated: false)
         }
         
-        cell.slider.sliderDidChangeHandler = { value in
+        cell.sliderDidChangeHandler = { value in
             self.filterItem.setAdjustmentFilter(filter)
             self.filterItem.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
             
@@ -662,141 +662,33 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private class AdjustmentSlider: UISlider {
-        private lazy var defaultValueMark = CAShapeLayer()
-        var sliderDidChangeHandler: ((Float) -> Void)?
-        
-        var defaultValue: Float = 0
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            addTarget(self, action: #selector(self.sliderValueWillChange), for: .touchDown)
-            addTarget(self, action: #selector(self.sliderValueDidChange), for: .valueChanged)
-            addTarget(self, action: #selector(self.sliderValueDidFinishChange), for: [.touchUpInside, .touchUpOutside])
-            
-            layer.insertSublayer(defaultValueMark, at: 0)
-            
-            defaultValueMark.path = UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 4, height: 4))).cgPath
-            defaultValueMark.fillColor = UIColor.darkGray.cgColor
-            defaultValueMark.actions = ["position": NSNull()]
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
-        }
-        
-        convenience init() {
-            self.init(frame: .zero)
-        }
-        
-        override func layoutSubviews() {
-            super.layoutSubviews()
-            
-            layoutIfNeeded()
-        }
-        
-        override func layoutIfNeeded() {
-            super.layoutIfNeeded()
-            
-            defaultValueMark.position = CGPoint(x: self.defaultLocation.x - 2, y: 4)
-            updateDefaultValueMark()
-        }
-        
-        private var defaultLocation: CGPoint {
-            return location(with: defaultValue)
-        }
-        
-        private func location(with value: Float) -> CGPoint {
-            let trackFrame = trackRect(forBounds: bounds)
-            let thumbFrame = thumbRect(forBounds: bounds, trackRect: trackFrame, value: value)
-            return CGPoint(x: thumbFrame.midX, y: thumbFrame.midY)
-        }
-        
-        private var beginValue: Float = 0
-        @objc private func sliderValueWillChange() {
-            beginValue = value
-        }
-        
-        enum Direction {
-            case none
-            case left
-            case right
-        }
-        
-        var distanceFromDefaultValue: CGFloat {
-            return location(with: value).x - location(with: defaultValue).x
-        }
-        
-        var distanceFromBeginning: CGFloat {
-            return location(with: value).x - location(with: beginValue).x
-        }
-        
-        var direction: Direction {
-            guard distanceFromBeginning != 0 else { return .none }
-            return distanceFromBeginning > 0 ? .right : .left
-        }
-        
-        var velocity: CGFloat {
-            return location(with: value).x - location(with: previousValue).x
-        }
-        
-        var velocityDirection: Direction {
-            guard velocity != 0 else { return .none }
-            return velocity > 0 ? .right : .left
-        }
-        
-        private var previousValue: Float = 0
-        @objc private func sliderValueDidChange() {
-            updateDefaultValueMark()
-            
-            sliderDidChangeHandler?(value)
-            
-            previousValue = value
-        }
-        
-        @objc private func sliderValueDidFinishChange() {
-            if magnifyingToDefaultValue {
-                setValue(defaultValue, animated: true)
-                
-                sliderDidChangeHandler?(defaultValue)
-                updateDefaultValueMark(true)
-            }
-        }
-        
-        private var magnifyingToDefaultValue: Bool {
-            return direction != velocityDirection && distanceFromDefaultValue.magnitude < 8
-        }
-        
-        private func updateDefaultValueMark(_ marked: Bool? = nil) {
-            if marked ?? magnifyingToDefaultValue {
-                defaultValueMark.fillColor = UIColor.darkGray.cgColor
-            }
-            else {
-                defaultValueMark.fillColor = UIColor.white.cgColor
-            }
-        }
-    }
-    
     private class Cell: UITableViewCell {
-        lazy var slider: AdjustmentSlider = {
-            let view = AdjustmentSlider()
+        lazy var slider: PrecisionLevelSlider = {
+            let view = PrecisionLevelSlider()
+            view.longNotchColor = .white
+            view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
+            view.centerNotchColor = .red
+            view.numberOfNotches = 20
             return view
         }()
         
         lazy var titleLabel: UILabel = {
             let label = UILabel(frame: .zero)
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.byWordWrapping
             label.textAlignment = .right
             label.backgroundColor = UIColor.clear
             label.adjustsFontForContentSizeCategory = true
             return label
         }()
         
+        var sliderDidChangeHandler: ((Float) -> Void)?
+        
         override func prepareForReuse() {
             super.prepareForReuse()
             
-            slider.sliderDidChangeHandler = nil
+            sliderDidChangeHandler = nil
         }
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -808,15 +700,21 @@ class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UI
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
             titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
             
             contentView.addSubview(slider)
             slider.translatesAutoresizingMaskIntoConstraints = false
-            slider.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            slider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            slider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: slider.bottomAnchor, constant: 0).isActive = true
             slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
             contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
+            
+            slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
+        }
+        
+        @objc private func sliderValueChanged() {
+            sliderDidChangeHandler?(slider.value)
         }
         
         required init?(coder aDecoder: NSCoder) {

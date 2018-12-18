@@ -187,6 +187,10 @@ extension PHAsset {
         return UTTypeConformsTo(uti, kUTTypeRawImage)
     }
 
+    var hasDepthEffect: Bool{
+        return mediaSubtypes.contains(.photoDepthEffect)
+    }
+
     var videoType: PHAssetVideoType {
         guard mediaType == .video else { return .notVideo }
 

@@ -134,7 +134,7 @@ private class _RevertAppTask: AppTaskPrototype, AppTaskable {
         
         async.begin()
         
-        DispatchQueue(label: "com.stells.internal."+#file, qos: .utility).async {
+        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             //INFO: prepare original version of asset
             // it may get original version from icloud to local
             PHImageManager.default().touchOriginalVersion(for: revertParam.asset, completion: {

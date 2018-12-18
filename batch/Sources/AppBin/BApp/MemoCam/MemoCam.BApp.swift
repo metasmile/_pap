@@ -1097,7 +1097,7 @@ class AppUIARView: UIView {
     }()
     
     private lazy var renderer: SCNRenderer = SCNRenderer(device: nil, options: nil)
-    private lazy var renderQueue = DispatchQueue(label: "com.stells.internal."+#file, qos: .utility)
+    private lazy var renderQueue = DispatchQueue(label: "com.stells.internal."+codefile(), qos: .utility)
     
     private(set) lazy var deviceMotion = UIDeviceMotion()
     

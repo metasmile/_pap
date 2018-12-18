@@ -10,6 +10,14 @@ import UIKit
 import Accelerate
 
 public extension UIImage {
+
+    convenience init?(ciImage: CIImage?) {
+        guard let ciImage = ciImage else {
+            return nil
+        }
+        self.init(ciImage: ciImage)
+    }
+
     private static let sharedCIContextForFilter = CIContext()
     
     func applyFilter(ciFilter: CIFilter?) -> UIImage? {

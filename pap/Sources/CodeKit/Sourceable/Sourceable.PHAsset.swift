@@ -114,6 +114,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
                 }
                 signal.end()
             })
+            signal.waitUntilEnd()
         }
         // Image
         else if .image == m {
@@ -133,6 +134,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
                 returningURL = contentEditingInput!.fullSizeImageURL as URL?
                 signal.end()
             })
+            signal.waitUntilEnd()
 
         }else{
             assert(false, "Not implemented yet.\(self.mediaType), \(self.mediaSubtypes)")

@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Automatsko označavanje bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Boja pozadine";
+"Background Fill Color" = "Boja pozadinskog ispuna";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Budi umjetnik. Umjetnik vam dramatično pretvara sve fotografije ili videozapise u poznate likirane slike. Ovaj alat za obradu serija nema ograničenja broja fotografija za pretvorbu.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Zamućivanje pozadine";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Prevedi sada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Ispravak prevođenja";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "Cvrkut";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Tip";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

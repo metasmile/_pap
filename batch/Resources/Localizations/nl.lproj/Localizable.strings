@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "Achtergrond kleur";
+"Background Fill Color" = "Achtergrond Vulkleur";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto's of video's omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto's.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "Achtergrond wazig";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Vervaagsnelheid";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "Vertaal nu";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Vertaalcorrectie";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "tjilpen";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Type";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

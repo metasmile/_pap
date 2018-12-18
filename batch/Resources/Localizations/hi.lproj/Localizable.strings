@@ -221,9 +221,11 @@
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "ऑटो टैगिंग बॉट";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Color" = "पीछे का रंग";
+"Background Fill Color" = "पृष्ठभूमि भरें रंग";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "एक कलाकार बनो कलाकार आपको नाटकीय रूप से मशहूर स्टाइल चित्रों में अपनी सभी तस्वीरें या वीडियो को चालू करने देता है। इस बैच प्रोसेसिंग टूल में कनवर्ट करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Blur Background" = "धुंध पृष्ठभूमि";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "धुंध दर";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -762,6 +764,8 @@
 "Translate Now" = "अभी अनुवाद करें";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "अनुवाद सुधार";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Twitter" = "ट्विटर";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "प्रकार";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */

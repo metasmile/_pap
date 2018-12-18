@@ -39,6 +39,7 @@ class UICamera: UIView, PropertyWatchable {
     var preferredCameraPosition: AVCaptureDevice.Position = .back
     var preferredFlashMode: FlashMode = .off
     var preferredUsingLocation: Bool = false
+    var preferredTorchLevel: Float = 1
     
     private lazy var capturePhotoOutput = AVCapturePhotoOutput()
     private lazy var captureMovieOutput = AVCaptureMovieFileOutput()
@@ -51,10 +52,10 @@ class UICamera: UIView, PropertyWatchable {
     var capturedResult:UICameraCapturedResult?
     var captureMetadataComment:String?
 
-    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+#file+UUID().uuidString, qos: .utility)
-    private lazy var captureVideoDataQueue = DispatchQueue(label: #file+".captureVideoDataQueue."+UUID().uuidString, qos: .utility)
-    private lazy var metadataObjectQueue = DispatchQueue(label: #file+".metadataObjectsQueue."+UUID().uuidString, qos: .utility)
-    private lazy var depthDataOutputQueue = DispatchQueue(label: #file+".depthDataOutputQueue."+UUID().uuidString, qos: .utility)
+    private lazy var sessionQueue = DispatchQueue(label: "com.stells.internal."+fileName()+UUID().uuidString, qos: .utility)
+    private lazy var captureVideoDataQueue = DispatchQueue(label: fileName()+".captureVideoDataQueue."+UUID().uuidString, qos: .utility)
+    private lazy var metadataObjectQueue = DispatchQueue(label: fileName()+".metadataObjectsQueue."+UUID().uuidString, qos: .utility)
+    private lazy var depthDataOutputQueue = DispatchQueue(label: fileName()+".depthDataOutputQueue."+UUID().uuidString, qos: .utility)
     
     fileprivate var captureVideoDataDidOutput: ((_ sampleBuffer: CMSampleBuffer) -> Void)?
     fileprivate var depthDataDidOutput: ((_ depthData: AVDepthData, _ timestamp: CMTime) -> Void)?
@@ -76,9 +77,15 @@ class UICamera: UIView, PropertyWatchable {
     private func initialize() {
         addSubview(cameraPreviewView)
         cameraPreviewView.fitConstraints(to: self)
-#if targetEnvironment(simulator)
+
+        #if targetEnvironment(simulator)
         cameraPreviewView.previewLayer.backgroundColor = UIColor.green.cgColor
-#endif
+        #endif
+
+//        let imageView = UIImageView(image: R.image.scrsJpg())
+//        cameraPreviewView.addSubview(imageView)
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.fitConstraints(to: self)
     }
     
     var capturePreset: AVCaptureSession.Preset = .photo {
@@ -104,7 +111,8 @@ class UICamera: UIView, PropertyWatchable {
     var flashMode: FlashMode = .off {
         didSet {
             sessionQueue.async {
-                self.setTorchMode(self.flashMode.torchMode)
+                self.configureTorchMode(self.flashMode.torchMode)
+                self.configurationDidUpdate?()
             }
         }
     }
@@ -119,7 +127,8 @@ class UICamera: UIView, PropertyWatchable {
                 self.configureSession()
             }
             self.captureSession?.startRunning()
-            self.setTorchMode(self.flashMode.torchMode)
+            self.configureTorchMode(self.flashMode.torchMode)
+            self.configurationDidUpdate?()
 
             completion?()
         }
@@ -798,17 +807,37 @@ extension UICamera {
 }
 
 extension UICamera {
-    func videoZoomRange(with captureDevice: AVCaptureDevice) -> ClosedRange<CGFloat> {
-        return (captureDevice.activeFormat.videoMinZoomFactorForDepthDataDelivery...captureDevice.activeFormat.videoMaxZoomFactorForDepthDataDelivery)
+    func zoom(_ scale: CGFloat) {
+        videoZoomFactor = scale
     }
     
-    var videoZoomFactor: CGFloat {
+    var isZoomEnabled: Bool {
+        return videoMinZoomFactor != videoMaxZoomFactor
+    }
+    
+    private var videoZoomRange: ClosedRange<CGFloat> {
+        return (videoMinZoomFactor...videoMaxZoomFactor)
+    }
+    
+    var videoMinZoomFactor: CGFloat {
+        return self.currentCaptureDevice?.activeFormat.videoMinZoomFactorForDepthDataDelivery ?? 1
+    }
+    
+    var videoMaxZoomFactor: CGFloat {
+        return self.currentCaptureDevice?.activeFormat.videoMaxZoomFactorForDepthDataDelivery ?? 1
+    }
+    
+    private(set) var videoZoomFactor: CGFloat {
         set {
             sessionQueue.async {
                 guard let captureDevice = self.currentCaptureDevice else { return }
                 try? captureDevice.lockForConfiguration()
-                captureDevice.videoZoomFactor = newValue.clamped(to: self.videoZoomRange(with: captureDevice))
+                captureDevice.videoZoomFactor = newValue.clamped(to: self.videoZoomRange)
                 captureDevice.unlockForConfiguration()
+                
+                DispatchQueue.main.async {
+                    self.resetFocusAndExposure(showsGuide: false)
+                }
             }
         }
         
@@ -842,16 +871,45 @@ extension UICamera {
         }
     }
     
-    fileprivate func setTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+    fileprivate func configureTorchMode(_ torchMode: AVCaptureDevice.TorchMode) {
+        guard currentCaptureDevice?.hasTorch == true else { return }
+        
+        if torchMode == .on {
+            configureTorchLevel(preferredTorchLevel)
+        }
+        else {
+            try? currentCaptureDevice?.lockForConfiguration()
+            currentCaptureDevice?.torchMode = torchMode
+            currentCaptureDevice?.unlockForConfiguration()
+        }
+    }
+    
+    var torchLevel: Float {
+        set {
+            sessionQueue.async {
+                self.configureTorchLevel(newValue)
+                self.configurationDidUpdate?()
+            }
+        }
+        
+        get {
+            return currentCaptureDevice?.torchLevel ?? preferredTorchLevel
+        }
+    }
+    
+    private func configureTorchLevel(_ level: Float) {
+        guard currentCaptureDevice?.hasTorch == true else { return }
+        
         try? currentCaptureDevice?.lockForConfiguration()
         
-        if currentCaptureDevice?.hasTorch == true {
-            currentCaptureDevice?.torchMode = torchMode
+        if level > 0, let _ = try? currentCaptureDevice?.setTorchModeOn(level: level) {
+            preferredTorchLevel = level
+        }
+        else {
+            preferredTorchLevel = 1
         }
         
         currentCaptureDevice?.unlockForConfiguration()
-        
-        configurationDidUpdate?()
     }
 }
 
@@ -1092,6 +1150,10 @@ fileprivate class UICameraPreviewView: UIView {
 final class CaptureButton: UIControl {
     private lazy var outerCircleLayer = CAShapeLayer()
     private lazy var innerCircleLayer = CAShapeLayer()
+    
+    convenience init() {
+        self.init(frame: .zero)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -1147,5 +1209,80 @@ final class CaptureButton: UIControl {
         outerCircleLayer.lineWidth = outerCircleLineWidth
         outerCircleLayer.path = outerCircle.cgPath
         innerCircleLayer.path = innerCircle.cgPath
+    }
+}
+
+final class ZoomButton: UIControl {
+    private lazy var outerCircleLayer = CAShapeLayer()
+    var zoomFactor: CGFloat = 1 {
+        didSet {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
+            textLabel.text = (formatter.string(from: NSNumber(value: Float(zoomFactor))) ?? String(format: "%.2f", zoomFactor)) + "x"
+        }
+    }
+    
+    private lazy var textLabel: UILabel = UILabel(frame: .zero)
+    
+    convenience init() {
+        self.init(frame: .zero)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        backgroundColor = .clear
+        
+        outerCircleLayer.strokeColor = UIColor.white.cgColor
+        outerCircleLayer.fillColor = UIColor.black.withAlphaComponent(0.25).cgColor
+        layer.addSublayer(outerCircleLayer)
+        
+        addSubview(textLabel)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4).isActive = true
+        trailingAnchor.constraint(equalTo: textLabel.trailingAnchor, constant: 4).isActive = true
+        textLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        textLabel.textAlignment = .center
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.minimumScaleFactor = 0.5
+        textLabel.font = UIFont.systemFont(ofSize: 10)
+        textLabel.textColor = .white
+        textLabel.text = "1x"
+        
+        addTarget(self, action: #selector(self.pressed), for: [.touchDown, .touchDragEnter])
+        addTarget(self, action: #selector(self.released), for: [.touchUpInside, .touchUpOutside, .touchDragExit])
+    }
+    
+    @objc func pressed(sender: Any) {
+        let scale: CGFloat = 0.9
+        
+        UIView.animateAsSpring(0.3, animations: {
+            self.transform = CGAffineTransform(scaleX: scale, y: scale)
+        })
+    }
+    
+    @objc func released(sender: Any) {
+        UIView.animateAsSpring(0.3, animations: {
+            self.transform = CGAffineTransform.identity
+        })
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let outerCircle = UIBezierPath(ovalIn: bounds.inset(by: UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)))
+        outerCircleLayer.lineWidth = 1
+        outerCircleLayer.path = outerCircle.cgPath
     }
 }
