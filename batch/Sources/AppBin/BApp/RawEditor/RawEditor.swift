@@ -32,17 +32,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
-        
-//        var defaults = type(of: self).defaults as! RawEditorDefaults
-
-//        if let options = (editStateValue?.ciFilter as? CIFilter)?.options {
-//            var optionsToStore = [String:Bool]()
-//            for (k,v) in options{
-//                optionsToStore[k] = v
-//            }
-//
-//            defaults.autoAdjustmentOptions = optionsToStore
-//        }
     }
     
     public static let info = AppInfo(
@@ -66,15 +55,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         controllerContent?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
-                
-            } else {
-//                var defaults = type(of: self).defaults as! RawEditorDefaults
-//                controllerContent?.options = defaults.autoAdjustmentOptions
-//
-//                let filter = CIAdjustmentFilter(options: defaults.autoAdjustmentOptions)
-//                let filterItem = CIFilterItem(filter)
-//                self.config?.filter = filterItem
-//                self.defaultEditStateValue = filterItem
             }
         }
         
@@ -82,14 +62,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
-                
-            } else{
-//                var defaults = type(of: self).defaults as! RawEditorDefaults
-//                controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
-
-//                let filter = CIAdjustmentFilter(value: defaults.double)
-//                let filterItem = CIFilterItem(filter)
-//                self.config?.filter = filterItem
             }
         }
     }
@@ -119,69 +91,77 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     private var cachedURL: URL?
+    private func urlForRawImage(with asset: PHAsset) -> URL {
+        return FileURL.temp(asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
+    }
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        DispatchQueue(label: #file + ".editRawImage", qos: .utility).async {
-            let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
-            
-            let rawURL = FileURL.temp(appAsset.asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
-            
-            if self.cachedURL != rawURL {
-                let async = AsyncSignal()
-                async.begin()
-                
-                guard
-                    let rawAsset = appAsset.asset.resources.first(where: { $0.type == .alternatePhoto })
-                    else {
-                        async.end()
-                        completion(original, nil)
-                        return
-                }
-                
-                DispatchQueue(label: #file + ".fetchRawImage", qos: .utility).async {
-                    var rawData = Data()
-                    
-                    let options = PHAssetResourceRequestOptions()
-                    options.isNetworkAccessAllowed = true
-                    PHAssetResourceManager.default().requestData(for: rawAsset, options: options, dataReceivedHandler: { (data) in
-                        rawData.append(data)
-                    }, completionHandler: { (error) in
-                        guard error == nil else {
-                            async.end()
-                            completion(original, nil)
-                            return
-                        }
-                        
-                        if let _ = try? rawData.write(to: rawURL) {
-                            self.cachedURL = rawURL
-                        }
-                        
-                        async.end()
-                    })
-                }
-                async.waitUntilEnd()
+        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
+        
+        let rawURL = urlForRawImage(with: appAsset.asset)
+        
+        if self.cachedURL != rawURL {
+            guard let rawData = appAsset.asset.asRawData else {
+                completion(original, nil)
+                return
             }
             
-            let rawAttributes = (appAsset.editState.ciFilter as? CIRawFilter)?.rawAttributes ?? [:]
-            let rawFilter = CIFilter(imageURL: rawURL, options: rawAttributes)
-            completion(original, rawFilter?.outputImage?.asUIImage)
+            if let _ = try? rawData.write(to: rawURL) {
+                self.cachedURL = rawURL
+            }
         }
         
-//        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
-//        let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
-//        completion(original, filtered)
+        let filtered = autoreleasepool { () -> UIImage? in
+            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+            rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
+            let rawImage = rawFilter?.outputImage
+            
+            let jpgURL = FileURL.temp(appAsset.asset.localIdentifierWithoutSplitter, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+            rawImage?.writeJPEGRepresentation(to: jpgURL)
+            
+            return UIImage(contentsOfFile: jpgURL.path)?.resize(aspectFit: targetSize)
+        }
+        
+        completion(original, filtered)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        let filter = editStateValue?.ciFilter
-//        (content as? RawEditorDockContent)?.setFilterValues(filter, animated: false)
+        if let rawURL = self.cachedURL {
+            setFilterToContent(CIFilter(imageURL: rawURL, options: nil))
+        }
+        else {
+            setFilterToContent(editStateValue?.ciFilter)
+        }
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
+        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
+            let rawURL = self.urlForRawImage(with: asset)
+            
+            if self.cachedURL != rawURL {
+                let rawData = asset.asRawData
+                
+                if let _ = try? rawData?.write(to: rawURL) {
+                    self.cachedURL = rawURL
+                }
+            }
+            
+            self.setFilterToContent(CIFilter(imageURL: rawURL, options: nil))
+        }
+    }
+    
+    private func setFilterToContent(_ filter: CIFilter?) {
+        var attributes = [String: Any]()
+        filter?.inputKeys.forEach {
+            if let v = filter?.value(forKey: $0) {
+                attributes[$0] = v
+            }
+        }
         
+        (self.content as? RawEditorDockContent)?.setDefaultRawAttributes(attributes)
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        
+        self.cachedURL = nil
     }
 }
 
@@ -252,6 +232,17 @@ fileprivate class CIRawFilter: CIFilter {
         
         self.rawAttributes = rawAttributes
     }
+    
+    private var parameters: [String : Any]?
+    override var attributes: [String : Any] {
+        return parameters ?? [:]
+    }
+    
+    init(parameters params: [String: Any]?) {
+        super.init()
+        
+        self.parameters = params
+    }
 }
 
 fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
@@ -265,7 +256,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         view.delegate = self
         view.rowHeight = 52
         view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: RawEditorApp.info.identifier)
+        view.register(SliderCell.self, forCellReuseIdentifier: RawEditorApp.info.identifier + "SliderCell")
+        view.register(SwitchCell.self, forCellReuseIdentifier: RawEditorApp.info.identifier + "SwitchCell")
         view.backgroundColor = .clear
         view.separatorStyle = .none
         return view
@@ -292,48 +284,68 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         
-        installFilters()
+        if filterAttributes.isEmpty {
+            installFilters()
+        }
         
         (view as? UITableView)?.reloadData()
     }
     
+    fileprivate func setDefaultRawAttributes(_ attributes: [String: Any]?) {
+        installFilters()
+        
+        for filterAttribute in filterAttributes {
+            if let defaultKey = attributes?.keys.first(where: { $0 == filterAttribute.key }) {
+                if let value = attributes?[defaultKey] as? NSNumber {
+                    let attributeItem = filterAttribute.attributes(at: 0)
+                    attributeItem?.defaultValue = value.floatValue
+                    attributeItem?.value = value.floatValue
+                }
+            }
+        }
+        
+        DispatchQueue.main.async {
+            (self.view as? UITableView)?.reloadData()
+        }
+    }
+    
     private func rawAttributes() -> [CIFilterAttributes] {
+        // https://developer.apple.com/documentation/coreimage/cifilter/raw_image_options
         return [
-//            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralChromaticityX", defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: CIRAWFilterOption.enableSharpening.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "EnableSharpening", boolValue: true)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.allowDraftMode.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "DraftMode", boolValue: false)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.neutralLocation.rawValue, attributeType: kCIAttributeTypePosition, attributes: [CIFilterAttributeItem(name: "x", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0), CIFilterAttributeItem(name: "y", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)]), // no min max
-//            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagMR", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no default
-//            CIFilterAttributes(key: CIRAWFilterOption.enableVendorLensCorrection.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "EnableVendorLensCorrection", defaultValue: 1, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagCB", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: CIRAWFilterOption.colorNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "ColorNoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionContrastAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionContrastAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.disableGamutMap.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "DisableGamutMap", boolValue: false)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.boostAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Boost", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
-            CIFilterAttributes(key: CIRAWFilterOption.neutralTint.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralTint", defaultValue: 0, minimumValue: -150, maximumValue: 150)]),
-//            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagRY", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: CIRAWFilterOption.enableChromaticNoiseTracking.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "EnableNoiseTracking", boolValue: true)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.boostShadowAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "BoostShadowAmount", defaultValue: 0, minimumValue: 0, maximumValue: 2)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionSharpnessAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionSharpnessAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagBM", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagYG", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-//            CIFilterAttributes(key: "inputBias", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Bias", defaultValue: 0, minimumValue: -3, maximumValue: 25)]),
-            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionDetailAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionDetailAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.baselineExposure.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "BaselineExposure", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.neutralTemperature.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralTemperature", defaultValue: 2000, minimumValue: 2000, maximumValue: 20000)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.luminanceNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "LuminanceNoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralChromaticityY", defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.neutralTint.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralTint", defaultValue: 0, minimumValue: -150, maximumValue: 150)]),
+            CIFilterAttributes(key: CIRAWFilterOption.baselineExposure.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "BaselineExposure", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: "inputEV", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "EV", defaultValue: 0, minimumValue: -3, maximumValue: 3)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.moireAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "MoireAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.enableSharpening.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "EnableSharpening", boolValue: true)]),
+            CIFilterAttributes(key: CIRAWFilterOption.allowDraftMode.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "DraftMode", boolValue: false)]),
+//            CIFilterAttributes(key: CIRAWFilterOption.neutralLocation.rawValue, attributeType: kCIAttributeTypePosition, attributes: [CIFilterAttributeItem(name: "NeutralLocationX", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0), CIFilterAttributeItem(name: "NeutralLocationY", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.enableVendorLensCorrection.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "EnableVendorLensCorrection", defaultValue: 1, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.disableGamutMap.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "DisableGamutMap", boolValue: false)]),
+            CIFilterAttributes(key: CIRAWFilterOption.boostAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Boost", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.boostShadowAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "BoostShadowAmount", defaultValue: 0, minimumValue: 0, maximumValue: 2)]),
+            CIFilterAttributes(key: CIRAWFilterOption.enableChromaticNoiseTracking.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "EnableNoiseTracking", boolValue: true)]),
+            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no default
+            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionDetailAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionDetailAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.colorNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "ColorNoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionContrastAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionContrastAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.noiseReductionSharpnessAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NoiseReductionSharpnessAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: "inputBias", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Bias", defaultValue: 0, minimumValue: -3, maximumValue: 25)]),
+            CIFilterAttributes(key: CIRAWFilterOption.luminanceNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "LuminanceNoiseReductionAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralChromaticityX", defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "NeutralChromaticityY", defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.moireAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "MoireAmount", defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
+            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagMR", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagBM", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagYG", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagCB", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagRY", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagGC", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
 //            CIFilterAttributes(key: CIRAWFilterOption.scaleFactor.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Scale Factor", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
-//            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "HueMagGC", defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
         ]
     }
     
     private func installFilters(with filters: [CIFilter]? = nil) {
         filterAttributes = rawAttributes()
-        
     }
     
     @objc dynamic var filter: CIFilter?
@@ -348,36 +360,54 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier) as! Cell
-        
         let filterAttribute = filterAttributes[indexPath.section]
         let attributeItem = filterAttribute.attributeItems[indexPath.row]
         
-        cell.titleLabel.text = attributeItem.name.localized
-        
-        cell.slider.minimumValue = attributeItem.minimumValue
-        cell.slider.maximumValue = attributeItem.maximumValue
-        cell.slider.defaultValue = attributeItem.defaultValue
-        cell.slider.value = attributeItem.value
-        
-        cell.sliderDidChangeHandler = { value in
-            attributeItem.value = value
+        if filterAttribute.attributeType == kCIAttributeTypeBoolean, let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "SwitchCell") as? SwitchCell {
+            cell.titleLabel.text = attributeItem.name
             
-            Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
-                DispatchQueue.main.asyncAfter(deadline: .now()){
-                    self.filter = CIRawFilter(attributes: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ (CIRAWFilterOption(rawValue: $0.key), $0.value) })))
+            cell.switchControl.setOn(attributeItem.value == 1.0 ? true : false, animated: true)
+            
+            cell.switchDidChangeHandler = { isOn in
+                attributeItem.value = isOn ? 1.0 : 0.0
+                
+                Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                    }
                 }
             }
+            
+            return cell
         }
-        
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "SliderCell") as! SliderCell
+            cell.titleLabel.text = attributeItem.name
+            
+            cell.slider.minimumValue = attributeItem.minimumValue
+            cell.slider.maximumValue = attributeItem.maximumValue
+            cell.slider.defaultValue = attributeItem.defaultValue
+            cell.slider.setValue(attributeItem.value, animated: true)
+            
+            cell.sliderDidChangeHandler = { value in
+                attributeItem.value = value
+                
+                Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+                    DispatchQueue.main.asyncAfter(deadline: .now()){
+                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                    }
+                }
+            }
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private class Cell: UITableViewCell {
+    private class SliderCell: UITableViewCell {
         lazy var slider: PrecisionLevelSlider = {
             let view = PrecisionLevelSlider()
             view.longNotchColor = .white
@@ -441,6 +471,76 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             
             titleLabel.textColor = tintColor
             slider.tintColor = tintColor
+        }
+    }
+    
+    private class SwitchCell: UITableViewCell {
+        lazy var switchControl: UISwitch = {
+            let view = UISwitch(frame: .zero)
+            return view
+        }()
+        
+        lazy var titleLabel: UILabel = {
+            let label = UILabel(frame: .zero)
+            label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.byWordWrapping
+            label.textAlignment = .right
+            label.backgroundColor = UIColor.clear
+            label.adjustsFontForContentSizeCategory = true
+            return label
+        }()
+        
+        var switchDidChangeHandler: ((Bool) -> Void)?
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            
+            switchDidChangeHandler = nil
+        }
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            
+            backgroundColor = .clear
+            
+            contentView.addSubview(titleLabel)
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
+            
+            let componentView = UIView(frame: .zero)
+            contentView.addSubview(componentView)
+            componentView.translatesAutoresizingMaskIntoConstraints = false
+            componentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: componentView.bottomAnchor, constant: 0).isActive = true
+            componentView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
+            contentView.trailingAnchor.constraint(equalTo: componentView.trailingAnchor, constant: 20).isActive = true
+            
+            componentView.addSubview(switchControl)
+            switchControl.translatesAutoresizingMaskIntoConstraints = false
+            switchControl.centerXAnchor.constraint(equalTo: componentView.centerXAnchor).isActive = true
+            switchControl.centerYAnchor.constraint(equalTo: componentView.centerYAnchor).isActive = true
+            
+            switchControl.addTarget(self, action: #selector(self.switchValueChanged), for: .valueChanged)
+        }
+        
+        @objc private func switchValueChanged() {
+            switchDidChangeHandler?(switchControl.isOn)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            
+            titleLabel.textColor = tintColor
+            switchControl.thumbTintColor = tintColor
+            switchControl.onTintColor = RawEditorApp.info.themeColor ?? tintColor
         }
     }
 }

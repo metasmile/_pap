@@ -61,3 +61,11 @@ extension CIImage{
         return filter.outputImage ?? self
     }
 }
+
+extension CIImage {
+    func resizeAspectFit(_ size: CGSize) -> CIImage {
+        let resize = AVMakeRect(aspectRatio: extent.size, insideRect: CGRect(origin: .zero, size: size)).size
+        let scale = min(resize.width / extent.width, resize.height / extent.height)
+        return transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+    }
+}

@@ -47,6 +47,10 @@ public protocol DepthDataSourceable:Sourceable {
     var asDepthDataMap:CVPixelBuffer? { get }
 }
 
+public protocol RawDataSourceable:Sourceable {
+    var asRawData:Data? { get }
+}
+
 public protocol URLSourceable:Sourceable {
     var asURL:URL? { get }
 }

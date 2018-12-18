@@ -567,7 +567,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
                 cell.slider.minimumValue = rangedAttributes.minimumValue
                 cell.slider.maximumValue = rangedAttributes.maximumValue
                 cell.slider.defaultValue = rangedAttributes.defaultValue
-                cell.slider.setValue(rangedAttributes.value, animated: false)
+                cell.slider.setValue(rangedAttributes.value, animated: true)
             }
         }
         

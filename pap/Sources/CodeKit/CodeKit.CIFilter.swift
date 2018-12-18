@@ -55,11 +55,11 @@ public class CIFilterAttributes {
         return attributeItems[safe: offsetIndex]
     }
     
-    func setAttributes(value: Float, at offsetIndex: Int) {
+    func setAttributes(value: Float, at offsetIndex: Int = 0) {
         attributeItems[safe: offsetIndex]?.value = value
     }
     
-    private var attributeType: String?
+    private(set) var attributeType: String?
     
     init(key: String) {
         self.key = key
