@@ -412,7 +412,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             let view = PrecisionLevelSlider()
             view.longNotchColor = .white
             view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-            view.centerNotchColor = .red
+            view.centerNotchColor = RawEditorApp.info.themeColor ?? .red
             view.numberOfNotches = 20
             return view
         }()
