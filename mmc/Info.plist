@@ -125,7 +125,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>We would like to access your contacts to save the new contact entry.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We will access your microphone to use the camera.</string>
+	<string>>We would like to access your microphone to improve the accurancy of the fuctionality of this app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We will access your photos library to load, save or edit photos.</string>
 	<key>NSUserActivityTypes</key>
