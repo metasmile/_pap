@@ -90,7 +90,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         self.config?.adoptValues(fromOther: config)
     }
     
-    private var cachedURL: URL?
+    private var rawImageURL: URL?
     private func urlForRawImage(with asset: PHAsset) -> URL {
         return FileURL.temp(asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
     }
@@ -99,14 +99,14 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         
         let rawURL = urlForRawImage(with: appAsset.asset)
         
-        if self.cachedURL != rawURL {
+        if self.rawImageURL != rawURL {
             guard let rawData = appAsset.asset.asRawData else {
                 completion(original, nil)
                 return
             }
             
             if let _ = try? rawData.write(to: rawURL) {
-                self.cachedURL = rawURL
+                self.rawImageURL = rawURL
             }
         }
         
@@ -115,13 +115,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         
         //INFO: for preview
         rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
-        rawFilter?.setValue((targetSize.maxLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
+        rawFilter?.setValue((UIScreen.main.bounds.size.minLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
         
         completion(original, rawFilter?.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        guard let rawURL = self.cachedURL else { return }
+        guard let rawURL = self.rawImageURL else { return }
         
         let rawFilter = CIFilter(imageURL: rawURL, options: nil)
         setFilterToContent(rawFilter, attributes: editStateValue?.ciFilter?.attributes)
@@ -131,11 +131,11 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
             let rawURL = self.urlForRawImage(with: asset)
             
-            if self.cachedURL != rawURL {
+            if self.rawImageURL != rawURL {
                 let rawData = asset.asRawData
                 
                 if let _ = try? rawData?.write(to: rawURL) {
-                    self.cachedURL = rawURL
+                    self.rawImageURL = rawURL
                 }
             }
             
@@ -156,7 +156,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        self.cachedURL = nil
+        self.rawImageURL = nil
     }
 }
 
@@ -377,9 +377,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.switchDidChangeHandler = { isOn in
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
-                DispatchQueue.main.asyncAfter(deadline: .now()){
-                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                }
+                self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
             }
             
             return cell
@@ -396,7 +394,15 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.sliderDidChangeHandler = { value in
                 attributeItem.value = value
                 
-                DispatchQueue.main.asyncAfter(deadline: .now()){
+                if cell.slider.velocity.magnitude > 30 {
+                    Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+                        DispatchQueue.main.asyncAfter(deadline: .now()){
+                            self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                        }
+                    }
+                }
+                else {
+                    Timer.removeScheduledTimer(identifier: #function)
                     self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }

@@ -10,4 +10,13 @@ import UIKit
 
 public protocol PreviewProcessableApp: App {
     func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void))
+    
+    //TODO: usage levels?
+    func showsVisibleEffectWhileProcessing() -> Bool
+}
+
+extension PreviewProcessableApp {
+    public func showsVisibleEffectWhileProcessing() -> Bool {
+        return false
+    }
 }

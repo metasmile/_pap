@@ -135,6 +135,10 @@ PhotoEditorViewControllerDelegatableApp {
         completion(original, filtered)
     }
     
+    public func showsVisibleEffectWhileProcessing() -> Bool {
+        return true
+    }
+    
     public func photoEditorWillBeginProcessing() {
         photoEditorDockContent?.view.isUserInteractionEnabled = false
     }

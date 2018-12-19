@@ -514,6 +514,10 @@ extension PreviewView {
             }
         }
     }
+    
+    fileprivate func needsShowProcessingEffect() -> Bool {
+        return AppCenter.default.currentInstanceAs(PreviewProcessableApp.self)?.showsVisibleEffectWhileProcessing() == true
+    }
 
     //TODO: fix a case of cached but reprocessing, it appears when the process performs with heavy filters.
     //TODO: fix a case of first item is reprocessing once more.
@@ -531,7 +535,7 @@ extension PreviewView {
                 
                 DispatchQueue.main.async{
                     guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
-                    cell.assetView.isProcessing = true
+                    cell.assetView.isProcessing = self.needsShowProcessingEffect()
                 }
                 
                 if let item = AppAssets.selected.at(unsafeIndex:indexPath.item) {
@@ -548,7 +552,9 @@ extension PreviewView {
                         DispatchQueue.main.async{
                             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
                             cell.setFilteredImage(filtered, original: original, with: item)
-                            cell.assetView.isProcessing(false, animated: true)
+                            if cell.assetView.isProcessing {
+                                cell.assetView.isProcessing(false, animated: true)
+                            }
                         }
                         performNext()
                     })
@@ -590,7 +596,7 @@ extension PreviewView: UICollectionViewDataSource {
         cell.delegate = self
         
         if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
-            cell.assetView.isProcessing = true
+            cell.assetView.isProcessing = needsShowProcessingEffect()
         }
         else if let item = appAssetsSelected.at(unsafeIndex: indexPath.item) {
             cell.setEditItemForPreview(item)
@@ -616,7 +622,7 @@ extension PreviewView: UICollectionViewDataSource {
         }
         else {
             cell.setOriginalImage(with: item)
-            cell.assetView.isProcessing = true
+            cell.assetView.isProcessing = needsShowProcessingEffect()
             
             enqueuePreviewProcessing(at: indexPath)
         }

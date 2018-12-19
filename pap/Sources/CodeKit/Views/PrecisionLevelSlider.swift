@@ -55,6 +55,10 @@ open class PrecisionLevelSlider: UIControl {
             update()
         }
     }
+    
+    var velocity: CGFloat {
+        return scrollView.panGestureRecognizer.velocity(in: self).x
+    }
 
     /// default 0.0. this value will be pinned to min/max
     @objc dynamic open var value: Float = 0 {

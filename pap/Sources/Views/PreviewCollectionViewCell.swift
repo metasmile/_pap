@@ -88,6 +88,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                 self?.assetView.originalImage = image
             })
         }
+        assetView.animateAsFade(0.25)
         assetView.filteredImage = filtered
         setImageEditItem(item.editState, animated: false)
     }
