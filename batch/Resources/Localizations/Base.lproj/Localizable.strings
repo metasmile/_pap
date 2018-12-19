@@ -192,6 +192,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Bias";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Blue / Magenta";
 /* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -280,6 +282,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cyan / Blue";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionText.Parser.Types.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift */
@@ -370,6 +374,8 @@
 "Give A Rating" = "Give A Rating";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Grain" = "Grain";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Green / Cyan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Guest User License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -390,18 +396,6 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Blue (BM)" = "Hue Blue (BM)";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Cyan (CB)" = "Hue Cyan (CB)";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Green (GC)" = "Hue Green (GC)";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Magenta (MR)" = "Hue Magenta (MR)";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Red (RY)" = "Hue Red (RY)";
-/* Generated from genl10n: RawEditor.swift */
-"Hue Yellow (YG)" = "Hue Yellow (YG)";
 /* Generated from genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -446,6 +440,8 @@
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
 "Luminance Noise Reduction" = "Luminance Noise Reduction";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / Red";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
 "Main Tools License" = "Main Tools License";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -598,6 +594,8 @@
 "Rate It" = "Rate It";
 /* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Re-frame" = "Re-frame";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Red / Yellow";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -856,6 +854,8 @@
 "Write A Review" = "Write A Review";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.MailContact.swift, Settings.SApp.swift */
 "Write" = "Write";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Yellow / Green";
 /* Generated from genl10n: Converter.BApp.swift */
 "You can select only photos or videos that matched with starting format." = "You can select only photos or videos that matched with starting format.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

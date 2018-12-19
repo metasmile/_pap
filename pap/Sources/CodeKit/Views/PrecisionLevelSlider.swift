@@ -101,7 +101,6 @@ open class PrecisionLevelSlider: UIControl {
     @objc dynamic open var defaultValue: Float = 0 {
         didSet {
             defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
-            defaultValueMark.position.y = 8
         }
     }
 
@@ -215,7 +214,9 @@ open class PrecisionLevelSlider: UIControl {
 
         let inset = contentSize.width / 2 + (max(0, scrollView.bounds.width - contentSize.width) / 2)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-
+        
+        defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+        defaultValueMark.position.y = max(3, (bounds.height - longNotchHeight) / 2 - 10)
     }
 
     func setup() {

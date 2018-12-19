@@ -113,12 +113,11 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         let rawFilter = CIFilter(imageURL: rawURL, options: nil)
         rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        if let cgImage = rawFilter?.outputImage?.asCGImage {
-            completion(original, UIImage(cgImage: cgImage))
-        }
-        else {
-            completion(original, nil)
-        }
+        //INFO: for preview
+        rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
+        rawFilter?.setValue((targetSize.maxLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
+        
+        completion(original, rawFilter?.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
@@ -291,16 +290,23 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     fileprivate func setDefaultRawAttributes(_ attributes: [String: Any]?) {
-        installFilters()
+        filterAttributes = []
         
-        for filterAttribute in filterAttributes {
-            if let defaultKey = attributes?.keys.first(where: { $0 == filterAttribute.key }) {
-                if let value = attributes?[defaultKey] as? NSNumber {
-                    let attributeItem = filterAttribute.attributes(at: 0)
-                    attributeItem?.defaultValue = value.floatValue
-                    attributeItem?.value = value.floatValue
+        if let attributes = attributes, !attributes.isEmpty {
+            for filterAttribute in rawAttributes() {
+                if let defaultKey = attributes.keys.first(where: { $0 == filterAttribute.key }) {
+                    if let value = attributes[defaultKey] as? NSNumber {
+                        let attributeItem = filterAttribute.attributes(at: 0)
+                        attributeItem?.defaultValue = value.floatValue
+                        attributeItem?.value = value.floatValue
+                        
+                        filterAttributes.append(filterAttribute)
+                    }
                 }
             }
+        }
+        else {
+            filterAttributes = rawAttributes()
         }
         
         DispatchQueue.main.async {
@@ -333,12 +339,12 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity X".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity Y".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.moireAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Moire".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Magenta (MR)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Blue (BM)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Yellow (YG)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Cyan (CB)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Red (RY)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Hue Green (GC)".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Magenta / Red".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Blue / Magenta".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Yellow / Green".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Cyan / Blue".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Red / Yellow".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Green / Cyan".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
 //            CIFilterAttributes(key: CIRAWFilterOption.scaleFactor.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Scale Factor", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
         ]
     }
@@ -386,7 +392,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.slider.minimumValue = attributeItem.minimumValue
             cell.slider.maximumValue = attributeItem.maximumValue
             cell.slider.defaultValue = attributeItem.defaultValue
-            cell.slider.setValue(attributeItem.value, animated: true)
+            cell.slider.value = attributeItem.value
             
             cell.sliderDidChangeHandler = { value in
                 attributeItem.value = value
