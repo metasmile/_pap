@@ -15,13 +15,15 @@ class CIFilterAttributeItem {
     var minimumValue: Float = 0
     var maximumValue: Float = 1
     var offset: Int = 0
+    var isIntensity: Bool = true
     
-    init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0) {
+    init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true) {
         self.name = name
         self.defaultValue = defaultValue ?? 0
         self.minimumValue = minimumValue ?? 0
         self.maximumValue = maximumValue ?? 1
         self.offset = offset
+        self.isIntensity = isIntensity
         
         self.value = defaultValue ?? 0
     }

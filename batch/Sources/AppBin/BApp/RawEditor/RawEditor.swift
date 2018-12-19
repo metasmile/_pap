@@ -95,13 +95,11 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         return FileURL.temp(asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
     }
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
-        
         let rawURL = urlForRawImage(with: appAsset.asset)
         
         if self.rawImageURL != rawURL {
             guard let rawData = appAsset.asset.asRawData else {
-                completion(original, nil)
+                completion(nil, nil)
                 return
             }
             
@@ -111,13 +109,16 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         }
         
         let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-        rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
         //INFO: for preview
         rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
         rawFilter?.setValue((UIScreen.main.bounds.size.minLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
         
-        completion(original, rawFilter?.outputImage?.asUIImage)
+        let original = rawFilter?.outputImage
+        
+        rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
+        
+        completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
@@ -336,15 +337,15 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             CIFilterAttributes(key: CIRAWFilterOption.noiseReductionContrastAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Noise Reduction Contrast".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
             CIFilterAttributes(key: CIRAWFilterOption.noiseReductionSharpnessAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Noise Reduction Sharpness".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
             CIFilterAttributes(key: CIRAWFilterOption.luminanceNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Luminance Noise Reduction".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity X".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity Y".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity X".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity Y".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.moireAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Moire".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Magenta / Red".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Blue / Magenta".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Yellow / Green".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Cyan / Blue".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Red / Yellow".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
-            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Green / Cyan".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+            CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Magenta / Red".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Blue / Magenta".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: "inputHueMagYG", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Yellow / Green".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Cyan / Blue".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Red / Yellow".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+            CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Green / Cyan".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
 //            CIFilterAttributes(key: CIRAWFilterOption.allowDraftMode.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Draft Mode", boolValue: false)]),
 //            CIFilterAttributes(key: CIRAWFilterOption.scaleFactor.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Scale Factor", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
         ]
@@ -391,8 +392,13 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.slider.defaultValue = attributeItem.defaultValue
             cell.slider.value = attributeItem.value
             
-            cell.sliderDidChangeHandler = { value in
-                attributeItem.value = value
+            cell.sliderDidChangeHandler = { slider in
+                if attributeItem.isIntensity {
+                    attributeItem.value = slider.bezierValue
+                }
+                else {
+                    attributeItem.value = slider.value
+                }
                 
                 if cell.slider.velocity.magnitude > 30 {
                     Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
@@ -436,7 +442,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             return label
         }()
         
-        var sliderDidChangeHandler: ((Float) -> Void)?
+        var sliderDidChangeHandler: ((PrecisionLevelSlider) -> Void)?
         
         override func prepareForReuse() {
             super.prepareForReuse()
@@ -467,7 +473,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         
         @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider.bezierValue)
+            sliderDidChangeHandler?(slider)
         }
         
         required init?(coder aDecoder: NSCoder) {
