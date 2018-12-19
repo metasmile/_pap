@@ -97,8 +97,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         
         setEditItem(item)
         
-        assetView.filteredImage = nil
-        
         if let original = original {
             assetView.originalImage = original
             assetView.image = original
