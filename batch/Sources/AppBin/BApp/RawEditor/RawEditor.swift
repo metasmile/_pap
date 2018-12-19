@@ -121,13 +121,10 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        if let rawURL = self.cachedURL {
-            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-            setFilterToContent(rawFilter)
-        }
-        else {
-            setFilterToContent(editStateValue?.ciFilter)
-        }
+        guard let rawURL = self.cachedURL else { return }
+        
+        let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+        setFilterToContent(rawFilter, attributes: editStateValue?.ciFilter?.attributes)
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
@@ -147,15 +144,15 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         }
     }
     
-    private func setFilterToContent(_ filter: CIFilter?) {
-        var attributes = [String: Any]()
+    private func setFilterToContent(_ filter: CIFilter?, attributes: [String: Any]? = nil) {
+        var defaultAttributes = [String: Any]()
         filter?.inputKeys.forEach {
             if let v = filter?.value(forKey: $0) {
-                attributes[$0] = v
+                defaultAttributes[$0] = v
             }
         }
         
-        (self.content as? RawEditorDockContent)?.setDefaultRawAttributes(attributes)
+        (self.content as? RawEditorDockContent)?.setRawAttributes(attributes, with: defaultAttributes)
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
@@ -289,20 +286,24 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         (view as? UITableView)?.reloadData()
     }
     
-    fileprivate func setDefaultRawAttributes(_ attributes: [String: Any]?) {
+    fileprivate func setRawAttributes(_ attributes: [String: Any]? = nil, with defaultAttributes: [String: Any]?) {
         filterAttributes = []
         
-        if let attributes = attributes, !attributes.isEmpty {
+        if let defaultAttributes = defaultAttributes, !defaultAttributes.isEmpty {
             for filterAttribute in rawAttributes() {
-                if let defaultKey = attributes.keys.first(where: { $0 == filterAttribute.key }) {
-                    if let value = attributes[defaultKey] as? NSNumber {
-                        let attributeItem = filterAttribute.attributes(at: 0)
-                        attributeItem?.defaultValue = value.floatValue
-                        attributeItem?.value = value.floatValue
-                        
-                        filterAttributes.append(filterAttribute)
-                    }
+                guard let defaultKey = defaultAttributes.keys.first(where: { $0 == filterAttribute.key }), let defaultValue = defaultAttributes[defaultKey] as? NSNumber else { continue }
+                
+                let attributeItem = filterAttribute.attributes(at: 0)
+                attributeItem?.defaultValue = defaultValue.floatValue
+                
+                if let valueKey = attributes?.keys.first(where: { $0 == filterAttribute.key }), let value = attributes?[valueKey] as? NSNumber {
+                    attributeItem?.value = value.floatValue
                 }
+                else {
+                    attributeItem?.value = defaultValue.floatValue
+                }
+                
+                filterAttributes.append(filterAttribute)
             }
         }
         else {
@@ -323,7 +324,6 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             CIFilterAttributes(key: kCIInputEVKey, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "EV".localized, defaultValue: 0, minimumValue: -3, maximumValue: 3)]),
             CIFilterAttributes(key: kCIInputBiasKey, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Bias".localized, defaultValue: 0, minimumValue: -3, maximumValue: 25)]),
             CIFilterAttributes(key: CIRAWFilterOption.enableSharpening.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Sharpening".localized, boolValue: true)]),
-//            CIFilterAttributes(key: CIRAWFilterOption.allowDraftMode.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Draft Mode", boolValue: false)]),
 //            CIFilterAttributes(key: CIRAWFilterOption.neutralLocation.rawValue, attributeType: kCIAttributeTypePosition, attributes: [CIFilterAttributeItem(name: "NeutralLocationX", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0), CIFilterAttributeItem(name: "NeutralLocationY", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.enableVendorLensCorrection.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Vendor Lens Correction".localized, boolValue: true)]),
             CIFilterAttributes(key: CIRAWFilterOption.disableGamutMap.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Disable Gamut Map".localized, boolValue: false)]),
@@ -345,6 +345,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             CIFilterAttributes(key: "inputHueMagCB", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Cyan / Blue".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: "inputHueMagRY", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Red / Yellow".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
             CIFilterAttributes(key: "inputHueMagGC", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Green / Cyan".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]), // no min max
+//            CIFilterAttributes(key: CIRAWFilterOption.allowDraftMode.rawValue, attributeType: kCIAttributeTypeBoolean, attributes: [CIFilterAttributeItem(name: "Draft Mode", boolValue: false)]),
 //            CIFilterAttributes(key: CIRAWFilterOption.scaleFactor.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Scale Factor", defaultValue: 1, minimumValue: 0, maximumValue: 1)]),
         ]
     }
@@ -376,10 +377,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.switchDidChangeHandler = { isOn in
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
-                Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
-                    DispatchQueue.main.asyncAfter(deadline: .now()){
-                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                    }
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }
             
@@ -397,10 +396,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.sliderDidChangeHandler = { value in
                 attributeItem.value = value
                 
-                Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
-                    DispatchQueue.main.asyncAfter(deadline: .now()){
-                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                    }
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }
             
