@@ -45,7 +45,7 @@ class DepthImageFilters {
   }
   
   init() {
-    context = CIContext()
+    context = CIContext.shared
   }
   
   func createMask(for depthImage: CIImage, withFocus focus: CGFloat, andScale scale: CGFloat) -> CIImage {

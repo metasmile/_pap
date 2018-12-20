@@ -6,6 +6,13 @@
 import Foundation
 import Photos
 
+extension CIContext {
+    static let shared = CIContext(options: [
+        CIContextOption.cacheIntermediates: false,
+        CIContextOption.useSoftwareRenderer: false
+    ])
+}
+
 extension CIImage{
     convenience init?(image: UIImage?) {
         guard let image = image else {
@@ -43,7 +50,7 @@ extension CIImage{
     @discardableResult
     public func writeJPEGRepresentation(to:URL, options:[CIImageRepresentationOption : Any] = [:]) -> Bool{
         do {
-            try CIContext().writeJPEGRepresentation(of: self
+            try CIContext.shared.writeJPEGRepresentation(of: self
                     , to:to
                     , colorSpace: defaultColorSpace
                 , options: options)

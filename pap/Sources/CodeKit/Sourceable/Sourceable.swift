@@ -82,7 +82,7 @@ extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
 
     public var asCIImage: CIImage? {
         return autoreleasepool {
-            return CIImage(image: self)
+            return ciImage ?? CIImage(image: self)
         }
     }
 }
@@ -97,7 +97,7 @@ extension CALayer: ImageSourceable {
 
 extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     public var asData:Data? {
-        return CIContext().jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
+        return CIContext.shared.jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
     }
 
     public var asUIImage:UIImage? {
@@ -116,7 +116,7 @@ extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
 
     public var asCGImage: CGImage? {
         return autoreleasepool{
-            return CIContext().createCGImage(self, from: extent)
+            return self.cgImage ?? CIContext.shared.createCGImage(self, from: extent)
         }
     }
 }

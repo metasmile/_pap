@@ -479,7 +479,7 @@ public struct PreviewProcessingQueue {
     //INFO: Write 'canceled' must be a dispatchqueue that has earlier QoS than .utility
     fileprivate static var canceled = false
     
-    private static var cachedPreviewImages = [String: URL]()
+    private static var cachedPreviewImages: NSCache = NSCache<NSString, NSURL>()
     
     private static func cacheIdentifier(with item: AppAsset, targetSize: CGSize) -> String? {
         guard let lastEditState = item.editState.imageEditStateValue else { return  nil }
@@ -488,17 +488,17 @@ public struct PreviewProcessingQueue {
     
     fileprivate static func cacheImage(_ image: UIImage, targetSize: CGSize, with item: AppAsset) {
         guard let identifier = cacheIdentifier(with: item, targetSize: targetSize) else { return }
-        let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())       
+        let url = FileURL.temp(identifier as String, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
         
-        if cachedPreviewImages[identifier] == nil, let data = image.jpegData(compressionQuality: 0.7), (try? data.write(to: url)) != nil {
-            cachedPreviewImages[identifier] = url
+        if cachedPreviewImages.object(forKey: identifier as NSString) == nil, let data = image.jpegData(compressionQuality: 0.7), (try? data.write(to: url)) != nil {
+            cachedPreviewImages.setObject(url as NSURL, forKey: identifier as NSString)
         }
     }
     
     fileprivate static func cachedImage(item: AppAsset, targetSize: CGSize) -> UIImage? {
         guard let identifier = cacheIdentifier(with: item, targetSize: targetSize) else { return nil }
-        guard let url = cachedPreviewImages[identifier] else { return nil }
-        return UIImage(contentsOfFile: url.path)
+        guard let url = cachedPreviewImages.object(forKey: identifier as NSString), let filePath = url.path else { return nil }
+        return UIImage(contentsOfFile: filePath)
     }
 }
 

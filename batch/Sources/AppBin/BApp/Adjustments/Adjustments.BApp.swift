@@ -113,9 +113,18 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         self.config?.adoptValues(fromOther: config)
     }
     
+    //INFO: prevent memory leak for creating CIImage(uiImage:)
+    public lazy var previewOriginalImageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
-        let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
+        
+        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? appAsset.asset.requestThumbnailImage(targetSize: targetSize)
+        
+        if let image = original {
+            previewOriginalImageCache.setObject(image, forKey: cacheKey)
+        }
+        
+        let filtered = autoreleasepool { original?.applyFilter(ciFilter: appAsset.editState.ciFilter) }
         completion(original, filtered)
     }
     
@@ -166,10 +175,12 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     @objc dynamic var inputImage : CIImage?
     
     override var outputImage: CIImage? {
-        guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
-        filter.setValue(image, forKey: kCIInputImageKey)
-        adjustmentItems.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
-        return filter.outputImage
+        return autoreleasepool { () -> CIImage? in
+            guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+            filter.setValue(image, forKey: kCIInputImageKey)
+            adjustmentItems.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
+            return filter.outputImage
+        }
     }
 }
 
@@ -257,12 +268,14 @@ fileprivate class CIFilterGroup: CIFilter {
     
     override var outputImage: CIImage? {
         
-        guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+        guard var image = inputImage else { return nil }
         
         for filter in filters {
-            filter.setValue(image, forKey: kCIInputImageKey)
-            if let result = filter.outputImage {
-                image = result
+            autoreleasepool {
+                filter.setValue(image, forKey: kCIInputImageKey)
+                if let result = filter.outputImage {
+                    image = result
+                }
             }
         }
         
@@ -575,11 +588,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             self.filterItem.setAdjustmentFilter(filter)
             self.filterItem.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
             
-            Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+            let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
                 DispatchQueue.main.asyncAfter(deadline: .now()){
                     self.filter = self.filterItem.ciFilter
                 }
             }
+            RunLoop.current.add(timer, forMode: .common)
         }
         
         return cell

@@ -94,6 +94,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     private func urlForRawImage(with asset: PHAsset) -> URL {
         return FileURL.temp(asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
     }
+    
+    //INFO: prevent memory leak for creating CIImage(uiImage:)
+    public lazy var previewOriginalImageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let rawURL = urlForRawImage(with: appAsset.asset)
         
@@ -114,11 +117,17 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
         rawFilter?.setValue((UIScreen.main.bounds.size.minLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
         
-        let original = rawFilter?.outputImage
+        let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
+        
+        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? rawFilter?.outputImage?.asUIImage
+        
+        if let image = original {
+            previewOriginalImageCache.setObject(image, forKey: cacheKey)
+        }
         
         rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
+        completion(original, autoreleasepool { rawFilter?.outputImage?.asUIImage })
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
@@ -378,7 +387,9 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.switchDidChangeHandler = { isOn in
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
-                self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                }
             }
             
             return cell
@@ -400,21 +411,20 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                     attributeItem.value = slider.value
                 }
                 
-                if cell.slider.velocity.magnitude > 30 {
-                    Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
-                        DispatchQueue.main.asyncAfter(deadline: .now()){
-                            self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                        }
+                let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                     }
                 }
-                else {
-                    Timer.removeScheduledTimer(identifier: #function)
-                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                }
+                RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
             }
             
             return cell
         }
+    }
+    
+    @objc private func updateFilter() {
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -270,7 +270,7 @@ private class CIFrameFillFilter: CIFilter {
     
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = value(forKey: kCIInputImageKey) as? CIImage, let cgImage = CIContext().createCGImage(image, from: image.extent) else {
+            guard let image = value(forKey: kCIInputImageKey) as? CIImage, let cgImage = image.asCGImage else {
                 return nil
             }
             
@@ -713,11 +713,12 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         borderWidthSlider.setMinimumTrackImage(UIImage(path: minTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: estimatedHeight, bottom: estimatedHeight / 2, right: 0), resizingMode: .stretch), for: .normal)
         borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)
         
-        Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.2) { timer in
+        let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
             DispatchQueue.main.asyncAfter(deadline: .now()){
                 self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
             }
         }
+        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
     }
     
     var selectedEditStateValue: ImageEditStateValue?
