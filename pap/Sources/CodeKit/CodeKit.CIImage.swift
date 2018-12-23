@@ -14,13 +14,6 @@ extension CIContext {
 }
 
 extension CIImage{
-    convenience init?(image: UIImage?) {
-        guard let image = image else {
-            return nil
-        }
-        self.init(image: image)
-    }
-
     convenience init?(cvPixelBuffer: CVPixelBuffer?) {
         guard let cvPixelBuffer = cvPixelBuffer else {
             return nil
