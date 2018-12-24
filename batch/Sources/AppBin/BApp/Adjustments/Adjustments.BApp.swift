@@ -176,7 +176,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     
     override var outputImage: CIImage? {
         return autoreleasepool { () -> CIImage? in
-            guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+            guard let image = inputImage else { return nil }
             filter.setValue(image, forKey: kCIInputImageKey)
             adjustmentItems.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
             return filter.outputImage
@@ -218,7 +218,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
     }()
     
     override var outputImage: CIImage? {
-        guard let image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+        guard let image = inputImage else { return nil }
         let params = adjustmentItems.compactMap { $0.value.number }
         return kernel?.apply(extent: image.extent, arguments: [image] + params)
     }
@@ -239,6 +239,12 @@ fileprivate class CIAdjustmentsFilterItem {
     }
     
     fileprivate var ciFilter: CIFilterGroup {
+        if let filter = orderedFilters.first(where: { ($0 as? CIFilter)?.name == "CIHighlightShadowAdjust" }) {
+            let index = orderedFilters.index(of: filter)
+            if index != NSNotFound {
+                orderedFilters.moveObjects(at: IndexSet(integer: index), to: 0)
+            }
+        }
         return CIFilterGroup(filters: orderedFilters.array as? [CIFilter])
     }
     
@@ -417,7 +423,7 @@ extension AdjustmentsApp {
         AdjustmentsApp.Adjustments.Name.Vibrance,
         AdjustmentsApp.Adjustments.Name.Temparature,
         AdjustmentsApp.Adjustments.Name.Tint,
-        AdjustmentsApp.Adjustments.Name.Fade,
+//        AdjustmentsApp.Adjustments.Name.Fade,
 //        AdjustmentsApp.Adjustments.Name.Grain,
         AdjustmentsApp.Adjustments.Name.Vignette,
         AdjustmentsApp.Adjustments.Name.VignetteRadius,

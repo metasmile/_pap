@@ -270,7 +270,7 @@ private class CIFrameFillFilter: CIFilter {
     
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = value(forKey: kCIInputImageKey) as? CIImage, let cgImage = image.asCGImage else {
+            guard let image = inputImage, let cgImage = image.asCGImage else {
                 return nil
             }
             

@@ -286,7 +286,7 @@ private class CIDepthMaskFilter: CIFilter {
 
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = (value(forKey: kCIInputImageKey) as? CIImage)
+            guard let image = inputImage
                     , let depthDataMapPixelBuffer = depthData?.depthDataMap else {
                 print("No depth data found.")
                 return nil
