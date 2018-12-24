@@ -96,7 +96,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     //INFO: prevent memory leak for creating CIImage(uiImage:)
-    public lazy var previewOriginalImageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let rawURL = urlForRawImage(with: appAsset.asset)
         
@@ -119,7 +119,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         
         let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
         
-        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? rawFilter?.outputImage?.asUIImage
+        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? rawFilter?.outputImage
         
         if let image = original {
             previewOriginalImageCache.setObject(image, forKey: cacheKey)
@@ -127,7 +127,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         
         rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        completion(original, autoreleasepool { rawFilter?.outputImage?.asUIImage })
+        completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {

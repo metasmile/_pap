@@ -82,12 +82,7 @@ extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
 
     public var asCIImage: CIImage? {
         return autoreleasepool {
-            if #available(iOS 12.0, *) {
-                return ciImage ?? CIImage(image: self)?.insertingIntermediate(cache: false) //??? WTF....
-            }
-            else {
-                return ciImage ?? CIImage(image: self) // what is the solution for this devices
-            }
+            return ciImage ?? CIImage(image: self)
         }
     }
 }
