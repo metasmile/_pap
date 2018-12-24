@@ -1004,6 +1004,12 @@
 		511577D221A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D321A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
 		511577D421A4D47C00866D6E /* CodeKit.UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */; };
+		5115848121D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
+		5115848221D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
+		5115848321D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
+		5115848421D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
+		5115848521D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
+		5115848621D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */; };
 		5115F32821AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
 		5115F32921AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
 		5115F32A21AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */; };
@@ -2600,6 +2606,7 @@
 		510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CIFilter.swift; sourceTree = "<group>"; };
 		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
+		5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CodeKit.CIFilter.lut64.png; sourceTree = "<group>"; };
 		5115F32721AF4936004EB0F1 /* Adjustments.BApp.Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Adjustments.BApp.Shaders.metal; sourceTree = "<group>"; };
 		5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizer.BApp.swift; sourceTree = "<group>"; };
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
@@ -3642,6 +3649,7 @@
 				4F71D0BCC7EB4DF7DC229747 /* CodeKit.CVPixelBuffer.swift */,
 				510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */,
 				510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */,
+				5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */,
 			);
 			path = CodeKit;
 			sourceTree = "<group>";
@@ -4646,6 +4654,7 @@
 				A0956BFA2095005200E680B9 /* Localizable.strings in Resources */,
 				4F71D06BDFC37974BFD660FB /* AppStoryboard.storyboard in Resources */,
 				A0956BD72095005200E680B9 /* Localizable.strings in Resources */,
+				5115848121D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				A0956BCB2095005200E680B9 /* Localizable.strings in Resources */,
 				51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */,
 				A0956BE32095005200E680B9 /* Localizable.strings in Resources */,
@@ -4742,6 +4751,7 @@
 				4F71D9818AF432C8E1C5CF79 /* cell_icon_pano.png in Resources */,
 				4F71DE7872248B539E99FE2C /* cell_icon_favorite.png in Resources */,
 				4F71D326E44E89221407C2DC /* cell_icon_gif.png in Resources */,
+				5115848221D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				4F71D57858083C79B6E87D3C /* MemoCam.BApp.Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4752,6 +4762,7 @@
 			files = (
 				5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CB00D5219C8C64007A5278 /* Localizable.strings in Resources */,
+				5115848421D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				A0CB00D6219C8C64007A5278 /* Assets.xcassets in Resources */,
 				A0CB00D8219C8C64007A5278 /* Launch Screen.storyboard in Resources */,
 				A0CB00D9219C8C64007A5278 /* Localizable.strings in Resources */,
@@ -4839,6 +4850,7 @@
 			files = (
 				5114401621A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CB0259219C9093007A5278 /* Localizable.strings in Resources */,
+				5115848521D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				A0CB025A219C9093007A5278 /* Assets.xcassets in Resources */,
 				A0CB025B219C9093007A5278 /* Launch Screen.storyboard in Resources */,
 				A0CB025C219C9093007A5278 /* Localizable.strings in Resources */,
@@ -4935,6 +4947,7 @@
 				A0CB0398219DE4F2007A5278 /* Siri.SApp.Assets.xcassets in Resources */,
 				A0CB0399219DE4F2007A5278 /* App.Resources.xcassets in Resources */,
 				A0CB039A219DE4F2007A5278 /* AppUICollectionViewCell.xib in Resources */,
+				5115848621D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				A0CB039B219DE4F2007A5278 /* App.UICamera.xcassets in Resources */,
 				A0CB039C219DE4F2007A5278 /* AppDockView.xib in Resources */,
 				A0CB039D219DE4F2007A5278 /* AppDockViewCell.xib in Resources */,
@@ -4958,6 +4971,7 @@
 			files = (
 				5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */,
 				A0CBFF5B219ADBA2007A5278 /* Localizable.strings in Resources */,
+				5115848321D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				A0CBFF5C219ADBA2007A5278 /* Assets.xcassets in Resources */,
 				A0CBFF5D219ADBA2007A5278 /* GoogleService-Info.plist in Resources */,
 				A0CBFF5E219ADBA2007A5278 /* Launch Screen.storyboard in Resources */,
