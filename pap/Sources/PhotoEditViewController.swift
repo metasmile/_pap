@@ -239,6 +239,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
         
+        self.assetView.animateAsFade(0.25)
+        self.assetView.filteredImage = nil
         self.assetView.applyEditState(self.editItem)
         
         UIView.animateAsSpring(0.3, delay: 0.0, animations: {
