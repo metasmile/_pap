@@ -17,6 +17,10 @@ class CIFilterAttributeItem {
     var offset: Int = 0
     var isIntensity: Bool = true
     
+    var hasChanges: Bool {
+        return defaultValue != value
+    }
+    
     init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true) {
         self.name = name
         self.defaultValue = defaultValue ?? 0
@@ -49,6 +53,10 @@ public class CIFilterAttributes {
     }
     var offset: CGPoint {
         return CGPoint(x: CGFloat(attributes(at: 0)?.value ?? 0), y: CGFloat(attributes(at: 1)?.value ?? 0))
+    }
+    
+    var hasChanges: Bool {
+        return attributeItems.reduce(false) { $0 || $1.hasChanges }
     }
     
     private(set) var attributeItems: [CIFilterAttributeItem] = [CIFilterAttributeItem]()
