@@ -324,9 +324,9 @@ fileprivate class AdjustmentFilterManager {
             CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [.Temparature, .Tint]),
             CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [.Highlights, .Shadows]),
             CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [.Exposure]),
+            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [.Gamma]),
             CIAdjustmentFilter(name: "CIVibrance", adjustments: [.Vibrance]),
             CIAdjustmentFilter(name: "CIColorControls", adjustments: [.Brightness, .Contrast, .Saturation]),
-            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [.Gamma]),
             CIAdjustmentFilter(name: "CIVignette", adjustments: [.Vignette, .VignetteRadius]),
             CIAdjustmentFilter(name: "CISepiaTone", adjustments: [.SepiaTone])
         ]
@@ -470,8 +470,8 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         view.rowHeight = UITableView.automaticDimension
         view.estimatedRowHeight = 52
         view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "Cell")
-        view.register(ToneCurveCell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "ToneCurveCell")
+        view.register(Cell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(Cell.self)")
+        view.register(ToneCurveCell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(ToneCurveCell.self)")
         view.backgroundColor = .clear
         view.separatorStyle = .none
         return view
@@ -550,12 +550,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let attributeItem = attributeItems[indexPath.row]
-//        if filterName == .ToneCurve, let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "ToneCurveCell") as? ToneCurveCell {
+//        if filterName == .ToneCurve, let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "\(ToneCurveCell.self)") as? ToneCurveCell {
 //            cell.titleLabel.text = filterName.displayName
 //            return cell
 //        }
 //        else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "Cell") as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "\(Cell.self)") as! Cell
         
         cell.titleLabel.text = attributeItem.name
         
@@ -563,12 +563,21 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         cell.slider.maximumValue = attributeItem.maximumValue
         cell.slider.defaultValue = attributeItem.defaultValue
         cell.slider.value = attributeItem.value
+        cell.resetButton.isHidden = !attributeItem.hasChanges
         
-        cell.sliderDidChangeHandler = { slider in
-//            self.filterManager.setAdjustmentFilter(filter)
-//            self.filterManager.adjustmentFilter(with: filter)?.setAdjustmentValue(value, with: filterName)
+        cell.resetButtonDidTapHandler = {
+            attributeItem.value = attributeItem.defaultValue
+            cell.resetButton.isHidden = !attributeItem.hasChanges
             
-            attributeItem.value = slider.value
+            cell.slider.value = attributeItem.value
+            
+            self.filter = self.filterManager.ciFilter
+        }
+        
+        cell.sliderDidChangeHandler = { value in
+            attributeItem.value = value
+            
+            cell.resetButton.isHidden = !attributeItem.hasChanges
             
             let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
                 DispatchQueue.main.async {
@@ -596,6 +605,13 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             return view
         }()
         
+        lazy var resetButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("☀︎", for: .normal)
+            button.setTitleColor(AdjustmentsApp.info.themeColor, for: .normal)
+            return button
+        }()
+        
         lazy var titleLabel: UILabel = {
             let label = UILabel(frame: .zero)
             label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
@@ -607,11 +623,13 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             return label
         }()
         
-        var sliderDidChangeHandler: ((PrecisionLevelSlider) -> Void)?
+        var resetButtonDidTapHandler: (() -> Void)?
+        var sliderDidChangeHandler: ((Float) -> Void)?
         
         override func prepareForReuse() {
             super.prepareForReuse()
             
+            resetButtonDidTapHandler = nil
             sliderDidChangeHandler = nil
         }
         
@@ -634,11 +652,22 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
             contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
             
+            contentView.addSubview(resetButton)
+            resetButton.translatesAutoresizingMaskIntoConstraints = false
+            resetButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: 0).isActive = true
+            resetButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: -2).isActive = true
+            resetButton.isHidden = true
+            
+            resetButton.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
             slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
         }
         
+        @objc private func resetButtonDidTap() {
+            resetButtonDidTapHandler?()
+        }
+        
         @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider)
+            sliderDidChangeHandler?(slider.value)
         }
         
         required init?(coder aDecoder: NSCoder) {

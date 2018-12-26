@@ -37,6 +37,12 @@ class CIFilterAttributeItem {
     }
 }
 
+extension CIFilterAttributeItem {
+    func bezierValue(_ bezier: CubicBezier = CubicBezier.Cubic.easeOut) -> Float {
+        return bezier.value(value, in: minimumValue...maximumValue, with: defaultValue)
+    }
+}
+
 public class CIFilterAttributes {
     var key: String
     var value: Any {
@@ -49,7 +55,8 @@ public class CIFilterAttributes {
         }
     }
     var number: Float {
-        return attributes(at: 0)?.value ?? 0
+        guard let attributeItem = attributes(at: 0) else { return 0 }
+        return attributeItem.isIntensity ? attributeItem.bezierValue() : attributeItem.value
     }
     var offset: CGPoint {
         return CGPoint(x: CGFloat(attributes(at: 0)?.value ?? 0), y: CGFloat(attributes(at: 1)?.value ?? 0))

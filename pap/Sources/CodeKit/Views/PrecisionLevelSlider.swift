@@ -109,6 +109,7 @@ open class PrecisionLevelSlider: UIControl {
     }
 
     open var isContinuous: Bool = true
+    open var usingLinearValue: Bool = true
 
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
@@ -284,35 +285,6 @@ open class PrecisionLevelSlider: UIControl {
     private var stickTouchLocation: CGPoint = .zero
     private var beginningScrollPosition: CGPoint = .zero
     private var previousScrollPosition: CGPoint = .zero
-
-    var bezierValue: Float {
-        let bezier = CubicBezier.Cubic.easeOut
-        
-        let min = valueToOffset(value: minimumValue).x
-        let d = valueToOffset(value: defaultValue).x
-        let max = valueToOffset(value: maximumValue).x
-        let v = valueToOffset(value: value).x
-        let scale = bezier.y(at: 1)
-        let t: CGFloat
-        
-        if defaultValue != minimumValue, defaultValue != maximumValue, value < defaultValue {
-            t = 1 - ((v - min) / (d - min)).magnitude
-        }
-        else {
-            if defaultValue < maximumValue {
-                t = ((v - d) / (max - d)).magnitude
-            }
-            else {
-                t = (v / max).magnitude
-            }
-        }
-        
-        let ratio = bezier.y(at: CGFloat(t)) / scale
-        let base = defaultValue < maximumValue ? d : min
-        let offsetX = base + (v - base) * ratio
-        
-        return value(with: CGPoint(x: offsetX, y: 0))
-    }
 }
 
 extension PrecisionLevelSlider {

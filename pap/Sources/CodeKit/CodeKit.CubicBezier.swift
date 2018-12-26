@@ -78,7 +78,7 @@ extension CubicBezier {
 }
 
 extension CubicBezier {
-    // https://easings.net
+    static let linear = CubicBezier(controlPoints: 0, 0, 1, 1)
     
     enum Sine {
         static let easeIn = CubicBezier(controlPoints: 0.47, 0, 0.745, 0.715)
@@ -126,5 +126,33 @@ extension CubicBezier {
         static let easeIn = CubicBezier(controlPoints: 0.6, -0.28, 0.735, 0.045)
         static let easeOut = CubicBezier(controlPoints: 0.175, 0.885, 0.32, 1.275)
         static let easeInOut = CubicBezier(controlPoints: 0.68, -0.55, 0.265, 1.55)
+    }
+}
+
+extension CubicBezier {
+    func value(_ value: Float, in range: ClosedRange<Float>, with base: Float) -> Float {
+        let min: Float = 0
+        let d = base - range.lowerBound
+        let max = range.upperBound - range.lowerBound
+        let v = value - range.lowerBound
+        let t: Float
+        
+        if base != range.lowerBound, base != range.upperBound, value < base {
+            t = 1 - ((v - min) / (d - min)).magnitude
+        }
+        else {
+            if base < range.upperBound {
+                t = ((v - d) / (max - d)).magnitude
+            }
+            else {
+                t = (v / max).magnitude
+            }
+        }
+        
+        let ratio = Float(self.y(at: CGFloat(t)) / self.y(at: 1))
+        let base = base < range.upperBound ? d : min
+        let offsetX = base + (v - base) * ratio
+        
+        return Float(offsetX) + range.lowerBound
     }
 }

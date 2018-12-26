@@ -403,13 +403,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.slider.defaultValue = attributeItem.defaultValue
             cell.slider.value = attributeItem.value
             
-            cell.sliderDidChangeHandler = { slider in
-                if attributeItem.isIntensity {
-                    attributeItem.value = slider.bezierValue
-                }
-                else {
-                    attributeItem.value = slider.value
-                }
+            cell.sliderDidChangeHandler = { value in
+                attributeItem.value = value
                 
                 let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -452,7 +447,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             return label
         }()
         
-        var sliderDidChangeHandler: ((PrecisionLevelSlider) -> Void)?
+        var sliderDidChangeHandler: ((Float) -> Void)?
         
         override func prepareForReuse() {
             super.prepareForReuse()
@@ -483,7 +478,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         
         @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider)
+            sliderDidChangeHandler?(slider.value)
         }
         
         required init?(coder aDecoder: NSCoder) {
