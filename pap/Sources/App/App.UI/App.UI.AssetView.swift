@@ -74,7 +74,12 @@ class AppUIAssetView: AssetView {
     }
     
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
-    var originalImage: UIImage?
+    private var originalCIImage: CIImage?
+    var originalImage: UIImage? {
+        didSet {
+            originalCIImage = originalImage?.asCIImage
+        }
+    }
     var filteredImage: UIImage? {
         didSet {
             self.image = filteredImage ?? originalImage
@@ -212,7 +217,7 @@ extension AppUIAssetView {
         
         prepareProcessing()
         
-        self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+        self.filteredImage = originalCIImage?.applyFilter(ciFilter: editState?.ciFilter).asUIImage
         
         if asset.imageType == .stillImage || previewMode {
             
