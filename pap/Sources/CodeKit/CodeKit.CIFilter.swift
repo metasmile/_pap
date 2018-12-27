@@ -8,14 +8,14 @@
 
 import UIKit
 
-class CIFilterAttributeItem {
+class CIFilterAttributeItem: NSObject, Codable {
     var name: String
-    var value: Float = 0
-    var defaultValue: Float = 0
-    var minimumValue: Float = 0
-    var maximumValue: Float = 1
-    var offset: Int = 0
-    var isIntensity: Bool = true
+    var value: Float
+    var defaultValue: Float
+    var minimumValue: Float
+    var maximumValue: Float
+    var offset: Int
+    var isIntensity: Bool
     
     var hasChanges: Bool {
         return defaultValue != value
@@ -43,7 +43,7 @@ extension CIFilterAttributeItem {
     }
 }
 
-public class CIFilterAttributes {
+public class CIFilterAttributes: NSObject, Codable {
     var key: String
     var value: Any {
         switch attributeType {
@@ -66,7 +66,7 @@ public class CIFilterAttributes {
         return attributeItems.reduce(false) { $0 || $1.hasChanges }
     }
     
-    private(set) var attributeItems: [CIFilterAttributeItem] = [CIFilterAttributeItem]()
+    private(set) var attributeItems: [CIFilterAttributeItem]
     
     func attributes(at offsetIndex: Int) -> CIFilterAttributeItem? {
         return attributeItems[safe: offsetIndex]
@@ -80,6 +80,7 @@ public class CIFilterAttributes {
     
     init(key: String) {
         self.key = key
+        self.attributeItems = [CIFilterAttributeItem]()
     }
     
     convenience init(key: String, attributeType: String, attributes: [CIFilterAttributeItem]) {
