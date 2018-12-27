@@ -256,7 +256,7 @@ open class PrecisionLevelSlider: UIControl {
     fileprivate func valueToOffset(value: Float) -> CGPoint {
         let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
         let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
-        return CGPoint(x: x, y: 0)
+        return CGPoint(x: x.isNormal ? x : 0, y: 0)
     }
 
     private var needsStickToDefaultValue: Bool = false {

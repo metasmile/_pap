@@ -89,25 +89,28 @@ public class CIFilterAttributes {
         self.attributeItems = attributes
     }
     
-    func setDefaults(with filter: CIFilter?, name: String?) {
+    func setDefaults(with filter: CIFilter?, name: String?, sliderRange: ClosedRange<Float>? = nil, attributeIndex: Int = 0) {
         guard let name = name, let attributes = filter?.attributes[key] as? [String: Any] else { return }
         
         attributeType = attributes[kCIAttributeType] as? String
         
+        let minimumValue = sliderRange?.lowerBound ?? attributes[kCIAttributeSliderMin] as? Float
+        let maximumValue = sliderRange?.upperBound ?? attributes[kCIAttributeSliderMax] as? Float
+        
         if attributeType == kCIAttributeTypeScalar {
             switch filter?.name {
             case "CISepiaTone"?:
-                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: 0, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
+                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)]
             default:
-                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: attributes[kCIAttributeSliderMin] as? Float, maximumValue: attributes[kCIAttributeSliderMax] as? Float)]
+                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
             }
         }
         else if attributeType == kCIAttributeTypeOffset {
             switch filter?.name {
             case "CITemperatureAndTint"?:
                 attributeItems = [
-                    CIFilterAttributeItem(name: "Temparature", defaultValue: 6500, minimumValue: 2000, maximumValue: 10000),
-                    CIFilterAttributeItem(name: "Tint", defaultValue: 0, minimumValue: -200, maximumValue: 200)
+                    CIFilterAttributeItem(name: "Temparature", defaultValue: 6500, minimumValue: minimumValue ?? 2000, maximumValue: maximumValue ?? 10000),
+                    CIFilterAttributeItem(name: "Tint", defaultValue: 0, minimumValue: minimumValue ?? 150, maximumValue: maximumValue ?? 150)
                 ]
             default: break
             }

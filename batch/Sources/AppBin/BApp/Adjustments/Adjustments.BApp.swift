@@ -233,16 +233,16 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         return builtInFilter ?? self
     }
     
-    init(name: String, adjustments: [Adjustments.Name]) {
+    init(name: String, adjustments: [(name: Adjustments.Name, range: ClosedRange<Float>?)]) {
         super.init()
         
         self.name = name
         self.builtInFilter = CIFilter(name: name)
         self.adjustmentItems = [:]
         for adjustment in adjustments {
-            let attributes = CIFilterAttributes(key: adjustment.key)
-            attributes.setDefaults(with: filter, name: adjustment.rawValue)
-            adjustmentItems[adjustment.key] = attributes
+            let attributes = CIFilterAttributes(key: adjustment.name.key)
+            attributes.setDefaults(with: filter, name: adjustment.name.rawValue, sliderRange: adjustment.range)
+            adjustmentItems[adjustment.name.key] = attributes
         }
     }
     
@@ -321,14 +321,14 @@ fileprivate class CIAdjustmentFilter: CIFilter {
 fileprivate class AdjustmentFilterManager {
     private static var orderedFilters: [CIAdjustmentFilter] {
         return [
-            CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [.Temparature, .Tint]),
-            CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [.Highlights, .Shadows]),
-            CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [.Exposure]),
-            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [.Gamma]),
-            CIAdjustmentFilter(name: "CIVibrance", adjustments: [.Vibrance]),
-            CIAdjustmentFilter(name: "CIColorControls", adjustments: [.Brightness, .Contrast, .Saturation]),
-            CIAdjustmentFilter(name: "CIVignette", adjustments: [.Vignette, .VignetteRadius]),
-            CIAdjustmentFilter(name: "CISepiaTone", adjustments: [.SepiaTone])
+            CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [(name: .Temparature, range: nil), (name: .Tint, range: nil)]),
+            CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [(name: .Highlights, range: nil), (name: .Shadows, range: nil)]),
+            CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [(name: .Exposure, range: -2...2)]),
+            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [(name: .Gamma, range: 0.5...3)]),
+            CIAdjustmentFilter(name: "CIVibrance", adjustments: [(name: .Vibrance, range: nil)]),
+            CIAdjustmentFilter(name: "CIColorControls", adjustments: [(name: .Brightness, range: -0.2...0.2), (name: .Contrast, range: 0.7...1.5), (name: .Saturation, range: nil)]),
+            CIAdjustmentFilter(name: "CIVignette", adjustments: [(name: .Vignette, range: nil), (name: .VignetteRadius, range: nil)]),
+            CIAdjustmentFilter(name: "CISepiaTone", adjustments: [(name: .SepiaTone, range: nil)])
         ]
     }
     
