@@ -110,7 +110,7 @@ public class CIFilterAttributes {
             case "CITemperatureAndTint"?:
                 attributeItems = [
                     CIFilterAttributeItem(name: "Temparature", defaultValue: 6500, minimumValue: minimumValue ?? 2000, maximumValue: maximumValue ?? 10000),
-                    CIFilterAttributeItem(name: "Tint", defaultValue: 0, minimumValue: minimumValue ?? 150, maximumValue: maximumValue ?? 150)
+                    CIFilterAttributeItem(name: "Tint", defaultValue: 0, minimumValue: minimumValue ?? -150, maximumValue: maximumValue ?? 150)
                 ]
             default: break
             }
