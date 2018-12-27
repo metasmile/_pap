@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CIFilterAttributeItem: NSObject, Codable {
+class CIFilterAttributeItem: Codable, NSCopying {
     var name: String
     var value: Float
     var defaultValue: Float
@@ -35,6 +35,12 @@ class CIFilterAttributeItem: NSObject, Codable {
     convenience init(name: String, boolValue: Bool) {
         self.init(name: name, defaultValue: boolValue ? 1.0 : 0.0)
     }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIFilterAttributeItem(name: name, defaultValue: defaultValue, minimumValue: minimumValue, maximumValue: maximumValue, offset: offset, isIntensity: isIntensity)
+        copy.value = value
+        return copy
+    }
 }
 
 extension CIFilterAttributeItem {
@@ -43,7 +49,7 @@ extension CIFilterAttributeItem {
     }
 }
 
-public class CIFilterAttributes: NSObject, Codable {
+public class CIFilterAttributes: Codable, NSCopying {
     var key: String
     var value: Any {
         switch attributeType {
@@ -81,6 +87,11 @@ public class CIFilterAttributes: NSObject, Codable {
     init(key: String) {
         self.key = key
         self.attributeItems = [CIFilterAttributeItem]()
+    }
+    
+    public func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIFilterAttributes(key: key, attributeType: attributeType ?? "", attributes: attributeItems.compactMap({ $0.copy() as? CIFilterAttributeItem }))
+        return copy
     }
     
     convenience init(key: String, attributeType: String, attributes: [CIFilterAttributeItem]) {

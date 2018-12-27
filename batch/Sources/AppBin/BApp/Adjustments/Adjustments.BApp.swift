@@ -123,7 +123,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
         
-        if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults, let filter = editStateValue?.ciFilter as? CIFilterGroup, !filter.filterAttributes.isEmpty {
+        if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults, let filter = editStateValue?.ciFilter as? CIFilterGroup {
             defaults.adjustments = filter.filterAttributes
         }
     }
@@ -151,9 +151,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 self.config?.filter = CIFilterItem(filter)
             }
             else if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
-                controllerContent?.setPreferredFilterAttributes(defaults.adjustments)
+                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
                 
-                let filterItem = CIFilterItem(controllerContent?.preferredFilter)
+                let filterItem = CIFilterItem(filter)
                 self.config?.filter = filterItem
                 self.defaultEditStateValue = filterItem
             }
@@ -165,9 +165,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 self.config?.filter = CIFilterItem(filter)
             }
             else if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
-                controllerContent?.setPreferredFilterAttributes(defaults.adjustments)
+                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
                 
-                let filterItem = CIFilterItem(controllerContent?.preferredFilter)
+                let filterItem = CIFilterItem(filter)
                 self.config?.filter = filterItem
             }
         }
@@ -234,6 +234,15 @@ fileprivate class CIAdjustmentFilter: CIFilter {
             attributes.setDefaults(with: filter, name: adjustment.name.rawValue, sliderRange: adjustment.range)
             adjustmentItems[adjustment.name.key] = attributes
         }
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIAdjustmentFilter(name: self.name, adjustments: [])
+        copy.adjustmentItems = Dictionary(uniqueKeysWithValues: self.adjustmentItems.compactMap({
+            guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
+            return ($0.key, item)
+        }))
+        return copy
     }
     
     var hasChanges: Bool {
@@ -348,10 +357,6 @@ fileprivate class AdjustmentFilterManager {
             }
         }
     }
-    
-    func reset() {
-        filters = AdjustmentFilterManager.orderedFilters
-    }
 }
 
 fileprivate class CIFilterGroup: CIFilter {
@@ -365,6 +370,11 @@ fileprivate class CIFilterGroup: CIFilter {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIFilterGroup(filters: filters.compactMap({ $0.copy() as? CIAdjustmentFilter }))
+        return copy
     }
     
     var filterAttributes: [CIFilterAttributes] {
@@ -443,7 +453,7 @@ private protocol AdjustmentsAppDefaults: AppDefaults{
 
 extension Defaults: AdjustmentsAppDefaults {
     fileprivate var adjustments: [CIFilterAttributes] {
-        set { set(newValue); print(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
+        set { set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
         get { return get(or: []) }
     }
 }
@@ -509,20 +519,14 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         (view as? UITableView)?.reloadData()
     }
     
-    private var preferredFilterAttributes: [CIFilterAttributes]?
-    fileprivate func setPreferredFilterAttributes(_ attributes: [CIFilterAttributes]?) {
-        preferredFilterAttributes = attributes
-    }
-    
-    fileprivate var preferredFilter: CIFilterGroup? {
+    fileprivate func preferredFilter(with filterAttributes: [CIFilterAttributes]) -> CIFilterGroup? {
         let manager = AdjustmentFilterManager()
-        manager.setAdjustmentFilters(nil, filterAttributes: preferredFilterAttributes)
+        manager.setAdjustmentFilters(nil, filterAttributes: filterAttributes)
         return manager.ciFilter
     }
     
-    private func installFilters(with filters: [CIAdjustmentFilter]? = nil, filterAttributes: [CIFilterAttributes]? = nil) {
-        filterManager.reset()
-        filterManager.setAdjustmentFilters(filters, filterAttributes: filterAttributes)
+    private func installFilters(with filters: [CIAdjustmentFilter]? = nil) {
+        filterManager.setAdjustmentFilters(filters)
         attributeItems.removeAll()
         
         for adjustmentFilter in filterManager.filters {
@@ -544,14 +548,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     private lazy var filterManager = AdjustmentFilterManager()
     
     func setFilterValues(_ filter: CIFilterGroup?, animated: Bool = true) {
-        guard let tableView = view as? UITableView, let filters = filter?.filters else { return }
+        guard let tableView = view as? UITableView, let filter = filter?.copy() as? CIFilterGroup else { return }
         
-        self.filterManager.reset()
-        self.filterManager.setAdjustmentFilters(filters)
-        self.installFilters(with: filters)
+        self.filterManager.setAdjustmentFilters(filter.filters)
+        self.installFilters(with: filter.filters)
         
         DispatchQueue.main.async {
-            self.filter = self.filterManager.ciFilter
             tableView.reloadData()
         }
     }
