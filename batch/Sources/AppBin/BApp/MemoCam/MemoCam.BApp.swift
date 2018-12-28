@@ -556,6 +556,17 @@ fileprivate class ResultPreviewView: DesignableView {
     }
 }
 
+fileprivate class UIControlContainerView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let view = super.hitTest(point, with: event), view is UIControl {
+            return view
+        }
+        else {
+            return nil
+        }
+    }
+}
+
 fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     fileprivate lazy var cameraView: UICamera = {
         let cameraView = UICamera(frame: .zero)
@@ -574,8 +585,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return view
     }()
 
-    fileprivate lazy var cameraWidgetView: UIView = {
-        let view = UIView(frame: .zero)
+    fileprivate lazy var cameraWidgetView: UIControlContainerView = {
+        let view = UIControlContainerView(frame: .zero)
         view.clipsToBounds = false
         return view
     }()
