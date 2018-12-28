@@ -88,8 +88,11 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
                 self?.assetView.originalImage = image
             })
         }
-        assetView.animateAsFade(0.25)
-        assetView.filteredImage = nil
+        
+        if item.editState.transform == .identity {
+            assetView.animateAsFade(0.25)
+            assetView.filteredImage = nil
+        }
         assetView.filteredImage = filtered
         setImageEditItem(item.editState, animated: false)
     }

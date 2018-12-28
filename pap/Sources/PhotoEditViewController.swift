@@ -239,8 +239,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
         
-        self.assetView.animateAsFade(0.25)
-        self.assetView.filteredImage = nil
+        if self.editItem.transform == .identity {
+            self.assetView.animateAsFade(0.25)
+            self.assetView.filteredImage = nil
+        }
         self.assetView.applyEditState(self.editItem)
         
         UIView.animateAsSpring(0.3, delay: 0.0, animations: {
@@ -265,9 +267,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func doneButtonDidTap(sender: Any) {
         super.doneButtonDidTap(sender: sender)
         
-        placeholderView.image = (originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? originalImage)?.applyTransform(preferredEditState.transform)
-        
         if editItem.hasChanges {
+            var image = originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? originalImage
+            if preferredEditState.transform != .identity {
+                image = image?.applyTransform(preferredEditState.transform)
+            }
+            placeholderView.image = image
             placeholderView.transform = editItem.transform
         }
         
