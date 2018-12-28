@@ -428,7 +428,14 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-//                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AdjustmentsApp.self, editInfo: (assetItem.editState.ciFilter as? CIAdjustmentsFilter)?.filters.compactMap({ ["filter": $0.name] }) ?? [:], from: asset)
+                    let adjustments = (assetItem.editState.ciFilter as? CIFilterGroup)?.filters.map({ $0.adjustmentItems.values }).reduce([], +) ?? []
+                    
+                    var editInfo: [String: Any] = [:]
+                    if let jsonData = try? JSONEncoder().encode(adjustments), let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? Array<Any> {
+                        editInfo["adjustments"] = json
+                    }
+                    
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AdjustmentsApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
