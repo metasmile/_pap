@@ -9,7 +9,7 @@
 import UIKit
 
 private struct Adjustments {
-    enum Name: String {
+    enum Name: String, CaseIterable {
         case Brightness = "Brightness"
         case Contrast = "Contrast"
         case Highlights = "Highlights"
@@ -135,8 +135,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , appType: AdjustmentsApp.self
         , displayName: "Adjustments".localized.localizedCapitalized
         , description: "Adjustments lets you edit manually your photos.".localized
-        , keywords: ["adjustments", "brightness", "constrast", "highlight", "shadow", "saturation", "vibrance"]
-        , iconBundleName: nil
+        , keywords: ["Adjustments", "Light", "Color", "RGB"] + Adjustments.Name.allCases.map { $0.rawValue }
+        , iconBundleName: R.image.adjustmentsBAppIcon.name
         , themeColor: UIColor(red:1, green:0.964, blue:0, alpha:1)
         , policy: AppPolicy.default
         , minOSVersion: nil

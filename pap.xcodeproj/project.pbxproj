@@ -1028,6 +1028,10 @@
 		511C1CA121C9CBA2005C9685 /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = 511C1C9D21C9CBA2005C9685 /* Passthrough.metal */; };
 		511C1CA221C9CBA2005C9685 /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = 511C1C9D21C9CBA2005C9685 /* Passthrough.metal */; };
 		511C1CA321C9CBA2005C9685 /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = 511C1C9D21C9CBA2005C9685 /* Passthrough.metal */; };
+		511CAD0421D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */; };
+		511CAD0521D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */; };
+		511CAD0621D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */; };
+		511CAD0721D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */; };
 		511D20D3214B198000056AD3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511D20D2214B198000056AD3 /* StoreKit.framework */; };
 		511EA5AB21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
 		511EA5AC21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
@@ -2612,6 +2616,7 @@
 		5118E9992195102F00EB6D6A /* Clipboard.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Clipboard.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511C1C9521C9C3A4005C9685 /* CodeKit.Metal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.Metal.swift; sourceTree = "<group>"; };
 		511C1C9D21C9CBA2005C9685 /* Passthrough.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Passthrough.metal; sourceTree = "<group>"; };
+		511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Adjustments.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		511EA5AA21C3724C00B47926 /* RawEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawEditor.swift; sourceTree = "<group>"; };
 		5120EBFB21B9D211001D8696 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
@@ -3887,6 +3892,7 @@
 			children = (
 				5115F32621AF490C004EB0F1 /* Shaders */,
 				51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */,
+				511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */,
 			);
 			path = Adjustments;
 			sourceTree = "<group>";
@@ -4678,6 +4684,7 @@
 				A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */,
 				A0956BF02095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C122095005200E680B9 /* Localizable.strings in Resources */,
+				511CAD0421D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */,
 				A0956C022095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF32095005200E680B9 /* Localizable.strings in Resources */,
 				4F71DD60873341BE5272EABB /* GoogleService-Info.plist in Resources */,
@@ -4820,6 +4827,7 @@
 				A0CB010C219C8C64007A5278 /* Revert.BApp.Assets.xcassets in Resources */,
 				A0CB010D219C8C64007A5278 /* MemoCam.BApp.Assets.xcassets in Resources */,
 				A0CB010E219C8C64007A5278 /* Transform.BApp.Assets.xcassets in Resources */,
+				511CAD0621D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */,
 				A0CB010F219C8C64007A5278 /* Camera.SApp.Assets.xcassets in Resources */,
 				A0CB0110219C8C64007A5278 /* Localizable.strings in Resources */,
 				A0CB0111219C8C64007A5278 /* Localizable.strings in Resources */,
@@ -4908,6 +4916,7 @@
 				A0CB028F219C9093007A5278 /* Revert.BApp.Assets.xcassets in Resources */,
 				A0CB0290219C9093007A5278 /* MemoCam.BApp.Assets.xcassets in Resources */,
 				A0CB0291219C9093007A5278 /* Transform.BApp.Assets.xcassets in Resources */,
+				511CAD0721D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */,
 				A0CB0292219C9093007A5278 /* Camera.SApp.Assets.xcassets in Resources */,
 				A0CB0293219C9093007A5278 /* Localizable.strings in Resources */,
 				A0CB0294219C9093007A5278 /* Localizable.strings in Resources */,
@@ -5029,6 +5038,7 @@
 				A0CBFF9A219ADBA2007A5278 /* Filters.jpg in Resources */,
 				A0CBFF9B219ADBA2007A5278 /* Revert.BApp.Assets.xcassets in Resources */,
 				A0CBFF9C219ADBA2007A5278 /* MemoCam.BApp.Assets.xcassets in Resources */,
+				511CAD0521D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets in Resources */,
 				A0CBFF9D219ADBA2007A5278 /* Transform.BApp.Assets.xcassets in Resources */,
 				A0CBFF9E219ADBA2007A5278 /* Camera.SApp.Assets.xcassets in Resources */,
 				A0CBFF9F219ADBA2007A5278 /* Localizable.strings in Resources */,
