@@ -131,7 +131,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public static let info = AppInfo(
         identifier: "com.stells.batch.adjustments"
         , version: "1.0"
-        , phase: .develop
+        , phase: .beta
         , appType: AdjustmentsApp.self
         , displayName: "Adjustments".localized.localizedCapitalized
         , description: "Adjustments lets you edit manually your photos.".localized
