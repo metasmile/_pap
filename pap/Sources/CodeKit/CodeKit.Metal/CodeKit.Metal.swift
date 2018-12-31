@@ -176,3 +176,38 @@ class CIImageView: MTKView {
         commandBuffer?.commit()
     }
 }
+
+extension MTLUtility {
+    static func commitComputeShader(_ functionName: String, input inputTexture: MTLTexture, output outputTexture: MTLTexture, with uniformBuffers: [MTLBuffer]? = nil) {
+        guard
+            let commandQueue = MTLContext.shared.commandQueue,
+            let commandBuffer = commandQueue.makeCommandBuffer(),
+            let encoder = commandBuffer.makeComputeCommandEncoder(),
+            let kernelFunction = MTLContext.shared.library?.makeFunction(name: functionName),
+            let pipelineState = try? MTLContext.shared.device.makeComputePipelineState(function: kernelFunction)
+        else { return }
+        
+        encoder.setComputePipelineState(pipelineState)
+        
+        for (idx, uniformBuffer) in (uniformBuffers ?? []).enumerated() {
+            encoder.setBuffer(uniformBuffer, offset: 0, index: idx)
+        }
+        
+        encoder.setTexture(inputTexture, index: 0)
+        encoder.setTexture(outputTexture, index: 1)
+        
+        // https://developer.apple.com/documentation/metal/calculating_threadgroup_and_grid_sizes
+        let w = pipelineState.threadExecutionWidth
+        let h = pipelineState.maxTotalThreadsPerThreadgroup / w
+        
+        let threadsPerGrid = MTLSizeMake(inputTexture.width, inputTexture.height, 1)
+        let threadgroupsPerGrid = MTLSizeMake((threadsPerGrid.width + w - 1) / w, (threadsPerGrid.height + h - 1) / h, 1)
+        let threadsPerThreadgroup = MTLSizeMake(w, h, 1)
+        
+        encoder.dispatchThreadgroups(threadgroupsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
+        
+        encoder.endEncoding()
+        
+        commandBuffer.commit()
+    }
+}

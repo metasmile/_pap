@@ -7,10 +7,20 @@ import Foundation
 import Photos
 
 extension CIContext {
-    static let shared = CIContext(options: [
-        CIContextOption.cacheIntermediates: false,
-        CIContextOption.useSoftwareRenderer: false
-    ])
+    static var shared: CIContext = {
+        if let device = MTLCreateSystemDefaultDevice() {
+            return CIContext(mtlDevice: device, options: [
+                CIContextOption.cacheIntermediates: false,
+                CIContextOption.useSoftwareRenderer: false
+            ])
+        }
+        else {
+            return CIContext(options: [
+                CIContextOption.cacheIntermediates: false,
+                CIContextOption.useSoftwareRenderer: false
+            ])
+        }
+    }()
 }
 
 extension CIImage{
@@ -67,5 +77,38 @@ extension CIImage {
         let resize = AVMakeRect(aspectRatio: extent.size, insideRect: CGRect(origin: .zero, size: size)).size
         let scale = min(resize.width / extent.width, resize.height / extent.height)
         return transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+    }
+}
+
+extension CIImage {
+    var asMTLTexture: MTLTexture? {
+        guard
+            let texture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height)),
+            let commandBuffer = MTLContext.shared.commandQueue?.makeCommandBuffer()
+        else { return nil }
+        CIContext.shared.render(self, to: texture, commandBuffer: commandBuffer, bounds: extent, colorSpace: defaultColorSpace)
+        commandBuffer.commit()
+        return texture
+    }
+}
+
+extension CIImage {
+    func applyMetalShader(_ functionName: String, params parameters: [Any]? = nil) -> CIImage? {
+        guard
+            let inputTexture = self.asMTLTexture,
+            let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+        else { return nil }
+        
+        var uniformValues = [MTLBuffer]()
+        for var value in parameters ?? [] {
+            guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
+            uniformValues.append(buffer)
+        }
+        
+        MTLUtility.commitComputeShader(functionName, input: inputTexture, output: outputTexture, with: uniformValues)
+        
+        return CIImage(mtlTexture: outputTexture, options: [
+            CIImageOption.colorSpace: defaultColorSpace
+        ])
     }
 }

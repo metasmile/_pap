@@ -23,6 +23,7 @@ private struct Adjustments {
         case Gamma = "Gamma"
         case Exposure = "Exposure"
         case SepiaTone = "SepiaTone"
+        case Fade = "Fade"
         
         var key: String {
             return Adjustments.key(of: self)
@@ -56,6 +57,7 @@ private struct Adjustments {
         case Name.Vignette: return "Vignette".localized
         case Name.VignetteRadius: return "Vignette Radius".localized
         case Name.SepiaTone: return "Sepia Tone".localized
+        case Name.Fade: return "Fade".localized
         }
     }
     
@@ -74,6 +76,7 @@ private struct Adjustments {
         case Name.Vignette: return kCIInputIntensityKey
         case Name.VignetteRadius: return kCIInputRadiusKey
         case Name.SepiaTone: return kCIInputIntensityKey
+        case Name.Fade: return kCIInputIntensityKey
         }
     }
     
@@ -95,6 +98,7 @@ private struct Adjustments {
         case Name.Exposure: return "CIExposureAdjust"
         case Name.Vignette, Name.VignetteRadius: return "CIVignette"
         case Name.SepiaTone: return "CISepiaTone"
+        case Name.Fade: return "CIFadeEffect"
         }
     }
 }
@@ -215,15 +219,25 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
+fileprivate struct AdjustmentSliderInfo {
+    var name: Adjustments.Name
+    var range: ClosedRange<Float>?
+    
+    init(name: Adjustments.Name, range: ClosedRange<Float>? = nil) {
+        self.name = name
+        self.range = range
+    }
+}
+
 fileprivate class CIAdjustmentFilter: CIFilter {
-    private(set) var adjustmentItems = [String: CIFilterAttributes]()
+    internal(set) var adjustmentItems = [Adjustments.Name: CIFilterAttributes]()
     private var builtInFilter: CIFilter?
     
     var filter: CIFilter {
         return builtInFilter ?? self
     }
     
-    init(name: String, adjustments: [(name: Adjustments.Name, range: ClosedRange<Float>?)]) {
+    init(name: String, adjustments: [AdjustmentSliderInfo]) {
         super.init()
         
         self.name = name
@@ -232,7 +246,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         for adjustment in adjustments {
             let attributes = CIFilterAttributes(key: adjustment.name.key)
             attributes.setDefaults(with: filter, name: adjustment.name.rawValue, sliderRange: adjustment.range)
-            adjustmentItems[adjustment.name.key] = attributes
+            adjustmentItems[adjustment.name] = attributes
         }
     }
     
@@ -258,7 +272,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     }
     
     func adjustmentItem(with adjustmentName: Adjustments.Name) -> CIFilterAttributes? {
-        return adjustmentItems[adjustmentName.key]
+        return adjustmentItems[adjustmentName]
     }
     
     func setAdjustmentValue(_ value: Float, with adjustmentName: Adjustments.Name) {
@@ -277,57 +291,62 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     }
 }
 
-//fileprivate class CIFadeFilter: CIAdjustmentFilter {
-//    convenience init() {
-//        self.init(adjustmentName: .Fade)
-//    }
-//
-//    override var attributes: [String: Any] {
-//        return [
-//            kCIAttributeFilterDisplayName: "Fade",
-//            kCIInputImageKey: [
-//                kCIAttributeIdentity: 0,
-//                kCIAttributeClass: NSStringFromClass(CIImage.self),
-//                kCIAttributeDisplayName: "Image",
-//                kCIAttributeType: kCIAttributeTypeImage
-//            ],
-//            kCIInputIntensityKey: [
-//                kCIAttributeIdentity: 0,
-//                kCIAttributeClass: NSStringFromClass(NSNumber.self),
-//                kCIAttributeDefault: Float(0),
-//                kCIAttributeDisplayName: "Intensity",
-//                kCIAttributeMin: Float(0),
-//                kCIAttributeMax: Float(1),
-//                kCIAttributeSliderMin: Float(0),
-//                kCIAttributeSliderMax: Float(1),
-//                kCIAttributeType: kCIAttributeTypeScalar
-//            ]
-//        ]
-//    }
-//
-//    private lazy var kernel: CIColorKernel? = {
-//        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
-//        return try? CIColorKernel(functionName: "fade", fromMetalLibraryData: data)
-//    }()
-//
-//    override var outputImage: CIImage? {
-//        guard let image = inputImage else { return nil }
-//        let params = adjustmentItems.compactMap { $0.value.number }
-//        return kernel?.apply(extent: image.extent, arguments: [image] + params)
-//    }
-//}
+fileprivate class CIFadeFilter: CIAdjustmentFilter {
+    convenience init(adjustments: [AdjustmentSliderInfo]) {
+        self.init(name: "CIFadeEffect", adjustments: adjustments)
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIFadeFilter(name: "CIFadeEffect", adjustments: [])
+        copy.adjustmentItems = Dictionary(uniqueKeysWithValues: self.adjustmentItems.compactMap({
+            guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
+            return ($0.key, item)
+        }))
+        return copy
+    }
+    
+    override var attributes: [String: Any] {
+        return [
+            kCIAttributeFilterDisplayName: "Fade",
+            kCIInputImageKey: [
+                kCIAttributeIdentity: 0,
+                kCIAttributeClass: NSStringFromClass(CIImage.self),
+                kCIAttributeDisplayName: "Image",
+                kCIAttributeType: kCIAttributeTypeImage
+            ],
+            kCIInputIntensityKey: [
+                kCIAttributeIdentity: 0,
+                kCIAttributeClass: NSStringFromClass(NSNumber.self),
+                kCIAttributeDefault: Float(0),
+                kCIAttributeDisplayName: "Intensity",
+                kCIAttributeMin: Float(0),
+                kCIAttributeMax: Float(1),
+                kCIAttributeSliderMin: Float(0),
+                kCIAttributeSliderMax: Float(1),
+                kCIAttributeType: kCIAttributeTypeScalar
+            ]
+        ]
+    }
+
+    override var outputImage: CIImage? {
+        guard let image = inputImage else { return nil }
+        let params = adjustmentItems.compactMap { $0.value.number }
+        return image.applyMetalShader("fadeEffect", params: params)
+    }
+}
 
 fileprivate class AdjustmentFilterManager {
     private static var orderedFilters: [CIAdjustmentFilter] {
         return [
-            CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [(name: .Temparature, range: nil), (name: .Tint, range: nil)]),
-            CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [(name: .Highlights, range: nil), (name: .Shadows, range: nil)]),
-            CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [(name: .Exposure, range: -2...2)]),
-            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [(name: .Gamma, range: 0.5...3)]),
-            CIAdjustmentFilter(name: "CIVibrance", adjustments: [(name: .Vibrance, range: nil)]),
-            CIAdjustmentFilter(name: "CIColorControls", adjustments: [(name: .Brightness, range: -0.2...0.2), (name: .Contrast, range: 0.7...1.5), (name: .Saturation, range: nil)]),
-            CIAdjustmentFilter(name: "CIVignette", adjustments: [(name: .Vignette, range: nil), (name: .VignetteRadius, range: nil)]),
-            CIAdjustmentFilter(name: "CISepiaTone", adjustments: [(name: .SepiaTone, range: nil)])
+            CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [AdjustmentSliderInfo(name: .Temparature), AdjustmentSliderInfo(name: .Tint)]),
+            CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [AdjustmentSliderInfo(name: .Highlights), AdjustmentSliderInfo(name: .Shadows)]),
+            CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [AdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
+            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [AdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
+            CIAdjustmentFilter(name: "CIVibrance", adjustments: [AdjustmentSliderInfo(name: .Vibrance)]),
+            CIAdjustmentFilter(name: "CIColorControls", adjustments: [AdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), AdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), AdjustmentSliderInfo(name: .Saturation)]),
+            CIFadeFilter(adjustments: [AdjustmentSliderInfo(name: .Fade, range: 0...1)]),
+            CIAdjustmentFilter(name: "CIVignette", adjustments: [AdjustmentSliderInfo(name: .Vignette), AdjustmentSliderInfo(name: .VignetteRadius)]),
+            CIAdjustmentFilter(name: "CISepiaTone", adjustments: [AdjustmentSliderInfo(name: .SepiaTone)])
         ]
     }
     
@@ -348,7 +367,7 @@ fileprivate class AdjustmentFilterManager {
             self.filters.append(filter)
             
             for adjustmentItem in filter.adjustmentItems {
-                let attributes = filterAttributes?.first(where: { $0.key == adjustmentItem.key }) ?? adjustmentItem.value
+                let attributes = filterAttributes?.first(where: { $0.key == adjustmentItem.key.key }) ?? adjustmentItem.value
                 for attributeItem in attributes.attributeItems {
                     if let name = Adjustments.Name(rawValue: attributeItem.name) {
                         filter.setAdjustmentValue(attributeItem.value, with: name)
