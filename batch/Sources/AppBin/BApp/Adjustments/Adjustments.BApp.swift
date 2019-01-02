@@ -98,7 +98,7 @@ private struct Adjustments {
         case Name.Exposure: return "CIExposureAdjust"
         case Name.Vignette, Name.VignetteRadius: return "CIVignette"
         case Name.SepiaTone: return "CISepiaTone"
-        case Name.Fade: return "CIFadeEffect"
+        case Name.Fade: return "CIFadeFilter"
         }
     }
 }
@@ -293,11 +293,11 @@ fileprivate class CIAdjustmentFilter: CIFilter {
 
 fileprivate class CIFadeFilter: CIAdjustmentFilter {
     convenience init(adjustments: [AdjustmentSliderInfo]) {
-        self.init(name: "CIFadeEffect", adjustments: adjustments)
+        self.init(name: "CIFadeFilter", adjustments: adjustments)
     }
     
     override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIFadeFilter(name: "CIFadeEffect", adjustments: [])
+        let copy = CIFadeFilter(name: "CIFadeFilter", adjustments: [])
         copy.adjustmentItems = Dictionary(uniqueKeysWithValues: self.adjustmentItems.compactMap({
             guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
             return ($0.key, item)
@@ -496,6 +496,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         .Vibrance,
         .Temparature,
         .Tint,
+        .Fade,
         .Vignette,
         .VignetteRadius,
         .Gamma,
@@ -558,6 +559,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         for adjustmentFilter in filterManager.filters {
             for adjustmentItem in adjustmentFilter.adjustmentItems {
                 for attributeItem in adjustmentItem.value.attributeItems {
+                    guard let name = Adjustments.Name(rawValue: attributeItem.name), self.orderedAdjustments.contains(name) else { continue }
                     attributeItems.append(attributeItem)
                 }
             }
