@@ -16,10 +16,6 @@ extension AppDelegate: AppDelegateExternalDelegate{
 
         Armchair.appID(InfoStrings.appStoreId)
         Armchair.useStoreKitReviewPrompt( true)
-        Armchair.resetAllCounters()
-        Armchair.shouldIncrementUseCountClosure { () -> Bool in
-            return false
-        }
 
     }
 }

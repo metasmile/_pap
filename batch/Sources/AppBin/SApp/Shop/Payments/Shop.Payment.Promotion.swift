@@ -32,9 +32,6 @@ private struct AppStoreRatingInitializer{
     fileprivate static func initialize(){
         Armchair.appID(InfoStrings.appStoreId)
         Armchair.useStoreKitReviewPrompt(true)
-        Armchair.shouldIncrementUseCountClosure { () -> Bool in
-            return false
-        }
     }
 }
 
