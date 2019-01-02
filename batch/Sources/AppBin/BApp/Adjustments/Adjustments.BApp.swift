@@ -230,7 +230,7 @@ fileprivate struct AdjustmentSliderInfo {
 }
 
 fileprivate class CIAdjustmentFilter: CIFilter {
-    internal(set) var adjustmentItems = [Adjustments.Name: CIFilterAttributes]()
+    internal(set) var adjustmentItems = [String: CIFilterAttributes]()
     private var builtInFilter: CIFilter?
     
     var filter: CIFilter {
@@ -244,9 +244,9 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         self.builtInFilter = CIFilter(name: name)
         self.adjustmentItems = [:]
         for adjustment in adjustments {
-            let attributes = CIFilterAttributes(key: adjustment.name.key)
+            let attributes = CIFilterAttributes(name: adjustment.name.rawValue, key: adjustment.name.key)
             attributes.setDefaults(with: filter, name: adjustment.name.rawValue, sliderRange: adjustment.range)
-            adjustmentItems[adjustment.name] = attributes
+            adjustmentItems[adjustment.name.key] = attributes
         }
     }
     
@@ -272,7 +272,7 @@ fileprivate class CIAdjustmentFilter: CIFilter {
     }
     
     func adjustmentItem(with adjustmentName: Adjustments.Name) -> CIFilterAttributes? {
-        return adjustmentItems[adjustmentName]
+        return adjustmentItems[adjustmentName.key]
     }
     
     func setAdjustmentValue(_ value: Float, with adjustmentName: Adjustments.Name) {
@@ -367,7 +367,7 @@ fileprivate class AdjustmentFilterManager {
             self.filters.append(filter)
             
             for adjustmentItem in filter.adjustmentItems {
-                let attributes = filterAttributes?.first(where: { $0.key == adjustmentItem.key.key }) ?? adjustmentItem.value
+                let attributes = filterAttributes?.first(where: { $0.name == adjustmentItem.value.name }) ?? adjustmentItem.value
                 for attributeItem in attributes.attributeItems {
                     if let name = Adjustments.Name(rawValue: attributeItem.name) {
                         filter.setAdjustmentValue(attributeItem.value, with: name)

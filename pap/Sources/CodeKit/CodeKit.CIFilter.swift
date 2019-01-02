@@ -50,6 +50,7 @@ extension CIFilterAttributeItem {
 }
 
 public class CIFilterAttributes: Codable, NSCopying {
+    var name: String
     var key: String
     var value: Any {
         switch attributeType {
@@ -84,18 +85,27 @@ public class CIFilterAttributes: Codable, NSCopying {
     
     private(set) var attributeType: String?
     
-    init(key: String) {
+    init(name: String, key: String) {
+        self.name = name
         self.key = key
         self.attributeItems = [CIFilterAttributeItem]()
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIFilterAttributes(key: key, attributeType: attributeType ?? "", attributes: attributeItems.compactMap({ $0.copy() as? CIFilterAttributeItem }))
+        let copy = CIFilterAttributes(name: name, key: key, attributeType: attributeType ?? "", attributes: attributeItems.compactMap({ $0.copy() as? CIFilterAttributeItem }))
         return copy
     }
     
+    convenience init(key: String) {
+        self.init(name: key, key: key)
+    }
+    
     convenience init(key: String, attributeType: String, attributes: [CIFilterAttributeItem]) {
-        self.init(key: key)
+        self.init(name: key, key: key, attributeType: attributeType, attributes: attributes)
+    }
+    
+    convenience init(name: String, key: String, attributeType: String, attributes: [CIFilterAttributeItem]) {
+        self.init(name: name, key: key)
         
         self.attributeType = attributeType
         self.attributeItems = attributes
