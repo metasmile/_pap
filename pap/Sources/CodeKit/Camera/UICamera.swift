@@ -208,6 +208,21 @@ extension UICamera {
         NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: captureDevice)
     }
     
+    //INFO: call this using audio recording video
+    private func configureAudioDevice(_ captureDevice: AVCaptureDevice?) {
+        guard currentAudioDeviceInput == nil else { return }
+        
+        try? captureDevice?.lockForConfiguration()
+        
+        if let audioDevice = AVCaptureDevice.default(for: .audio),
+            let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
+            captureSession?.canAddInput(audioDeviceInput) == true {
+            captureSession?.addInput(audioDeviceInput)
+        }
+        
+        captureDevice?.unlockForConfiguration()
+    }
+    
     private func configureSession(with device: AVCaptureDevice? = nil) {
         captureSession = AVCaptureSession()
         
@@ -233,12 +248,6 @@ extension UICamera {
         }
         
         videoDevice.unlockForConfiguration()
-        
-        if let audioDevice = AVCaptureDevice.default(for: .audio),
-            let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
-            captureSession.canAddInput(audioDeviceInput) {
-            captureSession.addInput(audioDeviceInput)
-        }
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         
@@ -306,6 +315,10 @@ extension UICamera {
     
     fileprivate var currentVideoDeviceInput:AVCaptureDeviceInput? {
         return currentCaptureDeviceInput(for:.video)
+    }
+    
+    fileprivate var currentAudioDeviceInput:AVCaptureDeviceInput? {
+        return currentCaptureDeviceInput(for:.audio)
     }
     
     fileprivate var currentCaptureDevice: AVCaptureDevice? {
@@ -652,6 +665,8 @@ extension UICamera {
     fileprivate func configureLivePhotoEnabled(_ enabled: Bool) {
         if self.capturePhotoOutput.isLivePhotoCaptureSupported, self.capturePhotoOutput.isLivePhotoCaptureEnabled != enabled {
             self.capturePhotoOutput.isLivePhotoCaptureEnabled = enabled
+            
+            self.configureAudioDevice(currentCaptureDevice)
         }
     }
 }

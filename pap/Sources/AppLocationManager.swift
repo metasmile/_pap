@@ -13,7 +13,6 @@ class LocationManager: NSObject {
     static var shared: LocationManager = LocationManager()
     
     private var locationManager: CLLocationManager?
-    private lazy var locationQueue = DispatchQueue.main
     
     private var cachedLocations: [CLLocation]?
     var location: CLLocation? {
@@ -24,7 +23,7 @@ class LocationManager: NSObject {
     override init() {
         super.init()
         
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             self.locationManager = CLLocationManager()
             self.locationManager?.distanceFilter = kCLDistanceFilterNone
             self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -40,7 +39,7 @@ class LocationManager: NSObject {
     }
     
     func startUpdatingLocation(completion: (() -> Void)? = nil) {
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
                 self.locationManager?.requestWhenInUseAuthorization()
             }
@@ -55,7 +54,7 @@ class LocationManager: NSObject {
     }
     
     func stopUpdatingLocation(completion: (() -> Void)? = nil) {
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             self.locationManager?.delegate = nil
             self.locationManager?.stopUpdatingLocation()
             self.locationManager?.stopUpdatingHeading()
@@ -69,13 +68,13 @@ class LocationManager: NSObject {
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             self.cachedLocations = locations
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 self.locationManager?.startUpdatingLocation()
             } else {
@@ -85,7 +84,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        locationQueue.async {
+        DispatchQueue.mainAsyncIfNot {
             self.heading = newHeading
         }
     }
