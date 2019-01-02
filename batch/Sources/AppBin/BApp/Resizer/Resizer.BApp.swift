@@ -80,7 +80,7 @@ PhotoEditorViewControllerDelegatableApp {
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.resizer"
-        , version: "1.1"
+        , version: "1.2"
         , phase: .release
         , appType: ResizerApp.self
             , displayName: "Framer".localized.localizedCapitalized
