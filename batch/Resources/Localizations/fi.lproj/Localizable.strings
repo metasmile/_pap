@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Taustan täyttöväri";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Lähtötaso";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Ole taiteilija. Esittäjä antaa sinulle dramaattisesti kaikki valokuvasi tai videosi kuuluisiksi tyylikkäiksi maalauksiksi. Tämä eräprosessointityökalu ei rajoita muunnettavien valokuvien määrää.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Puolueellisuus";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Sininen / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Häivyttää tausta";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Esipysyvyys";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "Hämärtää";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "edistää";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Kirkkaus";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "Valitse alatoiminto.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Valitse valokuvat, joista haluat etsiä tunnisteita.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Kromaattisuus X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Kromaattisuus Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Puhdistusaineella voit etsiä ja poistaa erilaisia ​​vääriä valokuvia, jos ne ovat sopineet esimerkiksi kaksoiskappaleisiin ja vastaaviin kuviin, lähikuviin tai lukkotulosteisiin!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "leikepöydälle";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Väri ja muistutus jokaiselle vaiheelle";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Värin kohinanvaimennus";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Yhteydet";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Tällä hetkellä AI-tekstintunnistusmallimme on käytettävissä vain aakkosnumeerisille ja tietyille erikoismerkille, ja nykyinen järjestelmäkieli saattaa vaikuttaa siihen.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Syaani / sininen";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Treffi";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "Tunnistuskohteet";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Suunta";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Poista pelikartta käytöstä";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Lataa nyt ILMAISEKSI osoitteessa %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "Lataamista ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Sähköpostiosoite";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostin avulla voit poistaa kaikenlaisia ​​valokuvasi sisältäviä tietoja, kuten yksityisiä tietoja.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Muokkaa raakakuvia.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Ota automaattinen koodaus käyttöön.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "Hanki teksti";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Anna luokitus";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "jyvä";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Vihreä / syaani";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Vieras-käyttäjän käyttöoikeusohjelma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Luminanssin kohinanvaimennus";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / punainen";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Päätytyökalu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "Viesti meille";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moire";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Melunvaimennuksen kontrasti";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Kohinanvaimennus";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Kohinanvaimennus";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Melun vähentäminen";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Melun seuranta";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Valmiustilassa";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "Ostaa";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Laatu";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW-editori";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Arvioi se";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Re-kehys";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Punainen / keltainen";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Punasilmäisyyden poisto";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Jaa lahjakkuutesi, tee yhdessä. Hanki jokainen palkkio, jos se hyväksytään.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Terävyys";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "teroitus";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "tavoitteet";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "lämpöön";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Lämpötila";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Käyttöehdot";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "VIP-lisenssi";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "Kaikkien tuotteidemme VIP-jäsenyys.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Toimittajan linssin korjaus";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Vahvistus epäonnistui.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "Kirjoita arvostelu";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Kirjoittaa";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Keltainen / vihreä";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Voit valita vain valokuvia tai videoita, jotka sopivat aloitusformaattiin.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

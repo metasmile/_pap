@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "Автоматичний тегування ботів";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Колір фону заповнити";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Експозиція базової лінії";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Будь художником. Виконавець дозволить вам різко перетворити ваші фотографії або відео на знамениті картини. Цей пакетний інструмент обробки не має обмежень на кількість фотографій для перетворення.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Упередження";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Синій / пурпуровий";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Розмивання фону";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Розмитість";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "Розмити";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Підвищення тіні";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Boost";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Яскравість";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "Виберіть підхід.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Виберіть фотографії, в яких потрібно знайти теги.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Хроматичність X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Хроматичність Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Очищувач дозволяє знаходити та видаляти різноманітні невірні фотографії, якщо вони збігаються, наприклад, з дублікатами та подібними зображеннями, знімками з великим планом або знімкам з локальним екраном!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "Буфер обміну";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Колір і нагадування для кожної фази";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Зменшення шуму кольору";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Контакти";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В даний час наша модель розпізнавання тексту AI доступна лише для буквено-цифрових та деяких спеціальних символів, і це може вплинути на поточну системну мову.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Блакитний / блакитний";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "Визначення цілей";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Напрямок";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Вимкнути карту Gamut";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Завантажте зараз БЕЗКОШТОВНО на %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "Завантаження ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Адреса електронної пошти";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "ДІМ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Редагуйте сирі фотографії.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Увімкнути автоматичне позначення тегом.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "Отримати текст";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дайте рейтинг";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Зерно";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Зелений / Cyan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Ліцензійна програма гостя";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "Блокування екранів";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Петля";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Зменшення шуму яскравості";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Пурпуровий / червоний";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Основні ліцензії на інструменти";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "Повідомлення нам";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "муар";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мої альбоми";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "Немає врожаю";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Немає петлі";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Контраст зменшення шуму";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Деталь зменшення шуму";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Різкість зменшення шуму";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Зменшення шуму";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Відстеження шуму";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режимі очікування";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "Покупка";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Якість";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "Редактор RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Оцініть це";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Переформатувати";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Червоний / жовтий";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Видалення 'червоних очей'";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Поділіться своїм талантом, зробіть разом. Отримати кожну нагороду, якщо вона буде прийнята.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Різкість";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Заточення";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "Цілі";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Темпаратура";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Температура";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Умови користування";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "VIP-ліцензія";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP-членство у всіх наших продуктах.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Корекція об'єктиву постачальника";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Верифікація не вдалася.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "Написати відгук";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Напиши";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Жовтий / зелений";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Ви можете вибрати лише фотографії або відео, які відповідають початковому формату.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

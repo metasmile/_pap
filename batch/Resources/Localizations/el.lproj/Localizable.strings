@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "Αυτόματη ετικέτα Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Χρώμα φόντου πλήρωσης φόντου";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Έκθεση βάσης";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Γίνε καλλιτέχνης. Ο καλλιτέχνης σάς επιτρέπει να μετατρέπετε δραματικά όλες τις φωτογραφίες ή τα βίντεό σας σε διάσημα ζωγραφισμένα στυλ. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών που θα μετατραπούν.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Προκατάληψη";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Μπλε / Ματζέντα";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Τιμή θολώματος";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "Θολούρα";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Ωθηση";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Λάμψη";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "Επιλέξτε μια υπο-ενέργεια.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Επιλέξτε μερικές φωτογραφίες που θέλετε να βρείτε ετικέτες.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Χρωματισμός Χ";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Χρωματικότητα Υ";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να βρείτε και να διαγράψετε διάφορα είδη λανθασμένων φωτογραφιών, αν έχουν αντιστοιχιστεί, για παράδειγμα, διπλότυπα και παρόμοιες εικόνες, φωτογραφίες κοντά στο σκοτάδι ή λήψεις Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "Πρόχειρο";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Χρώμα και υπενθύμιση για κάθε φάση";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Μείωση θορύβου χρώματος";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Επαφές";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Προς το παρόν, το μοντέλο αναγνώρισης κειμένων AI είναι διαθέσιμο μόνο για αλφαριθμητικούς και με ορισμένους ειδικούς χαρακτήρες και θα μπορούσε να επηρεαστεί από την τρέχουσα γλώσσα του συστήματος.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Εθιμο";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Κυανό / Μπλε";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "Στόχοι ανίχνευσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Κατεύθυνση";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Απενεργοποιήστε το χάρτη Gamut";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Κατεβάστε τώρα δωρεάν στο %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "ΣΠΙΤΙ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Επεξεργαστείτε τις πρώτες φωτογραφίες σας.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Ενεργοποίηση αυτόματης προσθήκης ετικετών.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "Λήψη κειμένου";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Δώστε μια βαθμολογία";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Σιτηρά";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Πράσινο / κυανό";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Πρόγραμμα Άδειας Χρήστη Guest";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "Κλειδαριές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Βρόχος";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Μείωση θορύβου φωτεινότητας";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Ματζέντα / Κόκκινο";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Άδεια κύριων εργαλείων";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "Μήνυμα προς εμάς";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "μουαρέ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Τα λευκώματά μου";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Αντίθεση μείωσης θορύβου";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Λεπτομέρειες μείωσης θορύβου";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Ρύθμιση του θορύβου";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Μείωση θορύβου";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Παρακολούθηση θορύβου";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Σε αναμονή";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "Αγορά";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Ποιότητα";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Βαθμολογήστε το";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Ανασχεδιάστε ξανά";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Κόκκινο κίτρινο";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Οξύτητα";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Ακόνισμα";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "Στόχοι";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Θερμοκρασία";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Θερμοκρασία";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Οροι χρήσης";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "Άδεια VIP";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP συμμετοχή όλων των προϊόντων μας.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Προσαρμογή φακού προμηθευτή";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Η επαλήθευση απέτυχε.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "Γράψτε μια κριτική";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Γράφω";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Κίτρινο πράσινο";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Μπορείτε να επιλέξετε μόνο φωτογραφίες ή βίντεο που ταιριάζουν με την αρχική μορφή.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

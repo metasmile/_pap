@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Colore di sfondo";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Esposizione di base";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Sii un artista. L'artista ti consente di trasformare in modo drammatico tutte le tue foto o video in famosi dipinti in stile. Questo strumento di elaborazione batch non ha limiti al numero di foto da convertire.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "pregiudizio";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Blu / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Sfocatura dello sfondo";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "blur";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Aumenta l'ombra";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Incremento";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Luminosità";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "Scegli una Sottoazione.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Scegli alcune foto che vuoi trovare tag.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Cromaticità X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Cromaticità";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ti consente di trovare ed eliminare vari tipi di foto errate se corrispondono ad esempio a immagini duplicate e simili, foto ravvicinate o scatti di Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "appunti";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Colore e promemoria per ogni fase";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Riduzione del rumore del colore";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contatti";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Attualmente, il nostro modello di riconoscimento del testo AI è disponibile solo per caratteri alfanumerici e alcuni caratteri speciali e potrebbe essere interessato dalla lingua corrente del sistema.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "costume";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Ciano / Blu";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Data";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "Obiettivi di rilevamento";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Direzione";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Disabilita la Gamut Map";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Scarica ora GRATUITAMENTE su %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "Download in corso ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Indirizzo email";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "CASA";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ti consente di rimuovere tutti i tipi di dati contenenti le tue foto, incluse le informazioni private.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Modifica le tue foto crude.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Abilita codifica automatica.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "Ottieni testo";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dai un voto";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Grano";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Verde / Ciano";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Programma di licenza per utente ospite";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Riduzione del rumore di luminanza";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / Rosso";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Licenza strumenti principale";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "Messaggio per noi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moire";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "I miei album";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nessun ciclo";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Contrasto di riduzione del rumore";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Dettaglio riduzione rumore";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Nitidezza Riduzione del rumore";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Riduzione del rumore";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Monitoraggio del rumore";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "In attesa";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "Acquista";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Qualità";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "Editor RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Valutarlo";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Re-frame";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Rosso Giallo";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rimozione dell'effetto occhi rossi";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Condividi il tuo talento, fatti insieme. Ottieni ogni premio se adottato.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "nitidezza";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "affilatura";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Somiglianza";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "obiettivi";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Temperatura";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Condizioni d'uso";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "Licenza VIP";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "Iscrizione VIP di tutti i nostri prodotti.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Correzione dell'obiettivo del fornitore";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifica fallita.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "Scrivere una recensione";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Scrivi";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Giallo verde";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "È possibile selezionare solo foto o video corrispondenti al formato iniziale.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

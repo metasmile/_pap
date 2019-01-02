@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "Automatikus címkézés Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Háttérszín kitöltése";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Kiindulási expozíció";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Legyen művész. Az előadó lehetővé teszi, hogy drámaian minden fényképét vagy videóját híres festményként alakítsa át. Ez a kötegelt feldolgozó eszköz nem korlátozza a konvertálandó fotók számát.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Elfogultság";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Kék / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Elmosódott háttér";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur arány";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "Elhomályosít";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "kiemelés";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Fényesség";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "Válasszon egy alkategóriát.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Válassza ki azokat a fotókat, amelyek címkéket szeretne találni.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Kromatikus X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Kromatikus Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "A Tisztító lehetővé teszi, hogy megtalálja és törölje a különféle helytelen fényképeket, ha például a másolatok és hasonló képek, a közelkép fotók vagy a zárakat rögzítő képek megegyeznek.";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "Vágólap";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Szín és emlékeztető minden egyes fázisban";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Színes zajcsökkentés";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kapcsolatok";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Jelenleg az AI szövegfelismerési modellünk csak az alfanumerikus és néhány speciális karakter számára elérhető, és az aktuális rendszernyelv befolyásolhatja.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Szokás";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cián / kék";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Dátum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "Érzékelési célok";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Irány";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "A játéktérkép letiltása";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Töltsd le ingyen az %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "Letöltés ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Email cím";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HÁZ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Az EXIF ​​Ghost lehetővé teszi, hogy eltávolítson minden olyan adatot, amely a fényképeket tartalmazza, beleértve a privát adatokat is.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "A nyers fényképek szerkesztése.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Engedélyezze az automatikus címkézést.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "Get Text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Adj egy értékelést";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Gabona";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Zöld / cián";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Vendég felhasználói licencprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Hurok";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Fényerő zajcsökkentés";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / piros";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Főeszközök licenc";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "Üzenet nekünk";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Módosít";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moaré";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Az én albumaim";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "Nem Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Nincs hurok";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Zajcsökkentő kontraszt";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Zajcsökkentés részletei";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Zajcsökkentés éle";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Zajcsökkentés";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Zajkövetés";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Készenléti módban";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "Vásárlás";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Minőség";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW-szerkesztő";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Értékelje";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Re-frame";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Piros sárga";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Vörösszem-eltávolítás";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Ossza meg tehetségét, készíts össze. Szerezzen minden jutalmat, ha elfogadják.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Ossza meg";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Élesség";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Élezés";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "Célok";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "elpárologjon";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Hőmérséklet";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Használati feltételek";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "VIP licenc";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP tagság az összes termékünkön.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Szállító lencse korrekció";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Az ellenőrzés sikertelen.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "Írja meg a véleményét";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Ír";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Sárga zöld";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Csak olyan fényképeket vagy videókat választhat ki, amelyek megfelelnek a kezdő formátumnak.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

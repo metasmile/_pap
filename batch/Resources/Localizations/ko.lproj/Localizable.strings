@@ -222,14 +222,24 @@
 "Auto Tagging Bot" = "자동 태그 추가 봇";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "배경 채우기 색상";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "베이스 라인 노출";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "예술가가 되십시오. 아티스트는 모든 사진이나 비디오를 유명한 스타일의 그림으로 전환 할 수있게 해줍니다. 이 일괄 처리 도구는 변환 할 사진 수에 제한이 없습니다.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "바이어스";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "청색 / 자홍색";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "블러 배경";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "흐림 비율";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Blur" = "흐림";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "부스트 섀도우";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "후원";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "명도";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -250,6 +260,10 @@
 "Choose An Sub Action." = "하위 작업을 선택하십시오.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "태그를 찾으려는 사진을 선택하십시오.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "색도 X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "색도 Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -260,6 +274,8 @@
 "Clipboard" = "클립 보드";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "각 단계별 색상 및 알림";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "컬러 노이즈 제거";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "연락처";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -302,6 +318,8 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "현재 AI 텍스트 인식 모델은 영숫자 및 일부 특수 문자에만 사용할 수 있으며 현재 시스템 언어의 영향을받을 수 있습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "사용자 정의";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "청록색 / 청색";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "날짜";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
@@ -314,6 +332,8 @@
 "Detection Targets" = "탐지 대상";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "방향";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Gamut Map 비활성화";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "%@에서 지금 무료로 다운로드하십시오.";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -322,8 +342,12 @@
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "이메일 주소";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "원시 사진을 편집하십시오.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "자동 태그 추가를 사용.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -384,8 +408,8 @@
 "Get Text" = "텍스트 가져 오기";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "평가하기";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "곡물";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "녹색 / 청록색";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "게스트 사용자 라이센스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -448,6 +472,10 @@
 "Lockscreens" = "잠금 화면";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "무한반복";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "휘도 잡음 감소";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "마젠타 / 레드";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "주요 도구 라이센스";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -464,6 +492,8 @@
 "Message To Us" = "우리에게 보내는 메시지";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "수정";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "물결 무늬";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "내 앨범";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -478,6 +508,16 @@
 "No Crop" = "자르지 않음";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "루프 없음";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "노이즈 제거 콘트라스트";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "노이즈 제거 세부 정보";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "노이즈 제거 선명도";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "노이즈 제거";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "소음 추적";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "대기";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -582,10 +622,14 @@
 "Purchase" = "구입";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "품질";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW 편집기";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "평점";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "다시 프레임";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "빨간색 / 노란색";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "적목 현상 제거";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -666,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "날카로움";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "선명하게하기";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -738,6 +782,8 @@
 "Targets" = "목표";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "온도";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "온도";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "이용 약관";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -796,6 +842,8 @@
 "VIP License" = "VIP 라이센스";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "우리의 모든 제품의 VIP 회원.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "공급 업체 렌즈 수정";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "확인에 실패했습니다.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -838,6 +886,8 @@
 "Write A Review" = "리뷰를 작성";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "작성하기";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "연두색";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "시작 형식과 일치하는 사진 또는 비디오 만 선택할 수 있습니다.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
