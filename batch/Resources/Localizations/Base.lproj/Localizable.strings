@@ -218,7 +218,7 @@
 "Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Action" = "Choose An Action";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, App.Finalizable.PHAsset.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";
@@ -410,7 +410,7 @@
 "Inquiry" = "Inquiry";
 /* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Instagram Landscape" = "Instagram Landscape";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
@@ -424,7 +424,7 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: Resizer.BApp.swift, PDFMaker.AppDockContent.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -560,7 +560,7 @@
 "Please try again with another code." = "Please try again with another code.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Portrait" = "Portrait";
 /* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
@@ -630,7 +630,7 @@
 "Save and Share" = "Save and Share";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Save the copied image." = "Save the copied image.";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, Clipboard.BApp.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Clipboard.BApp.swift */
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
@@ -692,7 +692,7 @@
 "Special Guest License" = "Special Guest License";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Special Guest";
-/* Generated from genl10n: Resizer.BApp.swift, GIFMaker.BApp.swift */
+/* Generated from genl10n: GIFMaker.BApp.swift, Resizer.BApp.swift */
 "Square" = "Square";
 /* Generated from genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
@@ -786,7 +786,7 @@
 "URL" = "URL";
 /* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Ultra Wide Vertical" = "Ultra Wide Vertical";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
@@ -860,7 +860,7 @@
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Your code was expired.";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Youtube Landscape" = "Youtube Landscape";
 /* Generated from genl10n: Period.swift */
 "day" = "day";
