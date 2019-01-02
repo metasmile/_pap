@@ -8360,7 +8360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.sap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "96e8605a-024a-42ad-9b74-71f76ded6b0e";
-				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap Development";
+				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap Development 2";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
