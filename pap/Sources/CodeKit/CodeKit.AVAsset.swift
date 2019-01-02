@@ -83,3 +83,13 @@ extension AVAsset {
         }
     }
 }
+
+extension AVVideoComposition {
+    private static func makeVideoRenderWidth(_ width: CGFloat) -> CGFloat {
+        return width.remainder(dividingBy: 4) == 0 ? width : width - width.truncatingRemainder(dividingBy: 4)
+    }
+    
+    static func makeVideoRenderSize(_ size: CGSize) -> CGSize {
+        return CGSize(width: makeVideoRenderWidth(size.width), height: makeVideoRenderWidth(size.height))
+    }
+}
