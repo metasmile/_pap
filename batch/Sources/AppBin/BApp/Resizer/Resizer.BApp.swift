@@ -149,10 +149,18 @@ PhotoEditorViewControllerDelegatableApp {
         self.config?.adoptValues(fromOther: config)
     }
     
+    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
+        let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
+        
+        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.asCIImage
+        
+        if let image = original {
+            previewOriginalImageCache.setObject(image, forKey: cacheKey)
+        }
+        
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
-        completion(original, filtered)
+        completion(original?.asUIImage, filtered?.asUIImage)
     }
     
     public func photoEditorWillBeginProcessing() {
@@ -477,15 +485,7 @@ private class CIFrameFilterItem: CIFilterItem {
                 .concatenating(scaleTransform)
         }
         
-        func makeVideoRenderWidth(_ width: CGFloat) -> CGFloat {
-            return width.remainder(dividingBy: 4) == 0 ? width : width - width.truncatingRemainder(dividingBy: 4)
-        }
-        
-        func makeVideoRenderSize(_ size: CGSize) -> CGSize {
-            return CGSize(width: makeVideoRenderWidth(size.width), height: makeVideoRenderWidth(size.height))
-        }
-        
-        videoComposition.renderSize = makeVideoRenderSize(videoComposition.renderSize)
+        videoComposition.renderSize = AVVideoComposition.makeVideoRenderSize(videoComposition.renderSize)
         
         let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
         layerInstruction.setTransform(layerTransform, at: CMTime.zero)

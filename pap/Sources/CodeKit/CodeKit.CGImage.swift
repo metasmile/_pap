@@ -119,6 +119,7 @@ public extension CGImage{
                 nil).takeRetainedValue()
 
         free(destinationBuffer.data)
+        free(sourceBuffer.data)
 
         return result
     }
@@ -160,6 +161,8 @@ public extension CGImage{
                 &scaledBuffer,
                 nil,
                 vImage_Flags(kvImageNoFlags))
+        
+        free(sourceImageBuffer.data)
 
         return scaledBuffer
     }
