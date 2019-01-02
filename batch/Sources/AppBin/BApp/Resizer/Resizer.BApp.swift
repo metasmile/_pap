@@ -278,9 +278,7 @@ private class CIFrameFillFilter: CIFilter {
     
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = inputImage, let cgImage = image.asCGImage else {
-                return nil
-            }
+            guard let image = inputImage else { return nil }
             
             let inputSize = image.extent.size
             var outputSize = aspectRatioOption.aspectFitSize(in: inputSize)
@@ -298,45 +296,19 @@ private class CIFrameFillFilter: CIFilter {
             let outputRect = CGRect(origin: .zero, size: outputSize)
             let aspectFitRect = AVMakeRect(aspectRatio: inputSize, insideRect: outputRect.inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
-            let width = outputSize.width
-            let height = outputSize.height
-            let bitsPerComponent = cgImage.bitsPerComponent
-            let bytesPerRow = cgImage.bytesPerRow
-            let colorSpace = cgImage.colorSpace ?? CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = cgImage.bitmapInfo
-            
-            let ctx = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-
-            ctx?.interpolationQuality = .high
+            let resizedImage = image.resizeAspectFit(in: aspectFitRect)
+            let colorImage: CIImage
 
             //INFO: blur mode
-            if backgroundColor == type(of: self).BlurFilledBackgroundColor{
-
-                var bgSourceImage:CGImage? = cgImage
-                if outputRect.size.area != cgImage.size.area{
-                    let o = CGPoint(x: (cgImage.size.width-outputRect.width)/2, y: (cgImage.size.height-outputRect.height)/2)
-                    bgSourceImage = cgImage.cropping(to: CGRect(origin: o, size: outputRect.size))
-                }
-
-                if let bgImage = bgSourceImage?.blur(){
-                    ctx?.draw(bgImage, in: outputRect)
-                }else{
-                    ctx?.setFillColor(backgroundColor.cgColor)
-                    ctx?.fill(outputRect)
-                }
-            }else{
-                ctx?.setFillColor(backgroundColor.cgColor)
-                ctx?.fill(outputRect)
-            }
-
-            ctx?.draw(cgImage, in: aspectFitRect)
-            
-            if let result = ctx?.makeImage() {
-                return CIImage(cgImage: result)
+            if backgroundColor == type(of: self).BlurFilledBackgroundColor, let bgImage = image.asCGImage?.blur() {
+                let fillSize = image.extent.size.aspectFill(in: outputRect.size)
+                colorImage = CIImage(cgImage: bgImage).resizeAspectFit(fillSize)
             }
             else {
-                return nil
+                colorImage = CIImage(color: CIColor(color: backgroundColor))
             }
+            
+            return resizedImage.composited(over: colorImage).cropped(to: outputRect)
         }
     }
 }
@@ -422,14 +394,14 @@ private class CIFrameFilterItem: CIFilterItem {
             
             let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
             
-            let outputAspectRatio = outputSize.height / outputSize.width
+//            let outputAspectRatio = outputSize.height / outputSize.width
             
             let scaleX = videoRect.height / inputSize.height
             let scaleY = videoRect.width / inputSize.width
             
-            let isInputPortrait = inputSize.height >= inputSize.width
-            let isOutputPortrait = outputSize.height >= outputSize.width
-            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
+//            let isInputPortrait = inputSize.height >= inputSize.width
+//            let isOutputPortrait = outputSize.height >= outputSize.width
+//            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
             let translationX = videoRect.origin.x / scaleX
             let translationY = videoRect.origin.y / scaleY
@@ -469,8 +441,8 @@ private class CIFrameFilterItem: CIFilterItem {
             let scaleX = (videoRect.width / inputSize.width) * scaleRatio
             let scaleY = (videoRect.height / inputSize.height) / scaleRatio
             
-            let isOutputPortrait = normalizedSize.height >= normalizedSize.width
-            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
+//            let isOutputPortrait = normalizedSize.height >= normalizedSize.width
+//            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
             
             let translationX = videoRect.origin.x / (videoRect.width / inputSize.width)
             let translationY = videoRect.origin.y / (videoRect.height / inputSize.height)

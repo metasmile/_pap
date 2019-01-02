@@ -78,6 +78,13 @@ extension CIImage {
         let scale = min(resize.width / extent.width, resize.height / extent.height)
         return transformed(by: CGAffineTransform(scaleX: scale, y: scale))
     }
+    
+    func resizeAspectFit(in bounds: CGRect) -> CIImage {
+        let resize = AVMakeRect(aspectRatio: extent.size, insideRect: bounds)
+        let scale = min(resize.width / extent.width, resize.height / extent.height)
+        let transform = CGAffineTransform(translationX: resize.origin.x, y: resize.origin.y).scaledBy(x: scale, y: scale)
+        return transformed(by: transform)
+    }
 }
 
 extension CIImage {
