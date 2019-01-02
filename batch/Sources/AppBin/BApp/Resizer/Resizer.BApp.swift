@@ -133,8 +133,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
-        return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst
-        /*|| item.asset.mediaType == .video */ //TODO: after video support
+        return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst || item.asset.mediaType == .video
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -358,6 +357,8 @@ private class CIFrameFilterItem: CIFilterItem {
             let videoTrack = video.tracks(withMediaType: .video).first
         else { return nil }
         
+        let isOriginalRatio = (ciFilter as? CIFrameFillFilter)?.aspectRatioOption == .original
+        
         let composition = AVMutableComposition()
         guard let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else { return nil }
         if (try? videoCompositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil {
@@ -374,16 +375,14 @@ private class CIFrameFilterItem: CIFilterItem {
         
         let normalizedSize = self.normalizedSize ?? videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude.aspectFit(in: CGSize(width: 1, height: 1))
         
-        let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
-        
-        var layerTransform = CGAffineTransform.identity
+        var renderSize = CGSize.zero
         
         if exporting {
             let inputSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
             let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
             var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength))
-            if (ciFilter as? CIFrameFillFilter)?.aspectRatioOption == .original {
+            if isOriginalRatio {
                 if outputSize.height > outputSize.width {
                     outputSize.height -= (maximumBorderInset - borderInset) * 2
                 }
@@ -392,37 +391,14 @@ private class CIFrameFilterItem: CIFilterItem {
                 }
             }
             
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
-            
-//            let outputAspectRatio = outputSize.height / outputSize.width
-            
-            let scaleX = videoRect.height / inputSize.height
-            let scaleY = videoRect.width / inputSize.width
-            
-//            let isInputPortrait = inputSize.height >= inputSize.width
-//            let isOutputPortrait = outputSize.height >= outputSize.width
-//            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
-            
-            let translationX = videoRect.origin.x / scaleX
-            let translationY = videoRect.origin.y / scaleY
-            
-            videoComposition.renderSize = outputSize
-            
-            let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
-            let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
-            
-            layerTransform = CGAffineTransform.identity
-                .concatenating(videoCompositionTrack.preferredTransform)
-                .concatenating(translateTransform)
-                .concatenating(scaleTransform)
+            renderSize = outputSize
         }
         else {
             let inputSize = videoCompositionTrack.naturalSize
-            let videoSize = videoCompositionTrack.naturalSize.applying(videoCompositionTrack.preferredTransform).magnitude
             let borderInset = borderWidth * (videoCompositionTrack.naturalSize.minLength / 4)
             let maximumBorderInset = borderWidth * (videoCompositionTrack.naturalSize.maxLength / 4)
             var outputSize = normalizedSize.applying(CGAffineTransform(scaleX: inputSize.maxLength, y: inputSize.maxLength).concatenating(videoCompositionTrack.preferredTransform.inverted())).magnitude
-            if (ciFilter as? CIFrameFillFilter)?.aspectRatioOption == .original {
+            if isOriginalRatio {
                 if outputSize.height > outputSize.width {
                     outputSize.height -= (maximumBorderInset - borderInset) * 2
                 }
@@ -431,43 +407,20 @@ private class CIFrameFilterItem: CIFilterItem {
                 }
             }
             
-            let videoRect = AVMakeRect(aspectRatio: inputSize, insideRect: CGRect(origin: .zero, size: outputSize).inset(by: UIEdgeInsets(top: borderInset, left: borderInset, bottom: borderInset, right: borderInset)))
-            
-            let outputAspectRatio = outputSize.height / outputSize.width
-            
-            let isInputPortrait = (inputSize != videoSize && videoSize.height >= videoSize.width)
-            let scaleRatio = isInputPortrait ? outputAspectRatio : 1
-            
-            let scaleX = (videoRect.width / inputSize.width) * scaleRatio
-            let scaleY = (videoRect.height / inputSize.height) / scaleRatio
-            
-//            let isOutputPortrait = normalizedSize.height >= normalizedSize.width
-//            let translationRatio = isOutputPortrait ? 1 : outputAspectRatio
-            
-            let translationX = videoRect.origin.x / (videoRect.width / inputSize.width)
-            let translationY = videoRect.origin.y / (videoRect.height / inputSize.height)
-            
-            videoComposition.renderSize = outputSize.applying(videoCompositionTrack.preferredTransform).magnitude
-            
-            let scaleTransform = CGAffineTransform(scaleX: scaleX, y: scaleY)
-            let translateTransform = CGAffineTransform(translationX: translationX, y: translationY)
-            
-            layerTransform = CGAffineTransform.identity
-                .concatenating(translateTransform)
-                .concatenating(scaleTransform)
+            renderSize = outputSize.applying(videoCompositionTrack.preferredTransform).magnitude
         }
         
-        videoComposition.renderSize = AVVideoComposition.makeVideoRenderSize(videoComposition.renderSize)
-        
-        let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
-        layerInstruction.setTransform(layerTransform, at: CMTime.zero)
-        
-        let instruction = AVMutableVideoCompositionInstruction()
-        instruction.backgroundColor = backgroundColor.cgColor
-        instruction.timeRange = CMTimeRange(start: CMTime.zero, duration: video.duration)
-        instruction.layerInstructions = [layerInstruction]
-
-        videoComposition.instructions = [instruction]
+        let currentFilter = self.ciFilter
+        let videoComposition = AVMutableVideoComposition(asset: video) { [weak self] (request) in
+            let image = request.sourceImage.applyFilter(ciFilter: currentFilter).resizeAspectFit(renderSize)
+            if currentFilter != self?.ciFilter {
+                request.finish(with: NSError(domain: "AVAsset", code: -500, userInfo: nil)) // User Interrupt
+            }
+            else {
+                request.finish(with: image, context: nil)
+            }
+        }
+        videoComposition.renderSize = AVVideoComposition.makeVideoRenderSize(renderSize)
         
         let playerItem = AVPlayerItem(asset: composition)
         playerItem.videoComposition = videoComposition
