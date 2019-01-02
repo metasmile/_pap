@@ -506,13 +506,13 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     private var selectedBackgroundColor: UIColor? {
         didSet {
             let buttonSize = CGSize(width: 20, height: 20)
-            let buttonRect = CGRect(origin: .zero, size: buttonSize).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+            let buttonRect = CGRect(origin: .zero, size: buttonSize)
 
             if selectedBackgroundColor == CIFrameFillFilter.BlurFilledBackgroundColor{
                 colorPickerButton.setImage(R.image.resizerBlurColorIcon()?.resize(aspectFit: buttonRect.size.screenScaled()), for: .normal)
 
             } else{
-                let image = UIImage(path: UIBezierPath(roundedRect: buttonRect, cornerRadius: buttonRect.height), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+                let image = UIImage(path: UIBezierPath(ovalIn: buttonRect.inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))), fillColor: selectedBackgroundColor ?? UIColor(rgb: 0xFFFFFF), strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
                 colorPickerButton.setImage(image, for: .normal)
             }
         }
@@ -595,7 +595,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         button.contentVerticalAlignment = .center
         button.contentHorizontalAlignment = .center
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 4)
+        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         button.addTarget(self, action: #selector(self.openColorPicker), for: .touchUpInside)
         return button
     }()
@@ -645,22 +645,26 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         picker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
 
         for color in colors {
-            var accessoryImage:UIImage?
+            var accessoryImage = R.image.resizerBlurColorIcon()
             let title:String
-
-            let accessoryImageRect = CGRect(origin: .zero, size: CGSize(width: 10, height: 10)).inset(by: UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2))
+            
+            let accessoryImageRect = CGRect(origin: .zero, size: accessoryImage?.size ?? CGSize(width: 10, height: 10))
 
             if color == CIFrameFillFilter.BlurFilledBackgroundColor{
                 title = "Blur Background".localized
-                accessoryImage = R.image.resizerBlurColorIcon()?.resize(aspectFit: accessoryImageRect.size.screenScaled())
             }else{
                 title = color.hexCode()
-                accessoryImage = UIImage(path: UIBezierPath(ovalIn: accessoryImageRect), fillColor: color, strokeColor: .white)?.withRenderingMode(.alwaysOriginal)
+                
+                let strokeWidth: CGFloat = 2
+                let accessoryImageInset = UIEdgeInsets(top: strokeWidth, left: strokeWidth, bottom: strokeWidth, right: strokeWidth)
+                accessoryImage = UIImage(path: UIBezierPath(ovalIn: accessoryImageRect.inset(by: accessoryImageInset)), fillColor: color, strokeColor: .white, strokeWidth: strokeWidth)?.resize(aspectFit: accessoryImageRect.size)?.withRenderingMode(.alwaysOriginal)
             }
 
             let action = UIAlertAction(title: title, style: .default, handler: { _ in
                 self.selectedBackgroundColor = color
                 self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: color, borderWidth: self.selectedBorderWidth)
+                
+                self.borderWidthDidChange()
             })
 
             if let accessoryImage = accessoryImage{
@@ -686,7 +690,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)
         
         let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
-            DispatchQueue.main.asyncAfter(deadline: .now()){
+            DispatchQueue.main.async {
                 self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
             }
         }
