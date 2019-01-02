@@ -792,14 +792,18 @@ extension UICamera {
     
     var usingLocation: Bool {
         set {
+            preferredUsingLocation = newValue
+            
             if newValue {
-                locationManager.startUpdatingLocation()
+                locationManager.startUpdatingLocation {
+                    self.configurationDidUpdate?()
+                }
             }
             else {
-                locationManager.stopUpdatingLocation()
+                locationManager.stopUpdatingLocation {
+                    self.configurationDidUpdate?()
+                }
             }
-            preferredUsingLocation = newValue
-            configurationDidUpdate?()
         }
         get {
             return locationManager.updatingLocation

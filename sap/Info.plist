@@ -129,6 +129,8 @@
 	<string>We will access your camera to capture photos.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>We would like to access your contacts to save the new contact entry.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will access your location to capture photos.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We will access your microphone to record video.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

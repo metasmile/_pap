@@ -12,12 +12,8 @@ import CoreLocation
 class LocationManager: NSObject {
     static var shared: LocationManager = LocationManager()
     
-    private lazy var locationManager: CLLocationManager = {
-        let locationManager = CLLocationManager()
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        return locationManager
-    }()
+    private var locationManager: CLLocationManager?
+    private lazy var locationQueue = DispatchQueue.main
     
     private var cachedLocations: [CLLocation]?
     var location: CLLocation? {
@@ -27,6 +23,12 @@ class LocationManager: NSObject {
     
     override init() {
         super.init()
+        
+        locationQueue.async {
+            self.locationManager = CLLocationManager()
+            self.locationManager?.distanceFilter = kCLDistanceFilterNone
+            self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        }
     }
     
     var disabledLocation: Bool {
@@ -34,44 +36,57 @@ class LocationManager: NSObject {
     }
     
     var updatingLocation: Bool {
-        return locationManager.delegate != nil
+        return locationManager?.delegate != nil
     }
     
-    func startUpdatingLocation() {
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-        if CLLocationManager.headingAvailable() {
-            locationManager.headingFilter = 5
-            locationManager.startUpdatingHeading()
+    func startUpdatingLocation(completion: (() -> Void)? = nil) {
+        locationQueue.async {
+            if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+                self.locationManager?.requestWhenInUseAuthorization()
+            }
+            self.locationManager?.delegate = self
+            self.locationManager?.startUpdatingLocation()
+            if CLLocationManager.headingAvailable() {
+                self.locationManager?.headingFilter = 5
+                self.locationManager?.startUpdatingHeading()
+            }
+            completion?()
         }
     }
     
-    func stopUpdatingLocation() {
-        locationManager.delegate = nil
-        locationManager.stopUpdatingLocation()
-        locationManager.stopUpdatingHeading()
-        cachedLocations = nil
-        heading = nil
+    func stopUpdatingLocation(completion: (() -> Void)? = nil) {
+        locationQueue.async {
+            self.locationManager?.delegate = nil
+            self.locationManager?.stopUpdatingLocation()
+            self.locationManager?.stopUpdatingHeading()
+            self.cachedLocations = nil
+            self.heading = nil
+            
+            completion?()
+        }
     }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        cachedLocations = locations
+        locationQueue.async {
+            self.cachedLocations = locations
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-        } else {
-            locationManager.stopUpdatingLocation()
+        locationQueue.async {
+            if status == .authorizedAlways || status == .authorizedWhenInUse {
+                self.locationManager?.startUpdatingLocation()
+            } else {
+                self.locationManager?.stopUpdatingLocation()
+            }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        heading = newHeading
+        locationQueue.async {
+            self.heading = newHeading
+        }
     }
 }
