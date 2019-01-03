@@ -102,9 +102,9 @@ PhotoEditorViewControllerDelegatableApp {
                 }
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
-                    (filterItem?.ciFilter as? CIFrameFillFilter)?.backgroundColor = defaults.backgroundColor
-                    (filterItem?.ciFilter as? CIFrameFillFilter)?.borderWidth = CGFloat(defaults.borderWidth)
+                    let filter = controllerContent.getFilter(by: defaults.resizeFilterName)
+                    
+                    let filterItem = CIFrameFilterItem(filter, backgroundColor: defaults.backgroundColor, borderWidth: CGFloat(defaults.borderWidth))
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
                 }
@@ -118,11 +118,9 @@ PhotoEditorViewControllerDelegatableApp {
                 }
                 else {
                     var defaults = type(of: self).defaults as! ResizerAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.resizeFilterName)
-                    (filterItem?.ciFilter as? CIFrameFillFilter)?.backgroundColor = defaults.backgroundColor
-                    (filterItem?.ciFilter as? CIFrameFillFilter)?.borderWidth = CGFloat(defaults.borderWidth)
+                    let filter = controllerContent.getFilter(by: defaults.resizeFilterName)
                     
-                    self.config?.filter = filterItem
+                    self.config?.filter = CIFrameFilterItem(filter, backgroundColor: defaults.backgroundColor, borderWidth: CGFloat(defaults.borderWidth))
                 }
             }
         }
@@ -171,7 +169,9 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        (content as? ResizerAppDockContent)?.selectItem(with: editStateValue)
+        if let filter = editStateValue?.ciFilter as? CIFrameFillFilter {
+            (content as? ResizerAppDockContent)?.selectFilter(filter)
+        }
     }
 }
 
@@ -271,6 +271,13 @@ private class CIFrameFillFilter: CIFilter {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = CIFrameFillFilter(aspectRatioOption: aspectRatioOption)
+        copy.backgroundColor = backgroundColor
+        copy.borderWidth = borderWidth
+        return copy
     }
     
     @objc dynamic var inputImage : CIImage?
@@ -618,7 +625,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 self.selectedBackgroundColor = color
                 self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: color, borderWidth: self.selectedBorderWidth)
                 
-                self.borderWidthDidChange()
+                self.updateBorderSlider()
             })
 
             if let accessoryImage = accessoryImage{
@@ -633,7 +640,7 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         }
     }
     
-    @objc func borderWidthDidChange() {
+    private func updateBorderSlider() {
         let estimatedHeight = max(4, borderWidthSlider.height * CGFloat(borderWidthSlider.value)) / 6
         
         let minTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.bottomLeft], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 2))
@@ -642,6 +649,10 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         
         borderWidthSlider.setMinimumTrackImage(UIImage(path: minTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: estimatedHeight, bottom: estimatedHeight / 2, right: 0), resizingMode: .stretch), for: .normal)
         borderWidthSlider.setMaximumTrackImage(UIImage(path: maxTrackPath, fillColor: selectedBackgroundColor ?? .white)?.resizableImage(withCapInsets: UIEdgeInsets(top: estimatedHeight / 2, left: 0, bottom: estimatedHeight / 2, right: estimatedHeight), resizingMode: .stretch), for: .normal)
+    }
+    
+    @objc func borderWidthDidChange() {
+        updateBorderSlider()
         
         let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
             DispatchQueue.main.async {
@@ -662,20 +673,19 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         collectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
     
-    fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
-        let filter = editStateValue?.ciFilter as? CIFrameFillFilter
+    fileprivate func selectFilter(_ filter: CIFrameFillFilter?) {
         selectItem(by: filter?.name)
         
         selectedFilter = filter
         selectedBackgroundColor = filter?.backgroundColor
         borderWidthSlider.value = Float(filter?.borderWidth ?? 0)
         
-        borderWidthDidChange()
+        updateBorderSlider()
     }
     
-    fileprivate func getFilterItem(by filterName: String?) -> CIFrameFilterItem? {
+    fileprivate func getFilter(by filterName: String?) -> CIFrameFillFilter? {
         let index = indexOfItem(by: filterName) ?? 0
-        return CIFrameFilterItem(self.filters[safe: index], backgroundColor: selectedBackgroundColor, borderWidth: selectedBorderWidth)
+        return self.filters[safe: index]
     }
     
     var contentScrollable: AppDockContentScrollable? {
@@ -732,7 +742,12 @@ private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ResizerApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
+                    var editInfo: [String: Any] = [:]
+                    if let filter = assetItem.editState.ciFilter as? CIFrameFillFilter {
+                        editInfo["filterName"] = filter.name
+                        editInfo["borderWidth"] = Float(filter.borderWidth)
+                    }
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ResizerApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,

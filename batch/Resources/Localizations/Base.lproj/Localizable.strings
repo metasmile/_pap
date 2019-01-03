@@ -184,7 +184,7 @@
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Background Fill Color" = "Background Fill Color";
 /* Generated from genl10n: RawEditor.swift */
 "Baseline Exposure" = "Baseline Exposure";
@@ -524,7 +524,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Resizer.BApp.swift, App.UI.AssetView.swift, Artist.BApp.swift, Filters.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: App.UI.AssetView.swift, Artist.BApp.swift, Filters.BApp.swift, Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
@@ -590,7 +590,7 @@
 "RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Settings.SApp.swift, Shop.Payment.Promotion.swift, Shop.SApp.swift */
 "Rate It" = "Rate It";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Re-frame" = "Re-frame";
 /* Generated from genl10n: RawEditor.swift */
 "Red / Yellow" = "Red / Yellow";
