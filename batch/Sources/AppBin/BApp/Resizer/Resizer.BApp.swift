@@ -169,7 +169,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        if let filter = editStateValue?.ciFilter as? CIFrameFillFilter {
+        if let filter = editStateValue?.ciFilter?.copy() as? CIFrameFillFilter {
             (content as? ResizerAppDockContent)?.selectFilter(filter)
         }
     }
