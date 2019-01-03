@@ -509,11 +509,11 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }()
     
     private lazy var toolBar: UIStackView = {
-        let stackView = UIStackView(frame: .zero)
+        let stackView = UIStackView(arrangedSubviews: [colorPickerButton, borderWidthSlider])
         stackView.alignment = UIStackView.Alignment.fill
         stackView.axis = .horizontal
         stackView.distribution = .fill
-        stackView.spacing = 2
+        stackView.spacing = 4
         return stackView
     }()
     
@@ -537,8 +537,9 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: toolBar.topAnchor, constant: 4).isActive = true
         
-        toolBar.addArrangedSubview(colorPickerButton)
-        toolBar.addArrangedSubview(borderWidthSlider)
+        colorPickerButton.translatesAutoresizingMaskIntoConstraints = false
+        colorPickerButton.heightAnchor.constraint(equalTo: toolBar.heightAnchor).isActive = true
+        colorPickerButton.widthAnchor.constraint(equalTo: colorPickerButton.heightAnchor, multiplier: 1).isActive = true
         
         return view
     }()
