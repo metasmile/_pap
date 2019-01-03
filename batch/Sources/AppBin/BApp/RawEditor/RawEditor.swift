@@ -261,7 +261,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         view.delegate = self
         view.rowHeight = 52
         view.allowsSelection = false
-        view.register(SliderCell.self, forCellReuseIdentifier: RawEditorApp.info.identifier + "SliderCell")
+        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: RawEditorApp.info.identifier + "CIAdjustmentSliderCell")
         view.register(SwitchCell.self, forCellReuseIdentifier: RawEditorApp.info.identifier + "SwitchCell")
         view.backgroundColor = .clear
         view.separatorStyle = .none
@@ -395,19 +395,33 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "SliderCell") as! SliderCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "CIAdjustmentSliderCell") as! CIAdjustmentSliderCell
             cell.titleLabel.text = attributeItem.name
+            
+            cell.highlightedColor = RawEditorApp.info.themeColor
             
             cell.slider.minimumValue = attributeItem.minimumValue
             cell.slider.maximumValue = attributeItem.maximumValue
             cell.slider.defaultValue = attributeItem.defaultValue
             cell.slider.value = attributeItem.value
             
+            cell.resetButton.isHidden = !attributeItem.hasChanges
+            cell.resetButtonDidTapHandler = {
+                attributeItem.value = attributeItem.defaultValue
+                cell.resetButton.isHidden = !attributeItem.hasChanges
+                
+                cell.slider.value = attributeItem.value
+                
+                self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+            }
+            
             cell.sliderDidChangeHandler = { value in
                 attributeItem.value = value
                 
+                cell.resetButton.isHidden = !attributeItem.hasChanges
+                
                 let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
-                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    DispatchQueue.main.async {
                         self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                     }
                 }
@@ -424,73 +438,6 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    private class SliderCell: UITableViewCell {
-        lazy var slider: PrecisionLevelSlider = {
-            let view = PrecisionLevelSlider()
-            view.longNotchColor = .white
-            view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-            view.centerNotchColor = RawEditorApp.info.themeColor ?? .red
-            view.numberOfNotches = 20
-            return view
-        }()
-        
-        lazy var titleLabel: UILabel = {
-            let label = UILabel(frame: .zero)
-            label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
-            label.numberOfLines = 0
-            label.lineBreakMode = NSLineBreakMode.byWordWrapping
-            label.textAlignment = .right
-            label.backgroundColor = UIColor.clear
-            label.adjustsFontForContentSizeCategory = true
-            return label
-        }()
-        
-        var sliderDidChangeHandler: ((Float) -> Void)?
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            
-            sliderDidChangeHandler = nil
-        }
-        
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-            
-            backgroundColor = .clear
-            
-            contentView.addSubview(titleLabel)
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
-            
-            contentView.addSubview(slider)
-            slider.translatesAutoresizingMaskIntoConstraints = false
-            slider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: slider.bottomAnchor, constant: 0).isActive = true
-            slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
-            contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
-            
-            slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-        }
-        
-        @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider.value)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        override func tintColorDidChange() {
-            super.tintColorDidChange()
-            
-            titleLabel.textColor = tintColor
-            slider.tintColor = tintColor
-        }
     }
     
     private class SwitchCell: UITableViewCell {

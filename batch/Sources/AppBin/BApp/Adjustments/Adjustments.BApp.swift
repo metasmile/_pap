@@ -511,7 +511,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         view.rowHeight = UITableView.automaticDimension
         view.estimatedRowHeight = 52
         view.allowsSelection = false
-        view.register(Cell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(Cell.self)")
+        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
         view.register(ToneCurveCell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(ToneCurveCell.self)")
         view.backgroundColor = .clear
         view.separatorStyle = .none
@@ -601,16 +601,18 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
 //            return cell
 //        }
 //        else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "\(Cell.self)") as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "\(CIAdjustmentSliderCell.self)") as! CIAdjustmentSliderCell
         
         cell.titleLabel.text = attributeItem.name
+        
+        cell.highlightedColor = AdjustmentsApp.info.themeColor
         
         cell.slider.minimumValue = attributeItem.minimumValue
         cell.slider.maximumValue = attributeItem.maximumValue
         cell.slider.defaultValue = attributeItem.defaultValue
         cell.slider.value = attributeItem.value
-        cell.resetButton.isHidden = !attributeItem.hasChanges
         
+        cell.resetButton.isHidden = !attributeItem.hasChanges
         cell.resetButtonDidTapHandler = {
             attributeItem.value = attributeItem.defaultValue
             cell.resetButton.isHidden = !attributeItem.hasChanges
@@ -639,93 +641,6 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    private class Cell: UITableViewCell {
-        lazy var slider: PrecisionLevelSlider = {
-            let view = PrecisionLevelSlider()
-            view.longNotchColor = .white
-            view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-            view.centerNotchColor = AdjustmentsApp.info.themeColor ?? .red
-            view.numberOfNotches = 20
-            return view
-        }()
-        
-        lazy var resetButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("☀︎", for: .normal)
-            button.setTitleColor(AdjustmentsApp.info.themeColor, for: .normal)
-            return button
-        }()
-        
-        lazy var titleLabel: UILabel = {
-            let label = UILabel(frame: .zero)
-            label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
-            label.numberOfLines = 0
-            label.lineBreakMode = NSLineBreakMode.byWordWrapping
-            label.textAlignment = .right
-            label.backgroundColor = UIColor.clear
-            label.adjustsFontForContentSizeCategory = true
-            return label
-        }()
-        
-        var resetButtonDidTapHandler: (() -> Void)?
-        var sliderDidChangeHandler: ((Float) -> Void)?
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            
-            resetButtonDidTapHandler = nil
-            sliderDidChangeHandler = nil
-        }
-        
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-            
-            backgroundColor = .clear
-            
-            contentView.addSubview(titleLabel)
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
-            
-            contentView.addSubview(slider)
-            slider.translatesAutoresizingMaskIntoConstraints = false
-            slider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-            contentView.bottomAnchor.constraint(equalTo: slider.bottomAnchor, constant: 0).isActive = true
-            slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
-            contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
-            
-            contentView.addSubview(resetButton)
-            resetButton.translatesAutoresizingMaskIntoConstraints = false
-            resetButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: 0).isActive = true
-            resetButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: -2).isActive = true
-            resetButton.isHidden = true
-            
-            resetButton.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
-            slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-        }
-        
-        @objc private func resetButtonDidTap() {
-            resetButtonDidTapHandler?()
-        }
-        
-        @objc private func sliderValueChanged() {
-            sliderDidChangeHandler?(slider.value)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        override func tintColorDidChange() {
-            super.tintColorDidChange()
-            
-            titleLabel.textColor = tintColor
-            slider.tintColor = tintColor
-        }
     }
     
     private class ToneCurveCell: UITableViewCell {
@@ -818,5 +733,99 @@ private class ToneCurveSlider: UIControl {
     
     open override var intrinsicContentSize: CGSize {
         return CGSize(width: bounds.width, height: bounds.width * 1.5)
+    }
+}
+
+public class CIAdjustmentSliderCell: UITableViewCell {
+    lazy var slider: PrecisionLevelSlider = {
+        let view = PrecisionLevelSlider()
+        view.longNotchColor = .white
+        view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
+        view.centerNotchColor = highlightedColor ?? .red
+        view.numberOfNotches = 20
+        return view
+    }()
+    
+    var highlightedColor: UIColor? {
+        didSet {
+            resetButton.setTitleColor(highlightedColor, for: .normal)
+            slider.centerNotchColor = highlightedColor ?? .red
+        }
+    }
+    
+    lazy var resetButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("☀︎", for: .normal)
+        button.setTitleColor(highlightedColor, for: .normal)
+        return button
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textAlignment = .right
+        label.backgroundColor = UIColor.clear
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
+    
+    var resetButtonDidTapHandler: (() -> Void)?
+    var sliderDidChangeHandler: ((Float) -> Void)?
+    
+    override public func prepareForReuse() {
+        super.prepareForReuse()
+        
+        resetButtonDidTapHandler = nil
+        sliderDidChangeHandler = nil
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = .clear
+        
+        contentView.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
+        
+        contentView.addSubview(slider)
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: slider.bottomAnchor, constant: 0).isActive = true
+        slider.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 20).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 20).isActive = true
+        
+        contentView.addSubview(resetButton)
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: 0).isActive = true
+        resetButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: -2).isActive = true
+        resetButton.isHidden = true
+        
+        resetButton.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
+        slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
+    }
+    
+    @objc private func resetButtonDidTap() {
+        resetButtonDidTapHandler?()
+    }
+    
+    @objc private func sliderValueChanged() {
+        sliderDidChangeHandler?(slider.value)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override public func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        titleLabel.textColor = tintColor
+        slider.tintColor = tintColor
     }
 }
