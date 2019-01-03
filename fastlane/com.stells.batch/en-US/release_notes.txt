@@ -1,2 +1,2 @@
-+ Framer 1.1: Added a new blurred background mode, and a frame of Twitter. Choose the Background Blur option on the color picker.
-+ Camera 1.3: Pinch zoom on preview screen and telescope lens swap support for the dual camera.
++ Framer 1.2: Now enabled to re-frame even videos!
++ Filter, Auto Editor, Framer: Super fast and seamless preview support.

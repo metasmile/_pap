@@ -112,7 +112,7 @@
 "Camera" = "Camera";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Action" = "Choose An Action";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
+/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift, App.Finalizable.PHAsset.swift */
 "Choose An Export Option For %d Items" = "Choose An Export Option For %d Items";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Choose An Sub Action." = "Choose An Sub Action.";

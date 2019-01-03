@@ -79,7 +79,7 @@ This straightforward but large-scale batch image transform tool lets you quickly
 
 
 Framer
-Framer lets you resize and fill to fit your photos by the various sizes of Instagram, Youtube or what you needed.
+Framer lets you resize and fill to fit your photos(even also videos) by the various sizes of Instagram, Youtube or what you needed.
 
 
 Auto Editor
