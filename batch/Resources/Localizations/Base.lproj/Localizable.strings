@@ -676,6 +676,8 @@
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Sharpening";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Sharpness";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -764,7 +766,7 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "The price is including every new tool. Today is the cheapest day to get this.";
 /* Generated from genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
-/* Generated from genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* Generated from genl10n: Adjustments.BApp.swift, RawEditor.swift */
 "Tint" = "Tint";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "To use this app needs a corresponding access license. Would you like to open %@?";

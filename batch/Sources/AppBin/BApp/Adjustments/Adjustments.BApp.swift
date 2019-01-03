@@ -24,6 +24,7 @@ private struct Adjustments {
         case Exposure = "Exposure"
         case SepiaTone = "SepiaTone"
         case Fade = "Fade"
+        case Sharpness = "Sharpness"
         
         var key: String {
             return Adjustments.key(of: self)
@@ -58,6 +59,7 @@ private struct Adjustments {
         case Name.VignetteRadius: return "Vignette Radius".localized
         case Name.SepiaTone: return "Sepia Tone".localized
         case Name.Fade: return "Fade".localized
+        case Name.Sharpness: return "Sharpness".localized
         }
     }
     
@@ -77,6 +79,7 @@ private struct Adjustments {
         case Name.VignetteRadius: return kCIInputRadiusKey
         case Name.SepiaTone: return kCIInputIntensityKey
         case Name.Fade: return kCIInputIntensityKey
+        case Name.Sharpness: return kCIInputSharpnessKey
         }
     }
     
@@ -99,6 +102,7 @@ private struct Adjustments {
         case Name.Vignette, Name.VignetteRadius: return "CIVignette"
         case Name.SepiaTone: return "CISepiaTone"
         case Name.Fade: return "CIFadeFilter"
+        case Name.Sharpness: return "CISharpenLuminance"
         }
     }
 }
@@ -237,6 +241,10 @@ fileprivate class CIAdjustmentFilter: CIFilter {
         return builtInFilter ?? self
     }
     
+    convenience init(adjustment: Adjustments.Name, adjustments: [AdjustmentSliderInfo]) {
+        self.init(name: adjustment.filterName, adjustments: adjustments)
+    }
+    
     init(name: String, adjustments: [AdjustmentSliderInfo]) {
         super.init()
         
@@ -338,15 +346,16 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
 fileprivate class AdjustmentFilterManager {
     private static var orderedFilters: [CIAdjustmentFilter] {
         return [
-            CIAdjustmentFilter(name: "CITemperatureAndTint", adjustments: [AdjustmentSliderInfo(name: .Temparature), AdjustmentSliderInfo(name: .Tint)]),
-            CIAdjustmentFilter(name: "CIHighlightShadowAdjust", adjustments: [AdjustmentSliderInfo(name: .Highlights), AdjustmentSliderInfo(name: .Shadows)]),
-            CIAdjustmentFilter(name: "CIExposureAdjust", adjustments: [AdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
-            CIAdjustmentFilter(name: "CIGammaAdjust", adjustments: [AdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
-            CIAdjustmentFilter(name: "CIVibrance", adjustments: [AdjustmentSliderInfo(name: .Vibrance)]),
-            CIAdjustmentFilter(name: "CIColorControls", adjustments: [AdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), AdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), AdjustmentSliderInfo(name: .Saturation)]),
+            CIAdjustmentFilter(adjustment: .Temparature, adjustments: [AdjustmentSliderInfo(name: .Temparature), AdjustmentSliderInfo(name: .Tint)]),
+            CIAdjustmentFilter(adjustment: .Highlights, adjustments: [AdjustmentSliderInfo(name: .Highlights), AdjustmentSliderInfo(name: .Shadows)]),
+            CIAdjustmentFilter(adjustment: .Exposure, adjustments: [AdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
+            CIAdjustmentFilter(adjustment: .Gamma, adjustments: [AdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
+            CIAdjustmentFilter(adjustment: .Vibrance, adjustments: [AdjustmentSliderInfo(name: .Vibrance)]),
+            CIAdjustmentFilter(adjustment: .Brightness, adjustments: [AdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), AdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), AdjustmentSliderInfo(name: .Saturation)]),
             CIFadeFilter(adjustments: [AdjustmentSliderInfo(name: .Fade, range: 0...1)]),
-            CIAdjustmentFilter(name: "CIVignette", adjustments: [AdjustmentSliderInfo(name: .Vignette), AdjustmentSliderInfo(name: .VignetteRadius)]),
-            CIAdjustmentFilter(name: "CISepiaTone", adjustments: [AdjustmentSliderInfo(name: .SepiaTone)])
+            CIAdjustmentFilter(adjustment: .Vignette, adjustments: [AdjustmentSliderInfo(name: .Vignette), AdjustmentSliderInfo(name: .VignetteRadius)]),
+            CIAdjustmentFilter(adjustment: .SepiaTone, adjustments: [AdjustmentSliderInfo(name: .SepiaTone)]),
+            CIAdjustmentFilter(adjustment: .Sharpness, adjustments: [AdjustmentSliderInfo(name: .Sharpness)])
         ]
     }
     
@@ -500,7 +509,8 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         .Vignette,
         .VignetteRadius,
         .Gamma,
-        .SepiaTone
+        .SepiaTone,
+        .Sharpness
     ]
     fileprivate var attributeItems = [CIFilterAttributeItem]()
     
