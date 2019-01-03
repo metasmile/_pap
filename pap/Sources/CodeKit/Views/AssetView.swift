@@ -222,10 +222,10 @@ class AssetView: UIView {
     // MARK: Video
     
     var isVideoPlaying: Bool {
-        return videoView.player?.rate != 0
+        return videoView.player?.timeControlStatus == .playing
     }
     
-    var seekTime: CMTime {
+    var videoSeekTime: CMTime {
         return playerItem?.currentTime() ?? CMTime.zero
     }
     
@@ -380,6 +380,20 @@ extension AssetView {
 }
 
 extension AssetView {
+    var isPlaying: Bool {
+        guard let asset = asset else { return false }
+        
+        if asset.mediaSubtypes.contains(.photoLive) {
+            return isLivePhotoPlaying
+        }
+        else if asset.mediaType == .video {
+            return isVideoPlaying
+        }
+        else {
+            return false
+        }
+    }
+    
     // Abs
     @objc func playAny() {
         guard let asset = asset else { return }
@@ -402,6 +416,17 @@ extension AssetView {
             self.stopVideo()
         }
     }
+    
+    func pauseAny() {
+        guard let asset = asset else { return }
+        
+        if asset.mediaSubtypes.contains(.photoLive) {
+            self.stopLivePhoto()
+        }
+        else if asset.mediaType == .video {
+            self.pauseVideo()
+        }
+    }
 
     //Live PHAsset
     func playLivePhoto() {
@@ -418,7 +443,12 @@ extension AssetView {
 
     func playVideo() {
         guard !isVideoPlaying else { return }
-        videoView.player?.play()
+        if videoSeekTime == playerItem?.duration {
+            startVideo()
+        }
+        else {
+            videoView.player?.play()
+        }
     }
     
     func playVideoWithLooping() {

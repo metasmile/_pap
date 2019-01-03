@@ -113,8 +113,17 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     lazy var tapToPlayGesture: UITapGestureRecognizer = {
-        return UITapGestureRecognizer(target: self.assetView, action: #selector(self.assetView.playAny))
+        return UITapGestureRecognizer(target: self, action: #selector(self.playOrPause))
     }()
+    
+    @objc private func playOrPause() {
+        if assetView.isPlaying {
+            assetView.pauseAny()
+        }
+        else {
+            assetView.playAny()
+        }
+    }
     
     lazy var transitionAnimator = PhotoEditorTransitionAnimator()
     
