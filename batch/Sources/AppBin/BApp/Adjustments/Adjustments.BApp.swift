@@ -139,13 +139,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public static let info = AppInfo(
         identifier: "com.stells.batch.adjustments"
         , version: "1.0"
-        , phase: .beta
+        , phase: .release
         , appType: AdjustmentsApp.self
         , displayName: "Adjustments".localized.localizedCapitalized
-        , description: "Adjustments lets you edit manually your photos.".localized
+        , description: "Adjustments lets you edit your photos selectively with each property such as exposure intensity or vignette radius.".localized
         , keywords: ["Adjustments", "Light", "Color", "RGB"] + Adjustments.Name.allCases.map { $0.rawValue }
         , iconBundleName: R.image.adjustmentsBAppIcon.name
-        , themeColor: UIColor(red:1, green:0.964, blue:0, alpha:1)
+        , themeColor: UIColor(rgb: 0xFFF533)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )

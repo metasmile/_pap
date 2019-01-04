@@ -169,7 +169,9 @@ class CIImageView: MTKView {
         ciContext.render(image, to: inputTexture, commandBuffer: commandBuffer, bounds: image.extent, colorSpace: image.defaultColorSpace)
         
         if let renderPipelineState = renderPipelineState {
+            #if !targetEnvironment(simulator) //currentDrawable.texture is only for real device.
             commandBuffer?.renderQuad(pipelineState: renderPipelineState, inputTexture: inputTexture, outputTexture: currentDrawable.texture)
+            #endif
         }
         
         commandBuffer?.present(currentDrawable)
