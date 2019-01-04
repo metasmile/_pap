@@ -173,7 +173,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Cím";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "A beállítások lehetővé teszik a fényképek kézi szerkesztését.";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "A beállítások lehetővé teszik a fényképek szerkesztését minden tulajdonsággal, például az expozíciós intenzitással vagy a matrica sugarával.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Korrekciók";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "Ossza meg";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Élezés";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Élesség";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Hasonlóság";
 /* Generated from genl10n: Shop.SApp.swift */

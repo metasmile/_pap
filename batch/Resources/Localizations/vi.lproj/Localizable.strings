@@ -173,7 +173,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Địa chỉ nhà";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "Điều chỉnh cho phép bạn chỉnh sửa ảnh của mình theo cách thủ công.";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Điều chỉnh cho phép bạn chỉnh sửa ảnh của mình một cách thành thạo với từng thuộc tính như cường độ phơi sáng hoặc bán kính họa tiết.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Điều chỉnh";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "Chia sẻ";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Làm sắc nét";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Độ sắc nét";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: Shop.SApp.swift */

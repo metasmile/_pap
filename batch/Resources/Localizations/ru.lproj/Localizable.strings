@@ -173,7 +173,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Адрес";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "Корректировки позволяют вручную редактировать ваши фотографии.";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Корректировки позволяют экспертно редактировать фотографии с каждым свойством, таким как интенсивность экспозиции или радиус виньетки.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "корректировок";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "заострение";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Острота";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "сходство";
 /* Generated from genl10n: Shop.SApp.swift */

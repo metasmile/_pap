@@ -119,7 +119,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#255, Finder.BApp.swift#1264 */
 "Address" = "地址";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "通過調整，您可以手動編輯照片。";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "通過調整，您可以熟練地使用每個屬性編輯照片，例如曝光強度或暈影半徑。";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "調整";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
@@ -658,6 +658,8 @@
 "Share" = "分享";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "銳化";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "銳度";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: Shop.SApp.swift */

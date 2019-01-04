@@ -142,7 +142,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , phase: .release
         , appType: AdjustmentsApp.self
         , displayName: "Adjustments".localized.localizedCapitalized
-        , description: "Adjustments lets you edit your photos selectively with each property such as exposure intensity or vignette radius.".localized
+        , description: "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius.".localized
         , keywords: ["Adjustments", "Light", "Color", "RGB"] + Adjustments.Name.allCases.map { $0.rawValue }
         , iconBundleName: R.image.adjustmentsBAppIcon.name
         , themeColor: UIColor(rgb: 0xFFF533)

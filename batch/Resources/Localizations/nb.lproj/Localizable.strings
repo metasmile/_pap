@@ -173,7 +173,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Adresse";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "Justeringer lar deg redigere bildene manuelt.";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Med justeringer kan du redigere bildene dine fagmessig med hver eiendom som eksponeringsintensitet eller vignettradius.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "justeringer";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "Dele";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Sliping";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "skarphet";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Likheten";
 /* Generated from genl10n: Shop.SApp.swift */

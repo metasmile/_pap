@@ -173,7 +173,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "ที่อยู่";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "การปรับเปลี่ยนช่วยให้คุณสามารถแก้ไขรูปภาพของคุณเอง";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "การปรับแต่งช่วยให้คุณสามารถแก้ไขภาพถ่ายของคุณอย่างเชี่ยวชาญด้วยคุณสมบัติแต่ละอย่างเช่นความเข้มแสงหรือรัศมีบทความ";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "การปรับ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "หุ้น";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "การเหลา";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "ความคม";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "ความคล้ายคลึงกัน";
 /* Generated from genl10n: Shop.SApp.swift */

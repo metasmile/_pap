@@ -173,7 +173,7 @@
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Address" = "Osoite";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit manually your photos." = "Säädöt voit muokata valokuvia manuaalisesti.";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Säädöillä voit muokata valokuvia asiantuntevasti jokaisen ominaisuuden, kuten valotuksen intensiteetin tai vinjetti-säteen, avulla.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "säädöt";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
@@ -712,6 +712,8 @@
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "teroitus";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Sharpness" = "Terävyys";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Samankaltaisuus";
 /* Generated from genl10n: Shop.SApp.swift */
