@@ -158,7 +158,7 @@
 "Access Failed." = "Ошибка доступа.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Доступ разрешен.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "действие";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "действия";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Автозагрузка";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Цвет заливки фона";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Базовое воздействие";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Будь художником. Художник позволил вам резко превратить все ваши фотографии или видео в знаменитые стилизованные картины. Этот инструмент пакетной обработки не имеет ограничений на количество преобразованных фотографий.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "предвзятость";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Синий / пурпурный";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Размытие фона";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "пятно";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Увеличение";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "яркость";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "камера";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Не удается вернуться. Все выбранные элементы не отредактированы.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Захват действий.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Захват всего текста.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Выберите действие";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Выберите «Суб-действие».";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Выберите некоторые фотографии, которые вы хотите найти.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Цветность X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Цветность Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Очиститель позволяет находить и удалять различные неправильные фотографии, если они совпадают, например, с дублирующими и аналогичными изображениями, крупными фотографиями или снимками Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "буфер обмена";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Цвет и напоминание для каждой фазы";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Шумоподавление";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "контакты";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В настоящее время наша модель распознавания текста AI доступна только для буквенно-цифровых и некоторых специальных символов, и на нее может влиять текущий системный язык.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Голубой / синий";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Дата";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Удаление целей";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Редактор глубины";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Обнаружение ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Цели обнаружения";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "направление";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Отключить карту гаммы";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Бесплатно загрузить в %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Загрузка ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Адрес электронной почты";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "ДОМ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost позволяет удалять все виды данных, содержащих ваши фотографии, включая личную информацию.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Отредактируйте ваши необработанные фотографии.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Включить автоматическую пометку.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Получить текст";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Дать оценку";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "зерна";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Зеленый / голубой";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Пользовательская лицензионная программа пользователя";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "Пейзаж";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "раскладка";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Ограниченное уведомление об эффективности";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "петля";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Шумоподавление";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Пурпурный / красный";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Главная Инструменты Лицензия";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Создание звонка";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Максимально владение всеми инструментами";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Сообщение для нас";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "муар";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мои альбомы";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Нет петли";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Шумоподавляющий контраст";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Деталь шумоподавления";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Шумоподавление Резкость";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Подавление шума";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Отслеживание шума";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режиме ожидания";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "покупка";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Качественный";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Оценить";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Перекадрируйте";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Красно-желтый";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Удаление красных глаз";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Поделитесь своим талантом, сделайте вместе. Получите каждое вознаграждение, если оно будет принято.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Острота";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "заострение";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "сходство";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Возьмите Я.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Взято со встроенной камерой";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Нажмите, чтобы обнаружить текст.";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "целевое";
@@ -734,6 +782,8 @@
 "Targets" = "Цели";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "температура";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Условия эксплуатации";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIP-лицензия";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP-участие в наших продуктах.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Коррекция объектива поставщика";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ошибка проверки.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Написать обзор";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Написать";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Желто-зеленый";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Вы можете выбрать только фотографии или видеоролики, которые соответствуют начальному формату.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

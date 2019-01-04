@@ -1,5 +1,5 @@
 //
-//  MemoCam.BApp.swift
+//  MMCMemoCam.BApp.swift
 //  pap
 //
 //  Created by HYOJIN MO on 2018. 7. 17..
@@ -19,7 +19,7 @@ private class _MemoCamAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-private protocol MemoCamAppDefaults: AppDefaults{
+private protocol MemoCamAppDefaults: AppDefaults, AppUICameraOptions {
     var showAllTexts:Bool{set get}
 }
 
@@ -39,9 +39,9 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
 
     fileprivate static var privateDefaults = MemoCamApp.defaults as! MemoCamAppDefaults
 
-    public static let info = AppInfo(
+    private static let _info = AppInfo(
         identifier: "com.stells.pap.memocam"
-        , version: "1.0"
+        , version: "1.1"
         , phase: .release
         , appType: MemoCamApp.self
         , displayName: "MemoCam".localized, description:nil, keywords:nil
@@ -49,6 +49,10 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
             , themeColor: UIColor(red:0.98, green:0.99, blue:0.22, alpha:1), policy: AppPolicy.default
         , minOSVersion: nil
     )
+
+    public static var info:AppInfo{
+        return (self as? SubApp.Type)?.subInfo ?? _info
+    }
 
     public required override init() {}
 
@@ -552,6 +556,17 @@ fileprivate class ResultPreviewView: DesignableView {
     }
 }
 
+fileprivate class UIControlContainerView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let view = super.hitTest(point, with: event), view is UIControl {
+            return view
+        }
+        else {
+            return nil
+        }
+    }
+}
+
 fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     fileprivate lazy var cameraView: UICamera = {
         let cameraView = UICamera(frame: .zero)
@@ -559,6 +574,10 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         cameraView.contentMode = .scaleAspectFill
         return cameraView
     }()
+    
+    var primaryColor: UIColor {
+        return MemoCamApp.info.themeColor ?? UIColor(red:0.98, green:0.99, blue:0.22, alpha:1)
+    }
 
     fileprivate lazy var contentView: UIView = {
         let view = UIView(frame: .zero)
@@ -566,8 +585,19 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         return view
     }()
 
+    fileprivate lazy var cameraWidgetView: UIControlContainerView = {
+        let view = UIControlContainerView(frame: .zero)
+        view.clipsToBounds = false
+        return view
+    }()
+
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
+        
+        if let defaults = MemoCamApp.defaults as? MemoCamAppDefaults {
+            cameraView.preferredFlashMode = defaults.cameraFlashMode
+            cameraView.preferredTorchLevel = defaults.cameraTorchLevel
+        }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.performButtonDidTap))
         cameraView.addGestureRecognizer(tapGesture)
@@ -586,9 +616,72 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: toolBar.topAnchor).isActive = true
-        
+
+        //Lv.1 Camera
         contentView.addSubview(cameraView)
         cameraView.fitConstraints(to: contentView)
+
+        //Lv.2 Camera Widgets - Zoom, Torch, etc
+        contentView.addSubview(cameraWidgetView)
+        cameraWidgetView.fitConstraints(to: contentView)
+        
+        let buttonImageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        
+        //flash >> cameraWidgetView
+        cameraTorchButton.imageEdgeInsets = buttonImageInsets
+        cameraTorchButton.setImage(torchIcon, for: .normal)
+        cameraTorchButton.addTarget(self, action: #selector(self.toggleTorchMode), for: .touchUpInside)
+        cameraWidgetView.addSubview(cameraTorchButton)
+        
+        cameraTorchButton.tintColor = view.colorTheme.tintColor
+        
+        cameraTorchButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraTorchButton.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor).isActive = true
+        cameraTorchButton.leadingAnchor.constraint(equalTo: cameraView.leadingAnchor, constant: 2).isActive = true
+        cameraTorchButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraTorchButton.widthAnchor.constraint(equalTo: cameraTorchButton.heightAnchor, multiplier: 1).isActive = true
+        
+        // torch level >> cameraWidgetView
+        cameraTorchLevelButton.imageEdgeInsets = buttonImageInsets
+        cameraTorchLevelButton.imageView?.contentMode = .scaleAspectFit
+        cameraTorchLevelButton.contentHorizontalAlignment = .fill
+        cameraTorchLevelButton.contentVerticalAlignment = .fill
+        cameraTorchLevelButton.addTarget(self, action: #selector(self.touchLevelButtonDidTap), for: .touchUpInside)
+        cameraWidgetView.addSubview(cameraTorchLevelButton)
+        
+        cameraTorchLevelButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraTorchLevelButton.centerYAnchor.constraint(equalTo: cameraTorchButton.centerYAnchor).isActive = true
+        cameraTorchLevelButton.leadingAnchor.constraint(equalTo: cameraTorchButton.trailingAnchor, constant: 0).isActive = true
+        cameraTorchLevelButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        cameraTorchLevelButton.widthAnchor.constraint(equalTo: cameraTorchLevelButton.heightAnchor, multiplier: 0.75).isActive = true
+        
+        //zoom >> cameraWidgetView
+        view.addGestureRecognizer(pinchGesture)
+        
+        zoomButton.addTarget(self, action: #selector(self.zoomButtonDidTap), for: .touchUpInside)
+        cameraWidgetView.addSubview(zoomButton)
+        
+        zoomButton.translatesAutoresizingMaskIntoConstraints = false
+        zoomButton.centerXAnchor.constraint(equalTo: toolBar.centerXAnchor).isActive = true
+        toolBar.topAnchor.constraint(equalTo: zoomButton.bottomAnchor, constant: 10).isActive = true
+        zoomButton.widthAnchor.constraint(equalToConstant: 44 * 0.75).isActive = true
+        zoomButton.heightAnchor.constraint(equalTo: zoomButton.widthAnchor).isActive = true
+        
+        cameraView.configurationDidUpdate = {
+            var defaults = MemoCamApp.defaults as? MemoCamAppDefaults
+            defaults?.cameraFlashMode = self.cameraView.flashMode
+            if self.cameraView.flashMode == .torch {
+                defaults?.cameraTorchLevel = self.cameraView.torchLevel
+            }
+            
+            DispatchQueue.mainAsyncIfNot {
+                self.cameraTorchButton.setImage(self.torchIcon, for: .normal)
+                self.cameraTorchButton.tintColor = self.cameraView.flashMode == .torch ? self.primaryColor : view.colorTheme.tintColor
+                
+                self.cameraTorchLevelButton.setImage(self.torchLevelIcon(self.cameraView.torchLevel), for: .normal)
+                self.cameraTorchLevelButton.isHidden = self.cameraView.flashMode != .torch
+            }
+        }
         
         return view
     }()
@@ -602,6 +695,56 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
         let toolBar = UIToolbar(frame: .zero)
         return toolBar
     }()
+    
+    private lazy var cameraTorchButton = UIButton(type: .system)
+    private lazy var cameraTorchLevelButton = UIButton(type: .system)
+    
+    private var torchIcon: UIImage{
+        return (R.image.appUICameraTorchOn() ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }
+    
+    private func torchLevelIcon(_ level: Float) -> UIImage {
+        return (UIImage(path: UIBezierPath(ovalIn: CGRect(origin: .zero, size: CGSize(width: 20, height: 20)).insetBy(dx: 5, dy: 5)), fillColor: self.primaryColor.withAlphaComponent(CGFloat(level)), strokeColor: self.primaryColor) ?? UIImage()).withRenderingMode(.alwaysOriginal)
+    }
+    
+    @objc func toggleTorchMode(sender: Any) {
+        cameraView.flashMode = [
+            UICamera.FlashMode.off:UICamera.FlashMode.torch,
+            UICamera.FlashMode.torch:UICamera.FlashMode.off
+        ][cameraView.flashMode]!
+        
+        UIFeedback.select()
+    }
+    
+    @objc func touchLevelButtonDidTap(sender: Any) {
+        cameraView.torchLevel = max(0.25, (cameraView.torchLevel + 0.25).truncatingRemainder(dividingBy: 1.25))
+        
+        UIFeedback.select()
+    }
+    
+    private lazy var zoomButton = ZoomButton()
+    
+    @objc func zoomButtonDidTap() {
+        if cameraView.videoZoomFactor != cameraView.videoMinZoomFactor {
+            cameraView.zoom(cameraView.videoMinZoomFactor)
+            zoomButton.zoomFactor = cameraView.videoMinZoomFactor
+        }
+        else {
+            cameraView.zoom(2)
+            zoomButton.zoomFactor = 2
+        }
+    }
+    
+    private lazy var pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchToZoom))
+    
+    @objc func pinchToZoom(sender: UIPinchGestureRecognizer) {
+        if sender.state == .began {
+            sender.scale = cameraView.videoZoomFactor
+        }
+        
+        cameraView.zoom(sender.scale)
+        zoomButton.zoomFactor = cameraView.videoZoomFactor
+    }
     
     internal class DisableImplicitAnimatableShapeLayer: CAShapeLayer {
         override func action(forKey event: String) -> CAAction? {
@@ -876,6 +1019,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.actionButtonDidTap)),
             ], animated: true)
+
+            cameraWidgetView.visible = false
         }
         else {
             toolBar.setItems([
@@ -885,6 +1030,8 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
                 UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
                 UIBarButtonItem(image: R.image.commonCellIconInfo(), style: .plain, target: self, action: #selector(self.selectLanguageOption))
             ], animated: true)
+
+            cameraWidgetView.visible = true
         }
 
         //INFO: without this line, switchShowAllTexts will disapear

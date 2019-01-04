@@ -158,7 +158,7 @@
 "Access Failed." = "アクセスに失敗しました。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "アクセスが許可されました。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "アクション";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "行動";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "背景塗りつぶしの色";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "ベースライン曝露";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "バイアス";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "ブルー/マゼンタ";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "ぼかし背景";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "ぼかし率";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "ぼかし";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "ブーストシャドウ";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "ブースト";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "輝度";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "カメラ";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "元に戻すことはできません。選択したすべてのアイテムは編集されていません。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "目的のアクションをキャプチャする。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "すべてのテキストをキャプチャします。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "アクションを選択";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "サブアクションを選択";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "タグを検索する写真をいくつか選択します。";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "色度X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "色度Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "クリーナーを使用すると、間違った写真を見つけ出して、削除することができます。例えば、重複した画像や類似した画像、クローズアップ写真、ロック画面のスクリーンショットなどが見つかった場合には削除してください。";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "クリップボード";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "各段階の色とリマインダ";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "色ノイズ低減";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "連絡先";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字に対してのみ使用でき、現在のシステム言語の影響を受ける可能性があります。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "カスタム";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "シアン/ブルー";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "日付";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "ターゲットの削除";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "深度エディタ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "検出ターゲット";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "方向";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "色域マップを無効にする";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "今すぐ無料で%@ダウンロード";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "ダウンロード中...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "電子メールアドレス";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "生写真を編集します。";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "自動タグ設定を有効にする。";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "テキストを取得する";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "評価を与える";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "粒";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "グリーン/シアン";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "ゲストユーザーライセンスプログラム";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "風景";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "レイアウト";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "限定パフォーマンス通知";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "ライブ写真";
@@ -444,6 +472,10 @@
 "Lockscreens" = "ロックスクリーン";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "ループ";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "輝度ノイズ低減";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "マゼンタ/赤";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "メインツールライセンス";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "すべてのツール所有者の最大数";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修正";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "モアレ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "私のアルバム";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "クロップなし";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "ループなし";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "ノイズリダクションコントラスト";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "ノイズリダクション詳細";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "ノイズリダクションシャープネス";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "ノイズ減少";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "ノイズトラッキング";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "待機";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "購入";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "品質";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAWエディタ";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評価";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "再フレーム";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "赤黄";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "赤目除去";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "あなたの才能を共有し、一緒に作る。採用された場合、各報酬を得る。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "共有";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "シャープネス";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "研ぐ";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "類似性";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "セルフリーを取る。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "内蔵カメラで撮影";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "タップしてテキストを検出する";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ターゲット";
@@ -734,6 +782,8 @@
 "Targets" = "ターゲット";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "温度";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "温度";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "利用規約";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIPライセンス";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "すべての製品のVIPメンバーシップ";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "ベンダーレンズ補正";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "確認に失敗しました。";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "レビューを書く";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "書く";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "イエロー/グリーン";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "最初のファイル形式と一致するアイテムのみ選択できます。";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

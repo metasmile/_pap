@@ -208,6 +208,21 @@ extension UICamera {
         NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: captureDevice)
     }
     
+    //INFO: call this using audio recording video
+    private func configureAudioDevice(_ captureDevice: AVCaptureDevice?) {
+        guard currentAudioDeviceInput == nil else { return }
+        
+        try? captureDevice?.lockForConfiguration()
+        
+        if let audioDevice = AVCaptureDevice.default(for: .audio),
+            let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
+            captureSession?.canAddInput(audioDeviceInput) == true {
+            captureSession?.addInput(audioDeviceInput)
+        }
+        
+        captureDevice?.unlockForConfiguration()
+    }
+    
     private func configureSession(with device: AVCaptureDevice? = nil) {
         captureSession = AVCaptureSession()
         
@@ -233,12 +248,6 @@ extension UICamera {
         }
         
         videoDevice.unlockForConfiguration()
-        
-        if let audioDevice = AVCaptureDevice.default(for: .audio),
-            let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice),
-            captureSession.canAddInput(audioDeviceInput) {
-            captureSession.addInput(audioDeviceInput)
-        }
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         
@@ -306,6 +315,10 @@ extension UICamera {
     
     fileprivate var currentVideoDeviceInput:AVCaptureDeviceInput? {
         return currentCaptureDeviceInput(for:.video)
+    }
+    
+    fileprivate var currentAudioDeviceInput:AVCaptureDeviceInput? {
+        return currentCaptureDeviceInput(for:.audio)
     }
     
     fileprivate var currentCaptureDevice: AVCaptureDevice? {
@@ -652,6 +665,8 @@ extension UICamera {
     fileprivate func configureLivePhotoEnabled(_ enabled: Bool) {
         if self.capturePhotoOutput.isLivePhotoCaptureSupported, self.capturePhotoOutput.isLivePhotoCaptureEnabled != enabled {
             self.capturePhotoOutput.isLivePhotoCaptureEnabled = enabled
+            
+            self.configureAudioDevice(currentCaptureDevice)
         }
     }
 }
@@ -792,13 +807,18 @@ extension UICamera {
     
     var usingLocation: Bool {
         set {
+            preferredUsingLocation = newValue
+            
             if newValue {
-                locationManager.startUpdatingLocation()
+                locationManager.startUpdatingLocation {
+                    self.configurationDidUpdate?()
+                }
             }
             else {
-                locationManager.stopUpdatingLocation()
+                locationManager.stopUpdatingLocation {
+                    self.configurationDidUpdate?()
+                }
             }
-            configurationDidUpdate?()
         }
         get {
             return locationManager.updatingLocation
@@ -808,7 +828,13 @@ extension UICamera {
 
 extension UICamera {
     func zoom(_ scale: CGFloat) {
-        videoZoomFactor = scale
+        let animated = (scale - videoZoomFactor).magnitude > 3
+        if animated {
+            setVideoZoomFactor(scale, withRate: 100)
+        }
+        else {
+            videoZoomFactor = scale
+        }
     }
     
     var isZoomEnabled: Bool {
@@ -843,6 +869,22 @@ extension UICamera {
         
         get {
             return currentCaptureDevice?.videoZoomFactor ?? 1
+        }
+    }
+    
+    private func setVideoZoomFactor(_ scale: CGFloat, withRate rate: Float) {
+        sessionQueue.async {
+            guard let captureDevice = self.currentCaptureDevice else { return }
+            try? captureDevice.lockForConfiguration()
+            if captureDevice.isRampingVideoZoom {
+                captureDevice.cancelVideoZoomRamp()
+            }
+            captureDevice.ramp(toVideoZoomFactor: scale.clamped(to: self.videoZoomRange), withRate: rate)
+            captureDevice.unlockForConfiguration()
+            
+            DispatchQueue.main.async {
+                self.resetFocusAndExposure(showsGuide: false)
+            }
         }
     }
 }
@@ -1284,5 +1326,15 @@ final class ZoomButton: UIControl {
         let outerCircle = UIBezierPath(ovalIn: bounds.inset(by: UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)))
         outerCircleLayer.lineWidth = 1
         outerCircleLayer.path = outerCircle.cgPath
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let touchBounds = bounds.inset(by: UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
+        if touchBounds.contains(point) {
+            return self
+        }
+        else {
+            return super.hitTest(point, with: event)
+        }
     }
 }

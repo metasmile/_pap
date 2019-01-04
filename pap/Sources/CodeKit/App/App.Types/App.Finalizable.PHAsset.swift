@@ -125,13 +125,24 @@ extension PHAssetFinalizableApp {
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
                 if let output = result.contentEditingOutput{
-                    PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
+                    if result.asset.mediaType == .image {
+                        assert(UTI(withURL: output.renderedContentURL).conforms(to: .image), "mediaType is image but the url was not registered in system UTI.")
+                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
+
+                    }else if result.asset.mediaType == .video {
+//                        assert(UTI(withURL: output.renderedContentURL).conforms(to: .video), "mediaType is video but the url was not registered in system UTI.")
+                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: output.renderedContentURL)
+
+                    }else{
+                        assert(false,"Not supported contentEditingOutput")
+                    }
+
                 }
             }
 
         }, completionHandler: { (success, info) in
+            assert(success,"PHAssetFinalizableApp.creatingAndWait -> failed")
             asyncSignal.end()
-            print("creatingAndWait", success)
         })
         asyncSignal.waitUntilEnd()
     }

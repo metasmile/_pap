@@ -19,7 +19,7 @@ import UIKit
 import Vision
 
 public class ImageAlignment {
-    static let sharedCIContext = CIContext()
+    static let sharedCIContext = CIContext.shared
     
     public struct StabilizationMode: OptionSet {
         public let rawValue: Int

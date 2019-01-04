@@ -1,2 +1,2 @@
-++ A new tool - HashTag: Finding and collecting hashtags from your photos you selected.
-+ Camera 1.2: Added an internal feature that can simultaneously capture the Live Photo and Depth Effect Data.
++ Framer 1.2: Now enabled to re-frame even videos!
++ Filter, Auto Editor, Framer: Super fast and seamless preview support.

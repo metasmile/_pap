@@ -15,7 +15,7 @@ extension PhotoPickerViewController:PhotoPickerViewControllerUniversalOperations
     }
 
     func performInNonSelectionContext(performWhenAllowed: (() -> ())?) {
-        assert(false,"Not implemented yet. (e.g. run Ads.)")
+        performWhenAllowed?()
     }
 
     func selectInCurrentContext(with asset: PHAsset, animated: Bool=true) -> Bool {

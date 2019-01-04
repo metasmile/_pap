@@ -158,7 +158,7 @@
 "Access Failed." = "Pristup nije uspio.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Pristup odobren.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Radnja";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "akcije";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Automatsko označavanje bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Boja pozadinskog ispuna";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Izloženost osnovici";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Budi umjetnik. Umjetnik vam dramatično pretvara sve fotografije ili videozapise u poznate likirane slike. Ovaj alat za obradu serija nema ograničenja broja fotografija za pretvorbu.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "prednapon";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Plava / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Zamućivanje pozadine";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Blur Rate";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "zamagliti";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Potaknite sjenu";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "pojačati";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "svjetlost";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "Fotoaparat";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Ne mogu se vratiti. Sve odabrane stavke nisu uređene.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Snimite radnje koje trebate učiniti.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Snimite sav tekst.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Odaberite Akciju";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Odaberite Sub Action.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Odaberite neke fotografije koje želite pronaći oznake.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Kromatičnost X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Kromatičnost Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistač vam omogućuje da pronađete i izbrišete različite vrste netočnih fotografija ako se primjerice podudaraju s dupliciranim i sličnim slikama, fotografijama izbliza ili snimkama sa zasuna zaslona!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "Međuspremnik";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Boja i podsjetnik za svaku fazu";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Smanjenje šuma u boji";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "kontakti";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Trenutačno naš model prepoznavanja teksta AI dostupan je samo za alfanumeričke i neke posebne znakove, a na njega bi moglo utjecati trenutačni jezik sustava.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Prilagođen";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cijan / plava";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Brisanje ciljeva";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Uređivač dubine";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Otkrivanje ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Ciljevi otkrivanja";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Smjer";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Onemogući kartu karte";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Preuzmite sada BESPLATNO na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Preuzimanje ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Email adresa";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "KUĆA";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vam omogućuje uklanjanje svih vrsta podataka koji sadrže vaše fotografije, uključujući privatne podatke.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Uredite sirove fotografije.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Omogući automatsko označavanje.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Nabavite tekst";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dajte ocjenu";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Žitarica";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Zelena / cijan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program korisnika licence korisnika";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "pejzaž";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "raspored";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Obavijest o ograničenom učinku";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Petlja";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Smanjenje šuma osvjetljenja";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / crvena";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Licenca za glavne alate";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Upućivanje poziva";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimalno vlasništvo svih alata";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Poruka nam";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "mramorastog izgleda";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moji albumi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "Ne usjeva";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Smanjenje šuma Kontrast";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Detalj redukcije buke";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Oštrina smanjenja šuma";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Smanjenje buke";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Praćenje šuma";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Na čekanju";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "Kupiti";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "kvaliteta";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ocijenite ga";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Ponovno okvir";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Crveno / žuto";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Uklanjanje crvenih očiju";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dijelite svoj talent, napravite zajedno. Preuzmite svaku nagradu ako se usvoji.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Oštrina";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "oštrenje";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Sličnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Uzmi Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Preuzeto s ugrađenim fotoaparatom";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Dodirnite za otkrivanje teksta";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "ciljano";
@@ -734,6 +782,8 @@
 "Targets" = "ciljevi";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Temperatura";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Uvjeti korištenja";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIP licenca";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP članstvo u svim našim proizvodima.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Ispravak objektiva prodavača";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Potvrda nije uspjela.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Napišite svoje mišljenje";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Pisati";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Žuta / zelena";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Možete odabrati samo fotografije ili videozapise koji se podudaraju s početnim formatom.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

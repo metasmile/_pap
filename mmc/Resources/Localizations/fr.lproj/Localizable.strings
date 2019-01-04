@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ pourrait être trouvé";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Jour";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "action";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Actions";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Détection automatique sur les albums";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Bot de détection automatique";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Caméra";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Actions de capture à faire.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capturer tout le texte.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Choisissez une action";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Il n'a pas pu être stocké.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Il nécessite une autorisation pour accéder à vos contacts. Veuillez autoriser les contacts sur les paramètres iOS.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Avis de performance limitée";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Faire un appel";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Commencer à trouver ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "Commencer le processus ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Appuyez sur pour détecter";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Texte";

@@ -10,6 +10,7 @@ import Photos
 import PhotosUI
 import PropertyKit
 
+//INFO: To extend app-specific properties if needed, app developer can manually implement, decide or define whether storing values or getting default in app scope.
 protocol AppUICameraOptions {
     var isLivePhotoEnabled: Bool { get set }
     var isRawPhotoEnabled: Bool { get set }
@@ -19,6 +20,45 @@ protocol AppUICameraOptions {
     var isUsingLocation: Bool { get set }
     var cameraTorchLevel: Float { get set }
 }
+
+extension PropertyDefaults where Self:AppUICameraOptions{}
+extension Defaults: AppUICameraOptions{
+    var isLivePhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var isRawPhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var isDepthPhotoEnabled: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var cameraPosition: AVCaptureDevice.Position {
+        set { set(newValue.rawValue); }
+        get { return AVCaptureDevice.Position(rawValue: get(or: AVCaptureDevice.Position.back.rawValue)) ?? .back }
+    }
+
+    var cameraFlashMode: UICamera.FlashMode {
+        set { set(newValue.rawValue); }
+        get { return UICamera.FlashMode(rawValue: get(or: UICamera.FlashMode.off.rawValue)) ?? .off }
+    }
+
+    var isUsingLocation: Bool {
+        set { set(newValue);  }
+        get { return get(or: false) }
+    }
+
+    var cameraTorchLevel: Float {
+        set { set(newValue);  }
+        get { return get(or: 1) }
+    }
+}
+
 
 class AppUICamera: UIView {
 

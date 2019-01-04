@@ -32,6 +32,7 @@ import UIKit
 
 enum MaskParams {
   static let slope: CGFloat = 4.0
+  static let sharpSlope: CGFloat = 10.0
   static let width: CGFloat = 0.1
 }
 
@@ -44,7 +45,7 @@ class DepthImageFilters {
   }
   
   init() {
-    context = CIContext()
+    context = CIContext.shared
   }
   
   func createMask(for depthImage: CIImage, withFocus focus: CGFloat, andScale scale: CGFloat) -> CIImage {

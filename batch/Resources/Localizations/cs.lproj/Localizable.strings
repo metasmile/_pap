@@ -158,7 +158,7 @@
 "Access Failed." = "Přístup se nezdařil.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Přístup umožněn.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Akce";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Akce";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Automatické značkování Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Barevné pozadí naplnění";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Výchozí expozice";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Buď umělec. Umělec vás dramaticky změní na všechny fotografie nebo videa do slavných stylizovaných obrazů. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotografií, které je třeba převést.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Bias";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Modrá / Purpurová";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Rozostření pozadí";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Rozostření";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Rozmazat";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Boost";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Jas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "Fotoaparát";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Nelze vrátit zpět. Všechny vybrané položky nebyly upraveny.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capture akce dělat.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Zachytit celý text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Zvolte akci";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Vyberte položku Podřízená akce.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Vyberte některé fotky, které chcete najít značky.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Chromaticita X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Chromaticita Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vám umožňuje najít a odstranit různé druhy nesprávných fotografií, pokud se hodí např. Pro duplikáty a podobné obrázky, blízké fotografie nebo záběry Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "Schránka";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Barva a připomínka pro každou fázi";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Barevná redukce šumu";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontakty";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V současné době je náš model rozpoznávání textu AI dostupný pouze pro alfanumerické a některé speciální znaky a mohl by být ovlivněn současným systémovým jazykem.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Zvyk";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cyan / Blue";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Smazání cílů";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Editor hloubky";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Zjišťování ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Detekční cíle";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Směr";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Zakázat mapu Gamut";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Stáhnout zdarma na %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Emailová adresa";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožní odstranit všechny druhy dat obsahující vaše fotografie, včetně soukromých informací.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Upravte své nezpracované fotografie.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Povolit automatické označování.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Získat text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Dejte hodnocení";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Obilí";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Zelená / azurová";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Uživatelský licenční program pro uživatele";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "Krajina";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Rozvržení";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Oznámení o omezené výkonnosti";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Zámky";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Smyčka";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Redukce šumu jasu";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Purpurová / Červená";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Licence k hlavním nástrojům";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Volání";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximální vlastnost všech nástrojů";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Zpráva nám";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modifikovat";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moaré";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moje alba";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Žádná smyčka";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Kontrast redukce šumu";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Detail redukce hluku";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Ostrost redukce šumu";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Redukce hluku";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Sledování šumu";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "V pohotovostním režimu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "Nákup";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kvalitní";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Ohodnoť to";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Re-rám";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Červená / žlutá";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Sdílejte svůj talent, udělejte spolu. Získejte každou odměnu při přijetí.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Podíl";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Ostrost";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Ostření";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Podobnost";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Take Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Vestavěný fotoaparát";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Klepnutím zjistíte text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Cílené";
@@ -734,6 +782,8 @@
 "Targets" = "Cíle";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparatura";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Teplota";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Podmínky použití";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIP licence";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP členství všech našich produktů.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Korekce objektivu dodavatele";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Ověření se nezdařilo.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Napsat recenzi";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Napsat";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Žluto zelená";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Můžete vybrat pouze fotografie nebo videa, které odpovídají výchozímu formátu.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

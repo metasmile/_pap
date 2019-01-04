@@ -55,6 +55,10 @@ open class PrecisionLevelSlider: UIControl {
             update()
         }
     }
+    
+    var velocity: CGFloat {
+        return scrollView.panGestureRecognizer.velocity(in: self).x
+    }
 
     /// default 0.0. this value will be pinned to min/max
     @objc dynamic open var value: Float = 0 {
@@ -101,11 +105,11 @@ open class PrecisionLevelSlider: UIControl {
     @objc dynamic open var defaultValue: Float = 0 {
         didSet {
             defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
-            defaultValueMark.position.y = 8
         }
     }
 
     open var isContinuous: Bool = true
+    open var usingLinearValue: Bool = true
 
     private lazy var scrollView = UIScrollView()
     private lazy var contentView = UIView()
@@ -215,7 +219,9 @@ open class PrecisionLevelSlider: UIControl {
 
         let inset = contentSize.width / 2 + (max(0, scrollView.bounds.width - contentSize.width) / 2)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-
+        
+        defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+        defaultValueMark.position.y = max(3, (bounds.height - longNotchHeight) / 2 - 10)
     }
 
     func setup() {
@@ -248,10 +254,9 @@ open class PrecisionLevelSlider: UIControl {
     }
 
     fileprivate func valueToOffset(value: Float) -> CGPoint {
-
-        let progress = (value - minimumValue) / (maximumValue - minimumValue)
+        let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
         let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
-        return CGPoint(x: x, y: 0)
+        return CGPoint(x: x.isNormal ? x : 0, y: 0)
     }
 
     private var needsStickToDefaultValue: Bool = false {
@@ -280,85 +285,6 @@ open class PrecisionLevelSlider: UIControl {
     private var stickTouchLocation: CGPoint = .zero
     private var beginningScrollPosition: CGPoint = .zero
     private var previousScrollPosition: CGPoint = .zero
-
-    var exponentialValue: Float {
-//        let easeInExpo = CubicBezier(controlPoints: 0.95, 0.05, 0.795, 0.035)
-
-        let size = CGSize(width: scrollView.contentSize.width / 2, height: bounds.size.height)
-        let easeInExpo = CubicBezier(from: .zero, controlPoint1: CGPoint(x: size.width * 0.95, y: size.height * 0.05), controlPoint2: CGPoint(x: size.width * 0.795, y: size.height * 0.35), to: CGPoint(x: size.width, y: size.height))
-
-        let t = (value - minimumValue) / (maximumValue - minimumValue)
-
-        print(#function, t, easeInExpo.point(at: CGFloat(t)))
-
-        return value(with: CGPoint(x: easeInExpo.y(at: CGFloat(t)), y: 0))
-
-//        let actualProgress = Float(min(max(0, easeInExpo.y(at: CGFloat(t))), 1))
-//        return ((maximumValue - minimumValue) * actualProgress) + minimumValue
-    }
-}
-
-fileprivate struct CubicBezier {
-    // http://www.paulwrightapps.com/blog/2014/9/4/finding-the-position-and-angle-of-points-along-a-bezier-curve-on-ios
-
-    // cubic bezier control points
-    private(set) var c0 = CGPoint.zero
-    private(set) var c1 = CGPoint.zero
-    private(set) var c2 = CGPoint.zero
-    private(set) var c3 = CGPoint.zero
-
-    // cubic bezier polynomial coefficients
-    var p0: CGPoint {
-        let x = c3.x - 3 * c2.x + 3 * c1.x - c0.x
-        let y = c3.y - 3 * c2.y + 3 * c1.y - c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p1: CGPoint {
-        let x = 3 * c2.x - 6 * c1.x + 3 * c0.x
-        let y = 3 * c2.y - 6 * c1.y + 3 * c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p2: CGPoint {
-        let x = 3 * c2.x - 6 * c1.x + 3 * c0.x
-        let y = 3 * c2.y - 6 * c1.y + 3 * c0.y
-        return CGPoint(x: x, y: y)
-    }
-    var p3: CGPoint {
-        return c0
-    }
-
-    init(from c0: CGPoint, controlPoint1 c1: CGPoint, controlPoint2 c2: CGPoint, to c3: CGPoint) {
-        self.c0 = c0
-        self.c1 = c1
-        self.c2 = c2
-        self.c3 = c3
-    }
-
-    init(controlPoints c1: CGPoint, _ c2: CGPoint) {
-        self.init(from: .zero, controlPoint1: c1, controlPoint2: c2, to: CGPoint(x: 1, y: 1))
-    }
-
-    init(controlPoints c1x: CGFloat, _ c1y: CGFloat, _ c2x: CGFloat, _ c2y: CGFloat) {
-        self.init(controlPoints: CGPoint(x: c1x, y: c1y), CGPoint(x: c2x, y: c2y))
-    }
-
-    func x(at t: CGFloat) -> CGFloat {
-        return ((p0.x * t + p1.x) * t + p2.x) * t + p3.x
-    }
-
-    func y(at t: CGFloat) -> CGFloat {
-        return ((p0.y * t + p1.y) * t + p2.y) * t + p3.y
-    }
-
-    func point(at t: CGFloat) -> CGPoint {
-        return CGPoint(x: x(at: t), y: y(at: t))
-    }
-
-    func angle(at t: CGFloat) -> CGFloat {
-        let dxdt = 3 * p0.x * t * t + 2 * p1.x * t + p2.x
-        let dydt = 3 * p0.y * t * t + 2 * p1.y * t + p2.y
-        return atan2(dydt, dxdt)
-    }
 }
 
 extension PrecisionLevelSlider {

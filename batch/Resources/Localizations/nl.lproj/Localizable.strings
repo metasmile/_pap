@@ -158,7 +158,7 @@
 "Access Failed." = "Toegang mislukt.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Toegang verleend.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Actie";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "acties";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Achtergrond Vulkleur";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Basislijnbelichting";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto's of video's omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto's.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Vooroordeel";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Blauw / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Achtergrond wazig";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Vervaagsnelheid";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "vervagen";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "boost";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Helderheid";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan niet terugkeren. Alle geselecteerde items zijn niet bewerkt.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Capture Actions To Do.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Capture All Text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Kies een actie";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Kies een subactie.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Kies enkele foto's waarvan u de tags wilt vinden.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Chromaticiteit X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Kleurkwaliteit Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Met Cleaner kunt u verschillende soorten onjuiste foto's vinden en verwijderen als ze zijn gekoppeld, bijvoorbeeld dubbele en vergelijkbare afbeeldingen, close-upfoto's of Lockscreen-foto's!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Kleur en herinnering voor elke fase";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Kleurruis reductie";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Contacten";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Momenteel is ons AI-tekstherkenningsmodel alleen beschikbaar voor alfanumerieke tekens en enkele speciale tekens. Mogelijk is dit van invloed op de huidige systeemtaal.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Gewoonte";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cyaan / Blauw";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Doelen verwijderen";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Diepte-editor";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Bezig met detecteren ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Detectiedoelen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Richting";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Schakel Gamut Map uit";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Download nu GRATIS op %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Downloaden ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Met EXIF ​​Ghost kunt u alle soorten gegevens verwijderen die uw foto's bevatten, inclusief privégegevens.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Bewerk uw onbewerkte foto's.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Schakel autotagging in.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Ontvang tekst";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Geef een beoordeling";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Graan";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Groen / cyaan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Gastgebruikerslicentieprogramma";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "Landschap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Lay-out";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Beperkte prestatiemelding";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live foto";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Luminantie Ruisonderdrukking";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / rood";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Licentie voor hoofdprogramma's";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Een telefoontje plegen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximaal eigendom van alle tools";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bericht aan ons";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Wijzigen";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moiré";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mijn albums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "Geen gewas";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Geen lus";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Ruisonderdrukking Contrast";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Ruisonderdrukkingsdetail";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Ruisreductie Scherpte";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Ruisonderdrukking";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Noise Tracking";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Op standby";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "Aankoop";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kwaliteit";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW-editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Beoordeel het";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Opnieuw gestel";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Rood Geel";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Rode-ogen-verwijdering";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Deel uw talent, maak samen. Verkrijg elke beloning indien aangenomen.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Scherpte";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Verscherping";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Gelijkenis";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Maak een selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Genomen met ingebouwde camera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Tik om tekst te detecteren";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Gerichte";
@@ -734,6 +782,8 @@
 "Targets" = "Targets";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "temparatuur";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Temperatuur";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Gebruiksvoorwaarden";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIP-licentie";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP-lidmaatschap van onze alle producten.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Lenscorrectie van leverancier";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verificatie mislukt.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Schrijf een recensie";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Schrijven";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Geel groen";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "U kunt alleen foto's of video's selecteren die overeenkomen met het startformaat.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

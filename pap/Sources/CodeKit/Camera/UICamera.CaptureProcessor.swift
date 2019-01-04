@@ -197,7 +197,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
                         options[CIImageRepresentationOption.avPortraitEffectsMatte] = portraitEffectsMatte
                     }
                     
-                    if let _ = try? CIContext().writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
+                    if let _ = try? CIContext.shared.writeHEIFRepresentation(of: ciImage, to: url, format: CIFormat.RGBA8, colorSpace: ciImage.defaultColorSpace, options: options) {
                         return url
                     }
                 }
@@ -223,7 +223,7 @@ class UICameraCaptureProcessor: NSObject, AVCapturePhotoCaptureDelegate {
             let portraitEffectsMatteImage = CIImage( cvImageBuffer: portraitEffectsMattePixelBuffer, options: [ .auxiliaryPortraitEffectsMatte: true ] )
             guard let linearColorSpace = CGColorSpace(name: CGColorSpace.linearSRGB) else { return nil }
             
-            return CIContext().heifRepresentation(of: portraitEffectsMatteImage, format: .RGBA8, colorSpace: linearColorSpace, options: [ CIImageRepresentationOption.portraitEffectsMatteImage: portraitEffectsMatteImage ] )
+            return CIContext.shared.heifRepresentation(of: portraitEffectsMatteImage, format: .RGBA8, colorSpace: linearColorSpace, options: [ CIImageRepresentationOption.portraitEffectsMatteImage: portraitEffectsMatteImage ] )
         }
         else {
             return nil

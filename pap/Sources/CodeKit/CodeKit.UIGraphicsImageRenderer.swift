@@ -15,7 +15,7 @@ extension UIGraphicsImageRenderer {
             UIGraphicsBeginImageContextWithOptions(format.bounds.size, imageRendererFormat.opaque, imageRendererFormat.scale)
         }
         else {
-            UIGraphicsBeginImageContextWithOptions(format.bounds.size, false, UIScreen.main.scale)
+            UIGraphicsBeginImageContextWithOptions(format.bounds.size, false, 1)
         }
         actions(UIGraphicsGetCurrentContext() ?? UIGraphicsImageRendererContext().cgContext)
         result = UIGraphicsGetImageFromCurrentImageContext()

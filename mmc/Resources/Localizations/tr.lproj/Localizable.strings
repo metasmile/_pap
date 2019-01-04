@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ bulunabilir";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Gün";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Aksiyon";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Eylemler";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Albümlerde Otomatik Algıla";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Otomatik Algılama Botu";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Kamera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Yapılacaklar İçin Yakalama Eylemleri.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Tüm metni yakala.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Bir Eylem Seç";
@@ -206,7 +206,7 @@
 "It could not be stored." = "Depolanamadı.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Kişilerinize erişmek için izin gerektirir. Lütfen iOS Ayarları'nda Kişilere izin verin.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Sınırlı Performans Uyarısı";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Arama yapmak";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "Bulmaya Başlıyor ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "İşlemi Başlatma ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Algılamak için dokunun";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Metin";

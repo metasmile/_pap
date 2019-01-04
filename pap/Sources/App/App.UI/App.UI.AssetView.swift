@@ -74,7 +74,12 @@ class AppUIAssetView: AssetView {
     }
     
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
-    var originalImage: UIImage?
+    private var originalCIImage: CIImage?
+    var originalImage: UIImage? {
+        didSet {
+            originalCIImage = originalImage?.asCIImage
+        }
+    }
     var filteredImage: UIImage? {
         didSet {
             self.image = filteredImage ?? originalImage
@@ -210,113 +215,130 @@ extension AppUIAssetView {
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         guard let asset = asset else { return }
         
+        stopAny()
         prepareProcessing()
         
-        self.filteredImage = originalImage?.applyFilter(ciFilter: editState?.ciFilter)
+        self.filteredImage = originalCIImage?.applyFilter(ciFilter: editState?.ciFilter).asUIImage
         
         if asset.imageType == .stillImage || previewMode {
             
         }
         else if asset.imageType == .livePhoto {
-            DispatchQueue.main.async {
-                self.image = nil
-            }
-            
-            if editState?.ciFilter != nil || editState?.stabilizationMode != nil {
-                self.isProcessing(true, animated: true)
-                
-                let targetSize = bounds.size
-                
-                contentEditingInputRequestID = asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
-                    guard let input = input else { return }
-                    
-                    let app = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)
-                    app?.photoEditorWillBeginProcessing()
-                    
-                    self?.livePhotoEditingContext?.cancel()
-                    
-                    self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
-                    
-                    var referenceImage: CIImage?
-                    self?.livePhotoEditingContext?.frameProcessor = { frame, error in
-                        if let filter = editState?.ciFilter {
-                            return frame.image.applyFilter(ciFilter: filter)
-                        }
-                        else if let mode = editState?.stabilizationMode {
-                            let result: CIImage
-                            if let image = referenceImage {
-                                result = frame.image.stabilize(with: image, mode: mode)
-                            }
-                            else {
-                                result = frame.image
-                            }
-                            referenceImage = frame.image
-                            return result
-                        }
-                        else {
-                            return frame.image
-                        }
-                    }
-                    
-                    self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in
-                        app?.photoEditorWillEndProcessing()
-                        
-                        guard let livePhoto = livePhoto, error == nil else { return }
-                        
-                        self?.isProcessing(false, animated: true)
-                        
-                        self?.livePhoto = livePhoto
-                        self?.playAny()
-                    })
-                })
-            }
-            else {
-                playAny()
+            livePhotoView.isHidden = true
+            Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
+                DispatchQueue.main.async {
+                    self.livePhotoView.isHidden = false
+                    self.applyFilterToLivePhoto(asset: asset, editState: editState)
+                }
             }
         }
         else if asset.mediaType == .video, let video = playerItem?.asset {
-            guard let videoTrack = video.tracks(withMediaType: .video).first else { return }
-            
-            let composition = AVMutableComposition()
-            let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-            if (try? videoCompositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil, let compositionTrack = videoCompositionTrack {
-                composition.removeTrack(compositionTrack)
-            }
-            
-            videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
-            
-            if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
-                if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
-                    composition.removeTrack(compositionTrack)
+            videoView.isHidden = true
+            Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
+                DispatchQueue.main.async {
+                    self.videoView.isHidden = false
+                    self.applyFilterToVideo(video: video, editState: editState)
                 }
             }
-            
-            stopAny()
-            
-            DispatchQueue.main.async {
-                self.image = nil
-            }
-            
-            if let item = editState?.playerItem(with: composition) {
-                playerItem = item
-            }
-            else if let filter = editState?.ciFilter {
-                playerItem = AVPlayerItem(asset: composition)
-                playerItem?.videoComposition = composition.applyFilter(filter)
-            }
-            else if let mode = editState?.stabilizationMode {
-                playerItem = AVPlayerItem(asset: composition)
-                playerItem?.videoComposition = composition.stabilize(with: mode)
-            }
-            else {
-                playerItem = AVPlayerItem(asset: composition)
-            }
-            seekVideo(to: .zero)
-            playAny()
         }
     }
     
     override func playAny() {
         super.playAny()
+    }
+}
+
+extension AppUIAssetView {
+    fileprivate func applyFilterToLivePhoto<T>(asset: PHAsset, editState: StateValueSet<T>?) where T: ImageEditStateValue {
+        if editState?.ciFilter != nil || editState?.stabilizationMode != nil {
+            self.isProcessing(true, animated: true)
+            
+            let targetSize = bounds.size
+            
+            contentEditingInputRequestID = asset.requestContentEditingInput(with: nil, completionHandler: { [weak self] (input, info) in
+                guard let input = input else { return }
+                
+                let app = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)
+                app?.photoEditorWillBeginProcessing()
+                
+                self?.livePhotoEditingContext?.cancel()
+                
+                self?.livePhotoEditingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input)
+                
+                var referenceImage: CIImage?
+                self?.livePhotoEditingContext?.frameProcessor = { frame, error in
+                    if let filter = editState?.ciFilter {
+                        return frame.image.applyFilter(ciFilter: filter)
+                    }
+                    else if let mode = editState?.stabilizationMode {
+                        let result: CIImage
+                        if let image = referenceImage {
+                            result = frame.image.stabilize(with: image, mode: mode)
+                        }
+                        else {
+                            result = frame.image
+                        }
+                        referenceImage = frame.image
+                        return result
+                    }
+                    else {
+                        return frame.image
+                    }
+                }
+                
+                self?.livePhotoEditingContext?.prepareLivePhotoForPlayback(withTargetSize: targetSize, options: [PHLivePhotoEditingOption.shouldRenderAtPlaybackTime.rawValue: true], completionHandler: { [weak self] (livePhoto, error) in
+                    app?.photoEditorWillEndProcessing()
+                    
+                    guard let livePhoto = livePhoto, error == nil else { return }
+                    
+                    self?.isProcessing(false, animated: true)
+                    
+                    self?.livePhoto = livePhoto
+                    self?.playAny()
+                })
+            })
+        }
+        else {
+            playAny()
+        }
+    }
+}
+
+extension AppUIAssetView {
+    fileprivate func applyFilterToVideo<T>(video: AVAsset, editState: StateValueSet<T>?) where T: ImageEditStateValue {
+        guard let videoTrack = video.tracks(withMediaType: .video).first else { return }
+        
+        let composition = AVMutableComposition()
+        let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        if (try? videoCompositionTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: videoTrack, at: CMTime.zero)) == nil, let compositionTrack = videoCompositionTrack {
+            composition.removeTrack(compositionTrack)
+        }
+        
+        videoCompositionTrack?.preferredTransform = videoTrack.preferredTransform
+        
+        if let audioTrack = video.tracks(withMediaType: .audio).first, let compositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+            if (try? compositionTrack.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: video.duration), of: audioTrack, at: CMTime.zero)) == nil {
+                composition.removeTrack(compositionTrack)
+            }
+        }
+        
+        stopAny()
+        
+        if let item = editState?.playerItem(with: composition) {
+            playerItem = item
+        }
+        else if let filter = editState?.ciFilter {
+            playerItem = AVPlayerItem(asset: composition)
+            playerItem?.videoComposition = composition.applyFilter(filter)
+        }
+        else if let mode = editState?.stabilizationMode {
+            playerItem = AVPlayerItem(asset: composition)
+            playerItem?.videoComposition = composition.stabilize(with: mode)
+        }
+        else {
+            playerItem = AVPlayerItem(asset: composition)
+        }
+        seekVideo(to: .zero)
+        playAny()
     }
 }

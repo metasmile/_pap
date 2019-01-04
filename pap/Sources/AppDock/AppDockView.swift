@@ -320,6 +320,7 @@ class AppDockView: CustomView {
     // AppDock Control
     private var controller: AppDockContent? {
         willSet {
+            AppCenter.default.currentInstanceAs(PreviewProcessableApp.self)?.previewOriginalImageCache?.removeAllObjects()
             controller?.willRemoveContentView()
         }
         

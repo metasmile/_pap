@@ -16,10 +16,6 @@ extension AppDelegate: AppDelegateExternalDelegate{
 
         Armchair.appID(InfoStrings.appStoreId)
         Armchair.useStoreKitReviewPrompt( true)
-        Armchair.resetAllCounters()
-        Armchair.shouldIncrementUseCountClosure { () -> Bool in
-            return false
-        }
 
     }
 }
@@ -27,7 +23,7 @@ extension AppDelegate: AppDelegateExternalDelegate{
 extension AppCenter:AppCenterExternalDelegate{
     static var defaultConfig: AppManagerConfig {
         return AppManagerConfig(
-                appCollection: [SiriApp.self, FinderApp.self, MemoCamApp.self]
+                appCollection: [SiriApp.self, FinderApp.self, MMCMemoCamApp.self]
                 , initialApp: nil
                 , taskManager: nil
         )

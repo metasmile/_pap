@@ -47,6 +47,10 @@ public protocol DepthDataSourceable:Sourceable {
     var asDepthDataMap:CVPixelBuffer? { get }
 }
 
+public protocol RawDataSourceable:Sourceable {
+    var asRawData:Data? { get }
+}
+
 public protocol URLSourceable:Sourceable {
     var asURL:URL? { get }
 }
@@ -78,7 +82,7 @@ extension UIImage: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
 
     public var asCIImage: CIImage? {
         return autoreleasepool {
-            return CIImage(image: self)
+            return ciImage ?? CIImage(image: self)
         }
     }
 }
@@ -93,13 +97,13 @@ extension CALayer: ImageSourceable {
 
 extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     public var asData:Data? {
-        return CIContext().jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
+        return CIContext.shared.jpegRepresentation(of: self, colorSpace: self.colorSpace ?? CGColorSpaceCreateDeviceRGB())
     }
 
     public var asUIImage:UIImage? {
         return autoreleasepool{
             //little more faster
-            if let cgImage = self.cgImage{
+            if let cgImage = self.asCGImage{
                 return UIImage(cgImage: cgImage)
             }
             return UIImage(ciImage: self)
@@ -111,7 +115,9 @@ extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     }
 
     public var asCGImage: CGImage? {
-        return CIContext().createCGImage(self, from: extent)
+        return autoreleasepool{
+            return self.cgImage ?? CIContext.shared.createCGImage(self, from: extent)
+        }
     }
 }
 

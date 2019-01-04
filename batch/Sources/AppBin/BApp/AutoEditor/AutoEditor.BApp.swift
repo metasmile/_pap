@@ -144,7 +144,7 @@ class CIAutoAdjustmentFilter: CIFilter {
     
     override var outputImage: CIImage? {
 
-        guard var image = value(forKey: kCIInputImageKey) as? CIImage else { return nil }
+        guard var image = inputImage else { return nil }
         guard let optionsDict = options?.dictionary(transform: { o -> (key: CIImageAutoAdjustmentOption, value: Bool) in
             return (CIImageAutoAdjustmentOption(rawValue: o.key), o.value)
             

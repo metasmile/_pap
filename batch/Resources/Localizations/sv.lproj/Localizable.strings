@@ -158,7 +158,7 @@
 "Access Failed." = "Åtkomst misslyckades.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Tillgång beviljad.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Verkan";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Åtgärder";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Automatisk märkning Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Bakgrundsfärg Färg";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Gränsvärdexponering";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Var en artist. Artist låter dig dramatiskt göra dina foton eller videoklipp till berömda stilade målningar. Det här batchbehandlingsverktyget har ingen gräns för antalet foton som ska konverteras.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Partiskhet";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Blå / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Suddig bakgrund";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Suddhastighet";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Fläck";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Boost Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Lyft";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "ljusstyrka";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Kan inte återgå. Alla valda objekt har inte redigerats.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Fånga åtgärder att göra.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Fånga all text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Välj en åtgärd";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Välj en underåtgärd.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Välj några foton du vill hitta taggar.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Kromaticitet X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Kromaticitet Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort olika typer av felaktiga foton om de har matchat till exempel dubbla och liknande bilder, närbilder eller Lockscreen-bilder!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "Urklipp";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Färg och påminnelse för varje fas";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Färgstödreducering";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kontakter";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "För närvarande är vår AI-textigenkänningsmodell endast tillgänglig för alfanumeriska och några specialtecken, och det kan påverkas av det aktuella systemspråket.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cyan / Blå";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Datum";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Radera mål";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Djupredigerare";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detekterar ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Detektionsmål";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Riktning";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Inaktivera Gamut Map";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Hämta nu gratis på %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Hämtar ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-postadress";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HUS";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost kan du ta bort alla typer av data som innehåller dina foton, inklusive privat information.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Redigera dina råa bilder.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Aktivera automatisk märkning.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Få text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Ge betyg";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Spannmål";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Grön / Cyan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Gästanvändarlicensprogram";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Begränsad prestandameddelande";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Slinga";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Luminans brusreducering";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / Röd";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Huvudverktygslicens";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Ringa ett samtal";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maximal All Tools Ownership";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Meddelande till oss";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moire";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mina album";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Bullerreducering Kontrast";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Bullerreduceringsdetaljer";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Bullerreducering Skärpa";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Brusreducering";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Bullerspårning";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "I vänteläge";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "Inköp";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kvalitet";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Betygsätt det";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Re-ram";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Röd gul";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Röda ögonavlägsnande";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dela din talang, gör tillsammans. Få varje belöning om det antas.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Skärpa";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Skärpning";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Likhet";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Ta en Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Ta med Inbyggd kamera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Tryck för att upptäcka text";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Målinriktad";
@@ -734,6 +782,8 @@
 "Targets" = "mål";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Temperatur";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Villkor";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "VIP-licens";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "VIP medlemskap av våra alla produkter.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Leverantörslinskorrigering";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Verifiering misslyckades.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Skriva en recension";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Skriva";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Gulgrön";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Du kan bara välja foton eller videoklipp som matchade startformatet.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

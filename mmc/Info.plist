@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.2</string>
+	<string>1.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>16</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -121,13 +121,13 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>We would like to access your calendar to save the new event.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) will access your camera to capture photos.</string>
+	<string>We will access your camera to capture text from the current scene.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>We would like to access your contacts to save the new contact entry.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) will access your microphone to record video.</string>
+	<string>We would like to access your microphone to improve the accurancy of the fuctionality of this app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) will access your photos library to edit them.</string>
+	<string>We will access your photos library to load, save or edit photos.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>AutoDetectOnAlbumsIntent</string>

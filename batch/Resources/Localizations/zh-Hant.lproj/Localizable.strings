@@ -104,7 +104,7 @@
 "Access Failed." = "訪問失敗。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "授予訪問權限。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "行動";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "操作";
@@ -168,12 +168,24 @@
 "Auto Tagging Bot" = "自動標記機器人";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "背景填充顏色";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "基線暴露";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "成為一名藝術家。藝術家可以讓您將所有照片或視頻戲劇性地轉變為著名的風格畫作。此批處理工具對要轉換的照片數量沒有限制。";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "偏壓";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "藍/洋紅色";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "模糊背景";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#469 */
 "Blur Rate" = "模糊率";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "模糊";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "提升陰影";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "促進";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "亮度";
 /* Generated from genl10n: GIFMaker.BApp.swift#89 */
@@ -182,9 +194,9 @@
 "Camera" = "相機";
 /* Generated from genl10n: Revert.BApp.swift#85 */
 "Cannot revert. All selected items have not edited." = "無法恢復。所有選擇的項目都沒有編輯。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "捕獲要執行的操作。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "捕獲所有文本。";
 /* Generated from genl10n: Finder.BApp.swift#312 */
 "Choose An Action" = "選擇一個動作";
@@ -194,6 +206,10 @@
 "Choose An Sub Action." = "選擇一個子動作。";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "選擇一些您要查找標籤的照片。";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "色度X.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "色度Y.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清潔器使您能夠查找和刪除各種不正確的照片，如果他們匹配了例如重複和類似的圖像，特寫照片或鎖屏拍攝！";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
@@ -204,6 +220,8 @@
 "Clipboard" = "剪貼板";
 /* Generated from genl10n: Shop.SApp.swift#537 */
 "Color And Reminder for Each Phases" = "每個階段的顏色和提醒";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "色彩降噪";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "往來";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -246,16 +264,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我們的AI文本識別模型僅適用於字母數字和一些特殊字符，並且可能受當前系統語言的影響。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#184 */
 "Custom" = "自定義";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "青色/藍色";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#229, Finder.BApp.swift#353, Finder.BApp.swift#477, Finder.BApp.swift#696, Finder.BApp.swift#814, Finder.BApp.swift#1265 */
 "Date" = "日期";
 /* Generated from genl10n: Cleaner.BApp.swift#560 */
 "Deleting Targets" = "刪除目標";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "深度編輯器";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "檢測... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "檢測目標";
 /* Generated from genl10n: GIFMaker.BApp.swift#558 */
 "Direction" = "方向";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "禁用色域映射";
 /* Generated from genl10n: InfoStrings.swift#54 */
 "Download now for FREE at %@" = "立即免費下載%@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -264,8 +288,12 @@
 "Downloading..." = "下載...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#202, Finder.BApp.swift#697, Finder.BApp.swift#1263 */
 "E-mail Address" = "電子郵件地址";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "編輯原始照片。";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "啟用自動標記。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
@@ -326,8 +354,8 @@
 "Get Text" = "獲取文字";
 /* Generated from genl10n: AppCenter.Charge.swift#88, Shop.SApp.swift#563 */
 "Give A Rating" = "給予評級";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "糧食";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "綠/青色";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "訪客用戶許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -382,7 +410,7 @@
 "Landscape" = "景觀";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#112 */
 "Layout" = "佈局";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
@@ -390,6 +418,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift#596 */
 "Loop" = "Loop";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "亮度降噪";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "洋紅色/紅色";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "主要工具許可證";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -400,12 +432,14 @@
 "Making A Call" = "打個電話";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "最大所有工具所有權";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "莫爾";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "我的相冊";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift#18 */
@@ -420,6 +454,16 @@
 "No Crop" = "沒有作物";
 /* Generated from genl10n: GIFMaker.BApp.swift#589 */
 "No loop" = "沒有循環";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "降噪對比度";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "降噪細節";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "降噪清晰度";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "降噪";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "噪音跟踪";
 /* Generated from genl10n: PhoneCalls.BApp.swift#615, Finder.BApp.swift#1727, Cleaner.BApp.swift#889 */
 "On Standby" = "隨時待命";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -524,10 +568,14 @@
 "Purchase" = "採購";
 /* Generated from genl10n: Converter.AppDockContent.swift#143, GIFMaker.BApp.swift#602 */
 "Quality" = "質量";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW編輯器";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評分";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "重制幀";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "紅色/黃色";
 /* Generated from genl10n: AutoEditor.BApp.swift#176 */
 "Red-Eye Removal" = "消除紅眼";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -608,8 +656,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才華，團結一致。如果採納，則獲得每項獎勵。";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payment.SocialShare.Facebook.swift#73, Shop.Payment.SocialShare.Facebook.swift#138, Shop.Payment.SocialShare.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "銳度";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "銳化";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -672,7 +720,7 @@
 "Take a Selfie." = "自拍吧。";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "採用內置攝像頭";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "點按即可檢測文字";
 /* Generated from genl10n: Cleaner.BApp.swift#565 */
 "Targeted" = "目標";
@@ -680,6 +728,8 @@
 "Targets" = "目標";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "北部沿海地區";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "溫度";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "使用條款";
 /* Generated from genl10n: Finder.BApp.swift#1364 */
@@ -738,6 +788,8 @@
 "VIP License" = "VIP許可證";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "我們所有產品的VIP會員資格。";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "供應商鏡頭更正";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "驗證失敗。";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -780,6 +832,8 @@
 "Write A Review" = "寫評論";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#577 */
 "Write" = "寫";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "黃綠色";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "您只能選擇與起始格式匹配的照片或視頻。";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

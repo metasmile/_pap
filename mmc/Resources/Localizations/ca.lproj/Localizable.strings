@@ -126,7 +126,7 @@
 "%@ might be found" = "%@ es pot trobar";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ / Day";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Acció";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "Accions";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "Detecció automàtica en àlbums";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "Detecció automàtica Bot";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "Càmera";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Captura d'accions a fer.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Captura tot el text.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Trieu una acció";
@@ -206,7 +206,7 @@
 "It could not be stored." = "No es pot emmagatzemar.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requereix un permís per accedir als vostres contactes. Permeteu contactes a la configuració de iOS.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Avís de rendiment limitat";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fer una trucada";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "S'està iniciant la cerca ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "S'està iniciant el procés ...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "Toqueu per detectar";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "Text";

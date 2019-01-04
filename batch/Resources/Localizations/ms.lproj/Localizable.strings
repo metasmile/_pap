@@ -158,7 +158,7 @@
 "Access Failed." = "Akses Gagal.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "Akses Diberikan.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "Tindakan";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "Tindakan";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Warna Isi Latar Belakang";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "Pendedahan Baseline";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Jadilah artis. Artis membolehkan anda mengubah semua gambar atau video anda ke dalam lukisan gaya yang terkenal. Alat pemprosesan batch ini tidak mempunyai had kepada bilangan foto untuk ditukar.";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "Bias";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "Biru / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Latar Belakang Blur";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "Kadar Blur";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "Blur";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "Shadow Shadow";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "Galakan";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "Kecerahan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "Kamera";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "Tidak boleh kembali. Semua item yang dipilih tidak diedit.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "Tindakan Menangkap Tindakan.";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "Tangkap Semua Teks.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "Pilih Tindakan";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "Pilih Satu Tindakan Sub.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Pilih beberapa gambar yang anda mahu cari tag.";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "Chromaticity X";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "Chromaticity Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam pelbagai jenis gambar yang salah jika mereka telah dipadankan sebagai contoh pendua dan imej yang serupa, gambar rapat atau tangkapan skrin Kunci!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "Papan klip";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Warna Dan Peringatan untuk Setiap Fasa";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "Pengurangan Kebisingan Warna";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "Kenalan";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Pada masa ini, model pengenalan teks AI kami hanya tersedia untuk abjad angka dan beberapa aksara khas, dan ia boleh dipengaruhi oleh bahasa sistem semasa.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "Cyan / Blue";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "Tarikh";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "Memadamkan Sasaran";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "Editor Kedalaman";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Mengesan ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "Sasaran Pengesanan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "Arah";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "Lumpuhkan Peta Gamut";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "Muat turun sekarang secara PERCUMA di %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "Memuat turun ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Alamat emel";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost membolehkan anda mengeluarkan semua jenis data yang mengandungi foto anda termasuk maklumat peribadi.";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "Edit foto mentah anda.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "Dayakan tag automatik.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "Dapatkan Teks";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "Beri Penilaian";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "Bijian";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "Hijau / cyan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "Program Lesen Pengguna Tetamu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "Landskap";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Notis Prestasi Terhad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Skrin kunci";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "Pengurangan Kebisingan Berkilau";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "Magenta / Merah";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Lesen Alat Utama";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "Membuat Panggilan";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "Maksimum Kepemilikan Alat Semua";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "moire";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album saya";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "Tiada gelung";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "Kontras Pengurangan Bunyi";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "Butiran Pengurangan Kebisingan";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "Kecerunan Pengurangan Bunyi";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "Pengurangan bunyi";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "Penjejakan Kebisingan";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Bersiap sedia";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "Pembelian";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "Kualiti";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "Menilainya";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "Rangka semula";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "Merah / kuning";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "Red-Eye Removal";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Ganjaran Jika Dipercayai.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "Ketajaman";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "Mengasah";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "Ambil Selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "Diambil Dengan Kamera Terbina Dalam";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "Ketik untuk mengesan teks";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "Disasarkan";
@@ -734,6 +782,8 @@
 "Targets" = "Sasaran";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "Suhu";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "Syarat Penggunaan";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "Lesen VIP";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "Keahlian VIP Semua Produk Kami.";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "Pembetulan Lensa Penjual";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "Pengesahan Gagal.";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "Menulis ulasan";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "Tulis";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "Kuning hijau";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "Anda hanya boleh memilih foto atau video yang dipadankan dengan format permulaan.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

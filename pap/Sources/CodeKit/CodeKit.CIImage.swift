@@ -6,14 +6,24 @@
 import Foundation
 import Photos
 
-extension CIImage{
-    convenience init?(image: UIImage?) {
-        guard let image = image else {
-            return nil
+extension CIContext {
+    static var shared: CIContext = {
+        if let device = MTLCreateSystemDefaultDevice() {
+            return CIContext(mtlDevice: device, options: [
+                CIContextOption.cacheIntermediates: false,
+                CIContextOption.useSoftwareRenderer: false
+            ])
         }
-        self.init(image: image)
-    }
+        else {
+            return CIContext(options: [
+                CIContextOption.cacheIntermediates: false,
+                CIContextOption.useSoftwareRenderer: false
+            ])
+        }
+    }()
+}
 
+extension CIImage{
     convenience init?(cvPixelBuffer: CVPixelBuffer?) {
         guard let cvPixelBuffer = cvPixelBuffer else {
             return nil
@@ -43,7 +53,7 @@ extension CIImage{
     @discardableResult
     public func writeJPEGRepresentation(to:URL, options:[CIImageRepresentationOption : Any] = [:]) -> Bool{
         do {
-            try CIContext().writeJPEGRepresentation(of: self
+            try CIContext.shared.writeJPEGRepresentation(of: self
                     , to:to
                     , colorSpace: defaultColorSpace
                 , options: options)
@@ -59,5 +69,53 @@ extension CIImage{
         guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return self }
         filter.setValue(self, forKey: kCIInputImageKey)
         return filter.outputImage ?? self
+    }
+}
+
+extension CIImage {
+    func resizeAspectFit(_ size: CGSize) -> CIImage {
+        let resize = AVMakeRect(aspectRatio: extent.size, insideRect: CGRect(origin: .zero, size: size)).size
+        let scale = min(resize.width / extent.width, resize.height / extent.height)
+        return transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+    }
+    
+    func resizeAspectFit(in bounds: CGRect) -> CIImage {
+        let resize = AVMakeRect(aspectRatio: extent.size, insideRect: bounds)
+        let scale = min(resize.width / extent.width, resize.height / extent.height)
+        let transform = CGAffineTransform(translationX: resize.origin.x, y: resize.origin.y).scaledBy(x: scale, y: scale)
+        return transformed(by: transform)
+    }
+}
+
+extension CIImage {
+    var asMTLTexture: MTLTexture? {
+        guard
+            let texture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height)),
+            let commandBuffer = MTLContext.shared.commandQueue?.makeCommandBuffer()
+        else { return nil }
+        CIContext.shared.render(self, to: texture, commandBuffer: commandBuffer, bounds: extent, colorSpace: defaultColorSpace)
+        commandBuffer.commit()
+        return texture
+    }
+}
+
+extension CIImage {
+    func applyMetalShader(_ functionName: String, params parameters: [Any]? = nil) -> CIImage? {
+        guard
+            let inputTexture = self.asMTLTexture,
+            let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+        else { return nil }
+        
+        var uniformValues = [MTLBuffer]()
+        for var value in parameters ?? [] {
+            guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
+            uniformValues.append(buffer)
+        }
+        
+        MTLUtility.commitComputeShader(functionName, input: inputTexture, output: outputTexture, with: uniformValues)
+        
+        return CIImage(mtlTexture: outputTexture, options: [
+            CIImageOption.colorSpace: defaultColorSpace
+        ])
     }
 }

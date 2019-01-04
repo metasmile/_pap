@@ -158,7 +158,7 @@
 "Access Failed." = "एक्सेस विफल";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
 "Access Granted." = "प्रवेश करने की अनुमति है।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "कार्य";
 /* Generated from genl10n: Finder.BApp.swift */
 "Actions" = "क्रिया";
@@ -222,12 +222,24 @@
 "Auto Tagging Bot" = "ऑटो टैगिंग बॉट";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "पृष्ठभूमि भरें रंग";
+/* Generated from genl10n: RawEditor.swift */
+"Baseline Exposure" = "बेसलाइन एक्सपोजर";
 /* Generated from genl10n: Artist.BApp.swift */
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "एक कलाकार बनो कलाकार आपको नाटकीय रूप से मशहूर स्टाइल चित्रों में अपनी सभी तस्वीरें या वीडियो को चालू करने देता है। इस बैच प्रोसेसिंग टूल में कनवर्ट करने के लिए फ़ोटो की संख्या की कोई सीमा नहीं है।";
+/* Generated from genl10n: RawEditor.swift */
+"Bias" = "पक्षपात";
+/* Generated from genl10n: RawEditor.swift */
+"Blue / Magenta" = "नीला / मैजेंटा";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "धुंध पृष्ठभूमि";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
 "Blur Rate" = "धुंध दर";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Blur" = "कलंक";
+/* Generated from genl10n: RawEditor.swift */
+"Boost Shadow" = "छाया को बढ़ावा देना";
+/* Generated from genl10n: RawEditor.swift */
+"Boost" = "बढ़ावा";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Brightness" = "चमक";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -236,9 +248,9 @@
 "Camera" = "कैमरा";
 /* Generated from genl10n: Revert.BApp.swift */
 "Cannot revert. All selected items have not edited." = "वापस नहीं जा सकता सभी चयनित आइटम संपादित नहीं किए गए हैं।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "करने के लिए कार्रवाई कैप्चर करें।";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "सभी पाठ कैप्चर करें।";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "एक एक्शन चुनें";
@@ -248,6 +260,10 @@
 "Choose An Sub Action." = "एक उप क्रिया चुनें।";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "कुछ तस्वीरें चुनें जिन्हें आप टैग ढूंढना चाहते हैं।";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity X" = "क्रोमैटिसिटी एक्स";
+/* Generated from genl10n: RawEditor.swift */
+"Chromaticity Y" = "क्रोमैटिसिटी वाई";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "क्लीनर आपको विभिन्न प्रकार की गलत तस्वीरों को ढूंढने और हटाने में सक्षम बनाता है यदि वे उदाहरण के लिए डुप्लिकेट और इसी तरह की छवियों, क्लोज-अप फोटो या लॉकस्क्रीन शॉट्स से मेल खाते हैं!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -258,6 +274,8 @@
 "Clipboard" = "क्लिपबोर्ड";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "प्रत्येक चरण के लिए रंग और अनुस्मारक";
+/* Generated from genl10n: RawEditor.swift */
+"Color Noise Reduction" = "रंग शोर में कमी";
 /* Generated from genl10n: Finder.BApp.swift */
 "Contacts" = "संपर्क";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -300,16 +318,22 @@
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "वर्तमान में, हमारे एआई टेक्स्ट मान्यता मॉडल केवल अल्फान्यूमेरिक और कुछ विशेष पात्रों के लिए उपलब्ध है, और यह वर्तमान सिस्टम भाषा से प्रभावित हो सकता है।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "रिवाज";
+/* Generated from genl10n: RawEditor.swift */
+"Cyan / Blue" = "सियान / नीला";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "Date" = "तारीख";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Editor" = "गहराई संपादक";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "पता लगा रहा है ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detection Targets" = "पता लगाने के लक्ष्य";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Direction" = "दिशा";
+/* Generated from genl10n: RawEditor.swift */
+"Disable Gamut Map" = "गेमट मैप को अक्षम करें";
 /* Generated from genl10n: InfoStrings.swift#45 */
 "Download now for FREE at %@" = "%@ पर मुफ्त में अभी डाउनलोड करें";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -318,8 +342,12 @@
 "Downloading..." = "डाउनलोड कर रहा है ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "ईमेल पता";
+/* Generated from genl10n: RawEditor.swift */
+"EV" = "सदन";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost आपको निजी जानकारी सहित अपनी तस्वीरों वाले सभी प्रकार के डेटा को हटाने देता है।";
+/* Generated from genl10n: RawEditor.swift */
+"Edit your raw photos." = "अपने कच्चे फ़ोटो संपादित करें।";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Enable Auto-tagging." = "ऑटो-टैगिंग सक्षम करें।";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
@@ -380,8 +408,8 @@
 "Get Text" = "पाठ प्राप्त करें";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
 "Give A Rating" = "एक रेटिंग दें";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Grain" = "अनाज";
+/* Generated from genl10n: RawEditor.swift */
+"Green / Cyan" = "हरा / सियान";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Guest User License Program" = "अतिथि उपयोगकर्ता लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -436,7 +464,7 @@
 "Landscape" = "परिदृश्य";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "ख़ाका";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "सीमित प्रदर्शन सूचना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "लाइव फोटो";
@@ -444,6 +472,10 @@
 "Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "लूप";
+/* Generated from genl10n: RawEditor.swift */
+"Luminance Noise Reduction" = "ल्यूमिनेंस शोर में कमी";
+/* Generated from genl10n: RawEditor.swift */
+"Magenta / Red" = "मजेंटा / रेड";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "मुख्य उपकरण लाइसेंस";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -454,12 +486,14 @@
 "Making A Call" = "एक फोन करना";
 /* Generated from genl10n: Shop.SApp.swift */
 "Maximum All Tools Ownership" = "अधिकतम सभी उपकरण स्वामित्व";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "हमें संदेश";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
+/* Generated from genl10n: RawEditor.swift */
+"Moire" = "मौआ";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरे एल्बम";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -474,6 +508,16 @@
 "No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Contrast" = "शोर में कमी के विपरीत";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Detail" = "शोर में कमी विस्तार से";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction Sharpness" = "शोर में कमी";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Reduction" = "शोर में कमी";
+/* Generated from genl10n: RawEditor.swift */
+"Noise Tracking" = "शोर ट्रैकिंग";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "स्टैंडबाय पर";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -578,10 +622,14 @@
 "Purchase" = "खरीद फरोख्त";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
 "Quality" = "गुणवत्ता";
+/* Generated from genl10n: RawEditor.swift */
+"RAW Editor" = "रॉ एडिटर";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "इसे रेट करें";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Re-frame" = "पुन: फ्रेम";
+/* Generated from genl10n: RawEditor.swift */
+"Red / Yellow" = "लाल पीला";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
 "Red-Eye Removal" = "रेड-आई रिमूवल";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
@@ -662,8 +710,8 @@
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "अपनी प्रतिभा साझा करें, एक साथ बनाओ। अगर अपनाया गया तो प्रत्येक पुरस्कार प्राप्त करें।";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "तीखेपन";
+/* Generated from genl10n: RawEditor.swift */
+"Sharpening" = "तेज़ करने";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -726,7 +774,7 @@
 "Take a Selfie." = "एक स्वफ़ोटो ले।";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
 "Taken With Built-in Camera" = "अंतर्निहित कैमरा के साथ लिया गया";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap to detect text" = "पाठ का पता लगाने के लिए टैप करें";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
 "Targeted" = "लक्षित";
@@ -734,6 +782,8 @@
 "Targets" = "लक्ष्य";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Temparature" = "Temparature";
+/* Generated from genl10n: RawEditor.swift */
+"Temperature" = "तापमान";
 /* Generated from genl10n: Shop.SApp.swift#698 */
 "Terms of Use" = "उपयोग की शर्तें";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
@@ -792,6 +842,8 @@
 "VIP License" = "वीआईपी लाइसेंस";
 /* Generated from genl10n: Shop.SApp.swift */
 "VIP Membership of Our All Products." = "हमारे सभी उत्पादों की वीआईपी सदस्यता।";
+/* Generated from genl10n: RawEditor.swift */
+"Vendor Lens Correction" = "वेंडर लेंस सुधार";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
 "Verification Failed." = "सत्यापन असफल।";
 /* Generated from genl10n: Adjustments.BApp.swift */
@@ -834,6 +886,8 @@
 "Write A Review" = "एक समीक्षा लिखे";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
 "Write" = "लिखना";
+/* Generated from genl10n: RawEditor.swift */
+"Yellow / Green" = "पीला हारा";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
 "You can select only photos or videos that matched with starting format." = "आप केवल फोटो या वीडियो का चयन कर सकते हैं जो प्रारंभ प्रारूप के साथ मेल खाते हैं।";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */

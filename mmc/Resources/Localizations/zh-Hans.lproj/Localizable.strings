@@ -126,7 +126,7 @@
 "%@ might be found" = "可能会找到%@";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
 "%@/Day" = "%@ /日";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Action" = "行动";
 /* Generated from genl10n: Finder.BApp.swift#1227 */
 "Actions" = "操作";
@@ -146,11 +146,11 @@
 "Auto Detect on Albums" = "自动检测相册";
 /* Generated from genl10n: Finder.BApp.swift */
 "Auto Detection Bot" = "自动检测机器人";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Camera" = "相机";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture Actions To Do." = "捕获要执行的操作。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Capture All Text." = "捕获所有文本。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "选择一个动作";
@@ -206,7 +206,7 @@
 "It could not be stored." = "它无法存储。";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
 "It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "它需要获得访问您的联系人的权限。请允许iOS设置上的联系人。";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打个电话";
@@ -272,7 +272,7 @@
 "Starting To Find ..." = "开始查找...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Starting the Process..." = "启动过程...";
-/* Generated from genl10n: MemoCam.BApp.swift */
+/* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Tap To Detect" = "点击“检测”";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
 "Text" = "文本";

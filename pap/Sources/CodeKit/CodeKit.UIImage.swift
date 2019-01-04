@@ -10,21 +10,13 @@ import UIKit
 import Accelerate
 
 public extension UIImage {
-
-    convenience init?(ciImage: CIImage?) {
-        guard let ciImage = ciImage else {
-            return nil
-        }
-        self.init(ciImage: ciImage)
-    }
-
-    private static let sharedCIContextForFilter = CIContext()
     
     func applyFilter(ciFilter: CIFilter?) -> UIImage? {
-        guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return nil }
-        filter.setValue(self.asCIImage, forKey: kCIInputImageKey)
-        guard let outputImage = filter.outputImage, let cgImage = UIImage.sharedCIContextForFilter.createCGImage(outputImage, from: outputImage.extent) else { return nil }
-        return UIImage(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
+        return autoreleasepool { () -> UIImage? in
+            guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return nil }
+            filter.setValue(self.asCIImage, forKey: kCIInputImageKey)
+            return filter.outputImage?.asUIImage
+        }
     }
 
     static func createNumberedSequenceImages(renderBounds:CGRect, count:Int, color:UIColor) -> [UIImage]{
@@ -169,17 +161,21 @@ public extension UIImage {
         self.init(cgImage: result)
     }
     
-    convenience init?(path: UIBezierPath, fillColor: UIColor? = nil, strokeColor: UIColor? = nil) {
-        guard let result = UIGraphicsImageRenderer(size: CGSize(width: path.bounds.minX + path.bounds.maxX, height: path.bounds.minY + path.bounds.maxY)).imageWithCurrentContext(actions: { (ctx) in
+    convenience init?(path: UIBezierPath, fillColor: UIColor? = nil, strokeColor: UIColor? = nil, strokeWidth: CGFloat? = nil) {
+        let lineWidth: CGFloat = strokeWidth ?? (strokeColor != nil ? 1 : 0)
+        let pathBounds = path.bounds
+        
+        guard let result = UIGraphicsImageRenderer(size: CGSize(width: pathBounds.minX + pathBounds.maxX, height: pathBounds.minY + pathBounds.maxY)).imageWithCurrentContext(actions: { (ctx) in
             if let color = fillColor {
                 ctx.setFillColor(color.cgColor)
                 path.fill()
             }
             if let color = strokeColor {
+                ctx.setLineWidth(lineWidth)
                 ctx.setStrokeColor(color.cgColor)
                 path.stroke()
             }
         })?.cgImage else { return nil }
-        self.init(cgImage: result)
+        self.init(cgImage: result, scale: 1, orientation: .up)
     }
 }

@@ -81,6 +81,36 @@ extension PHAsset {
     }
 }
 
+extension PHAsset: RawDataSourceable {
+    public var asRawData: Data? {
+        guard let alternatePhoto = resources.first(where: { $0.type == .alternatePhoto }) else { return nil }
+        
+        let async = AsyncSignal()
+        async.begin()
+        
+        var rawData: Data?
+        
+        DispatchQueue(label: fileName() + ".fetchRawData", qos: .background).async {
+            let options = PHAssetResourceRequestOptions()
+            options.isNetworkAccessAllowed = true
+            
+            rawData = Data()
+            
+            PHAssetResourceManager.default().requestData(for: alternatePhoto, options: options, dataReceivedHandler: { (data) in
+                rawData?.append(data)
+            }, completionHandler: { (error) in
+                if error != nil {
+                    rawData = nil
+                }
+                async.end()
+            })
+        }
+        async.waitUntilEnd()
+        
+        return rawData
+    }
+}
+
 extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSourceable, VideoSourceable, LivePhotoSourceable {
     public var asUIImage:UIImage? {
         get {

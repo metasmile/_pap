@@ -34,7 +34,7 @@ class CIMLArtFilter: CIFilter {
 
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = value(forKey: kCIInputImageKey) as? CIImage
+            guard let image = inputImage
             , let inputImage = image.asUIImage else {
                 return nil
             }

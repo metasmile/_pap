@@ -113,8 +113,17 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     lazy var tapToPlayGesture: UITapGestureRecognizer = {
-        return UITapGestureRecognizer(target: self.assetView, action: #selector(self.assetView.playAny))
+        return UITapGestureRecognizer(target: self, action: #selector(self.playOrPause))
     }()
+    
+    @objc private func playOrPause() {
+        if assetView.isPlaying {
+            assetView.pauseAny()
+        }
+        else {
+            assetView.playAny()
+        }
+    }
     
     lazy var transitionAnimator = PhotoEditorTransitionAnimator()
     
@@ -239,6 +248,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
         
+        if self.editItem.transform == .identity {
+            self.assetView.animateAsFade(0.25)
+            self.assetView.filteredImage = nil
+        }
         self.assetView.applyEditState(self.editItem)
         
         UIView.animateAsSpring(0.3, delay: 0.0, animations: {
@@ -263,9 +276,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func doneButtonDidTap(sender: Any) {
         super.doneButtonDidTap(sender: sender)
         
-        placeholderView.image = (originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? originalImage)?.applyTransform(preferredEditState.transform)
-        
         if editItem.hasChanges {
+            var image = originalImage?.applyFilter(ciFilter: editItem.ciFilter) ?? originalImage
+            if preferredEditState.transform != .identity {
+                image = image?.applyTransform(preferredEditState.transform)
+            }
+            placeholderView.image = image
             placeholderView.transform = editItem.transform
         }
         
