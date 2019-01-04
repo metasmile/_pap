@@ -39,9 +39,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , version: "1.0"
         , phase: .develop
         , appType: RawEditorApp.self
-        , displayName: "RAW Editor".localized.localizedCapitalized
+        , displayName: "RAW Editor".localized
         , description: "Edit your raw photos.".localized
-        , keywords: ["raw", "dng", "adjustments", "brightness", "constrast", "highlight", "shadow", "saturate"]
+        , keywords: ["raw", "dng"]
         , iconBundleName: nil
         , themeColor: UIColor(red:0.5, green:0.964, blue:0, alpha:1)
         , policy: AppPolicy.default
@@ -98,20 +98,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     //INFO: prevent memory leak for creating CIImage(uiImage:)
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let rawURL = urlForRawImage(with: appAsset.asset)
+        let filter = appAsset.editState.ciFilter as? CIRawFilter
         
-        if self.rawImageURL != rawURL {
-            guard let rawData = appAsset.asset.asRawData else {
-                completion(nil, nil)
-                return
-            }
-            
-            if let _ = try? rawData.write(to: rawURL) {
-                self.rawImageURL = rawURL
-            }
-        }
-        
-        let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+        let rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
         
         //INFO: for preview
         rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
@@ -133,8 +122,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         guard let rawURL = self.rawImageURL else { return }
         
-        let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-        setFilterToContent(rawFilter, attributes: editStateValue?.ciFilter?.attributes)
+        let rawFilter = CIRawFilter(rawURL: rawURL, params: editStateValue?.ciFilter?.attributes)
+        setFilter(rawFilter, to: content as? RawEditorDockContent)
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
@@ -149,20 +138,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
                 }
             }
             
-            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-            self.setFilterToContent(rawFilter)
+            let rawFilter = CIRawFilter(rawURL: rawURL, params: nil)
+            self.setFilter(rawFilter, to: self.content as? RawEditorDockContent)
         }
     }
     
-    private func setFilterToContent(_ filter: CIFilter?, attributes: [String: Any]? = nil) {
-        var defaultAttributes = [String: Any]()
-        filter?.inputKeys.forEach {
-            if let v = filter?.value(forKey: $0) {
-                defaultAttributes[$0] = v
-            }
-        }
-        
-        (self.content as? RawEditorDockContent)?.setRawAttributes(attributes, with: defaultAttributes)
+    private func setFilter(_ filter: CIRawFilter?, attributes: [String: Any]? = nil, to content: RawEditorDockContent?) {
+        content?.setRawFilter(filter, attributes: attributes)
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
@@ -225,28 +207,34 @@ extension Defaults: RawEditorDefaults {
     
 }
 
-fileprivate class CIRawFilter: CIFilter {
-    var rawAttributes: [CIRAWFilterOption: Any]?
-    
+public class CIRawFilter: CIFilter {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(attributes rawAttributes: [CIRAWFilterOption: Any]?) {
-        super.init()
-        
-        self.rawAttributes = rawAttributes
-    }
-    
     private var parameters: [String : Any]?
-    override var attributes: [String : Any] {
+    override public var attributes: [String : Any] {
         return parameters ?? [:]
     }
     
-    init(parameters params: [String: Any]?) {
+    private(set) var rawURL: URL?
+    init(rawURL: URL?, params parameters: [String: Any]?) {
         super.init()
         
-        self.parameters = params
+        self.rawURL = rawURL
+        self.parameters = parameters
+    }
+    
+    @objc dynamic var inputImage : CIImage?
+    
+    override public var outputImage: CIImage? {
+        return autoreleasepool { () -> CIImage? in
+            guard let image = inputImage else { return nil }
+            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
+            rawFilter?.setValue(image, forKey: kCIInputImageKey)
+            rawFilter?.setValuesForKeys(parameters ?? [:])
+            return rawFilter?.outputImage
+        }
     }
 }
 
@@ -296,10 +284,21 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         (view as? UITableView)?.reloadData()
     }
     
-    fileprivate func setRawAttributes(_ attributes: [String: Any]? = nil, with defaultAttributes: [String: Any]?) {
+    private var rawFilter: CIRawFilter?
+    
+    fileprivate func setRawFilter(_ rawFilter: CIRawFilter?, attributes: [String: Any]? = nil) {
+        self.rawFilter = rawFilter
+        
+        let filter = CIFilter(imageURL: rawFilter?.rawURL, options: nil)
+        var defaultAttributes = [String: Any]()
+        filter?.inputKeys.forEach {
+            if let v = filter?.value(forKey: $0) {
+                defaultAttributes[$0] = v
+            }
+        }
         filterAttributes = []
         
-        if let defaultAttributes = defaultAttributes, !defaultAttributes.isEmpty {
+        if !defaultAttributes.isEmpty {
             for filterAttribute in rawAttributes() {
                 guard let defaultKey = defaultAttributes.keys.first(where: { $0 == filterAttribute.key }), let defaultValue = defaultAttributes[defaultKey] as? NSNumber else { continue }
                 
@@ -388,7 +387,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                    self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }
             
@@ -412,7 +411,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 
                 cell.slider.value = attributeItem.value
                 
-                self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
             }
             
             cell.sliderDidChangeHandler = { value in
@@ -422,7 +421,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 
                 let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
                     DispatchQueue.main.async {
-                        self.filter = CIRawFilter(parameters: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+                        self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                     }
                 }
                 RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
