@@ -673,6 +673,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
             photoEditViewController.preferredEditState = editItem.editState
+            photoEditViewController.appAsset = editItem
             photoEditViewController.asset = editItem.asset
             photoEditViewController.delegate = self
             photoEditViewController.indexPathInPicker = PHAssets.fetched.indexPath(of:editItem.asset)

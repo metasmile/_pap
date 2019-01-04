@@ -75,11 +75,7 @@ class AppUIAssetView: AssetView {
     
     fileprivate var editState: StateValueSet<ImageEditStateValue>?
     private var originalCIImage: CIImage?
-    var originalImage: UIImage? {
-        didSet {
-            originalCIImage = originalImage?.asCIImage
-        }
-    }
+    var originalImage: UIImage?
     var filteredImage: UIImage? {
         didSet {
             self.image = filteredImage ?? originalImage
@@ -127,6 +123,7 @@ class AppUIAssetView: AssetView {
         editState = nil
         
         originalImage = nil
+        originalCIImage = nil
         filteredImage = nil
         
         prepareProcessing()
@@ -217,6 +214,10 @@ extension AppUIAssetView {
         
         stopAny()
         prepareProcessing()
+        
+        if originalCIImage == nil {
+            originalCIImage = originalImage?.asCIImage
+        }
         
         self.filteredImage = originalCIImage?.applyFilter(ciFilter: editState?.ciFilter).asUIImage
         

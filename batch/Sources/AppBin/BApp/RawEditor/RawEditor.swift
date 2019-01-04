@@ -13,7 +13,7 @@ class _RawEditorAsset: _FiltersAppAsset {}
 
 public class RawEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
-PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
+PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp, PhotoEditorPreviewProcessableApp {
     
     public static let taskType: AppTaskable.Type = _RawEditorTask.self
     public static let paramType: AppTaskParamable.Type = _RawEditorAsset.self
@@ -207,7 +207,7 @@ extension Defaults: RawEditorDefaults {
     
 }
 
-public class CIRawFilter: CIFilter {
+fileprivate class CIRawFilter: CIFilter {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -223,18 +223,6 @@ public class CIRawFilter: CIFilter {
         
         self.rawURL = rawURL
         self.parameters = parameters
-    }
-    
-    @objc dynamic var inputImage : CIImage?
-    
-    override public var outputImage: CIImage? {
-        return autoreleasepool { () -> CIImage? in
-            guard let image = inputImage else { return nil }
-            let rawFilter = CIFilter(imageURL: rawURL, options: nil)
-            rawFilter?.setValue(image, forKey: kCIInputImageKey)
-            rawFilter?.setValuesForKeys(parameters ?? [:])
-            return rawFilter?.outputImage
-        }
     }
 }
 

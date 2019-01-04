@@ -4,11 +4,15 @@
 //
 
 import Foundation
+import Photos
+
+public protocol PhotoEditorPreviewProcessableApp: PreviewProcessableApp {}
 
 public protocol PhotoEditorViewControllerDelegatableApp: App {
     var photoEditorDockContent: AppDockContent? {get}
     func photoEditorWillBeginProcessing()
     func photoEditorWillEndProcessing()
+    
 }
 
 extension PhotoEditorViewControllerDelegatableApp {

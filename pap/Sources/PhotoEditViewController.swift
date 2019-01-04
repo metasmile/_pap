@@ -100,6 +100,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
     var indexPathInPicker: IndexPath?
     var selectedInPicker: Bool = false
+    var appAsset: AppAsset?
     var asset: PHAsset?
     var preferredEditState = StateValueSet<ImageEditStateValue>()
     
@@ -154,7 +155,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.isHidden = true
         assetView.asset = asset
         assetView.preferredTransform = preferredEditState.transform
-        assetView.applyEditState(preferredEditState)
+        setEditState(preferredEditState)
         
         assetView.addGestureRecognizer(tapToPlayGesture)
         
@@ -164,7 +165,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             assetView.setAsset(asset, completion: {
                 self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
-                self.assetView.applyEditState(self.preferredEditState)
+                self.setEditState(self.preferredEditState)
             })
         }
     }
@@ -239,6 +240,20 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
+    private func setEditState(_ editState: StateValueSet<ImageEditStateValue>) {
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+            let appAsset = AppAsset(asset)
+            appAsset.editState = editState
+            app.previewProcessing(appAsset, targetSize: self.assetView.size) { (original, filtered) in
+                self.assetView.originalImage = original
+                self.assetView.filteredImage = filtered
+            }
+        }
+        else {
+            assetView.applyEditState(editState)
+        }
+    }
+    
     func appendImageEditState(_ value: ImageEditStateValue) {
         editItem.append(value)
         
@@ -252,7 +267,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             self.assetView.animateAsFade(0.25)
             self.assetView.filteredImage = nil
         }
-        self.assetView.applyEditState(self.editItem)
+        self.setEditState(self.editItem)
         
         UIView.animateAsSpring(0.3, delay: 0.0, animations: {
             self.assetView.layer.transform = self.editItem.transform3d
