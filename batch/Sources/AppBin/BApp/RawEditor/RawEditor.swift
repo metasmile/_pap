@@ -90,7 +90,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         self.config?.adoptValues(fromOther: config)
     }
     
-    private var rawImageURL: URL?
     private func urlForRawImage(with asset: PHAsset) -> URL {
         return FileURL.temp(asset.localIdentifierWithoutSplitter, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension("dng")
     }
@@ -120,35 +119,45 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        guard let rawURL = self.rawImageURL else { return }
+        guard let content = content as? RawEditorDockContent else { return }
         
-        let rawFilter = CIRawFilter(rawURL: rawURL, params: editStateValue?.ciFilter?.attributes)
-        setFilter(rawFilter, to: content as? RawEditorDockContent)
+        let rawFilter = content.rawFilter ?? editStateValue?.ciFilter as? CIRawFilter
+        setFilter(rawFilter, to: content)
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
-            let rawURL = self.urlForRawImage(with: asset)
-            
-            if self.rawImageURL != rawURL {
-                let rawData = asset.asRawData
-                
-                if let _ = try? rawData?.write(to: rawURL) {
-                    self.rawImageURL = rawURL
-                }
-            }
-            
-            let rawFilter = CIRawFilter(rawURL: rawURL, params: nil)
-            self.setFilter(rawFilter, to: self.content as? RawEditorDockContent)
+        rawFilter(from: asset) { (filter) in
+            self.setFilter(filter, to: self.content as? RawEditorDockContent)
         }
     }
     
-    private func setFilter(_ filter: CIRawFilter?, attributes: [String: Any]? = nil, to content: RawEditorDockContent?) {
-        content?.setRawFilter(filter, attributes: attributes)
+    private lazy var cachedRawImageURLs: NSCache = NSCache<NSString, NSURL>()
+    private func rawFilter(from asset: PHAsset, completion: ((CIRawFilter?) -> Void)?) {
+        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
+            let rawURL: URL
+            
+            if let url = self.cachedRawImageURLs.object(forKey: asset.localIdentifierWithoutSplitter as NSString) as URL? {
+                rawURL = url
+            }
+            else {
+                rawURL = self.urlForRawImage(with: asset)
+                
+                let rawData = asset.asRawData
+                
+                let _ = try? rawData?.write(to: rawURL)
+            }
+            
+            let rawFilter = CIRawFilter(rawURL: rawURL, params: nil)
+            completion?(rawFilter)
+        }
+    }
+    
+    private func setFilter(_ filter: CIRawFilter?, to content: RawEditorDockContent?) {
+        content?.setRawFilter(filter, attributes: filter?.attributes)
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        self.rawImageURL = nil
+        cachedRawImageURLs.removeObject(forKey: asset.localIdentifierWithoutSplitter as NSString)
     }
 }
 
@@ -272,7 +281,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         (view as? UITableView)?.reloadData()
     }
     
-    private var rawFilter: CIRawFilter?
+    private(set) var rawFilter: CIRawFilter?
     
     fileprivate func setRawFilter(_ rawFilter: CIRawFilter?, attributes: [String: Any]? = nil) {
         self.rawFilter = rawFilter
@@ -367,6 +376,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         let attributeItem = filterAttribute.attributeItems[indexPath.row]
         
         if filterAttribute.attributeType == kCIAttributeTypeBoolean, let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "SwitchCell") as? SwitchCell {
+            cell.isUserInteractionEnabled = self.rawFilter != nil
+            
             cell.titleLabel.text = attributeItem.name
             
             cell.switchControl.setOn(attributeItem.value == 1.0 ? true : false, animated: true)
@@ -383,6 +394,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "CIAdjustmentSliderCell") as! CIAdjustmentSliderCell
+            cell.isUserInteractionEnabled = self.rawFilter != nil
+            
             cell.titleLabel.text = attributeItem.name
             
             cell.highlightedColor = RawEditorApp.info.themeColor
@@ -417,10 +430,6 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             
             return cell
         }
-    }
-    
-    @objc private func updateFilter() {
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
