@@ -138,6 +138,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
+        rawFilterCache.removeAllObjects()
         rawFilter(from: asset) { (filter) in
             self.setFilter(filter, to: self.content as? RawEditorDockContent)
             DispatchQueue.main.async {
@@ -175,6 +176,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
         cachedRawImageURLs.removeObject(forKey: asset.localIdentifierWithoutSplitter as NSString)
+        rawFilterCache.removeAllObjects()
     }
 }
 
@@ -184,15 +186,17 @@ extension _RawEditorAsset: PHAssetImageEditable {
         
         let filter = editState.ciFilter as? CIRawFilter
         
-        let rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
+        var rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
         if let attributes = filter?.attributes {
             rawFilter?.setValuesForKeys(attributes)
         }
         
-        guard let ciImage = rawFilter?.outputImage else {
+        guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in return rawFilter?.outputImage }) else {
             completionHandler(nil, nil)
             return nil
         }
+        
+        rawFilter = nil
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
