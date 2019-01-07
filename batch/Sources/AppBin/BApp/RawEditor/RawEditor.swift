@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class _RawEditorAsset: _FiltersAppAsset {}
+class _RawEditorAsset: AppAsset {}
 
 public class RawEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
@@ -168,14 +168,48 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
+extension _RawEditorAsset: PHAssetImageEditable {
+    func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+        let asset = self.asset
+        
+        let filter = editState.ciFilter as? CIRawFilter
+        
+        let rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
+        if let attributes = filter?.attributes {
+            rawFilter?.setValuesForKeys(attributes)
+        }
+        
+        guard let ciImage = rawFilter?.outputImage else {
+            completionHandler(nil, nil)
+            return nil
+        }
+        
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil,nil)
+                return
+            }
+            
+            DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                autoreleasepool {
+                    guard ciImage.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
+                        completionHandler(nil, nil)
+                        return
+                    }
+                    completionHandler(asset, item.output)
+                }
+            }
+        }
+        return [PHAssetRequestID(forEditingInput: r)]
+    }
+}
+
 fileprivate class _RawEditorTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _RawEditorAsset
     public typealias ResultType = PHAssetResultItem
     
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _RawEditorAsset)?.cancelAllRequestIDs()
-        (param as? _RawEditorAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
