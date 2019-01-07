@@ -637,12 +637,9 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             
             cell.resetButton.isHidden = !attributeItem.hasChanges
             
-            let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
-                DispatchQueue.main.async {
-                    self.filter = self.filterManager.ciFilter
-                }
+            DispatchQueue.main.async {
+                self.filter = self.filterManager.ciFilter
             }
-            RunLoop.current.add(timer, forMode: .common)
         }
         
         return cell

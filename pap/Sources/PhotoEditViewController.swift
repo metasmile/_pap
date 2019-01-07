@@ -249,22 +249,13 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             
             app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
                 DispatchQueue.main.async {
-                    self.prepareCrossDissolveForPreview()
-                    
                     self.assetView.originalImage = original
                     self.assetView.filteredImage = filtered
                 }
             }
         }
         else {
-            prepareCrossDissolveForPreview()
             assetView.applyEditState(editState)
-        }
-    }
-    
-    private func prepareCrossDissolveForPreview() {
-        if editItem.transform == .identity {
-            assetView.animateAsFade(0.25)
         }
     }
     

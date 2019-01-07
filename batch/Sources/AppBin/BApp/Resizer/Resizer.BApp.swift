@@ -654,12 +654,9 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     @objc func borderWidthDidChange() {
         updateBorderSlider()
         
-        let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
-            DispatchQueue.main.async {
-                self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
-            }
+        DispatchQueue.main.async {
+            self.filterItem = CIFrameFilterItem(self.selectedFilter, backgroundColor: self.selectedBackgroundColor, borderWidth: self.selectedBorderWidth)
         }
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
     }
     
     var selectedEditStateValue: ImageEditStateValue?
