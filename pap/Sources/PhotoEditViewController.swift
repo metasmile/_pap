@@ -240,17 +240,45 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
+    fileprivate struct PreviewProcessingQueue {
+        fileprivate static var operationQueue: OperationQueue = {
+            let operationQueue = OperationQueue()
+            operationQueue.underlyingQueue = PreviewProcessingQueue.dispatchQueue
+            operationQueue.maxConcurrentOperationCount = 1
+            operationQueue.qualityOfService = .utility
+            return operationQueue
+        }()
+        fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility)
+    }
+    
     private func setEditState(_ editState: StateValueSet<ImageEditStateValue>) {
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+            let targetSize = self.assetView.size
+            
             let appAsset = AppAsset(asset)
             appAsset.editState = editState
-            app.previewProcessing(appAsset, targetSize: self.assetView.size) { (original, filtered) in
-                self.assetView.originalImage = original
-                self.assetView.filteredImage = filtered
+            
+            PreviewProcessingQueue.operationQueue.addOperation { [unowned self] in
+                app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
+                    DispatchQueue.main.async {
+                        self.preparePreviewCrossDissolve()
+                        
+                        self.assetView.originalImage = original
+                        self.assetView.filteredImage = filtered
+                    }
+                }
             }
         }
         else {
+            preparePreviewCrossDissolve()
             assetView.applyEditState(editState)
+        }
+    }
+    
+    private func preparePreviewCrossDissolve() {
+        if editItem.transform == .identity {
+            assetView.animateAsFade(0.25)
+            assetView.filteredImage = nil
         }
     }
     
@@ -263,10 +291,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func updatePreview(_ completion: (() -> Void)? = nil) {
         layoutAssetView()
         
-        if self.editItem.transform == .identity {
-            self.assetView.animateAsFade(0.25)
-            self.assetView.filteredImage = nil
-        }
         self.setEditState(self.editItem)
         
         UIView.animateAsSpring(0.3, delay: 0.0, animations: {

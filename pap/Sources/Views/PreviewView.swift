@@ -460,7 +460,7 @@ extension PreviewView {
     }
 }
 
-public struct PreviewProcessingQueue {
+fileprivate struct PreviewProcessingQueue {
     fileprivate static var operationQueue: OperationQueue = {
         let operationQueue = OperationQueue()
         operationQueue.underlyingQueue = PreviewProcessingQueue.dispatchQueue
