@@ -63,7 +63,7 @@ public class CIFilterAttributes: Codable, NSCopying {
     }
     var number: Float {
         guard let attributeItem = attributes(at: 0) else { return 0 }
-        return attributeItem.isIntensity ? attributeItem.bezierValue() : attributeItem.value
+        return attributeItem.value
     }
     var offset: CGPoint {
         return CGPoint(x: CGFloat(attributes(at: 0)?.value ?? 0), y: CGFloat(attributes(at: 1)?.value ?? 0))
