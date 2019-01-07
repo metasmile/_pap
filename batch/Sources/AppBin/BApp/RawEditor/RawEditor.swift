@@ -95,11 +95,23 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     //INFO: prevent memory leak for creating CIImage(uiImage:)
-    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
+    private lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
+    private lazy var rawFilterCache: NSCache<NSURL, CIFilter> = NSCache<NSURL, CIFilter>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let filter = appAsset.editState.ciFilter as? CIRawFilter
         
-        let rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
+        var rawFilter: CIFilter?
+        if let url = filter?.rawURL {
+            if let filter = rawFilterCache.object(forKey: url as NSURL) {
+                rawFilter = filter
+            }
+            else if let filter = CIFilter(imageURL: filter?.rawURL, options: nil) {
+                rawFilter = filter
+                rawFilterCache.setObject(filter, forKey: url as NSURL)
+            }
+        }
+        
+        rawFilter?.setDefaults()
         
         //INFO: for preview
         rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
@@ -115,9 +127,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         
         rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        DispatchQueue.main.async {
-            completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
-        }
+        completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
@@ -457,7 +467,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 
                 cell.resetButton.isHidden = !attributeItem.hasChanges
                 
-                let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.1) { timer in
+                let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
                     DispatchQueue.main.async {
                         self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                     }
