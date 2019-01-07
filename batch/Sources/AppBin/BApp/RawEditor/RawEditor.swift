@@ -147,23 +147,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         }
     }
     
-    private lazy var cachedRawImageURLs: NSCache = NSCache<NSString, NSURL>()
     private func rawFilter(from asset: PHAsset, completion: ((CIRawFilter?) -> Void)?) {
         DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
-            let rawURL: URL
+            let rawURL = self.urlForRawImage(with: asset)
             
-            if let url = self.cachedRawImageURLs.object(forKey: asset.localIdentifierWithoutSplitter as NSString) as URL? {
-                rawURL = url
-            }
-            else {
-                rawURL = self.urlForRawImage(with: asset)
-                
-                let rawData = asset.asRawData
-                
-                if let _ = try? rawData?.write(to: rawURL) {
-                    self.cachedRawImageURLs.setObject(rawURL as NSURL, forKey: asset.localIdentifierWithoutSplitter as NSString)
-                }
-            }
+            let rawData = asset.asRawData
+            try? rawData?.write(to: rawURL)
             
             let rawFilter = CIRawFilter(rawURL: rawURL, params: nil)
             completion?(rawFilter)
@@ -175,7 +164,10 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        cachedRawImageURLs.removeObject(forKey: asset.localIdentifierWithoutSplitter as NSString)
+        rawFilterCache.removeAllObjects()
+    }
+    
+    func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {
         rawFilterCache.removeAllObjects()
     }
 }
