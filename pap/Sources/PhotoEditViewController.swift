@@ -240,17 +240,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     // MARK: - Navigation Bar Actions
     
-    fileprivate struct PreviewProcessingQueue {
-        fileprivate static var operationQueue: OperationQueue = {
-            let operationQueue = OperationQueue()
-            operationQueue.underlyingQueue = PreviewProcessingQueue.dispatchQueue
-            operationQueue.maxConcurrentOperationCount = 1
-            operationQueue.qualityOfService = .utility
-            return operationQueue
-        }()
-        fileprivate static let dispatchQueue = DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility)
-    }
-    
     private func setEditState(_ editState: StateValueSet<ImageEditStateValue>) {
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
             let targetSize = self.assetView.size
@@ -258,24 +247,22 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             let appAsset = AppAsset(asset)
             appAsset.editState = editState
             
-            PreviewProcessingQueue.operationQueue.addOperation { [unowned self] in
-                app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
-                    DispatchQueue.main.async {
-                        self.preparePreviewCrossDissolve()
-                        
-                        self.assetView.originalImage = original
-                        self.assetView.filteredImage = filtered
-                    }
+            app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
+                DispatchQueue.main.async {
+                    self.prepareCrossDissolveForPreview()
+                    
+                    self.assetView.originalImage = original
+                    self.assetView.filteredImage = filtered
                 }
             }
         }
         else {
-            preparePreviewCrossDissolve()
+            prepareCrossDissolveForPreview()
             assetView.applyEditState(editState)
         }
     }
     
-    private func preparePreviewCrossDissolve() {
+    private func prepareCrossDissolveForPreview() {
         if editItem.transform == .identity {
             assetView.animateAsFade(0.25)
             assetView.filteredImage = nil

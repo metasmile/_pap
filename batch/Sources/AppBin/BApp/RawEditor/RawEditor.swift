@@ -423,7 +423,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 
                 cell.resetButton.isHidden = !attributeItem.hasChanges
                 
-                let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0) { timer in
+                let timer = Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.1) { timer in
                     DispatchQueue.main.async {
                         self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                     }
