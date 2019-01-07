@@ -707,6 +707,11 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
                 }
                 assert(AppAssets.selected.by(photoEditor.asset!) != nil, "AppAssets.selected.by(photoEditor.asset!) != nil")
                 AppAssets.selected.by(asset)?.editState.concat(with: editItem)
+                
+                //INFO: sync edit states between dock content and photo editor dock content for a single photo
+                if let app = AppCenter.default.currentInstanceAs(EditableApp.self), AppAssets.selected.count == 1 {
+                    app.setDefaultEditStateValue(AppAssets.selected.by(asset)?.editState.imageEditStateValue)
+                }
             }
         }
 

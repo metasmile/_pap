@@ -121,7 +121,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         guard let content = content as? RawEditorDockContent else { return }
         
-        let rawFilter = content.rawFilter ?? editStateValue?.ciFilter as? CIRawFilter
+        let rawFilter = editStateValue?.ciFilter as? CIRawFilter
         setFilter(rawFilter, to: content)
     }
     
@@ -152,8 +152,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         }
     }
     
-    private func setFilter(_ filter: CIRawFilter?, to content: RawEditorDockContent?) {
-        content?.setRawFilter(filter, attributes: filter?.attributes)
+    private func setFilter(_ filter: CIRawFilter?, attributes: [String: Any]? = nil, to content: RawEditorDockContent?) {
+        content?.setRawFilter(filter, attributes: attributes ?? filter?.attributes)
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
@@ -285,6 +285,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     
     fileprivate func setRawFilter(_ rawFilter: CIRawFilter?, attributes: [String: Any]? = nil) {
         self.rawFilter = rawFilter
+        print(#function, rawFilter, attributes, rawFilter?.attributes)
         
         let filter = CIFilter(imageURL: rawFilter?.rawURL, options: nil)
         var defaultAttributes = [String: Any]()
