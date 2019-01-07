@@ -103,9 +103,9 @@ extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
     public var asUIImage:UIImage? {
         return autoreleasepool{
             //little more faster
-            if let cgImage = self.asCGImage{
-                return UIImage(cgImage: cgImage)
-            }
+//            if let cgImage = self.asCGImage{
+//                return UIImage(cgImage: cgImage)
+//            }
             return UIImage(ciImage: self)
         }
     }

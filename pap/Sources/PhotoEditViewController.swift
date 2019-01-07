@@ -265,7 +265,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func prepareCrossDissolveForPreview() {
         if editItem.transform == .identity {
             assetView.animateAsFade(0.25)
-            assetView.filteredImage = nil
         }
     }
     
