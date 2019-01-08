@@ -151,8 +151,21 @@ extension PHAssetFinalizableApp {
     private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         let actionQueue = DispatchQueue.global()
         let actionSignal = AsyncSignal()
+        
+        var numberOfImages = 0
+        var numberOfVideos = 0
+        for asset in targetResultAssets.map({ $0.asset }) {
+            if asset.mediaType == .image {
+                numberOfImages += 1
+            }
+            else if asset.mediaType == .video {
+                numberOfVideos += 1
+            }
+        }
+        
+        let numberOfItems = PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos).localizedLowercase
 
-        let alert = UIAlertController.actionSheet(title: "Choose An Export Option For %d Items".localizedFormatted(targetResultAssets.count), message: nil)
+        let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
         alert.addAction(UIAlertAction(title: "Save".localized, style: .default, handler: { action in
             actionQueue.async{
                 self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
