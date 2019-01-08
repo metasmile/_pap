@@ -457,34 +457,8 @@ class PhotoPickerViewController: AppDockViewController {
             numberOfImages += fetchResult.countOfAssets(with: PHAssetMediaType.image)
             numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
         }
-
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-
-        var footerText = ""
-        if numberOfImages > 0 {
-            if numberOfImages == 1 {
-                footerText += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
-            }
-            else {
-                footerText += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
-            }
-        }
-
-        if numberOfVideos > 0 {
-            if numberOfImages > 0 {
-                footerText += ", "
-            }
-
-            if numberOfVideos == 1 {
-                footerText += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
-            }
-            else {
-                footerText += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
-            }
-        }
-
-        return footerText
+        
+        return PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos)
     }
     
     private func updateAllPhotosTitle() {

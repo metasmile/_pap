@@ -215,3 +215,35 @@ extension PHAsset {
         return PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: options).firstObject
     }
 }
+
+extension PHAsset {
+    static func formattedNumberString(numberOfImages: Int, numberOfVideos: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        var text = ""
+        if numberOfImages > 0 {
+            if numberOfImages == 1 {
+                text += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+            else {
+                text += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+        }
+        
+        if numberOfVideos > 0 {
+            if numberOfImages > 0 {
+                text += ", "
+            }
+            
+            if numberOfVideos == 1 {
+                text += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+            else {
+                text += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+        }
+        
+        return text
+    }
+}
