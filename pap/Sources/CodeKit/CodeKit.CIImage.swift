@@ -7,20 +7,7 @@ import Foundation
 import Photos
 
 extension CIContext {
-    static var shared: CIContext = {
-        if let device = MTLCreateSystemDefaultDevice() {
-            return CIContext(mtlDevice: device, options: [
-                CIContextOption.cacheIntermediates: false,
-                CIContextOption.useSoftwareRenderer: false
-            ])
-        }
-        else {
-            return CIContext(options: [
-                CIContextOption.cacheIntermediates: false,
-                CIContextOption.useSoftwareRenderer: false
-            ])
-        }
-    }()
+    static var shared: CIContext = CIContext(options: nil)
 }
 
 extension CIImage{
