@@ -29,13 +29,14 @@ extension _FiltersAppAsset: PHAssetImageEditable {
         let asset = self.asset
 
         guard
-            let uiImage = asset.asUIImage,
-            let filter = editState.ciFilter,
-            let image = uiImage.applyFilter(ciFilter: filter)
+            let ciImage = asset.asCIImage,
+            let filter = editState.ciFilter
         else {
             completionHandler(nil, nil)
             return nil
         }
+        
+        let image = ciImage.applyFilter(ciFilter: filter)
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -47,9 +48,8 @@ extension _FiltersAppAsset: PHAssetImageEditable {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
-                let outputData = image.jpegData(compressionQuality: 1)
                 
-                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+                guard image.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
                     completionHandler(nil, nil)
                     return
                 }
