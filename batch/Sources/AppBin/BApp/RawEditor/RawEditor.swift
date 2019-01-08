@@ -231,12 +231,21 @@ fileprivate class _RawEditorTask: AppTaskPrototype, AppTaskable {
         
         async.begin()
         
+        let rawFilter = assetItem.editState.ciFilter as? CIRawFilter
+        
+        let attributes = rawFilter?.attributes ?? [:]
+        
+        var editInfo: [String: Any] = [:]
+        if let jsonData = try? JSONSerialization.data(withJSONObject: attributes, options: []), let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? Array<Any> {
+            editInfo["attributes"] = json
+        }
+        
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    //                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: RawEditorApp.self, editInfo: (assetItem.editState.ciFilter as? CIAdjustmentsFilter)?.filters.compactMap({ ["filter": $0.name] }) ?? [:], from: asset)
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: RawEditorApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
