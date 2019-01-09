@@ -1,4 +1,7 @@
-PAPS is the infinite-purpose photo, video and camera toolbox with a fast, large-scale batch media editing. Just choose a tool and then select all the photos you need and then tap the button. You can do anything all you needed for all your photos.
+PAPS is the infinite-purpose photo, video and camera toolbox with a fast, large-scale batch media editing. Just choose a tool and then select all the photos you need, then tap the button. That's all.
+
+With PAPS, you can do anything all you needed for all your photos with just a tap.
+
 
 The List of Tools -
 
@@ -12,17 +15,7 @@ ASB is a multi-purpose assistant engine for choosing the right items in the curr
 
 
 Finder
-Extracting every important info such as phone numbers, addresses, dates, URLs or even flight code from your photos or screenshots, and then do right things.
-You also can translate or save them all as raw text.
-
-Actions
-• Phone Number - Save or numbers or convert into iOS contacts.
-• E-Mail Address - Send a message.
-• Address - Open on map
-• Date - Save as Event with Calendar.
-• URL - Open with Browser.
-• Flight Number - Search for flights with detected numbers.
-• Price Info - Detecting a price, and exchanging it into another one with an exchange rate.
+Extracting every info such as phone numbers, addresses, dates, URLs or even flight code and the price info from your photos or screenshots, and then do right things. You also can translate or save them all as raw text.
 Many actions are going to be updated!
 
 
@@ -31,28 +24,17 @@ Converter enables you to convert every media formats such as Videos, mp4 Video L
 
 
 Cleaner
-Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!
+Cleaner enables you to find and delete various kind of incorrect photos if they matched with duplicated and similar images, close-up face, too slow shutter speed, lock-screen shots, or videos that are saved by Instagram for example. More various actions would be added!
 
-List of Cleaner Matchers
-• Similarity
-• Screenshots
-• Flashlight included
-• Saved with Built-in Camera
-• LockScreens - Taken Screenshots with iOS locked screen.
-• Too Close-up Face
-• Too Slow Sutter Speed
-• Videos Without Sound
-• Videos Shorter Than 1 Second
-• Videos Saved By Instagram
-• All not taken with Camera
+
+Framer
+Resize, crop and fill with a blurred background to fit your photos(even also videos) by the various sizes of Instagram, Youtube or what you needed.
 
 
 GIF Maker
 GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! Moreover, then you can open the converter app to convert into everything such as Live Photos or Videos.
 
-• Multiple Photos
-• Burst Photos
-• Live Photos
+• Multiple Photos, Burst Photos, Live Photos
 • Custom quality and cropping ratio support
 • Frame delay, direction(Forward, Reverse, Rewind), repetition control
 
@@ -60,26 +42,22 @@ GIF Maker allows for easily and quickly making GIF images from Photos or Live Ph
 EXIF Ghost
 EXIF Ghost lets you remove all kinds of data containing your photos including private information.
 
-• Selective metadata purging for all properties of GPS, EXIF, TIFF support.
+• Selective metadata wiping support for all properties of GPS, EXIF, TIFF.
 
 
 Memo Cam
-An AI-powered text info recognization camera tool, MemoCam enables accurately detecting and then extracting/saving every important information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
+An AI-powered text and info grabbing camera tool, MemoCam enables accurately detecting and then extracting/saving every information such as phone numbers, currency, barcodes, addresses, dates or URLs nearby with your camera, or via pictures already saved in Photos.
 
 
-HashTag
-Finding and collecting hashtags from your photos you selected.
+Adjustments
+A highly professional photo editing tool to edit expertly for each property in detail, for example, exposure intensity, vignette radius or many more.
 
 
 Rotation
-This straightforward but large-scale batch image transform tool lets you quickly rotate and flip many media files including Live Photos. There is no limit to the number of photos to edit them.
+This straightforward but large-scale batch image transform tool lets you quickly rotate and flip many media files including Live Photos and Videos. The simple tool has no limitation to the number of photos for editing them.
 
-• Tested processing capacity: 2000+a photos at one time.
+• Tested processing capacity: minimum 2000+a photos at one time.
 • Optimized for multi-core processing. It depends on iDevice models.
-
-
-Framer
-Framer lets you resize and fill to fit your photos(even also videos) by the various sizes of Instagram, Youtube or what you needed.
 
 
 Auto Editor
@@ -91,14 +69,18 @@ Auto Editor lets you edit automatically if your photos are needed to correct.
 • Auto Red-Eye Removal
 
 
+HashTag
+Finding and collecting hashtags from your photos you selected.
+
+
 Filters
 Apply high-quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters.
 
-• Tested processing capacity: 2000+a photos at one time.
+• Tested processing capacity: 2000+a photos at one time at mininum.
 • Optimized for multi-core processing. It depends on image size and iDevice models.
 
 
-PDFactory
-PDFactory makes PDF document from multiple images with various page options.
+PDFMaker
+To make PDF document from multiple images with various page options.
 
 • Page Size(e.g., A4 or US Legal), Margin, Scale, and Layout Mode Support
