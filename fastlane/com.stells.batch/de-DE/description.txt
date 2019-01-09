@@ -34,10 +34,6 @@ Framer
 GIF-Hersteller
 Mit GIF Maker können GIF-Bilder einfach und schnell aus Fotos oder Live-Fotos mit verschiedenen Optionen erstellt werden! Außerdem können Sie die Konverter-App öffnen, um alles wie Live-Fotos oder Videos zu konvertieren.
 
-• Mehrere Fotos, Serienbilder, Live-Fotos
-• Unterstützung für benutzerdefinierte Qualität und Beschneidungsrate
-• Bildverzögerung, Richtung (Vorwärts, Rückwärts, Rücklauf), Wiederholungssteuerung
-
 
 EXIF Ghost
 Mit EXIF Ghost können Sie alle Arten von Daten entfernen, die Ihre Fotos enthalten, einschließlich privater Informationen.
@@ -62,11 +58,6 @@ Mit diesem einfachen, aber umfangreichen Batch-Image-Transformationstool können
 
 Auto Editor
 Mit dem automatischen Editor können Sie automatisch bearbeiten, wenn Ihre Fotos korrigiert werden müssen.
-
-• Automatische Verbesserung
-• Automatisches Begradigen
-• Automatische Ernte
-• Auto-Rote-Augen-Entfernung
 
 
 Hashtag

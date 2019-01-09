@@ -1,2 +1,2 @@
-+ HashTag 1.0 - Finding and collecting hashtags from your photos you selected.
-+ Camera 1.2 - RAW format, depth effect photo, location metadata control support.
++ HashTag 1.0 - Tìm kiếm và thu thập hashtag từ ảnh của bạn.
++ Camera 1.2 - Định dạng RAW, hiệu ứng độ sâu, kiểm soát siêu dữ liệu GPS.

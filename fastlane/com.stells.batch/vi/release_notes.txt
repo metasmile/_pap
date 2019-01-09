@@ -1,2 +1,2 @@
-++ A new tool - Adjustments 1.0: A highly professional photo editing tool to edit expertly for each property in detail, for example, exposure intensity, vignette radius or many more.
-+ A lot of essential performance improvements for image pre-processors and thumbnail preview.
+++ Một công cụ mới - Điều chỉnh 1.0: Một công cụ chỉnh sửa ảnh chuyên nghiệp để chỉnh sửa thành thạo từng chi tiết, ví dụ, cường độ phơi sáng, bán kính họa tiết hoặc nhiều hơn nữa.
++ Rất nhiều cải tiến hiệu suất cần thiết cho bộ xử lý trước hình ảnh và xem trước hình thu nhỏ.

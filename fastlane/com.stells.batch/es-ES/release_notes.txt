@@ -1,2 +1,2 @@
-++ A new tool - Adjustments 1.0: A highly professional photo editing tool to edit expertly for each property in detail, for example, exposure intensity, vignette radius or many more.
-+ A lot of essential performance improvements for image pre-processors and thumbnail preview.
+++ Una nueva herramienta - Ajustes 1.0: una herramienta de edición de fotos altamente profesional para editar de forma experta para cada propiedad en detalle, por ejemplo, intensidad de exposición, radio de viñeta o muchos más.
++ Una gran cantidad de mejoras de rendimiento esenciales para los preprocesadores de imágenes y la vista previa en miniatura.

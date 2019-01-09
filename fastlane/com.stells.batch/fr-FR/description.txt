@@ -34,10 +34,6 @@ Redimensionnez, recadrez et remplissez avec un arrière-plan flou pour adapter v
 GIF Maker
 GIF Maker permet de créer facilement et rapidement des images GIF à partir de photos ou de photos en direct avec diverses options! De plus, vous pouvez ouvrir l’application de conversion pour convertir tout ce que vous voulez, par exemple des photos en direct ou des vidéos.
 
-• Plusieurs photos, rafales photos, photos en direct
-• Qualité personnalisée et prise en charge du rapport de cadrage
-• Retard d'image, direction (avant, arrière, retour rapide), contrôle de répétition
-
 
 Fantôme EXIF
 EXIF Ghost vous permet de supprimer toutes sortes de données contenant vos photos, y compris des informations privées.
@@ -63,11 +59,6 @@ Cet outil de transformation d'images par lots, simple mais à grande échelle, v
 Éditeur automatique
 Auto Editor vous permet d'éditer automatiquement si vos photos sont nécessaires pour corriger.
 
-• Amélioration automatique
-• Redressement automatique
-• recadrage automatique
-• Suppression automatique des yeux rouges
-
 
 Hashtag
 Rechercher et collecter des hashtags à partir des photos que vous avez sélectionnées.
@@ -75,9 +66,6 @@ Rechercher et collecter des hashtags à partir des photos que vous avez sélecti
 
 Les filtres
 Appliquez des filtres de haute qualité sur toutes vos photos. Cet outil de traitement par lots n’a pas de limite au nombre de photos à appliquer aux filtres.
-
-• Capacité de traitement testée: 2000 + une photo en une fois au minimum.
-• Optimisé pour le traitement multicœur. Cela dépend de la taille de l'image et des modèles d'iDevice.
 
 
 PDFMaker

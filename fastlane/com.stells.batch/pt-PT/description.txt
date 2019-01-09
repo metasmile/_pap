@@ -34,9 +34,6 @@ Redimensione, recorte e preencha com um fundo desfocado para caber suas fotos (a
 Criador de GIF
 GIF Maker permite fácil e rapidamente fazer imagens GIF de fotos ou fotos ao vivo com várias opções! Além disso, então você pode abrir o aplicativo conversor para converter em tudo, como fotos ao vivo ou vídeos.
 
-• Várias Fotos, Fotos Rompidas, Fotos Ao Vivo
-• Suporte de qualidade personalizada e taxa de corte
-• atraso de quadros, direção (frente, reverso, retrocesso), controle de repetição
 
 
 Fantasma EXIF
@@ -62,11 +59,6 @@ Esta ferramenta de transformação de imagens em lote simples, mas em grande esc
 
 Editor auto
 O Auto Editor permite que você edite automaticamente se suas fotos são necessárias para corrigir.
-
-• Auto Enhance
-• Auto Endireitar
-• Corte Automático
-• Remoção automática de olhos vermelhos
 
 
 Hashtag

@@ -34,10 +34,6 @@ Cambia el tamaño, recorta y rellena con un fondo borroso para que se adapte a t
 Fabricante de GIF
 ¡GIF Maker permite hacer imágenes GIF de fotos o fotos en vivo de manera fácil y rápida con varias opciones! Además, luego puede abrir la aplicación de conversión para convertirla en todo, como fotos en vivo o videos.
 
-• Múltiples fotos, fotos de ráfagas, fotos en vivo
-• Calidad personalizada y soporte de relación de recorte
-• Retardo de cuadro, dirección (avance, retroceso, rebobinado), control de repetición
-
 
 EXIF Ghost
 EXIF Ghost le permite eliminar todo tipo de datos que contengan sus fotos, incluida información privada.
@@ -62,11 +58,6 @@ Esta sencilla herramienta de transformación de imagen por lotes a gran escala l
 
 Editor automático
 Auto Editor te permite editar automáticamente si necesitas corregir tus fotos.
-
-• Mejora automática
-• Enderezamiento automático
-• Auto cultivo
-• Eliminación automática de ojos rojos
 
 
 Hashtag

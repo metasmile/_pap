@@ -62,7 +62,7 @@ parser.add_argument(
     'dest_lang_paths_as_code',
     help=
     'language codes (each localizing dir name) to translate',
-    default='ja ko zh-Hans zh-Hant fr-FR de-DE es-ES es-MX pt-PT pt-BR vi',
+    default='ja ko zh-Hans zh-Hant fr-FR de-DE es-ES pt-PT pt-BR vi',
     # python ./txtl10n.py "./fastlane/com.stells.batch/en-US/description.txt" "fr-FR de-DE es-ES es-MX pt-PT pt-BR vi"
     type=str,
     nargs='?')
