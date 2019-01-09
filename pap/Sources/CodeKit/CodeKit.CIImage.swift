@@ -88,21 +88,34 @@ extension CIImage {
 
 extension CIImage {
     func applyMetalShader(_ functionName: String, params parameters: [Any]? = nil) -> CIImage? {
-        guard
-            let inputTexture = self.asMTLTexture,
-            let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
-        else { return nil }
-        
-        var uniformValues = [MTLBuffer]()
-        for var value in parameters ?? [] {
-            guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
-            uniformValues.append(buffer)
+        return autoreleasepool { () -> CIImage? in
+            guard
+                let inputTexture = self.asMTLTexture,
+                let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+            else { return nil }
+            
+            var uniformValues = [MTLBuffer]()
+            for var value in parameters ?? [] {
+                guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
+                uniformValues.append(buffer)
+            }
+            
+            MTLUtility.commitComputeShader(functionName, input: inputTexture, output: outputTexture, with: uniformValues)
+            
+            inputTexture.flush()
+            
+            for buffer in uniformValues {
+                buffer.flush()
+            }
+            uniformValues.removeAll()
+            
+            let image = CIImage(mtlTexture: outputTexture, options: [
+                CIImageOption.colorSpace: defaultColorSpace
+            ])
+            
+            outputTexture.flush()
+            
+            return image
         }
-        
-        MTLUtility.commitComputeShader(functionName, input: inputTexture, output: outputTexture, with: uniformValues)
-        
-        return CIImage(mtlTexture: outputTexture, options: [
-            CIImageOption.colorSpace: defaultColorSpace
-        ])
     }
 }

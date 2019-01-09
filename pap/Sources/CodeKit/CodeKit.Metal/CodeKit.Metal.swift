@@ -15,6 +15,19 @@ import MetalPerformanceShaders
 struct MTLUtility {
     static let standardImageVertices: [Float] = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0]
     
+    static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm, pixelBuffer: CVPixelBuffer?) -> MTLTexture? {
+        if let textureCache = MTLContext.shared.textureCache, let sourceImage = pixelBuffer {
+            var metalTexture: CVMetalTexture?
+            CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, sourceImage, nil, pixelFormat, width, height, 0, &metalTexture)
+            
+            if let texture = metalTexture {
+                return CVMetalTextureGetTexture(texture)
+            }
+        }
+        
+        return makeTexture(width: width, height: height, pixelFormat: pixelFormat)
+    }
+    
     static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm) -> MTLTexture? {
         let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat, width: width, height: height, mipmapped: false)
         textureDescriptor.usage = [MTLTextureUsage.renderTarget, MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
@@ -29,6 +42,12 @@ public class MTLContext {
     let device: MTLDevice
     let commandQueue: MTLCommandQueue?
     let library: MTLLibrary?
+    
+    fileprivate lazy var textureCache: CVMetalTextureCache? = {
+        var metalTextureCache: CVMetalTextureCache?
+        CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, &metalTextureCache)
+        return metalTextureCache
+    }()
     
     init() {
         guard let device = MTLCreateSystemDefaultDevice() else { fatalError("Could not create Metal Device") }
@@ -163,7 +182,7 @@ class CIImageView: MTKView {
             return
         }
         
-        guard let inputTexture = MTLUtility.makeTexture(width: Int(image.extent.width), height: Int(image.extent.height)) else { return }
+        guard let inputTexture = MTLUtility.makeTexture(width: Int(image.extent.width), height: Int(image.extent.height), pixelFormat: .rgba8Unorm) else { return }
         
         let commandBuffer = commandQueue?.makeCommandBuffer()
         ciContext.render(image, to: inputTexture, commandBuffer: commandBuffer, bounds: image.extent, colorSpace: image.defaultColorSpace)
@@ -211,5 +230,11 @@ extension MTLUtility {
         encoder.endEncoding()
         
         commandBuffer.commit()
+    }
+}
+
+extension MTLResource {
+    func flush() {
+        setPurgeableState(MTLPurgeableState.empty)
     }
 }

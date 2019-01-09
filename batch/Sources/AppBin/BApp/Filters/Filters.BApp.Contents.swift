@@ -77,7 +77,7 @@ extension _FiltersAppAsset: PHAssetLivePhotoEditable {
                     progress.completedUnitCount = Int64(frame.time.seconds * 1000)
                     return progress
                     }())
-                return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
+                return autoreleasepool { frame.image.applyFilter(ciFilter: self.editState.ciFilter) }
             }
             
             self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
