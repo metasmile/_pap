@@ -108,7 +108,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.actions]
     }
     
     public func setConfigValues<T: AppConfigValuable>(_ config:T){

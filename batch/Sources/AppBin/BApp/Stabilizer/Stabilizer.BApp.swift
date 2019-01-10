@@ -89,7 +89,7 @@ public class StabilizerApp: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, P
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.actions]
     }
 
     public var titleWillFinalize: String? {

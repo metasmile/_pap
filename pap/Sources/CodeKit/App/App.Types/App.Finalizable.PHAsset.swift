@@ -254,3 +254,7 @@ extension PHAssetFinalizableApp {
         }
     }
 }
+
+class PHAssetEditingResultViewController: UIViewController {
+    
+}

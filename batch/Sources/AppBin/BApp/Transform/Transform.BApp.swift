@@ -70,7 +70,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.modify]
+        return [.actions]
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
