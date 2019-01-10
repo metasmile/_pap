@@ -32,7 +32,7 @@ extension _FiltersAppAsset: PHAssetImageEditable {
             let ciImage = asset.asCIImage,
             let filter = editState.ciFilter
         else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
         
@@ -40,7 +40,7 @@ extension _FiltersAppAsset: PHAssetImageEditable {
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -50,11 +50,11 @@ extension _FiltersAppAsset: PHAssetImageEditable {
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
                 
                 guard image.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
                 
-                completionHandler(asset, item.output)
+                completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             }
         }
         return [PHAssetRequestID(forEditingInput: r)]
@@ -65,7 +65,7 @@ extension _FiltersAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -82,10 +82,43 @@ extension _FiltersAppAsset: PHAssetLivePhotoEditable {
             
             self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
-                completionHandler(self.asset, item.output)
+                
+                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
+                
+                //TODO: hmm.. how to get edited paired video??
+                /*
+                DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                    guard let livePhoto = item.input.livePhoto else {
+                        completionHandler(nil, nil, nil)
+                        return
+                    }
+                    
+                    let pairedVideoURL = FileURL.temp("pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+                    guard
+                        let videoResource = PHAssetResource.assetResources(for: livePhoto).first(where: { $0.type == .pairedVideo }),
+                        let videoData = videoResource.asData,
+                        let _ = try? videoData.write(to: pairedVideoURL)
+                        else {
+                            completionHandler(nil, nil, nil)
+                            return
+                    }
+                    
+                    LivePhotoWriter.default.writeLivePhoto(photoPath: item.output.renderedContentURL.path, withVideo: pairedVideoURL.path, completion: { (success, photoURL, videoURL, error) in
+                        guard let photoURL = photoURL, let videoURL = videoURL else {
+                            completionHandler(nil, nil, nil)
+                            return
+                        }
+                        
+                        let resultItems = [
+                            PHAssetEditingResultItem(url: photoURL, resourceType: .photo),
+                            PHAssetEditingResultItem(url: videoURL, resourceType: .pairedVideo)
+                        ]
+                        completionHandler(self.asset, resultItems, item.output)
+                    })
+                }*/
             })
         }
         
@@ -102,7 +135,7 @@ extension _FiltersAppAsset: PHAssetVideoEditable {
             guard
                 let video = asset.asAVAsset
                 else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return nil
             }
             
@@ -110,7 +143,7 @@ extension _FiltersAppAsset: PHAssetVideoEditable {
             
             let r = self.requestContentEditing { _item in
                 guard let item = _item else{
-                    completionHandler(nil,nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
                 
@@ -118,10 +151,10 @@ extension _FiltersAppAsset: PHAssetVideoEditable {
                 
                 self.exportSession = AVAssetExportSession.export(asset: playerItem?.asset ?? video, videoComposition: playerItem?.videoComposition ?? video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                     if success {
-                        completionHandler(asset, item.output)
+                        completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
                     }
                     else {
-                        completionHandler(nil, nil)
+                        completionHandler(nil, nil, nil)
                     }
                 })
             }

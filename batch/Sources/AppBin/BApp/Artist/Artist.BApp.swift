@@ -342,12 +342,13 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-            }) { (asset, contentEditingOutput) in
+            }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ArtistApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
+                        editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }
                 async.end()

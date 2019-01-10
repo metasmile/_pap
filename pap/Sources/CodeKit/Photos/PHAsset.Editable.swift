@@ -9,7 +9,7 @@ import Photos
 
 typealias PHAssetContentEditingHandler = (PHAssetContentEditingItem?) -> Void
 typealias PHAssetEditableProgressHandler = (Progress) -> Void
-typealias PHAssetEditableCompletionHandler = (PHAsset?, PHContentEditingOutput?) -> Void
+typealias PHAssetEditableCompletionHandler = (PHAsset?, [PHAssetEditingResultItem]?, PHContentEditingOutput?) -> Void
 
 public struct PHAssetProgressNotification {
     enum Name {

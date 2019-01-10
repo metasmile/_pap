@@ -184,7 +184,7 @@ extension _RawEditorAsset: PHAssetImageEditable {
         }
         
         guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in return rawFilter?.outputImage }) else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
         
@@ -192,17 +192,17 @@ extension _RawEditorAsset: PHAssetImageEditable {
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
             DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
                 autoreleasepool {
                     guard ciImage.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
-                        completionHandler(nil, nil)
+                        completionHandler(nil, nil, nil)
                         return
                     }
-                    completionHandler(asset, item.output)
+                    completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
                 }
             }
         }
@@ -243,12 +243,13 @@ fileprivate class _RawEditorTask: AppTaskPrototype, AppTaskable {
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-            }) { (asset, contentEditingOutput) in
+            }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: RawEditorApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
+                        editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }
                 async.end()

@@ -256,3 +256,51 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
         }
     }
 }
+
+extension AVAsset: URLSourceable {
+    public var asURL: URL? {
+        let async = AsyncSignal()
+        async.begin()
+        
+        var url: URL?
+        
+        let outputURL = FileURL.temp("video", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+        AVAssetExportSession.export(asset: self, outputURL: outputURL, completionHandler: { (success) in
+            if success {
+                url = outputURL
+            }
+            async.end()
+        })
+        async.waitUntilEnd()
+        
+        return url
+    }
+}
+
+extension PHAssetResource: DataSourceable {
+    public var asData: Data? {
+        var resourceData: Data? = Data()
+        
+        let async = AsyncSignal()
+        async.begin()
+        
+        let queue = DispatchQueue(label: fileName() + #function, qos: .utility)
+        queue.async {
+            let options = PHAssetResourceRequestOptions()
+            options.isNetworkAccessAllowed = true
+            
+            PHAssetResourceManager.default().requestData(for: self, options: options, dataReceivedHandler: { (data) in
+                resourceData?.append(data)
+            }) { (error) in
+                if let _ = error {
+                    resourceData?.removeAll()
+                    resourceData = nil
+                }
+                async.end()
+            }
+        }
+        async.waitUntilEnd()
+        
+        return resourceData
+    }
+}

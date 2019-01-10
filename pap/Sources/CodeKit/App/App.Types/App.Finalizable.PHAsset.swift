@@ -14,7 +14,7 @@ public enum PHAssetFinalizingAction: Int{
     case actions
 }
 
-public protocol PHAssetFinalizableApp: FinalizableApp, PHAssetUIAlertControllerSynchronizablePresenter {
+public protocol PHAssetFinalizableApp: FinalizableApp {
     var finalizingActions: [PHAssetFinalizingAction] {get}
 }
 
@@ -77,7 +77,7 @@ extension PHAssetFinalizableApp {
         return result
     }
 
-    private func modifyingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    internal func modifyingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
@@ -91,7 +91,7 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
-    private func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    internal func deletingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
 
         PHPhotoLibrary.shared().performChanges({
@@ -103,7 +103,7 @@ extension PHAssetFinalizableApp {
         asyncSignal.waitUntilEnd()
     }
 
-    private func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    internal func sharingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         if let _ = UIViewController.presentable {
             asyncSignal.begin()
             DispatchQueue.global().async {
@@ -120,23 +120,13 @@ extension PHAssetFinalizableApp {
         }
     }
 
-    private func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    internal func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
-                if let output = result.contentEditingOutput{
-                    if result.asset.mediaType == .image {
-                        assert(UTI(withURL: output.renderedContentURL).conforms(to: .image), "mediaType is image but the url was not registered in system UTI.")
-                        PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL:output.renderedContentURL)
-
-                    }else if result.asset.mediaType == .video {
-//                        assert(UTI(withURL: output.renderedContentURL).conforms(to: .video), "mediaType is video but the url was not registered in system UTI.")
-                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: output.renderedContentURL)
-
-                    }else{
-                        assert(false,"Not supported contentEditingOutput")
-                    }
-
+                let request = PHAssetCreationRequest.forAsset()
+                result.editingResultItems?.forEach {
+                    request.addResource(with: $0.resourceType, fileURL: $0.url, options: nil)
                 }
             }
 
@@ -148,7 +138,7 @@ extension PHAssetFinalizableApp {
     }
 
 
-    private func showingActionsAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    internal func showingActionsAndWait(targetResultAssets:[PHAssetResultable], excludedActions: [PHAssetFinalizingAction] = [], _ asyncSignal: AsyncWaitSignalable){
         let actionQueue = DispatchQueue.global()
         let actionSignal = AsyncSignal()
         
@@ -166,39 +156,47 @@ extension PHAssetFinalizableApp {
         let numberOfItems = PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos).localizedLowercase
 
         let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
-        alert.addAction(UIAlertAction(title: "Save".localized, style: .default, handler: { action in
-            actionQueue.async{
-                self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                DispatchQueue.main.async{
-                    asyncSignal.end()
+        if !excludedActions.contains(.create) {
+            alert.addAction(UIAlertAction(title: "Save".localized, style: .default, handler: { action in
+                actionQueue.async{
+                    self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    DispatchQueue.main.async{
+                        asyncSignal.end()
+                    }
                 }
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-            actionQueue.async{
-                self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                DispatchQueue.main.async{
-                    asyncSignal.end()
+            }))
+        }
+        if !excludedActions.contains(.share) {
+            alert.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { action in
+                actionQueue.async{
+                    self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    DispatchQueue.main.async{
+                        asyncSignal.end()
+                    }
                 }
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Modify".localized, style: .default, handler: { action in
-            actionQueue.async{
-                self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                DispatchQueue.main.async{
-                    asyncSignal.end()
+            }))
+        }
+        if !excludedActions.contains(.modify) {
+            alert.addAction(UIAlertAction(title: "Modify".localized, style: .default, handler: { action in
+                actionQueue.async{
+                    self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    DispatchQueue.main.async{
+                        asyncSignal.end()
+                    }
                 }
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
-            actionQueue.async{
-                self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                DispatchQueue.main.async{
-                    asyncSignal.end()
+            }))
+        }
+        if !excludedActions.contains(.share) || !excludedActions.contains(.create) {
+            alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
+                actionQueue.async{
+                    self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    DispatchQueue.main.async{
+                        asyncSignal.end()
+                    }
                 }
-            }
-        }))
+            }))
+        }
 
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
             asyncSignal.end()
@@ -247,31 +245,12 @@ extension PHAssetFinalizableApp {
         kUTTypeBMP
         kUTTypeICO
         */
-        switch (result.asset.mediaType){
-            case .image:
-                if let imageUrl = result.contentEditingOutput?.renderedContentURL{
-                    return try? Data(contentsOf: imageUrl)
-                }
-
-                return result.asset.asUIImage
-
-//                let resources = PHAssetResource.assetResources(for: asset)
-//                if resources.count > 1{
-//                    for r in resources{
-//                        switch(r.type){
-//                            case .photo, .alternatePhoto, .fullSizePhoto, .adjustmentBasePhoto:
-//                                return asset.asUIImage
-//
-//                            default:
-//                                return nil
-//                        }
-//                    }
-//
-//                }else{
-//                    return asset.asUIImage
-//                }
-            default:
-                return nil
+        
+        if result.editingResultItems?.count == 1, let editingResultItem = result.editingResultItems?.first {
+            return editingResultItem.url as NSURL
+        }
+        else {
+            return nil
         }
     }
 }

@@ -737,7 +737,7 @@ private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-            }) { (asset, contentEditingOutput) in
+            }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     var editInfo: [String: Any] = [:]
                     if let filter = assetItem.editState.ciFilter as? CIFrameFillFilter {
@@ -748,6 +748,7 @@ private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
                     
                     result = PHAssetResultItem(
                         asset: asset,
+                        editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }
                 async.end()

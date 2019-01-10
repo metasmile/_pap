@@ -139,12 +139,13 @@ private class StabilizerTask: AppTaskPrototype, AppTaskable {
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-            }) { (asset, contentEditingOutput) in
+            }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: StabilizerApp.self, editInfo: assetItem.editState.stabilizationMode != nil ? ["stabilizationMode": assetItem.editState.stabilizationMode!.rawValue] : [:], from: asset)
                     
                     result = PHAssetResultItem(
                         asset: asset,
+                        editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }
                 async.end()
@@ -164,7 +165,7 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
             let video = asset.asAVAsset
 //            let videoTrack = video.tracks(withMediaType: .video).first,
             else {
-                completionHandler(nil, nil)
+                completionHandler(nil, nil, nil)
                 return nil
         }
         
@@ -232,16 +233,16 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
             self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.stabilize(with: self.editState.stabilizationMode ?? .translation), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {
-                    completionHandler(asset, item.output)
+                    completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
                 }
                 else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                 }
             })
         }
@@ -262,7 +263,7 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -292,10 +293,11 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
             
             self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
-                completionHandler(self.asset, item.output)
+                
+                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             })
         }
         

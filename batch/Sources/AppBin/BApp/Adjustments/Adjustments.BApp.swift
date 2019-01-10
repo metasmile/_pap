@@ -454,7 +454,7 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-            }) { (asset, contentEditingOutput) in
+            }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     let adjustments = (assetItem.editState.ciFilter as? CIFilterGroup)?.filters.map({ $0.adjustmentItems.values }).reduce([], +) ?? []
                     
@@ -467,6 +467,7 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
                     
                     result = PHAssetResultItem(
                         asset: asset,
+                        editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }
                 async.end()

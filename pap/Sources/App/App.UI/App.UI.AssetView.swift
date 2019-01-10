@@ -268,22 +268,24 @@ extension AppUIAssetView {
                 
                 var referenceImage: CIImage?
                 self?.livePhotoEditingContext?.frameProcessor = { frame, error in
-                    if let filter = editState?.ciFilter {
-                        return frame.image.applyFilter(ciFilter: filter)
-                    }
-                    else if let mode = editState?.stabilizationMode {
-                        let result: CIImage
-                        if let image = referenceImage {
-                            result = frame.image.stabilize(with: image, mode: mode)
+                    return autoreleasepool {
+                        if let filter = editState?.ciFilter {
+                            return frame.image.applyFilter(ciFilter: filter)
+                        }
+                        else if let mode = editState?.stabilizationMode {
+                            let result: CIImage
+                            if let image = referenceImage {
+                                result = frame.image.stabilize(with: image, mode: mode)
+                            }
+                            else {
+                                result = frame.image
+                            }
+                            referenceImage = frame.image
+                            return result
                         }
                         else {
-                            result = frame.image
+                            return frame.image
                         }
-                        referenceImage = frame.image
-                        return result
-                    }
-                    else {
-                        return frame.image
                     }
                 }
                 

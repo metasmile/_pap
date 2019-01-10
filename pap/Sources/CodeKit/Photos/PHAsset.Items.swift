@@ -16,9 +16,15 @@ public protocol PHAssetParamable: AppTaskParamable {
     init(_ asset: PHAsset, indexPath:IndexPath?)
 }
 
+public struct PHAssetEditingResultItem {
+    var url: URL
+    var resourceType: PHAssetResourceType
+}
+
 public protocol PHAssetResultable: AppTaskResultable {
     var asset: PHAsset { get }
     var contentEditingOutput: PHContentEditingOutput?  { get }
+    var editingResultItems: [PHAssetEditingResultItem]? { get }
 }
 
 public struct PHAssetItem: PHAssetParamable{ //Non-mutable PHAsset VO
@@ -47,10 +53,12 @@ public struct PHAssetItem: PHAssetParamable{ //Non-mutable PHAsset VO
 public struct PHAssetResultItem: PHAssetResultable {
     public var asset: PHAsset
     public var contentEditingOutput: PHContentEditingOutput?
+    public var editingResultItems: [PHAssetEditingResultItem]?
 
-    init(asset:PHAsset, contentEditingOutput:PHContentEditingOutput?=nil){
+    init(asset:PHAsset, editingResultItems:[PHAssetEditingResultItem]?, contentEditingOutput:PHContentEditingOutput?=nil){
         self.asset = asset
         self.contentEditingOutput = contentEditingOutput
+        self.editingResultItems = editingResultItems
     }
 }
 

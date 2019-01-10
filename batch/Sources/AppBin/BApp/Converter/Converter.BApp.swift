@@ -48,7 +48,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
         FinalizableApp,
         PreheatableApp,
         LaunchableApp,
-        PHAssetUIAlertControllerSynchronizablePresenter,
+        PHAssetFinalizableApp,
         PhotoPickerCollectionViewDelegatableApp,
         PhotoPickerViewControllerAppearanceDelegatableApp {
 
@@ -129,11 +129,11 @@ public class ConverterApp: NSObject, PropertyWatchable,
                 }
                 .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
 
-        guard let items = resultItems, items.count > 0 else {
+        guard let items = resultItems as? [URL], items.count > 0 else {
             return result
         }
 
-        self.presentUIAlertControllerAndWait(items: items, asyncSignal)
+        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: [ PHAssetEditingResultItem(url: $0, resourceType: .photo) ]) }), excludedActions: [.modify], asyncSignal)
 
         return result
     }

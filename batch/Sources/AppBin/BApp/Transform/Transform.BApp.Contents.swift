@@ -31,13 +31,13 @@ extension _TransformAppAsset: PHAssetImageEditable {
 
         //TODO: apply iOS new api - CIImage.transform and CIContext().writeJPEGRepre....
         guard let image = asset.asUIImage?.applyTransform(self.editState.transform) else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
 
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
 
@@ -48,11 +48,11 @@ extension _TransformAppAsset: PHAssetImageEditable {
                 let outputData = image.jpegData(compressionQuality: 1)
 
                 guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
 
-                completionHandler(asset, item.output)
+                completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             }
         }
         return [PHAssetRequestID(forEditingInput: r)]
@@ -65,7 +65,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -91,10 +91,11 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
 
             self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
-                completionHandler(self.asset, item.output)
+                
+                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             })
         }
 
@@ -104,7 +105,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoAdvancedProcessor>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
 
         guard let livePhoto = self.asset.asPHLivePhoto else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
 
@@ -114,7 +115,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                 let videoResource = resources.first(where: { $0.type == PHAssetResourceType.pairedVideo }),
                 let photoResource = resources.first(where: { $0.type == PHAssetResourceType.photo })
                 else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
 
@@ -138,7 +139,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
             videoData.append(data)
         }) { (error) in
             guard error == nil else {
-                completionHandler(nil, nil)
+                completionHandler(nil, nil, nil)
                 return
             }
 
@@ -154,7 +155,7 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
             photoData.append(data)
         }) { (error) in
             guard error == nil else {
-                completionHandler(nil, nil)
+                completionHandler(nil, nil, nil)
                 return
             }
 
@@ -178,7 +179,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
                 let videoTrack = video.tracks(withMediaType: .video).first
 
                 else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
 
@@ -186,7 +187,7 @@ extension _TransformAppAsset: PHAssetVideoEditable {
 
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
 
@@ -196,10 +197,10 @@ extension _TransformAppAsset: PHAssetVideoEditable {
             
             self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: videoComposition, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                 if success {
-                    completionHandler(asset, item.output)
+                    completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
                 }
                 else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                 }
             })
         }

@@ -33,13 +33,13 @@ extension _ArtistAppAsset: PHAssetImageEditable {
             let filter = editState.ciFilter,
             let image = uiImage.applyFilter(ciFilter: filter)
         else {
-            completionHandler(nil, nil)
+            completionHandler(nil, nil, nil)
             return nil
         }
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -50,11 +50,11 @@ extension _ArtistAppAsset: PHAssetImageEditable {
                 let outputData = image.jpegData(compressionQuality: 1)
                 
                 guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
                 
-                completionHandler(asset, item.output)
+                completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             }
         }
         return [PHAssetRequestID(forEditingInput: r)]
@@ -65,7 +65,7 @@ extension _ArtistAppAsset: PHAssetLivePhotoEditable {
     func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
-                completionHandler(nil,nil)
+                completionHandler(nil, nil, nil)
                 return
             }
             
@@ -82,10 +82,11 @@ extension _ArtistAppAsset: PHAssetLivePhotoEditable {
             
             self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
-                completionHandler(self.asset, item.output)
+                
+                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             })
         }
         
@@ -102,7 +103,7 @@ extension _ArtistAppAsset: PHAssetVideoEditable {
             guard
                 let video = asset.asAVAsset
                 else {
-                    completionHandler(nil, nil)
+                    completionHandler(nil, nil, nil)
                     return nil
             }
             
@@ -110,16 +111,16 @@ extension _ArtistAppAsset: PHAssetVideoEditable {
             
             let r = self.requestContentEditing { _item in
                 guard let item = _item else{
-                    completionHandler(nil,nil)
+                    completionHandler(nil, nil, nil)
                     return
                 }
                 
                 self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
                     if success {
-                        completionHandler(asset, item.output)
+                        completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
                     }
                     else {
-                        completionHandler(nil, nil)
+                        completionHandler(nil, nil, nil)
                     }
                 })
             }

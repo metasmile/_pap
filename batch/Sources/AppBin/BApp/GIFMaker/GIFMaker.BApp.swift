@@ -242,10 +242,10 @@ public class GIFMakerApp: BApp,
         ConfigurableApp, _ConfigurableApp
         , AppDockApp
         , FinalizableApp
+        , PHAssetFinalizableApp
         , PhotoPickerCollectionViewDelegatableApp
         , PhotoPickerViewControllerAppearanceDelegatableApp
         , PreheatableApp
-        , PHAssetUIAlertControllerSynchronizablePresenter
          {
 
     public static let taskType: AppTaskable.Type = _GIFMakerAppTask.self
@@ -321,8 +321,8 @@ public class GIFMakerApp: BApp,
 
             default: results += resultItems.compactMap({ $0.fileURL })
         }
-
-        self.presentUIAlertControllerAndWait(items: results, asyncSignal)
+        
+        showingActionsAndWait(targetResultAssets: results.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: [ PHAssetEditingResultItem(url: $0, resourceType: .photo) ]) }), excludedActions: [.modify], asyncSignal)
 
         return result
     }

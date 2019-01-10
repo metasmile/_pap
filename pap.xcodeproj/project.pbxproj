@@ -135,7 +135,6 @@
 		4F71D1F7AFF1F77D339A92BE /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
 		4F71D1F7C74E00E47D71F392 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71D1F9DD0621A16390B63C /* auto_straighten.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */; };
-		4F71D1FAC399370D6EABFD4F /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D1FAD51908EBF56D4CFF /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA068F8C31967B109A6 /* PhotoCollectionViewCell.swift */; };
 		4F71D202661296A5D3106A2D /* App.Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D5E4E60475576F0B339B /* App.Resources.xcassets */; };
 		4F71D2044E7361777E362500 /* CodeKit.SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F7AE4199DC7B4DD5B6 /* CodeKit.SKProduct.swift */; };
@@ -171,7 +170,6 @@
 		4F71D294C8287DB264B38792 /* ImageIO.Metadata.Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D257A5D28AEAD9408F09 /* ImageIO.Metadata.Dictionary.swift */; };
 		4F71D297B39DB140B876FDC4 /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF7B34D37303C0742610 /* BApp.Macro.AutoSelection.swift */; };
 		4F71D29AFBE30FDCE1EFF7F0 /* FirebaseMLVision.VisionTextDetectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D180BA25AC257F607D0A /* FirebaseMLVision.VisionTextDetectResult.swift */; };
-		4F71D29B3E2ECA3D5B735291 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D2A2929DA9EAD32C1062 /* UITableViewCellDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D909447030FE71C5E223 /* UITableViewCellDescribable.swift */; };
 		4F71D2A698ABE4C3AB6A822D /* CodeKit.UIView.GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8F07DD8E8EEBAD1AC6A /* CodeKit.UIView.GestureRecognizer.swift */; };
 		4F71D2A7FDD76725F4550BC3 /* App.UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D61B03D6710DAEDD6F61 /* App.UICamera.swift */; };
@@ -255,7 +253,6 @@
 		4F71D3D4CDFC8C159C4A1926 /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F105A06D72325B22BA /* HashSet.swift */; };
 		4F71D3D617F95E685002B2B0 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D013F78DEDAA88B8D625 /* Numeric.swift */; };
 		4F71D3EC3F96073509810016 /* pap.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC2FEC46796D85AEB2F /* pap.Log.swift */; };
-		4F71D3F0AD7EC67E02CA1F56 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D3F282943D6D07D4C124 /* UITableViewCellDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D909447030FE71C5E223 /* UITableViewCellDescribable.swift */; };
 		4F71D3F771AB0100993415B2 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7F614D3AE7A1E8A7345 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift */; };
 		4F71D3F87197B5296B94AE5C /* cell_icon_gif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC2C610992C9284BC43E /* cell_icon_gif.png */; };
@@ -317,10 +314,8 @@
 		4F71D4BF9445309DE3367FAC /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
 		4F71D4C12B8B70955C83416A /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
 		4F71D4C3AB38FE69AC5C1EFA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
-		4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D4C5552C4DEC8412DE82 /* BApp.Chargeable.FreeApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8BDD04A3397E7BB7380 /* BApp.Chargeable.FreeApps.swift */; };
 		4F71D4C638F7E6B7CEA7FC63 /* Charge.Objects.Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D430BFAEE78F96648FE9 /* Charge.Objects.Receipt.swift */; };
-		4F71D4C7345005CEC278A047 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D4CB303A5BF09745360B /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71D4CF286CCCA6703DE7E6 /* PhotoPickerViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9C26D6F53F551ACE228 /* PhotoPickerViewController.UICollectionView.swift */; };
 		4F71D4D3CD013EA82315A136 /* CodeKit.String.NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D76E3E10B66CD9C925DA /* CodeKit.String.NSRegularExpression.swift */; };
@@ -348,7 +343,6 @@
 		4F71D503C94497EEAF5F7BE6 /* UITableViewExpandableCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34E9FE70D9143CF80D7 /* UITableViewExpandableCell.UITableView.swift */; };
 		4F71D50AA7A75B0B2F4ED5A7 /* ImageIO.GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D07E7335EBBD574A9B49 /* ImageIO.GIF.swift */; };
 		4F71D5131935EBD88CFE553B /* Converter.Png.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D389D2825C0498C0F7A3 /* Converter.Png.swift */; };
-		4F71D513517E91426230F58D /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D5157CF0C2359FDB3F4F /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173C25DB4575DD9A7EA /* NetworkReachabilityManager.swift */; };
 		4F71D517B46257D55D2CACAB /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D654338A9E7D0FB953B6 /* PhotoCollectionViewCell.xib */; };
 		4F71D51CDF1FF7489D3F01E1 /* Hashtagen.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D209D8ABDB6E914A2C1C /* Hashtagen.BApp.swift */; };
@@ -356,7 +350,6 @@
 		4F71D52049D5B9088EA0F2C5 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8660EAD2D49B5AC5251 /* CustomView.swift */; };
 		4F71D52881DA5BF99B2C9EA8 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
 		4F71D5297227F9C8FDFD9D43 /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
-		4F71D537B97487CA6B7A651D /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		4F71D53EB547B4D5512F4D45 /* Converter.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4DAC28042EF6B5EF31B /* Converter.LivePhoto.swift */; };
 		4F71D53F9AEFF7BF7EEC8011 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2641BA9E027864B3419 /* PHAssets.swift */; };
 		4F71D5400347D0AFCAA9E0DF /* CodeKit.CIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35770081EFDB8DF0DE5 /* CodeKit.CIImage.swift */; };
@@ -597,7 +590,6 @@
 		4F71D9150F7FF18FE45353F4 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD40A5CCF4C55889275 /* CodeKit.AVAsset.swift */; };
 		4F71D915E6B18F1F4AB1E4F4 /* Intents.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D22FF33BD22F2AB27EEA /* Intents.strings */; };
 		4F71D91CB5A830870082FEB4 /* Stabilizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D9FAAE879A83729E9B7B /* Stabilizer.BApp.swift */; };
-		4F71D91E6852E4EF93812B9B /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		4F71D91F046985261E794AFB /* batch.TimerInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FA39CE8C435998C723 /* batch.TimerInterval.swift */; };
 		4F71D920D563280D2E3C339A /* CodeKit.UIFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4350001C8D6C89724A3 /* CodeKit.UIFeedbackGenerator.swift */; };
 		4F71D925DEEFD87D9BB67CD2 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF283855CBC48FCF1FA0 /* PreviewView.swift */; };
@@ -1165,7 +1157,6 @@
 		A0CB0034219C8C64007A5278 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */; };
 		A0CB0035219C8C64007A5278 /* PHAssets.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A6B0D5DA4BAD972098 /* PHAssets.Search.swift */; };
 		A0CB0036219C8C64007A5278 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD91531C2D2ABE752BA6 /* PHAsset.Editable.swift */; };
-		A0CB0037219C8C64007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		A0CB0038219C8C64007A5278 /* AssetIO.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D76295A14A87AD1D229A /* AssetIO.LivePhoto.swift */; };
 		A0CB0039219C8C64007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAAF4A477D12C812D986 /* AssetIO.TimelapsVideoBuilder.swift */; };
 		A0CB003A219C8C64007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
@@ -1229,7 +1220,6 @@
 		A0CB0074219C8C64007A5278 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D82D508CA5972A479EE1 /* CodeKit.Quadrilateral.swift */; };
 		A0CB0075219C8C64007A5278 /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */; };
 		A0CB0076219C8C64007A5278 /* CodeKit.UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */; };
-		A0CB0077219C8C64007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		A0CB0078219C8C64007A5278 /* CodeKit.CMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0621275E54EB1DE76DB /* CodeKit.CMMotionManager.swift */; };
 		A0CB0079219C8C64007A5278 /* CodeKit.UIView.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D70A1C4A5D9CEA48E5B3 /* CodeKit.UIView.Position.swift */; };
 		A0CB007A219C8C64007A5278 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF252999830DC4E0733 /* CodeKit.UIView.Animation.swift */; };
@@ -1529,7 +1519,6 @@
 		A0CB01B8219C9093007A5278 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */; };
 		A0CB01B9219C9093007A5278 /* PHAssets.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A6B0D5DA4BAD972098 /* PHAssets.Search.swift */; };
 		A0CB01BA219C9093007A5278 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD91531C2D2ABE752BA6 /* PHAsset.Editable.swift */; };
-		A0CB01BB219C9093007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		A0CB01BC219C9093007A5278 /* AssetIO.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D76295A14A87AD1D229A /* AssetIO.LivePhoto.swift */; };
 		A0CB01BD219C9093007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAAF4A477D12C812D986 /* AssetIO.TimelapsVideoBuilder.swift */; };
 		A0CB01BE219C9093007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
@@ -1593,7 +1582,6 @@
 		A0CB01F8219C9093007A5278 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D82D508CA5972A479EE1 /* CodeKit.Quadrilateral.swift */; };
 		A0CB01F9219C9093007A5278 /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */; };
 		A0CB01FA219C9093007A5278 /* CodeKit.UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */; };
-		A0CB01FB219C9093007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		A0CB01FC219C9093007A5278 /* CodeKit.CMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0621275E54EB1DE76DB /* CodeKit.CMMotionManager.swift */; };
 		A0CB01FD219C9093007A5278 /* CodeKit.UIView.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D70A1C4A5D9CEA48E5B3 /* CodeKit.UIView.Position.swift */; };
 		A0CB01FE219C9093007A5278 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF252999830DC4E0733 /* CodeKit.UIView.Animation.swift */; };
@@ -1822,7 +1810,6 @@
 		A0CB02F0219DE4F2007A5278 /* PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */; };
 		A0CB02F1219DE4F2007A5278 /* PHAssets.Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2A6B0D5DA4BAD972098 /* PHAssets.Search.swift */; };
 		A0CB02F2219DE4F2007A5278 /* PHAsset.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD91531C2D2ABE752BA6 /* PHAsset.Editable.swift */; };
-		A0CB02F3219DE4F2007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */; };
 		A0CB02F4219DE4F2007A5278 /* AssetIO.LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D76295A14A87AD1D229A /* AssetIO.LivePhoto.swift */; };
 		A0CB02F5219DE4F2007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAAF4A477D12C812D986 /* AssetIO.TimelapsVideoBuilder.swift */; };
 		A0CB02F6219DE4F2007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
@@ -1886,7 +1873,6 @@
 		A0CB0330219DE4F2007A5278 /* CodeKit.Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D82D508CA5972A479EE1 /* CodeKit.Quadrilateral.swift */; };
 		A0CB0331219DE4F2007A5278 /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */; };
 		A0CB0332219DE4F2007A5278 /* CodeKit.UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */; };
-		A0CB0333219DE4F2007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */; };
 		A0CB0334219DE4F2007A5278 /* CodeKit.CMMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0621275E54EB1DE76DB /* CodeKit.CMMotionManager.swift */; };
 		A0CB0335219DE4F2007A5278 /* CodeKit.UIView.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D70A1C4A5D9CEA48E5B3 /* CodeKit.UIView.Position.swift */; };
 		A0CB0336219DE4F2007A5278 /* CodeKit.UIView.Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF252999830DC4E0733 /* CodeKit.UIView.Animation.swift */; };
@@ -2414,7 +2400,6 @@
 		4F71D5AF9138C126E59D8722 /* CodeKit.UIImage.Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIImage.Transform.swift; sourceTree = "<group>"; };
 		4F71D5B3D16631A023BE8643 /* auto_crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_crop.png; sourceTree = "<group>"; };
 		4F71D5BE81F67028D78AA1E7 /* PhotoPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerFooterView.swift; sourceTree = "<group>"; };
-		4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		4F71D5E4E60475576F0B339B /* App.Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.Resources.xcassets; sourceTree = "<group>"; };
 		4F71D5F105A06D72325B22BA /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashSet.swift; sourceTree = "<group>"; };
 		4F71D5F7AE4199DC7B4DD5B6 /* CodeKit.SKProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.SKProduct.swift; sourceTree = "<group>"; };
@@ -2469,7 +2454,6 @@
 		4F71D845069BBA933EAC93F9 /* universal.ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = universal.ExternalDelegate.swift; sourceTree = "<group>"; };
 		4F71D84D40A552DEE27C42AF /* Camera.SApp.Launchable.OptionsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.SApp.Launchable.OptionsKeys.swift; sourceTree = "<group>"; };
 		4F71D84FE3BD30A722F14E0E /* batch.Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Counts.swift; sourceTree = "<group>"; };
-		4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.UIAlertController.SynchronizablePresenter.swift; sourceTree = "<group>"; };
 		4F71D8660EAD2D49B5AC5251 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		4F71D8698EAC3EA68C658ECE /* CodeKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKitTests.swift; sourceTree = "<group>"; };
 		4F71D86FB9BF4682C854417F /* gifmaker_preview_frame_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_1.png; sourceTree = "<group>"; };
@@ -3387,7 +3371,6 @@
 				4F71D2D2E5DB9891869FEF3F /* PHImageManager.swift */,
 				4F71D2A6B0D5DA4BAD972098 /* PHAssets.Search.swift */,
 				4F71DD91531C2D2ABE752BA6 /* PHAsset.Editable.swift */,
-				4F71D863A7A224BCE7C6A71E /* PHAsset.UIAlertController.SynchronizablePresenter.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -3629,7 +3612,6 @@
 				4F71D82D508CA5972A479EE1 /* CodeKit.Quadrilateral.swift */,
 				4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */,
 				4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */,
-				4F71D5D0BC1E53116F3486F3 /* CodeKit.PHPhotoLibrary.swift */,
 				4F71D0621275E54EB1DE76DB /* CodeKit.CMMotionManager.swift */,
 				4F71D70A1C4A5D9CEA48E5B3 /* CodeKit.UIView.Position.swift */,
 				4F71DDF252999830DC4E0733 /* CodeKit.UIView.Animation.swift */,
@@ -5771,7 +5753,6 @@
 				4F71DCC75739B31261AF7AC0 /* PHImageManager.swift in Sources */,
 				4F71D8A80F1AF0AA07ECBB50 /* PHAssets.Search.swift in Sources */,
 				4F71DD7E712D086E9ABF2F93 /* PHAsset.Editable.swift in Sources */,
-				4F71D537B97487CA6B7A651D /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71DB46F583F2DE758E96BD /* AssetIO.LivePhoto.swift in Sources */,
 				4F71D8F5C9D7F033E3E662AD /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				4F71D0C434B1FB27A03E67EC /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -5836,7 +5817,6 @@
 				4F71D081CDB0C2DECD57B5DC /* CodeKit.Quadrilateral.swift in Sources */,
 				4F71DDDD228F36035E878902 /* CodeKit.UIAlertAction.swift in Sources */,
 				4F71D9AACF65430E7D508A91 /* CodeKit.UIApplication.swift in Sources */,
-				4F71D4C4C6C8FF6AE16A4919 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71DD6D9BB876B8EEA1FC5C /* CodeKit.CMMotionManager.swift in Sources */,
 				51956E6B21AB7A9A0067CCEA /* Adjustments.BApp.swift in Sources */,
 				4F71D9B2EB277F0F9380A317 /* CodeKit.UIView.Position.swift in Sources */,
@@ -6010,7 +5990,6 @@
 				4F71D9C392D3D9015D240666 /* PHImageManager.swift in Sources */,
 				4F71DC1FF1C33B2B2E051404 /* PHAssets.Search.swift in Sources */,
 				4F71D125B42D739BCAF7CB45 /* PHAsset.Editable.swift in Sources */,
-				4F71D3F0AD7EC67E02CA1F56 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71D5E6DE484CF17E0D1F48 /* AssetIO.LivePhoto.swift in Sources */,
 				4F71DE1B99B32AE26C4342AC /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				4F71DA6D6FC5F5BD60CDAF5A /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -6078,7 +6057,6 @@
 				4F71D6E4C7BCA11DD39EE598 /* CodeKit.Quadrilateral.swift in Sources */,
 				4F71D9A9C739713A151F7D0C /* CodeKit.UIAlertAction.swift in Sources */,
 				4F71D74A5C3A9C3ECD2046B4 /* CodeKit.UIApplication.swift in Sources */,
-				4F71D91E6852E4EF93812B9B /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71D49D422A74C1F1D0885A /* CodeKit.CMMotionManager.swift in Sources */,
 				4F71D59D0023268EC1C70D04 /* CodeKit.UIView.Position.swift in Sources */,
 				4F71DD2AE7ADDA14640983A6 /* CodeKit.UIView.Animation.swift in Sources */,
@@ -6314,7 +6292,6 @@
 				A0CB01B8219C9093007A5278 /* PHImageManager.swift in Sources */,
 				A0CB01B9219C9093007A5278 /* PHAssets.Search.swift in Sources */,
 				A0CB01BA219C9093007A5278 /* PHAsset.Editable.swift in Sources */,
-				A0CB01BB219C9093007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				A0CB01BC219C9093007A5278 /* AssetIO.LivePhoto.swift in Sources */,
 				A0CB01BD219C9093007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				A0CB01BE219C9093007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -6379,7 +6356,6 @@
 				A0CB01F8219C9093007A5278 /* CodeKit.Quadrilateral.swift in Sources */,
 				A0CB01F9219C9093007A5278 /* CodeKit.UIAlertAction.swift in Sources */,
 				A0CB01FA219C9093007A5278 /* CodeKit.UIApplication.swift in Sources */,
-				A0CB01FB219C9093007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				A0CB01FC219C9093007A5278 /* CodeKit.CMMotionManager.swift in Sources */,
 				A0CB01FD219C9093007A5278 /* CodeKit.UIView.Position.swift in Sources */,
 				51956E6F21AB7A9F0067CCEA /* Adjustments.BApp.swift in Sources */,
@@ -6554,7 +6530,6 @@
 				A0CB02F0219DE4F2007A5278 /* PHImageManager.swift in Sources */,
 				A0CB02F1219DE4F2007A5278 /* PHAssets.Search.swift in Sources */,
 				A0CB02F2219DE4F2007A5278 /* PHAsset.Editable.swift in Sources */,
-				A0CB02F3219DE4F2007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				A0CB02F4219DE4F2007A5278 /* AssetIO.LivePhoto.swift in Sources */,
 				A0CB02F5219DE4F2007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				A0CB02F6219DE4F2007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -6620,7 +6595,6 @@
 				A0CB0330219DE4F2007A5278 /* CodeKit.Quadrilateral.swift in Sources */,
 				A0CB0331219DE4F2007A5278 /* CodeKit.UIAlertAction.swift in Sources */,
 				A0CB0332219DE4F2007A5278 /* CodeKit.UIApplication.swift in Sources */,
-				A0CB0333219DE4F2007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				A0CB0334219DE4F2007A5278 /* CodeKit.CMMotionManager.swift in Sources */,
 				A0CB0335219DE4F2007A5278 /* CodeKit.UIView.Position.swift in Sources */,
 				A0CB0336219DE4F2007A5278 /* CodeKit.UIView.Animation.swift in Sources */,
@@ -6860,7 +6834,6 @@
 				4F71DD589BBAD602407CB761 /* PHImageManager.swift in Sources */,
 				4F71DDEE9E506F080A0A08EB /* PHAssets.Search.swift in Sources */,
 				4F71DB4662C6B5F4D8BAC01A /* PHAsset.Editable.swift in Sources */,
-				4F71D1FAC399370D6EABFD4F /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71D901C066388DA402CE4D /* AssetIO.LivePhoto.swift in Sources */,
 				4F71D37282B0B0247027923D /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				4F71DA2DA799EC68A25BE0EB /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -6925,7 +6898,6 @@
 				4F71D42CC5FE9F2B0244F3C7 /* CodeKit.Quadrilateral.swift in Sources */,
 				4F71D8BD04B8CE123505E54C /* CodeKit.UIAlertAction.swift in Sources */,
 				4F71D4E8BEB5DA0147B0F549 /* CodeKit.UIApplication.swift in Sources */,
-				4F71D4C7345005CEC278A047 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71D037FAA52655624F429E /* CodeKit.CMMotionManager.swift in Sources */,
 				51956E6D21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */,
 				4F71DBED7C6830A0F4B91318 /* CodeKit.UIView.Position.swift in Sources */,
@@ -7171,7 +7143,6 @@
 				A0CB0034219C8C64007A5278 /* PHImageManager.swift in Sources */,
 				A0CB0035219C8C64007A5278 /* PHAssets.Search.swift in Sources */,
 				A0CB0036219C8C64007A5278 /* PHAsset.Editable.swift in Sources */,
-				A0CB0037219C8C64007A5278 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				A0CB0038219C8C64007A5278 /* AssetIO.LivePhoto.swift in Sources */,
 				A0CB0039219C8C64007A5278 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				A0CB003A219C8C64007A5278 /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -7236,7 +7207,6 @@
 				A0CB0074219C8C64007A5278 /* CodeKit.Quadrilateral.swift in Sources */,
 				A0CB0075219C8C64007A5278 /* CodeKit.UIAlertAction.swift in Sources */,
 				A0CB0076219C8C64007A5278 /* CodeKit.UIApplication.swift in Sources */,
-				A0CB0077219C8C64007A5278 /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				A0CB0078219C8C64007A5278 /* CodeKit.CMMotionManager.swift in Sources */,
 				51956E6E21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */,
 				A0CB0079219C8C64007A5278 /* CodeKit.UIView.Position.swift in Sources */,
@@ -7406,7 +7376,6 @@
 				4F71D58651D27B5A0E938B12 /* PHImageManager.swift in Sources */,
 				4F71D5E1B7F46A87C4067F90 /* PHAssets.Search.swift in Sources */,
 				4F71D5429485C3A80C1D7DF1 /* PHAsset.Editable.swift in Sources */,
-				4F71D29B3E2ECA3D5B735291 /* PHAsset.UIAlertController.SynchronizablePresenter.swift in Sources */,
 				4F71DC7D1EC64CBAA861DF5D /* AssetIO.LivePhoto.swift in Sources */,
 				4F71DAF096A3B1D474C29A85 /* AssetIO.TimelapsVideoBuilder.swift in Sources */,
 				4F71D5A5CE800AA22DB411F7 /* AssetIO.LivePhotoResource.Image.swift in Sources */,
@@ -7470,7 +7439,6 @@
 				4F71D7F82536D30AE6B47B1A /* CodeKit.Quadrilateral.swift in Sources */,
 				4F71DC03D8B16A85443BC399 /* CodeKit.UIAlertAction.swift in Sources */,
 				4F71DB3371F29BFA14EB30AD /* CodeKit.UIApplication.swift in Sources */,
-				4F71D513517E91426230F58D /* CodeKit.PHPhotoLibrary.swift in Sources */,
 				4F71DD9C42DBDC682F8AEB9F /* CodeKit.CMMotionManager.swift in Sources */,
 				4F71D1B44B43B36D5C659260 /* CodeKit.UIView.Position.swift in Sources */,
 				4F71D9A739B4E2B1442E6DBB /* CodeKit.UIView.Animation.swift in Sources */,
