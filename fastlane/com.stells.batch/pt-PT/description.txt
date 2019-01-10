@@ -1,0 +1,78 @@
+O PAPS é a caixa de ferramentas de foto, vídeo e câmera de finalidade infinita com uma edição de mídia em lote rápida e em larga escala. Basta escolher uma ferramenta e, em seguida, selecione todas as fotos que você precisa e, em seguida, toque no botão. Isso é tudo.
+
+Com o PAPS, você pode fazer tudo o que precisa para todas as suas fotos com apenas um toque.
+
+
+A lista de ferramentas -
+
+
+Câmera
+A câmera interna padrão que suporta efeitos de profundidade, captura RAW e metadados de GPS que economizam controle para sua privacidade.
+
+
+Bot de Seleção Automática (Sistema ASB)
+O ASB é um mecanismo de assistente multiuso para escolher os itens certos no contexto atual de cada ferramenta.
+
+
+inventor
+Extrair todas as informações, como números de telefone, endereços, datas, URLs ou até código de voo e as informações de preços das suas fotos ou capturas de tela, e depois fazer as coisas certas. Você também pode traduzir ou salvar todos como texto bruto.
+Muitas ações serão atualizadas!
+
+
+Conversor
+O Conversor permite que você converta todos os formatos de mídia, como Vídeos, mp4 Video Live Photos, GIFs ou Burst Photos, um para o outro.
+
+
+Limpador
+O Cleaner permite que você localize e exclua vários tipos de fotos incorretas se elas corresponderem a imagens duplicadas e semelhantes, face close-up, velocidade do obturador muito lenta, imagens da tela de bloqueio ou vídeos salvos pelo Instagram, por exemplo. Mais ações diferentes seriam adicionadas!
+
+
+Framer
+Redimensione, recorte e preencha com um fundo desfocado para caber suas fotos (até mesmo vídeos) pelos vários tamanhos do Instagram, Youtube ou o que você precisa.
+
+
+Criador de GIF
+GIF Maker permite fácil e rapidamente fazer imagens GIF de fotos ou fotos ao vivo com várias opções! Além disso, então você pode abrir o aplicativo conversor para converter em tudo, como fotos ao vivo ou vídeos.
+
+
+
+Fantasma EXIF
+O EXIF Ghost permite remover todos os tipos de dados contendo suas fotos, incluindo informações privadas.
+
+• Suporte de limpeza de metadados seletivos para todas as propriedades de GPS, EXIF, TIFF.
+
+
+Memo Cam
+Ferramenta de captura de texto e informações alimentada por AI, o MemoCam permite detectar e extrair com precisão todas as informações, como números de telefone, moeda, códigos de barras, endereços, datas ou URLs próximos à sua câmera ou fotos já salvas em Fotos.
+
+
+Ajustes
+Uma ferramenta de edição de fotos altamente profissional para editar habilmente para cada propriedade em detalhes, por exemplo, intensidade de exposição, raio de vinheta ou muito mais.
+
+
+Rotação
+Esta ferramenta de transformação de imagens em lote simples, mas em grande escala, permite girar e girar rapidamente muitos arquivos de mídia, incluindo Fotos e vídeos ao vivo. A ferramenta simples não tem limitação ao número de fotos para editá-las.
+
+• Capacidade de processamento testada: mínimo de 2000 + fotos ao mesmo tempo.
+• Otimizado para processamento multi-core. Depende dos modelos do iDevice.
+
+
+Editor auto
+O Auto Editor permite que você edite automaticamente se suas fotos são necessárias para corrigir.
+
+
+Hashtag
+Encontrar e coletar hashtags de suas fotos selecionadas.
+
+
+Filtros
+Aplique filtros de alta qualidade nas suas fotos que você deseja. Esta ferramenta de processamento em lote não tem limite para o número de fotos para aplicar filtros.
+
+• capacidade de processamento testado: 2000 + uma fotos de uma só vez no mínimo.
+• Otimizado para processamento multi-core. Depende do tamanho da imagem e dos modelos do iDevice.
+
+
+PDFMaker
+Para criar um documento PDF a partir de várias imagens com várias opções de página.
+
+• Tamanho da página (por exemplo, A4 ou US Legal), margem, escala e suporte ao modo de layout

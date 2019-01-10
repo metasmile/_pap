@@ -1,0 +1,2 @@
+++ Ein neues Werkzeug - Anpassungen 1.0: Ein äußerst professionelles Fotobearbeitungswerkzeug, mit dem Sie für jede Eigenschaft eine detaillierte Bearbeitung vornehmen können, z. B. Belichtungsintensität, Vignettenradius oder vieles mehr.
++ Viele wesentliche Leistungsverbesserungen für Bildvorprozessoren und die Miniaturvorschau.

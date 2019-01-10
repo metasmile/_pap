@@ -1,0 +1,2 @@
++ HashTag 1.0 - Tìm kiếm và thu thập hashtag từ ảnh của bạn.
++ Camera 1.2 - Định dạng RAW, hiệu ứng độ sâu, kiểm soát siêu dữ liệu GPS.

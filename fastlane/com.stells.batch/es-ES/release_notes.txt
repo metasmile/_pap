@@ -1,0 +1,2 @@
+++ Una nueva herramienta - Ajustes 1.0: una herramienta de edición de fotos altamente profesional para editar de forma experta para cada propiedad en detalle, por ejemplo, intensidad de exposición, radio de viñeta o muchos más.
++ Una gran cantidad de mejoras de rendimiento esenciales para los preprocesadores de imágenes y la vista previa en miniatura.

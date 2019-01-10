@@ -258,6 +258,8 @@
 "Choose An Export Option For %d Items" = "Velg et eksporteringsalternativ for %d elementer";
 /* Generated from genl10n: Finder.BApp.swift */
 "Choose An Sub Action." = "Velg en underhandling.";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Choose an export option for %@" = "Velg et eksportalternativ for %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Velg noen bilder du vil finne tagger.";
 /* Generated from genl10n: RawEditor.swift */

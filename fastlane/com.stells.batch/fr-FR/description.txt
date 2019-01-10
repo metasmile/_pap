@@ -1,0 +1,74 @@
+PAPS est la boîte à outils infinie de photos, vidéos et appareils photo offrant une édition rapide et à grande échelle de supports par lots. Il suffit de choisir un outil, puis sélectionnez toutes les photos dont vous avez besoin, puis appuyez sur le bouton. C'est tout.
+
+Avec PAPS, vous pouvez faire tout ce dont vous avez besoin pour toutes vos photos en un seul clic.
+
+
+La liste des outils -
+
+
+Caméra
+L'appareil photo intégré standard qui prend en charge l'effet de profondeur, la capture RAW et le contrôle de sauvegarde des métadonnées GPS pour votre confidentialité.
+
+
+Sélection automatique (système ASB)
+ASB est un moteur d'assistance polyvalent permettant de choisir les bons éléments dans le contexte actuel pour chaque outil.
+
+
+chercheur
+Extraire toutes les informations telles que les numéros de téléphone, adresses, dates, URL ou même les codes de vol et les informations de prix de vos photos ou captures d'écran, puis effectuez les actions appropriées. Vous pouvez également les traduire ou les enregistrer sous forme de texte brut.
+De nombreuses actions vont être mises à jour!
+
+
+Convertisseur
+Converter vous permet de convertir tous les formats de média tels que les vidéos, les photos mp4 vidéo en direct, les GIF ou les photos en rafale.
+
+
+Nettoyeur
+Cleaner vous permet de rechercher et de supprimer divers types de photos incorrectes si elles correspondent à des images dupliquées et similaires, au gros plan, à une vitesse d'obturation trop lente, à des captures d'écran verrouillé ou à des vidéos enregistrées par Instagram, par exemple. Plus d'actions diverses seraient ajoutées!
+
+
+Encadreur
+Redimensionnez, recadrez et remplissez avec un arrière-plan flou pour adapter vos photos (même également vos vidéos) aux différentes tailles d’Instagram, Youtube ou ce dont vous aviez besoin.
+
+
+GIF Maker
+GIF Maker permet de créer facilement et rapidement des images GIF à partir de photos ou de photos en direct avec diverses options! De plus, vous pouvez ouvrir l’application de conversion pour convertir tout ce que vous voulez, par exemple des photos en direct ou des vidéos.
+
+
+Fantôme EXIF
+EXIF Ghost vous permet de supprimer toutes sortes de données contenant vos photos, y compris des informations privées.
+
+• Prise en charge de l’effacement sélectif des métadonnées pour toutes les propriétés GPS, EXIF, TIFF.
+
+
+Memo Cam
+MemoCam est un outil de saisie de texte et d’informations basé sur l’intelligence artificielle qui permet de détecter avec précision, puis d’extraire / enregistrer toutes les informations telles que les numéros de téléphone, les devises, les codes à barres, les adresses, les dates ou les URL proches de votre appareil photo ou via des images déjà enregistrées dans Photos.
+
+
+Les ajustements
+Un outil de retouche photo hautement professionnel qui permet d’éditer en détail chaque propriété, par exemple l’intensité de l’exposition, le rayon de la vignette, etc.
+
+
+Rotation
+Cet outil de transformation d'images par lots, simple mais à grande échelle, vous permet de faire pivoter et de retourner rapidement de nombreux fichiers multimédias, notamment des photos et des vidéos en direct. L'outil simple n'a pas de limite au nombre de photos pour les éditer.
+
+• Capacité de traitement testée: minimum 2000 + une photo à la fois.
+• Optimisé pour le traitement multicœur. Cela dépend des modèles d'iDevice.
+
+
+Éditeur automatique
+Auto Editor vous permet d'éditer automatiquement si vos photos sont nécessaires pour corriger.
+
+
+Hashtag
+Rechercher et collecter des hashtags à partir des photos que vous avez sélectionnées.
+
+
+Les filtres
+Appliquez des filtres de haute qualité sur toutes vos photos. Cet outil de traitement par lots n’a pas de limite au nombre de photos à appliquer aux filtres.
+
+
+PDFMaker
+Pour créer un document PDF à partir de plusieurs images avec différentes options de page.
+
+• Prise en charge du format de page (par exemple, A4 ou US Legal), des marges, des échelles et des modes de présentation

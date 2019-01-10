@@ -1,2 +1,2 @@
-+ Framer 1.2: Now enabled to re-frame even videos!
-+ Filter, Auto Editor, Framer: Super fast and seamless preview support.
+++ A new tool - Adjustments 1.0: A highly professional photo editing tool to edit expertly for each property in detail, for example, exposure intensity, vignette radius or many more.
++ A lot of essential performance improvements for image pre-processors and thumbnail preview.

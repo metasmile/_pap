@@ -1,0 +1,2 @@
++ HashTag 1.0 - Encontrando e coletando hashtags de suas fotos.
++ Câmera 1.2 - formato RAW, efeito de profundidade, controle de metadados do GPS.

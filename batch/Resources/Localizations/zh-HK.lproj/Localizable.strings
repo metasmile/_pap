@@ -204,6 +204,8 @@
 "Choose An Export Option For %d Items" = "為%d項目選擇導出選項";
 /* Generated from genl10n: Finder.BApp.swift#330 */
 "Choose An Sub Action." = "選擇一個子動作。";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Choose an export option for %@" = "為%@選擇導出選項";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "選擇一些您要查找標籤的照片。";
 /* Generated from genl10n: RawEditor.swift */

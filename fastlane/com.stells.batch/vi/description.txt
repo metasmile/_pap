@@ -1,0 +1,86 @@
+PAPS là hộp công cụ ảnh, video và máy ảnh có mục đích vô hạn với khả năng chỉnh sửa phương tiện hàng loạt nhanh, quy mô lớn. Chỉ cần chọn một công cụ và sau đó chọn tất cả các ảnh bạn cần, sau đó nhấn nút. Đó là tất cả.
+
+Với PAPS, bạn có thể làm bất cứ điều gì bạn cần cho tất cả các bức ảnh của mình chỉ bằng một cú chạm.
+
+
+Danh sách các công cụ -
+
+
+Máy ảnh
+Máy ảnh tích hợp tiêu chuẩn hỗ trợ Hiệu ứng sâu, chụp RAW và kiểm soát tiết kiệm siêu dữ liệu GPS để bảo mật thông tin cá nhân của bạn.
+
+
+Bot chọn tự động (Hệ thống ASB)
+ASB là một công cụ trợ lý đa năng để chọn các mục phù hợp trong bối cảnh hiện tại cho mỗi công cụ.
+
+
+người tìm ra
+Trích xuất mọi thông tin như số điện thoại, địa chỉ, ngày, URL hoặc thậm chí mã chuyến bay và thông tin về giá từ ảnh hoặc ảnh chụp màn hình của bạn, sau đó thực hiện đúng. Bạn cũng có thể dịch hoặc lưu tất cả chúng dưới dạng văn bản thô.
+Nhiều hành động sẽ được cập nhật!
+
+
+Bộ chuyển đổi
+Trình chuyển đổi cho phép bạn chuyển đổi mọi định dạng phương tiện như Video, mp4 Video Live Photos, GIF hoặc Burst Photos sang nhau.
+
+
+Sạch hơn
+Cleaner cho phép bạn tìm và xóa nhiều loại ảnh không chính xác nếu chúng trùng khớp với các hình ảnh trùng lặp và tương tự, chụp cận cảnh, tốc độ màn trập quá chậm, ảnh chụp màn hình khóa hoặc video được lưu bởi Instagram chẳng hạn. Nhiều hành động khác nhau sẽ được thêm vào!
+
+
+Framer
+Thay đổi kích thước, cắt và tô với nền mờ để phù hợp với ảnh của bạn (thậm chí cả video) theo các kích cỡ khác nhau của Instagram, Youtube hoặc những gì bạn cần.
+
+
+Trình tạo ảnh GIF
+GIF Maker cho phép dễ dàng và nhanh chóng tạo ảnh GIF từ Ảnh hoặc Ảnh trực tiếp với nhiều tùy chọn khác nhau! Hơn nữa, sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.
+
+• Nhiều hình ảnh, hình ảnh bùng nổ, hình ảnh trực tiếp
+• Chất lượng tùy chỉnh và hỗ trợ tỷ lệ cắt xén
+• Độ trễ khung, hướng (Chuyển tiếp, đảo ngược, tua lại), điều khiển lặp lại
+
+
+Ma quỷ EXIF
+EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu có chứa ảnh của bạn bao gồm cả thông tin cá nhân.
+
+• Hỗ trợ xóa siêu dữ liệu chọn lọc cho tất cả các thuộc tính của GPS, EXIF, TIFF.
+
+
+Cam ghi nhớ
+Công cụ camera lấy thông tin và văn bản được hỗ trợ bởi AI, MemCam cho phép phát hiện chính xác và sau đó trích xuất / lưu mọi thông tin như số điện thoại, tiền tệ, mã vạch, địa chỉ, ngày hoặc URL gần máy ảnh của bạn hoặc qua ảnh đã được lưu trong Ảnh.
+
+
+Điều chỉnh
+Một công cụ chỉnh sửa ảnh rất chuyên nghiệp để chỉnh sửa thành thạo từng chi tiết, ví dụ như cường độ phơi sáng, bán kính họa tiết hoặc nhiều thứ khác.
+
+
+Vòng xoay
+Công cụ chuyển đổi hình ảnh hàng loạt đơn giản nhưng quy mô lớn này cho phép bạn nhanh chóng xoay và lật nhiều tệp phương tiện bao gồm Ảnh trực tiếp và Video. Công cụ đơn giản không giới hạn số lượng ảnh để chỉnh sửa chúng.
+
+• Khả năng xử lý được kiểm tra: tối thiểu 2000 + một ảnh.
+• Tối ưu hóa cho xử lý đa lõi. Nó phụ thuộc vào các mô hình iDevice.
+
+
+Trình chỉnh sửa tự động
+Trình chỉnh sửa tự động cho phép bạn chỉnh sửa tự động nếu cần chỉnh sửa ảnh.
+
+• Tự động tăng cường
+• Tự động làm thẳng
+• Tự động cắt
+• Tự động loại bỏ mắt đỏ
+
+
+Dấu thăng
+Tìm kiếm và thu thập hashtag từ ảnh bạn đã chọn.
+
+
+Bộ lọc
+Áp dụng các bộ lọc chất lượng cao cho tất cả các ảnh bạn muốn. Công cụ xử lý hàng loạt này không giới hạn số lượng ảnh để áp dụng các bộ lọc.
+
+• Khả năng xử lý được kiểm tra: 2000 + một bức ảnh cùng một lúc ở mức tối thiểu.
+• Tối ưu hóa cho xử lý đa lõi. Nó phụ thuộc vào kích thước hình ảnh và mô hình iDevice.
+
+
+Trình tạo PDF
+Để tạo tài liệu PDF từ nhiều hình ảnh với các tùy chọn trang khác nhau.
+
+• Kích thước trang (ví dụ: A4 hoặc Pháp lý Hoa Kỳ), Hỗ trợ lề, tỷ lệ và bố cục

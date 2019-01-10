@@ -1,0 +1,77 @@
+PAPS ist die Foto-, Video- und Kamera-Toolbox für unendlich viele Zwecke mit einer schnellen, umfangreichen Stapelbearbeitung von Medien. Wählen Sie einfach ein Werkzeug und dann alle Fotos aus, die Sie benötigen, und tippen Sie anschließend auf die Schaltfläche. Das ist alles.
+
+Mit PAPS können Sie mit nur einem Fingertipp alles tun, was Sie für alle Ihre Fotos benötigen.
+
+
+Die Liste der Werkzeuge -
+
+
+Kamera
+Die standardmäßig integrierte Kamera, die Tiefenschärfe, RAW-Erfassung und GPS-Metadaten-Steuerung für Ihre Privatsphäre unterstützt.
+
+
+Auto Selection Bot (ASB-System)
+ASB ist eine Mehrzweck-Assistenten-Engine zur Auswahl der richtigen Elemente im aktuellen Kontext für jedes Werkzeug.
+
+
+Finder
+Extrahieren Sie alle Informationen wie Telefonnummern, Adressen, Datumsangaben, URLs oder sogar den Flugcode und die Preisinformationen aus Ihren Fotos oder Screenshots, und machen Sie dann die richtigen Schritte. Sie können sie auch als unformatierten Text übersetzen oder speichern.
+Viele Aktionen werden aktualisiert!
+
+
+Konverter
+Mit dem Konverter können Sie alle Medienformate wie Videos, mp4-Video-Live-Fotos, GIFs oder Serienbilder ineinander konvertieren.
+
+
+Reiniger
+Mit dem Cleaner können Sie verschiedene Arten falscher Fotos finden und löschen, wenn sie mit duplizierten und ähnlichen Bildern, Nahaufnahmen, zu langen Verschlusszeiten, Standbildaufnahmen oder Videos, die beispielsweise von Instagram gespeichert werden, übereinstimmen. Weitere verschiedene Aktionen würden hinzugefügt!
+
+
+Framer
+Ändern Sie die Größe, beschneiden Sie und füllen Sie den Hintergrund mit einem unscharfen Hintergrund aus, um Ihre Fotos (auch Videos) anhand der verschiedenen Größen von Instagram, Youtube oder was Sie benötigen, anzupassen.
+
+
+GIF-Hersteller
+Mit GIF Maker können GIF-Bilder einfach und schnell aus Fotos oder Live-Fotos mit verschiedenen Optionen erstellt werden! Außerdem können Sie die Konverter-App öffnen, um alles wie Live-Fotos oder Videos zu konvertieren.
+
+
+EXIF Ghost
+Mit EXIF Ghost können Sie alle Arten von Daten entfernen, die Ihre Fotos enthalten, einschließlich privater Informationen.
+
+• Unterstützung für selektives Löschen von Metadaten für alle Eigenschaften von GPS, EXIF und TIFF.
+
+
+Memo Cam
+MemoCam ist ein von AI gesteuertes Werkzeug für Text- und Informationsaufnahmen, mit dem alle Informationen wie Telefonnummern, Währungen, Barcodes, Adressen, Datumsangaben oder URLs in der Nähe Ihrer Kamera oder über Bilder, die bereits in Fotos gespeichert sind, genau erkannt und anschließend extrahiert / gespeichert werden können.
+
+
+Anpassungen
+Ein hochprofessionelles Fotobearbeitungswerkzeug, mit dem Sie jede Eigenschaft im Detail bearbeiten können, z. B. Belichtungsintensität, Vignettenradius oder viele mehr.
+
+
+Drehung
+Mit diesem einfachen, aber umfangreichen Batch-Image-Transformationstool können Sie viele Mediendateien, einschließlich Live-Fotos und Videos, schnell drehen und spiegeln. Das einfache Werkzeug hat keine Begrenzung auf die Anzahl der Fotos, die zum Bearbeiten verwendet werden sollen.
+
+• Geprüfte Verarbeitungskapazität: mindestens 2000 Fotos gleichzeitig.
+• Optimiert für die Multi-Core-Verarbeitung. Das hängt von den iDevice-Modellen ab.
+
+
+Auto Editor
+Mit dem automatischen Editor können Sie automatisch bearbeiten, wenn Ihre Fotos korrigiert werden müssen.
+
+
+Hashtag
+Suchen und Sammeln von Hashtags aus den von Ihnen ausgewählten Fotos.
+
+
+Filter
+Wenden Sie hochwertige Filter auf alle gewünschten Fotos an. Dieses Stapelverarbeitungswerkzeug hat keine Begrenzung für die Anzahl der Fotos, um Filter anzuwenden.
+
+• Geprüfte Verarbeitungskapazität: 2000 + ein Foto auf einmal bei mininum.
+• Optimiert für die Multi-Core-Verarbeitung. Dies hängt von der Bildgröße und den iDevice-Modellen ab.
+
+
+PDFMaker
+PDF-Dokument aus mehreren Bildern mit verschiedenen Seitenoptionen erstellen.
+
+• Seitengröße (z. B. A4 oder US Legal), Unterstützung für Rand, Skalierung und Layoutmodus
