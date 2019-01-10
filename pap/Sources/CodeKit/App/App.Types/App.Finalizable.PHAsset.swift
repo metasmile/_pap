@@ -249,6 +249,17 @@ extension PHAssetFinalizableApp {
         if result.editingResultItems?.count == 1, let editingResultItem = result.editingResultItems?.first {
             return editingResultItem.url as NSURL
         }
+        else if result.editingResultItems?.count == 2, let photo = result.editingResultItems?.first(where: { $0.resourceType == .photo }), let video = result.editingResultItems?.first(where: { $0.resourceType == .pairedVideo }) {
+            var result: PHLivePhoto?
+            let async = AsyncSignal()
+            async.begin()
+            LivePhotoWriter().createLivePhoto(imageURL: photo.url, withPairedVideo: video.url) { (livePhoto) in
+                result = livePhoto
+                async.end()
+            }
+            async.waitUntilEnd()
+            return result
+        }
         else {
             return nil
         }

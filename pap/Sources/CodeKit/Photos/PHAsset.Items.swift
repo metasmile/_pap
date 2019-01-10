@@ -19,6 +19,15 @@ public protocol PHAssetParamable: AppTaskParamable {
 public struct PHAssetEditingResultItem {
     var url: URL
     var resourceType: PHAssetResourceType
+    
+    init(url: URL, resourceType: PHAssetResourceType) {
+        self.url = url
+        self.resourceType = resourceType
+    }
+    
+    init(_ url: URL, _ resourceType: PHAssetResourceType) {
+        self.init(url: url, resourceType: resourceType)
+    }
 }
 
 public protocol PHAssetResultable: AppTaskResultable {

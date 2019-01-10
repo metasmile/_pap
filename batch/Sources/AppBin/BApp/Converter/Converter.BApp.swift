@@ -121,19 +121,19 @@ public class ConverterApp: NSObject, PropertyWatchable,
     }
 
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        let resultItems:[Any]? = result
+        let resultItems:[ConverterAppResult]? = result
                 .filter { respondable in respondable.info.state == .completed }
                 .compactMap{ $0.result as? ConverterAppResult }
                 .sorted { (result1: ConverterAppResult?, result2: ConverterAppResult?) -> Bool in
                     (result1?.orderedIndex ?? 0) < (result2?.orderedIndex ?? 0)
                 }
-                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
+//                .compactMap { ($0.result as? ConverterVoidReturnType) == ConverterVoidReturnValue ? nil : $0.result }
 
-        guard let items = resultItems as? [URL], items.count > 0 else {
+        guard let items = resultItems, items.count > 0 else {
             return result
         }
-
-        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: [ PHAssetEditingResultItem(url: $0, resourceType: .photo) ]) }), excludedActions: [.modify], asyncSignal)
+        
+        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
 
         return result
     }
@@ -245,7 +245,7 @@ extension ConverterApp{
 
 
 private struct ConverterAppResult: AppTaskResultable {
-    var result:Any?
+    var result:[PHAssetEditingResultItem]?
     var orderedIndex: Int?
 }
 

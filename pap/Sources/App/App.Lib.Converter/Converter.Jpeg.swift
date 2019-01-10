@@ -38,9 +38,9 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
     
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
 
-        var result:Any?
+        var resultURL: URL?
 
         let quality:CGFloat = options?.compressionQuality ?? 0.7
 
@@ -57,7 +57,7 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
                         , let imageData = image.jpegData(compressionQuality: quality){
                             try? FileManager.default.removeItem(at: fileURL)
                             try imageData.write(to: fileURL)
-                            result = fileURL
+                            resultURL = fileURL
                         }
 
                     }catch _ {}
@@ -70,7 +70,9 @@ class JpgConverter_ScreenshotPng: OptionableConverterBase<JpgConverterOption>, J
 
         source.appendRequestId(PHAssetRequestID(forImage: requestId))
         async.waitUntilEnd()
-        return result
+        
+        guard let url = resultURL else { return nil }
+        return [PHAssetEditingResultItem(url, .photo)]
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {

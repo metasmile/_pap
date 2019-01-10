@@ -89,7 +89,7 @@ extension GifConverter{
 class GifConverter_Jpeg: OptionableConverterBase<GifConverterDefaultOption>, GifConverter {
     static var direction: ConvertingDirection { return ConvertingDirection(from:.jpeg, to:.gif) }
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         return nil
     }
 
@@ -103,14 +103,14 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         if let video = source.asset.asAVAsset, let option = options {
             return convert(video: video, option: option, cancellation: cancellation, progressHandler: progressHandler, async)
         }
         return nil
     }
     
-    func convert(video: AVAsset, option: GifConverterDefaultOption, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(video: AVAsset, option: GifConverterDefaultOption, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         guard let videoTrack = video.tracks(withMediaType: .video).first else { return nil }
         
         async.begin()
@@ -148,7 +148,9 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         
         async.waitUntilEnd()
         
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay, cancellation: cancellation, progressHandler: progressHandler)
+        guard let url = UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: imageFiles), loopCount: gifOptions.loopCount, frameDelay: gifOptions.frameDelay, cancellation: cancellation, progressHandler: progressHandler) else { return nil }
+        
+        return [PHAssetEditingResultItem(url, .photo)]
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {
@@ -161,10 +163,10 @@ class GifConverter_LivePhoto: OptionableConverterBase<GifConverterDefaultOption>
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         let extractMovieTask = AsyncSignal()
-        if let videoURL = MovConverter_LivePhoto().convert(source: source, cancellation: cancellation, progressHandler: progressHandler, extractMovieTask) as? URL, let options = options {
-            return GifConverter_Mov().convert(video: AVAsset(url: videoURL), option: options, cancellation: cancellation, progressHandler: progressHandler,async)
+        if let videoResource = MovConverter_LivePhoto().convert(source: source, cancellation: cancellation, progressHandler: progressHandler, extractMovieTask)?.first, let options = options {
+            return GifConverter_Mov().convert(video: AVAsset(url: videoResource.url), option: options, cancellation: cancellation, progressHandler: progressHandler,async)
         }
         return nil
     }
@@ -179,7 +181,7 @@ class GifConverter_Timelapse: OptionableConverterBase<GifConverterDefaultOption>
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         let converter = GifConverter_Mov()
         converter.options = options
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
@@ -195,13 +197,16 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
 
     static let supportedPresets = ConverterQualityPreset.originalExcluded
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         guard let gifOptions = options else { return nil }
         
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
-        guard let urls = extractBurstImageURLs(source: source, param: param, async) else { return nil }
-        return UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, cancellation: cancellation, progressHandler: progressHandler)
+        guard
+            let urls = extractBurstImageURLs(source: source, param: param, async),
+            let url = UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, cancellation: cancellation, progressHandler: progressHandler)
+        else { return nil }
+        return [PHAssetEditingResultItem(url, .photo)]
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {

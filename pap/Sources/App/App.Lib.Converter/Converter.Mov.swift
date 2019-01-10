@@ -60,7 +60,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
 
     static let supportedPresets = ConverterQualityPreset.all
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
 
         var urls:[(URL, Double)]?
 
@@ -71,8 +71,8 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         }
         async.waitUntilEnd()
 
-        if let urls = urls {
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async)
+        if let urls = urls, let url = self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async) {
+            return [PHAssetEditingResultItem(url, .video)]
         }
 
         return nil
@@ -88,10 +88,10 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
 
     static let supportedPresets = ConverterQualityPreset.all
     
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
 
-        if let urls = self.extractBurstImageURLs(source: source, async){
-            return self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async)
+        if let urls = self.extractBurstImageURLs(source: source, async), let url = self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async) {
+            return [PHAssetEditingResultItem(url, .video)]
         }
 
         return nil
@@ -107,7 +107,7 @@ struct MovConverter_LivePhoto: MovConverter {
 
     static let supportedPresets = ConverterQualityPreset.originalOnly
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
 
         var exportedlivePhoto: PHLivePhoto?
 
@@ -159,8 +159,10 @@ struct MovConverter_LivePhoto: MovConverter {
         }
         source.appendRequestId(PHAssetRequestID(forResourceData: req_data))
         async.waitUntilEnd()
+        
+        guard let url = resultURL else { return nil }
 
-        return resultURL
+        return [PHAssetEditingResultItem(url, .video)]
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {

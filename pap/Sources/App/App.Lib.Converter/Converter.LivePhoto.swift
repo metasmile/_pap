@@ -20,23 +20,29 @@ struct LivePhotoConverter_Gif: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
 
         if let urls = extractImageURLsFromGIFData(asset:source.asset, async), urls.count > 0{
 
             let totalDuration = urls.map { $0.frameDelay }.reduce(0, +)
             let defaultFps = Int32(Double(urls.count-1)/totalDuration)
-
-            var succeed = false
+            
+            var result: [PHAssetEditingResultItem]?
+            
             async.begin()
-            LivePhotoWriter().saveLivePhotoFromImages(paths: urls.map { $0.url.path }, indexOfTitle: 0, progress: progressHandler, fps: defaultFps, saved:  { success, s, error in
-                succeed = success
+            LivePhotoWriter().writeLivePhotoFromImages(photoPaths: urls.map { $0.url.path }, indexOfTitle: 0, progress: progressHandler, fps: defaultFps) { (success, photoURL, videoURL, error) in
+                if let photoURL = photoURL, let videoURL = videoURL {
+                    result = [
+                        PHAssetEditingResultItem(photoURL, .photo),
+                        PHAssetEditingResultItem(videoURL, .pairedVideo),
+                    ]
+                }
                 async.end()
-            }, andFetched: nil)
+            }
 
             async.waitUntilEnd()
 
-            return succeed ? ConverterVoidReturnValue : nil
+            return result
         }
 
         return nil
@@ -55,27 +61,30 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         let targetSize = AVMakeRect(aspectRatio: source.asset.pixelSize, insideRect: CGRect(origin: .zero, size: LivePhotoWritableMaximumStandardSize)).size
         //TODO: quality
         let param = ConverterBurstImageExtractParam(targetSize: targetSize, imageQuality: 0.8, contentMode: PHImageContentMode.aspectFit)
         
         if let urls = self.extractBurstImageURLs(source: source, param: param, async){
             if let videoURL = buildVideo(urls: urls, outputSize: targetSize, progressHandler: progressHandler, async) {
-
+                
+                var result: [PHAssetEditingResultItem]?
+                
                 async.begin()
-
-                var succeed = false
-
-                LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                    succeed = success
+                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
+                    if let photoURL = photoURL, let videoURL = videoURL {
+                        result = [
+                            PHAssetEditingResultItem(photoURL, .photo),
+                            PHAssetEditingResultItem(videoURL, .pairedVideo),
+                        ]
+                    }
                     async.end()
-
-                }, andFetched: nil)
-
+                }
+                
                 async.waitUntilEnd()
 
-                return succeed ? ConverterVoidReturnValue : nil
+                return result
             }
         }
 
@@ -94,26 +103,27 @@ struct LivePhotoConverter_Mov: LivePhotoConverter {
 
     init() {}
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
-        var succeed = false
-
-        if let videoURL = self.extractVideoFileURL(source: source, async){
-
-            async.begin()
-
-            LivePhotoWriter().saveLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0, saved: { success, s, error in
-                succeed = success
-
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
+        
+        guard let videoURL = self.extractVideoFileURL(source: source, AsyncSignal()) else { return nil }
+        
+        var result: [PHAssetEditingResultItem]?
+        
+        async.begin()
+        DispatchQueue(label: #function, qos: .utility).async {
+            LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
+                if let photoURL = photoURL, let videoURL = videoURL {
+                    result = [
+                        PHAssetEditingResultItem(photoURL, .photo),
+                        PHAssetEditingResultItem(videoURL, .pairedVideo),
+                    ]
+                }
                 async.end()
-
-            }, andFetched: nil)
-
-            if async.began{ //Avoid assertion error. (when end() was called in same queue before waitUntilEnd())
-                async.waitUntilEnd()
             }
         }
-
-        return succeed ? ConverterVoidReturnValue : nil
+        async.waitUntilEnd()
+        
+        return result
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {
@@ -126,7 +136,7 @@ struct LivePhotoConverter_Timelapse: LivePhotoConverter {
 
     static let supportedPresets = [ConverterQualityPreset.high]
 
-    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any? {
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         let converter = LivePhotoConverter_Mov()
         return converter.convert(source: source, cancellation: cancellation, progressHandler: progressHandler, async)
     }

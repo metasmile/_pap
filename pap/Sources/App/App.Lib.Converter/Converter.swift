@@ -95,7 +95,7 @@ protocol Converter {
 
     static func canPerformWith(asset: PHAsset) -> Bool
 
-    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> Any?
+    func convert(source:AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]?
 }
 
 protocol ConverterCapability{
