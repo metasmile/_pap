@@ -16,6 +16,21 @@ public protocol PHAssetParamable: AppTaskParamable {
     init(_ asset: PHAsset, indexPath:IndexPath?)
 }
 
+extension Array where Element == PHAssetEditingResultItem {
+    var isLivePhoto: Bool {
+        guard count == 2, let _ = item(for: .photo), let _ = item(for: .pairedVideo) else { return false }
+        return true
+    }
+    
+    func item(for type: PHAssetResourceType) -> PHAssetEditingResultItem? {
+        return first { $0.resourceType == type }
+    }
+    
+    func url(for type: PHAssetResourceType) -> URL? {
+        return item(for: type)?.url
+    }
+}
+
 public struct PHAssetEditingResultItem {
     var url: URL
     var resourceType: PHAssetResourceType

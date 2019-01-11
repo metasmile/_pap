@@ -111,7 +111,7 @@ extension PHAssetFinalizableApp {
                 let activityItems = targetResultAssets.compactMap { (resultable: PHAssetResultable) -> Any? in
                     return self.routeUIActivityShareItems(by:resultable)
                 }
-
+                
                 UIActivityViewController.share(activityItems: activityItems) { _, _, _, _ in
                     asyncSignal.end()
                 }
@@ -154,6 +154,13 @@ extension PHAssetFinalizableApp {
         }
         
         let numberOfItems = PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos).localizedLowercase
+        
+        var excludedActions = excludedActions
+        
+        //INFO: can not export live photo
+        if targetResultAssets.contains(where: { $0.editingResultItems?.isLivePhoto == true }) {
+            excludedActions.append(.share)
+        }
 
         let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
         if !excludedActions.contains(.create) {
@@ -186,7 +193,7 @@ extension PHAssetFinalizableApp {
                 }
             }))
         }
-        if !excludedActions.contains(.share) || !excludedActions.contains(.create) {
+        if !excludedActions.contains(.share) && !excludedActions.contains(.create) {
             alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
                 actionQueue.async{
                     self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
@@ -249,7 +256,7 @@ extension PHAssetFinalizableApp {
         if result.editingResultItems?.count == 1, let editingResultItem = result.editingResultItems?.first {
             return editingResultItem.url as NSURL
         }
-        else if result.editingResultItems?.count == 2, let photo = result.editingResultItems?.first(where: { $0.resourceType == .photo }), let video = result.editingResultItems?.first(where: { $0.resourceType == .pairedVideo }) {
+        else if result.editingResultItems?.isLivePhoto == true, let photo = result.editingResultItems?.item(for: .photo), let video = result.editingResultItems?.item(for: .pairedVideo) {
             var result: PHLivePhoto?
             let async = AsyncSignal()
             async.begin()
