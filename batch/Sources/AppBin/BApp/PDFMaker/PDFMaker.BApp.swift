@@ -218,23 +218,5 @@ private class _PDFMakerAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension PDFMakerApp:UIApplicationDelegateLaunchableApp{
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = PDFMakerApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFMakerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            return [openAppIntent]
-        } else {
-            return []
-        }
-    }
-
-    func didLaunchHandling(with userActivity: NSUserActivity) {
-
-    }
-
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-    }
+extension PDFMakerApp:UIApplicationDelegateLaunchableApp{ 
 }

@@ -419,26 +419,5 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
     }
 }
 
-import Intents
+extension AutoEditorApp:UIApplicationDelegateLaunchableApp{}
 
-extension AutoEditorApp:UIApplicationDelegateLaunchableApp{
-
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = AutoEditorApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: AutoEditorApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            return [openAppIntent]
-        } else {
-            return []
-        }
-    }
-
-    func didLaunchHandling(with userActivity: NSUserActivity) {
-
-    }
-
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-    }
-}

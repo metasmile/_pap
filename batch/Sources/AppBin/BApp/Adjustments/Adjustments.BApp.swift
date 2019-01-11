@@ -842,22 +842,6 @@ public class CIAdjustmentSliderCell: UITableViewCell {
 import Intents
 
 extension AdjustmentsApp:UIApplicationDelegateLaunchableApp{
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            var intents = [INIntent]()
-
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = AdjustmentsApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: HashtagenApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            intents.append(openAppIntent)
-
-            return intents
-        } else {
-            return []
-        }
-    }
-
     func didLaunchHandling(with userActivity: NSUserActivity) {
 
         if #available(iOS 12.0, *) {

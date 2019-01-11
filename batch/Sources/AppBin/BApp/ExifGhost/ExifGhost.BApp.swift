@@ -150,17 +150,12 @@ import Intents
 extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = ExifGhostApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-
             let asb = AutoSelectIntent()
             asb.appId = info.identifier
-            asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
+            asb.appName = defaultIntentAppName
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(defaultIntentAppName)
 
-            return [openAppIntent, asb]
+            return defaultIntents + [asb]
         } else {
             return []
         }

@@ -536,7 +536,7 @@ extension ClipboardApp: UIApplicationDelegateLaunchableApp {
             let openAppIntent = OpenIntent()
             openAppIntent.appId = ClipboardApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ClipboardApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(defaultIntentAppName)
             intents.append(openAppIntent)
             
             let pasteImageIntent = PasteImageIntent()

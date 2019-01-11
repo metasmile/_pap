@@ -683,17 +683,13 @@ import Intents
 extension HashtagenApp:UIApplicationDelegateLaunchableApp{
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = HashtagenApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: HashtagenApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier
-            asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Enable Auto-tagging.".localizedFormatted(info.displayName)
+            asb.appName = defaultIntentAppName
+            asb.suggestedInvocationPhrase = "Enable Auto-tagging.".localizedFormatted(defaultIntentAppName)
 
-            return [openAppIntent, asb]
+            return self.defaultIntents + [asb]
         } else {
             return []
         }

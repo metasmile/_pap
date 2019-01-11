@@ -1184,7 +1184,7 @@ extension MemoCamApp:UIApplicationDelegateLaunchableApp{
             captureActionsToDo.appId = info.identifier
             captureActionsToDo.suggestedInvocationPhrase = "Capture Actions To Do.".localized
 
-            return [captureAllText, captureActionsToDo]
+            return defaultIntents + [captureAllText, captureActionsToDo]
         } else {
             return []
         }

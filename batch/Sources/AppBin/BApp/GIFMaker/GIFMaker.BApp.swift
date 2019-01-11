@@ -828,25 +828,6 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
     }
 }
 
-import Intents
+extension GIFMakerApp:UIApplicationDelegateLaunchableApp{}
 
-extension GIFMakerApp:UIApplicationDelegateLaunchableApp{
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = GIFMakerApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: GIFMakerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            return [openAppIntent]
-        } else {
-            return []
-        }
-    }
 
-    func didLaunchHandling(with userActivity: NSUserActivity) {
-
-    }
-
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-    }
-}

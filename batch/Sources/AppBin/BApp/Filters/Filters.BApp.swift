@@ -146,26 +146,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
 }
 
-extension FiltersApp:UIApplicationDelegateLaunchableApp{
-    static var intents: [INIntent] {
-        if #available(iOS 12.0, *) {
-            let openAppIntent = OpenFiltersIntent()
-            openAppIntent.appId = FiltersApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FiltersApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            return [openAppIntent]
-        } else {
-            return []
-        }
-    }
-
-    func didLaunchHandling(with userActivity: NSUserActivity) {
-
-    }
-
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
-    }
-}
+extension FiltersApp:UIApplicationDelegateLaunchableApp{}
 
 fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     fileprivate struct PhotosFilterNames {

@@ -324,12 +324,6 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
 
             var intents = [INIntent]()
 
-            let openAppIntent = OpenIntent()
-            openAppIntent.appId = ConverterApp.info.identifier
-            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
-            intents.append(openAppIntent)
-
             let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()
             convertLatestLivePhotoIntent_gif.appId = ConverterApp.info.identifier
             convertLatestLivePhotoIntent_gif.into = ConvertLatestLivePhotoLivePhotoConvertingType.gif
@@ -362,11 +356,11 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier
-            asb.appName = openAppIntent.appName
-            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(info.displayName)
+            asb.appName = defaultIntentAppName
+            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(defaultIntentAppName)
             intents.append(asb)
 
-            return intents
+            return defaultIntents + intents
         } else {
             return []
         }

@@ -1066,7 +1066,7 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(defaultAppName)
 
             let asb = AutoDetectOnAlbumsIntent()
             asb.appId = info.identifier
