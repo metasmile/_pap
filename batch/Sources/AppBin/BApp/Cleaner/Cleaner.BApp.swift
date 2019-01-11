@@ -901,7 +901,7 @@ extension CleanerApp: UIApplicationDelegateLaunchableApp {
             let openAppIntent = OpenIntent()
             openAppIntent.appId = CleanerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CleanerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Cleaner.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier

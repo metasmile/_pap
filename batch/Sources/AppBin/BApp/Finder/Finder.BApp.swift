@@ -1089,7 +1089,7 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Finder.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier

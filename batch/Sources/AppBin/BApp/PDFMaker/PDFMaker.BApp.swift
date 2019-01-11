@@ -224,7 +224,7 @@ extension PDFMakerApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = PDFMakerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: PDFMakerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open PDF Maker.".localized.localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
             return [openAppIntent]
         } else {
             return []

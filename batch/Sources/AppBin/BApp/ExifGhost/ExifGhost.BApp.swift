@@ -153,7 +153,7 @@ extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = ExifGhostApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ExifGhostApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open EXIF Ghost.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier

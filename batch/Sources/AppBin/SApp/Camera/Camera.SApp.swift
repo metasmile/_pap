@@ -86,7 +86,7 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
             openAppIntent.mode = .photo
             openAppIntent.appId = CameraApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Camera.".localized.localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
             intents.append(openAppIntent)
 
             let takeAStillPhotoIntent = TakeAPhotoIntent()

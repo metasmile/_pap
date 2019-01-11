@@ -836,7 +836,7 @@ extension GIFMakerApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = GIFMakerApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: GIFMakerApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open GIF Maker.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
             return [openAppIntent]
         } else {
             return []

@@ -327,7 +327,7 @@ extension ConverterApp:UIApplicationDelegateLaunchableApp {
             let openAppIntent = OpenIntent()
             openAppIntent.appId = ConverterApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ConverterApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Converter.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
             intents.append(openAppIntent)
 
             let convertLatestLivePhotoIntent_gif = ConvertLatestLivePhotoIntent()

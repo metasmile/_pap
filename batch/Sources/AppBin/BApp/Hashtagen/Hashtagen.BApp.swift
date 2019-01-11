@@ -686,7 +686,7 @@ extension HashtagenApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = HashtagenApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: HashtagenApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Hashtagen.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             let asb = AutoSelectIntent()
             asb.appId = info.identifier

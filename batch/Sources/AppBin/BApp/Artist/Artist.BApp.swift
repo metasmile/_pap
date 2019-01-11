@@ -158,7 +158,7 @@ PhotoEditorViewControllerDelegatableApp {
 //            let openAppIntent = OpenArtistIntent()
 //            openAppIntent.appId = ArtistApp.info.identifier
 //            openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ArtistApp.info.displayName) as String
-//            openAppIntent.suggestedInvocationPhrase = "Open Artist.".localized
+//            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 //            return [openAppIntent]
 //        } else {
 //            return []
@@ -368,7 +368,7 @@ extension ArtistApp: UIApplicationDelegateLaunchableApp {
             let openAppIntent = OpenIntent()
             openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: ArtistApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Artist.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
 
             return [openAppIntent]
         } else {

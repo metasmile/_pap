@@ -428,7 +428,7 @@ extension AutoEditorApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = AutoEditorApp.info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: AutoEditorApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open Auto Editor.".localized
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(info.displayName)
             return [openAppIntent]
         } else {
             return []
