@@ -175,7 +175,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
 }
 
-enum AspectRatioOption: Int, Codable {
+enum AspectRatioOption: Int, Codable, CaseIterable{
     case original
     case square
     case ratio12x6_75
@@ -758,4 +758,55 @@ private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
         async.waitUntilEnd()
         return result
     }
+}
+
+
+
+import Intents
+
+private extension AspectRatioOption{
+    var intentActionName:String{
+        if let d = description{
+            return "Re-frame the last item to %@".localizedFormatted(d)
+        }
+        return "Undefined"
+    }
+}
+
+extension ResizerApp: UIApplicationDelegateLaunchableApp {
+
+    private static var AspectRatioOptions:[AspectRatioOption]{
+        var cases = AspectRatioOption.allCases
+        cases.remove(at: (cases.firstIndex(where:{ $0 == AspectRatioOption.original })!))
+        return cases
+    }
+
+    static var intents: [INIntent]{
+        if #available(iOS 12.0, *) {
+            return defaultIntents + AspectRatioOptions.map({ intentTo(do:$0.intentActionName) })
+        } else{
+            return []
+        }
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            //TODO: impl
+            if let i = intent as? DoAnyIntent, let name = i.doWhat{
+                if name == AspectRatioOption.ratio1_91x1.intentActionName{
+
+                }
+            }
+        }
+
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    }
+
 }

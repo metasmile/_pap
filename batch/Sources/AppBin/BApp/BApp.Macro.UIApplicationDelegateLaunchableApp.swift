@@ -37,7 +37,6 @@ extension UIApplicationDelegateLaunchableApp where Self:App{
     /*
         Full Customized macro
     */
-
     @available(iOS 12.0, *)
     static func intentTo(do what:String) -> DoAnyIntent{
         let doAnyIntent = DoAnyIntent()

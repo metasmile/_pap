@@ -360,8 +360,60 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
+private extension MLArtStyle{
+    var intentActionName:String{
+        return "Repaint the last item with %@".localizedFormatted(String(type(of: self).allCases.firstIndex(where:{ $0==self }) ?? 0))
+    }
+}
+
 extension ArtistApp: UIApplicationDelegateLaunchableApp {
+    static var intents: [INIntent]{
+
+        if #available(iOS 12.0, *) {
+            return defaultIntents + MLArtStyle.allCases.map({ intentTo(do:$0.intentActionName) })
+
+        } else{
+            return []
+        }
+
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            //TODO: impl
+            if let i = intent as? DoAnyIntent, let name = i.doWhat{
+                if name == MLArtStyle.Scream.intentActionName{
+
+                }
+                else if name == MLArtStyle.Feathers.intentActionName{
+
+                }
+                else if name == MLArtStyle.Candy.intentActionName{
+
+                }
+                else if name == MLArtStyle.Udanie.intentActionName{
+
+                }
+                else if name == MLArtStyle.Muse.intentActionName{
+
+                }
+                else if name == MLArtStyle.Mosaic.intentActionName{
+
+                }
+            }
+        }
+
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    }
 
 }
+
 
 

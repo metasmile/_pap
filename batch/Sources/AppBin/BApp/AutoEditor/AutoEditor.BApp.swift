@@ -419,5 +419,60 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
     }
 }
 
-extension AutoEditorApp:UIApplicationDelegateLaunchableApp{}
+
+
+import Intents
+
+private extension CIImageAutoAdjustmentOption{
+
+    var intentActionName:String{
+        if let n = AutoEditorApp.AutoAdjustments.aliasName(self){
+            return "Apply %@ to the last item".localizedFormatted(n)
+        }
+        return "Undefined"
+    }
+}
+
+extension AutoEditorApp: UIApplicationDelegateLaunchableApp {
+
+    static var intents: [INIntent]{
+        if #available(iOS 12.0, *) {
+            return defaultIntents + AutoEditorApp.AutoAdjustmentsKeys.map({ intentTo(do:$0.intentActionName) })
+        } else{
+            return []
+        }
+    }
+
+    func didLaunchHandling(with userActivity: NSUserActivity) {
+
+        if #available(iOS 12.0, *) {
+            guard let intent = userActivity.interaction?.intent else {
+                return
+            }
+
+            //TODO: impl
+            if let i = intent as? DoAnyIntent, let name = i.doWhat{
+
+                if name == AutoEditorApp.AutoAdjustments.Enhance.intentActionName{
+
+                }
+                else if name == AutoEditorApp.AutoAdjustments.Straighten.intentActionName{
+
+                }
+                else if name == AutoEditorApp.AutoAdjustments.Crop.intentActionName{
+
+                }
+                else if name == AutoEditorApp.AutoAdjustments.RedEye.intentActionName{
+
+                }
+
+            }
+        }
+
+    }
+
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    }
+
+}
 

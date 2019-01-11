@@ -2,7 +2,7 @@ import Foundation
 import CoreML
 import UIKit
 
-enum MLArtStyle: Int, Codable{
+enum MLArtStyle: Int, Codable, CaseIterable{
     case Mosaic
     case Scream
     case Muse
