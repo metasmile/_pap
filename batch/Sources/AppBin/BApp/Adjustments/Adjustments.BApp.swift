@@ -842,6 +842,20 @@ public class CIAdjustmentSliderCell: UITableViewCell {
 import Intents
 
 extension AdjustmentsApp:UIApplicationDelegateLaunchableApp{
+
+    private static let Lomography = "Make the last item Lomography style".localized
+
+    static var intents: [INIntent]{
+
+        if #available(iOS 12.0, *) {
+            return defaultIntents + [intentTo(do:Lomography)]
+
+        } else{
+            return []
+        }
+
+    }
+
     func didLaunchHandling(with userActivity: NSUserActivity) {
 
         if #available(iOS 12.0, *) {
@@ -849,8 +863,11 @@ extension AdjustmentsApp:UIApplicationDelegateLaunchableApp{
                 return
             }
 
-            if intent is AutoSelectIntent{
+            if let i = intent as? DoAnyIntent{
 
+                if i.doWhat == type(of: self).Lomography{
+                    //TODO:Max Vinette -> 0 satura -> - half of exposure -> run
+                }
             }
         }
 

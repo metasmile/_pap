@@ -147,15 +147,20 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
+struct ExifGhostAppDoAnyIntents {
+    static let wipePrivacy = "Wipe my privacy from the last item.".localized
+    static let wipeDate = "Wipe the date from the last item.".localized
+}
+
 extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
+
     static var intents: [INIntent] {
         if #available(iOS 12.0, *) {
-            let asb = AutoSelectIntent()
-            asb.appId = info.identifier
-            asb.appName = defaultIntentAppName
-            asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(defaultIntentAppName)
-
-            return defaultIntents + [asb]
+            return defaultIntents + [
+                intentToDoAutoSelection,
+                intentTo(do: ExifGhostAppDoAnyIntents.wipePrivacy),
+                intentTo(do: ExifGhostAppDoAnyIntents.wipeDate)
+            ]
         } else {
             return []
         }

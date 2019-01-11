@@ -143,9 +143,9 @@
 		<string>ChooseToDeleteIntent</string>
 		<string>ConvertLatestLivePhotoIntent</string>
 		<string>ConvertLatestVideoIntent</string>
+		<string>DoAnyIntent</string>
 		<string>GiveMeThatPhoneNumberIntent</string>
 		<string>OpenCameraIntent</string>
-		<string>OpenFiltersIntent</string>
 		<string>OpenIntent</string>
 		<string>PasteImageIntent</string>
 		<string>RecognizeTextIntent</string>

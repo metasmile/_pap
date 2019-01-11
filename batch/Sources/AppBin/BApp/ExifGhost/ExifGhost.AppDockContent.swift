@@ -502,6 +502,11 @@ extension ExifGhostAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                 }
                 d?.valueHandler?(true)
                 (view as? UITableView)?.reloadData()
+
+            }
+
+            else if let i = intent as? DoAnyIntent, i.doWhat == ExifGhostAppDoAnyIntents.wipePrivacy{
+
             }
         }
     }

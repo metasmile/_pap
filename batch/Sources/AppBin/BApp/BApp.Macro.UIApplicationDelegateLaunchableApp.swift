@@ -11,6 +11,8 @@ extension UIApplicationDelegateLaunchableApp where Self:App{
     static var intents: [INIntent] {
         return defaultIntents
     }
+    func didLaunchHandling(with userActivity: NSUserActivity) {}
+    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {}
 
     static var defaultIntents:[INIntent]{
         if #available(iOS 12.0, *) {
@@ -32,10 +34,25 @@ extension UIApplicationDelegateLaunchableApp where Self:App{
         }
     }
 
-    func didLaunchHandling(with userActivity: NSUserActivity) {
+    /*
+        Full Customized macro
+    */
 
+    @available(iOS 12.0, *)
+    static func intentTo(do what:String) -> DoAnyIntent{
+        let doAnyIntent = DoAnyIntent()
+        doAnyIntent.appId = info.identifier
+        doAnyIntent.doWhat = what
+        doAnyIntent.suggestedInvocationPhrase = doAnyIntent.doWhat
+        return doAnyIntent
     }
 
-    func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {
+    @available(iOS 12.0, *)
+    static var intentToDoAutoSelection:AutoSelectIntent{
+        let asb = AutoSelectIntent()
+        asb.appId = info.identifier
+        asb.appName = defaultIntentAppName
+        asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(defaultIntentAppName)
+        return asb
     }
 }
