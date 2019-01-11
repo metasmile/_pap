@@ -120,13 +120,19 @@ extension PHAssetFinalizableApp {
         }
     }
 
-    internal func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable){
+    @discardableResult
+    internal func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable) -> [PHObjectPlaceholder] {
+        var createdAssets = [PHObjectPlaceholder]()
+        
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
                 let request = PHAssetCreationRequest.forAsset()
                 result.editingResultItems?.forEach {
                     request.addResource(with: $0.resourceType, fileURL: $0.url, options: nil)
+                }
+                if let createdAsset = request.placeholderForCreatedAsset {
+                    createdAssets.append(createdAsset)
                 }
             }
 
@@ -135,6 +141,8 @@ extension PHAssetFinalizableApp {
             asyncSignal.end()
         })
         asyncSignal.waitUntilEnd()
+        
+        return createdAssets
     }
 
 
@@ -254,18 +262,20 @@ extension PHAssetFinalizableApp {
         */
         
         if result.editingResultItems?.count == 1, let editingResultItem = result.editingResultItems?.first {
-            return editingResultItem.url as NSURL
+            return editingResultItem.url
         }
-        else if result.editingResultItems?.isLivePhoto == true, let photo = result.editingResultItems?.item(for: .photo), let video = result.editingResultItems?.item(for: .pairedVideo) {
-            var result: PHLivePhoto?
-            let async = AsyncSignal()
-            async.begin()
-            LivePhotoWriter().createLivePhoto(imageURL: photo.url, withPairedVideo: video.url) { (livePhoto) in
-                result = livePhoto
-                async.end()
-            }
-            async.waitUntilEnd()
-            return result
+        else if result.editingResultItems?.isLivePhoto == true, let photo = result.editingResultItems?.item(for: .photo), let _ = result.editingResultItems?.item(for: .pairedVideo) {
+            //INFO: not work to share live photos
+//            var result: PHLivePhoto?
+//            let async = AsyncSignal()
+//            async.begin()
+//            LivePhotoWriter().createLivePhoto(imageURL: photo.url, withPairedVideo: video.url) { (livePhoto) in
+//                result = livePhoto
+//                async.end()
+//            }
+//            async.waitUntilEnd()
+//            return result
+            return photo.url
         }
         else {
             return nil
