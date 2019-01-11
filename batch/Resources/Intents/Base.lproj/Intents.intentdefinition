@@ -1559,7 +1559,7 @@
 			<key>INIntentCategory</key>
 			<string>generic</string>
 			<key>INIntentDescription</key>
-			<string>Do Any</string>
+			<string>DoAnyTask</string>
 			<key>INIntentDescriptionID</key>
 			<string>M5aFfK</string>
 			<key>INIntentLastParameterTag</key>
@@ -1579,7 +1579,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>${doWhat}</string>
+					<string>${doWhat}.</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>IJV4qq</string>
 				</dict>
@@ -1644,7 +1644,7 @@
 			<key>INIntentRestrictions</key>
 			<integer>0</integer>
 			<key>INIntentTitle</key>
-			<string>Do Any</string>
+			<string>DoAnyTask</string>
 			<key>INIntentTitleID</key>
 			<string>JTq2KS</string>
 			<key>INIntentType</key>

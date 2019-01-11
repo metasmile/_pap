@@ -39,11 +39,11 @@ extension UIApplicationDelegateLaunchableApp where Self:App{
     */
     @available(iOS 12.0, *)
     static func intentTo(do what:String) -> DoAnyIntent{
-        let doAnyIntent = DoAnyIntent()
-        doAnyIntent.appId = info.identifier
-        doAnyIntent.doWhat = what
-        doAnyIntent.suggestedInvocationPhrase = doAnyIntent.doWhat
-        return doAnyIntent
+        let doAnyTaskIntent = DoAnyIntent()
+        doAnyTaskIntent.appId = info.identifier
+        doAnyTaskIntent.doWhat = what
+        doAnyTaskIntent.suggestedInvocationPhrase = doAnyTaskIntent.doWhat
+        return doAnyTaskIntent
     }
 
     @available(iOS 12.0, *)

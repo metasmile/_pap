@@ -155,7 +155,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         if let metadataOrientation = appAsset.asset.asURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32{
             (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthData = appAsset.asset.asURL?.asDepthData
             (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat((self.content as? DepthEditorAppDockContent)?.borderWidthSlider.value ?? 0)
-            print("depthLevel",(appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthLevel)
+//            print("depthLevel",(appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthLevel)
             (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
         }
         //TEST
@@ -806,7 +806,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
 
     @objc func borderWidthDidChange() {
-        let estimatedHeight = max(4, borderWidthSlider.height * CGFloat(borderWidthSlider.value)) / 6
+//        let estimatedHeight = max(4, borderWidthSlider.height * CGFloat(borderWidthSlider.value)) / 6
 
 //        let minTrackPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: CGSize(width: estimatedHeight, height: estimatedHeight)), byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.bottomLeft], cornerRadii: CGSize(width: estimatedHeight / 2, height: estimatedHeight / 2))
 //
