@@ -114,11 +114,20 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
             self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }
         
-        reloadData()
+
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        
+
+        view.superview?.startIndicating(targetSubview: view)
+
+        DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
+            if let _self = self, let superview = view.superview {
+                _self.loadData(){
+                    superview.stopIndicating(targetSubview: view)
+                }
+            }
+        }
     }
 
     private lazy var appsWithIntent = AppCenter.default.apps(by: .default)
@@ -133,9 +142,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     fileprivate var intentGroups = [String:IntentGroup]() // App.info.identifier: IntentGroup
     fileprivate var intentCellDescriberGroups = [IntentGroup:CellDescriberGroup]() // IntentGroup: UITableViewCellDescriber
 
-    private func reloadData(with searchText: String? = nil) {
-        assert(DispatchQueue.currentIsMain)
-
+    private func loadData(with searchText: String? = nil, completion:(() -> Void)?=nil) {
         delegator.group.removeAll()
         
         if #available(iOS 12.0, *) {
@@ -206,16 +213,20 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
             }
         }
 
-        for group in delegator.group{
-            if let groupDesc = group.groupHeaderCellDescriber{
-                tableView.register(describer: groupDesc)
-            }
-            for intentCellDescriber in group.itemCellDescribers {
-                tableView.register(describer: intentCellDescriber)
-            }
-        }
 
-        tableView.reloadData()
+        DispatchQueue.mainAsyncIfNot {
+            for group in self.delegator.group{
+                if let groupDesc = group.groupHeaderCellDescriber{
+                    self.tableView.register(describer: groupDesc)
+                }
+                for intentCellDescriber in group.itemCellDescribers {
+                    self.tableView.register(describer: intentCellDescriber)
+                }
+            }
+            self.tableView.reloadData()
+
+            completion?()
+        }
     }
 }
 
@@ -448,7 +459,7 @@ extension SiriSettingsDockContent: INUIAddVoiceShortcutViewControllerDelegate, I
 
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
         controller.dismiss(animated: true){
-            self.reloadData()
+            self.loadData()
         }
     }
     
@@ -489,13 +500,13 @@ extension SiriSettingsDockContent: UISearchBarDelegate {
     private func updateFilteredItems(by searchText: String?) {
         guard searchText?.trimmed.count ?? 0 > 0 else {
             Timer.removeScheduledTimer(identifier: #function)
-            reloadData()
+            loadData()
             return
         }
 
         Timer.scheduledTimer(identifier: #function, withTimeInterval: 0.5) { timer in
             DispatchQueue.main.asyncAfter(deadline: .now()){
-                self.reloadData(with: searchText)
+                self.loadData(with: searchText)
             }
         }
     }
