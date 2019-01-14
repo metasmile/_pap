@@ -568,3 +568,15 @@ extension Data {
         return UTI(withMimeType: mimeType.mime)
     }
 }
+
+extension Data {
+    func writeToLocalFile() -> URL? {
+        let url = FileURL.temp(UUID().uuidString, uti, group: FileURL.fileAndQueuePrivateGroup())
+        if let _ = try? write(to: url) {
+            return url
+        }
+        else {
+            return nil
+        }
+    }
+}

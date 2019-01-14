@@ -89,10 +89,7 @@ extension PHAsset {
             defaultImageRequestOptions.resizeMode = .exact
             
             PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
-                let url = FileURL.temp(UUID().uuidString, data?.uti, group: FileURL.fileAndQueuePrivateGroup())
-                if let _ = try? data?.write(to: url) {
-                    item = url
-                }
+                item = data?.writeToLocalFile()
                 async.end()
             }
         }
