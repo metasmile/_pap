@@ -449,7 +449,13 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: RawEditorApp.info.identifier + "CIAdjustmentSliderCell") as! CIAdjustmentSliderCell
-            cell.titleLabel.text = attributeItem.name
+            
+            if let displayImage = sliderCellDisplayImage(for: filterAttribute, in: CGSize(width: 20, height: 20)) {
+                cell.iconView.image = displayImage
+            }
+            else {
+                cell.titleLabel.text = attributeItem.name
+            }
             
             cell.highlightedColor = RawEditorApp.info.themeColor
             
@@ -554,5 +560,28 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             switchControl.thumbTintColor = tintColor
             switchControl.onTintColor = RawEditorApp.info.themeColor ?? tintColor
         }
+    }
+}
+
+extension RawEditorDockContent {
+    func sliderCellDisplayImage(for filterAttributes: CIFilterAttributes, in size: CGSize) -> UIImage? {
+        switch filterAttributes.key {
+        case "inputHueMagMR": return twoColorDotImage(size: size, color1: .red, color2: .magenta)
+        case "inputHueMagBM": return twoColorDotImage(size: size, color1: .magenta, color2: .blue)
+        case "inputHueMagYG": return twoColorDotImage(size: size, color1: .green, color2: .yellow)
+        case "inputHueMagCB": return twoColorDotImage(size: size, color1: .blue, color2: .cyan)
+        case "inputHueMagRY": return twoColorDotImage(size: size, color1: .yellow, color2: .red)
+        case "inputHueMagGC": return twoColorDotImage(size: size, color1: .cyan, color2: .green)
+        default: return nil
+        }
+    }
+    
+    private func twoColorDotImage(size: CGSize, color1: UIColor, color2: UIColor) -> UIImage? {
+        let colorImage1 = UIImage(color: color1, size: CGSize(width: size.width / 2, height: size.height))
+        let colorImage2 = UIImage(color: color2, size: CGSize(width: size.width / 2, height: size.height))
+        return UIGraphicsImageRenderer(size: size).imageWithCurrentContext(actions: { (ctx) in
+            colorImage1?.draw(at: .zero)
+            colorImage2?.draw(at: CGPoint(x: size.width / 2, y: 0))
+        })?.rounded()
     }
 }

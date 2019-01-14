@@ -779,6 +779,12 @@ public class CIAdjustmentSliderCell: UITableViewCell {
         return label
     }()
     
+    lazy var iconView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     var resetButtonDidTapHandler: (() -> Void)?
     var sliderDidChangeHandler: ((Float) -> Void)?
     
@@ -787,6 +793,9 @@ public class CIAdjustmentSliderCell: UITableViewCell {
         
         resetButtonDidTapHandler = nil
         sliderDidChangeHandler = nil
+        
+        titleLabel.text = nil
+        iconView.image = nil
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -800,6 +809,14 @@ public class CIAdjustmentSliderCell: UITableViewCell {
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25).isActive = true
+        
+        contentView.addSubview(iconView)
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        iconView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        iconView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 0).isActive = true
+//        iconView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+//        iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 1).isActive = true
         
         contentView.addSubview(slider)
         slider.translatesAutoresizingMaskIntoConstraints = false
