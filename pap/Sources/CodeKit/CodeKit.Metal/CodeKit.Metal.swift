@@ -16,16 +16,19 @@ struct MTLUtility {
     static let standardImageVertices: [Float] = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0]
     
     static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm, pixelBuffer: CVPixelBuffer?) -> MTLTexture? {
+#if targetEnvironment(simulator)
+        return nil
+#else
         if let textureCache = MTLContext.shared.textureCache, let sourceImage = pixelBuffer {
             var metalTexture: CVMetalTexture?
             CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, sourceImage, nil, pixelFormat, width, height, 0, &metalTexture)
-            
+
             if let texture = metalTexture {
                 return CVMetalTextureGetTexture(texture)
             }
         }
-        
         return makeTexture(width: width, height: height, pixelFormat: pixelFormat)
+#endif
     }
     
     static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm) -> MTLTexture? {
@@ -42,13 +45,17 @@ public class MTLContext {
     let device: MTLDevice
     let commandQueue: MTLCommandQueue?
     let library: MTLLibrary?
-    
+
+#if targetEnvironment(simulator)
+    //
+#else
     fileprivate lazy var textureCache: CVMetalTextureCache? = {
         var metalTextureCache: CVMetalTextureCache?
         CVMetalTextureCacheCreate(kCFAllocatorDefault, nil, device, nil, &metalTextureCache)
         return metalTextureCache
     }()
-    
+#endif
+
     init() {
         guard let device = MTLCreateSystemDefaultDevice() else { fatalError("Could not create Metal Device") }
         self.device = device
