@@ -53,7 +53,23 @@ enum UIViewFrameAlignment {
     }
 }
 
-public extension UIView {
+struct UIViewCenterToParentOption: OptionSet {
+    public let rawValue: Int
+
+    init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    init(_ rawValue: Int) {
+        self.rawValue = rawValue
+    }
+
+    static let vertical = UIViewCenterToParentOption(1 << 0)
+    static let horizontal = UIViewCenterToParentOption(1 << 1)
+}
+
+
+extension UIView {
     // MARK: - Basic Properties
 
     @objc
@@ -239,19 +255,13 @@ public extension UIView {
     // MARK: - Useful Methods
 
     /// Center view to it's parent view.
-    @objc
-    func centerToParent() {
+    func centerToParent(options:UIViewCenterToParentOption = [.vertical, .horizontal]) {
         guard let superview = self.superview else { return }
 
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
-            self.origin = CGPoint(x: (superview.height / 2) - (self.width / 2),
-                    y: (superview.width / 2) - (self.height / 2))
-        case .portrait, .portraitUpsideDown:
-            self.origin = CGPoint(x: (superview.width / 2) - (self.width / 2),
-                    y: (superview.height / 2) - (self.height / 2))
-        case .unknown:
-            return
+        if UIApplication.shared.statusBarOrientation.isLandscape{
+            self.origin = CGPoint(x: options.contains(.vertical) ? (superview.height / 2) - (self.height / 2) : origin.x, y: options.contains(.horizontal) ? (superview.width / 2) - (self.width / 2) : origin.y)
+        }else{
+            self.origin = CGPoint(x: options.contains(.horizontal) ? (superview.width / 2) - (self.width / 2) : origin.x, y: options.contains(.vertical) ? (superview.height / 2) - (self.height / 2) : origin.y)
         }
     }
 
@@ -261,3 +271,5 @@ public extension UIView {
         return (round(pointValue * scale) / scale)
     }
 }
+
+

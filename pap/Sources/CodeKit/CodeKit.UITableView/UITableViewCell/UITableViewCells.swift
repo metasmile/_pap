@@ -367,6 +367,8 @@ public class UITableViewCustomViewAccessoryCellDescriber: UITableViewCellDescrib
 }
 
 class UITableViewCustomViewAccessoryCell: UITableViewCell {
+    var enableMultilineTitleLabel:Bool = true //TODO: move to some common class
+
     var customAccessoryView: UIView? {
         didSet {
             customAccessoryView?.removeFromSuperview()
@@ -382,10 +384,8 @@ class UITableViewCustomViewAccessoryCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
-        textLabel?.adjustsFontSizeToFitWidth = true
         textLabel?.allowsDefaultTighteningForTruncation = true
-
-        detailTextLabel?.adjustsFontSizeToFitWidth = true
+        
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -398,6 +398,19 @@ class UITableViewCustomViewAccessoryCell: UITableViewCell {
         let textContentWidth = contentView.bounds.width - (customAccessoryView?.bounds.width ?? 0) - 12
         textLabel?.frame.size.width = textContentWidth
         detailTextLabel?.frame.size.width = textContentWidth
+
+        if enableMultilineTitleLabel{
+            textLabel?.numberOfLines = 0;
+            textLabel?.lineBreakMode = .byWordWrapping
+            textLabel?.sizeToFit()
+            textLabel?.centerToParent(options: [.vertical])
+        }else{
+            textLabel?.numberOfLines = 1
+            textLabel?.sizeToFit()
+            textLabel?.adjustsFontSizeToFitWidth = true
+        }
+
+        detailTextLabel?.adjustsFontSizeToFitWidth = true
     }
 
     override func layoutSubviews() {

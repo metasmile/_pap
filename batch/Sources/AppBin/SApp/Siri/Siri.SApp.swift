@@ -96,8 +96,8 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         
         let tableHeaderViewHeight: CGFloat = 22
         tableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: tableHeaderViewHeight)))
-        
-        searchBar.placeholder = "Search for %@".localizedFormatted("Siri Shortcuts")
+
+        searchBar.placeholder = "Search Siri Shortcuts.".localized
         searchBar.tintColor = view.tintColor
         searchBar.delegate = self
         
@@ -314,7 +314,6 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
             cell.detailTextLabel?.textColor = UIColor.gray
 
-            //FIXME: later: INUIAddVoiceShortcutButton is displays after hugely delayed. skip currently.
             if let button = cellDescriber.accessoryGenerator?() {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 cell.customAccessoryView = button
@@ -329,6 +328,8 @@ private class SiriSettingsTableViewContentDelegator: NSObject, UITableViewDataSo
             }else{
                 cell.stopIndicating(targetSubview: cell.contentView)
             }
+
+            cell.enableMultilineTitleLabel = true
 
             return cell
         }

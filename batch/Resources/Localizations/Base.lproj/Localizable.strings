@@ -627,7 +627,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
 "Search On Google" = "Search On Google";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "Search for %@";
+"Search Siri Shortcuts." = "Search Siri Shortcuts.";
 /* Generated from genl10n: Converter.BApp.swift */
 "Select Format To Convert" = "Select Format To Convert";
 /* Generated from genl10n: Cleaner.BApp.swift */
