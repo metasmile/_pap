@@ -42,7 +42,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , displayName: "RAW Editor".localized
         , description: "Edit your raw photos.".localized
         , keywords: ["raw", "dng"]
-        , iconBundleName: nil
+        , iconBundleName: R.image.rawEditorBAppIcon.name
         , themeColor: UIColor(red:0.5, green:0.964, blue:0, alpha:1)
         , policy: AppPolicy.default
         , minOSVersion: nil

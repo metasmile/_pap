@@ -988,6 +988,10 @@
 		510C5AB021C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
 		510C5AB121C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
 		510C5AB221C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */; };
+		510D3AE221EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */; };
+		510D3AE321EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */; };
+		510D3AE421EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */; };
+		510D3AE521EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */; };
 		5114401221A775B2008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401421A775B9008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
 		5114401521A775BA008EDD78 /* Resizer.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */; };
@@ -2595,6 +2599,7 @@
 		4F71DFED45A7193012CBBC7E /* nb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nb; path = Localizable.strings; sourceTree = "<group>"; };
 		510C5AA521C70F1700F9F7EE /* CodeKit.CubicBezier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CubicBezier.swift; sourceTree = "<group>"; };
 		510C5AAC21C7317300F9F7EE /* CodeKit.CIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.CIFilter.swift; sourceTree = "<group>"; };
+		510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RawEditor.BApp.Icon.xcassets; sourceTree = "<group>"; };
 		5114401121A775B2008EDD78 /* Resizer.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resizer.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		511577CE21A4D47C00866D6E /* CodeKit.UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeKit.UIColor.swift; sourceTree = "<group>"; };
 		5115848021D085BF00A37736 /* CodeKit.CIFilter.lut64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CodeKit.CIFilter.lut64.png; sourceTree = "<group>"; };
@@ -3851,6 +3856,7 @@
 			isa = PBXGroup;
 			children = (
 				511EA5AA21C3724C00B47926 /* RawEditor.swift */,
+				510D3AE121EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets */,
 			);
 			path = RawEditor;
 			sourceTree = "<group>";
@@ -4638,6 +4644,7 @@
 				0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */,
 				A0956BC22095005200E680B9 /* Localizable.strings in Resources */,
 				A096E7E421307942003C8E70 /* Shop.SApp.Assets.xcassets in Resources */,
+				510D3AE221EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */,
 				A0956C102095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BF22095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C21209501B500E680B9 /* Localizable.strings in Resources */,
@@ -4804,6 +4811,7 @@
 				A0CB0103219C8C64007A5278 /* GIFMaker.BApp.Assets.xcassets in Resources */,
 				A0CB0104219C8C64007A5278 /* gifmaker_preview_frame_0.png in Resources */,
 				A0CB0105219C8C64007A5278 /* gifmaker_preview_frame_1.png in Resources */,
+				510D3AE421EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */,
 				A0CB0106219C8C64007A5278 /* gifmaker_preview_frame_2.png in Resources */,
 				A0CB0107219C8C64007A5278 /* gifmaker_preview_frame_3.png in Resources */,
 				A0CB0108219C8C64007A5278 /* PDFMaker.BApp.Assets.xcassets in Resources */,
@@ -4893,6 +4901,7 @@
 				A0CB0286219C9093007A5278 /* GIFMaker.BApp.Assets.xcassets in Resources */,
 				A0CB0287219C9093007A5278 /* gifmaker_preview_frame_0.png in Resources */,
 				A0CB0288219C9093007A5278 /* gifmaker_preview_frame_1.png in Resources */,
+				510D3AE521EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */,
 				A0CB0289219C9093007A5278 /* gifmaker_preview_frame_2.png in Resources */,
 				A0CB028A219C9093007A5278 /* gifmaker_preview_frame_3.png in Resources */,
 				A0CB028B219C9093007A5278 /* PDFMaker.BApp.Assets.xcassets in Resources */,
@@ -5015,6 +5024,7 @@
 				A0CBFF91219ADBA2007A5278 /* ExifGhost.BApp.Assets.xcassets in Resources */,
 				A0CBFF92219ADBA2007A5278 /* GIFMaker.BApp.Assets.xcassets in Resources */,
 				A0CBFF93219ADBA2007A5278 /* gifmaker_preview_frame_0.png in Resources */,
+				510D3AE321EC76F8009D6ED7 /* RawEditor.BApp.Icon.xcassets in Resources */,
 				A0CBFF94219ADBA2007A5278 /* gifmaker_preview_frame_1.png in Resources */,
 				A0CBFF95219ADBA2007A5278 /* gifmaker_preview_frame_2.png in Resources */,
 				A0CBFF96219ADBA2007A5278 /* gifmaker_preview_frame_3.png in Resources */,
