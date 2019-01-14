@@ -94,6 +94,8 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     }
     
     func setOriginalImage(_ original: UIImage? = nil, with item: AppAsset) {
+        guard self.editItem != item, assetView.originalImage == nil else { return }
+        
         let asset = item.asset
         
         setEditItem(item)
