@@ -50,6 +50,12 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
         return item.asset.mediaType == .image
     }
 
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
+        self.photoPickerCallee = callee
+    }
+
     public func performPreheating(item: PHAssetParamable,  _ async: AsyncWaitSignalable)  -> PreheatingFinishAction? {
 
         if autoSelect && item.asset.mediaType == .image{
@@ -167,7 +173,7 @@ extension ExifGhostApp:UIApplicationDelegateLaunchableApp{
     }
 
     func didLaunchHandling(with userActivity: NSUserActivity) {
-        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: userActivity)
+        (self.content as! ExifGhostAppDockContent).didLaunchHandling(with: userActivity, app: self, callee: photoPickerCallee)
     }
 
     func didLaunchHandling(with shortcutItem: UIApplicationShortcutItem) {

@@ -488,13 +488,18 @@ private class Cell: UITableViewCell {
     }
 }
 
-extension ExifGhostAppDockContent: UIApplicationDelegateLaunchableAppHandler{
+extension ExifGhostAppDockContent{
 
-    func didLaunchHandling(with userActivity: NSUserActivity) {
+    func didLaunchHandling(with userActivity: NSUserActivity, app:ExifGhostApp, callee:PhotoPickerViewControllerUniversalOperations?) {
         if #available(iOS 12.0, *) {
             guard let intent = userActivity.interaction?.intent else{
                 return
             }
+
+            guard let app = AppCenter.default.currentInstanceAs(ExifGhostApp.self) else{
+                return
+            }
+
 
             if intent is AutoSelectIntent{
                 let d = cellDescribers.first { describable in
@@ -502,11 +507,64 @@ extension ExifGhostAppDockContent: UIApplicationDelegateLaunchableAppHandler{
                 }
                 d?.valueHandler?(true)
                 (view as? UITableView)?.reloadData()
-
             }
+
 
             else if let i = intent as? DoAnyIntent, i.doWhat == ExifGhostAppDoAnyIntents.wipePrivacy{
 
+                for (i, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
+                    
+                    if let cellDesc = c as? UITableViewSegmentControlCellDescriber{
+                        cellDesc.valueHandler?(SelectionPresets.privacy.rawValue)
+                    }
+
+                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+
+                        //find latest asset with matched converter
+                        let foundAsset = PHAssets.fetched.searchLast{ i, a in
+                            return app.shouldSelect(item: AppAsset(a))
+                        }
+
+                       if let foundAsset = foundAsset{
+                            DispatchQueue.main.async{
+                                assert(callee != nil)
+                                callee?.selectInCurrentContext(with: foundAsset, animated: true)
+                                callee?.performInSelectionContext()
+                            }
+                        }
+                    }
+
+                    break
+                }
+            }
+
+
+            else if let i = intent as? DoAnyIntent, i.doWhat == ExifGhostAppDoAnyIntents.wipeDate{
+
+                for (i, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
+
+                    if let cellDesc = c as? UITableViewSegmentControlCellDescriber{
+                        cellDesc.valueHandler?(SelectionPresets.custom.rawValue)
+                    }
+
+                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+
+                        //find latest asset with matched converter
+                        let foundAsset = PHAssets.fetched.searchLast{ i, a in
+                            return app.shouldSelect(item: AppAsset(a))
+                        }
+
+                        if let foundAsset = foundAsset{
+                            DispatchQueue.main.async{
+                                assert(callee != nil)
+                                callee?.selectInCurrentContext(with: foundAsset, animated: true)
+                                callee?.performInSelectionContext()
+                            }
+                        }
+                    }
+
+                    break
+                }
             }
         }
     }
