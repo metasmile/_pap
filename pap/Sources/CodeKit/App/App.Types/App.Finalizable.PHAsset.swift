@@ -119,6 +119,28 @@ extension PHAssetFinalizableApp {
             asyncSignal.waitUntilEnd()
         }
     }
+    
+    internal func sharingAndWait(from assetIdentifiers :[String], _ asyncSignal: AsyncWaitSignalable){
+        if let _ = UIViewController.presentable {
+            var activityItems = [Any]()
+            
+            asyncSignal.begin()
+            DispatchQueue.global().async {
+                PHAsset.fetchAssets(withLocalIdentifiers: assetIdentifiers, options: nil).enumerateObjects({ (asset, idx, stop) in
+                    autoreleasepool {
+                        if let item = asset.activityItemForActivityViewController() {
+                            activityItems.append(item)
+                        }
+                    }
+                })
+
+                UIActivityViewController.share(activityItems: activityItems) { _, _, _, _ in
+                    asyncSignal.end()
+                }
+            }
+            asyncSignal.waitUntilEnd()
+        }
+    }
 
     @discardableResult
     internal func creatingAndWait(targetResultAssets:[PHAssetResultable], _ asyncSignal: AsyncWaitSignalable) -> [PHObjectPlaceholder] {
@@ -204,8 +226,8 @@ extension PHAssetFinalizableApp {
         if !excludedActions.contains(.share) && !excludedActions.contains(.create) {
             alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
                 actionQueue.async{
-                    self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    let assets = self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    self.sharingAndWait(from: assets.map({ $0.localIdentifier }), actionSignal)
                     DispatchQueue.main.async{
                         asyncSignal.end()
                     }

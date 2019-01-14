@@ -55,41 +55,58 @@ extension PHAsset {
         }
     }
 
-
-    public func shareWithDefaultUIActivities(completion:UIKit.UIActivityViewController.CompletionWithItemsHandler?=nil){
-
+    public func activityItemForActivityViewController() -> Any? {
+        var item: Any?
+        
+        let async = AsyncSignal()
+        async.begin()
+        
         if self.mediaType == .video{
             let videoRequestOptions = PHVideoRequestOptions()
             videoRequestOptions.isNetworkAccessAllowed = true
             videoRequestOptions.deliveryMode = .automatic
-
+            
             PHImageManager.default().requestAVAsset(forVideo: self, options: videoRequestOptions, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                if let urlAsset = asset as? AVURLAsset {
-                    UIActivityViewController.share(activityItems: [urlAsset.url as URL], excludedActivityTypes:[UIActivity.ActivityType.saveToCameraRoll])
-                }
+                item = (asset as? AVURLAsset)?.url
+                async.end()
             })
         } else if self.imageType == .livePhoto{
-
+            
             let livePhotoRequestOptions = PHLivePhotoRequestOptions()
             livePhotoRequestOptions.deliveryMode = .opportunistic
             livePhotoRequestOptions.isNetworkAccessAllowed = true
-
+            
             PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
-                if let livePhoto = livePhoto{
-                    UIActivityViewController.share(activityItems: [livePhoto])
-                }
+                item = livePhoto
+                async.end()
             })
-
+            
         } else{
             let defaultImageRequestOptions = PHImageRequestOptions()
             defaultImageRequestOptions.isNetworkAccessAllowed = true
             defaultImageRequestOptions.isSynchronous = false
             defaultImageRequestOptions.deliveryMode = .opportunistic
             defaultImageRequestOptions.resizeMode = .exact
-
+            
             PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
-                if let data = data{
-                    UIActivityViewController.share(activityItems: [data], excludedActivityTypes:[UIActivity.ActivityType.saveToCameraRoll])
+                item = data
+                async.end()
+            }
+        }
+        async.waitUntilEnd()
+        
+        return item
+    }
+
+    public func shareWithDefaultUIActivities(completion:UIKit.UIActivityViewController.CompletionWithItemsHandler?=nil){
+        DispatchQueue(label: #function, qos: .utility).async {
+            guard let item = self.activityItemForActivityViewController() else { return }
+            DispatchQueue.mainAsyncIfNot {
+                if self.imageType == .livePhoto {
+                    UIActivityViewController.share(activityItems: [item])
+                }
+                else {
+                    UIActivityViewController.share(activityItems: [item], excludedActivityTypes:[UIActivity.ActivityType.saveToCameraRoll])
                 }
             }
         }
