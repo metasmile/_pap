@@ -176,19 +176,37 @@ extension _RawEditorAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
         
-        let filter = editState.ciFilter as? CIRawFilter
-        
-        var rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
-        if let attributes = filter?.attributes {
-            rawFilter?.setValuesForKeys(attributes)
-        }
-        
-        guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in return rawFilter?.outputImage }) else {
+        guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in
+            let filter = self.editState.ciFilter as? CIRawFilter
+            
+            let rawFilter = CIFilter(imageURL: filter?.rawURL, options: nil)
+            if let attributes = filter?.attributes {
+                rawFilter?.setValuesForKeys(attributes)
+            }
+            
+            guard let ciImage = rawFilter?.outputImage else {
+                completionHandler(nil, nil, nil)
+                return nil
+            }
+            
+            return ciImage
+        }) else {
             completionHandler(nil, nil, nil)
             return nil
         }
         
-        rawFilter = nil
+        let jpegData = autoreleasepool { () -> Data? in
+            //https://developer.apple.com/videos/play/wwdc2016/505/
+            let contextForRawImageSaving = CIContext(options: [
+                CIContextOption.cacheIntermediates: false,
+                CIContextOption.priorityRequestLow: true
+            ])
+            
+            return contextForRawImageSaving.jpegRepresentation(of: ciImage, colorSpace: ciImage.defaultColorSpace, options: [
+                kCGImageDestinationLossyCompressionQuality as CIImageRepresentationOption: 1.0,
+                kCGImageDestinationOptimizeColorForSharing as CIImageRepresentationOption: true
+            ])
+        }
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -196,12 +214,14 @@ extension _RawEditorAsset: PHAssetImageEditable {
                 return
             }
             
+            //kCGImageDestinationOptimizeColorForSharing: true
             DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
                 autoreleasepool {
-                    guard ciImage.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
+                    guard let _ = try? jpegData?.write(to: item.output.renderedContentURL) else {
                         completionHandler(nil, nil, nil)
                         return
                     }
+                    
                     completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
                 }
             }
