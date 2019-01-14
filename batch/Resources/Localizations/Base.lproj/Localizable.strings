@@ -186,7 +186,7 @@
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Background Fill Color" = "Background Fill Color";
 /* Generated from genl10n: RawEditor.swift */
 "Baseline Exposure" = "Baseline Exposure";
@@ -196,7 +196,7 @@
 "Bias" = "Bias";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blue / Magenta";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Blur Rate" = "Blur Rate";
@@ -426,7 +426,7 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -502,7 +502,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Filters.BApp.swift, App.UI.AssetView.swift, Artist.BApp.swift, Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift, App.UI.AssetView.swift, DepthEditor.BApp.swift, Artist.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
@@ -762,7 +762,7 @@
 "Translate Now" = "Translate Now";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Type";

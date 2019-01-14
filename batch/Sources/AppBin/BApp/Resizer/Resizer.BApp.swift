@@ -133,7 +133,14 @@ PhotoEditorViewControllerDelegatableApp {
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst || item.asset.mediaType == .video
     }
-    
+
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
+        self.photoPickerCallee = callee
+    }
+
+
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]
     }
@@ -796,10 +803,28 @@ extension ResizerApp: UIApplicationDelegateLaunchableApp {
                 return
             }
 
-            //TODO: impl
             if let i = intent as? DoAnyIntent, let name = i.doWhat{
-                if name == AspectRatioOption.ratio1_91x1.intentActionName{
+                
+                for c in AspectRatioOption.allCases where c.intentActionName == name{
+                    (self.content as? ResizerAppDockContent)?.selectItem(by: c.name)
 
+                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+
+                        //find latest asset with matched converter
+                        let foundAsset = PHAssets.fetched.searchLast{ i, a in
+                            return self.shouldSelect(item: AppAsset(a))
+                        }
+
+                        if let foundAsset = foundAsset{
+                            DispatchQueue.main.async{
+                                assert(self.photoPickerCallee != nil)
+                                self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
+                                self.photoPickerCallee?.performInSelectionContext()
+                            }
+                        }
+                    }
+
+                    break
                 }
             }
         }
