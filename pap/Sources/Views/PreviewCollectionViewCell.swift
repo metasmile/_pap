@@ -79,6 +79,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
         
         if let original = original {
             assetView.originalImage = original
+            assetView.originalImageForCompare = original
         }
         else {
             assetView.setThumbnailAsset(asset, cancelDrawingIfNeeded: { [weak self] in
@@ -86,6 +87,7 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
             }, completion: { [weak self] image in
                 guard self?.asset == asset else { return }
                 self?.assetView.originalImage = image
+                self?.assetView.originalImageForCompare = original
             })
         }
         
@@ -94,8 +96,6 @@ class PreviewCollectionViewCell: CustomCollectionViewCell {
     }
     
     func setOriginalImage(_ original: UIImage? = nil, with item: AppAsset) {
-        guard self.editItem != item, assetView.originalImage == nil else { return }
-        
         let asset = item.asset
         
         setEditItem(item)

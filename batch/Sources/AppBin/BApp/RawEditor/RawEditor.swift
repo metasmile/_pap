@@ -96,38 +96,30 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     
     //INFO: prevent memory leak for creating CIImage(uiImage:)
     private lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
-    private lazy var rawFilterCache: NSCache<NSURL, CIFilter> = NSCache<NSURL, CIFilter>()
+    private lazy var rawFilterCache: NSCache<NSString, CIFilter> = NSCache<NSString, CIFilter>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let filter = appAsset.editState.ciFilter as? CIRawFilter
+        guard let rawFilter = loadRawFilter(with: appAsset.asset, asyncSignal: AsyncSignal()) else { return }
         
-        var rawFilter: CIFilter?
-        if let url = filter?.rawURL {
-            if let filter = rawFilterCache.object(forKey: url as NSURL) {
-                rawFilter = filter
-            }
-            else if let filter = CIFilter(imageURL: filter?.rawURL, options: nil) {
-                rawFilter = filter
-                rawFilterCache.setObject(filter, forKey: url as NSURL)
-            }
-        }
-        
-        rawFilter?.setDefaults()
+        rawFilter.setDefaults()
         
         //INFO: for preview
-        rawFilter?.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
-        rawFilter?.setValue((UIScreen.main.bounds.size.minLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
+        rawFilter.setValue(true, forKey: CIRAWFilterOption.allowDraftMode.rawValue)
+        rawFilter.setValue((UIScreen.main.bounds.size.minLength / appAsset.asset.pixelSize.maxLength) * UIScreen.main.scale, forKey: CIRAWFilterOption.scaleFactor.rawValue)
         
-        let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
+        let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter as NSString
         
-        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? rawFilter?.outputImage
-        
-        if let image = original {
+        var original: CIImage?
+        if let image = previewOriginalImageCache.object(forKey: cacheKey) {
+            original = image
+        }
+        else if let image = rawFilter.outputImage {
+            original = image
             previewOriginalImageCache.setObject(image, forKey: cacheKey)
         }
         
-        rawFilter?.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
+        rawFilter.setValuesForKeys(appAsset.editState.ciFilter?.attributes ?? [:])
         
-        completion(original?.asUIImage, rawFilter?.outputImage?.asUIImage)
+        completion(original?.asUIImage, rawFilter.outputImage?.asUIImage)
     }
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
@@ -138,17 +130,40 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        rawFilterCache.removeAllObjects()
-        rawFilter(from: asset) { (filter) in
-            self.setFilter(filter, to: self.content as? RawEditorDockContent)
-            DispatchQueue.main.async {
-                (self.content as? RawEditorDockContent)?.filter = filter
-            }
+        resetFilter(in: self.content as? RawEditorDockContent)
+    }
+    
+    private func loadRawFilter(with asset: PHAsset, asyncSignal: AsyncWaitSignalable) -> CIFilter? {
+        if let filter = self.rawFilterCache.object(forKey: asset.localIdentifier as NSString) {
+            return filter
         }
+        
+        var ciFilter: CIFilter?
+        
+        asyncSignal.begin()
+        rawFilterCache.removeAllObjects()
+        rawFilter(from: asset) { (rawFilter) in
+            self.setFilter(rawFilter, to: self.content as? RawEditorDockContent)
+            
+            if let imageURL = rawFilter?.rawURL, let filter = CIFilter(imageURL: imageURL, options: nil) {
+                self.rawFilterCache.setObject(filter, forKey: asset.localIdentifier as NSString)
+                
+                ciFilter = filter
+                
+                DispatchQueue.main.async {
+                    self.config?.filter = CIFilterItem(rawFilter)
+                }
+            }
+            
+            asyncSignal.end()
+        }
+        asyncSignal.waitUntilEnd()
+        
+        return ciFilter
     }
     
     private func rawFilter(from asset: PHAsset, completion: ((CIRawFilter?) -> Void)?) {
-        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async  {
+        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async {
             let rawURL = self.urlForRawImage(with: asset)
             
             let rawData = asset.asRawData
@@ -164,11 +179,16 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
     
     func didDeselect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
-        rawFilterCache.removeAllObjects()
+        resetFilter(in: self.content as? RawEditorDockContent)
     }
     
     func didDeselectAll(callee: PhotoPickerViewControllerUniversalOperations) {
+        resetFilter(in: self.content as? RawEditorDockContent)
+    }
+    
+    private func resetFilter(in content: RawEditorDockContent?) {
         rawFilterCache.removeAllObjects()
+        setFilter(nil, to: content)
     }
 }
 
@@ -214,7 +234,6 @@ extension _RawEditorAsset: PHAssetImageEditable {
                 return
             }
             
-            //kCGImageDestinationOptimizeColorForSharing: true
             DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
                 autoreleasepool {
                     guard let _ = try? jpegData?.write(to: item.output.renderedContentURL) else {
@@ -364,6 +383,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         self.rawFilter = rawFilter
         
         let filter = CIFilter(imageURL: rawFilter?.rawURL, options: nil)
+        
         var defaultAttributes = [String: Any]()
         filter?.inputKeys.forEach {
             if let v = filter?.value(forKey: $0) {
@@ -372,7 +392,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         filterAttributes = []
         
-        if !defaultAttributes.isEmpty {
+        if let _ = filter {
             for filterAttribute in rawAttributes() {
                 guard let defaultKey = defaultAttributes.keys.first(where: { $0 == filterAttribute.key }), let defaultValue = defaultAttributes[defaultKey] as? NSNumber else { continue }
                 

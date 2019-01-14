@@ -81,6 +81,7 @@ class AppUIAssetView: AssetView {
             self.image = filteredImage ?? originalImage
         }
     }
+    var originalImageForCompare: UIImage?
     
     fileprivate var livePhotoEditingQueue = DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility)
     fileprivate var livePhotoEditingContext: PHLivePhotoEditingContext?
@@ -124,6 +125,7 @@ class AppUIAssetView: AssetView {
         
         originalImage = nil
         originalCIImage = nil
+        originalImageForCompare = nil
         filteredImage = nil
         
         prepareProcessing()
@@ -166,7 +168,7 @@ extension AppUIAssetView {
             originalBadgeLabel.isHidden = false
         }
         
-        self.image = originalImage
+        self.image = originalImageForCompare ?? originalImage
         stopAny()
         
         if asset?.imageType == .livePhoto {
