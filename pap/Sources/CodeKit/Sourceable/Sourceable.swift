@@ -264,7 +264,7 @@ extension AVAsset: URLSourceable {
         
         var url: URL?
         
-        let outputURL = FileURL.temp("video", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+        let outputURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
         AVAssetExportSession.export(asset: self, outputURL: outputURL, completionHandler: { (success) in
             if success {
                 url = outputURL
