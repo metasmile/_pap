@@ -198,6 +198,8 @@
 "Animation" = "アニメーション";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "いつでも無料でキャンセルできます。";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "最後の項目に%@を適用";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "すべての写真に高品質のフィルタを適用します。このバッチ処理ツールには、フィルタを適用する写真の数に制限はありません。";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -254,8 +256,6 @@
 "Capture All Text." = "すべてのテキストをキャプチャします。";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "アクションを選択";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Choose An Export Option For %d Items" = "%dアイテムのエクスポートオプションを選択";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "サブアクションを選択";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
@@ -484,6 +484,8 @@
 "Main Tools Use of %@ Day" = "主なツール%@日の使用";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "GIFを作る";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "最後のアイテムにする";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -526,38 +528,12 @@
 "Ongoing Use of All and New Main Tools" = "新しい主要ツールの継続使用";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "%@を開く";
+/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+"Open %@." = "%@を開きます。";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Apple Mapsを開く";
-/* Generated from genl10n: Artist.BApp.swift */
-"Open Artist." = "オープンアーティスト。";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Open Auto Editor." = "Open Auto Editor.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Open Camera." = "オープンカメラ。";
-/* Generated from genl10n: Cleaner.BApp.swift */
-"Open Cleaner." = "Open Cleaner.";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Open Clipboard." = "クリップボードを開きます。";
-/* Generated from genl10n: Converter.BApp.swift */
-"Open Converter." = "Open Converter.";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Open EXIF Ghost." = "Open EXIF Ghost.";
-/* Generated from genl10n: Filters.BApp.swift */
-"Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "Finderを開きます。";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Googleマップを開く";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Open Hashtagen." = "ハシュタゲンを開く。";
-/* Generated from genl10n: PDFMaker.BApp.swift */
-"Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Revert.BApp.swift */
-"Open Restorer." = "Open Restorer.";
-/* Generated from genl10n: Transform.BApp.swift */
-"Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "ウェブページを開く";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,8 +604,6 @@
 "RAW Editor" = "RAWエディタ";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "評価";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Re-frame" = "再フレーム";
 /* Generated from genl10n: RawEditor.swift */
 "Red / Yellow" = "赤黄";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
@@ -640,10 +614,16 @@
 "Remaining Level" = "残りのレベル";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "残りのパーセンテージ";
+/* Generated from genl10n: Artist.BApp.swift */
+"Repaint the last item with %@" = "最後のアイテムを%@で塗り直します";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "さまざまなサイズで写真に合わせてサイズを変更して塗りつぶします。";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "最後のアイテムのサイズを%@に変更します";
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+"Resize" = "リサイズ";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "すべての購入を復元する";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -884,6 +864,10 @@
 "Welcome to our promotion license program!" = "プロモーションライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "スペシャルゲストライセンスプログラムへようこそ！";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe my privacy from the last item." = "最後の項目から私のプライバシーを拭いてください。";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe the date from the last item." = "最後の項目から日付を拭きます。";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "%@に戻りたいですか？";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

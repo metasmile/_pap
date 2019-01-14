@@ -198,6 +198,8 @@
 "Animation" = "אנימציה";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "ביטול חינם בכל עת.";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "החל %@ על הפריט האחרון";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "החל מסננים באיכות גבוהה על כל התמונות שאתה רוצה. זה כלי עיבוד אצווה אין להגביל את מספר התמונות להחיל מסננים.";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -254,8 +256,6 @@
 "Capture All Text." = "לכוד את כל הטקסט.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "בחר פעולה";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Choose An Export Option For %d Items" = "בחר באפשרות ייצוא עבור %d פריטים";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "בחר באפשרות תת פעולה.";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
@@ -484,6 +484,8 @@
 "Main Tools Use of %@ Day" = "כלים עיקריים שימוש ב - %@ יום";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "צור GIF";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "הפוך את הפריט האחרון Lomography סגנון";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "להתקשר";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -526,38 +528,12 @@
 "Ongoing Use of All and New Main Tools" = "שימוש מתמשך בכל הכלים החדשים והחדשים";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "פתח את %@";
+/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+"Open %@." = "פתח את %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
-/* Generated from genl10n: Artist.BApp.swift */
-"Open Artist." = "פתח את האמן.";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Open Auto Editor." = "Open Auto Editor.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Open Camera." = "מצלמה פתוחה.";
-/* Generated from genl10n: Cleaner.BApp.swift */
-"Open Cleaner." = "Open Cleaner.";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Open Clipboard." = "פתח את הלוח.";
-/* Generated from genl10n: Converter.BApp.swift */
-"Open Converter." = "Open Converter.";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Open EXIF Ghost." = "Open EXIF Ghost.";
-/* Generated from genl10n: Filters.BApp.swift */
-"Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "פתח את Finder.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "פתח את מפות Google";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Open Hashtagen." = "פתח את השטאגן.";
-/* Generated from genl10n: PDFMaker.BApp.swift */
-"Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Revert.BApp.swift */
-"Open Restorer." = "Open Restorer.";
-/* Generated from genl10n: Transform.BApp.swift */
-"Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "פתח את דף האינטרנט";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,8 +604,6 @@
 "RAW Editor" = "עורך RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "לדרג אותו";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Re-frame" = "מסגרת מחדש";
 /* Generated from genl10n: RawEditor.swift */
 "Red / Yellow" = "אדום צהוב";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
@@ -640,10 +614,16 @@
 "Remaining Level" = "רמה שנותרה";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "אחוז שנותר";
+/* Generated from genl10n: Artist.BApp.swift */
+"Repaint the last item with %@" = "צור מחדש את הפריט האחרון עם %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "לשנות את גודל ולמלא כדי להתאים את התמונות שלך על ידי הגדלים השונים.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "שנה את גודל הפריט האחרון ל- %@";
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+"Resize" = "שנה גודל";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "שחזר את כל הרכישות";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -884,6 +864,10 @@
 "Welcome to our promotion license program!" = "ברוכים הבאים לתוכנית הרישוי שלנו!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe my privacy from the last item." = "מחק את הפרטיות שלי מהפריט האחרון.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe the date from the last item." = "נגב את התאריך מהפריט האחרון.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "האם ברצונך לחזור אל %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

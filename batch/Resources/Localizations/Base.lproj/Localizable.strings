@@ -568,10 +568,6 @@
 "RAW Editor" = "RAW Editor";
 /* Generated from genl10n: Shop.Payment.Promotion.swift, Settings.SApp.swift, Shop.Payment.Promotion.swift, Shop.SApp.swift */
 "Rate It" = "Rate It";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Re-frame the last item to %@" = "Re-frame the last item to %@";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
-"Re-frame" = "Re-frame";
 /* Generated from genl10n: RawEditor.swift */
 "Red / Yellow" = "Red / Yellow";
 /* Generated from genl10n: AutoEditor.BApp.swift */
@@ -588,6 +584,10 @@
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Resize and fill to fit your photos by the various sizes.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "Resize the last item to %@";
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+"Resize" = "Resize";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Restore All Purchases";
 /* Generated from genl10n: Shop.Payment.System.swift */

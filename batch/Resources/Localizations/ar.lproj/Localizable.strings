@@ -198,6 +198,8 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "في أي وقت إلغاء مجاني.";
+/* Generated from genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "طبق %@ على آخر عنصر";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "تطبيق مرشحات عالية الجودة على جميع الصور التي تريدها. لا تحتوي أداة معالجة الدفعات هذه على حد أقصى لعدد الصور لتطبيق المرشحات.";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -254,8 +256,6 @@
 "Capture All Text." = "القبض على كل النص.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
 "Choose An Action" = "اختيار إجراء";
-/* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Choose An Export Option For %d Items" = "اختر خيار تصدير للعناصر %d";
 /* Generated from genl10n: Finder.BApp.swift#264 */
 "Choose An Sub Action." = "اختر إجراء فرعي.";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
@@ -484,6 +484,8 @@
 "Main Tools Use of %@ Day" = "Main Tools Use of %@ Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "اجعل GIF";
+/* Generated from genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "جعل العنصر الأخير نمط Lomography";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "إجراء مكالمة";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -526,38 +528,12 @@
 "Ongoing Use of All and New Main Tools" = "الاستخدام المستمر للجميع والأدوات الرئيسية الجديدة";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "فتح %@";
+/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+"Open %@." = "افتح %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "افتح خرائط Apple";
-/* Generated from genl10n: Artist.BApp.swift */
-"Open Artist." = "الفنان المفتوح.";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Open Auto Editor." = "Open Auto Editor.";
-/* Generated from genl10n: Camera.SApp.swift */
-"Open Camera." = "افتح الكاميرا.";
-/* Generated from genl10n: Cleaner.BApp.swift */
-"Open Cleaner." = "Open Cleaner.";
-/* Generated from genl10n: Clipboard.BApp.swift */
-"Open Clipboard." = "افتح الحافظة.";
-/* Generated from genl10n: Converter.BApp.swift */
-"Open Converter." = "Open Converter.";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Open EXIF Ghost." = "Open EXIF Ghost.";
-/* Generated from genl10n: Filters.BApp.swift */
-"Open Filters." = "Open Filters.";
-/* Generated from genl10n: Finder.BApp.swift */
-"Open Finder." = "افتح Finder.";
-/* Generated from genl10n: GIFMaker.BApp.swift */
-"Open GIF Maker." = "Open GIF Maker.";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "افتح خرائط Google";
-/* Generated from genl10n: Hashtagen.BApp.swift */
-"Open Hashtagen." = "افتح Hashtagen.";
-/* Generated from genl10n: PDFMaker.BApp.swift */
-"Open PDF Maker." = "Open PDF Maker.";
-/* Generated from genl10n: Revert.BApp.swift */
-"Open Restorer." = "Open Restorer.";
-/* Generated from genl10n: Transform.BApp.swift */
-"Open Rotation." = "Open Rotation.";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "افتح صفحة الويب";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,8 +604,6 @@
 "RAW Editor" = "محرر RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
 "Rate It" = "قيمه";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Re-frame" = "إعادة الإطار";
 /* Generated from genl10n: RawEditor.swift */
 "Red / Yellow" = "احمر اصفر";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
@@ -640,10 +614,16 @@
 "Remaining Level" = "المستوى المتبقي";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "النسبة الباقية";
+/* Generated from genl10n: Artist.BApp.swift */
+"Repaint the last item with %@" = "أعد رسم العنصر الأخير باستخدام %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "كرر";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "تغيير حجم وملء لتناسب صورك من مختلف الأحجام.";
+/* Generated from genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "تغيير حجم العنصر الأخير إلى %@";
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+"Resize" = "تغيير";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "استعادة جميع المشتريات";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -884,6 +864,10 @@
 "Welcome to our promotion license program!" = "مرحبًا بك في برنامج ترخيصنا الترويجي!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "مرحبًا بك في برنامج ترخيص الضيوف الخاص بنا!";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe my privacy from the last item." = "مسح خصوصيتي من البند الأخير.";
+/* Generated from genl10n: ExifGhost.BApp.swift */
+"Wipe the date from the last item." = "امسح التاريخ من العنصر الأخير.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "هل تريد الرجوع إلى %@؟";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */

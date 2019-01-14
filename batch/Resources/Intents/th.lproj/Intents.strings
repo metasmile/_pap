@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "กล้องเปิด.";
-/*Translated from: Open Filters.*/
-"AW925e" = "เปิดตัวกรอง";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "ถ่ายรูป.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "จับภาพข้อความทั้งหมด";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "เปิดกล้องถ่ายรูปเพื่อถ่ายภาพ";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "เปิดตัวกรองรูปถ่าย";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "ถ่ายรูปด้วยแอปกล้องถ่ายรูป";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "จับภาพข้อความทั้งหมด";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "เปิด ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "เปิด ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "เปิด ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "เปิด ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "ถ่ายรูป";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "จับภาพข้อความทั้งหมด";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "จับภาพการกระทำที่ต้องทำ";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ตกลง. คุณสามารถถ่ายรูปตอนนี้ได้";
 /*Translated from: OK. You can take a Live Photo now*/

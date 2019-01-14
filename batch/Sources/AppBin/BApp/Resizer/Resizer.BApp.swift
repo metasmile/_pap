@@ -127,7 +127,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public var doneButtonTitle: String? {
-        return "Re-frame".localized
+        return "Resize".localized
     }
     
     public func shouldSelect(item: AppAsset) -> Bool {
@@ -767,7 +767,7 @@ import Intents
 private extension AspectRatioOption{
     var intentActionName:String{
         if let d = description{
-            return "Re-frame the last item to %@".localizedFormatted(d)
+            return "Resize the last item to %@".localizedFormatted(d)
         }
         return "Undefined"
     }

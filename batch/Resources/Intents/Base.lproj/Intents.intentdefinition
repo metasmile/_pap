@@ -1579,7 +1579,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>${doWhat}.</string>
+					<string>${doWhat}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>IJV4qq</string>
 				</dict>

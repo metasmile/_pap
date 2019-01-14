@@ -129,7 +129,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     }
 
     public var doneButtonTitle: String? {
-        return "Re-frame".localized
+        return "Resize".localized
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {

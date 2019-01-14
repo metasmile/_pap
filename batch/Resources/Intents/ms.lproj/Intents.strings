@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "Buka kamera.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Penapis Terbuka.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Ambil gambar.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "Tangkap Semua Teks.";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "Tindakan Menangkap Tindakan.";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Buka Kamera Untuk Ambil Foto";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "Terbuka Penapis Foto";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "Ambil foto dengan apl Kamera.";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "Tangkap Semua Teks.";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "Tindakan Menangkap Tindakan.";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Buka ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "Buka ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Buka ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Buka ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "Ambil gambar";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "Tangkap Semua Teks.";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "Tindakan Menangkap Tindakan.";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "OKEY. Anda boleh mengambil Foto sekarang";
 /*Translated from: OK. You can take a Live Photo now*/

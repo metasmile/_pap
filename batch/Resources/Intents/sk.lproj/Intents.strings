@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "Otvorte fotoaparát.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Otvorte filtre.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Odfoť.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "Zachytiť celý text.";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "Zachyťte akcie, ktoré chcete urobiť.";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Otvorte fotoaparát na fotografovanie";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "Otvorte fotografické filtre";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "Fotografujte aplikáciu Fotoaparát.";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "Zachytiť celý text.";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "Zachyťte akcie, ktoré chcete urobiť.";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Otvorte ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "Otvorte ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Otvorte ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Otvorte ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "Odfoť";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "Zachytiť celý text.";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "Zachyťte akcie, ktoré chcete urobiť.";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "OK. Teraz môžete urobiť fotografiu";
 /*Translated from: OK. You can take a Live Photo now*/

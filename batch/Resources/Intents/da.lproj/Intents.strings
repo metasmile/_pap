@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "Åbent kamera.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Åbn filtre.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Tag et billede.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "Capture All Text.";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "Capture Actions to Do.";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Åbn kamera for at tage et billede";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "Åbn fotofilter";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "Tag et billede med Camera app.";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "Capture All Text.";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "Capture Actions to Do.";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Åbn ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "Åbn ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Åbn ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Åbn ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "Tag et billede";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "Capture All Text.";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "Capture Actions to Do.";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "OKAY. Du kan tage et foto nu";
 /*Translated from: OK. You can take a Live Photo now*/

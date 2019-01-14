@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "開放式攝像頭。";
-/*Translated from: Open Filters.*/
-"AW925e" = "打開過濾器。";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "拍個照。";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "捕獲所有文本。";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "捕獲要執行的操作。";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "打開相機拍照";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "打開照片濾鏡";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "使用相機應用拍照。";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "捕獲所有文本。";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "捕獲要執行的操作。";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "打開${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "打開${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "打開${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "打開${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "拍個照";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "捕獲所有文本。";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "捕獲要執行的操作。";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}。";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "好。你現在可以拍照";
 /*Translated from: OK. You can take a Live Photo now*/

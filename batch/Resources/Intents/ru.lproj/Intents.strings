@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "Открытая камера.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Открытые фильтры.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Сфотографировать.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "Захват всего текста.";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "Захват действий.";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Открыть камеру для фотосъемки";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "Открытые фильтры для фотографий";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "Сделайте снимок с помощью приложения «Камера».";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "Захват всего текста.";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "Захват действий.";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Открыть ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "Открыть ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Открыть ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Открыть ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "Сфотографировать";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "Захват всего текста.";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "Захват действий.";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "ОК. Вы можете взять фотографию сейчас";
 /*Translated from: OK. You can take a Live Photo now*/

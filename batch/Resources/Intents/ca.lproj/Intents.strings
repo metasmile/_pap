@@ -1,7 +1,5 @@
 /*Translated from: Open Camera.*/
 "4I4kgH" = "Càmera oberta.";
-/*Translated from: Open Filters.*/
-"AW925e" = "Filtres oberts.";
 /*Translated from: Take A Photo.*/
 "Jvx2bY" = "Fer una foto.";
 /*Translated from: Open App*/
@@ -26,10 +24,10 @@
 "9ymxym" = "Captura tot el text.";
 /*Translated from: Capture Actions To Do.*/
 "6wHM2F" = "Captura d'accions a fer.";
+/*Translated from: DoAnyTask*/
+"JTq2KS" = "DoAnyTask";
 /*Translated from: Open Camera To Take A Photo*/
 "HYZy53" = "Obre la càmera per fer una foto";
-/*Translated from: Open Photo Filters*/
-"UCP0Dw" = "Obre els filtres de fotos";
 /*Translated from: Take a photo with Camera app.*/
 "EOxZtc" = "Feu una foto amb l'aplicació Càmera.";
 /*Translated from: Open App*/
@@ -54,14 +52,12 @@
 "Grn5vP" = "Captura tot el text.";
 /*Translated from: Capture Actions To Do.*/
 "Zd4eti" = "Captura d'accions a fer.";
+/*Translated from: DoAnyTask*/
+"M5aFfK" = "DoAnyTask";
 /*Translated from: Open ${appName}*/
 "oGM42K" = "Obre ${appName}";
 /*Translated from: Open ${appName}*/
 "6TT4Gp" = "Obre ${appName}";
-/*Translated from: Open ${appName}*/
-"gFHyMK" = "Obre ${appName}";
-/*Translated from: Open ${appName}*/
-"ibaGsc" = "Obre ${appName}";
 /*Translated from: Take A Photo*/
 "FbRC9N" = "Fer una foto";
 /*Translated from: Take A Photo*/
@@ -110,6 +106,8 @@
 "MWHakF" = "Captura tot el text.";
 /*Translated from: Capture Actions To Do.*/
 "shEnHy" = "Captura d'accions a fer.";
+/*Translated from: ${doWhat}*/
+"IJV4qq" = "${doWhat}";
 /*Translated from: OK. You can take a Photo now*/
 "xwyqoh-yQLzJM" = "D'ACORD. Podeu fer una foto ara";
 /*Translated from: OK. You can take a Live Photo now*/
