@@ -26,7 +26,7 @@ class SiriApp: NSObject
         , description: nil
         , keywords: nil
         , iconBundleName: R.image.siriSAppIcon.name
-        , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
+        , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .memoryWarning), task: .default)
         , minOSVersion: OperatingSystemVersion(majorVersion: 12, minorVersion: 0, patchVersion: 0)
     )
     
@@ -132,8 +132,17 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
 
     private lazy var appsWithIntent = AppCenter.default.apps(by: .default)
             .compactMap { return $0 as? UIApplicationDelegateLaunchableApp.Type}
-            .sorted { appType, appType2 in
-                return appType.intents.count > appType2.intents.count
+            .sorted { appType1, appType2 in
+
+                if appType1.intents.count > 1 && papDefaults.app.countPerformed(app: appType1) > papDefaults.app.countPerformed(app: appType2){
+                    return true
+                }
+
+                if appType1.intents.count > appType2.intents.count {
+                    return true
+                }
+
+                return false
             }
 
     fileprivate var intentCellDescribersDict = [String:UITableViewCustomViewAccessoryCellDescriber]() // INIIntent.identifier: UITableViewCustomViewAccessoryCellDescriber
