@@ -106,7 +106,13 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage
     }
-    
+
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
+        self.photoPickerCallee = callee
+    }
+
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]
     }
@@ -450,22 +456,39 @@ extension AutoEditorApp: UIApplicationDelegateLaunchableApp {
                 return
             }
 
-            //TODO: impl
             if let i = intent as? DoAnyIntent, let name = i.doWhat{
-
-                if name == AutoEditorApp.AutoAdjustments.Enhance.intentActionName{
-
+                
+                let actionNameByKey = AutoEditorApp.AutoAdjustmentsKeys.dictionary { option -> String in
+                    return option.intentActionName
                 }
-                else if name == AutoEditorApp.AutoAdjustments.Straighten.intentActionName{
-
+                
+                let content = self.content as? AutoEditorAppDockContent
+                
+                if let optionKey = actionNameByKey[name]
+                    , let options = content?.options{
+                    
+                    for key in options.keys{
+                        content?.options?.updateValue(key==optionKey.rawValue, forKey: key)
+                    }
                 }
-                else if name == AutoEditorApp.AutoAdjustments.Crop.intentActionName{
 
+                (content?.view as? UITableView)?.reloadData()
+
+                DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+
+                    //find latest asset with matched converter
+                    let foundAsset = PHAssets.fetched.searchLast{ i, a in
+                        return self.shouldSelect(item: AppAsset(a))
+                    }
+
+                    if let foundAsset = foundAsset{
+                        DispatchQueue.main.async{
+                            assert(self.photoPickerCallee != nil)
+                            self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
+                            self.photoPickerCallee?.performInSelectionContext()
+                        }
+                    }
                 }
-                else if name == AutoEditorApp.AutoAdjustments.RedEye.intentActionName{
-
-                }
-
             }
         }
 
