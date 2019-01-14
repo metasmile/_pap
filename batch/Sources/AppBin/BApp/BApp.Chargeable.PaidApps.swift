@@ -34,3 +34,9 @@ extension MemoCamApp:ChargeableApp{
         return self.defaultNonConsumablePaidBAppLocalCharges
     }
 }
+
+extension RawEditorApp:ChargeableApp{
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
+    }
+}

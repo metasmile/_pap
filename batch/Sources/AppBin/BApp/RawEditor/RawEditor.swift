@@ -37,13 +37,13 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public static let info = AppInfo(
         identifier: "com.stells.batch.raweditor"
         , version: "1.0"
-        , phase: .develop
+        , phase: .release
         , appType: RawEditorApp.self
         , displayName: "RAW Editor".localized
         , description: "Edit your raw photos.".localized
-        , keywords: ["raw", "dng"]
+        , keywords: ["raw", "dng", "Nikon", "Cannon", "Adobe", "LightRoom", "Editor"]
         , iconBundleName: R.image.rawEditorBAppIcon.name
-        , themeColor: UIColor(red:0.5, green:0.964, blue:0, alpha:1)
+        , themeColor: UIColor(rgb: 0xB4FF24)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
