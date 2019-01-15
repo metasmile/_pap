@@ -382,7 +382,10 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     fileprivate func setRawFilter(_ rawFilter: CIRawFilter?, attributes: [String: Any]? = nil) {
         self.rawFilter = rawFilter
         
-        let filter = CIFilter(imageURL: rawFilter?.rawURL, options: nil)
+        var filter: CIFilter?
+        if let imageURL = rawFilter?.rawURL {
+            filter = CIFilter(imageURL: imageURL, options: nil)
+        }
         
         var defaultAttributes = [String: Any]()
         filter?.inputKeys.forEach {
