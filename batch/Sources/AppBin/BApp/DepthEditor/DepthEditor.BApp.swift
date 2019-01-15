@@ -23,7 +23,7 @@ extension Defaults: DepthEditorAppDefaults {
     }
     
     var depthLevel: Double {
-        get { return get(or: 0) }
+        get { return get(or: 1) }
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
     }
 }
@@ -65,7 +65,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
         let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
         defaults.depthModeName = filter?.name
-        defaults.depthLevel = Double(filter?.depthLevel ?? 0)
+        defaults.depthLevel = Double(filter?.depthLevel ?? 1)
     }
 
     public static let info = AppInfo(
@@ -140,17 +140,20 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = cachedOriginalImage(with: appAsset.asset, targetSize: targetSize)
         
-
-        //TEST
-        if let metadataOrientation = appAsset.asset.asURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32{
-            (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthData = appAsset.asset.asURL?.asDepthData
-            (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat((self.content as? DepthEditorAppDockContent)?.depthLevelSlider.value ?? 0)
-//            print("depthLevel",(appAsset.editState.ciFilter as? CIDepthMaskFilter)?.depthLevel)
-            (appAsset.editState.ciFilter as? CIDepthMaskFilter)?.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+        let filter = appAsset.editState.ciFilter as? CIDepthMaskFilter
+        if filter?.depthData == nil || filter?.originalOrientation == nil {
+            let assetURL = appAsset.asset.asURL
+            
+            if filter?.depthData == nil {
+                filter?.depthData = assetURL?.asDepthData
+            }
+            
+            if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
+                filter?.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+            }
         }
-        //TEST
-
-        let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
+        
+        let filtered = original?.applyFilter(ciFilter: filter)
         completion(original?.asUIImage, filtered?.asUIImage)
     }
 
@@ -193,7 +196,8 @@ private enum DepthEditMode: Int, Codable {
 private class CIDepthMaskFilter: CIFilter {
     //
     var depthData:AVDepthData?
-    var depthLevel:CGFloat = 0.5
+    var depthLevel:CGFloat = 1
+    var intensity:CGFloat = 1
     var originalOrientation:CGImagePropertyOrientation?
     //
 
@@ -363,7 +367,11 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         var filter: CIFilter?
     }
 
-    @objc dynamic var filterItem: CIFilterItem?
+    @objc dynamic var filterItem: CIFilterItem? {
+        willSet {
+            self.selectedFilter?.depthLevel = CGFloat(self.depthLevelSlider.value)
+        }
+    }
 
     private var selectedFilter: CIDepthMaskFilter?
     
@@ -415,8 +423,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         let view = PrecisionLevelSlider()
         view.longNotchColor = .white
         view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-        view.centerNotchColor = .red
-        view.numberOfNotches = 20
+        view.centerNotchColor = .yellow
+        view.numberOfNotches = 30
         return view
     }()
 
@@ -428,10 +436,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         view.bottomAnchor.constraint(equalTo: toolBar.bottomAnchor, constant: 4).isActive = true
-        toolBar.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 30).isActive = true
-        view.trailingAnchor.constraint(greaterThanOrEqualTo: toolBar.trailingAnchor, constant: 30).isActive = true
-        toolBar.heightAnchor.constraint(lessThanOrEqualToConstant: 32).isActive = true
-        toolBar.widthAnchor.constraint(greaterThanOrEqualToConstant: 200).isActive = true
+        toolBar.heightAnchor.constraint(lessThanOrEqualToConstant: 44).isActive = true
+        toolBar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         toolBar.widthAnchor.constraint(lessThanOrEqualToConstant: 320).isActive = true
         toolBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
@@ -444,7 +450,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         toolBar.addArrangedSubview(depthLevelSlider)
         
         depthLevelSlider.addTarget(self, action: #selector(self.depthLevelDidChange), for: .valueChanged)
-        depthLevelSlider.defaultValue = 0.5
+        depthLevelSlider.defaultValue = 1
 
         return view
     }()
@@ -486,7 +492,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = 120
+        preferences.preferredHeight = 160
         return preferences
     }
 
