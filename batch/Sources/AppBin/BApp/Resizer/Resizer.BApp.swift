@@ -218,7 +218,7 @@ enum AspectRatioOption: Int, Codable, CaseIterable{
         case .ratio12x6_75: return "Twitter".localized
         case .ratio4x5: return "Instagram Vertical".localized
         case .ratio1_91x1: return "Instagram Landscape".localized
-        case .ratio16x9: return "Youtube Landscape".localized
+        case .ratio16x9: return "Youtube".localized
         case .ratio9x16: return "Instagram Story"
         case .ratio21x9: return "Ultra Wide".localized
         case .ratio9x21: return "Ultra Wide Vertical".localized
@@ -783,9 +783,14 @@ private extension AspectRatioOption{
 extension ResizerApp: UIApplicationDelegateLaunchableApp {
 
     private static var AspectRatioOptions:[AspectRatioOption]{
-        var cases = AspectRatioOption.allCases
-        cases.remove(at: (cases.firstIndex(where:{ $0 == AspectRatioOption.original })!))
-        return cases
+        return AspectRatioOption.allCases.filter({
+            switch $0.description {
+            case "Square".localized, "Twitter".localized, "Youtube".localized:
+                    return true
+                default:
+                    return false
+            }
+        })
     }
 
     static var intents: [INIntent]{

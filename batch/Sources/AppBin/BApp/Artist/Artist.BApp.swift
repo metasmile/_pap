@@ -116,6 +116,12 @@ PhotoEditorViewControllerDelegatableApp {
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage || item.asset.imageType == .livePhoto || item.asset.imageType == .burst || item.asset.mediaType == .video
     }
+
+    fileprivate var photoPickerCallee:PhotoPickerViewControllerUniversalOperations?
+
+    func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
+        self.photoPickerCallee = callee
+    }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.share]
@@ -206,7 +212,7 @@ fileprivate class ArtistAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
     @objc dynamic var filterItem: CIFilterItem?
 
-    private lazy var items: [AppUICollectionView.CollectionItem] = {
+    fileprivate lazy var items: [AppUICollectionView.CollectionItem] = {
         let image = R.image.filtersJpg()
         
         var items = [AppUICollectionView.CollectionItem]()
@@ -360,17 +366,13 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-private extension MLArtStyle{
-    var intentActionName:String{
-        return "Repaint the last item with %@".localizedFormatted(String(type(of: self).allCases.firstIndex(where:{ $0==self }) ?? 0))
-    }
-}
-
 extension ArtistApp: UIApplicationDelegateLaunchableApp {
+    private static let RepaintRandom = "Repaint the last item with a random art effect.".localized
+
     static var intents: [INIntent]{
 
         if #available(iOS 12.0, *) {
-            return defaultIntents + MLArtStyle.allCases.map({ intentTo(do:$0.intentActionName) })
+            return defaultIntents + [intentTo(do: RepaintRandom)]
 
         } else{
             return []
@@ -385,26 +387,33 @@ extension ArtistApp: UIApplicationDelegateLaunchableApp {
                 return
             }
 
-            //TODO: impl
             if let i = intent as? DoAnyIntent, let name = i.doWhat{
-                if name == MLArtStyle.Scream.intentActionName{
 
-                }
-                else if name == MLArtStyle.Feathers.intentActionName{
+                if name == type(of: self).RepaintRandom
+                    , let items = (content as? ArtistAppDockContent)?.items
+                    , let randIndex = (1 ..< items.count).randomElement(){
+                    
+                    let randomItem = items[randIndex]
 
+                    (content as? ArtistAppDockContent)?.selectItem(by: randomItem.title)
+                    
+                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+                        
+                        //find latest asset with matched converter
+                        let foundAsset = PHAssets.fetched.searchLast{ i, a in
+                            return self.shouldSelect(item: AppAsset(a))
+                        }
+                        
+                        if let foundAsset = foundAsset{
+                            DispatchQueue.main.async{
+                                assert(self.photoPickerCallee != nil)
+                                self.photoPickerCallee?.selectInCurrentContext(with: foundAsset, animated: true)
+                                self.photoPickerCallee?.performInSelectionContext()
+                            }
+                        }
+                    }
                 }
-                else if name == MLArtStyle.Candy.intentActionName{
-
-                }
-                else if name == MLArtStyle.Udanie.intentActionName{
-
-                }
-                else if name == MLArtStyle.Muse.intentActionName{
-
-                }
-                else if name == MLArtStyle.Mosaic.intentActionName{
-
-                }
+                
             }
         }
 

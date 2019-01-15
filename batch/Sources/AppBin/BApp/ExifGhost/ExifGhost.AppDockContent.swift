@@ -512,13 +512,13 @@ extension ExifGhostAppDockContent{
 
             else if let i = intent as? DoAnyIntent, i.doWhat == ExifGhostAppDoAnyIntents.wipePrivacy{
 
-                for (i, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
+                for (_, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
                     
                     if let cellDesc = c as? UITableViewSegmentControlCellDescriber{
                         cellDesc.valueHandler?(SelectionPresets.privacy.rawValue)
                     }
 
-                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+                    DispatchQueue.global(qos: .userInteractive).async{
 
                         //find latest asset with matched converter
                         let foundAsset = PHAssets.fetched.searchLast{ i, a in
@@ -538,16 +538,15 @@ extension ExifGhostAppDockContent{
                 }
             }
 
-
             else if let i = intent as? DoAnyIntent, i.doWhat == ExifGhostAppDoAnyIntents.wipeDate{
 
-                for (i, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
+                for (_, c) in self.cellDescribers.enumerated() where c.itemIdentifier == Cells.presets.hashValue{
 
                     if let cellDesc = c as? UITableViewSegmentControlCellDescriber{
                         cellDesc.valueHandler?(SelectionPresets.custom.rawValue)
                     }
 
-                    DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
+                    DispatchQueue.global(qos: .userInteractive).async{
 
                         //find latest asset with matched converter
                         let foundAsset = PHAssets.fetched.searchLast{ i, a in
