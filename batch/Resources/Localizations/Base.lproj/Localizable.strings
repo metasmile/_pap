@@ -186,7 +186,7 @@
 "Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Auto Tagging Bot" = "Auto Tagging Bot";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Background Fill Color" = "Background Fill Color";
 /* Generated from genl10n: RawEditor.swift */
 "Baseline Exposure" = "Baseline Exposure";
@@ -196,7 +196,7 @@
 "Bias" = "Bias";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blue / Magenta";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
 "Blur Rate" = "Blur Rate";
@@ -410,9 +410,9 @@
 "Input Here" = "Input Here";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Inquiry" = "Inquiry";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Instagram Landscape" = "Instagram Landscape";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift */
 "It Displays A Ratio of Remaining Free App Access Periods." = "It Displays A Ratio of Remaining Free App Access Periods.";
@@ -426,7 +426,7 @@
 "Join In Partnership Program" = "Join In Partnership Program";
 /* Generated from genl10n: batch.Strings.swift */
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift, DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Landscape" = "Landscape";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -502,7 +502,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Filters.BApp.swift, App.UI.AssetView.swift, DepthEditor.BApp.swift, Artist.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Filters.BApp.swift, App.UI.AssetView.swift, Artist.BApp.swift, DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
@@ -538,7 +538,7 @@
 "Please try again with another code." = "Please try again with another code.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
-/* Generated from genl10n: PDFMaker.AppDockContent.swift, DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Portrait" = "Portrait";
 /* Generated from genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
@@ -582,7 +582,7 @@
 "Repaint the last item with %@" = "Repaint the last item with %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Resize and fill to fit your photos by the various sizes.";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize the last item to %@" = "Resize the last item to %@";
@@ -762,15 +762,15 @@
 "Translate Now" = "Translate Now";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */
 "Type" = "Type";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
 "URL" = "URL";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Ultra Wide Vertical" = "Ultra Wide Vertical";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Unable to verify the code currently. Please try it later." = "Unable to verify the code currently. Please try it later.";
@@ -848,7 +848,7 @@
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Your code was expired.";
-/* Generated from genl10n: Resizer.BApp.swift, DepthEditor.BApp.swift */
+/* Generated from genl10n: Resizer.BApp.swift */
 "Youtube Landscape" = "Youtube Landscape";
 /* Generated from genl10n: Period.swift */
 "day" = "day";

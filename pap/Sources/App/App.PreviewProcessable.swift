@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 public protocol PreviewProcessableApp: App {
     //INFO: prevent memory leak for creating CIImage(uiImage:)
@@ -21,5 +22,20 @@ extension PreviewProcessableApp {
     public var previewOriginalImageCache: NSCache<NSString, CIImage>? { get { return nil } set {} }
     public func showsVisibleEffectWhileProcessing() -> Bool {
         return false
+    }
+    
+    public func cachedOriginalImage(with asset: PHAsset, targetSize: CGSize) -> CIImage? {
+        let cacheKey = asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
+        
+        if let image = previewOriginalImageCache?.object(forKey: cacheKey) {
+            return image
+        }
+        else if let image = asset.requestThumbnailImage(targetSize: targetSize)?.asCIImage {
+            previewOriginalImageCache?.setObject(image, forKey: cacheKey)
+            return image
+        }
+        else {
+            return nil
+        }
     }
 }
