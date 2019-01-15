@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Take Selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Take A Selfie s Live Photo";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Take RAW Photo";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Fotografujte s hloubkovým efektem";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Otevřete ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OK. Můžete si vzít Selfie";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OK. Můžete si vzít Selfie s živou fotkou nyní";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OK. Nyní můžete pořídit fotografii RAW";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OK. Můžete nyní zhotovit snímek Depth Effect Photo";

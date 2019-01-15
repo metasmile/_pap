@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "Restpercentage";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "Schilder het laatste item opnieuw met %@";
+"Repaint the last item with a random art effect." = "Schilder het laatste item opnieuw met een willekeurig kunsteffect.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Herhaling";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Zoek op Google";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "Zoeken naar %@";
+"Search Siri Shortcuts." = "Zoeken Siri snelkoppelingen.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Selecteer Formaat om te converteren";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "Neem een ​​Live-foto.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "Maak een foto.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "Neem een RAW-foto.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "Neem een ​​selfie met een live foto.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "Uw code is ongeldig Probeer het opnieuw.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Uw code is verlopen.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "YouTube-landschap";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "dag";
 /* Generated from genl10n: Period.swift */

@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "剩余百分比";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "使用%@重新绘制最后一项";
+"Repaint the last item with a random art effect." = "使用随机艺术效果重新绘制最后一项。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "重复";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "在Google上搜索";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "搜索%@";
+"Search Siri Shortcuts." = "搜索Siri快捷方式。";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "选择要转换的格式";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "拍摄现场照片。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "拍张照片。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "拍一张RAW照片。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "拍摄带有实时照片的自拍照。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "您的代码无效。请再试一次。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "您的代码已过期。";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "Youtube景观";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "的Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "天";
 /* Generated from genl10n: Period.swift */

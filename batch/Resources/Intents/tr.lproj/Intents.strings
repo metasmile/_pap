@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Bir Selfie Al";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Canlı Fotoğraflı Bir Selfie Çekin";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Bir RAW Fotoğraf Çek";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Derinlik Etkisi Fotoğrafını Çek";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "${appName} Açık";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "TAMAM. Şimdi bir Selfie'yi alabilirsin";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "TAMAM. Canlı Fotoğraflı bir Selfie'ye şimdi sahip olabilirsiniz";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "TAMAM. Şimdi bir RAW Fotoğraf çekebilirsiniz";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "TAMAM. Derinlik Etkisi Fotoğrafını şimdi çekebilirsiniz";

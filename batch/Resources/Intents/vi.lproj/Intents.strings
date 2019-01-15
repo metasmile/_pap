@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Chụp ảnh tự sướng";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Chụp ảnh tự sướng với ảnh trực tiếp";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Chụp ảnh RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Chụp ảnh hiệu ứng sâu";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Mở ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "ĐƯỢC. Bạn có thể chụp ảnh tự sướng ngay bây giờ";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "ĐƯỢC. Bạn có thể chụp ảnh tự sướng với Live Photo ngay bây giờ";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "ĐƯỢC. Bạn có thể chụp ảnh RAW ngay bây giờ";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "ĐƯỢC. Bạn có thể chụp ảnh hiệu ứng chiều sâu ngay bây giờ";

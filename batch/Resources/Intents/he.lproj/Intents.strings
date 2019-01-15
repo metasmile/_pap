@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "צלם סלפי";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "קח Selfie עם תמונה חיה";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "קח תמונה RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "קח אפקט עומק תמונה";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "פתח את ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "בסדר. אתה יכול לקחת selfie עכשיו";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "בסדר. אתה יכול לקחת Selfie עם תמונה חיה עכשיו";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "בסדר. באפשרותך לצלם כעת תמונה RAW";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "בסדר. אתה יכול לקחת אפקט עומק תמונה עכשיו";

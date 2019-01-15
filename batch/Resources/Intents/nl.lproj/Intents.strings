@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Maak een selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Neem een ​​selfie met Live Photo";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Neem een RAW-foto";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Neem een diepte-effectfoto";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Open ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OK. Je kunt nu een selfie nemen";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OK. Je kunt nu een selfie met live-foto nemen";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OK. U kunt nu een RAW-foto maken";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OK. U kunt nu een Diepte-effectfoto maken";

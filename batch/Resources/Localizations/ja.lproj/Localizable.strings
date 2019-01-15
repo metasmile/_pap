@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "残りのパーセンテージ";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "最後のアイテムを%@で塗り直します";
+"Repaint the last item with a random art effect." = "最後のアイテムをランダムなアート効果で再描画します。";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "繰り返し";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Googleで検索";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "%@を検索";
+"Search Siri Shortcuts." = "シリのショートカットを検索します。";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "変換する書式を選択";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "ライブ写真を撮る。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "写真を撮る。";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "生写真を撮る。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "ライブ写真で自閉症を起こす。";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "あなたのコードは無効です。もう一度お試しください。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "あなたのコードは期限切れです。";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "YouTubeの風景";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "YouTube";
 /* Generated from genl10n: Period.swift */
 "day" = "日";
 /* Generated from genl10n: Period.swift */

@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Візьміть себе самостійно";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Візьміть себе самостійно за допомогою Live Photo";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Зробіть фото RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Зробіть фото ефекту глибини";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Відкрийте ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "ДОБРЕ. Ви можете взяти Selfie зараз";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "ДОБРЕ. Тепер Ви можете взяти Selfie With Live Photo";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "В ПОРЯДКУ. Ви можете зробити RAW фото зараз";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "В ПОРЯДКУ. Тепер можна зробити Фото ефекту глибини";

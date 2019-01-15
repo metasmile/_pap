@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Ambil Selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Ambil A Selfie Dengan Foto Live";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Ambil Foto RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Ambil Foto Efek Kedalaman";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Buka ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "BAIK. Anda dapat mengambil Selfie sekarang";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "BAIK. Anda dapat mengambil Foto Selfie With Live sekarang";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "BAIK. Anda dapat mengambil foto RAW sekarang";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "BAIK. Anda dapat mengambil foto Efek Kedalaman sekarang";

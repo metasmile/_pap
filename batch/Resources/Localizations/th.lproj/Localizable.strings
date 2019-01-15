@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "เปอร์เซ็นต์ที่เหลือ";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "ทาสีรายการสุดท้ายด้วย %@";
+"Repaint the last item with a random art effect." = "ทาสีรายการสุดท้ายด้วยเอฟเฟกต์แบบสุ่ม";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "ทำซ้ำ";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "ค้นหาบน Google";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "ค้นหา %@";
+"Search Siri Shortcuts." = "ค้นหาทางลัดสิริ";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "เลือกรูปแบบการแปลง";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "ถ่ายภาพสด";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "ถ่ายรูป.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "ถ่ายภาพ RAW";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "ถ่ายภาพตัวเองด้วยภาพสด";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "รหัสของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "รหัสของคุณหมดอายุแล้ว";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "ภูมิทัศน์ของ Youtube";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "วัน";
 /* Generated from genl10n: Period.swift */

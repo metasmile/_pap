@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "セルフリーに乗る";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "ライブ写真でセルフリーを取る";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "生写真を撮る";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "深さ効果写真を撮る";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "${appName}を開く";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OK。セルフリーを今すぐ受けることができます";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OK。今あなたは生きている写真でセルフを取ることができます";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OK。あなたは今RAW写真を撮ることができます";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OK。あなたは今深さ効果写真を撮ることができます";

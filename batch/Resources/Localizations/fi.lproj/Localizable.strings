@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "Jäljellä oleva prosenttiosuus";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "Väritä viimeinen kohde uudelleen %@";
+"Repaint the last item with a random art effect." = "Maalaa viimeinen kohde satunnaisella taiteella.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Toistaa";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Hae Googlessa";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "Hae %@";
+"Search Siri Shortcuts." = "Etsi Siri-pikakuvakkeita.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Valitse Muotoon muunnettava";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "Ota Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "Ottaa valokuva.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "Ota RAW-valokuva.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "Ota Selfie Live -kuvana.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "Sinun koodisi on virheellinen. Yritä uudelleen.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Sinun koodisi on vanhentunut.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "Youtube maisema";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "päivä";
 /* Generated from genl10n: Period.swift */

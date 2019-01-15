@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Agafeu una Selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Prengui una Selfie amb foto en viu";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Prengui una foto crua";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Feu una foto d'efecte a fons";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Obre ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "D'ACORD. Pots prendre una Selfie ara";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "D'ACORD. Pots prendre una Selfie amb Live Photo ara";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "D'ACORD. Podeu fer una foto sense imatge ara";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "D'ACORD. Podeu fer una foto d'efecte a fons ara";

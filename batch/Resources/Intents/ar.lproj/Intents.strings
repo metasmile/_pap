@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "خذ سيلفي";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "خذ سيلفي مع صورة حية";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "خذ صور RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "خذ A A Depth Effect Photo";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "فتح ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "حسنا. يمكنك التقاط صورة شخصية الآن";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "حسنا. يمكنك أن تأخذ صورة شخصية مع صورة حية الآن";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "حسنا. يمكنك التقاط صور RAW الآن";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "حسنا. يمكنك التقاط صورة تأثير الصورة الآن";

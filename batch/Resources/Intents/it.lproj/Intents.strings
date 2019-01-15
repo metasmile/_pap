@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Prendi un selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Prendi un selfie con Live Photo";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Scatta una foto RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Scatta una foto di profondità";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Apri ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OK. Puoi prendere un selfie adesso";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OK. Puoi prendere un selfie con Live Photo adesso";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OK. Puoi scattare una foto RAW ora";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OK. Puoi scattare una foto con effetto profondità ora";

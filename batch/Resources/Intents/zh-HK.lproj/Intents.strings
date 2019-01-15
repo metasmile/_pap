@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "自拍吧";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "用現場照片拍攝自拍照";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "拍一張RAW照片";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "拍攝深度效果照片";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "打開${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "好。你現在可以自拍吧";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "好。你現在可以帶一張帶現場照片的自拍照";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "好。你現在可以拍一張RAW照片";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "好。您現在可以拍攝深度效果照片";

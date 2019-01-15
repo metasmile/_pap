@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "셀카 찍기.";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "라이브 포토로 셀카 찍기.";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "RAW 사진 찍기";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "깊이있는 사진 찍기 사진";
 /*Translated from: Open ${appName}.*/
 "DcHSN1" = "${appName} 열기.";
 /*Translated from: Choose unknown To Delete.*/
@@ -115,3 +119,7 @@
 "xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "승인. 라이브 포토로 셀카 즐기기";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "승인. 이제 RAW 사진을 찍을 수 있습니다.";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "승인. Depth Effect 사진 찍기";

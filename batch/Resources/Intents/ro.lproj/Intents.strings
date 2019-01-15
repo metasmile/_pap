@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Ia-o pe ea";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Ia-o Selfie cu fotografie live";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Faceți o fotografie RAW";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Ia un efect de profunzime fotografie";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Deschideți ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "O.K. Acum poți lua un Selfie";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "O.K. Poți să iei o poza cu poșta electronică";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "O.K. Poți să iei o fotografie RAW acum";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "O.K. Puteți face o fotografie cu efecte profunde acum";

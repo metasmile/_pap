@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Ota Selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Take Selfie Live-valokuvalla";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Ota RAW-valokuva";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Ota syvyysefekti-valokuva";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Avaa ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OK. Voit ottaa Selfieä nyt";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OK. Voit ottaa Selfie Live-valokuvan nyt";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OK. Voit ottaa RAW-valokuvan nyt";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OK. Voit nyt ottaa syvyysefektin valokuvan";

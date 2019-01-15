@@ -11,7 +11,7 @@
 "LOB8q8" = "Save the copied image.";
 "9ymxym" = "Capture All Text.";
 "6wHM2F" = "Capture Actions To Do.";
-"JTq2KS" = "DoAnyTask";
+"JTq2KS" = "Do Any Task";
 "HYZy53" = "Open Camera To Take A Photo";
 "EOxZtc" = "Take a photo with Camera app.";
 "lmZpL4" = "Open App";
@@ -25,7 +25,7 @@
 "q6CFOL" = "Save the copied image.";
 "Grn5vP" = "Capture All Text.";
 "Zd4eti" = "Capture Actions To Do.";
-"M5aFfK" = "DoAnyTask";
+"M5aFfK" = "Do Any Task";
 "oGM42K" = "Open ${appName}";
 "6TT4Gp" = "Open ${appName}";
 "FbRC9N" = "Take A Photo";
@@ -33,6 +33,8 @@
 "ewGyLx-ZbogxE" = "Take A Live Photo";
 "ewGyLx-IJ8sUB" = "Take A Selfie";
 "ewGyLx-MNWfid" = "Take A Selfie With Live Photo";
+"ewGyLx-hX9aBT" = "Take A RAW Photo";
+"ewGyLx-QABumf" = "Take A Depth Effect Photo";
 "DcHSN1" = "Open ${appName}";
 "yI4SHf-OdqORs" = "Choose unknown To Delete.";
 "yI4SHf-HlgytX" = "Choose Screenshots To Delete.";
@@ -57,3 +59,5 @@
 "xwyqoh-ZbogxE" = "OK. You can take a Live Photo now";
 "xwyqoh-IJ8sUB" = "OK. You can take a Selfie now";
 "xwyqoh-MNWfid" = "OK. You can take a Selfie With Live Photo now";
+"xwyqoh-hX9aBT" = "OK. You can take a RAW Photo now";
+"xwyqoh-QABumf" = "OK. You can take a Depth Effect Photo now";

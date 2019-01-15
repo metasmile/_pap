@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "Zvyšné percento";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "Obnoviť poslednú položku pomocou %@";
+"Repaint the last item with a random art effect." = "Opravte poslednú položku náhodným umeleckým efektom.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "opakovať";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Vyhľadávanie v službe Google";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "Vyhľadajte %@";
+"Search Siri Shortcuts." = "Vyhľadávanie.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Vyberte formát na konverziu";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "Vytvorte fotografiu naživo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "Odfoť.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "Vezmite si RAW fotografiu.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "Take Selfie s Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "Váš kód je neplatný. Prosím skúste znova.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Váš kód vypršal.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "Krajina Youtube";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "deň";
 /* Generated from genl10n: Period.swift */

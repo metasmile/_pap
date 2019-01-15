@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "אחוז שנותר";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "צור מחדש את הפריט האחרון עם %@";
+"Repaint the last item with a random art effect." = "הדפס מחדש את הפריט האחרון עם אפקט אמנות אקראית.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "חפש בגוגל";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "חפש את %@";
+"Search Siri Shortcuts." = "חיפוש סירי קיצורי דרך.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "בחר פורמט להמרה";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "צלם תמונה חיה.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "צלם תמונה.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "צלם תמונה RAW.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "קח Selfie עם תמונה חיה.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "פג תוקפו של הקוד שלך.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "נוף";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "יאהו";
 /* Generated from genl10n: Period.swift */
 "day" = "יְוֹם";
 /* Generated from genl10n: Period.swift */

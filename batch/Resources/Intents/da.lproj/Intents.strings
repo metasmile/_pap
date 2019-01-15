@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Tag en selfie";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Tag dig selv med Live Photo";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Tag et RAW-billede";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Tag et dybdeffektfoto";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Åbn ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "OKAY. Du kan tage en Selfie nu";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "OKAY. Du kan nu tage et Selfie With Live Photo";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "OKAY. Du kan nu tage et RAW-billede";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "OKAY. Du kan nu tage et billede med dybdeffekter";

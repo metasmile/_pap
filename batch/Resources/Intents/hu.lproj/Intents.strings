@@ -68,6 +68,10 @@
 "ewGyLx-IJ8sUB" = "Vegyünk egy Selfie-t";
 /*Translated from: Take A Selfie With Live Photo*/
 "ewGyLx-MNWfid" = "Vegyen egy önálló képet élő fotóval";
+/*Translated from: Take A RAW Photo*/
+"ewGyLx-hX9aBT" = "Vegyen egy RAW fotót";
+/*Translated from: Take A Depth Effect Photo*/
+"ewGyLx-QABumf" = "Vegyünk egy mélységhatás-fotót";
 /*Translated from: Open ${appName}*/
 "DcHSN1" = "Nyitott ${appName}";
 /*Translated from: Choose unknown To Delete.*/
@@ -116,3 +120,7 @@
 "xwyqoh-IJ8sUB" = "RENDBEN. Most vehetsz el egy Selfie-t";
 /*Translated from: OK. You can take a Selfie With Live Photo now*/
 "xwyqoh-MNWfid" = "RENDBEN. Most készíthet egy Selfie Live Photo-t";
+/*Translated from: OK. You can take a RAW Photo now*/
+"xwyqoh-hX9aBT" = "RENDBEN. Most RAW fotót készíthet";
+/*Translated from: OK. You can take a Depth Effect Photo now*/
+"xwyqoh-QABumf" = "RENDBEN. Most készíthet mélységhatás fotót";

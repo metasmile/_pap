@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "None";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "None";
+"Repaint the last item with a random art effect." = "Mätta om det sista objektet med en slumpmässig arteffekt.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "None";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "None";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "None";
+"Search Siri Shortcuts." = "Sök Siri Genvägar.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "None";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -752,6 +752,8 @@
 "Take a Live Photo." = "None";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "None";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "Ta ett RAW-foto.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "None";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "None";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "None";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "None";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "None";
 /* Generated from genl10n: Period.swift */

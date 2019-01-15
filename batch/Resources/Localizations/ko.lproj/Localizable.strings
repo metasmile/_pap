@@ -615,7 +615,7 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "남은 백분율";
 /* Generated from genl10n: Artist.BApp.swift */
-"Repaint the last item with %@" = "마지막 항목을 %@으로 다시 채 웁니다.";
+"Repaint the last item with a random art effect." = "마지막 항목을 랜덤 아트 효과로 다시 칠합니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "반복";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -663,7 +663,7 @@
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Google 검색";
 /* Generated from genl10n: Siri.SApp.swift */
-"Search for %@" = "%@ 검색";
+"Search Siri Shortcuts." = "Siri 단축키를 검색하십시오.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "변환 할 형식 선택";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
@@ -745,13 +745,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Take Part" = "참여하기";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Depth Effect Photo." = "깊이 효과 사진을 찍으십시오.";
+"Take a Depth Effect Photo." = "깊이 효과 사진 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a GIF with a Live Photo." = "라이브 사진으로 GIF 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Live Photo." = "라이브 사진 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "사진 찍기.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "RAW 사진 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "라이브 사진으로 셀카 찍기.";
 /* Generated from genl10n: Camera.SApp.swift */
@@ -884,8 +886,8 @@
 "Your code is invalid. Please try again." = "코드가 유효하지 않습니다. 다시 시도하십시오.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "코드가 만료되었습니다.";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Youtube Landscape" = "YouTube 가로";
+/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Youtube" = "유튜브";
 /* Generated from genl10n: Period.swift */
 "day" = "일";
 /* Generated from genl10n: Period.swift */
