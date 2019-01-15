@@ -544,7 +544,7 @@ class AppUICamera: UIView {
             if UICamera.isDepthPhotoSupported, cameraView.isDepthPhotoEnabled {
                 photoOptionView.insertArrangedSubview(depthPhotoButton, at: 0)
             }
-            if cameraView.isRawPhotoEnabled {
+            if UICamera.isRawPhotoSupported, cameraView.isRawPhotoEnabled {
                 photoOptionView.addArrangedSubview(rawPhotoButton)
             }
         }

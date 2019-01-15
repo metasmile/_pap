@@ -253,6 +253,12 @@ extension UICamera {
         
         if captureSession.canAddOutput(capturePhotoOutput) {
             captureSession.addOutput(capturePhotoOutput)
+
+            let rawPhotoSupported = capturePhotoOutput.availableRawPhotoPixelFormatTypes.first != nil
+            if rawPhotoSupported, false == type(of: self).privateDefaults.isRawPhotoSupported{
+                var defaults = type(of: self).privateDefaults
+                defaults.isRawPhotoSupported = rawPhotoSupported
+            }
         }
         
         configureLivePhotoEnabled(preferredLivePhotoEnabled)
@@ -672,8 +678,7 @@ extension UICamera {
 }
 
 extension UICamera {
-    var isRawPhotoSupported: Bool {
-// https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
+    // https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Cameras/Cameras.html#//apple_ref/doc/uid/TP40013599-CH107-SW15
 //
 // iPhone
 //        iPhone 8
@@ -693,8 +698,8 @@ extension UICamera {
 //        (X) iPad (5th generation)
 //        (X) iPad Pro (12.9-inch)
 //        iPad Pro (9.7-inch)
-
-        return capturePhotoOutput.availableRawPhotoPixelFormatTypes.first != nil
+    static var isRawPhotoSupported: Bool {
+        return UICamera.privateDefaults.isRawPhotoSupported
     }
     
     var isRawPhotoEnabled: Bool {
@@ -1337,4 +1342,19 @@ final class ZoomButton: UIControl {
             return super.hitTest(point, with: event)
         }
     }
+}
+
+private protocol UICameraPrivateDefaults: PropertyDefaults{
+    var isRawPhotoSupported: Bool {get set}
+}
+
+extension Defaults: UICameraPrivateDefaults {
+    var isRawPhotoSupported: Bool {
+        set { set(newValue); }
+        get { return get(or:false) }
+    }
+}
+
+extension UICamera{
+    fileprivate static let privateDefaults:UICameraPrivateDefaults = Defaults(suiteName: fileName())
 }
