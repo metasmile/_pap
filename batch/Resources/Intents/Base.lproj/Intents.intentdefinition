@@ -29,7 +29,7 @@
 					<key>INEnumValueIndex</key>
 					<integer>1</integer>
 					<key>INEnumValueName</key>
-					<string>Photo</string>
+					<string>photo</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
@@ -39,7 +39,7 @@
 					<key>INEnumValueIndex</key>
 					<integer>2</integer>
 					<key>INEnumValueName</key>
-					<string>LivePhoto</string>
+					<string>livePhoto</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
@@ -49,7 +49,7 @@
 					<key>INEnumValueIndex</key>
 					<integer>3</integer>
 					<key>INEnumValueName</key>
-					<string>SelfiePhoto</string>
+					<string>selfiePhoto</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
@@ -59,7 +59,27 @@
 					<key>INEnumValueIndex</key>
 					<integer>4</integer>
 					<key>INEnumValueName</key>
-					<string>SelfieWithLivePhoto</string>
+					<string>selfieWithLivePhoto</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>RAW Photo</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>hX9aBT</string>
+					<key>INEnumValueIndex</key>
+					<integer>5</integer>
+					<key>INEnumValueName</key>
+					<string>rawPhoto</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>Depth Effect Photo</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>QABumf</string>
+					<key>INEnumValueIndex</key>
+					<integer>6</integer>
+					<key>INEnumValueName</key>
+					<string>depthEffectPhoto</string>
 				</dict>
 			</array>
 		</dict>

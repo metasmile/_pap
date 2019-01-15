@@ -73,6 +73,7 @@ extension CameraApp{
         static let selfiePhoto = CaptureOption(1 << 3)
         static let selfieWithLivePhoto = CaptureOption(1 << 4)
         static let depthEffectPhoto = CaptureOption(1 << 5)
+        static let rawPhoto = CaptureOption(1 << 6)
     }
 }
 
@@ -99,13 +100,23 @@ extension CameraApp:UIApplicationDelegateLaunchableApp{
 
             if UICamera.isDepthPhotoSupported{
                 let takePhotoWithDepthEffectIntent = TakeAPhotoIntent()
-                takePhotoWithDepthEffectIntent.cameraMode = .photo
+                takePhotoWithDepthEffectIntent.cameraMode = .depthEffectPhoto
                 takePhotoWithDepthEffectIntent.appId = CameraApp.info.identifier
                 takePhotoWithDepthEffectIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
                 takePhotoWithDepthEffectIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .depthEffectPhoto]).rawValue)
                 //INFO: Marketing line. later insert a feature with real depth effect rendering
                 takePhotoWithDepthEffectIntent.suggestedInvocationPhrase = "Take a Depth Effect Photo.".localized
                 intents.append(takePhotoWithDepthEffectIntent)
+            }
+
+            if UICamera.isRawPhotoSupported{
+                let takePhotoInRAWIntent = TakeAPhotoIntent()
+                takePhotoInRAWIntent.cameraMode = .rawPhoto
+                takePhotoInRAWIntent.appId = CameraApp.info.identifier
+                takePhotoInRAWIntent.appName = NSString.deferredLocalizedIntentsString(with: CameraApp.info.displayName) as String
+                takePhotoInRAWIntent.captureOption = NSNumber(value: CameraApp.CaptureOption([.takePhoto, .rawPhoto]).rawValue)
+                takePhotoInRAWIntent.suggestedInvocationPhrase = "Take a RAW Photo.".localized
+                intents.append(takePhotoInRAWIntent)
             }
 
             let takeALivePhotoIntent = TakeAPhotoIntent()
@@ -237,6 +248,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
             return
         }
 
+        // 1. live photo or photo
         if option.contains(.livePhoto) {
             cameraView.isLivePhotoEnabled = true
         }
@@ -244,47 +256,53 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
             cameraView.isLivePhotoEnabled = false
         }
 
+        // 2. depth effect photo
         if option.contains(.depthEffectPhoto), cameraView.isDepthPhotoEnabled == false {
             cameraView.isDepthPhotoEnabled = true
         }
 
+        // 3. raw photo (highest priority)
+        if option.contains(.rawPhoto), cameraView.isRawPhotoEnabled == false {
+            cameraView.isRawPhotoEnabled = true
+        }
+
         if option.contains(.takePhoto) {
-
             if option.contains(.selfiePhoto) && cameraView.cameraPosition == .back {
-                let capturedResultId = "capturedResult"
-                cameraView.watch(\.capturedResult, id: capturedResultId) {
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        cameraView.switchCaptureDevicePosition()
-                    }
-                    cameraView.unwatch(forIds: [capturedResultId])
-                }
-
-                cameraView.switchCaptureDevicePosition { position in
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        cameraView.takePhoto()
-                    }
-                }
+                lazyCaptureWithSwitchingCaptureDevicePosition()
 
             }else if option.contains(.depthEffectPhoto) && cameraView.cameraPosition == .front {
-                let capturedResultId = "capturedResult"
-                cameraView.watch(\.capturedResult, id: capturedResultId) {
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        cameraView.switchCaptureDevicePosition()
-                    }
-                    cameraView.unwatch(forIds: [capturedResultId])
-                }
+                lazyCaptureWithSwitchingCaptureDevicePosition()
 
-                cameraView.switchCaptureDevicePosition { position in
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        cameraView.takePhoto()
-                    }
-                }
+            }else if option.contains(.rawPhoto) && cameraView.cameraPosition == .front {
+                lazyCaptureWithSwitchingCaptureDevicePosition()
             }
             else{
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                    cameraView.takePhoto()
-                }
+                lazyCapture()
             }
+        }
+    }
+
+    private func lazyCaptureWithSwitchingCaptureDevicePosition(delay:TimeInterval=1){
+        guard let cameraView = cameraView else{ return }
+
+        let capturedResultId = "capturedResult"
+        cameraView.watch(\.capturedResult, id: capturedResultId) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+                cameraView.switchCaptureDevicePosition()
+            }
+            cameraView.unwatch(forIds: [capturedResultId])
+        }
+
+        cameraView.switchCaptureDevicePosition { position in
+            self.lazyCapture(delay: delay)
+        }
+    }
+
+    private func lazyCapture(delay:TimeInterval=1){
+        guard let cameraView = cameraView else{ return }
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+            cameraView.takePhoto()
         }
     }
 

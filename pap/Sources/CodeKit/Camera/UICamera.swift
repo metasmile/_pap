@@ -698,6 +698,8 @@ extension UICamera {
 //        (X) iPad (5th generation)
 //        (X) iPad Pro (12.9-inch)
 //        iPad Pro (9.7-inch)
+
+    //INFO: worst case - next runtime guaranteed
     static var isRawPhotoSupported: Bool {
         return UICamera.privateDefaults.isRawPhotoSupported
     }

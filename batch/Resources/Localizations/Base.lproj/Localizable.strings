@@ -492,7 +492,7 @@
 "Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift, PhotoPickerViewController.Operations.ShopApp.swift */
 "Open %@" = "Open %@";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
 "Open %@." = "Open %@.";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Apple Maps" = "Open Apple Maps";
@@ -716,6 +716,8 @@
 "Take a Live Photo." = "Take a Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "Take a Photo.";
+/* Generated from genl10n: Camera.SApp.swift */
+"Take a RAW Photo." = "Take a RAW Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "Take a Selfie with a Live Photo.";
 /* Generated from genl10n: Camera.SApp.swift */
