@@ -551,7 +551,7 @@ extension PreviewView {
                         
                         DispatchQueue.main.async {
                             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
-                            if let originalImage = app.previewOriginalImageCompare(with: item, targetSize: targetSize) {
+                            if let originalImage = app.previewOriginalImageCompare(with: item, targetSize: targetSize) ?? original {
                                 cell.assetView.originalImageForCompare = originalImage
                                 cell.assetView.originalBadgeTitle = app.previewOriginalBadgeTitle
                             }
