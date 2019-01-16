@@ -603,7 +603,7 @@ extension DepthEditMode {
             
             let invertedMask = mask.applyingFilter("CIColorInvert")
             
-            let blurred = image.applyingFilter("CIMaskedVariableBlur",
+            let blurred = image.clampedToExtent().applyingFilter("CIMaskedVariableBlur",
                                                parameters: ["inputMask": invertedMask,
                                                             "inputRadius": blurRadius])
             
