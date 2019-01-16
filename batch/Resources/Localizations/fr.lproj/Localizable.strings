@@ -51,27 +51,27 @@
 /*Translated from: Edit this video*/
 "Edit this video" = "Modifier cette vidéo";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%@ Photo";
+"%d Photo" = "%d Photo";
 /*Translated from: %@ Video*/
-"%d Video" = "%@ Vidéo";
+"%d Video" = "%d Vidéo";
 /*Translated from: %@ Item*/
-"%d Item" = "%@ Article";
+"%d Item" = "%d Article";
 /*Translated from: %@ Photos*/
-"%d Photos" = "%@ Photos";
+"%d Photos" = "%d Photos";
 /*Translated from: %@ Videos*/
-"%d Videos" = "%@ Vidéos";
+"%d Videos" = "%d Vidéos";
 /*Translated from: %@ Items*/
-"%d Items" = "%@ Items";
+"%d Items" = "%d Items";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Modifier %@ Photo";
+"Edit %d Photo" = "Modifier %d Photo";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Modifier %@ Vidéo";
+"Edit %d Video" = "Modifier %d Vidéo";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Modifier %@ Photos";
+"Edit %d Photos" = "Modifier %d Photos";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Modifier %@ Vidéos";
+"Edit %d Videos" = "Modifier %d Vidéos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Modifier les %@ éléments";
+"Edit %d Items" = "Modifier les %d éléments";
 /*com.stells.batch.transform*/
 "Transform" = "Transformer";
 /*com.stells.apps.photofilter*/
