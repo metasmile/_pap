@@ -5,6 +5,7 @@
 //  Created by HYOJIN MO on 09/11/2018.
 //  Copyright © 2018 Stells. All rights reserved.
 //
+// f/0.2+ Depth Control slider, which ranges from f/1.4 to f/16, f/1.4 is the maximum amount of blur
 
 import UIKit
 import Photos
@@ -135,22 +136,41 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
+    
+    private lazy var previewFilterCache: NSCache<NSString, CIDepthMaskFilter> = NSCache<NSString, CIDepthMaskFilter>()
 
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
+        let currentFilter = appAsset.editState.ciFilter as? CIDepthMaskFilter
+        
         let original = cachedOriginalImage(with: appAsset.asset, targetSize: targetSize)
         
-        let filter = appAsset.editState.ciFilter as? CIDepthMaskFilter
-        if filter?.depthData == nil || filter?.originalOrientation == nil {
-            let assetURL = appAsset.asset.asURL
-            
-            if filter?.depthData == nil {
-                filter?.depthData = assetURL?.asDepthData
+        let cacheKey = (appAsset.asset.localIdentifierWithoutSplitter + (currentFilter?.name ?? "")) as NSString
+        
+        var filter: CIDepthMaskFilter?
+        if let cachedFilter = previewFilterCache.object(forKey: cacheKey) {
+            if let currentFilter = currentFilter {
+                cachedFilter.depthLevel = currentFilter.depthLevel
+                cachedFilter.intensity = currentFilter.intensity
             }
+            
+            filter = cachedFilter
+        }
+        else if let currentFilter = currentFilter {
+            let depthFilter = CIDepthMaskFilter(currentFilter.depthEditMode)
+            depthFilter.depthLevel = currentFilter.depthLevel
+            depthFilter.intensity = currentFilter.intensity
+            
+            previewFilterCache.setObject(depthFilter, forKey: cacheKey)
+            
+            let assetURL = appAsset.asset.asURL
+            depthFilter.depthData = assetURL?.asDepthData
             
             if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
-                filter?.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+                depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
             }
+            
+            filter = depthFilter
         }
         
         let filtered = original?.applyFilter(ciFilter: filter)
@@ -195,11 +215,19 @@ private enum DepthEditMode: Int, Codable {
 
 private class CIDepthMaskFilter: CIFilter {
     //
-    var depthData:AVDepthData?
+    var depthData:AVDepthData? {
+        didSet {
+            if let data = depthData {
+                depthImage = CIImage(depthData: data)
+            }
+        }
+    }
     var depthLevel:CGFloat = 1
     var intensity:CGFloat = 1
     var originalOrientation:CGImagePropertyOrientation?
     //
+    
+    private(set) var depthImage: CIImage?
 
     var depthEditMode: DepthEditMode = .original
 
@@ -217,139 +245,8 @@ private class CIDepthMaskFilter: CIFilter {
 
     override var outputImage: CIImage? {
         return autoreleasepool {
-            guard let image = inputImage
-                    , let depthDataMapPixelBuffer = depthData?.depthDataMap else {
-                print("No depth data found.")
-                return nil
-            }
-
-            depthDataMapPixelBuffer.normalize()
-
-            let depthImage = CIImage(cvPixelBuffer: depthDataMapPixelBuffer)
-            let scale = image.extent.maxLength / depthImage.extent.maxLength
-            var maskingDepthImage = createBandPassMask(for: depthImage, withFocus: depthLevel, andScale: scale)
-//            var invertedMaskImage = mask.applyingFilter("CIColorInvert")
-
-            if let o = originalOrientation{
-                maskingDepthImage = maskingDepthImage.oriented(o)
-            }
-            
-            return blur(image: image, mask: maskingDepthImage)
-
-
-//            if let bImage = CIImage(cgImage: image.asCGImage?.blur()) {
-//                return image.applyingFilter("CIBlendWithMask",
-//                        parameters: ["inputBackgroundImage": bImage,
-//                                     "inputMaskImage": invertedMaskImage])
-//            }
-
-//            return image.applyingFilter("CIMaskedVariableBlur", parameters: ["inputMask" : invertedMaskImage, "inputRadius": 15.0])
+            return depthEditMode.applyFilter(self)
         }
-    }
-
-    func createHighPassMask(for depthImage: CIImage,
-                            withFocus focus: CGFloat,
-                            andScale scale: CGFloat,
-                            isSharp: Bool = false) -> CIImage {
-
-        let s = isSharp ? MaskParams.sharpSlope : MaskParams.slope
-        let filterWidth =  2 / s + MaskParams.width
-        let b = -s * (focus - filterWidth / 2)
-
-        let mask = depthImage
-                .applyingFilter("CIColorMatrix", parameters: [
-                    "inputRVector": CIVector(x: s, y: 0, z: 0, w: 0),
-                    "inputGVector": CIVector(x: 0, y: s, z: 0, w: 0),
-                    "inputBVector": CIVector(x: 0, y: 0, z: s, w: 0),
-                    "inputBiasVector": CIVector(x: b, y: b, z: b, w: 0)])
-                .applyingFilter("CIColorClamp")
-                .applyingFilter("CIBicubicScaleTransform",
-                        parameters: ["inputScale": scale])
-
-        return mask
-    }
-
-    func createBandPassMask(for depthImage: CIImage,
-                            withFocus focus: CGFloat,
-                            andScale scale: CGFloat) -> CIImage {
-
-        let s1 = MaskParams.slope
-        let s2 = -MaskParams.slope
-        let filterWidth =  2 / MaskParams.slope + MaskParams.width
-        let b1 = -s1 * (focus - filterWidth / 2)
-        let b2 = -s2 * (focus + filterWidth / 2)
-
-        let mask0 = depthImage
-                .applyingFilter("CIColorMatrix", parameters: [
-                    "inputRVector": CIVector(x: s1, y: 0, z: 0, w: 0),
-                    "inputGVector": CIVector(x: 0, y: s1, z: 0, w: 0),
-                    "inputBVector": CIVector(x: 0, y: 0, z: s1, w: 0),
-                    "inputBiasVector": CIVector(x: b1, y: b1, z: b1, w: 0)])
-                .applyingFilter("CIColorClamp")
-
-        let mask1 = depthImage
-                .applyingFilter("CIColorMatrix", parameters: [
-                    "inputRVector": CIVector(x: s2, y: 0, z: 0, w: 0),
-                    "inputGVector": CIVector(x: 0, y: s2, z: 0, w: 0),
-                    "inputBVector": CIVector(x: 0, y: 0, z: s2, w: 0),
-                    "inputBiasVector": CIVector(x: b2, y: b2, z: b2, w: 0)])
-                .applyingFilter("CIColorClamp")
-
-        let combinedMask = mask0.applyingFilter("CIDarkenBlendMode",
-                parameters: ["inputBackgroundImage": mask1])
-
-        let mask = combinedMask.applyingFilter("CIBicubicScaleTransform",
-                parameters: ["inputScale": scale])
-
-        return mask
-    }
-
-    func comic(image: CIImage, mask: CIImage) -> CIImage {
-
-        let bg = image.applyingFilter("CIComicEffect")
-
-        let filtered = image.applyingFilter("CIBlendWithMask",
-                parameters: ["inputBackgroundImage": bg,
-                             "inputMaskImage": mask])
-
-        return filtered
-    }
-
-    func greenScreen(image: CIImage, background: CIImage, mask: CIImage) -> CIImage {
-
-        let crop = CIVector(x: 0,
-                y: 0,
-                z: image.extent.size.width,
-                w: image.extent.size.height)
-
-        let croppedBG = background.applyingFilter("CICrop",
-                parameters: ["inputRectangle": crop])
-
-        let filtered = image.applyingFilter("CIBlendWithMask",
-                parameters: ["inputBackgroundImage": croppedBG,
-                             "inputMaskImage": mask])
-
-        return filtered
-    }
-
-    func blur(image: CIImage, mask: CIImage) -> CIImage {
-
-        let blurRadius: CGFloat = 10
-        let crop = CIVector(x: 0,
-                y: 0,
-                z: image.extent.size.width,
-                w: image.extent.size.height)
-
-        let invertedMask = mask.applyingFilter("CIColorInvert")
-
-        let blurred = image.applyingFilter("CIMaskedVariableBlur",
-                parameters: ["inputMask": invertedMask,
-                             "inputRadius": blurRadius])
-
-        let filtered = blurred.applyingFilter("CICrop",
-                parameters: ["inputRectangle": crop])
-
-        return filtered
     }
 }
 
@@ -438,14 +335,14 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         view.bottomAnchor.constraint(equalTo: toolBar.bottomAnchor, constant: 4).isActive = true
         toolBar.heightAnchor.constraint(lessThanOrEqualToConstant: 44).isActive = true
         toolBar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        toolBar.widthAnchor.constraint(lessThanOrEqualToConstant: 320).isActive = true
+//        toolBar.widthAnchor.constraint(lessThanOrEqualToConstant: 320).isActive = true
         toolBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        toolBar.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 4).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 52 + 20).isActive = true
 
         toolBar.addArrangedSubview(depthLevelSlider)
         
@@ -553,5 +450,167 @@ private class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
 
         async.waitUntilEnd()
         return result
+    }
+}
+
+extension DepthEditMode {
+    func applyFilter(_ filter: CIDepthMaskFilter) -> CIImage? {
+        switch self {
+        case .original: return DepthEditMode.Processor.applyOriginalEffect(filter)
+        case .blur: return DepthEditMode.Processor.applyBlurEffect(filter)
+        }
+    }
+    
+    private struct Processor {
+        static func applyOriginalEffect(_ filter: CIDepthMaskFilter) -> CIImage? {
+            return autoreleasepool { () -> CIImage? in
+                guard
+                    let foreground = filter.inputImage,
+                    var background = filter.depthImage
+                else { return nil }
+                
+                background = background.oriented(filter.originalOrientation ?? .up)
+                
+                let effect = CIFilter(name: "CIDepthBlurEffect")
+                
+                let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
+                
+                effect?.setValue(foreground, forKey: kCIInputImageKey)
+                effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
+                effect?.setValue(aperture, forKey: "inputAperture")
+                
+                return effect?.outputImage
+            }
+        }
+        
+        static func applyBlurEffect(_ filter: CIDepthMaskFilter) -> CIImage? {
+            guard let image = filter.inputImage, let depthDataMapPixelBuffer = filter.depthData?.depthDataMap else {
+                return nil
+            }
+            
+            depthDataMapPixelBuffer.normalize()
+            
+            let depthImage = CIImage(cvPixelBuffer: depthDataMapPixelBuffer).oriented(filter.originalOrientation ?? .up)
+            
+            let scale = image.extent.maxLength / depthImage.extent.maxLength
+            let maskingDepthImage = createBandPassMask(for: depthImage, withFocus: filter.depthLevel, andScale: scale)
+            
+            return blur(image: image, mask: maskingDepthImage)
+            
+            
+            //            if let bImage = CIImage(cgImage: image.asCGImage?.blur()) {
+            //                return image.applyingFilter("CIBlendWithMask",
+            //                        parameters: ["inputBackgroundImage": bImage,
+            //                                     "inputMaskImage": invertedMaskImage])
+            //            }
+            
+            //            return image.applyingFilter("CIMaskedVariableBlur", parameters: ["inputMask" : invertedMaskImage, "inputRadius": 15.0])
+        }
+        
+        static func createHighPassMask(for depthImage: CIImage,
+                                               withFocus focus: CGFloat,
+                                               andScale scale: CGFloat,
+                                               isSharp: Bool = false) -> CIImage {
+            
+            let s = isSharp ? MaskParams.sharpSlope : MaskParams.slope
+            let filterWidth =  2 / s + MaskParams.width
+            let b = -s * (focus - filterWidth / 2)
+            
+            let mask = depthImage
+                .applyingFilter("CIColorMatrix", parameters: [
+                    "inputRVector": CIVector(x: s, y: 0, z: 0, w: 0),
+                    "inputGVector": CIVector(x: 0, y: s, z: 0, w: 0),
+                    "inputBVector": CIVector(x: 0, y: 0, z: s, w: 0),
+                    "inputBiasVector": CIVector(x: b, y: b, z: b, w: 0)])
+                .applyingFilter("CIColorClamp")
+                .applyingFilter("CIBicubicScaleTransform",
+                                parameters: ["inputScale": scale])
+            
+            return mask
+        }
+        
+        static func createBandPassMask(for depthImage: CIImage,
+                                               withFocus focus: CGFloat,
+                                               andScale scale: CGFloat) -> CIImage {
+            
+            let s1 = MaskParams.slope
+            let s2 = -MaskParams.slope
+            let filterWidth =  2 / MaskParams.slope + MaskParams.width
+            let b1 = -s1 * (focus - filterWidth / 2)
+            let b2 = -s2 * (focus + filterWidth / 2)
+            
+            let mask0 = depthImage
+                .applyingFilter("CIColorMatrix", parameters: [
+                    "inputRVector": CIVector(x: s1, y: 0, z: 0, w: 0),
+                    "inputGVector": CIVector(x: 0, y: s1, z: 0, w: 0),
+                    "inputBVector": CIVector(x: 0, y: 0, z: s1, w: 0),
+                    "inputBiasVector": CIVector(x: b1, y: b1, z: b1, w: 0)])
+                .applyingFilter("CIColorClamp")
+            
+            let mask1 = depthImage
+                .applyingFilter("CIColorMatrix", parameters: [
+                    "inputRVector": CIVector(x: s2, y: 0, z: 0, w: 0),
+                    "inputGVector": CIVector(x: 0, y: s2, z: 0, w: 0),
+                    "inputBVector": CIVector(x: 0, y: 0, z: s2, w: 0),
+                    "inputBiasVector": CIVector(x: b2, y: b2, z: b2, w: 0)])
+                .applyingFilter("CIColorClamp")
+            
+            let combinedMask = mask0.applyingFilter("CIDarkenBlendMode",
+                                                    parameters: ["inputBackgroundImage": mask1])
+            
+            let mask = combinedMask.applyingFilter("CIBicubicScaleTransform",
+                                                   parameters: ["inputScale": scale])
+            
+            return mask
+        }
+        
+        static func comic(image: CIImage, mask: CIImage) -> CIImage {
+            
+            let bg = image.applyingFilter("CIComicEffect")
+            
+            let filtered = image.applyingFilter("CIBlendWithMask",
+                                                parameters: ["inputBackgroundImage": bg,
+                                                             "inputMaskImage": mask])
+            
+            return filtered
+        }
+        
+        static func greenScreen(image: CIImage, background: CIImage, mask: CIImage) -> CIImage {
+            
+            let crop = CIVector(x: 0,
+                                y: 0,
+                                z: image.extent.size.width,
+                                w: image.extent.size.height)
+            
+            let croppedBG = background.applyingFilter("CICrop",
+                                                      parameters: ["inputRectangle": crop])
+            
+            let filtered = image.applyingFilter("CIBlendWithMask",
+                                                parameters: ["inputBackgroundImage": croppedBG,
+                                                             "inputMaskImage": mask])
+            
+            return filtered
+        }
+        
+        static func blur(image: CIImage, mask: CIImage) -> CIImage {
+            
+            let blurRadius: CGFloat = 10
+            let crop = CIVector(x: 0,
+                                y: 0,
+                                z: image.extent.size.width,
+                                w: image.extent.size.height)
+            
+            let invertedMask = mask.applyingFilter("CIColorInvert")
+            
+            let blurred = image.applyingFilter("CIMaskedVariableBlur",
+                                               parameters: ["inputMask": invertedMask,
+                                                            "inputRadius": blurRadius])
+            
+            let filtered = blurred.applyingFilter("CICrop",
+                                                  parameters: ["inputRectangle": crop])
+            
+            return filtered
+        }
     }
 }
