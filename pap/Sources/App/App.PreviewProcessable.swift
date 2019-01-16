@@ -16,6 +16,10 @@ public protocol PreviewProcessableApp: App {
     
     //TODO: usage levels?
     func showsVisibleEffectWhileProcessing() -> Bool
+    
+    //Compare with original
+    var previewOriginalBadgeTitle: String { get }
+    func previewOriginalImageCompare(with appAsset: AppAsset, targetSize: CGSize) -> UIImage?
 }
 
 extension PreviewProcessableApp {
@@ -38,4 +42,7 @@ extension PreviewProcessableApp {
             return nil
         }
     }
+    
+    public var previewOriginalBadgeTitle: String { return "Original".localized }
+    public func previewOriginalImageCompare(with appAsset: AppAsset, targetSize: CGSize) -> UIImage? { return nil }
 }

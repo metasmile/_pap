@@ -46,6 +46,16 @@ class AppUIAssetView: AssetView {
         return label
     }()
     
+    var originalBadgeTitle: String? {
+        set {
+            originalBadgeLabel.text = newValue
+        }
+        
+        get {
+            return originalBadgeLabel.text
+        }
+    }
+    
     private lazy var processingView: UIView = {
         let view = UIView(frame: bounds)
         

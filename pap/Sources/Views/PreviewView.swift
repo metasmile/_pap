@@ -549,8 +549,12 @@ extension PreviewView {
                             PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
                         }
                         
-                        DispatchQueue.main.async{
+                        DispatchQueue.main.async {
                             guard let cell = self.collectionView.cellForItem(at: indexPath) as? PreviewCollectionViewCell else { return }
+                            if let originalImage = app.previewOriginalImageCompare(with: item, targetSize: targetSize) {
+                                cell.assetView.originalImageForCompare = originalImage
+                                cell.assetView.originalBadgeTitle = app.previewOriginalBadgeTitle
+                            }
                             cell.setFilteredImage(filtered, original: original, with: item)
                             if cell.assetView.isProcessing {
                                 cell.assetView.isProcessing(false, animated: true)

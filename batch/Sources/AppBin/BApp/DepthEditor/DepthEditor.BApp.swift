@@ -41,7 +41,7 @@ public class DepthEditorAppConfigValue: NSObject, PropertyWatchable, AppConfigAd
 }
 
 class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, PhotoEditorPreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
         PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _DepthEditorAppTask.self
@@ -141,40 +141,55 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        let currentFilter = appAsset.editState.ciFilter as? CIDepthMaskFilter
-        
         let original = cachedOriginalImage(with: appAsset.asset, targetSize: targetSize)
         
-        let cacheKey = (appAsset.asset.localIdentifierWithoutSplitter + (currentFilter?.name ?? "")) as NSString
-        
-        var filter: CIDepthMaskFilter?
-        if let cachedFilter = previewFilterCache.object(forKey: cacheKey) {
-            if let currentFilter = currentFilter {
-                cachedFilter.depthLevel = currentFilter.depthLevel
-                cachedFilter.intensity = currentFilter.intensity
-            }
-            
-            filter = cachedFilter
+        guard let currentFilter = appAsset.editState.ciFilter as? CIDepthMaskFilter else {
+            completion(original?.asUIImage, nil)
+            return
         }
-        else if let currentFilter = currentFilter {
+        
+        let cacheKey = (appAsset.asset.localIdentifierWithoutSplitter + currentFilter.name) as NSString
+        
+        if let cachedFilter = previewFilterCache.object(forKey: cacheKey) {
+            cachedFilter.depthLevel = currentFilter.depthLevel
+            cachedFilter.intensity = currentFilter.intensity
+            
+            let filtered = original?.applyFilter(ciFilter: cachedFilter)
+            completion(original?.asUIImage, filtered?.asUIImage)
+        }
+        else {
             let depthFilter = CIDepthMaskFilter(currentFilter.depthEditMode)
             depthFilter.depthLevel = currentFilter.depthLevel
             depthFilter.intensity = currentFilter.intensity
             
+            depthFilter.asset = appAsset.asset
+            
             previewFilterCache.setObject(depthFilter, forKey: cacheKey)
             
-            let assetURL = appAsset.asset.asURL
-            depthFilter.depthData = assetURL?.asDepthData
-            
-            if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
-                depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+            DispatchQueue(label: #file + "fetchAsset", qos: .utility).async {
+                let assetURL = appAsset.asset.asURL
+                depthFilter.depthData = assetURL?.asDepthData
+                
+                if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
+                    depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+                }
+                
+                let filtered = original?.applyFilter(ciFilter: depthFilter)
+                completion(original?.asUIImage, filtered?.asUIImage)
             }
-            
-            filter = depthFilter
         }
+    }
+    
+    var previewOriginalBadgeTitle: String {
+        return "Depth Map".localized
+    }
+    
+    func previewOriginalImageCompare(with appAsset: AppAsset, targetSize: CGSize) -> UIImage? {
+        guard let currentFilter = appAsset.editState.ciFilter as? CIDepthMaskFilter else { return nil }
+        let cacheKey = (appAsset.asset.localIdentifierWithoutSplitter + currentFilter.name) as NSString
         
-        let filtered = original?.applyFilter(ciFilter: filter)
-        completion(original?.asUIImage, filtered?.asUIImage)
+        let cachedFilter = previewFilterCache.object(forKey: cacheKey)
+        return cachedFilter?.depthImage?.oriented(cachedFilter?.originalOrientation ?? .up).asUIImage
     }
 
     public func photoEditorWillBeginProcessing() {
@@ -215,6 +230,7 @@ private enum DepthEditMode: Int, Codable {
 
 private class CIDepthMaskFilter: CIFilter {
     //
+    var asset:PHAsset?
     var depthData:AVDepthData? {
         didSet {
             if let data = depthData {
@@ -372,10 +388,9 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
         let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
         selectItem(by: filter?.name)
-
-        selectedFilter = filter
+        depthLevelSlider.value = Float(filter?.depthLevel ?? 1)
         
-        depthLevelSlider.value = Float(filter?.depthLevel ?? 0)
+        selectedFilter = filter
     }
 
     fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {

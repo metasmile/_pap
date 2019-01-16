@@ -292,6 +292,8 @@
 "Deleting Targets" = "Deleting Targets";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Depth Editor";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Depth Map" = "Depth Map";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -502,7 +504,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: Filters.BApp.swift, DepthEditor.BApp.swift, App.UI.AssetView.swift, Artist.BApp.swift, Resizer.BApp.swift */
+/* Generated from genl10n: DepthEditor.BApp.swift, Artist.BApp.swift, Resizer.BApp.swift, App.PreviewProcessable.swift, Filters.BApp.swift, App.UI.AssetView.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
