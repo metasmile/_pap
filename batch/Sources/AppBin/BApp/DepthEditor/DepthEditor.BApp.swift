@@ -118,7 +118,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     }
 
     public var doneButtonTitle: String? {
-        return "Resize".localized
+        return "Apply".localized
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
@@ -163,8 +163,6 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             depthFilter.depthLevel = currentFilter.depthLevel
             depthFilter.intensity = currentFilter.intensity
             depthFilter.focusRect = currentFilter.focusRect
-            
-            depthFilter.asset = appAsset.asset
             
             previewFilterCache.setObject(depthFilter, forKey: cacheKey)
             
@@ -242,7 +240,6 @@ private enum DepthEditMode: Int, Codable {
 
 private class CIDepthMaskFilter: CIFilter {
     //
-    var asset:PHAsset?
     var depthData:AVDepthData? {
         didSet {
             if let data = depthData {
@@ -256,6 +253,7 @@ private class CIDepthMaskFilter: CIFilter {
     //
     
     var focusRect: CGRect?
+    var isExporting: Bool = false
     
     private(set) var depthImage: CIImage?
 
@@ -298,7 +296,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 
     @objc dynamic var filterItem: CIFilterItem? {
         willSet {
-            self.selectedFilter?.depthLevel = CGFloat(self.depthLevelSlider.value)
+            self.selectedFilter?.depthLevel = CGFloat(depthLevelSlider.value)
         }
     }
 
@@ -410,7 +408,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
     
     fileprivate func updateItem(at normalizedPoint: CGPoint) {
-        selectedFilter?.focusRect = CGRect(origin: normalizedPoint, size: CGSize(width: 0.1, height: 0.1))
+        selectedFilter?.focusRect = CGRect(origin: normalizedPoint, size: CGSize(width: 0.01, height: 0.01))
         self.filterItem = CIFilterItem(self.selectedFilter)
     }
 
@@ -443,7 +441,62 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
 }
 
-class _DepthEditorAppAsset: _FiltersAppAsset {}
+class _DepthEditorAppAsset: AppAsset {}
+
+extension _DepthEditorAppAsset: PHAssetImageEditable {
+    func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+        let asset = self.asset
+        
+        guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in
+            guard let filter = self.editState.ciFilter as? CIDepthMaskFilter else {
+                completionHandler(nil, nil, nil)
+                return nil
+            }
+            
+            let depthFilter = CIDepthMaskFilter(filter.depthEditMode)
+            depthFilter.depthLevel = filter.depthLevel
+            depthFilter.intensity = filter.intensity
+            depthFilter.focusRect = filter.focusRect
+            depthFilter.isExporting = true
+            
+            let assetURL = asset.asURL
+            depthFilter.depthData = assetURL?.asDepthData
+            
+            if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
+                depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+            }
+            
+            guard let ciImage = asset.asCIImage?.applyFilter(ciFilter: depthFilter) else {
+                completionHandler(nil, nil, nil)
+                return nil
+            }
+            
+            return ciImage
+        }) else {
+            completionHandler(nil, nil, nil)
+            return nil
+        }
+        
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil, nil, nil)
+                return
+            }
+            
+            DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                autoreleasepool {
+                    guard ciImage.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
+                        completionHandler(nil, nil, nil)
+                        return
+                    }
+                    
+                    completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
+                }
+            }
+        }
+        return [PHAssetRequestID(forEditingInput: r)]
+    }
+}
 
 private class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _DepthEditorAppAsset
@@ -452,7 +505,7 @@ private class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
 
         (param as? _DepthEditorAppAsset)?.cancelAllRequestIDs()
-        (param as? _DepthEditorAppAsset)?.cancelProcessing()
+//        (param as? _DepthEditorAppAsset)?.cancelProcessing()
     }
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
@@ -514,7 +567,7 @@ extension DepthEditMode {
                 let effect = CIFilter(name: "CIDepthBlurEffect")
                 
                 let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
-                let scale = background.extent.maxLength / foreground.extent.maxLength
+                let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
                 effect?.setValue(foreground, forKey: kCIInputImageKey)
                 effect?.setValue(background, forKey: kCIInputDisparityImageKey)
@@ -542,7 +595,7 @@ extension DepthEditMode {
                 let effect = CIFilter(name: "CIDepthBlurEffect")
                 
                 let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
-                let scale = background.extent.maxLength / foreground.extent.maxLength
+                let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
                 effect?.setValue(foreground, forKey: kCIInputImageKey)
                 effect?.setValue(background, forKey: kCIInputDisparityImageKey)
