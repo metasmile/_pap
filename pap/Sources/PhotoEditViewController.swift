@@ -114,10 +114,19 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     lazy var tapToPlayGesture: UITapGestureRecognizer = {
-        return UITapGestureRecognizer(target: self, action: #selector(self.playOrPause))
+        return UITapGestureRecognizer(target: self, action: #selector(self.tapGestureDidRecognize))
     }()
     
-    @objc private func playOrPause() {
+    @objc private func tapGestureDidRecognize(sender: UITapGestureRecognizer) {
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self) {
+            let pointInAssetView = sender.location(in: assetView)
+            let assetSize = assetView.size
+            app.photoEditorPreviewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height))
+        }
+        playOrPause()
+    }
+    
+    private func playOrPause() {
         if assetView.isPlaying {
             assetView.pauseAny()
         }

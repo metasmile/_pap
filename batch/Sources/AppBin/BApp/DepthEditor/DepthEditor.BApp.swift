@@ -153,6 +153,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         if let cachedFilter = previewFilterCache.object(forKey: cacheKey) {
             cachedFilter.depthLevel = currentFilter.depthLevel
             cachedFilter.intensity = currentFilter.intensity
+            cachedFilter.focusRect = currentFilter.focusRect
             
             let filtered = original?.applyFilter(ciFilter: cachedFilter)
             completion(original?.asUIImage, filtered?.asUIImage)
@@ -161,6 +162,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             let depthFilter = CIDepthMaskFilter(currentFilter.depthEditMode)
             depthFilter.depthLevel = currentFilter.depthLevel
             depthFilter.intensity = currentFilter.intensity
+            depthFilter.focusRect = currentFilter.focusRect
             
             depthFilter.asset = appAsset.asset
             
@@ -202,6 +204,10 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         (content as? DepthEditorAppDockContent)?.selectItem(with: editStateValue)
+    }
+    
+    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint) {
+        (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint)
     }
 }
 
@@ -248,6 +254,8 @@ private class CIDepthMaskFilter: CIFilter {
     var intensity:CGFloat = 1
     var originalOrientation:CGImagePropertyOrientation?
     //
+    
+    var focusRect: CGRect?
     
     private(set) var depthImage: CIImage?
 
@@ -400,6 +408,11 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         
         selectedFilter = filter
     }
+    
+    fileprivate func updateItem(at normalizedPoint: CGPoint) {
+        selectedFilter?.focusRect = CGRect(origin: normalizedPoint, size: CGSize(width: 0.1, height: 0.1))
+        self.filterItem = CIFilterItem(self.selectedFilter)
+    }
 
     fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {
         let index = indexOfItem(by: filterName) ?? 0
@@ -509,6 +522,10 @@ extension DepthEditMode {
                 effect?.setValue(aperture, forKey: "inputAperture")
                 effect?.setValue(scale, forKey: "inputScaleFactor")
                 
+                if let focusRect = filter.focusRect {
+                    effect?.setValue(CIVector(cgRect: focusRect), forKey: "inputFocusRect")
+                }
+                
                 return effect?.outputImage
             }
         }
@@ -532,6 +549,10 @@ extension DepthEditMode {
                 effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
                 effect?.setValue(aperture, forKey: "inputAperture")
                 effect?.setValue(scale, forKey: "inputScaleFactor")
+                
+                if let focusRect = filter.focusRect {
+                    effect?.setValue(CIVector(cgRect: focusRect), forKey: "inputFocusRect")
+                }
                 
                 return effect?.outputImage
             }
