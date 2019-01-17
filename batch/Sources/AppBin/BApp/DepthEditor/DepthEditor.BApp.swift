@@ -207,11 +207,15 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
 private enum DepthEditMode: Int, Codable {
     case original
+    case aperture
+    case aperture2
     case blur
 
     var name: String {
         switch self {
         case .original: return "Original"
+        case .aperture: return "Aperture"
+        case .aperture2: return "Aperture2"
         case .blur: return "Blur"
         }
     }
@@ -219,11 +223,13 @@ private enum DepthEditMode: Int, Codable {
     var description: String? {
         switch self {
         case .original: return nil
+        case .aperture: return "Aperture".localized
+        case .aperture2: return "Aperture+".localized
         case .blur: return "Blur".localized
         }
     }
 
-    var title: String {
+    var displayName: String {
         return description ?? name
     }
 }
@@ -268,7 +274,9 @@ private class CIDepthMaskFilter: CIFilter {
 
 fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent {
     private lazy var filters: [CIDepthMaskFilter] = [
-        CIDepthMaskFilter(.original),
+//        CIDepthMaskFilter(.original),
+        CIDepthMaskFilter(.aperture),
+        CIDepthMaskFilter(.aperture2),
         CIDepthMaskFilter(.blur)
     ]
 
@@ -294,17 +302,17 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         let imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         let imageSize = CGSize(width: 32, height: 32)
 
-        let originalFilter = self.filters[0]
+//        let originalFilter = self.filters[0]
+//
+//        items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
+//            self.selectedFilter = originalFilter
+//            self.filterItem = CIFilterItem(originalFilter)
+//        }, filter: originalFilter))
 
-        items.append(CIFilterCollectionItem(title: "Original".localized, image: UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.2), strokeColor: .white), action: {
-            self.selectedFilter = originalFilter
-            self.filterItem = CIFilterItem(originalFilter)
-        }, filter: originalFilter))
-
-        items += self.filters[1...].map({ (filter) -> CIFilterCollectionItem in
+        items += self.filters.map({ (filter) -> CIFilterCollectionItem in
             let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
 
-            return CIFilterCollectionItem(title: filter.depthEditMode.title, image: icon, action: {
+            return CIFilterCollectionItem(title: filter.depthEditMode.displayName, image: icon, action: {
                 self.selectedFilter = filter
                 self.filterItem = CIFilterItem(filter)
             }, filter: filter)
@@ -471,29 +479,59 @@ private class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
 extension DepthEditMode {
     func applyFilter(_ filter: CIDepthMaskFilter) -> CIImage? {
         switch self {
-        case .original: return DepthEditMode.Processor.applyOriginalEffect(filter)
+        case .original: return nil
+        case .aperture2: return DepthEditMode.Processor.applyDepthBlurEffectWithNormalizedMap(filter)
         case .blur: return DepthEditMode.Processor.applyBlurEffect(filter)
+        case .aperture: return DepthEditMode.Processor.applyDepthBlurEffect(filter)
         }
     }
     
     private struct Processor {
-        static func applyOriginalEffect(_ filter: CIDepthMaskFilter) -> CIImage? {
+        static func applyDepthBlurEffectWithNormalizedMap(_ filter: CIDepthMaskFilter) -> CIImage? {
+            return autoreleasepool { () -> CIImage? in
+                guard
+                    let foreground = filter.inputImage,
+                    let depthDataMapPixelBuffer = filter.depthData?.depthDataMap
+                else { return nil }
+                
+                depthDataMapPixelBuffer.normalize()
+                
+                let background = CIImage(cvPixelBuffer: depthDataMapPixelBuffer).oriented(filter.originalOrientation ?? .up)
+                
+                let effect = CIFilter(name: "CIDepthBlurEffect")
+                
+                let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
+                let scale = background.extent.maxLength / foreground.extent.maxLength
+                
+                effect?.setValue(foreground, forKey: kCIInputImageKey)
+                effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
+                effect?.setValue(aperture, forKey: "inputAperture")
+                effect?.setValue(scale, forKey: "inputScaleFactor")
+                
+                return effect?.outputImage
+            }
+        }
+        
+        static func applyDepthBlurEffect(_ filter: CIDepthMaskFilter) -> CIImage? {
             return autoreleasepool { () -> CIImage? in
                 guard
                     let foreground = filter.inputImage,
                     var background = filter.depthImage
-                else { return nil }
+                    else { return nil }
                 
                 background = background.oriented(filter.originalOrientation ?? .up)
                 
                 let effect = CIFilter(name: "CIDepthBlurEffect")
                 
                 let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
+                let scale = background.extent.maxLength / foreground.extent.maxLength
                 
                 effect?.setValue(foreground, forKey: kCIInputImageKey)
                 effect?.setValue(background, forKey: kCIInputDisparityImageKey)
                 effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
                 effect?.setValue(aperture, forKey: "inputAperture")
+                effect?.setValue(scale, forKey: "inputScaleFactor")
                 
                 return effect?.outputImage
             }

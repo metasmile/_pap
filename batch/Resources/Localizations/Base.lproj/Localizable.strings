@@ -162,6 +162,10 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime free cancellation.";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture" = "Aperture";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture+" = "Aperture+";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Apply %@ to the last item";
 /* Generated from genl10n: Filters.BApp.swift */
@@ -504,7 +508,7 @@
 "Open Web Page" = "Open Web Page";
 /* Generated from genl10n: Settings.SApp.swift, Settings.SApp.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Settings.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift */
 "Open" = "Open";
-/* Generated from genl10n: DepthEditor.BApp.swift, Artist.BApp.swift, Resizer.BApp.swift, App.PreviewProcessable.swift, Filters.BApp.swift, App.UI.AssetView.swift */
+/* Generated from genl10n: Filters.BApp.swift, App.UI.AssetView.swift, App.PreviewProcessable.swift, Artist.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";
