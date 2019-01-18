@@ -447,17 +447,19 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
 }
 
-class _DepthEditorAppAsset: AppAsset {}
+class _DepthEditorAppAsset: AppAsset {
+    fileprivate var editingContext: PHLivePhotoEditingContext?
+    
+    func cancelProcessing() {
+        editingContext?.cancel()
+        editingContext = nil
+    }
+}
 
 extension _DepthEditorAppAsset: PHAssetImageEditable {
-    func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
-        let asset = self.asset
-        
-        guard let ciImage = autoreleasepool(invoking: { () -> CIImage? in
-            guard let filter = self.editState.ciFilter as? CIDepthMaskFilter else {
-                completionHandler(nil, nil, nil)
-                return nil
-            }
+    private func filteredImage(with asset: PHAsset) -> CIImage? {
+        return autoreleasepool { () -> CIImage? in
+            guard let filter = self.editState.ciFilter as? CIDepthMaskFilter else { return nil }
             
             let depthFilter = CIDepthMaskFilter(filter.depthEditMode)
             depthFilter.depthLevel = filter.depthLevel
@@ -472,13 +474,46 @@ extension _DepthEditorAppAsset: PHAssetImageEditable {
                 depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
             }
             
-            guard let ciImage = asset.asCIImage?.applyFilter(ciFilter: depthFilter) else {
-                completionHandler(nil, nil, nil)
-                return nil
-            }
+            guard let ciImage = asset.asCIImage?.applyFilter(ciFilter: depthFilter) else { return nil }
             
             return ciImage
-        }) else {
+        }
+    }
+    
+    func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+        let asset = self.asset
+        
+        guard let ciImage = filteredImage(with: asset) else {
+            completionHandler(nil, nil, nil)
+            return nil
+        }
+        
+        let r = self.requestContentEditing { _item in
+            guard let item = _item else{
+                completionHandler(nil, nil, nil)
+                return
+            }
+            
+            DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                autoreleasepool {
+                    guard ciImage.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
+                        completionHandler(nil, nil, nil)
+                        return
+                    }
+                    
+                    completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
+                }
+            }
+        }
+        return [PHAssetRequestID(forEditingInput: r)]
+    }
+}
+
+extension _DepthEditorAppAsset: PHAssetLivePhotoEditable {
+    func edit<T:LivePhotoProcessable>(processor:T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
+        let asset = self.asset
+        
+        guard let ciImage = filteredImage(with: asset) else {
             completionHandler(nil, nil, nil)
             return nil
         }
@@ -511,7 +546,7 @@ private class _DepthEditorAppTask: AppTaskPrototype, AppTaskable {
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
 
         (param as? _DepthEditorAppAsset)?.cancelAllRequestIDs()
-//        (param as? _DepthEditorAppAsset)?.cancelProcessing()
+        (param as? _DepthEditorAppAsset)?.cancelProcessing()
     }
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
