@@ -409,8 +409,9 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
     
     fileprivate func updateItem(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
-        let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
+        let filter = (editStateValue?.ciFilter ?? selectedFilter) as? CIDepthMaskFilter
         filter?.focusRect = CGRect(origin: CGPoint(x: normalizedPoint.x, y: 1 - normalizedPoint.y), size: CGSize(width: 0.01, height: 0.01))
+        depthLevelSlider.value = Float(filter?.depthLevel ?? 1)
         
         filterItem = CIFilterItem(filter)
         
