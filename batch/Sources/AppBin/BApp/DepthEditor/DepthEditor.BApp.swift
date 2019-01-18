@@ -204,8 +204,8 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         (content as? DepthEditorAppDockContent)?.selectItem(with: editStateValue)
     }
     
-    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint) {
-        (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint)
+    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
+        (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint, with: editStateValue)
     }
 }
 
@@ -294,11 +294,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         var filter: CIFilter?
     }
 
-    @objc dynamic var filterItem: CIFilterItem? {
-        willSet {
-            self.selectedFilter?.depthLevel = CGFloat(depthLevelSlider.value)
-        }
-    }
+    @objc dynamic var filterItem: CIFilterItem?
 
     private var selectedFilter: CIDepthMaskFilter?
     
@@ -319,8 +315,11 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
             let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
 
             return CIFilterCollectionItem(title: filter.depthEditMode.displayName, image: icon, action: {
-                self.selectedFilter = filter
+                filter.depthLevel = CGFloat(self.depthLevelSlider.value)
+                filter.focusRect = self.selectedFilter?.focusRect
                 self.filterItem = CIFilterItem(filter)
+                
+                self.selectedFilter = filter
             }, filter: filter)
         })
 
@@ -384,7 +383,9 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     
     @objc func depthLevelDidChange() {
         DispatchQueue.main.async {
-            self.filterItem = CIFilterItem(self.selectedFilter)
+            let filter = self.selectedFilter
+            filter?.depthLevel = CGFloat(self.depthLevelSlider.value)
+            self.filterItem = CIFilterItem(filter)
         }
     }
 
@@ -407,9 +408,13 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         selectedFilter = filter
     }
     
-    fileprivate func updateItem(at normalizedPoint: CGPoint) {
-        selectedFilter?.focusRect = CGRect(origin: normalizedPoint, size: CGSize(width: 0.01, height: 0.01))
-        self.filterItem = CIFilterItem(self.selectedFilter)
+    fileprivate func updateItem(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
+        let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
+        filter?.focusRect = CGRect(origin: CGPoint(x: normalizedPoint.x, y: 1 - normalizedPoint.y), size: CGSize(width: 0.01, height: 0.01))
+        
+        filterItem = CIFilterItem(filter)
+        
+        selectedFilter = filter
     }
 
     fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {

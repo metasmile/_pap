@@ -121,7 +121,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self) {
             let pointInAssetView = sender.location(in: assetView)
             let assetSize = assetView.size
-            app.photoEditorPreviewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height))
+            app.photoEditorPreviewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height), with: editItem.imageEditStateValue)
         }
         playOrPause()
     }
