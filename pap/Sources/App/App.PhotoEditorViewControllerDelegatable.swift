@@ -8,13 +8,13 @@ import Photos
 
 public protocol PhotoEditorPreviewProcessableApp: PreviewProcessableApp {
     func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?)
+    func photoEditorShouldPreview(item: AppAsset) -> Bool
 }
 
 public protocol PhotoEditorViewControllerDelegatableApp: App {
     var photoEditorDockContent: AppDockContent? {get}
     func photoEditorWillBeginProcessing()
     func photoEditorWillEndProcessing()
-    
 }
 
 extension PhotoEditorViewControllerDelegatableApp {
@@ -25,4 +25,5 @@ extension PhotoEditorViewControllerDelegatableApp {
 
 extension PhotoEditorPreviewProcessableApp {
     public func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {}
+    public func photoEditorShouldPreview(item: AppAsset) -> Bool { return true }
 }

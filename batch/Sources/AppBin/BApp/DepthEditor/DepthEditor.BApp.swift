@@ -124,6 +124,10 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.mediaType == .image// fastly check hasDepthData (!= DepthEffect)
     }
+    
+    func photoEditorShouldPreview(item: AppAsset) -> Bool {
+        return item.asset.imageType == .stillImage
+    }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]

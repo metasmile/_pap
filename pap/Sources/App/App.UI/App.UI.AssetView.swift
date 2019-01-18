@@ -109,6 +109,8 @@ class AppUIAssetView: AssetView {
         }
     }
     
+    var shouldPreviewLivePhotoAsStillImage: Bool = false
+    
     override func initialize() {
         super.initialize()
         
@@ -181,7 +183,7 @@ extension AppUIAssetView {
         self.image = originalImageForCompare ?? originalImage
         stopAny()
         
-        if asset?.imageType == .livePhoto {
+        if !shouldPreviewLivePhotoAsStillImage, asset?.imageType == .livePhoto {
             self.livePhotoView.isHidden = true
         }
         else if asset?.mediaType == .video {
@@ -194,7 +196,7 @@ extension AppUIAssetView {
         
         self.image = filteredImage
         
-        if asset?.imageType == .livePhoto {
+        if !shouldPreviewLivePhotoAsStillImage, asset?.imageType == .livePhoto {
             self.livePhotoView.isHidden = false
         }
         else if asset?.mediaType == .video {
@@ -236,7 +238,7 @@ extension AppUIAssetView {
         if asset.imageType == .stillImage || previewMode {
             
         }
-        else if asset.imageType == .livePhoto {
+        else if !shouldPreviewLivePhotoAsStillImage, asset.imageType == .livePhoto {
             livePhotoView.isHidden = true
             Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
                 DispatchQueue.main.async {

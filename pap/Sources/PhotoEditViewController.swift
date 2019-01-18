@@ -166,6 +166,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.preferredTransform = preferredEditState.transform
         setEditState(preferredEditState)
         
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let appAsset = appAsset {
+            if appAsset.asset.imageType == .livePhoto {
+                assetView.shouldPreviewLivePhotoAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
+            }
+        }
+        
         assetView.addGestureRecognizer(tapToPlayGesture)
         
         layoutAssetView()
