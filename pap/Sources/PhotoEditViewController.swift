@@ -272,7 +272,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             
             app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
                 DispatchQueue.main.async {
-                    if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) {
+                    if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) ?? original {
                         self.assetView.originalImageForCompare = image
                         self.assetView.originalBadgeTitle = app.previewOriginalBadgeTitle
                     }
