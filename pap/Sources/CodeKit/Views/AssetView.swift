@@ -234,6 +234,31 @@ class AssetView: UIView {
     // MARK: Live Photo
     
     open var isLivePhotoPlaying: Bool = false
+    
+    internal func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
+        if asset.imageType == .livePhoto {
+            livePhotoView.isHidden = false
+            
+            loadLivePhoto(for: asset) { [weak self] livePhoto in
+                guard !cancellation() else { return }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.livePhoto = livePhoto
+                    completion?()
+                }
+            }
+        }
+        else if asset.imageType == .animatedGIF {
+            loadImageData(for: asset) { [weak self] data in
+                guard !cancellation(), let data = data else { return }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.gifImage = UIImage(gifData: data)
+                    completion?()
+                }
+            }
+        }
+    }
 }
 
 extension AssetView: UIGestureRecognizerDelegate {}
@@ -264,31 +289,6 @@ extension AssetView {
         }
         else if asset.mediaType == .video {
             setVideoAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
-        }
-    }
-
-    private func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
-        if asset.imageType == .livePhoto {
-            livePhotoView.isHidden = false
-            
-            loadLivePhoto(for: asset) { [weak self] livePhoto in
-                guard !cancellation() else { return }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.livePhoto = livePhoto
-                    completion?()
-                }
-            }
-        }
-        else if asset.imageType == .animatedGIF {
-            loadImageData(for: asset) { [weak self] data in
-                guard !cancellation(), let data = data else { return }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.gifImage = UIImage(gifData: data)
-                    completion?()
-                }
-            }
         }
     }
     

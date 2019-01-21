@@ -109,7 +109,7 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    var shouldPreviewLivePhotoAsStillImage: Bool = false
+    var shouldEditImageAsStillImage: Bool = false
     
     override func initialize() {
         super.initialize()
@@ -153,6 +153,19 @@ class AppUIAssetView: AssetView {
             self.originalImage = preview
         }, completion: completion)
     }
+    
+    override func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool, completion: (() -> Void)?) {
+        if shouldEditImageAsStillImage {
+            DispatchQueue.main.async {
+                completion?()
+            }
+        }
+        else {
+            super.setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
+        }
+    }
+    
+    internal var editStateForPlayableAsset: StateValueSet<ImageEditStateValue>?
 }
 
 extension AppUIAssetView {
@@ -183,7 +196,7 @@ extension AppUIAssetView {
         self.image = originalImageForCompare ?? originalImage
         stopAny()
         
-        if !shouldPreviewLivePhotoAsStillImage, asset?.imageType == .livePhoto {
+        if !shouldEditImageAsStillImage, asset?.imageType == .livePhoto {
             self.livePhotoView.isHidden = true
         }
         else if asset?.mediaType == .video {
@@ -196,7 +209,7 @@ extension AppUIAssetView {
         
         self.image = filteredImage
         
-        if !shouldPreviewLivePhotoAsStillImage, asset?.imageType == .livePhoto {
+        if !shouldEditImageAsStillImage, asset?.imageType == .livePhoto {
             self.livePhotoView.isHidden = false
         }
         else if asset?.mediaType == .video {
@@ -238,14 +251,9 @@ extension AppUIAssetView {
         if asset.imageType == .stillImage || previewMode {
             
         }
-        else if !shouldPreviewLivePhotoAsStillImage, asset.imageType == .livePhoto {
+        else if !shouldEditImageAsStillImage, asset.imageType == .livePhoto {
             livePhotoView.isHidden = true
-            Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
-                DispatchQueue.main.async {
-                    self.livePhotoView.isHidden = false
-                    self.applyFilterToLivePhoto(asset: asset, editState: editState)
-                }
-            }
+            editStateForPlayableAsset = editState as? StateValueSet<ImageEditStateValue>
         }
         else if asset.mediaType == .video, let video = playerItem?.asset {
             videoView.isHidden = true
@@ -259,7 +267,20 @@ extension AppUIAssetView {
     }
     
     override func playAny() {
-        super.playAny()
+        if let asset = asset, let editState = editStateForPlayableAsset {
+            if !shouldEditImageAsStillImage, asset.imageType == .livePhoto {
+                livePhotoView.isHidden = false
+                self.applyFilterToLivePhoto(asset: asset, editState: editState)
+            }
+            else if asset.mediaType == .video, let video = playerItem?.asset {
+                videoView.isHidden = false
+                self.applyFilterToVideo(video: video, editState: editState)
+            }
+            editStateForPlayableAsset = nil
+        }
+        else {
+            super.playAny()
+        }
     }
 }
 

@@ -168,7 +168,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let appAsset = appAsset {
             if appAsset.asset.imageType == .livePhoto {
-                assetView.shouldPreviewLivePhotoAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
+                assetView.shouldEditImageAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
             }
         }
         
@@ -181,6 +181,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
                 self.setEditState(self.preferredEditState)
+                self.assetView.playAny()
             })
         }
     }
