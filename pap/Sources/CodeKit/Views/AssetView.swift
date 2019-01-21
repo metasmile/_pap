@@ -278,9 +278,7 @@ extension AssetView {
                 
                 self?.image = image
                 
-                if asset.imageType == .stillImage {
-                    completion?()
-                }
+                completion?()
             }
         }
         

@@ -100,7 +100,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
     var indexPathInPicker: IndexPath?
     var selectedInPicker: Bool = false
-    var appAsset: AppAsset?
     var asset: PHAsset?
     var preferredEditState = StateValueSet<ImageEditStateValue>()
     
@@ -161,16 +160,19 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton?.title = "Done".localized
         
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+            if asset.mediaType == .image {
+                let appAsset = AppAsset(asset)
+                appAsset.editState = preferredEditState
+                
+                assetView.shouldEditImageAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
+            }
+        }
+        
         assetView.isHidden = true
         assetView.asset = asset
         assetView.preferredTransform = preferredEditState.transform
         setEditState(preferredEditState)
-        
-        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let appAsset = appAsset {
-            if appAsset.asset.imageType == .livePhoto {
-                assetView.shouldEditImageAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
-            }
-        }
         
         assetView.addGestureRecognizer(tapToPlayGesture)
         
