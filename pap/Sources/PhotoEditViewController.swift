@@ -181,7 +181,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 self.assetView.isHidden = false
                 self.placeholderView.isHidden = true
                 self.setEditState(self.preferredEditState)
-                self.assetView.playAny()
+                if asset.imageType == .livePhoto, !self.assetView.shouldEditImageAsStillImage {
+                    if self.assetView.isProcessing {
+                        self.assetView.isProcessing(false, animated: true)
+                    }
+                    self.assetView.playAny()
+                }
             })
         }
     }
