@@ -776,29 +776,17 @@ extension UICamera {
             }
         }
         
-        if let availableFormats = currentCaptureDevice?.activeFormat.supportedDepthDataFormats {
-            if let depthFormat = availableFormats.first(where: { format in
-                let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
-                return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
-                    pixelFormatType == kCVPixelFormatType_DepthFloat32)
-            }) {
-                try? currentCaptureDevice?.lockForConfiguration()
-                currentCaptureDevice?.activeDepthDataFormat = depthFormat
-                currentCaptureDevice?.unlockForConfiguration()
-            }
-        }
-        
-//        let availableFormats = self.videoCaptureDevice.activeFormat.supportedDepthDataFormats
-//        let depthFormat = availableFormats.first(where: { format in
-//            let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
-//            return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
-//                pixelFormatType == kCVPixelFormatType_DepthFloat32)
-//        })
-//
-//        // Set the capture device to use that depth format.
-//        self.captureSession.beginConfiguration()
-//        self.videoCaptureDevice.activeDepthDataFormat = depthFormat
-//        self.captureSession.commitConfiguration()
+//        if let availableFormats = currentCaptureDevice?.activeFormat.supportedDepthDataFormats {
+//            if let depthFormat = availableFormats.first(where: { format in
+//                let pixelFormatType = CMFormatDescriptionGetMediaSubType(format.formatDescription)
+//                return (pixelFormatType == kCVPixelFormatType_DepthFloat16 ||
+//                    pixelFormatType == kCVPixelFormatType_DepthFloat32)
+//            }) {
+//                try? currentCaptureDevice?.lockForConfiguration()
+//                currentCaptureDevice?.activeDepthDataFormat = depthFormat
+//                currentCaptureDevice?.unlockForConfiguration()
+//            }
+//        }
     }
 }
 

@@ -172,10 +172,19 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             
             DispatchQueue(label: #file + "fetchAsset", qos: .utility).async {
                 let assetURL = appAsset.asset.asURL
-                depthFilter.depthData = assetURL?.asDepthData
                 
                 if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
                     depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+                }
+                
+                depthFilter.depthData = assetURL?.asDepthData
+                
+                if let assetURL = assetURL {
+                    if #available(iOS 12.0, *) {
+                        depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true, CIImageOption.auxiliaryPortraitEffectsMatte: true])
+                    } else {
+                        depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true])
+                    }
                 }
                 
                 let filtered = original?.applyFilter(ciFilter: depthFilter)
@@ -193,7 +202,11 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         let cacheKey = (appAsset.asset.localIdentifierWithoutSplitter + currentFilter.name) as NSString
         
         let cachedFilter = previewFilterCache.object(forKey: cacheKey)
-        return cachedFilter?.depthImage?.oriented(cachedFilter?.originalOrientation ?? .up).asUIImage
+        if #available(iOS 12.0, *) {
+            return (cachedFilter?.portraitMatteImage ?? cachedFilter?.depthImage)?.asUIImage
+        } else {
+            return cachedFilter?.depthImage?.asUIImage
+        }
     }
 
     public func photoEditorWillBeginProcessing() {
@@ -242,15 +255,28 @@ private enum DepthEditMode: Int, Codable {
     }
 }
 
+@available(iOS 12.0, *)
+extension CIDepthMaskFilter {
+    var portraitMatte:AVPortraitEffectsMatte? {
+        return sourceImage?.portraitEffectsMatte
+    }
+    
+    var portraitMatteImage:CIImage? {
+        guard let portraitMatte = portraitMatte?.applyingExifOrientation(originalOrientation ?? .up) else { return nil }
+        return CIImage(portaitEffectsMatte: portraitMatte)
+    }
+}
+
 private class CIDepthMaskFilter: CIFilter {
     //
     var depthData:AVDepthData? {
         didSet {
-            if let data = depthData {
+            if let data = depthData?.applyingExifOrientation(originalOrientation ?? .up) {
                 depthImage = CIImage(depthData: data)
             }
         }
     }
+    var sourceImage:CIImage?
     var depthLevel:CGFloat = 1
     var intensity:CGFloat = 1
     var originalOrientation:CGImagePropertyOrientation?
@@ -472,10 +498,19 @@ extension _DepthEditorAppAsset: PHAssetImageEditable {
             depthFilter.isExporting = true
             
             let assetURL = asset.asURL
-            depthFilter.depthData = assetURL?.asDepthData
             
             if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
                 depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+            }
+            
+            depthFilter.depthData = assetURL?.asDepthData
+            
+            if let assetURL = assetURL {
+                if #available(iOS 12.0, *) {
+                    depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true, CIImageOption.auxiliaryPortraitEffectsMatte: true])
+                } else {
+                    depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true])
+                }
             }
             
             guard let ciImage = asset.asCIImage?.applyFilter(ciFilter: depthFilter) else { return nil }
@@ -607,15 +642,22 @@ extension DepthEditMode {
                 
                 depthDataMapPixelBuffer.normalize()
                 
-                let background = CIImage(cvPixelBuffer: depthDataMapPixelBuffer).oriented(filter.originalOrientation ?? .up)
-                
-                let effect = CIFilter(name: "CIDepthBlurEffect")
+                let background = CIImage(cvPixelBuffer: depthDataMapPixelBuffer)
                 
                 let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
                 let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
-                effect?.setValue(foreground, forKey: kCIInputImageKey)
-                effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                var effect: CIFilter?
+                
+                if #available(iOS 12.0, *) {
+                    effect = CIContext.shared.depthBlurEffectFilter(for: foreground, disparityImage: background, portraitEffectsMatte: filter.portraitMatteImage, orientation: filter.originalOrientation ?? .up, options: nil)
+                } else {
+                    effect = CIFilter(name: "CIDepthBlurEffect")
+                    
+                    effect?.setValue(foreground, forKey: kCIInputImageKey)
+                    effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                }
+                
                 effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
                 effect?.setValue(aperture, forKey: "inputAperture")
                 effect?.setValue(scale, forKey: "inputScaleFactor")
@@ -632,18 +674,23 @@ extension DepthEditMode {
             return autoreleasepool { () -> CIImage? in
                 guard
                     let foreground = filter.inputImage,
-                    var background = filter.depthImage
+                    let background = filter.depthImage
                     else { return nil }
-                
-                background = background.oriented(filter.originalOrientation ?? .up)
-                
-                let effect = CIFilter(name: "CIDepthBlurEffect")
                 
                 let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
                 let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
-                effect?.setValue(foreground, forKey: kCIInputImageKey)
-                effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                var effect: CIFilter?
+                
+                if #available(iOS 12.0, *) {
+                    effect = CIContext.shared.depthBlurEffectFilter(for: foreground, disparityImage: background, portraitEffectsMatte: filter.portraitMatteImage, orientation: filter.originalOrientation ?? .up, options: nil)
+                } else {
+                    effect = CIFilter(name: "CIDepthBlurEffect")
+                    
+                    effect?.setValue(foreground, forKey: kCIInputImageKey)
+                    effect?.setValue(background, forKey: kCIInputDisparityImageKey)
+                }
+                
                 effect?.setValue(filter.depthData?.cameraCalibrationData, forKey: "inputCalibrationData")
                 effect?.setValue(aperture, forKey: "inputAperture")
                 effect?.setValue(scale, forKey: "inputScaleFactor")
@@ -663,7 +710,7 @@ extension DepthEditMode {
             
             depthDataMapPixelBuffer.normalize()
             
-            let depthImage = CIImage(cvPixelBuffer: depthDataMapPixelBuffer).oriented(filter.originalOrientation ?? .up)
+            let depthImage = CIImage(cvPixelBuffer: depthDataMapPixelBuffer)
             
             let scale = image.extent.maxLength / depthImage.extent.maxLength
             let maskingDepthImage = createBandPassMask(for: depthImage, withFocus: filter.depthLevel, andScale: scale)
@@ -784,5 +831,163 @@ extension DepthEditMode {
             
             return filtered
         }
+    }
+}
+
+import Accelerate
+
+internal class CIBokehImage {
+    var cgImage: CGImage
+    
+    required init(cgImage: CGImage) {
+        self.cgImage = cgImage
+    }
+    
+    lazy var format: vImage_CGImageFormat = {
+        guard
+            let sourceColorSpace = cgImage.colorSpace else {
+                fatalError("Unable to get color space")
+        }
+        
+        return vImage_CGImageFormat(
+            bitsPerComponent: UInt32(cgImage.bitsPerComponent),
+            bitsPerPixel: UInt32(cgImage.bitsPerPixel),
+            colorSpace: Unmanaged.passRetained(sourceColorSpace),
+            bitmapInfo: cgImage.bitmapInfo,
+            version: 0,
+            decode: nil,
+            renderingIntent: cgImage.renderingIntent)
+    }()
+    
+    lazy var sourceBuffer: vImage_Buffer = {
+        var sourceImageBuffer = vImage_Buffer()
+        
+        vImageBuffer_InitWithCGImage(&sourceImageBuffer,
+                                     &format,
+                                     nil,
+                                     cgImage,
+                                     vImage_Flags(kvImageNoFlags))
+        
+        var scaledBuffer = vImage_Buffer()
+        
+        vImageBuffer_Init(&scaledBuffer,
+                          sourceImageBuffer.height / 3,
+                          sourceImageBuffer.width / 3,
+                          format.bitsPerPixel,
+                          vImage_Flags(kvImageNoFlags))
+        
+        vImageScale_ARGB8888(&sourceImageBuffer,
+                             &scaledBuffer,
+                             nil,
+                             vImage_Flags(kvImageNoFlags))
+        
+        return scaledBuffer
+    }()
+    
+    lazy var destinationBuffer: vImage_Buffer = {
+        var destinationBuffer = vImage_Buffer()
+        
+        vImageBuffer_Init(&destinationBuffer,
+                          sourceBuffer.height,
+                          sourceBuffer.width,
+                          format.bitsPerPixel,
+                          vImage_Flags(kvImageNoFlags))
+        
+        return destinationBuffer
+    }()
+    
+    var numSides = 6
+    let radius = 20
+    
+    func getMaximizedImage() -> UIImage? {
+        let diameter = vImagePixelCount(radius * 2) + 1
+        
+        vImageMax_ARGB8888(&sourceBuffer,
+                           &destinationBuffer,
+                           nil,
+                           0, 0,
+                           diameter,
+                           diameter,
+                           vImage_Flags(kvImageNoFlags))
+        
+        let result = vImageCreateCGImageFromBuffer(
+            &destinationBuffer,
+            &format,
+            nil,
+            nil,
+            vImage_Flags(kvImageNoFlags),
+            nil)
+        
+        if let result = result {
+            return UIImage(cgImage: result.takeRetainedValue())
+        } else {
+            return nil
+        }
+    }
+    
+    func getDilatedImage() -> UIImage? {
+        let kernel = CIBokehImage.makeStructuringElement(ofRadius: radius,
+                                                         withSides: numSides)
+                                                         
+        
+        let diameter = vImagePixelCount(radius * 2) + 1
+        
+        vImageDilate_ARGB8888(&sourceBuffer,
+                              &destinationBuffer,
+                              0, 0,
+                              kernel,
+                              diameter,
+                              diameter,
+                              vImage_Flags(kvImageNoFlags))
+        
+        let result = vImageCreateCGImageFromBuffer(
+            &destinationBuffer,
+            &format,
+            nil,
+            nil,
+            vImage_Flags(kvImageNoFlags),
+            nil)
+        
+        if let result = result {
+            return UIImage(cgImage: result.takeRetainedValue())
+        } else {
+            return nil
+        }
+    }
+    
+    /// - Tag: makeStructuringElement
+    static func makeStructuringElement(ofRadius radius: Int, withSides sides: Int) -> [UInt8] {
+        let diameter = (radius * 2) + 1
+        
+        var values = [UInt8](repeating: 255,
+                             count: diameter * diameter)
+        
+        let angle = (Float.pi * 2) / Float(sides)
+        
+        stride(from: 0, through: Float(radius), by: Float(0.25)).forEach { scaledRadius in
+            var previousVertex: simd_float2?
+            
+            stride(from: 0, through: (Float.pi * 2), by: angle).forEach {
+                
+                let x = Float(radius) + sin($0) * scaledRadius
+                let y = Float(radius) + cos($0) * scaledRadius
+                
+                if let start = previousVertex {
+                    let end = simd_float2(Float(x), Float(y))
+                    let delta = 1.0 / max(abs(start.x - end.x), abs(start.y - end.y))
+                    
+                    stride(from: Float(0), through: Float(1), by: delta).forEach { t in
+                        let coord = simd_mix(start, end, simd_float2(t))
+                        
+                        values[(Int(round(coord.x)) + Int(round(coord.y)) * diameter)] = 0
+                    }
+                    
+                }
+                
+                previousVertex = simd_float2(Float(x), Float(y))
+            }
+        }
+        
+        return values
     }
 }
