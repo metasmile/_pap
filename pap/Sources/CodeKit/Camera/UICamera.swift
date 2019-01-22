@@ -397,7 +397,9 @@ extension UICamera {
         }
         
         photoSettings.isHighResolutionPhotoEnabled = capturePhotoOutput.isHighResolutionCaptureEnabled
-        photoSettings.flashMode = flashMode.flashMode
+        if self.capturePhotoOutput.supportedFlashModes.contains(flashMode.flashMode) {
+            photoSettings.flashMode = flashMode.flashMode
+        }
         
         photoSettings.isDepthDataDeliveryEnabled = capturePhotoOutput.isDepthDataDeliveryEnabled
         if #available(iOS 12.0, *) {
