@@ -171,21 +171,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             previewFilterCache.setObject(depthFilter, forKey: cacheKey)
             
             DispatchQueue(label: #file + "fetchAsset", qos: .utility).async {
-                let assetURL = appAsset.asset.asURL
-                
-                if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
-                    depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
-                }
-                
-                depthFilter.depthData = assetURL?.asDepthData
-                
-                if let assetURL = assetURL {
-                    if #available(iOS 12.0, *) {
-                        depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true, CIImageOption.auxiliaryPortraitEffectsMatte: true])
-                    } else {
-                        depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true])
-                    }
-                }
+                depthFilter.assetURL = appAsset.asset.asURL
                 
                 let filtered = original?.applyFilter(ciFilter: depthFilter)
                 completion(original?.asUIImage, filtered?.asUIImage)
@@ -258,25 +244,43 @@ private enum DepthEditMode: Int, Codable {
 @available(iOS 12.0, *)
 extension CIDepthMaskFilter {
     var portraitMatte:AVPortraitEffectsMatte? {
-        return sourceImage?.portraitEffectsMatte
+        return sourceImage?.portraitEffectsMatte?.applyingExifOrientation(originalOrientation ?? .up)
     }
     
     var portraitMatteImage:CIImage? {
-        guard let portraitMatte = portraitMatte?.applyingExifOrientation(originalOrientation ?? .up) else { return nil }
+        guard let portraitMatte = portraitMatte else { return nil }
         return CIImage(portaitEffectsMatte: portraitMatte)
     }
 }
 
 private class CIDepthMaskFilter: CIFilter {
     //
-    var depthData:AVDepthData? {
+    var assetURL:URL? {
         didSet {
-            if let data = depthData?.applyingExifOrientation(originalOrientation ?? .up) {
-                depthImage = CIImage(depthData: data)
+            let assetData = assetURL?.asData
+            if let metadataOrientation = assetData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
+                self.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
+            }
+            
+            if let assetURL = assetURL {
+                if #available(iOS 12.0, *) {
+                    self.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true, CIImageOption.auxiliaryPortraitEffectsMatte: true])
+                } else {
+                    self.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true])
+                }
             }
         }
     }
-    var sourceImage:CIImage?
+    private(set) var depthData:AVDepthData?
+    var depthImage: CIImage? {
+        guard let depthData = depthData else { return nil }
+        return CIImage(depthData: depthData)
+    }
+    private(set) var sourceImage:CIImage? {
+        didSet {
+            self.depthData = self.sourceImage?.depthData?.converting(toDepthDataType: kCVPixelFormatType_DisparityFloat32).applyingExifOrientation(originalOrientation ?? .up)
+        }
+    }
     var depthLevel:CGFloat = 1
     var intensity:CGFloat = 1
     var originalOrientation:CGImagePropertyOrientation?
@@ -284,8 +288,6 @@ private class CIDepthMaskFilter: CIFilter {
     
     var focusRect: CGRect?
     var isExporting: Bool = false
-    
-    private(set) var depthImage: CIImage?
 
     var depthEditMode: DepthEditMode = .original
 
@@ -497,21 +499,7 @@ extension _DepthEditorAppAsset: PHAssetImageEditable {
             depthFilter.focusRect = filter.focusRect
             depthFilter.isExporting = true
             
-            let assetURL = asset.asURL
-            
-            if let metadataOrientation = assetURL?.asData?.getMetadataValue(property: ImageMetadata.Orientation) as? UInt32 {
-                depthFilter.originalOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation)
-            }
-            
-            depthFilter.depthData = assetURL?.asDepthData
-            
-            if let assetURL = assetURL {
-                if #available(iOS 12.0, *) {
-                    depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true, CIImageOption.auxiliaryPortraitEffectsMatte: true])
-                } else {
-                    depthFilter.sourceImage = CIImage(contentsOf: assetURL, options: [CIImageOption.auxiliaryDepth: true, CIImageOption.auxiliaryDisparity: true])
-                }
-            }
+            depthFilter.assetURL = asset.asURL
             
             guard let ciImage = asset.asCIImage?.applyFilter(ciFilter: depthFilter) else { return nil }
             
