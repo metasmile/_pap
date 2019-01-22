@@ -44,6 +44,7 @@ class PhotoPickerDetailViewController: UIViewController {
             
             assetView.setAsset(asset, completion: {
                 self.assetView.applyEditState(self.assetItem?.editState)
+                self.assetView.playAny()
             })
             
             self.preferredContentSize = actualContentSize

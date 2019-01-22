@@ -268,6 +268,8 @@ extension AppUIAssetView {
     
     override func playAny() {
         if let asset = asset, let editState = editStateForPlayableAsset {
+            editStateForPlayableAsset = nil
+            
             if !shouldEditImageAsStillImage, asset.imageType == .livePhoto {
                 livePhotoView.isHidden = false
                 self.applyFilterToLivePhoto(asset: asset, editState: editState)
@@ -276,7 +278,6 @@ extension AppUIAssetView {
                 videoView.isHidden = false
                 self.applyFilterToVideo(video: video, editState: editState)
             }
-            editStateForPlayableAsset = nil
         }
         else {
             super.playAny()
