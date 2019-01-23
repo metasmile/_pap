@@ -191,6 +191,24 @@ extension PHAssetFinalizableApp {
         if targetResultAssets.contains(where: { $0.editingResultItems?.isLivePhoto == true }) {
             excludedActions.append(.share)
         }
+        
+//        let vc = PHAssetEditingResultViewController()
+//        let nc = UINavigationController(rootViewController: vc)
+//        
+//        vc.editingResults = targetResultAssets
+//        vc.didDismissHandler = {
+//            asyncSignal.end()
+//        }
+//        
+//        asyncSignal.begin()
+//        
+//        DispatchQueue.main.async{
+//            UIViewController.present(nc, animated: true)
+//        }
+//        
+//        asyncSignal.waitUntilEnd()
+//        
+//        return
 
         let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
         if !excludedActions.contains(.create) {
@@ -306,5 +324,149 @@ extension PHAssetFinalizableApp {
 }
 
 class PHAssetEditingResultViewController: UIViewController {
+    // preview collection view (with urls)
+    // export options
+    // - create
+    // - modify
+    // - share
     
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        return layout
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(PHAssetEditingResultCollectionViewCell.self, forCellWithReuseIdentifier: "\(PHAssetEditingResultCollectionViewCell.self)")
+        return collectionView
+    }()
+    
+    var editingResults:[PHAssetResultable]?
+    var didDismissHandler: (() -> Void)?
+}
+
+extension PHAssetEditingResultViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerThemeable()
+        
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
+        navigationItem.setLeftBarButton(cancelButton, animated: true)
+    }
+    
+    @objc private func cancelButtonDidTap(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: self.didDismissHandler)
+    }
+}
+
+extension PHAssetEditingResultViewController: AppColorThemeable {
+    func applyTheme(_ colorTheme: AppColorTheme) {
+        
+    }
+}
+
+extension PHAssetEditingResultViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return editingResults?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(PHAssetEditingResultCollectionViewCell.self)", for: indexPath) as! PHAssetEditingResultCollectionViewCell
+        cell.setEditingResult(editingResults?[indexPath.item], at: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PHAssetEditingResultCollectionViewCell
+        cell.assetView.clearDrawing()
+    }
+}
+
+extension PHAssetEditingResultViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! PHAssetEditingResultCollectionViewCell
+        cell.assetView.isPlaying ? cell.assetView.pauseAny() : cell.assetView.playAny()
+    }
+}
+
+extension PHAssetEditingResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
+    }
+}
+
+private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
+    private var indexPath: IndexPath?
+    private var editingResult: PHAssetResultable?
+    
+    fileprivate lazy var assetView: AssetView = {
+        let assetView = AssetView(frame: .zero)
+        assetView.contentMode = .scaleAspectFit
+        return assetView
+    }()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    internal func initialize() {
+        contentView.addSubview(assetView)
+        assetView.fitConstraints(to: contentView)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        assetView.clearDrawing()
+    }
+    
+    func setEditingResult(_ editingResult: PHAssetResultable?, at indexPath: IndexPath) {
+        self.indexPath = indexPath
+        self.editingResult = editingResult
+        
+        if let resultItem = editingResult?.editingResultItems?.first, editingResult?.editingResultItems?.count == 1 {
+            if resultItem.resourceType == .video {
+                assetView.videoView.isHidden = false
+                assetView.playerItem = AVPlayerItem(url: resultItem.url)
+//                assetView.playAny()
+            }
+            else if UTI(withURL: resultItem.url).conforms(to: .gif), let gifData = try? Data(contentsOf: resultItem.url) {
+                assetView.gifImage = UIImage(gifData: gifData)
+            }
+            else {
+                assetView.image = UIImage(contentsOfFile: resultItem.url.path)
+            }
+        }
+        else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url, let pairedVideoURL = editingResult?.editingResultItems?.item(for: .pairedVideo)?.url {
+            assetView.loadLivePhoto(from: photoURL, pairedVideoURL: pairedVideoURL, completion: { [weak self] (livePhoto) in
+                guard self?.indexPath == indexPath else { return }
+                self?.assetView.livePhotoView.isHidden = false
+                self?.assetView.livePhoto = livePhoto
+//                self?.assetView.playAny()
+            })
+        }
+    }
 }

@@ -110,7 +110,62 @@ class AssetView: UIView {
         }
     }
     
-    // MARK: Asset
+    // MARK: Media type
+    
+    var image: UIImage? {
+        didSet {
+            updateImageContents(image)
+        }
+    }
+    
+    func imageDidLoad(image: UIImage?) {}
+    
+    var playerItem: AVPlayerItem? {
+        didSet {
+            videoView.player?.replaceCurrentItem(with: playerItem)
+        }
+    }
+    
+    func videoDidLoad(video: AVAsset?) {}
+    
+    var livePhoto: PHLivePhoto? {
+        didSet {
+            livePhotoView.livePhoto = livePhoto
+        }
+    }
+    
+    func livePhotoDidLoad(livePhoto: PHLivePhoto?) {}
+    
+    var gifImage: UIImage? {
+        didSet {
+            if let image = gifImage {
+                imageView.setGifImage(image)
+            }
+            else {
+                imageView.clear()
+            }
+        }
+    }
+    
+    func imageDataDidLoad(data: Data?) {}
+    
+    // MARK: Video
+    
+    var isVideoPlaying: Bool {
+        return videoView.player?.timeControlStatus == .playing
+    }
+    
+    var videoSeekTime: CMTime {
+        return playerItem?.currentTime() ?? CMTime.zero
+    }
+    
+    fileprivate var playerLoopingObserver: Any?
+    
+    // MARK: Live Photo
+    
+    open var isLivePhotoPlaying: Bool = false
+    
+    // MARK: - PHAsset
     
     fileprivate static let imageManager = PHImageManager()
     fileprivate var imageRequestID: PHImageRequestID?
@@ -180,66 +235,11 @@ class AssetView: UIView {
     }
     var livePhotoRequestOptions: PHLivePhotoRequestOptions?
     
-    // MARK: Media type
-    
-    var image: UIImage? {
-        didSet {
-            updateImageContents(image)
-        }
-    }
-    
-    func imageDidLoad(image: UIImage?) {}
-    
-    var playerItem: AVPlayerItem? {
-        didSet {
-            videoView.player?.replaceCurrentItem(with: playerItem)
-        }
-    }
-    
-    func videoDidLoad(video: AVAsset?) {}
-    
-    var livePhoto: PHLivePhoto? {
-        didSet {
-            livePhotoView.livePhoto = livePhoto
-        }
-    }
-    
-    func livePhotoDidLoad(livePhoto: PHLivePhoto?) {}
-    
-    var gifImage: UIImage? {
-        didSet {
-            if let image = gifImage {
-                imageView.setGifImage(image)
-            }
-            else {
-                imageView.clear()
-            }
-        }
-    }
-    
-    func imageDataDidLoad(data: Data?) {}
-    
-    // MARK: Video
-    
-    var isVideoPlaying: Bool {
-        return videoView.player?.timeControlStatus == .playing
-    }
-    
-    var videoSeekTime: CMTime {
-        return playerItem?.currentTime() ?? CMTime.zero
-    }
-    
-    fileprivate var playerLoopingObserver: Any?
-    
-    // MARK: Live Photo
-    
-    open var isLivePhotoPlaying: Bool = false
-    
     internal func setImageAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
         if asset.imageType == .livePhoto {
             livePhotoView.isHidden = false
             
-            loadLivePhoto(for: asset) { [weak self] livePhoto in
+            loadLivePhoto(from: asset) { [weak self] livePhoto in
                 guard !cancellation() else { return }
                 
                 DispatchQueue.main.async { [weak self] in
@@ -270,7 +270,7 @@ extension AssetView {
         previewMode = false
         self.asset = asset
         
-        loadImage(for: asset) { (image) in
+        loadImage(from: asset) { (image) in
             updatePreview?(image)
             
             DispatchQueue.main.async { [weak self] in
@@ -293,7 +293,7 @@ extension AssetView {
     private func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
         videoView.isHidden = false
         
-        loadVideo(for: asset) { [weak self] playerItem in
+        loadVideo(from: asset) { [weak self] playerItem in
             guard !cancellation() else { return }
             
             DispatchQueue.main.async { [weak self] in
@@ -309,7 +309,7 @@ extension AssetView {
         previewMode = true
         self.asset = asset
         
-        loadImage(for: asset) { [weak self] image in
+        loadImage(from: asset) { [weak self] image in
             DispatchQueue.main.async { [weak self] in
                 guard !cancellation() else { return }
                 
@@ -333,7 +333,7 @@ extension AssetView {
 //MARK: - Load media from asset
 
 extension AssetView {
-    fileprivate func loadImage(for asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
+    fileprivate func loadImage(from asset: PHAsset, completion: @escaping (UIImage?) -> Void) {
         let targetBounds = AVMakeRect(aspectRatio: asset.pixelSize, insideRect: bounds)
         let targetScale: CGFloat = UIScreen.main.scale
         let targetSize = CGSize(width: targetBounds.width * targetScale, height: targetBounds.height * targetScale)
@@ -344,7 +344,13 @@ extension AssetView {
         }
     }
     
-    fileprivate func loadVideo(for asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
+    fileprivate func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        let image = UIImage(contentsOfFile: url.path)
+        self.imageDidLoad(image: image)
+        completion(image)
+    }
+    
+    fileprivate func loadVideo(from asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
         imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.videoDidLoad(video: video)
@@ -359,13 +365,28 @@ extension AssetView {
         }
     }
     
-    fileprivate func loadLivePhoto(for asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
+    fileprivate func loadVideo(from url: URL, completion: @escaping (AVPlayerItem?) -> Void) {
+        let video = AVAsset(url: url)
+        self.videoDidLoad(video: video)
+        completion(AVPlayerItem(asset: video))
+    }
+    
+    fileprivate func loadLivePhoto(from asset: PHAsset, completion: @escaping (PHLivePhoto?) -> Void) {
         let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
         imageRequestID = AssetView.imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { [weak self] (livePhoto, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.livePhotoDidLoad(livePhoto: livePhoto)
             completion(livePhoto)
         })
+    }
+    
+    func loadLivePhoto(from photoURL: URL, pairedVideoURL: URL, completion: @escaping (PHLivePhoto?) -> Void) {
+        let targetSize = CGSize(width: bounds.width * UIScreen.main.nativeScale, height: bounds.height * UIScreen.main.nativeScale)
+        imageRequestID = PHLivePhoto.request(withResourceFileURLs: [photoURL, pairedVideoURL], placeholderImage: nil, targetSize: targetSize, contentMode: .aspectFit) { [weak self] (livePhoto, info) in
+            guard (info[PHImageResultIsDegradedKey] as? Bool) != true else { return }
+            self?.livePhotoDidLoad(livePhoto: livePhoto)
+            completion(livePhoto)
+        }
     }
     
     fileprivate func loadImageData(for asset: PHAsset, completion: @escaping (Data?) -> Void) {
@@ -379,12 +400,10 @@ extension AssetView {
 
 extension AssetView {
     var isPlaying: Bool {
-        guard let asset = asset else { return false }
-        
-        if asset.mediaSubtypes.contains(.photoLive) {
+        if let _ = self.livePhoto {
             return isLivePhotoPlaying
         }
-        else if asset.mediaType == .video {
+        else if let _ = self.playerItem {
             return isVideoPlaying
         }
         else {
@@ -394,34 +413,28 @@ extension AssetView {
     
     // Abs
     @objc func playAny() {
-        guard let asset = asset else { return }
-
-        if asset.mediaSubtypes.contains(.photoLive) {
+        if let _ = self.livePhoto {
             self.playLivePhoto()
         }
-        else if asset.mediaType == .video {
+        else if let _ = self.playerItem {
             self.playVideo()
         }
     }
 
     func stopAny() {
-        guard let asset = asset else { return }
-
-        if asset.mediaSubtypes.contains(.photoLive) {
+        if let _ = self.livePhoto {
             self.stopLivePhoto()
         }
-        else if asset.mediaType == .video {
+        else if let _ = self.playerItem {
             self.stopVideo()
         }
     }
     
     func pauseAny() {
-        guard let asset = asset else { return }
-        
-        if asset.mediaSubtypes.contains(.photoLive) {
+        if let _ = self.livePhoto {
             self.stopLivePhoto()
         }
-        else if asset.mediaType == .video {
+        else if let _ = self.playerItem {
             self.pauseVideo()
         }
     }
