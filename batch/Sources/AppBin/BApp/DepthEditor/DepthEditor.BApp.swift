@@ -480,7 +480,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 }
 
 class _DepthEditorAppAsset: AppAsset {
-    fileprivate var editingContext: PHLivePhotoEditingContext?
+    fileprivate weak var editingContext: PHLivePhotoEditingContext?
     
     func cancelProcessing() {
         editingContext?.cancel()

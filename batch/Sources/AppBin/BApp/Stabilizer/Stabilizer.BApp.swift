@@ -8,8 +8,8 @@ import Photos
 import PropertyKit
 
 class _StabilizerAppAsset: AppAsset {
-    fileprivate var exportSession: AVAssetExportSession?
-    fileprivate var editingContext: PHLivePhotoEditingContext?
+    fileprivate weak var exportSession: AVAssetExportSession?
+    fileprivate weak var editingContext: PHLivePhotoEditingContext?
     
     func cancelProcessing() {
         exportSession?.cancelExport()
@@ -269,12 +269,12 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
             
             let mode = self.editState.stabilizationMode ?? .translation
             
-            self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
-            guard let duration = self.editingContext?.duration.seconds else { return }
+            let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+            guard let duration = editingContext?.duration.seconds else { return }
             let progress = Progress(totalUnitCount: Int64(duration * 1000))
             
             var referenceImage: CIImage?
-            self.editingContext?.frameProcessor = { frame, error in
+            editingContext?.frameProcessor = { frame, error in
                 progressHandler?({
                     progress.completedUnitCount = Int64(frame.time.seconds * 1000)
                     return progress
@@ -291,7 +291,7 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
                 return result
             }
             
-            self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+            editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
                 guard success else {
                     completionHandler(nil, nil, nil)
                     return
@@ -299,6 +299,8 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
                 
                 completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
             })
+            
+            self.editingContext = editingContext
         }
         
         return [PHAssetRequestID(forEditingInput: r)]
