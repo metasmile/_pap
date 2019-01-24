@@ -76,13 +76,16 @@ extension CIImage {
 
 extension CIImage {
     var asMTLTexture: MTLTexture? {
-        guard
-            let texture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height)),
-            let commandBuffer = MTLContext.shared.commandQueue?.makeCommandBuffer()
-        else { return nil }
-        CIContext.shared.render(self, to: texture, commandBuffer: commandBuffer, bounds: extent, colorSpace: defaultColorSpace)
-        commandBuffer.commit()
-        return texture
+        return autoreleasepool { () -> MTLTexture? in
+            guard
+                let texture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height)),
+                let commandQueue = MTLContext.shared.device.makeCommandQueue(),
+                let commandBuffer = commandQueue.makeCommandBuffer()
+                else { return nil }
+            CIContext.shared.render(self, to: texture, commandBuffer: commandBuffer, bounds: extent, colorSpace: defaultColorSpace)
+            commandBuffer.commit()
+            return texture
+        }
     }
 }
 

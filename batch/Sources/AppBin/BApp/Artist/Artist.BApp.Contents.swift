@@ -12,8 +12,8 @@ import MobileCoreServices
 import AVFoundation
 
 class _ArtistAppAsset: AppAsset {
-    fileprivate var editingContext: PHLivePhotoEditingContext?
-    fileprivate var exportSession: AVAssetExportSession?
+    fileprivate weak var editingContext: PHLivePhotoEditingContext?
+    fileprivate weak var exportSession: AVAssetExportSession?
     
     func cancelProcessing() {
         editingContext?.cancel()
@@ -69,25 +69,29 @@ extension _ArtistAppAsset: PHAssetLivePhotoEditable {
                 return
             }
             
-            self.editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
-            guard let duration = self.editingContext?.duration.seconds else { return }
-            let progress = Progress(totalUnitCount: Int64(duration * 1000))
-            self.editingContext?.frameProcessor = { frame, error in
-                progressHandler?({
-                    progress.completedUnitCount = Int64(frame.time.seconds * 1000)
-                    return progress
-                    }())
-                return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
-            }
-            
-            self.editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
-                guard success else {
-                    completionHandler(nil, nil, nil)
-                    return
+            DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: item.input)
+                guard let duration = editingContext?.duration.seconds else { return }
+                let progress = Progress(totalUnitCount: Int64(duration * 1000))
+                editingContext?.frameProcessor = { frame, error in
+                    progressHandler?({
+                        progress.completedUnitCount = Int64(frame.time.seconds * 1000)
+                        return progress
+                        }())
+                    return frame.image.applyFilter(ciFilter: self.editState.ciFilter)
                 }
                 
-                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
-            })
+                editingContext?.saveLivePhoto(to: item.output, options: nil, completionHandler: { (success, error) in
+                    guard success else {
+                        completionHandler(nil, nil, nil)
+                        return
+                    }
+                    
+                    completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
+                })
+                
+                self.editingContext = editingContext
+            }
         }
         
         return [PHAssetRequestID(forEditingInput: r)]
@@ -115,14 +119,16 @@ extension _ArtistAppAsset: PHAssetVideoEditable {
                     return
                 }
                 
-                self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
-                    if success {
-                        completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
-                    }
-                    else {
-                        completionHandler(nil, nil, nil)
-                    }
-                })
+                DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+                    self.exportSession = AVAssetExportSession.export(asset: video, videoComposition: video.applyFilter(self.editState.ciFilter), presetName: AVAssetExportPresetHighestQuality, outputURL: item.output.renderedContentURL, progressHandler: progressHandler, completionHandler: { (success) in
+                        if success {
+                            completionHandler(asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .video)], item.output)
+                        }
+                        else {
+                            completionHandler(nil, nil, nil)
+                        }
+                    })
+                }
             }
             
             reqIDs.append(PHAssetRequestID(forEditingInput: r))

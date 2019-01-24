@@ -16,26 +16,30 @@ struct MTLUtility {
     static let standardImageVertices: [Float] = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0]
     
     static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm, pixelBuffer: CVPixelBuffer?) -> MTLTexture? {
+        return autoreleasepool { () -> MTLTexture? in
 #if targetEnvironment(simulator)
-        return nil
+            return nil
 #else
-        if let textureCache = MTLContext.shared.textureCache, let sourceImage = pixelBuffer {
-            var metalTexture: CVMetalTexture?
-            CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, sourceImage, nil, pixelFormat, width, height, 0, &metalTexture)
+            if let textureCache = MTLContext.shared.textureCache, let sourceImage = pixelBuffer {
+                var metalTexture: CVMetalTexture?
+                CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, sourceImage, nil, pixelFormat, width, height, 0, &metalTexture)
 
-            if let texture = metalTexture {
-                return CVMetalTextureGetTexture(texture)
+                if let texture = metalTexture {
+                    return CVMetalTextureGetTexture(texture)
+                }
             }
-        }
-        return makeTexture(width: width, height: height, pixelFormat: pixelFormat)
+            return makeTexture(width: width, height: height, pixelFormat: pixelFormat)
 #endif
+        }
     }
     
     static func makeTexture(width: Int, height: Int, pixelFormat: MTLPixelFormat = .rgba8Unorm) -> MTLTexture? {
-        let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat, width: width, height: height, mipmapped: false)
-        textureDescriptor.usage = [MTLTextureUsage.renderTarget, MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
-        
-        return MTLContext.shared.device.makeTexture(descriptor: textureDescriptor)
+        return autoreleasepool { () -> MTLTexture? in
+            let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: pixelFormat, width: width, height: height, mipmapped: false)
+            textureDescriptor.usage = [MTLTextureUsage.renderTarget, MTLTextureUsage.shaderRead, MTLTextureUsage.shaderWrite]
+            
+            return MTLContext.shared.device.makeTexture(descriptor: textureDescriptor)
+        }
     }
 }
 
@@ -43,7 +47,7 @@ public class MTLContext {
     static let shared = MTLContext()
     
     let device: MTLDevice
-    let commandQueue: MTLCommandQueue?
+//    let commandQueue: MTLCommandQueue?
     let library: MTLLibrary?
 
 #if targetEnvironment(simulator)
@@ -59,7 +63,7 @@ public class MTLContext {
     init() {
         guard let device = MTLCreateSystemDefaultDevice() else { fatalError("Could not create Metal Device") }
         self.device = device
-        self.commandQueue = device.makeCommandQueue()
+//        self.commandQueue = device.makeCommandQueue()
         
         if let libFilepath = Bundle.main.path(forResource: "default", ofType: "metallib") {
             self.library = try? device.makeLibrary(filepath: libFilepath)
@@ -151,9 +155,9 @@ class CIImageView: MTKView {
         return CIContext(mtlDevice: MTLContext.shared.device, options: [CIContextOption.useSoftwareRenderer: false])
     }()
     
-    private var commandQueue: MTLCommandQueue? {
-        return MTLContext.shared.commandQueue
-    }
+    private lazy var commandQueue: MTLCommandQueue? = {
+        return MTLContext.shared.device.makeCommandQueue()
+    }()
     
     private var renderPipelineState: MTLRenderPipelineState?
     
@@ -208,7 +212,7 @@ class CIImageView: MTKView {
 extension MTLUtility {
     static func commitComputeShader(_ functionName: String, input inputTexture: MTLTexture, output outputTexture: MTLTexture, with uniformBuffers: [MTLBuffer]? = nil) {
         guard
-            let commandQueue = MTLContext.shared.commandQueue,
+            let commandQueue = MTLContext.shared.device.makeCommandQueue(),
             let commandBuffer = commandQueue.makeCommandBuffer(),
             let encoder = commandBuffer.makeComputeCommandEncoder(),
             let kernelFunction = MTLContext.shared.library?.makeFunction(name: functionName),
