@@ -192,23 +192,57 @@ extension PHAssetFinalizableApp {
             excludedActions.append(.share)
         }
         
-//        let vc = PHAssetEditingResultViewController()
-//        let nc = UINavigationController(rootViewController: vc)
-//        
-//        vc.editingResults = targetResultAssets
-//        vc.didDismissHandler = {
-//            asyncSignal.end()
-//        }
-//        
-//        asyncSignal.begin()
-//        
-//        DispatchQueue.main.async{
-//            UIViewController.present(nc, animated: true)
-//        }
-//        
-//        asyncSignal.waitUntilEnd()
-//        
-//        return
+        let vc = PHAssetEditingResultViewController()
+        vc.title = (numberOfItems.isEmpty ? "Export" : numberOfItems).localized
+        
+        let nc = UINavigationController(rootViewController: vc)
+        
+        vc.editingResults = targetResultAssets
+        vc.didDismissHandler = {
+            asyncSignal.end()
+        }
+        
+        var exportOptionItems = [PHAssetEditingResultViewController.ExportOptionItem]()
+        if !excludedActions.contains(.create) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save".localized, action: {
+                actionQueue.async{
+                    self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                }
+            }))
+        }
+        if !excludedActions.contains(.share) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Share".localized, action: {
+                actionQueue.async{
+                    self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                }
+            }))
+        }
+        if !excludedActions.contains(.modify) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, action: {
+                actionQueue.async{
+                    self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                }
+            }))
+        }
+        if !excludedActions.contains(.share) && !excludedActions.contains(.create) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save and Share".localized, action: {
+                actionQueue.async{
+                    let assets = self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    self.sharingAndWait(from: assets.map({ $0.localIdentifier }), actionSignal)
+                }
+            }))
+        }
+        vc.exportOptionItems = exportOptionItems
+        
+        asyncSignal.begin()
+        
+        DispatchQueue.main.async{
+            UIViewController.present(nc, animated: true)
+        }
+        
+        asyncSignal.waitUntilEnd()
+        
+        return
 
         let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
         if !excludedActions.contains(.create) {
@@ -330,27 +364,59 @@ class PHAssetEditingResultViewController: UIViewController {
     // - modify
     // - share
     
-    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+    struct ExportOptionItem {
+        var title: String
+        var action: (() -> Void)?
+        
+        init(_ title: String, action: (() -> Void)?) {
+            self.title = title
+            self.action = action
+        }
+    }
+    
+    private lazy var collectionViewLayout: PHAssetEditingResultCollectionLayout = {
+        let layout = PHAssetEditingResultCollectionLayout()
+        layout.minimumSpacing = 8
         return layout
     }()
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PHAssetEditingResultCollectionViewCell.self, forCellWithReuseIdentifier: "\(PHAssetEditingResultCollectionViewCell.self)")
         return collectionView
     }()
     
-    var editingResults:[PHAssetResultable]?
+    private lazy var exportOptionView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.rowHeight = 52
+        tableView.backgroundColor = .clear
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(PHAssetEditingResultExportOptionCell.self, forCellReuseIdentifier: "ExportOptionCell")
+        return tableView
+    }()
+    
+    var editingResults: [PHAssetResultable]?
+    var exportOptionItems: [ExportOptionItem]?
+    
     var didDismissHandler: (() -> Void)?
+    
+    var initialTargetIndexPath: IndexPath?
 }
 
 extension PHAssetEditingResultViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !(editingResults ?? []).isEmpty {
+            initialTargetIndexPath = IndexPath(item: 0, section: 0)
+        }
         
         registerThemeable()
         
@@ -360,13 +426,20 @@ extension PHAssetEditingResultViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        
+        view.addSubview(exportOptionView)
+        exportOptionView.translatesAutoresizingMaskIntoConstraints = false
+        exportOptionView.topAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
+        exportOptionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        exportOptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        exportOptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
-        navigationItem.setLeftBarButton(cancelButton, animated: true)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.cancelButtonDidTap))
+        navigationItem.setRightBarButton(cancelButton, animated: true)
     }
     
     @objc private func cancelButtonDidTap(sender: UIBarButtonItem) {
@@ -374,9 +447,45 @@ extension PHAssetEditingResultViewController {
     }
 }
 
+private class PHAssetEditingResultExportOptionCell: UITableViewIndicatorCell {
+    
+}
+
+extension PHAssetEditingResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exportOptionItems?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = exportOptionItems?[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExportOptionCell") ?? PHAssetEditingResultExportOptionCell(style: .subtitle, reuseIdentifier: "ExportOptionCell")
+        cell.textLabel?.text = item?.title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if editingResults?.count == 1 {
+            return "Export the item following options".localized
+        }
+        else {
+            return "Export %d items following options".localizedFormatted(editingResults?.count ?? 0)
+        }
+    }
+}
+
+extension PHAssetEditingResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = exportOptionItems?[indexPath.row]
+        item?.action?()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
 extension PHAssetEditingResultViewController: AppColorThemeable {
     func applyTheme(_ colorTheme: AppColorTheme) {
-        
+        exportOptionView.tintColor = colorTheme.tintColor
     }
 }
 
@@ -391,22 +500,46 @@ extension PHAssetEditingResultViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! PHAssetEditingResultCollectionViewCell
-        cell.assetView.clearDrawing()
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if initialTargetIndexPath == indexPath {
+            initialTargetIndexPath = nil
+            let cell = cell as! PHAssetEditingResultCollectionViewCell
+            cell.setNeedsPlay()
+        }
     }
 }
 
 extension PHAssetEditingResultViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! PHAssetEditingResultCollectionViewCell
-        cell.assetView.isPlaying ? cell.assetView.pauseAny() : cell.assetView.playAny()
-    }
+    
 }
 
-extension PHAssetEditingResultViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
+extension PHAssetEditingResultViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let centerOfCollection = view.convert(scrollView.center, to: scrollView)
+        
+        var nearestCell: PHAssetEditingResultCollectionViewCell?
+        var distance: CGFloat = .greatestFiniteMagnitude
+        
+        for cell in collectionView.visibleCells {
+            let cell = cell as! PHAssetEditingResultCollectionViewCell
+            cell.assetView.stopAny()
+            
+            let currentDistance = cell.center.distance(to: centerOfCollection)
+            if abs(currentDistance) < abs(distance) {
+                distance = currentDistance
+                
+                nearestCell = cell
+            }
+        }
+        
+        nearestCell?.setNeedsPlay()
+        nearestCell?.playIfNeeded()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndDecelerating(scrollView)
+        }
     }
 }
 
@@ -419,6 +552,8 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
         assetView.contentMode = .scaleAspectFit
         return assetView
     }()
+    
+    private var needsPlay = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -443,30 +578,209 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
         assetView.clearDrawing()
     }
     
+    func setNeedsPlay() {
+        needsPlay = true
+    }
+    
+    func playIfNeeded() {
+        if needsPlay {
+            assetView.playAny()
+        }
+        needsPlay = false
+    }
+    
     func setEditingResult(_ editingResult: PHAssetResultable?, at indexPath: IndexPath) {
         self.indexPath = indexPath
         self.editingResult = editingResult
         
-        if let resultItem = editingResult?.editingResultItems?.first, editingResult?.editingResultItems?.count == 1 {
-            if resultItem.resourceType == .video {
-                assetView.videoView.isHidden = false
-                assetView.playerItem = AVPlayerItem(url: resultItem.url)
-//                assetView.playAny()
+        DispatchQueue(label: #file + #function, qos: .utility).async { [weak self] in
+            guard self?.indexPath == indexPath else { return }
+            
+            if let resultItem = editingResult?.editingResultItems?.first, editingResult?.editingResultItems?.count == 1 {
+                if resultItem.resourceType == .video {
+                    let playerItem = AVPlayerItem(url: resultItem.url)
+                    DispatchQueue.main.async { [weak self] in
+                        guard self?.indexPath == indexPath else { return }
+                        self?.assetView.videoView.isHidden = false
+                        self?.assetView.playerItem = playerItem
+                        self?.assetView.stopAny()
+                        self?.playIfNeeded()
+                    }
+                }
+                else if UTI(withURL: resultItem.url).conforms(to: .gif), let gifData = try? Data(contentsOf: resultItem.url) {
+                    let image = UIImage(gifData: gifData)
+                    DispatchQueue.main.async { [weak self] in
+                        guard self?.indexPath == indexPath else { return }
+                        self?.assetView.gifImage = image
+                        self?.assetView.stopAny()
+                        self?.playIfNeeded()
+                    }
+                }
+                else {
+                    let image = UIImage(contentsOfFile: resultItem.url.path)
+                    DispatchQueue.main.async { [weak self] in
+                        guard self?.indexPath == indexPath else { return }
+                        self?.assetView.image = image
+                    }
+                }
             }
-            else if UTI(withURL: resultItem.url).conforms(to: .gif), let gifData = try? Data(contentsOf: resultItem.url) {
-                assetView.gifImage = UIImage(gifData: gifData)
-            }
-            else {
-                assetView.image = UIImage(contentsOfFile: resultItem.url.path)
+            else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url, let pairedVideoURL = editingResult?.editingResultItems?.item(for: .pairedVideo)?.url {
+                self?.assetView.loadLivePhoto(from: photoURL, pairedVideoURL: pairedVideoURL, completion: { [weak self] (livePhoto) in
+                    DispatchQueue.main.async { [weak self] in
+                        guard self?.indexPath == indexPath else { return }
+                        self?.assetView.livePhotoView.isHidden = false
+                        self?.assetView.livePhoto = livePhoto
+                        self?.assetView.stopAny()
+                        self?.playIfNeeded()
+                    }
+                })
             }
         }
-        else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url, let pairedVideoURL = editingResult?.editingResultItems?.item(for: .pairedVideo)?.url {
-            assetView.loadLivePhoto(from: photoURL, pairedVideoURL: pairedVideoURL, completion: { [weak self] (livePhoto) in
-                guard self?.indexPath == indexPath else { return }
-                self?.assetView.livePhotoView.isHidden = false
-                self?.assetView.livePhoto = livePhoto
-//                self?.assetView.playAny()
-            })
+    }
+}
+
+private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
+    private enum LayoutItem: String {
+        case item = "Item"
+        case header = "UICollectionElementKindSectionHeader"
+        case footer = "UICollectionElementKindSectionFooter"
+    }
+    private var cache = [LayoutItem: [IndexPath: UICollectionViewLayoutAttributes]]()
+    private func prepareCache() {
+        cache.removeAll()
+        
+        cache[.item] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
+        cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    var minimumSpacing: CGFloat = 1
+    private var _contentSize: CGSize = .zero
+    
+    public private(set) var paddingLeft: CGFloat = 0
+    public private(set) var paddingRight: CGFloat = 0
+    
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
+    }
+    
+    override func prepare() {
+        super.prepare()
+        
+        prepareCache()
+        
+        var itemPositionX: CGFloat = 0
+        _contentSize = .zero
+        
+        guard let collectionView = self.collectionView else { return }
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemSize = sizeForItem(at: indexPath)
+            
+            let itemPosition = CGPoint(x: itemPositionX, y: 0)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPositionX += itemSize.width + minimumSpacing
+            
+            cache[.item]?[indexPath] = attributes
+            
+            _contentSize.width = attributes.frame.maxX
+            _contentSize.height = attributes.frame.height
         }
+        
+        paddingLeft = _contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - _contentSize.width) / 2
+        paddingRight = paddingLeft
+        
+        cache[.item]?.forEach({ (indexPath, attributes) in
+            attributes.frame.origin.x += paddingLeft
+        })
+        
+        _contentSize.width += paddingLeft + paddingRight
+    }
+    
+    private func estimatedSizeForItem(at indexPath: IndexPath, in collectionView: UICollectionView) -> CGSize {
+        return CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
+    }
+    
+    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        guard let collectionView = self.collectionView else { return .zero }
+        return estimatedSizeForItem(at: indexPath, in: collectionView)
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[.item]?[indexPath]
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return cache[.item]?.compactMap({ rect.intersects($0.value.frame) ? $0.value : nil })
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return collectionView?.bounds.height != newBounds.height
+    }
+    
+    var contentSize: CGSize {
+        return CGSize(width: _contentSize.width - paddingLeft - paddingRight, height: _contentSize.height)
+    }
+    
+    func estimatedContentSize(collectionView: UICollectionView) -> CGSize {
+        var itemPositionX: CGFloat = 0
+        var contentSize: CGSize = .zero
+        
+        let numberOfItems = collectionView.numberOfItems(inSection: 0)
+        
+        for indexPath in (0 ..< numberOfItems).map({ IndexPath(item: $0, section: 0) }) {
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            let itemSize = estimatedSizeForItem(at: indexPath, in: collectionView)
+            
+            let itemPosition = CGPoint(x: itemPositionX, y: 0)
+            attributes.frame = CGRect(origin: itemPosition, size: itemSize)
+            itemPositionX += itemSize.width + minimumSpacing
+            
+            contentSize.width = attributes.frame.maxX
+            contentSize.height = attributes.frame.height
+        }
+        
+        let paddingLeft = contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - contentSize.width) / 2
+        let paddingRight = paddingLeft
+        
+        contentSize.width += paddingLeft + paddingRight
+        
+        return CGSize(width: contentSize.width - paddingLeft - paddingRight, height: contentSize.height)
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        return _contentSize
+    }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        var proposedRect = CGRect.zero
+        proposedRect.origin = proposedContentOffset
+        proposedRect.size = self.collectionView?.bounds.size ?? .zero
+        
+        let proposedCenterPoint = CGPoint(x: proposedRect.midX, y: proposedRect.midY)
+        
+        var offset: CGFloat = .greatestFiniteMagnitude
+        for attributes in layoutAttributesForElements(in: proposedRect) ?? [] {
+            let targetOffset = attributes.center.x - proposedCenterPoint.x
+            if abs(targetOffset) < abs(offset) {
+                offset = targetOffset
+            }
+        }
+        
+        return CGPoint(x: proposedContentOffset.x + offset, y: proposedContentOffset.y)
+    }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        return targetContentOffset(forProposedContentOffset: proposedContentOffset)
     }
 }

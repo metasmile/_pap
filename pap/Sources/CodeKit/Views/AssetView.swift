@@ -406,6 +406,9 @@ extension AssetView {
         else if let _ = self.playerItem {
             return isVideoPlaying
         }
+        else if let _ = self.gifImage {
+            return imageView.isAnimatingGif()
+        }
         else {
             return false
         }
@@ -419,6 +422,9 @@ extension AssetView {
         else if let _ = self.playerItem {
             self.playVideo()
         }
+        else if let _ = self.gifImage {
+            self.playGIFImage()
+        }
     }
 
     func stopAny() {
@@ -428,6 +434,9 @@ extension AssetView {
         else if let _ = self.playerItem {
             self.stopVideo()
         }
+        else if let _ = self.gifImage {
+            self.stopGIFImage()
+        }
     }
     
     func pauseAny() {
@@ -436,6 +445,9 @@ extension AssetView {
         }
         else if let _ = self.playerItem {
             self.pauseVideo()
+        }
+        else if let _ = self.gifImage {
+            self.stopGIFImage()
         }
     }
 
@@ -501,6 +513,16 @@ extension AssetView {
             NotificationCenter.default.removeObserver(observer, name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
         }
         playerLoopingObserver = nil
+    }
+    
+    // Animated Image
+    
+    private func playGIFImage() {
+        imageView.startAnimatingGif()
+    }
+    
+    private func stopGIFImage() {
+        imageView.stopAnimatingGif()
     }
 }
 
