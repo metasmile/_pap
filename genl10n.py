@@ -117,7 +117,8 @@ for new_key in keys_in_gened_strs:
     # gened_strs[new_key][1] : line as int
 
     files_list = map(lambda s: "{}".format(os.path.basename(s[0])), gened_strs[new_key])    
-    from_files = ", ".join([e for n,e in enumerate(files_list) if e not in files_list[:n]])
+    files_cnt = collections.Counter(files_list)
+    from_files = ", ".join(["{}({})".format(e,files_cnt[e]) if files_cnt[e] > 1 else e for n,e in enumerate(files_list) if e not in files_list[:n]])
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)
