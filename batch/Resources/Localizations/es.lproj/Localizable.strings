@@ -1,934 +1,934 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "None";
+"Photos Access Disabled" = "Acceso a fotos desactivado";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "None";
+"Please open settings and allow access to your photos" = "Abra la configuración y permita el acceso a sus fotos";
 /*Translated from: Open Settings*/
-"Open Settings" = "None";
+"Open Settings" = "Configuración abierta";
 /*Translated from: OK*/
-"OK" = "None";
+"OK" = "OK";
 /*Translated from: Done*/
-"Done" = "None";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "None";
+"Confirm" = "Confirmar";
 /*Translated from: Cancel*/
-"Cancel" = "None";
+"Cancel" = "Cancelar";
 /*Translated from: Detail*/
-"Detail" = "None";
+"Detail" = "Detalle";
 /*Translated from: Delete*/
-"Delete" = "None";
+"Delete" = "Borrar";
 /*Translated from: Sorry, something went wrong.*/
-"Sorry, something went wrong." = "None";
+"Sorry, something went wrong." = "Perdón, algo salió mal.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "None";
+"Edit %d photo(s)" = "Editar %d foto (s)";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "None";
+"Edit %d video(s)" = "Editar %d video (s)";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "None";
+"Edit %d item(s)" = "Editar %d elemento (s)";
 /*Translated from: Edit*/
-"Edit" = "None";
+"Edit" = "Editar";
 /*Translated from: Discard Changes*/
-"Discard Changes" = "None";
+"Discard Changes" = "Descartar los cambios";
 /*Translated from: Processing...*/
-"Processing..." = "None";
+"Processing..." = "Processing...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "None";
+"Cancelling..." = "Cancelado...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "None";
+"Saving Photos..." = "Guardando fotos ...";
 /*Translated from: Deleting Photos...*/
-"Deleting Photos..." = "None";
+"Deleting Photos..." = "Eliminando fotos ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "None";
+"Reverting Photos..." = "Revertir fotos ...";
 /*Translated from: Select this photo*/
-"Select this photo" = "None";
+"Select this photo" = "Selecciona esta foto";
 /*Translated from: Select this video*/
-"Select this video" = "None";
+"Select this video" = "Selecciona este video";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "None";
+"Deselect this photo" = "Deseleccionar esta foto";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "None";
+"Deselect this video" = "Deseleccionar este video";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "None";
+"Edit this photo" = "Editar esta foto";
 /*Translated from: Edit this video*/
-"Edit this video" = "None";
+"Edit this video" = "Editar este video";
 /*Translated from: %@ Photo*/
-"%d Photo" = "None";
+"%d Photo" = "%@ Foto";
 /*Translated from: %@ Video*/
-"%d Video" = "None";
+"%d Video" = "%@ Video";
 /*Translated from: %@ Item*/
-"%d Item" = "None";
+"%d Item" = "%@ Artículo";
 /*Translated from: %@ Photos*/
-"%d Photos" = "None";
+"%d Photos" = "%@ Fotos";
 /*Translated from: %@ Videos*/
-"%d Videos" = "None";
+"%d Videos" = "%@ Videos";
 /*Translated from: %@ Items*/
-"%d Items" = "None";
+"%d Items" = "%@ Items";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "None";
+"Edit %d Photo" = "Editar %@ foto";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "None";
+"Edit %d Video" = "Editar %@ Video";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "None";
+"Edit %d Photos" = "Editar %@ Fotos";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "None";
+"Edit %d Videos" = "Editar %@ Videos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "None";
+"Edit %d Items" = "Editar %@ elementos";
 /*com.stells.batch.transform*/
-"Transform" = "None";
+"Transform" = "Transformar";
 /*com.stells.apps.photofilter*/
-"Apply" = "None";
+"Apply" = "Aplicar";
 /*com.stells.batch.revert*/
-"Revert" = "None";
+"Revert" = "Revertir";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "None";
+"Starting to revert..." = "Comenzando a revertir ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "None";
+"Reverting Photos..." = "Revertir fotos ...";
 /*com.stells.batch.pdfmaker*/
-"Create %@" = "None";
+"Create %@" = "Crear %@";
 /*Translated from: Starting to create PDF...*/
-"Starting to create PDF..." = "None";
+"Starting to create PDF..." = "Comenzando a crear PDF ...";
 /*Translated from: Creating PDF Pages...*/
-"Creating PDF Pages..." = "None";
+"Creating PDF Pages..." = "Creando páginas PDF ...";
 /*com.stells.batch.converter*/
-"Convert" = "None";
+"Convert" = "Convertir";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "None";
+"cs_keyword_0" = "álbum";
 /*Translated from: camera*/
-"cs_keyword_1" = "None";
+"cs_keyword_1" = "cámara";
 /*Translated from: photos*/
-"cs_keyword_2" = "None";
+"cs_keyword_2" = "fotos";
 /*Translated from: editor*/
-"cs_keyword_3" = "None";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
-"cs_keyword_4" = "None";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
-"cs_keyword_5" = "None";
+"cs_keyword_5" = "filtrar";
 /*Translated from: edit*/
-"cs_keyword_6" = "None";
+"cs_keyword_6" = "editar";
 /*Translated from: image*/
-"cs_keyword_7" = "None";
+"cs_keyword_7" = "imagen";
 /*Translated from: smart*/
-"cs_keyword_8" = "None";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "None";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
-"cs_keyword_10" = "None";
+"cs_keyword_10" = "memoria";
 /*Translated from: familiy*/
-"cs_keyword_11" = "None";
+"cs_keyword_11" = "familia";
 /*Translated from: friend*/
-"cs_keyword_12" = "None";
+"cs_keyword_12" = "amigo";
 /*Translated from: lover*/
-"cs_keyword_13" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"cs_keyword_13" = "amante";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Image" = "%@ Imagen animada";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Images" = "%@ Imágenes animadas";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
-"%@ Day" = "None";
+"%@ Day" = "%@ Día";
 /* Generated from genl10n: InfoStrings.swift#41 */
-"%@ Download now for FREE!" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Download now for FREE!" = "%@ ¡Descárgalo ahora GRATIS!";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photo" = "%@ Live Photo";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@ Fotos en vivo";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
-"%@ Ownership" = "None";
+"%@ Ownership" = "%@ Propiedad";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"%@ Partnership License" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Partnership License" = "%@ Partnership License";
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photo" = "%@ Foto";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photos" = "%@ Fotos";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Videos";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
-"%@ might be found" = "None";
+"%@ might be found" = "%@ podría encontrarse";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
-"%@ will be hidden" = "None";
+"%@ will be hidden" = "%@ estará oculto";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
-"%@/Day" = "None";
+"%@/Day" = "%@ / Day";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "None";
+"%d times" = "%d veces";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools that are not included in any specific license." = "None";
+"'Main Tools' means all other tools that are not included in any specific license." = "'Herramientas principales' significa todas las demás herramientas que no están incluidas en ninguna licencia específica.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"1 %@" = "None";
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Tools" = "None";
+"1-Month Use of Main and New Tools" = "1 mes de uso de herramientas principales y nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Tools" = "None";
+"1-Year Use of Main And New Tools" = "1 año de uso de herramientas principales y nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Tools" = "None";
+"14-Day Use of Main and New Tools" = "14 días de uso de herramientas principales y nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Tools" = "None";
+"3-Month Use of Main And New Tools" = "3 meses de uso de herramientas principales y nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Tools" = "None";
+"6-Month Use of Main And New Tools" = "6 meses de uso de herramientas principales y nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Tools" = "None";
+"7-Day Use of Main and New Tools" = "7 días de uso de herramientas principales y nuevas";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
-"A Licence Is Required." = "None";
+"A Licence Is Required." = "Se requiere una licencia.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
-"Access Denied." = "None";
+"Access Denied." = "Acceso denegado.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
-"Access Failed." = "None";
+"Access Failed." = "Acceso Fallido.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Access Granted." = "None";
+"Access Granted." = "Acceso permitido.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Action" = "None";
+"Action" = "Acción";
 /* Generated from genl10n: Finder.BApp.swift */
-"Actions" = "None";
+"Actions" = "Comportamiento";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Ads" = "None";
+"Activate Ads" = "Activar anuncios";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
-"Activating Current Visible Items ..." = "None";
+"Activating Current Visible Items ..." = "Activar elementos visibles actuales ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
-"Add New Contact" = "None";
+"Add New Contact" = "Añadir nuevo contacto";
 /* Generated from genl10n: Finder.BApp.swift#466 */
-"Add an Event" = "None";
+"Add an Event" = "Agregar un evento";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Address" = "None";
+"Address" = "Dirección";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "None";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Los ajustes le permiten editar sus fotos por expertos con cada propiedad, como la intensidad de la exposición o el radio de la viñeta.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments" = "None";
+"Adjustments" = "Ajustes";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "None";
+"Albums" = "Álbumes";
 /* Generated from genl10n: Shop.SApp.swift */
-"All Tools License" = "None";
+"All Tools License" = "Licencia de todas las herramientas";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"All Tools Ownership" = "None";
+"All Tools Ownership" = "Todas las herramientas de propiedad";
 /* Generated from genl10n: Finder.BApp.swift */
-"All contacts were successfully saved." = "None";
+"All contacts were successfully saved." = "Todos los contactos fueron guardados con éxito.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"All not taken with Camera" = "None";
+"All not taken with Camera" = "Guardado sin la cámara";
 /* Generated from genl10n: Finder.BApp.swift */
-"All processes you have confirmed were finished." = "None";
+"All processes you have confirmed were finished." = "Todos los procesos que ha confirmado se han completado.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "None";
+"All" = "Todas";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
-"An Error Occurred While Receiving Ads." = "None";
+"An Error Occurred While Receiving Ads." = "Se produjo un error al recibir anuncios.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animated GIF" = "None";
+"Animated GIF" = "GIF animado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animation" = "None";
+"Animation" = "Animación";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"Anytime free cancellation." = "None";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+"Anytime free cancellation." = "En cualquier momento cancelación gratuita.";
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture" = "Abertura";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture+" = "Apertura +";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Apply %@ to the last item" = "None";
+/* genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "Aplicar %@ al último elemento.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "None";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Aplique filtros de alta calidad en todas las fotos que desee. Esta herramienta de procesamiento por lotes no tiene límite en la cantidad de fotos para aplicar filtros.";
 /* Generated from genl10n: Artist.BApp.swift */
-"Artist" = "None";
+"Artist" = "Artista";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "None";
+"Aspect Ratio" = "Relación de aspecto";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
-"Auto Crop" = "None";
+"Auto Crop" = "Cultivo automático";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
-"Auto Editor lets you edit automatically if your photos are needed to correct." = "None";
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Auto Editor le permite editar automáticamente si sus fotos son necesarias para corregir.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "None";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
-"Auto Enhance" = "None";
+"Auto Enhance" = "Mejora automatica";
 /* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Auto Select on %@." = "None";
+"Auto Select on %@." = "Selección automática en %@.";
 /* Generated from genl10n: Revert.BApp.swift#189 */
-"Auto Selection Bot" = "None";
+"Auto Selection Bot" = "Auto selección Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
-"Auto Straighten" = "None";
+"Auto Straighten" = "Auto enderezar";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Auto Tagging Bot" = "None";
+"Auto Tagging Bot" = "Auto etiquetado bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Fill Color" = "None";
+"Background Fill Color" = "Color de relleno de fondo";
 /* Generated from genl10n: RawEditor.swift */
-"Baseline Exposure" = "None";
+"Baseline Exposure" = "Exposición basal";
 /* Generated from genl10n: Artist.BApp.swift */
-"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "None";
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Se un artista Artista te permite convertir dramáticamente todas tus fotos o videos en pinturas de estilo famoso. Esta herramienta de procesamiento por lotes no tiene límite en el número de fotos a convertir.";
 /* Generated from genl10n: RawEditor.swift */
-"Bias" = "None";
+"Bias" = "Parcialidad";
 /* Generated from genl10n: RawEditor.swift */
-"Blue / Magenta" = "None";
+"Blue / Magenta" = "Azul / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Blur Background" = "None";
+"Blur Background" = "Fondo borroso";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "None";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: DepthEditor.BApp.swift */
-"Blur" = "None";
+"Blur" = "Difuminar";
 /* Generated from genl10n: RawEditor.swift */
-"Boost Shadow" = "None";
+"Boost Shadow" = "Aumentar la sombra";
 /* Generated from genl10n: RawEditor.swift */
-"Boost" = "None";
+"Boost" = "Aumentar";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Brightness" = "None";
+"Brightness" = "Brillo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "None";
+"Burst" = "Ráfaga";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "None";
+"Camera" = "Cámara";
 /* Generated from genl10n: Revert.BApp.swift */
-"Cannot revert. All selected items have not edited." = "None";
+"Cannot revert. All selected items have not edited." = "No puede revertir Todos los elementos seleccionados no han sido editados.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Capture Actions To Do." = "None";
+"Capture Actions To Do." = "Captura acciones para hacer.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Capture All Text." = "None";
+"Capture All Text." = "Capturar todo el texto.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
-"Choose An Action" = "None";
+"Choose An Action" = "Elige una acción";
 /* Generated from genl10n: Finder.BApp.swift#264 */
-"Choose An Sub Action." = "None";
+"Choose An Sub Action." = "Elija una acción secundaria.";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
-"Choose an export option for %@" = "None";
+"Choose an export option for %@" = "Elija una opción de exportación para %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Choose some photos you want to find tags." = "None";
+"Choose some photos you want to find tags." = "Elige algunas fotos que quieras encontrar etiquetas.";
 /* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "None";
+"Chromaticity X" = "Cromaticidad x";
 /* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "None";
+"Chromaticity Y" = "Cromaticidad y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "None";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "¡Cleaner le permite buscar y eliminar varios tipos de fotos incorrectas si coinciden, por ejemplo, imágenes duplicadas y similares, fotos de primeros planos o disparos de Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
-"Cleaner" = "None";
+"Cleaner" = "Limpiador";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Clipboard is empty" = "None";
+"Clipboard is empty" = "El portapapeles está vacío";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Clipboard" = "None";
+"Clipboard" = "Portapapeles";
 /* Generated from genl10n: Shop.SApp.swift#532 */
-"Color And Reminder for Each Phases" = "None";
+"Color And Reminder for Each Phases" = "Color y recordatorio para cada fase";
 /* Generated from genl10n: RawEditor.swift */
-"Color Noise Reduction" = "None";
+"Color Noise Reduction" = "Reducción de ruido de color";
 /* Generated from genl10n: Finder.BApp.swift */
-"Contacts" = "None";
+"Contacts" = "Contactos";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Contrast" = "None";
+"Contrast" = "Contraste";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into a GIF." = "None";
+"Convert the last Live Photo Into a GIF." = "Convertir la última foto en vivo en un GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into a Video." = "None";
+"Convert the last Live Photo Into a Video." = "Convertir la última foto en vivo en un video.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a GIF." = "None";
+"Convert the last Video Into a GIF." = "Convertir el último video en un GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a Live Photo." = "None";
+"Convert the last Video Into a Live Photo." = "Convertir el último video en una foto en vivo.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a MP4." = "None";
+"Convert the last Video Into a MP4." = "Convierte el último video en un MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "None";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "El convertidor le permite convertir todos los formatos de medios tales como videos, fotos en vivo, archivos GIF en cada uno.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "None";
+"Converter" = "Convertidor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "None";
+"Copy" = "Dupdo";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Copying Photos..." = "None";
+"Copying Photos..." = "Copiando Fotos ...";
 /* Generated from genl10n: Finder.BApp.swift */
-"Could not detect any contact." = "None";
+"Could not detect any contact." = "No se pudo detectar ningún contacto.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Could not detect any text." = "None";
+"Could not detect any text." = "No se pudo detectar ningún texto.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect anything." = "None";
+"Could not detect anything." = "No pude detectar nada.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
-"Could not receive Ads." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Could not receive Ads." = "No se pudieron recibir anuncios.";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "Crea y guarda como nuevo en tus fotos";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "None";
+"Create" = "Crear";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "None";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
-"Crop" = "None";
+"Crop" = "Crop";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Currency Exchange" = "None";
+"Currency Exchange" = "Cambio de divisas";
 /* Generated from genl10n: Finder.BApp.swift */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "None";
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Actualmente, nuestro modelo de reconocimiento de texto AI solo está disponible para caracteres alfanuméricos y algunos caracteres especiales, y podría verse afectado por el idioma actual del sistema.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "None";
+"Custom" = "Custom";
 /* Generated from genl10n: RawEditor.swift */
-"Cyan / Blue" = "None";
+"Cyan / Blue" = "Cian / azul";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "None";
+"Date" = "Fecha";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
-"Deleting Targets" = "None";
+"Deleting Targets" = "Eliminando objetivos";
 /* Generated from genl10n: DepthEditor.BApp.swift */
-"Depth Editor" = "None";
+"Depth Editor" = "Editor de profundidad";
 /* Generated from genl10n: Finder.BApp.swift */
-"Detecting ... %@ " = "None";
+"Detecting ... %@ " = "Detectando ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
-"Detection Targets" = "None";
+"Detection Targets" = "Objetivos de detección";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "None";
+"Direction" = "Direction";
 /* Generated from genl10n: RawEditor.swift */
-"Disable Gamut Map" = "None";
+"Disable Gamut Map" = "Deshabilitar mapa de gama";
 /* Generated from genl10n: InfoStrings.swift#45 */
-"Download now for FREE at %@" = "None";
+"Download now for FREE at %@" = "Descargue ahora GRATIS en %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
-"Download" = "None";
+"Download" = "Descargar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Downloading..." = "None";
+"Downloading..." = "Descargando ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"E-mail Address" = "None";
+"E-mail Address" = "E-mail Address";
 /* Generated from genl10n: RawEditor.swift */
-"EV" = "None";
+"EV" = "CASA";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
-"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "None";
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost le permite eliminar todo tipo de datos que contienen sus fotos, incluida la información privada.";
 /* Generated from genl10n: RawEditor.swift */
-"Edit your raw photos." = "None";
+"Edit your raw photos." = "Edita tus fotos en bruto.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Enable Auto-tagging." = "None";
+"Enable Auto-tagging." = "Habilitar el etiquetado automático.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
-"Enable Quick Actions" = "None";
+"Enable Quick Actions" = "Habilitar acciones rápidas";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engineering Notes" = "None";
+"Engineering Notes" = "Notas de ingeniería";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "None";
+"Export" = "Exportar";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Exposure" = "None";
+"Exposure" = "Exposición";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Fade" = "None";
+"Fade" = "Descolorarse";
 /* Generated from genl10n: Filters.BApp.swift#72 */
-"Filters" = "None";
+"Filters" = "Filtros";
 /* Generated from genl10n: Finder.BApp.swift */
-"Find" = "None";
+"Find" = "Encontrar";
 /* Generated from genl10n: Finder.BApp.swift */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "None";
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder permite extraer toda información significativa, como números de teléfono, direcciones, fechas o URL de sus fotos, y luego llamar, abrir mapas o navegar por sitios web, incluso buscar vuelos. También puede guardarlos todos como texto en bruto.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Finder" = "None";
+"Finder" = "descubridor";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags In Photos..." = "None";
+"Finding Hashtags In Photos..." = "Encontrando Hashtags En Fotos ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding and collecting hashtags from your photos you selected." = "None";
+"Finding and collecting hashtags from your photos you selected." = "Encontrar y recopilar hashtags de tus fotos que seleccionaste.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
-"Flashlight" = "None";
+"Flashlight" = "Flash";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
-"Flight Number" = "None";
+"Flight Number" = "Número de vuelo";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
-"Formats" = "None";
+"Formats" = "Formatos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "None";
+"Forward" = "Adelante";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "None";
+"Frame Delay" = "Frame Delay";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Framer" = "None";
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
-"Free Use And All New Updates" = "None";
+"Free Use And All New Updates" = "Uso gratuito y todas las actualizaciones nuevas";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
-"Free Use" = "None";
+"Free Use" = "Uso gratuito";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"From clipboard on iOS" = "None";
+"From clipboard on iOS" = "Desde el portapapeles en iOS";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"From remote clipboard" = "None";
+"From remote clipboard" = "Desde el portapapeles remoto";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
-"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "None";
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "¡GIF Maker permite hacer imágenes GIF de fotos o fotos en vivo de forma fácil y rápida con varias opciones! Y luego puede abrir la aplicación del convertidor para convertirlo en todo, como Live Photos o Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"GIF Maker" = "None";
+"GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Gamma" = "None";
+"Gamma" = "Gama";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
-"Get Access" = "None";
+"Get Access" = "Tener acceso";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Text" = "None";
+"Get All Text" = "Obtener todo el texto";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Get Tags" = "None";
+"Get Tags" = "Obtener etiquetas";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get Text" = "None";
+"Get Text" = "Obtener texto";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
-"Give A Rating" = "None";
+"Give A Rating" = "Dar una calificación";
 /* Generated from genl10n: RawEditor.swift */
-"Green / Cyan" = "None";
+"Green / Cyan" = "Verde / Cian";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "None";
+"Guest User License Program" = "Programa de licencia de usuario invitado";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "None";
+"Guest User License" = "Licencia de usuario invitado";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User" = "None";
+"Guest User" = "Usuario invitado";
 /* Generated from genl10n: InfoStrings.swift */
-"Handle lots of photos at once." = "None";
+"Handle lots of photos at once." = "Maneja muchas fotos a la vez.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"HashTag" = "None";
+"HashTag" = "Hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Hello, %@!" = "None";
+"Hello, %@!" = "Hola, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Hi %@ Team, I'm %@." = "None";
+"Hi %@ Team, I'm %@." = "Hola, %@ equipo, soy %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "None";
+"Hide" = "Hide";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hiding Selected Items..." = "None";
+"Hiding Selected Items..." = "Ocultar los elementos seleccionados ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Highlights" = "None";
+"Highlights" = "Reflejos";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "None";
+"Image Quality" = "Calidad de la imagen";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"Image" = "None";
+"Image" = "Imagen";
 /* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
-"Images" = "None";
+"Images" = "Imágenes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "None";
+"Import" = "Importar";
 /* Generated from genl10n: Shop.SApp.swift#494 */
-"Information of Use" = "None";
+"Information of Use" = "Información de uso";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
-"Input Here" = "None";
+"Input Here" = "Ingrese aquí";
 /* Generated from genl10n: Shop.SApp.swift#625 */
-"Inquiry" = "None";
+"Inquiry" = "Investigación";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Instagram Landscape" = "None";
+"Instagram Landscape" = "Paisaje de Instagram";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Instagram Vertical" = "None";
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
-"It Displays A Ratio of Remaining Free App Access Periods." = "None";
+"It Displays A Ratio of Remaining Free App Access Periods." = "Muestra una relación de los períodos de acceso a aplicaciones gratuitas restantes.";
 /* Generated from genl10n: Finder.BApp.swift */
-"It could not be stored." = "None";
+"It could not be stored." = "No pudo ser almacenado.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
-"It looks invalid code. Please Try again." = "None";
+"It looks invalid code. Please Try again." = "Parece código inválido. Inténtalo de nuevo.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
-"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "None";
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Requiere un permiso para acceder a sus contactos. Por favor, permite contactos en la configuración de iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In Partnership Program" = "None";
+"Join In Partnership Program" = "Únete en el programa de asociación";
 /* Generated from genl10n: InfoStrings.swift */
-"Just select photos you need and then run it." = "None";
+"Just select photos you need and then run it." = "Solo selecciona las fotos que necesites y luego ejecútalo.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
-"Landscape" = "None";
+"Landscape" = "Paisaje";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
-"Layout" = "None";
+"Layout" = "Diseño";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Limited Performance Notice" = "None";
+"Limited Performance Notice" = "Aviso de rendimiento limitado";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "None";
+"Live Photo" = "Foto en vivo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
-"Lockscreens" = "None";
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "None";
+"Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
-"Luminance Noise Reduction" = "None";
+"Luminance Noise Reduction" = "Reducción de ruido de luminancia";
 /* Generated from genl10n: RawEditor.swift */
-"Magenta / Red" = "None";
+"Magenta / Red" = "Magenta / rojo";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Tools License" = "None";
+"Main Tools License" = "Licencia de herramientas principales";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Main Tools Use of %@ Day" = "None";
+"Main Tools Use of %@ Day" = "Uso de herramientas principales del día %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "None";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Make the last item Lomography style" = "None";
+"Make GIF" = "Hacer GIF";
+/* genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "Realiza el último ítem del estilo lomográfico.";
 /* Generated from genl10n: Finder.BApp.swift#402 */
-"Making A Call" = "None";
+"Making A Call" = "Haciendo una llamada";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum All Tools Ownership" = "None";
+"Maximum All Tools Ownership" = "Propiedad máxima de todas las herramientas";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"MemoCam" = "None";
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
-"Message To Us" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Message To Us" = "Mensaje a nosotros";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modificar los elementos seleccionados.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "None";
+"Modify" = "Modificar";
 /* Generated from genl10n: RawEditor.swift */
-"Moire" = "None";
+"Moire" = "muaré";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "None";
+"My Albums" = "Mis álbumes";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
-"My Feedback on %@" = "None";
+"My Feedback on %@" = "Mis comentarios sobre %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
-"New Contact" = "None";
+"New Contact" = "Nuevo contacto";
 /* Generated from genl10n: Finder.BApp.swift#435 */
-"New Event" = "None";
+"New Event" = "Nuevo evento";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
-"New Number" = "None";
+"New Number" = "Nuevo número";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
-"No Crop" = "None";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "None";
+"No loop" = "Sin bucle";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Contrast" = "None";
+"Noise Reduction Contrast" = "Contraste de reducción de ruido";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Detail" = "None";
+"Noise Reduction Detail" = "Detalle de reducción de ruido";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Sharpness" = "None";
+"Noise Reduction Sharpness" = "Nitidez de reducción de ruido";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction" = "None";
+"Noise Reduction" = "Reducción de ruido";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Tracking" = "None";
+"Noise Tracking" = "Seguimiento de ruido";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
-"On Standby" = "None";
+"On Standby" = "En modo de espera";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Tools" = "None";
+"Ongoing Use of All and New Main Tools" = "Uso continuo de todas y nuevas herramientas principales";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
-"Open %@" = "None";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
-"Open %@." = "None";
+"Open %@" = "Abrir %@";
+/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
+"Open %@." = "Abrir %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
-"Open Apple Maps" = "None";
+"Open Apple Maps" = "Abra los mapas de Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
-"Open Google Maps" = "None";
+"Open Google Maps" = "Abre Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
-"Open Web Page" = "None";
+"Open Web Page" = "Abrir página web";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Open" = "None";
+"Open" = "Abierto";
 /* Generated from genl10n: Filters.BApp.swift */
-"Original" = "None";
+"Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
-"Our %@" = "None";
+"Our %@" = "Nuestra %@";
 /* Generated from genl10n: Shop.SApp.swift */
-"Our Social Media" = "None";
+"Our Social Media" = "Nuestras redes sociales";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
-"PDFMaker makes PDF document from multiple images with various page options." = "None";
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker crea documentos PDF a partir de varias imágenes con varias opciones de página.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
-"Page Margin" = "None";
+"Page Margin" = "Margen de página";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#91 */
-"Page Size Preset" = "None";
+"Page Size Preset" = "Page Size Preset";
 /* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
-"Pages" = "None";
+"Pages" = "Páginas";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Partnership License Program" = "None";
+"Partnership License Program" = "Programa de licencia de asociación";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Partnership License" = "None";
+"Partnership License" = "Licencia de asociación";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Paste images from your clipboards" = "None";
+"Paste images from your clipboards" = "Pega imágenes de tus portapapeles.";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
-"Permanent Use And All New Updates" = "None";
+"Permanent Use And All New Updates" = "Uso permanente y todas las actualizaciones nuevas";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Permanent Use of All and New Tools" = "None";
+"Permanent Use of All and New Tools" = "Uso permanente de todas y nuevas herramientas.";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Phone Number" = "None";
+"Phone Number" = "Número de teléfono";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "None";
+"Photos" = "Fotos";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
-"Please Input Your Secret Code" = "None";
+"Please Input Your Secret Code" = "Por favor ingrese su código secreto";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
-"Please check and restore your internet connectivity, or deactivate Ads." = "None";
+"Please check and restore your internet connectivity, or deactivate Ads." = "Verifique y restablezca su conectividad a Internet, o desactive Anuncios.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Please try again with another code." = "None";
+"Please try again with another code." = "Por favor intente de nuevo con otro código.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
-"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "None";
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Desactive la siguiente opción y restablezca el identificador publicitario en Configuración. Vuelva a intentarlo.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
-"Portrait" = "None";
+"Portrait" = "Retrato";
 /* Generated from genl10n: ActionViewController.swift#37 */
-"Preparing" = "None";
+"Preparing" = "Preparando";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "None";
+"Presets" = "Presets";
 /* Generated from genl10n: Finder.BApp.swift */
-"Price" = "None";
+"Price" = "Precio";
 /* Generated from genl10n: Shop.SApp.swift#687 */
-"Privacy Policy" = "None";
+"Privacy Policy" = "Política de privacidad";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "None";
+"Privacy" = "Intimidad";
 /* Generated from genl10n: ActionViewController.swift#38 */
-"Processing" = "None";
+"Processing" = "Tratamiento";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Promotion License Program" = "None";
+"Promotion License Program" = "Programa de licencia de promoción";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Promotion License" = "None";
+"Promotion License" = "Licencia de promoción";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Promotion User" = "None";
+"Promotion User" = "Usuario de promoción";
 /* Generated from genl10n: Shop.SApp.swift#246 */
-"Purchase Management" = "None";
+"Purchase Management" = "Gestión de compras";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
-"Purchase" = "None";
+"Purchase" = "Compra";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
-"Quality" = "None";
+"Quality" = "Calidad";
 /* Generated from genl10n: RawEditor.swift */
-"RAW Editor" = "None";
+"RAW Editor" = "Editor RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
-"Rate It" = "None";
+"Rate It" = "Puntúalo";
 /* Generated from genl10n: RawEditor.swift */
-"Red / Yellow" = "None";
+"Red / Yellow" = "Rojo / amarillo";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
-"Red-Eye Removal" = "None";
+"Red-Eye Removal" = "Eliminación de ojos rojos";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
-"Remaining Count In This Run" = "None";
+"Remaining Count In This Run" = "Recuento restante en esta ejecución";
 /* Generated from genl10n: Shop.SApp.swift */
-"Remaining Level" = "None";
+"Remaining Level" = "Nivel restante";
 /* Generated from genl10n: Shop.SApp.swift */
-"Remaining Percentage" = "None";
-/* Generated from genl10n: Artist.BApp.swift */
+"Remaining Percentage" = "Porcentaje restante";
+/* genl10n: Artist.BApp.swift */
 "Repaint the last item with a random art effect." = "Vuelve a pintar el último elemento con un efecto de arte aleatorio.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "None";
+"Repeat" = "Repetir";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize and fill to fit your photos by the various sizes." = "None";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize the last item to %@" = "None";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
-"Resize" = "Resize";
+"Resize and fill to fit your photos by the various sizes." = "Cambiar el tamaño y rellenar para adaptarse a sus fotos por los diferentes tamaños.";
+/* genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "Cambiar el tamaño del último elemento a %@";
+/* genl10n: Resizer.BApp.swift */
+"Resize" = "Redimensionar";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
-"Restore All Purchases" = "None";
+"Restore All Purchases" = "Restaurar todas las compras";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
-"Restore" = "None";
+"Restore" = "Restaurar";
 /* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "None";
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "La restauración permite restaurar rápidamente una gran cantidad de fotos editadas a la original. ¡Además, te ayuda con la selección automática!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "None";
+"Restorer" = "Restauracion";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "None";
+"Reverse" = "Marcha atrás";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "None";
+"Rewind" = "Rebobinar";
 /* Generated from genl10n: Transform.BApp.swift#70 */
-"Rotate" = "None";
+"Rotate" = "Girar";
 /* Generated from genl10n: Transform.BApp.swift#54 */
-"Rotation" = "None";
+"Rotation" = "Rotación";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Saturation" = "None";
+"Saturation" = "Saturación";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
-"Save Contacts" = "None";
+"Save Contacts" = "Guardar contactos";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save and Share" = "None";
+"Save and Share" = "Guardar y compartir";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Save the copied image." = "None";
+"Save the copied image." = "Guarda la imagen copiada.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "None";
+"Save" = "Salvar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Saving Results..." = "Guardando resultados ...";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Saving or sharing Live Photo as a still photo only." = "Guardar o compartir Live Photo solo como una foto fija.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
-"Scale To Fit" = "None";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
-"Screenshots" = "None";
+"Screenshots" = "Capturas de pantalla";
 /* Generated from genl10n: Finder.BApp.swift#762 */
-"Search Flights" = "None";
+"Search Flights" = "Búsqueda de vuelos";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google Maps" = "None";
+"Search On Google Maps" = "Buscar en Google Maps";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google" = "None";
-/* Generated from genl10n: Siri.SApp.swift */
+"Search On Google" = "Buscar en Google";
+/* genl10n: Siri.SApp.swift */
 "Search Siri Shortcuts." = "Buscar los atajos de Siri.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
-"Select Format To Convert" = "None";
+"Select Format To Convert" = "Seleccionar formato para convertir";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
-"Select Photos To Delete." = "None";
+"Select Photos To Delete." = "Seleccionar fotos para eliminar";
 /* Generated from genl10n: Finder.BApp.swift */
-"Select Photos To Find Something." = "None";
+"Select Photos To Find Something." = "Seleccione fotos para encontrar algo.";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "None";
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Seleccione el contenido que desea copiar, luego cópielo en su iPhone o Mac con Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
-"Selected" = "None";
+"Selected" = "Seleccionado";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
-"Send an Email" = "None";
+"Send an Email" = "Send an Email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
-"Send" = "None";
+"Send" = "Enviar";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Sepia Tone" = "None";
+"Sepia Tone" = "Tono sepia";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Tools License" = "None";
+"Settings for Main Tools License" = "Configuraciones para la licencia de herramientas principales";
 /* Generated from genl10n: Shop.SApp.swift#469 */
-"Settings" = "None";
+"Settings" = "Configuraciones";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Shadows" = "None";
+"Shadows" = "Oscuridad";
 /* Generated from genl10n: Shop.SApp.swift#584 */
-"Share This App" = "None";
+"Share This App" = "Comparte esta aplicación";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Comparte tu talento, hazlo juntos. Obtener cada recompensa si se adopta.";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Comparte directamente después de guardar";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Comparte directamente sin guardar ni modificar.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "None";
+"Share" = "Compartir";
 /* Generated from genl10n: RawEditor.swift */
-"Sharpening" = "None";
+"Sharpening" = "Afilado";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "None";
+"Sharpness" = "Nitidez";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
-"Similarity" = "None";
+"Similarity" = "Semejanza";
 /* Generated from genl10n: Shop.SApp.swift */
-"Single Tools License" = "None";
+"Single Tools License" = "Licencia de herramientas individuales";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "None";
+"Size" = "tamaño";
 /* Generated from genl10n: Finder.BApp.swift */
-"Some contacts were saved, but someones were not." = "None";
+"Some contacts were saved, but someones were not." = "Se salvaron algunos contactos, pero no algunos.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Sorry, This converting option is not supporting currently." = "None";
+"Sorry, This converting option is not supporting currently." = "Lo sentimos, esta opción de conversión no es compatible actualmente.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Special Guest License Program" = "None";
+"Special Guest License Program" = "Programa de licencia de invitado especial";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Special Guest License" = "None";
+"Special Guest License" = "Licencia de invitado especial";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Special Guest" = "None";
+"Special Guest" = "Invitado especial";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "None";
+"Square" = "Cuadrado";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilization Mode" = "None";
+"Stabilization Mode" = "Modo de estabilización";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilize" = "None";
+"Stabilize" = "Estabilizar";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilizer" = "None";
+"Stabilizer" = "Estabilizador";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilizing Selected Items..." = "None";
+"Stabilizing Selected Items..." = "Estabilización de elementos seleccionados ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "None";
+"Start" = "comienzo";
 /* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "None";
+"Starting To Find ..." = "Empezando a encontrar ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "None";
+"Starting the Process..." = "Comenzando el proceso ...";
 /* Generated from genl10n: Revert.BApp.swift */
-"Starting to check edited photos..." = "None";
+"Starting to check edited photos..." = "Comenzando a revisar fotos editadas ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Starting to copy photos..." = "None";
+"Starting to copy photos..." = "Empezando a copiar fotos ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Starting to find..." = "None";
+"Starting to find..." = "Empezando a encontrar ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying With Us" = "None";
+"Staying With Us" = "Quedarse con nosotros";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Us" = "None";
+"Stories of Us" = "Historias de nosotros";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
-"Switch on any items you want to hide. The quality will perfectly remain the same." = "None";
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Enciende cualquier artículo que quieras esconder. La calidad seguirá siendo la misma.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Take A Photo" = "None";
+"Take A Photo" = "Toma una foto";
 /* Generated from genl10n: Shop.SApp.swift */
-"Take Part" = "None";
+"Take Part" = "Participar";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Depth Effect Photo." = "None";
+"Take a Depth Effect Photo." = "Tome una foto de efecto de profundidad.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a GIF with a Live Photo." = "None";
+"Take a GIF with a Live Photo." = "Toma un GIF con una foto en vivo.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Live Photo." = "None";
+"Take a Live Photo." = "Tomar una foto en vivo";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Photo." = "None";
-/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Toma una foto.";
+/* genl10n: Camera.SApp.swift */
 "Take a RAW Photo." = "Tome una foto RAW.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Selfie with a Live Photo." = "None";
+"Take a Selfie with a Live Photo." = "Tomar un Selfie con una foto en vivo.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Selfie." = "None";
+"Take a Selfie." = "Toma una selfie.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Taken With Built-in Camera" = "None";
+"Taken With Built-in Camera" = "Tomado con cámara incorporada";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Tap to detect text" = "None";
+"Tap to detect text" = "Toque para detectar texto";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
-"Targeted" = "None";
+"Targeted" = "Dirigido";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
-"Targets" = "None";
+"Targets" = "Objetivos";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Temparature" = "None";
+"Temparature" = "Temparature";
 /* Generated from genl10n: RawEditor.swift */
-"Temperature" = "None";
+"Temperature" = "Temperatura";
 /* Generated from genl10n: Shop.SApp.swift#698 */
-"Terms of Use" = "None";
+"Terms of Use" = "Términos de Uso";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
-"Text" = "None";
+"Text" = "Texto";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you %@. Soon we will contact you." = "None";
+"Thank you %@. Soon we will contact you." = "Gracias %@. Pronto nos contactaremos con usted.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you for your message. Soon we will contact you." = "None";
+"Thank you for your message. Soon we will contact you." = "Gracias por tu mensaje. Pronto nos contactaremos con usted.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
-"Thank you for your purchase." = "None";
+"Thank you for your purchase." = "Gracias por su compra.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you very much for your feedback! Soon we will contact you." = "None";
+"Thank you very much for your feedback! Soon we will contact you." = "¡Muchas gracias por su colaboración! Pronto nos contactaremos con usted.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The price is including every new tool. Today is the cheapest day to get this." = "None";
+"The price is including every new tool. Today is the cheapest day to get this." = "El precio incluye cada nueva herramienta. Hoy es el día más barato para conseguir esto.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "None";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Esta sencilla herramienta de transformación de imágenes por lotes a gran escala le permite rotar y voltear rápidamente una gran cantidad de archivos multimedia, incluidas Live Photos. No hay límite para la cantidad de fotos para editarlas.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Tint" = "None";
+"Tint" = "Tinte";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
-"To use this app needs a corresponding access license. Would you like to open %@?" = "None";
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Para usar esta aplicación necesita una licencia de acceso correspondiente. ¿Te gustaría abrir %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
-"Too Close-up Face" = "None";
+"Too Close-up Face" = "Demasiado cara de primer plano";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
-"Too Slow Shutter Speed" = "None";
+"Too Slow Shutter Speed" = "Velocidad de obturación demasiado lenta";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
-"Transform Mode" = "None";
+"Transform Mode" = "Modo de transformación";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
-"Translate Now" = "None";
+"Translate Now" = "Traducir ahora";
 /* Generated from genl10n: Shop.SApp.swift */
-"Translation Correction" = "None";
+"Translation Correction" = "Corrección de traducción";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Twitter" = "None";
+"Twitter" = "Gorjeo";
 /* Generated from genl10n: Finder.BApp.swift */
-"Type" = "None";
+"Type" = "Tipo";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"URL" = "None";
+"URL" = "URL";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Ultra Wide Vertical" = "None";
+"Ultra Wide Vertical" = "Ultra ancho vertical";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Ultra Wide" = "None";
+"Ultra Wide" = "Ultra ancho";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
-"Unable to verify the code currently. Please try it later." = "None";
+"Unable to verify the code currently. Please try it later." = "No se puede verificar el código actualmente. Por favor intente más tarde.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Usage Guide" = "None";
+"Usage Guide" = "Guía de uso";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
-"Use Trial" = "None";
+"Use Trial" = "Usa prueba";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
-"Use" = "None";
+"Use" = "Utilizar";
 /* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "None";
+"User Community" = "Comunidad de usuarios";
 /* Generated from genl10n: Shop.SApp.swift#606 */
-"VIP Hotline" = "None";
+"VIP Hotline" = "Línea VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP License Program" = "None";
+"VIP License Program" = "Programa de licencia VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"VIP License" = "None";
+"VIP License" = "Licencia VIP";
 /* Generated from genl10n: Shop.SApp.swift */
-"VIP Membership of Our All Products." = "None";
+"VIP Membership of Our All Products." = "Membresía VIP de todos nuestros productos.";
 /* Generated from genl10n: RawEditor.swift */
-"Vendor Lens Correction" = "None";
+"Vendor Lens Correction" = "Corrección de la lente del vendedor";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
-"Verification Failed." = "None";
+"Verification Failed." = "Fallo en la verificación.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vibrance" = "None";
+"Vibrance" = "Vibrance";
 /* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "None";
+"Video Tutorials" = "Tutoriales en vídeo";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "None";
+"Video" = "Vídeo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram" = "None";
+"Videos Saved by Instagram" = "Videos guardados por Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
-"Videos Shorter Than 1 Second" = "None";
+"Videos Shorter Than 1 Second" = "Videos más cortos que 1 segundo";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
-"Videos Without Sound" = "None";
+"Videos Without Sound" = "Videos sin sonido";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
-"Videos from Screen Recorder" = "None";
+"Videos from Screen Recorder" = "Videos de la Grabadora de pantalla";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vignette Radius" = "None";
+"Vignette Radius" = "Radio de viñeta";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vignette" = "None";
+"Vignette" = "Viñeta";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
-"Visit" = "None";
+"Visit" = "Visitar";
 /* Generated from genl10n: Finder.BApp.swift */
-"Waiting To Select ..." = "None";
+"Waiting To Select ..." = "En espera de seleccionar ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Warp" = "None";
+"Warp" = "Warp";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our Partnership License Program!" = "None";
+"Welcome to our Partnership License Program!" = "Bienvenido a nuestro programa de licencia de asociación!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Welcome to our VIP license program." = "None";
+"Welcome to our VIP license program." = "Bienvenido a nuestro programa de licencia VIP.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "None";
+"Welcome to our guest user license program!" = "Bienvenido a nuestro programa de licencia de usuario invitado!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our promotion license program!" = "None";
+"Welcome to our promotion license program!" = "Bienvenido a nuestro programa de licencia de promoción!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our special guest license program!" = "None";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Wipe my privacy from the last item." = "None";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Wipe the date from the last item." = "None";
+"Welcome to our special guest license program!" = "Bienvenido a nuestro programa de licencia de invitado especial!";
+/* genl10n: ExifGhost.BApp.swift */
+"Wipe my privacy from the last item." = "Borrar mi privacidad del último artículo.";
+/* genl10n: ExifGhost.BApp.swift */
+"Wipe the date from the last item." = "Limpie la fecha del último elemento.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
-"Would you like to go back to %@?" = "None";
+"Would you like to go back to %@?" = "¿Te gustaría volver a %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
-"Write A Review" = "None";
+"Write A Review" = "Escribe una reseña";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
-"Write" = "None";
+"Write" = "Escribir";
 /* Generated from genl10n: RawEditor.swift */
-"Yellow / Green" = "None";
+"Yellow / Green" = "Amarillo verde";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
-"You can select only photos or videos that matched with starting format." = "None";
+"You can select only photos or videos that matched with starting format." = "Puede seleccionar solo fotos o videos que coincidan con el formato de inicio.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
-"Your Message Has Been Sent." = "None";
+"Your Message Has Been Sent." = "Tu mensaje ha sido enviado.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Your code is invalid. Please try again." = "None";
+"Your code is invalid. Please try again." = "Tu código no es válido Inténtalo de nuevo.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Your code was expired." = "None";
-/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Your code was expired." = "Tu código ha expirado";
+/* genl10n: Resizer.BApp.swift */
 "Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
-"day" = "None";
+"day" = "día";
 /* Generated from genl10n: Period.swift */
-"hour" = "None";
+"hour" = "hora";
 /* Generated from genl10n: Period.swift */
-"minute" = "None";
+"minute" = "minuto";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"month" = "None";
+"month" = "mes";
 /* Generated from genl10n: Period.swift */
-"second" = "None";
+"second" = "segundo";
 /* Generated from genl10n: Period.swift */
-"week" = "None";
+"week" = "semana";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"year" = "None";
+"year" = "año";

@@ -64,29 +64,29 @@
 "cs_keyword_11" = "家庭";
 "cs_keyword_12" = "朋友";
 "cs_keyword_13" = "情人";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Image" = "%@動畫圖片";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Images" = "%@動畫圖片";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
 /* Generated from genl10n: InfoStrings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photo" = "%@現場照片";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@實時照片";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@所有權";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@合夥許可";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photo" = "%@照片";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photos" = "%@照片";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@視頻";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@視頻";
 /* Generated from genl10n: Finder.BApp.swift#1647, Cleaner.BApp.swift#767 */
 "%@ might be found" = "可能會找到%@";
@@ -160,11 +160,11 @@
 "Animation" = "動畫";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "隨時免費取消。";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture" = "光圈";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture+" = "光圈+";
-/* Generated from genl10n: AutoEditor.BApp.swift */
+/* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "將%@應用於最後一項";
 /* Generated from genl10n: Filters.BApp.swift#103 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "您選哪張照片，都可以應用高品質過濾器。此批處理工具對應用過濾器的照片數量沒有限制。";
@@ -274,7 +274,7 @@
 "Could not detect anything." = "無法檢測到任何東西。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "無法接收廣告。";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "創建並保存為新照片";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "創建";
@@ -452,7 +452,7 @@
 "Main Tools Use of %@ Day" = "主要工具使用%@日";
 /* Generated from genl10n: GIFMaker.BApp.swift#281 */
 "Make GIF" = "製作GIF";
-/* Generated from genl10n: Adjustments.BApp.swift */
+/* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "製作最後一項Lomography風格";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打個電話";
@@ -462,7 +462,7 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "修改所選項目";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
@@ -498,7 +498,7 @@
 "Ongoing Use of All and New Main Tools" = "正在使用所有和新的主要工具";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "打開%@";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
 "Open %@." = "打開%@。";
 /* Generated from genl10n: Finder.BApp.swift#769 */
 "Open Apple Maps" = "打開Apple Maps";
@@ -584,15 +584,15 @@
 "Remaining Level" = "剩餘等級";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "剩餘百分比";
-/* Generated from genl10n: Artist.BApp.swift */
+/* genl10n: Artist.BApp.swift */
 "Repaint the last item with a random art effect." = "使用隨機藝術效果重新繪製最後一項。";
 /* Generated from genl10n: GIFMaker.BApp.swift#571 */
 "Repeat" = "重複";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "調整大小並填充以適合各種尺寸的照片。";
-/* Generated from genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize the last item to %@" = "將最後一項調整為%@";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize" = "調整";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢復所有購買";
@@ -622,7 +622,7 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "保存結果...";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Saving or sharing Live Photo as a still photo only." = "僅將Live Photo保存或共享為靜態照片。";
 /* Generated from genl10n: Stabilizer.BApp.swift#424, PDFMaker.AppDockContent.swift#146 */
 "Scale To Fit" = "縮放以適應";
@@ -634,7 +634,7 @@
 "Search On Google Maps" = "在Google地圖上搜索";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "在Google上搜索";
-/* Generated from genl10n: Siri.SApp.swift */
+/* genl10n: Siri.SApp.swift */
 "Search Siri Shortcuts." = "搜索Siri快捷方式。";
 /* Generated from genl10n: Converter.AppDockContent.swift#158 */
 "Select Format To Convert" = "選擇要轉換的格式";
@@ -662,9 +662,9 @@
 "Share This App" = "分享這個應用程式";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才華，團結一致。如果採納，則獲得每項獎勵。";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "保存後直接分享";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "直接共享而不保存或修改";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payment.SocialShare.Facebook.swift#73, Shop.Payment.SocialShare.Facebook.swift#138, Shop.Payment.SocialShare.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
@@ -728,7 +728,7 @@
 "Take a Live Photo." = "拍攝現場照片。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "拍張照片。";
-/* Generated from genl10n: Camera.SApp.swift */
+/* genl10n: Camera.SApp.swift */
 "Take a RAW Photo." = "拍一張RAW照片。";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "拍攝帶有實時照片的自拍照。";
@@ -842,9 +842,9 @@
 "Welcome to our promotion license program!" = "歡迎來到我們的促銷許可計劃！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "歡迎來到我們的特邀嘉賓計劃！";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "從最後一項中刪除我的隱私。";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe the date from the last item." = "擦除最後一項的日期。";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "你想回到%@嗎？";
@@ -862,7 +862,7 @@
 "Your code is invalid. Please try again." = "您的代碼無效。請再試一次。";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "您的代碼已過期。";
-/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Youtube" = "的Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "天";
