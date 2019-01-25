@@ -98,13 +98,13 @@
 "%@ Ownership" = "%@ Ownership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ Partnership License";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Photo" = "%@ Photo";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Photos" = "%@ Photos";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Videos";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "%@ might be found" = "%@ might be found";
@@ -482,6 +482,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Message To Us" = "Message To Us";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Modify the selected items" = "Modify the selected items";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */

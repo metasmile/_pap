@@ -241,10 +241,10 @@ extension PHAsset {
         var text = ""
         if numberOfImages > 0 {
             if numberOfImages == 1 {
-                text += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
+                text += "%@ Photo".localizedFormatted(numberOfImages.decimalStyleString)
             }
             else {
-                text += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
+                text += "%@ Photos".localizedFormatted(numberOfImages.decimalStyleString)
             }
         }
         
@@ -254,10 +254,10 @@ extension PHAsset {
             }
             
             if numberOfVideos == 1 {
-                text += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
+                text += "%@ Video".localizedFormatted(numberOfVideos.decimalStyleString)
             }
             else {
-                text += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
+                text += "%@ Videos".localizedFormatted(numberOfVideos.decimalStyleString)
             }
         }
         

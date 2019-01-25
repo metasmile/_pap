@@ -211,7 +211,7 @@ extension PHAssetFinalizableApp {
             }))
         }
         if !excludedActions.contains(.modify) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, action: { signal in
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, description: "Modify the selected items".localized.localizedCapitalized, action: { signal in
                 signal?.begin()
                 actionQueue.async{
                     self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
