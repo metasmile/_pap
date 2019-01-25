@@ -1,934 +1,934 @@
 /*Translated from: Photos Access Disabled*/
-"Photos Access Disabled" = "None";
+"Photos Access Disabled" = "Fotografii Acces dezactivat";
 /*Translated from: Please open settings and allow access to your photos*/
-"Please open settings and allow access to your photos" = "None";
+"Please open settings and allow access to your photos" = "Vă rugăm să deschideți setările și să permiteți accesul la fotografiile dvs.";
 /*Translated from: Open Settings*/
-"Open Settings" = "None";
+"Open Settings" = "Deschide setările";
 /*Translated from: OK*/
-"OK" = "None";
+"OK" = "O.K";
 /*Translated from: Done*/
-"Done" = "None";
+"Done" = "Done";
 /*Translated from: Confirm*/
-"Confirm" = "None";
+"Confirm" = "A confirma";
 /*Translated from: Cancel*/
-"Cancel" = "None";
+"Cancel" = "Anulare";
 /*Translated from: Detail*/
-"Detail" = "None";
+"Detail" = "Detaliu";
 /*Translated from: Delete*/
-"Delete" = "None";
+"Delete" = "Delete";
 /*Translated from: Sorry, something went wrong.*/
-"Sorry, something went wrong." = "None";
+"Sorry, something went wrong." = "Scuze, ceva a mers greșit.";
 /*Translated from: Edit %d photo(s)*/
-"Edit %d photo(s)" = "None";
+"Edit %d photo(s)" = "Editați fotografiile %d";
 /*Translated from: Edit %d video(s)*/
-"Edit %d video(s)" = "None";
+"Edit %d video(s)" = "Editați videoclipurile %d";
 /*Translated from: Edit %d item(s)*/
-"Edit %d item(s)" = "None";
+"Edit %d item(s)" = "Editați %d elemente";
 /*Translated from: Edit*/
-"Edit" = "None";
+"Edit" = "Edit";
 /*Translated from: Discard Changes*/
-"Discard Changes" = "None";
+"Discard Changes" = "Discard Changes";
 /*Translated from: Processing...*/
-"Processing..." = "None";
+"Processing..." = "Prelucrare...";
 /*Translated from: Cancelling...*/
-"Cancelling..." = "None";
+"Cancelling..." = "Se anulează ...";
 /*Translated from: Saving Photos...*/
-"Saving Photos..." = "None";
+"Saving Photos..." = "Salvează fotografii ...";
 /*Translated from: Deleting Photos...*/
-"Deleting Photos..." = "None";
+"Deleting Photos..." = "Ștergerea fotografiilor ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "None";
+"Reverting Photos..." = "Revenirea fotografiilor ...";
 /*Translated from: Select this photo*/
-"Select this photo" = "None";
+"Select this photo" = "Selectați această fotografie";
 /*Translated from: Select this video*/
-"Select this video" = "None";
+"Select this video" = "Selectați acest videoclip";
 /*Translated from: Deselect this photo*/
-"Deselect this photo" = "None";
+"Deselect this photo" = "Deselectați această fotografie";
 /*Translated from: Deselect this video*/
-"Deselect this video" = "None";
+"Deselect this video" = "Deselectați acest videoclip";
 /*Translated from: Edit this photo*/
-"Edit this photo" = "None";
+"Edit this photo" = "Editați această fotografie";
 /*Translated from: Edit this video*/
-"Edit this video" = "None";
+"Edit this video" = "Editați acest videoclip";
 /*Translated from: %@ Photo*/
-"%d Photo" = "None";
+"%d Photo" = "%@ Fotografie";
 /*Translated from: %@ Video*/
-"%d Video" = "None";
+"%d Video" = "%@ Video";
 /*Translated from: %@ Item*/
-"%d Item" = "None";
+"%d Item" = "%@ Articol";
 /*Translated from: %@ Photos*/
-"%d Photos" = "None";
+"%d Photos" = "%@ Fotografii";
 /*Translated from: %@ Videos*/
-"%d Videos" = "None";
+"%d Videos" = "%@ Videoclipuri";
 /*Translated from: %@ Items*/
-"%d Items" = "None";
+"%d Items" = "%@ Elemente";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "None";
+"Edit %d Photo" = "Editați %@ Foto";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "None";
+"Edit %d Video" = "Editați %@ Video";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "None";
+"Edit %d Photos" = "Editați %@ Fotografii";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "None";
+"Edit %d Videos" = "Editați %@ Videoclipuri";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "None";
+"Edit %d Items" = "Editați %@ Elemente";
 /*com.stells.batch.transform*/
-"Transform" = "None";
+"Transform" = "Transforma";
 /*com.stells.apps.photofilter*/
-"Apply" = "None";
+"Apply" = "aplica";
 /*com.stells.batch.revert*/
-"Revert" = "None";
+"Revert" = "Revert";
 /*Translated from: Starting to revert...*/
-"Starting to revert..." = "None";
+"Starting to revert..." = "Începând să revină ...";
 /*Translated from: Reverting Photos...*/
-"Reverting Photos..." = "None";
+"Reverting Photos..." = "Revenirea fotografiilor ...";
 /*com.stells.batch.pdfmaker*/
-"Create %@" = "None";
+"Create %@" = "Creați %@";
 /*Translated from: Starting to create PDF...*/
-"Starting to create PDF..." = "None";
+"Starting to create PDF..." = "Începând să creeze PDF ...";
 /*Translated from: Creating PDF Pages...*/
-"Creating PDF Pages..." = "None";
+"Creating PDF Pages..." = "Crearea paginilor PDF ...";
 /*com.stells.batch.converter*/
-"Convert" = "None";
+"Convert" = "Convertit";
 /*CoreSpotligth keywords - localizable - marketing*/
-"cs_keyword_0" = "None";
+"cs_keyword_0" = "album";
 /*Translated from: camera*/
-"cs_keyword_1" = "None";
+"cs_keyword_1" = "camera";
 /*Translated from: photos*/
-"cs_keyword_2" = "None";
+"cs_keyword_2" = "fotografii";
 /*Translated from: editor*/
-"cs_keyword_3" = "None";
+"cs_keyword_3" = "editor";
 /*Translated from: messenger*/
-"cs_keyword_4" = "None";
+"cs_keyword_4" = "messenger";
 /*Translated from: filter*/
-"cs_keyword_5" = "None";
+"cs_keyword_5" = "filtru";
 /*Translated from: edit*/
-"cs_keyword_6" = "None";
+"cs_keyword_6" = "edit";
 /*Translated from: image*/
-"cs_keyword_7" = "None";
+"cs_keyword_7" = "imagine";
 /*Translated from: smart*/
-"cs_keyword_8" = "None";
+"cs_keyword_8" = "smart";
 /*Translated from: picture*/
-"cs_keyword_9" = "None";
+"cs_keyword_9" = "picture";
 /*Translated from: memory*/
-"cs_keyword_10" = "None";
+"cs_keyword_10" = "memorie";
 /*Translated from: familiy*/
-"cs_keyword_11" = "None";
+"cs_keyword_11" = "familie";
 /*Translated from: friend*/
-"cs_keyword_12" = "None";
+"cs_keyword_12" = "prieten";
 /*Translated from: lover*/
-"cs_keyword_13" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"cs_keyword_13" = "amant";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Image" = "%@ Imagine animată";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Images" = "%@ Imagini animate";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
-"%@ Day" = "None";
+"%@ Day" = "%@ Ziua";
 /* Generated from genl10n: InfoStrings.swift#41 */
-"%@ Download now for FREE!" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Download now for FREE!" = "%@ Descarcă acum GRATUIT!";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photo" = "%@ Fotografie live";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@ Fotografii live";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
-"%@ Ownership" = "None";
+"%@ Ownership" = "%@ Proprietate";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"%@ Partnership License" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Partnership License" = "%@ Licență de parteneriat";
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photo" = "%@ Fotografie";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photos" = "%@ Fotografii";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Videoclipuri";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
-"%@ might be found" = "None";
+"%@ might be found" = "%@ ar putea fi găsit";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
-"%@ will be hidden" = "None";
+"%@ will be hidden" = "%@ va fi ascuns";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#69 */
-"%@/Day" = "None";
+"%@/Day" = "%@ / Zi";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"%d times" = "None";
+"%d times" = "%d de ori";
 /* Generated from genl10n: Shop.SApp.swift */
-"'Main Tools' means all other tools that are not included in any specific license." = "None";
+"'Main Tools' means all other tools that are not included in any specific license." = "&quot;Instrumentele principale&quot; înseamnă toate celelalte instrumente care nu sunt incluse în nicio licență specifică.";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"1 %@" = "None";
+"1 %@" = "1 %@";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Month Use of Main and New Tools" = "None";
+"1-Month Use of Main and New Tools" = "Utilizare pe o lună a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"1-Year Use of Main And New Tools" = "None";
+"1-Year Use of Main And New Tools" = "1 an de utilizare a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"14-Day Use of Main and New Tools" = "None";
+"14-Day Use of Main and New Tools" = "Utilizarea pe 14 zile a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"3-Month Use of Main And New Tools" = "None";
+"3-Month Use of Main And New Tools" = "Utilizare pe 3 luni a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"6-Month Use of Main And New Tools" = "None";
+"6-Month Use of Main And New Tools" = "Utilizarea la 6 luni a instrumentelor principale și noi";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"7-Day Use of Main and New Tools" = "None";
+"7-Day Use of Main and New Tools" = "Utilizarea pe 7 zile a instrumentelor principale și noi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
-"A Licence Is Required." = "None";
+"A Licence Is Required." = "Este necesară o licență.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#228 */
-"Access Denied." = "None";
+"Access Denied." = "Acces interzis.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
-"Access Failed." = "None";
+"Access Failed." = "Accesul a eșuat.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Access Granted." = "None";
+"Access Granted." = "Acces permis.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Action" = "None";
+"Action" = "Acțiune";
 /* Generated from genl10n: Finder.BApp.swift */
-"Actions" = "None";
+"Actions" = "acţiuni";
 /* Generated from genl10n: AppCenter.Charge.swift#124 */
-"Activate Ads" = "None";
+"Activate Ads" = "Activați anunțurile";
 /* Generated from genl10n: PhoneCalls.BApp.swift#589, Finder.BApp.swift#1659, Cleaner.BApp.swift#871 */
-"Activating Current Visible Items ..." = "None";
+"Activating Current Visible Items ..." = "Activarea elementelor vizibile actuale ...";
 /* Generated from genl10n: Finder.BApp.swift#306, Finder.BApp.swift#372, Finder.BApp.swift#576, Finder.BApp.swift#691 */
-"Add New Contact" = "None";
+"Add New Contact" = "Adăugați un contact nou";
 /* Generated from genl10n: Finder.BApp.swift#466 */
-"Add an Event" = "None";
+"Add an Event" = "Adăugați un eveniment";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Address" = "None";
+"Address" = "Adresa";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "None";
+"Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Ajustările vă permit să editați cu ușurință fotografiile cu fiecare proprietate, cum ar fi intensitatea expunerii sau raza vineta.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Adjustments" = "None";
+"Adjustments" = "Ajustări";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"Albums" = "None";
+"Albums" = "Albume";
 /* Generated from genl10n: Shop.SApp.swift */
-"All Tools License" = "None";
+"All Tools License" = "Toate licențele pentru instrumente";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"All Tools Ownership" = "None";
+"All Tools Ownership" = "Toate proprietatile de instrumente";
 /* Generated from genl10n: Finder.BApp.swift */
-"All contacts were successfully saved." = "None";
+"All contacts were successfully saved." = "Toate contactele au fost salvate cu succes.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#244 */
-"All not taken with Camera" = "None";
+"All not taken with Camera" = "Salvat fără aparatul foto";
 /* Generated from genl10n: Finder.BApp.swift */
-"All processes you have confirmed were finished." = "None";
+"All processes you have confirmed were finished." = "Toate procesele pe care le-ați confirmat au fost terminate.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
-"All" = "None";
+"All" = "Toate";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
-"An Error Occurred While Receiving Ads." = "None";
+"An Error Occurred While Receiving Ads." = "A apărut o eroare la primirea anunțurilor.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animated GIF" = "None";
+"Animated GIF" = "Animate GIF";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Animation" = "None";
+"Animation" = "Animaţie";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"Anytime free cancellation." = "None";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+"Anytime free cancellation." = "Oricând anulare gratuită.";
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture" = "Deschidere";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture+" = "Diafragma +";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Apply %@ to the last item" = "None";
+/* genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "Aplicați %@ la ultimul element";
 /* Generated from genl10n: Filters.BApp.swift#76 */
-"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "None";
+"Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Aplicați filtre de înaltă calitate pe toate fotografiile pe care le doriți. Acest instrument de procesare în lot nu are nicio limită pentru numărul de fotografii pentru aplicarea filtrelor.";
 /* Generated from genl10n: Artist.BApp.swift */
-"Artist" = "None";
+"Artist" = "Artist";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Aspect Ratio" = "None";
+"Aspect Ratio" = "Aspect Ratio";
 /* Generated from genl10n: AutoEditor.BApp.swift#172 */
-"Auto Crop" = "None";
+"Auto Crop" = "Auto Crop";
 /* Generated from genl10n: AutoEditor.BApp.swift#51 */
-"Auto Editor lets you edit automatically if your photos are needed to correct." = "None";
+"Auto Editor lets you edit automatically if your photos are needed to correct." = "Editorul automat vă permite să editați automat dacă fotografiile dvs. sunt necesare pentru corectare.";
 /* Generated from genl10n: AutoEditor.BApp.swift#33 */
-"Auto Editor" = "None";
+"Auto Editor" = "Auto Editor";
 /* Generated from genl10n: AutoEditor.BApp.swift#170 */
-"Auto Enhance" = "None";
+"Auto Enhance" = "Auto Enhance";
 /* Generated from genl10n: Revert.BApp.swift, PhoneCalls.BApp.swift, ExifGhost.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift */
-"Auto Select on %@." = "None";
+"Auto Select on %@." = "Selectați automat pe %@.";
 /* Generated from genl10n: Revert.BApp.swift#189 */
-"Auto Selection Bot" = "None";
+"Auto Selection Bot" = "Auto Selection Bot";
 /* Generated from genl10n: AutoEditor.BApp.swift#173 */
-"Auto Straighten" = "None";
+"Auto Straighten" = "Auto Straighten";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Auto Tagging Bot" = "None";
+"Auto Tagging Bot" = "Auto Tagging Bot";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Background Fill Color" = "None";
+"Background Fill Color" = "Culoarea de umplere a fundalului";
 /* Generated from genl10n: RawEditor.swift */
-"Baseline Exposure" = "None";
+"Baseline Exposure" = "Expunerea de bază";
 /* Generated from genl10n: Artist.BApp.swift */
-"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "None";
+"Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Fii artist. Artistul vă permite să transformați în mod dramatic toate fotografiile sau videoclipurile în faimoase picturi stilate. Această unealtă de procesare în bloc nu are nicio limită a numărului de fotografii de convertit.";
 /* Generated from genl10n: RawEditor.swift */
-"Bias" = "None";
+"Bias" = "Părtinire";
 /* Generated from genl10n: RawEditor.swift */
-"Blue / Magenta" = "None";
+"Blue / Magenta" = "Albastru / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Blur Background" = "None";
+"Blur Background" = "Blur Background";
 /* Generated from genl10n: Cleaner.BApp.swift#244 */
-"Blur Rate" = "None";
+"Blur Rate" = "Blur Rate";
 /* Generated from genl10n: DepthEditor.BApp.swift */
-"Blur" = "None";
+"Blur" = "Estompa";
 /* Generated from genl10n: RawEditor.swift */
-"Boost Shadow" = "None";
+"Boost Shadow" = "Boost Shadow";
 /* Generated from genl10n: RawEditor.swift */
-"Boost" = "None";
+"Boost" = "Boost";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Brightness" = "None";
+"Brightness" = "strălucire";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Burst" = "None";
+"Burst" = "Izbucni";
 /* Generated from genl10n: Camera.BApp.swift#44 */
-"Camera" = "None";
+"Camera" = "Camera";
 /* Generated from genl10n: Revert.BApp.swift */
-"Cannot revert. All selected items have not edited." = "None";
+"Cannot revert. All selected items have not edited." = "Nu se poate reveni. Toate elementele selectate nu au fost editate.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Capture Actions To Do." = "None";
+"Capture Actions To Do." = "Capturați acțiunile de făcut.";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Capture All Text." = "None";
+"Capture All Text." = "Capturează tot textul.";
 /* Generated from genl10n: Finder.BApp.swift#250 */
-"Choose An Action" = "None";
+"Choose An Action" = "Alegeți o acțiune";
 /* Generated from genl10n: Finder.BApp.swift#264 */
-"Choose An Sub Action." = "None";
+"Choose An Sub Action." = "Alegeți o acțiune secundară.";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
-"Choose an export option for %@" = "None";
+"Choose an export option for %@" = "Alegeți o opțiune de export pentru %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Choose some photos you want to find tags." = "None";
+"Choose some photos you want to find tags." = "Alegeți câteva fotografii pe care doriți să le găsiți etichete.";
 /* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "None";
+"Chromaticity X" = "Cromaticitatea X";
 /* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "None";
+"Chromaticity Y" = "Cromaticitatea Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
-"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "None";
+"Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vă permite să găsiți și să ștergeți diverse tipuri de fotografii incorecte dacă acestea au fost potrivite, de exemplu, pentru duplicat și imagini similare, fotografii apropiate sau fotografii Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
-"Cleaner" = "None";
+"Cleaner" = "Mai curat";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Clipboard is empty" = "None";
+"Clipboard is empty" = "Clipboard-ul este gol";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Clipboard" = "None";
+"Clipboard" = "Clipboard";
 /* Generated from genl10n: Shop.SApp.swift#532 */
-"Color And Reminder for Each Phases" = "None";
+"Color And Reminder for Each Phases" = "Culoare și memento pentru fiecare fază";
 /* Generated from genl10n: RawEditor.swift */
-"Color Noise Reduction" = "None";
+"Color Noise Reduction" = "Reducerea zgomotului de culoare";
 /* Generated from genl10n: Finder.BApp.swift */
-"Contacts" = "None";
+"Contacts" = "Contacte";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Contrast" = "None";
+"Contrast" = "Contrast";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into a GIF." = "None";
+"Convert the last Live Photo Into a GIF." = "Conversia ultimei fotografii live într-un GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Live Photo Into a Video." = "None";
+"Convert the last Live Photo Into a Video." = "Conversia ultimei fotografii live într-un videoclip.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a GIF." = "None";
+"Convert the last Video Into a GIF." = "Convertiți ultimul videoclip într-un GIF.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a Live Photo." = "None";
+"Convert the last Video Into a Live Photo." = "Conversia ultimului videoclip într-o fotografie live.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Convert the last Video Into a MP4." = "None";
+"Convert the last Video Into a MP4." = "Conversia ultimului videoclip într-un MP4.";
 /* Generated from genl10n: Converter.BApp.swift#42 */
-"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "None";
+"Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter vă permite să convertiți toate formatele media, cum ar fi Videoclipuri, Fotografii Live, GIF-uri între ele.";
 /* Generated from genl10n: Converter.BApp.swift#41 */
-"Converter" = "None";
+"Converter" = "convertizor";
 /* Generated from genl10n: Finder.BApp.swift#308, Finder.BApp.swift#392, Finder.BApp.swift#470, Finder.BApp.swift#561, Finder.BApp.swift#676, Finder.BApp.swift#767 */
-"Copy" = "None";
+"Copy" = "Copie";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Copying Photos..." = "None";
+"Copying Photos..." = "Copierea fotografiilor ...";
 /* Generated from genl10n: Finder.BApp.swift */
-"Could not detect any contact." = "None";
+"Could not detect any contact." = "Nu s-a putut detecta niciun contact.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Could not detect any text." = "None";
+"Could not detect any text." = "Nu s-a putut detecta niciun text.";
 /* Generated from genl10n: Finder.BApp.swift#911 */
-"Could not detect anything." = "None";
+"Could not detect anything." = "N-am putut detecta nimic.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
-"Could not receive Ads." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Could not receive Ads." = "Nu s-a putut primi anunțuri.";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "Creați și salvați ca fotografii noi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Create" = "None";
+"Create" = "Crea";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Crop to Fit" = "None";
+"Crop to Fit" = "Crop to Fit";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
-"Crop" = "None";
+"Crop" = "Crop";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Currency Exchange" = "None";
+"Currency Exchange" = "Schimb valutar";
 /* Generated from genl10n: Finder.BApp.swift */
-"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "None";
+"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "În prezent, modelul nostru de recunoaștere a textului AI este disponibil numai pentru caractere alfanumerice și unele caractere speciale și ar putea fi afectat de limba curentă a sistemului.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
-"Custom" = "None";
+"Custom" = "Custom";
 /* Generated from genl10n: RawEditor.swift */
-"Cyan / Blue" = "None";
+"Cyan / Blue" = "Cyan / Blue";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Date" = "None";
+"Date" = "Date";
 /* Generated from genl10n: Cleaner.BApp.swift#506 */
-"Deleting Targets" = "None";
+"Deleting Targets" = "Ștergerea țintelor";
 /* Generated from genl10n: DepthEditor.BApp.swift */
-"Depth Editor" = "None";
+"Depth Editor" = "Editor de adâncime";
 /* Generated from genl10n: Finder.BApp.swift */
-"Detecting ... %@ " = "None";
+"Detecting ... %@ " = "Detectarea ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
-"Detection Targets" = "None";
+"Detection Targets" = "Obiective de detectare";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Direction" = "None";
+"Direction" = "Direcţie";
 /* Generated from genl10n: RawEditor.swift */
-"Disable Gamut Map" = "None";
+"Disable Gamut Map" = "Dezactivați harta Gamut";
 /* Generated from genl10n: InfoStrings.swift#45 */
-"Download now for FREE at %@" = "None";
+"Download now for FREE at %@" = "Descarcă acum GRATUIT la %@";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift */
-"Download" = "None";
+"Download" = "Descarca";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Downloading..." = "None";
+"Downloading..." = "Descărcarea...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"E-mail Address" = "None";
+"E-mail Address" = "Adresa de email";
 /* Generated from genl10n: RawEditor.swift */
-"EV" = "None";
+"EV" = "CASA";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
-"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "None";
+"EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vă permite să eliminați toate tipurile de date care conțin fotografiile dvs., inclusiv informații private.";
 /* Generated from genl10n: RawEditor.swift */
-"Edit your raw photos." = "None";
+"Edit your raw photos." = "Editați fotografiile prime.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Enable Auto-tagging." = "None";
+"Enable Auto-tagging." = "Activați etichetarea automată.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
-"Enable Quick Actions" = "None";
+"Enable Quick Actions" = "Activați acțiunile rapide";
 /* Generated from genl10n: Shop.SApp.swift */
-"Engineering Notes" = "None";
+"Engineering Notes" = "Note tehnice";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Export" = "None";
+"Export" = "Export";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Exposure" = "None";
+"Exposure" = "Expunere";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Fade" = "None";
+"Fade" = "Decolorare";
 /* Generated from genl10n: Filters.BApp.swift#72 */
-"Filters" = "None";
+"Filters" = "Filtre";
 /* Generated from genl10n: Finder.BApp.swift */
-"Find" = "None";
+"Find" = "Găsi";
 /* Generated from genl10n: Finder.BApp.swift */
-"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "None";
+"Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Finder vă permite să extrageți din fotografii toate informațiile relevante, cum ar fi numere de telefon, adrese, date sau adrese URL, apoi să apelați, să deschideți hărți sau să navigați pe site-uri chiar să căutați zboruri. De asemenea, le puteți salva pe toate ca text brut.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Finder" = "None";
+"Finder" = "căutător";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding Hashtags In Photos..." = "None";
+"Finding Hashtags In Photos..." = "Găsirea Hashtags în fotografii ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Finding and collecting hashtags from your photos you selected." = "None";
+"Finding and collecting hashtags from your photos you selected." = "Găsirea și colectarea hashtag-urilor din fotografiile pe care le-ați selectat.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#51 */
-"Flashlight" = "None";
+"Flashlight" = "Lanternă";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
-"Flight Number" = "None";
+"Flight Number" = "Numărul zborului";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
-"Formats" = "None";
+"Formats" = "formate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Forward" = "None";
+"Forward" = "Redirecţiona";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Frame Delay" = "None";
+"Frame Delay" = "Întârziere cadru";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Framer" = "None";
+"Framer" = "Framer";
 /* Generated from genl10n: AppCenter.Charge.swift#372 */
-"Free Use And All New Updates" = "None";
+"Free Use And All New Updates" = "Utilizare gratuită și toate actualizările noi";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#12 */
-"Free Use" = "None";
+"Free Use" = "Utilizare gratuită";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"From clipboard on iOS" = "None";
+"From clipboard on iOS" = "De la clipboard pe iOS";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"From remote clipboard" = "None";
+"From remote clipboard" = "Din clipboardul la distanță";
 /* Generated from genl10n: GIFMaker.BApp.swift#266 */
-"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "None";
+"GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker permite realizarea cu ușurință și rapidă a imaginilor GIF din Photos sau Live Photos cu diverse opțiuni! Apoi puteți deschide aplicația Convertor pentru a vă converti în orice, cum ar fi Fotografii live sau Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"GIF Maker" = "None";
+"GIF Maker" = "GIF Maker";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Gamma" = "None";
+"Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
-"Get Access" = "None";
+"Get Access" = "Obține acces";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get All Text" = "None";
+"Get All Text" = "Obțineți tot textul";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Get Tags" = "None";
+"Get Tags" = "Obțineți etichete";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Get Text" = "None";
+"Get Text" = "Obțineți text";
 /* Generated from genl10n: AppCenter.Charge.swift#19 */
-"Give A Rating" = "None";
+"Give A Rating" = "Acordați o evaluare";
 /* Generated from genl10n: RawEditor.swift */
-"Green / Cyan" = "None";
+"Green / Cyan" = "Verde / cyan";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User License Program" = "None";
+"Guest User License Program" = "Programul de licență pentru utilizatori invitați";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Guest User License" = "None";
+"Guest User License" = "Licență utilizator licitată";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Guest User" = "None";
+"Guest User" = "Utilizator invitat";
 /* Generated from genl10n: InfoStrings.swift */
-"Handle lots of photos at once." = "None";
+"Handle lots of photos at once." = "Manipulați o mulțime de fotografii deodată.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"HashTag" = "None";
+"HashTag" = "Hashtag";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Hello, %@!" = "None";
+"Hello, %@!" = "Bună ziua, %@!";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Hi %@ Team, I'm %@." = "None";
+"Hi %@ Team, I'm %@." = "Hi %@ Echipa, eu sunt %@.";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hide" = "None";
+"Hide" = "Ascunde";
 /* Generated from genl10n: ExifGhost.BApp.swift */
-"Hiding Selected Items..." = "None";
+"Hiding Selected Items..." = "Ascunderea elementelor selectate ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Highlights" = "None";
+"Highlights" = "Repere";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Image Quality" = "None";
+"Image Quality" = "Calitatea imaginii";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"Image" = "None";
+"Image" = "Imagine";
 /* Generated from genl10n: PDFMaker.AppDefaults.swift#65 */
-"Images" = "None";
+"Images" = "Imagini";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Import" = "None";
+"Import" = "Import";
 /* Generated from genl10n: Shop.SApp.swift#494 */
-"Information of Use" = "None";
+"Information of Use" = "Informații despre utilizare";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#199 */
-"Input Here" = "None";
+"Input Here" = "Introduceți aici";
 /* Generated from genl10n: Shop.SApp.swift#625 */
-"Inquiry" = "None";
+"Inquiry" = "Anchetă";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Instagram Landscape" = "None";
+"Instagram Landscape" = "Instagram Peisaj";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Instagram Vertical" = "None";
+"Instagram Vertical" = "Instagram Vertical";
 /* Generated from genl10n: Shop.SApp.swift#468 */
-"It Displays A Ratio of Remaining Free App Access Periods." = "None";
+"It Displays A Ratio of Remaining Free App Access Periods." = "Afișează un raport al perioadelor rămase gratuite pentru accesarea aplicațiilor.";
 /* Generated from genl10n: Finder.BApp.swift */
-"It could not be stored." = "None";
+"It could not be stored." = "Nu putea fi stocat.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#208 */
-"It looks invalid code. Please Try again." = "None";
+"It looks invalid code. Please Try again." = "Se pare că codul este nevalid. Vă rugăm să încercați din nou.";
 /* Generated from genl10n: CodeKit.Contacts.swift#63 */
-"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "None";
+"It requires a permission to access your contacts. Please allow Contacts on iOS Settings." = "Este necesară o permisiune pentru a accesa contactele dvs. Activați persoanele de contact din setările iOS.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Join In Partnership Program" = "None";
+"Join In Partnership Program" = "Alăturați-vă programului de parteneriat";
 /* Generated from genl10n: InfoStrings.swift */
-"Just select photos you need and then run it." = "None";
+"Just select photos you need and then run it." = "Doar selectați fotografiile de care aveți nevoie și apoi executați-le.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
-"Landscape" = "None";
+"Landscape" = "Peisaj";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
-"Layout" = "None";
+"Layout" = "schemă";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Limited Performance Notice" = "None";
+"Limited Performance Notice" = "Notificare privind performanța limitată";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Live Photo" = "None";
+"Live Photo" = "Live Photo";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
-"Lockscreens" = "None";
+"Lockscreens" = "Lockscreens";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Loop" = "None";
+"Loop" = "Buclă";
 /* Generated from genl10n: RawEditor.swift */
-"Luminance Noise Reduction" = "None";
+"Luminance Noise Reduction" = "Reducerea zgomotului luminanței";
 /* Generated from genl10n: RawEditor.swift */
-"Magenta / Red" = "None";
+"Magenta / Red" = "Magenta / roșu";
 /* Generated from genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Main Tools License" = "None";
+"Main Tools License" = "Licența Instrumentelor principale";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Main Tools Use of %@ Day" = "None";
+"Main Tools Use of %@ Day" = "Scule principale Utilizarea %@ Zilei";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Make GIF" = "None";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Make the last item Lomography style" = "None";
+"Make GIF" = "Faceți GIF";
+/* genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "Efectuați ultimul element Lomography stil";
 /* Generated from genl10n: Finder.BApp.swift#402 */
-"Making A Call" = "None";
+"Making A Call" = "Efectuarea unui apel";
 /* Generated from genl10n: Shop.SApp.swift */
-"Maximum All Tools Ownership" = "None";
+"Maximum All Tools Ownership" = "Proprietatea maximă a tuturor instrumentelor";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"MemoCam" = "None";
+"MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
-"Message To Us" = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Message To Us" = "Mesaj către noi";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modificați elementele selectate";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
-"Modify" = "None";
+"Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
-"Moire" = "None";
+"Moire" = "moar";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
-"My Albums" = "None";
+"My Albums" = "Albumele mele";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
-"My Feedback on %@" = "None";
+"My Feedback on %@" = "Feedback-ul meu pe %@";
 /* Generated from genl10n: CodeKit.Contacts.swift#440 */
-"New Contact" = "None";
+"New Contact" = "Contact nou";
 /* Generated from genl10n: Finder.BApp.swift#435 */
-"New Event" = "None";
+"New Event" = "Eveniment nou";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#210 */
-"New Number" = "None";
+"New Number" = "Numar nou";
 /* Generated from genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
-"No Crop" = "None";
+"No Crop" = "No Crop";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"No loop" = "None";
+"No loop" = "Nicio buclă";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Contrast" = "None";
+"Noise Reduction Contrast" = "Reducerea contrastului zgomotului";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Detail" = "None";
+"Noise Reduction Detail" = "Reducerea zgomotului";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction Sharpness" = "None";
+"Noise Reduction Sharpness" = "Reducerea zgomotului Claritate";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Reduction" = "None";
+"Noise Reduction" = "Reducerea zgomotului";
 /* Generated from genl10n: RawEditor.swift */
-"Noise Tracking" = "None";
+"Noise Tracking" = "Urmărirea zgomotului";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
-"On Standby" = "None";
+"On Standby" = "În așteptare";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Ongoing Use of All and New Main Tools" = "None";
+"Ongoing Use of All and New Main Tools" = "Utilizarea continuă a tuturor și a noilor instrumente principale";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
-"Open %@" = "None";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
-"Open %@." = "None";
+"Open %@" = "Deschideți %@";
+/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
+"Open %@." = "Deschideți %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
-"Open Apple Maps" = "None";
+"Open Apple Maps" = "Deschideți Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
-"Open Google Maps" = "None";
+"Open Google Maps" = "Deschideți Google Maps";
 /* Generated from genl10n: Finder.BApp.swift#370 */
-"Open Web Page" = "None";
+"Open Web Page" = "Deschideți o pagină Web";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
-"Open" = "None";
+"Open" = "Deschis";
 /* Generated from genl10n: Filters.BApp.swift */
-"Original" = "None";
+"Original" = "Original";
 /* Generated from genl10n: Shop.SApp.swift */
-"Our %@" = "None";
+"Our %@" = "Our %@";
 /* Generated from genl10n: Shop.SApp.swift */
-"Our Social Media" = "None";
+"Our Social Media" = "Media noastră socială";
 /* Generated from genl10n: PDFMaker.BApp.swift#32 */
-"PDFMaker makes PDF document from multiple images with various page options." = "None";
+"PDFMaker makes PDF document from multiple images with various page options." = "PDFMaker face document PDF din mai multe imagini cu diverse opțiuni de pagină.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
-"Page Margin" = "None";
+"Page Margin" = "Marja de pagină";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#91 */
-"Page Size Preset" = "None";
+"Page Size Preset" = "Dimensiune presetată a paginii";
 /* Generated from genl10n: PDFMaker.AppDefaults.swift#66 */
-"Pages" = "None";
+"Pages" = "Pagini";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Partnership License Program" = "None";
+"Partnership License Program" = "Programul de licență pentru parteneriat";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Partnership License" = "None";
+"Partnership License" = "Licență de licență";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Paste images from your clipboards" = "None";
+"Paste images from your clipboards" = "Inserați imagini din clipboard-urile dvs.";
 /* Generated from genl10n: AppCenter.Charge.swift#365 */
-"Permanent Use And All New Updates" = "None";
+"Permanent Use And All New Updates" = "Utilizarea permanentă și toate actualizările noi";
 /* Generated from genl10n: AppCenter.Charge.swift, AppCenter.Charge.swift */
-"Permanent Use of All and New Tools" = "None";
+"Permanent Use of All and New Tools" = "Utilizarea permanentă a tuturor și a noilor instrumente";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
-"Phone Number" = "None";
+"Phone Number" = "Numar de telefon";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Photos" = "None";
+"Photos" = "Fotografii";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#192 */
-"Please Input Your Secret Code" = "None";
+"Please Input Your Secret Code" = "Introduceți codul secret";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#106 */
-"Please check and restore your internet connectivity, or deactivate Ads." = "None";
+"Please check and restore your internet connectivity, or deactivate Ads." = "Verificați și restaurați conectivitatea dvs. la internet sau dezactivați anunțurile.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Please try again with another code." = "None";
+"Please try again with another code." = "Încercați din nou cu un alt cod.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#216 */
-"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "None";
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Opriți următoarea opțiune și resetați identificatorul de publicitate din Setări. Atunci încercați din nou.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
-"Portrait" = "None";
+"Portrait" = "Portret";
 /* Generated from genl10n: ActionViewController.swift#37 */
-"Preparing" = "None";
+"Preparing" = "Pregătirea";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift, FinderApp.AppDockContent.swift */
-"Presets" = "None";
+"Presets" = "presetări";
 /* Generated from genl10n: Finder.BApp.swift */
-"Price" = "None";
+"Price" = "Preț";
 /* Generated from genl10n: Shop.SApp.swift#687 */
-"Privacy Policy" = "None";
+"Privacy Policy" = "Politica de confidentialitate";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#177 */
-"Privacy" = "None";
+"Privacy" = "intimitate";
 /* Generated from genl10n: ActionViewController.swift#38 */
-"Processing" = "None";
+"Processing" = "Prelucrare";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Promotion License Program" = "None";
+"Promotion License Program" = "Programul de licență de promovare";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Promotion License" = "None";
+"Promotion License" = "Licență de promovare";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Promotion User" = "None";
+"Promotion User" = "Utilizator promoțional";
 /* Generated from genl10n: Shop.SApp.swift#246 */
-"Purchase Management" = "None";
+"Purchase Management" = "Managementul achizițiilor";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#41 */
-"Purchase" = "None";
+"Purchase" = "Cumpărare";
 /* Generated from genl10n: GIFMaker.BApp.swift, Converter.AppDockContent.swift */
-"Quality" = "None";
+"Quality" = "Calitate";
 /* Generated from genl10n: RawEditor.swift */
-"RAW Editor" = "None";
+"RAW Editor" = "Editor RAW";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#34, Shop.Payment.Promotion.swift#72 */
-"Rate It" = "None";
+"Rate It" = "Acorda-i o nota";
 /* Generated from genl10n: RawEditor.swift */
-"Red / Yellow" = "None";
+"Red / Yellow" = "Roșu galben";
 /* Generated from genl10n: AutoEditor.BApp.swift#171 */
-"Red-Eye Removal" = "None";
+"Red-Eye Removal" = "Eliminarea ochilor roșii";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#107 */
-"Remaining Count In This Run" = "None";
+"Remaining Count In This Run" = "Numărul rămas în această alergare";
 /* Generated from genl10n: Shop.SApp.swift */
-"Remaining Level" = "None";
+"Remaining Level" = "Nivelul rămas";
 /* Generated from genl10n: Shop.SApp.swift */
-"Remaining Percentage" = "None";
-/* Generated from genl10n: Artist.BApp.swift */
+"Remaining Percentage" = "Procentul rămas";
+/* genl10n: Artist.BApp.swift */
 "Repaint the last item with a random art effect." = "Repetați ultimul element cu un efect de artă aleatoriu.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Repeat" = "None";
+"Repeat" = "Repeta";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Resize and fill to fit your photos by the various sizes." = "None";
-/* Generated from genl10n: Resizer.BApp.swift */
-"Resize the last item to %@" = "None";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
-"Resize" = "Resize";
+"Resize and fill to fit your photos by the various sizes." = "Redimensionați și umpleți pentru a se potrivi fotografiilor dvs. cu dimensiunile diferite.";
+/* genl10n: Resizer.BApp.swift */
+"Resize the last item to %@" = "Redimensionați ultimul element la %@";
+/* genl10n: Resizer.BApp.swift */
+"Resize" = "Redimensionarea";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
-"Restore All Purchases" = "None";
+"Restore All Purchases" = "Restaurați toate achizițiile";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
-"Restore" = "None";
+"Restore" = "Restabili";
 /* Generated from genl10n: Revert.BApp.swift#45 */
-"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "None";
+"Restorer allows restoring a bunch amount of edited photos to the original one quickly. Furthermore, it helps you with the automatic selection!" = "Restaurarea permite restaurarea rapidă a unei cantități mari de fotografii editate la cea originală. În plus, vă ajută cu selecția automată!";
 /* Generated from genl10n: Revert.BApp.swift#44 */
-"Restorer" = "None";
+"Restorer" = "Restaurare";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Reverse" = "None";
+"Reverse" = "Verso";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Rewind" = "None";
+"Rewind" = "rewind";
 /* Generated from genl10n: Transform.BApp.swift#70 */
-"Rotate" = "None";
+"Rotate" = "Roti";
 /* Generated from genl10n: Transform.BApp.swift#54 */
-"Rotation" = "None";
+"Rotation" = "Rotație";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Saturation" = "None";
+"Saturation" = "Saturare";
 /* Generated from genl10n: Finder.BApp.swift#1252 */
-"Save Contacts" = "None";
+"Save Contacts" = "Salvați Contacte";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save and Share" = "None";
+"Save and Share" = "Salveaza si distribuie";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Save the copied image." = "None";
+"Save the copied image." = "Salvați imaginea copiată.";
 /* Generated from genl10n: PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Save" = "None";
+"Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Saving Results..." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Saving Results..." = "Salvează rezultatele ...";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Saving or sharing Live Photo as a still photo only." = "Salvarea sau partajarea fotografiilor Live Photo numai ca fotografie statică.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
-"Scale To Fit" = "None";
+"Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
-"Screenshots" = "None";
+"Screenshots" = "Imagini";
 /* Generated from genl10n: Finder.BApp.swift#762 */
-"Search Flights" = "None";
+"Search Flights" = "Căutați bilete";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google Maps" = "None";
+"Search On Google Maps" = "Căutați în Google Maps";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
-"Search On Google" = "None";
-/* Generated from genl10n: Siri.SApp.swift */
-"Search Siri Shortcuts." = "Căutare Shortcut-uri Siri.";
+"Search On Google" = "Căutați pe Google";
+/* genl10n: Siri.SApp.swift */
+"Search Siri Shortcuts." = "Căutați scurtăturile Siri.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
-"Select Format To Convert" = "None";
+"Select Format To Convert" = "Selectați Format pentru a converti";
 /* Generated from genl10n: Cleaner.BApp.swift#602 */
-"Select Photos To Delete." = "None";
+"Select Photos To Delete." = "Selectați fotografii pentru a șterge.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Select Photos To Find Something." = "None";
+"Select Photos To Find Something." = "Selectați fotografii pentru a găsi ceva.";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "None";
+"Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Selectați conținutul pe care doriți să îl copiați, apoi copiați-l pe iPhone sau pe Mac cu Handoff";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
-"Selected" = "None";
+"Selected" = "Selectat";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
-"Send an Email" = "None";
+"Send an Email" = "Trimite un email";
 /* Generated from genl10n: Shop.SApp.swift#583 */
-"Send" = "None";
+"Send" = "Trimite";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Sepia Tone" = "None";
+"Sepia Tone" = "Sepia Tone";
 /* Generated from genl10n: Shop.SApp.swift */
-"Settings for Main Tools License" = "None";
+"Settings for Main Tools License" = "Setări pentru licența Instrumente principale";
 /* Generated from genl10n: Shop.SApp.swift#469 */
-"Settings" = "None";
+"Settings" = "Setări";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Shadows" = "None";
+"Shadows" = "umbre";
 /* Generated from genl10n: Shop.SApp.swift#584 */
-"Share This App" = "None";
+"Share This App" = "Distribuie aceasta aplicatie";
 /* Generated from genl10n: Shop.SApp.swift */
-"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "None";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Împărtășește-ți talentul, fă Împreună. Obțineți fiecare recompensă dacă este adoptată.";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Trimiteți direct după salvare";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Trimiteți direct, fără a salva sau a modifica";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
-"Share" = "None";
+"Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
-"Sharpening" = "None";
+"Sharpening" = "ascuțire";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Sharpness" = "None";
+"Sharpness" = "acuitate";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
-"Similarity" = "None";
+"Similarity" = "Similitudine";
 /* Generated from genl10n: Shop.SApp.swift */
-"Single Tools License" = "None";
+"Single Tools License" = "Licență unică pentru unelte";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Size" = "None";
+"Size" = "mărimea";
 /* Generated from genl10n: Finder.BApp.swift */
-"Some contacts were saved, but someones were not." = "None";
+"Some contacts were saved, but someones were not." = "Unele persoane au fost salvate, dar unele nu au fost.";
 /* Generated from genl10n: Converter.BApp.swift */
-"Sorry, This converting option is not supporting currently." = "None";
+"Sorry, This converting option is not supporting currently." = "Ne pare rău, această opțiune de conversie nu este compatibilă în prezent.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Special Guest License Program" = "None";
+"Special Guest License Program" = "Programul special de licență pentru oaspeți";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"Special Guest License" = "None";
+"Special Guest License" = "Licență specială pentru oaspeți";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Special Guest" = "None";
+"Special Guest" = "Invitat special";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Square" = "None";
+"Square" = "Pătrat";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilization Mode" = "None";
+"Stabilization Mode" = "Modul de stabilizare";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilize" = "None";
+"Stabilize" = "Stabiliza";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilizer" = "None";
+"Stabilizer" = "Stabilizator";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Stabilizing Selected Items..." = "None";
+"Stabilizing Selected Items..." = "Stabilizarea elementelor selectate ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Start" = "None";
+"Start" = "start";
 /* Generated from genl10n: Finder.BApp.swift */
-"Starting To Find ..." = "None";
+"Starting To Find ..." = "Începeți să găsiți ...";
 /* Generated from genl10n: PhotoPickerViewController.swift */
-"Starting the Process..." = "None";
+"Starting the Process..." = "Pornirea procesului ...";
 /* Generated from genl10n: Revert.BApp.swift */
-"Starting to check edited photos..." = "None";
+"Starting to check edited photos..." = "Începând să verificați fotografiile editate ...";
 /* Generated from genl10n: Clipboard.BApp.swift */
-"Starting to copy photos..." = "None";
+"Starting to copy photos..." = "Începând să copiați fotografii ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
-"Starting to find..." = "None";
+"Starting to find..." = "Începe să găsească ...";
 /* Generated from genl10n: Shop.SApp.swift */
-"Staying With Us" = "None";
+"Staying With Us" = "Rămâi cu noi";
 /* Generated from genl10n: Shop.SApp.swift */
-"Stories of Us" = "None";
+"Stories of Us" = "Povestiri despre noi";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#313 */
-"Switch on any items you want to hide. The quality will perfectly remain the same." = "None";
+"Switch on any items you want to hide. The quality will perfectly remain the same." = "Activați toate elementele pe care doriți să le ascundeți. Calitatea va rămâne perfect aceeași.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Take A Photo" = "None";
+"Take A Photo" = "Fă o poză";
 /* Generated from genl10n: Shop.SApp.swift */
-"Take Part" = "None";
+"Take Part" = "Ia parte";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Depth Effect Photo." = "None";
+"Take a Depth Effect Photo." = "Luați o fotografie cu efecte în profunzime.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a GIF with a Live Photo." = "None";
+"Take a GIF with a Live Photo." = "Luați un GIF cu o fotografie live.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Live Photo." = "None";
+"Take a Live Photo." = "Faceți o fotografie live.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Photo." = "None";
-/* Generated from genl10n: Camera.SApp.swift */
+"Take a Photo." = "Fă o poză.";
+/* genl10n: Camera.SApp.swift */
 "Take a RAW Photo." = "Luați o fotografie RAW.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Selfie with a Live Photo." = "None";
+"Take a Selfie with a Live Photo." = "Ia-ți un autocolant cu o fotografie live.";
 /* Generated from genl10n: Camera.SApp.swift */
-"Take a Selfie." = "None";
+"Take a Selfie." = "Ia-ți un autocolant.";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#283 */
-"Taken With Built-in Camera" = "None";
+"Taken With Built-in Camera" = "Luat cu camera încorporată";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
-"Tap to detect text" = "None";
+"Tap to detect text" = "Apăsați pentru a detecta textul";
 /* Generated from genl10n: Cleaner.BApp.swift#511 */
-"Targeted" = "None";
+"Targeted" = "Vizate";
 /* Generated from genl10n: Cleaner.BApp.swift#242 */
-"Targets" = "None";
+"Targets" = "Obiective";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Temparature" = "None";
+"Temparature" = "Temparature";
 /* Generated from genl10n: RawEditor.swift */
-"Temperature" = "None";
+"Temperature" = "Temperatura";
 /* Generated from genl10n: Shop.SApp.swift#698 */
-"Terms of Use" = "None";
+"Terms of Use" = "Termeni de utilizare";
 /* Generated from genl10n: Finder.BApp.swift#1311 */
-"Text" = "None";
+"Text" = "Text";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you %@. Soon we will contact you." = "None";
+"Thank you %@. Soon we will contact you." = "Vă mulțumim %@. În curând vă vom contacta.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you for your message. Soon we will contact you." = "None";
+"Thank you for your message. Soon we will contact you." = "Multumesc pentru mesajul tau. În curând vă vom contacta.";
 /* Generated from genl10n: Shop.Payables.Store.swift#96 */
-"Thank you for your purchase." = "None";
+"Thank you for your purchase." = "Multumesc pentru cumparaturile facute.";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift */
-"Thank you very much for your feedback! Soon we will contact you." = "None";
+"Thank you very much for your feedback! Soon we will contact you." = "Vă mulțumim foarte mult pentru feedbackul dvs.! În curând vă vom contacta.";
 /* Generated from genl10n: Shop.SApp.swift */
-"The price is including every new tool. Today is the cheapest day to get this." = "None";
+"The price is including every new tool. Today is the cheapest day to get this." = "Prețul include toate instrumentele noi. Astăzi este cea mai ieftină zi pentru a obține acest lucru.";
 /* Generated from genl10n: Transform.BApp.swift#55 */
-"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "None";
+"This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "Această unealtă simplă, dar la scară largă, permite transformarea și răsturnarea rapidă a multor fișiere media, inclusiv Live Photos. Nu există nicio limită a numărului de fotografii pentru a le edita.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Tint" = "None";
+"Tint" = "Tentă";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
-"To use this app needs a corresponding access license. Would you like to open %@?" = "None";
+"To use this app needs a corresponding access license. Would you like to open %@?" = "Pentru a utiliza această aplicație, este necesară o licență de acces corespunzătoare. Doriți să deschideți %@?";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#126 */
-"Too Close-up Face" = "None";
+"Too Close-up Face" = "Prea multă față";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#193 */
-"Too Slow Shutter Speed" = "None";
+"Too Slow Shutter Speed" = "Viteză de declanșare prea lentă";
 /* Generated from genl10n: Stabilizer.BApp.swift#330 */
-"Transform Mode" = "None";
+"Transform Mode" = "Modul de transformare";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Actions.swift */
-"Translate Now" = "None";
+"Translate Now" = "Traduceți acum";
 /* Generated from genl10n: Shop.SApp.swift */
-"Translation Correction" = "None";
+"Translation Correction" = "Traducerea corectă";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Twitter" = "None";
+"Twitter" = "Stare de nervozitate";
 /* Generated from genl10n: Finder.BApp.swift */
-"Type" = "None";
+"Type" = "Tip";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
-"URL" = "None";
+"URL" = "URL-";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Ultra Wide Vertical" = "None";
+"Ultra Wide Vertical" = "Ultra Wide Vertical";
 /* Generated from genl10n: Resizer.BApp.swift */
-"Ultra Wide" = "None";
+"Ultra Wide" = "Ultra Wide";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
-"Unable to verify the code currently. Please try it later." = "None";
+"Unable to verify the code currently. Please try it later." = "Codul nu a putut fi verificat în prezent. Încercați mai târziu.";
 /* Generated from genl10n: Shop.SApp.swift */
-"Usage Guide" = "None";
+"Usage Guide" = "Ghid de utilizare";
 /* Generated from genl10n: Charge.Types.StoreKit.swift#29 */
-"Use Trial" = "None";
+"Use Trial" = "Utilizați procesul";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
-"Use" = "None";
+"Use" = "Utilizare";
 /* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "None";
+"User Community" = "Comunitatea utilizatorilor";
 /* Generated from genl10n: Shop.SApp.swift#606 */
-"VIP Hotline" = "None";
+"VIP Hotline" = "Linie telefonică VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"VIP License Program" = "None";
+"VIP License Program" = "Programul de licență VIP";
 /* Generated from genl10n: AppCenter.Charge.swift */
-"VIP License" = "None";
+"VIP License" = "Licență VIP";
 /* Generated from genl10n: Shop.SApp.swift */
-"VIP Membership of Our All Products." = "None";
+"VIP Membership of Our All Products." = "VIP membru al tuturor produselor noastre.";
 /* Generated from genl10n: RawEditor.swift */
-"Vendor Lens Correction" = "None";
+"Vendor Lens Correction" = "Vendor Correction Lens";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#224 */
-"Verification Failed." = "None";
+"Verification Failed." = "Verificare esuata.";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vibrance" = "None";
+"Vibrance" = "Vibrații";
 /* Generated from genl10n: Shop.SApp.swift */
-"Video Tutorials" = "None";
+"Video Tutorials" = "Tutoriale video";
 /* Generated from genl10n: GIFMaker.BApp.swift */
-"Video" = "None";
+"Video" = "Video";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#167 */
-"Videos Saved by Instagram" = "None";
+"Videos Saved by Instagram" = "Videoclipurile salvate de Instagram";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#233 */
-"Videos Shorter Than 1 Second" = "None";
+"Videos Shorter Than 1 Second" = "Videoclipuri mai scurte decât 1 secundă";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#143 */
-"Videos Without Sound" = "None";
+"Videos Without Sound" = "Videoclipuri fără sunet";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
-"Videos from Screen Recorder" = "None";
+"Videos from Screen Recorder" = "Videoclipuri de pe ecranul de înregistrare";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vignette Radius" = "None";
+"Vignette Radius" = "Vinietă Radius";
 /* Generated from genl10n: Adjustments.BApp.swift */
-"Vignette" = "None";
+"Vignette" = "vinietă";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#104, Shop.SApp.swift#595 */
-"Visit" = "None";
+"Visit" = "Vizita";
 /* Generated from genl10n: Finder.BApp.swift */
-"Waiting To Select ..." = "None";
+"Waiting To Select ..." = "Așteptare pentru a selecta ...";
 /* Generated from genl10n: Stabilizer.BApp.swift */
-"Warp" = "None";
+"Warp" = "Urzeală";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our Partnership License Program!" = "None";
+"Welcome to our Partnership License Program!" = "Bine ați venit în Programul nostru de licență de parteneriat!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#234 */
-"Welcome to our VIP license program." = "None";
+"Welcome to our VIP license program." = "Bine ați venit la programul nostru de licență VIP.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our guest user license program!" = "None";
+"Welcome to our guest user license program!" = "Bine ați venit la programul nostru de licență pentru clienți!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our promotion license program!" = "None";
+"Welcome to our promotion license program!" = "Bine ați venit în programul nostru de licență de promovare!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
-"Welcome to our special guest license program!" = "None";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Wipe my privacy from the last item." = "None";
-/* Generated from genl10n: ExifGhost.BApp.swift */
-"Wipe the date from the last item." = "None";
+"Welcome to our special guest license program!" = "Bine ați venit la programul nostru special de licență pentru oaspeți!";
+/* genl10n: ExifGhost.BApp.swift */
+"Wipe my privacy from the last item." = "Ștergeți confidențialitatea mea de la ultimul element.";
+/* genl10n: ExifGhost.BApp.swift */
+"Wipe the date from the last item." = "Ștergeți data de la ultimul element.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
-"Would you like to go back to %@?" = "None";
+"Would you like to go back to %@?" = "Doriți să reveniți la %@?";
 /* Generated from genl10n: AppCenter.Charge.swift#18 */
-"Write A Review" = "None";
+"Write A Review" = "Scrie o recenzie";
 /* Generated from genl10n: Shop.Payment.SocialShare.swift#57, Shop.SApp.swift#572 */
-"Write" = "None";
+"Write" = "Scrie";
 /* Generated from genl10n: RawEditor.swift */
-"Yellow / Green" = "None";
+"Yellow / Green" = "Galben verde";
 /* Generated from genl10n: Converter.AppDockContent.swift#46 */
-"You can select only photos or videos that matched with starting format." = "None";
+"You can select only photos or videos that matched with starting format." = "Puteți selecta numai fotografiile sau videoclipurile care corespund formatului de pornire.";
 /* Generated from genl10n: Shop.Payment.MailContact.swift */
-"Your Message Has Been Sent." = "None";
+"Your Message Has Been Sent." = "Mesajul tau a fost trimis.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Your code is invalid. Please try again." = "None";
+"Your code is invalid. Please try again." = "Codul dvs. este nevalid. Vă rugăm să încercați din nou.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
-"Your code was expired." = "None";
-/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+"Your code was expired." = "Codul a expirat.";
+/* genl10n: Resizer.BApp.swift */
 "Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
-"day" = "None";
+"day" = "zi";
 /* Generated from genl10n: Period.swift */
-"hour" = "None";
+"hour" = "ora";
 /* Generated from genl10n: Period.swift */
-"minute" = "None";
+"minute" = "minut";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"month" = "None";
+"month" = "lună";
 /* Generated from genl10n: Period.swift */
-"second" = "None";
+"second" = "al doilea";
 /* Generated from genl10n: Period.swift */
-"week" = "None";
+"week" = "săptămână";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
-"year" = "None";
+"year" = "an";

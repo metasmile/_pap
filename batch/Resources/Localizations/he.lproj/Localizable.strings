@@ -118,29 +118,29 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Image" = "%@ תמונה מונפשת";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Images" = "%@ תמונות מונפשות";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photo" = "%@ תמונה חיה";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@ תמונות חיות";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ בעלות";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ רישיון השותפות";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photo" = "%@ תמונה";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photos" = "%@ תמונות";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ סרטון";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ סרטונים";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ עשוי להימצא";
@@ -214,12 +214,12 @@
 "Animation" = "אנימציה";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "ביטול חינם בכל עת.";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture" = "צמצם";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture+" = "צמצם +";
-/* Generated from genl10n: AutoEditor.BApp.swift */
-"Apply %@ to the last item" = "החל %@ על הפריט האחרון";
+/* genl10n: AutoEditor.BApp.swift */
+"Apply %@ to the last item" = "החלת %@ על הפריט האחרון";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "החל מסננים באיכות גבוהה על כל התמונות שאתה רוצה. זה כלי עיבוד אצווה אין להגביל את מספר התמונות להחיל מסננים.";
 /* Generated from genl10n: Artist.BApp.swift */
@@ -328,7 +328,7 @@
 "Could not detect anything." = "לא הצלחתי לזהות שום דבר.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "לא ניתן היה לקבל מודעות.";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "ליצור ולשמור חדש בתמונות שלך";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "לִיצוֹר";
@@ -506,8 +506,8 @@
 "Main Tools Use of %@ Day" = "כלים עיקריים שימוש ב - %@ יום";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "צור GIF";
-/* Generated from genl10n: Adjustments.BApp.swift */
-"Make the last item Lomography style" = "הפוך את הפריט האחרון Lomography סגנון";
+/* genl10n: Adjustments.BApp.swift */
+"Make the last item Lomography style" = "הפוך את הפריט האחרון Lomography פריט";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "להתקשר";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -516,7 +516,7 @@
 "MemoCam" = "זיכרון";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "שנה את הפריטים שנבחרו";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
@@ -552,7 +552,7 @@
 "Ongoing Use of All and New Main Tools" = "שימוש מתמשך בכל הכלים החדשים והחדשים";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "פתח את %@";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Clipboard.BApp.swift, Camera.SApp.swift */
+/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
 "Open %@." = "פתח את %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "פתח את מפות Apple";
@@ -638,15 +638,15 @@
 "Remaining Level" = "רמה שנותרה";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "אחוז שנותר";
-/* Generated from genl10n: Artist.BApp.swift */
+/* genl10n: Artist.BApp.swift */
 "Repaint the last item with a random art effect." = "הדפס מחדש את הפריט האחרון עם אפקט אמנות אקראית.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "לשנות את גודל ולמלא כדי להתאים את התמונות שלך על ידי הגדלים השונים.";
-/* Generated from genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize the last item to %@" = "שנה את גודל הפריט האחרון ל- %@";
-/* Generated from genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize" = "שנה גודל";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "שחזר את כל הרכישות";
@@ -676,7 +676,7 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Saving or sharing Live Photo as a still photo only." = "שמירה או שיתוף של Live Photo כתמונת סטילס בלבד.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "קנה מידה להתאמה";
@@ -688,7 +688,7 @@
 "Search On Google Maps" = "חפש ב'מפות Google '";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "חפש בגוגל";
-/* Generated from genl10n: Siri.SApp.swift */
+/* genl10n: Siri.SApp.swift */
 "Search Siri Shortcuts." = "חיפוש סירי קיצורי דרך.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "בחר פורמט להמרה";
@@ -716,9 +716,9 @@
 "Share This App" = "שתף את זה App";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. השג כל תגמול אם מאומץ.";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "שתף ישירות לאחר השמירה";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "שתף ישירות ללא שמירה או שינוי";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
@@ -782,7 +782,7 @@
 "Take a Live Photo." = "צלם תמונה חיה.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "צלם תמונה.";
-/* Generated from genl10n: Camera.SApp.swift */
+/* genl10n: Camera.SApp.swift */
 "Take a RAW Photo." = "צלם תמונה RAW.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "קח Selfie עם תמונה חיה.";
@@ -896,9 +896,9 @@
 "Welcome to our promotion license program!" = "ברוכים הבאים לתוכנית הרישוי שלנו!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "מחק את הפרטיות שלי מהפריט האחרון.";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe the date from the last item." = "נגב את התאריך מהפריט האחרון.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "האם ברצונך לחזור אל %@?";
@@ -916,8 +916,8 @@
 "Your code is invalid. Please try again." = "הקוד שלך אינו חוקי. בבקשה נסה שוב.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "פג תוקפו של הקוד שלך.";
-/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
-"Youtube" = "יאהו";
+/* genl10n: Resizer.BApp.swift */
+"Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "יְוֹם";
 /* Generated from genl10n: Period.swift */

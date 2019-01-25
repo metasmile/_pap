@@ -51,27 +51,27 @@
 /*Translated from: Edit this video*/
 "Edit this video" = "Modifier cette vidéo";
 /*Translated from: %@ Photo*/
-"%d Photo" = "%d Photo";
+"%d Photo" = "%@ Photo";
 /*Translated from: %@ Video*/
-"%d Video" = "%d Vidéo";
+"%d Video" = "%@ Vidéo";
 /*Translated from: %@ Item*/
-"%d Item" = "%d Article";
+"%d Item" = "%@ Article";
 /*Translated from: %@ Photos*/
-"%d Photos" = "%d Photos";
+"%d Photos" = "%@ Photos";
 /*Translated from: %@ Videos*/
-"%d Videos" = "%d Vidéos";
+"%d Videos" = "%@ Vidéos";
 /*Translated from: %@ Items*/
-"%d Items" = "%d Items";
+"%d Items" = "%@ Items";
 /*Translated from: Edit %@ Photo*/
-"Edit %d Photo" = "Modifier %d Photo";
+"Edit %d Photo" = "Modifier %@ Photo";
 /*Translated from: Edit %@ Video*/
-"Edit %d Video" = "Modifier %d Vidéo";
+"Edit %d Video" = "Modifier %@ Vidéo";
 /*Translated from: Edit %@ Photos*/
-"Edit %d Photos" = "Modifier %d Photos";
+"Edit %d Photos" = "Modifier %@ Photos";
 /*Translated from: Edit %@ Videos*/
-"Edit %d Videos" = "Modifier %d Vidéos";
+"Edit %d Videos" = "Modifier %@ Vidéos";
 /*Translated from: Edit %@ Items*/
-"Edit %d Items" = "Modifier les %d éléments";
+"Edit %d Items" = "Modifier les %@ éléments";
 /*com.stells.batch.transform*/
 "Transform" = "Transformer";
 /*com.stells.apps.photofilter*/
@@ -118,29 +118,29 @@
 "cs_keyword_12" = "Friend";
 /*Translated from: lover*/
 "cs_keyword_13" = "Amoureux";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Image" = "%@ Image animée";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Animated Images" = "%@ Images animées";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Jour";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Téléchargez maintenant GRATUITEMENT!";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photo" = "%@ Photo en direct";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@ Photos en direct";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Propriété";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ Licence de partenariat";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photo" = "%@ Photo";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Photos" = "%@ Photos";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Vidéo";
-/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Vidéos";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "%@ pourrait être trouvé";
@@ -214,11 +214,11 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Annulation gratuite à tout moment.";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture" = "Ouverture";
-/* Generated from genl10n: DepthEditor.BApp.swift */
+/* genl10n: DepthEditor.BApp.swift */
 "Aperture+" = "Ouverture +";
-/* Generated from genl10n: AutoEditor.BApp.swift */
+/* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Appliquer %@ au dernier élément";
 /* Generated from genl10n: Filters.BApp.swift#76 */
 "Apply High-Quality filters on your all photos you want. This batch processing tool has no limit to the number of photos to apply filters." = "Appliquez des filtres de haute qualité à toutes vos photos. Cet outil de traitement par lots n'a pas de limite quant au nombre de photos à appliquer aux filtres.";
@@ -328,7 +328,7 @@
 "Could not detect anything." = "Impossible de détecter quoi que ce soit.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Impossible de recevoir des annonces.";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "Créer et enregistrer en tant que nouveau sur vos photos";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Créer";
@@ -506,7 +506,7 @@
 "Main Tools Use of %@ Day" = "Principaux outils Utilisation de la journée %@";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Make GIF" = "Faire un GIF";
-/* Generated from genl10n: Adjustments.BApp.swift */
+/* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Faire le dernier article style Lomography";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Faire un appel";
@@ -516,7 +516,7 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Message à nous";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modifier les éléments sélectionnés";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modifier";
@@ -552,7 +552,7 @@
 "Ongoing Use of All and New Main Tools" = "Utilisation continue de tous les outils principaux et nouveaux";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#209 */
 "Open %@" = "Ouvrir %@";
-/* Generated from genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
+/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
 "Open %@." = "Ouvrez %@.";
 /* Generated from genl10n: Finder.BApp.swift#654 */
 "Open Apple Maps" = "Ouvrir les cartes Apple";
@@ -638,15 +638,15 @@
 "Remaining Level" = "Niveau restant";
 /* Generated from genl10n: Shop.SApp.swift */
 "Remaining Percentage" = "Pourcentage restant";
-/* Generated from genl10n: Artist.BApp.swift */
+/* genl10n: Artist.BApp.swift */
 "Repaint the last item with a random art effect." = "Repeignez le dernier élément avec un effet d'art aléatoire.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Répéter";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Redimensionnez et remplissez à la taille de vos photos.";
-/* Generated from genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize the last item to %@" = "Redimensionner le dernier élément à %@";
-/* Generated from genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize" = "Redimensionner";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Restaurer tous les achats";
@@ -676,7 +676,7 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Sauvegarder les résultats ...";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Saving or sharing Live Photo as a still photo only." = "Enregistrement ou partage de Live Photo en tant que photo fixe uniquement.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Échelle à adapter";
@@ -688,7 +688,7 @@
 "Search On Google Maps" = "Recherche sur Google Maps";
 /* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Search On Google" = "Recherche sur Google";
-/* Generated from genl10n: Siri.SApp.swift */
+/* genl10n: Siri.SApp.swift */
 "Search Siri Shortcuts." = "Rechercher des raccourcis Siri.";
 /* Generated from genl10n: Converter.AppDockContent.swift#148 */
 "Select Format To Convert" = "Sélectionnez le format à convertir";
@@ -716,9 +716,9 @@
 "Share This App" = "Partager cette application";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Partagez votre talent, faites ensemble. Obtenez chaque récompense si elle est adoptée.";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Partager directement après avoir économisé";
-/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Partager directement sans enregistrer ou modifier";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Partager";
@@ -782,7 +782,7 @@
 "Take a Live Photo." = "Prenez une photo en direct.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Photo." = "Prendre une photo.";
-/* Generated from genl10n: Camera.SApp.swift */
+/* genl10n: Camera.SApp.swift */
 "Take a RAW Photo." = "Prenez une photo RAW.";
 /* Generated from genl10n: Camera.SApp.swift */
 "Take a Selfie with a Live Photo." = "Prenez un selfie avec une photo en direct.";
@@ -896,9 +896,9 @@
 "Welcome to our promotion license program!" = "Bienvenue dans notre programme de licence de promotion!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Bienvenue dans notre programme spécial de licence d'invité!";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Effacer mon intimité du dernier article.";
-/* Generated from genl10n: ExifGhost.BApp.swift */
+/* genl10n: ExifGhost.BApp.swift */
 "Wipe the date from the last item." = "Efface la date du dernier article.";
 /* Generated from genl10n: Shop.Payables.Store.swift */
 "Would you like to go back to %@?" = "Voulez-vous revenir à %@?";
@@ -916,7 +916,7 @@
 "Your code is invalid. Please try again." = "Votre code est invalide Veuillez réessayer.";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Votre code a expiré.";
-/* Generated from genl10n: Resizer.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Youtube" = "Youtube";
 /* Generated from genl10n: Period.swift */
 "day" = "journée";
