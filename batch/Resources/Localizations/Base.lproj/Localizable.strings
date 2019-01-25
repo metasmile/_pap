@@ -82,9 +82,9 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
-/* genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift(2) */
 "%@ Animated Image" = "%@ Animated Image";
-/* genl10n: App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift(2) */
 "%@ Animated Images" = "%@ Animated Images";
 /* genl10n: Charge.Types.Trialable.swift, AppCenter.Charge.swift */
 "%@ Day" = "%@ Day";
@@ -98,9 +98,9 @@
 "%@ Ownership" = "%@ Ownership";
 /* genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ Partnership License";
-/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photo" = "%@ Photo";
-/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photos" = "%@ Photos";
 /* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
@@ -146,7 +146,7 @@
 "Activate Ads" = "Activate Ads";
 /* genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Hashtagen.BApp.swift */
 "Activating Current Visible Items ..." = "Activating Current Visible Items ...";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(5) */
 "Add New Contact" = "Add New Contact";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Add an Event" = "Add an Event";
@@ -160,7 +160,7 @@
 "Albums" = "Albums";
 /* genl10n: Shop.SApp.swift */
 "All Tools License" = "All Tools License";
-/* genl10n: AppCenter.Charge.swift */
+/* genl10n: AppCenter.Charge.swift(2) */
 "All Tools Ownership" = "All Tools Ownership";
 /* genl10n: Finder.BApp.swift */
 "All contacts were successfully saved." = "All contacts were successfully saved.";
@@ -172,7 +172,7 @@
 "All" = "All";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
-/* genl10n: GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift(2) */
 "Animated GIF" = "Animated GIF";
 /* genl10n: GIFMaker.BApp.swift */
 "Animation" = "Animation";
@@ -256,7 +256,7 @@
 "Cleaner" = "Cleaner";
 /* genl10n: Clipboard.BApp.swift */
 "Clipboard is empty" = "Clipboard is empty";
-/* genl10n: Clipboard.BApp.swift */
+/* genl10n: Clipboard.BApp.swift(2) */
 "Clipboard" = "Clipboard";
 /* genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
@@ -280,7 +280,7 @@
 "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other." = "Converter enables you to convert every media formats such as Videos, Live Photos, GIFs into every each other.";
 /* genl10n: Converter.BApp.swift */
 "Converter" = "Converter";
-/* genl10n: Clipboard.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* genl10n: Clipboard.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9) */
 "Copy" = "Copy";
 /* genl10n: Clipboard.BApp.swift */
 "Copying Photos..." = "Copying Photos...";
@@ -308,7 +308,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -324,7 +324,7 @@
 "Disable Gamut Map" = "Disable Gamut Map";
 /* genl10n: batch.Strings.swift */
 "Download now for FREE at %@" = "Download now for FREE at %@";
-/* genl10n: Clipboard.BApp.swift */
+/* genl10n: Clipboard.BApp.swift(2) */
 "Download" = "Download";
 /* genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
@@ -374,7 +374,7 @@
 "Framer" = "Framer";
 /* genl10n: AppCenter.Charge.swift */
 "Free Use And All New Updates" = "Free Use And All New Updates";
-/* genl10n: Shop.Payment.System.swift */
+/* genl10n: Shop.Payment.System.swift(2) */
 "Free Use" = "Free Use";
 /* genl10n: Clipboard.BApp.swift */
 "From clipboard on iOS" = "From clipboard on iOS";
@@ -382,7 +382,7 @@
 "From remote clipboard" = "From remote clipboard";
 /* genl10n: GIFMaker.BApp.swift */
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
-/* genl10n: GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift(2) */
 "GIF Maker" = "GIF Maker";
 /* genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
@@ -420,7 +420,7 @@
 "Highlights" = "Highlights";
 /* genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
-/* genl10n: Clipboard.BApp.swift */
+/* genl10n: Clipboard.BApp.swift(3) */
 "Image" = "Image";
 /* genl10n: PDFMaker.AppDefaults.swift */
 "Images" = "Images";
@@ -492,7 +492,7 @@
 "My Feedback on %@" = "My Feedback on %@";
 /* genl10n: CodeKit.Contacts.swift */
 "New Contact" = "New Contact";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(2) */
 "New Event" = "New Event";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift */
 "New Number" = "New Number";
@@ -518,13 +518,13 @@
 "Open %@" = "Open %@";
 /* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
 "Open %@." = "Open %@.";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(2) */
 "Open Apple Maps" = "Open Apple Maps";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Google Maps" = "Open Google Maps";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* genl10n: Settings.SApp.swift, Clipboard.BApp.swift, Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
+/* genl10n: Settings.SApp.swift(5), Clipboard.BApp.swift(2), Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift(5) */
 "Open" = "Open";
 /* genl10n: Filters.BApp.swift, App.UI.AssetView.swift, App.PreviewProcessable.swift, Artist.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
@@ -542,13 +542,13 @@
 "Pages" = "Pages";
 /* genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License Program" = "Partnership License Program";
-/* genl10n: AppCenter.Charge.swift, Shop.Payment.SecretCodeProgram.Types.swift */
+/* genl10n: AppCenter.Charge.swift(2), Shop.Payment.SecretCodeProgram.Types.swift */
 "Partnership License" = "Partnership License";
 /* genl10n: Clipboard.BApp.swift */
 "Paste images from your clipboards" = "Paste images from your clipboards";
 /* genl10n: AppCenter.Charge.swift */
 "Permanent Use And All New Updates" = "Permanent Use And All New Updates";
-/* genl10n: AppCenter.Charge.swift */
+/* genl10n: AppCenter.Charge.swift(3) */
 "Permanent Use of All and New Tools" = "Permanent Use of All and New Tools";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
 "Phone Number" = "Phone Number";
@@ -590,7 +590,7 @@
 "Quality" = "Quality";
 /* genl10n: RawEditor.swift */
 "RAW Editor" = "RAW Editor";
-/* genl10n: Shop.Payment.Promotion.swift, Settings.SApp.swift, Shop.SApp.swift */
+/* genl10n: Shop.Payment.Promotion.swift(2), Settings.SApp.swift, Shop.SApp.swift */
 "Rate It" = "Rate It";
 /* genl10n: RawEditor.swift */
 "Red / Yellow" = "Red / Yellow";
@@ -664,7 +664,7 @@
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff";
 /* genl10n: Cleaner.BApp.swift */
 "Selected" = "Selected";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(3) */
 "Send an Email" = "Send an Email";
 /* genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Send" = "Send";
@@ -684,7 +684,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, Shop.SApp.swift, App.Finalizable.PHAsset.swift, Settings.SApp.swift, Shop.Payment.SocialShare.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, Shop.SApp.swift, App.Finalizable.PHAsset.swift, Settings.SApp.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
 /* genl10n: RawEditor.swift */
 "Sharpening" = "Sharpening";
@@ -694,7 +694,7 @@
 "Similarity" = "Similarity";
 /* genl10n: Shop.SApp.swift */
 "Single Tools License" = "Single Tools License";
-/* genl10n: GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift(4) */
 "Size" = "Size";
 /* genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
@@ -706,13 +706,13 @@
 "Special Guest License" = "Special Guest License";
 /* genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Special Guest" = "Special Guest";
-/* genl10n: Resizer.BApp.swift, GIFMaker.BApp.swift */
+/* genl10n: Resizer.BApp.swift(2), GIFMaker.BApp.swift */
 "Square" = "Square";
 /* genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
 /* genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Stabilize";
-/* genl10n: Stabilizer.BApp.swift */
+/* genl10n: Stabilizer.BApp.swift(2) */
 "Stabilizer" = "Stabilizer";
 /* genl10n: Stabilizer.BApp.swift */
 "Stabilizing Selected Items..." = "Stabilizing Selected Items...";
@@ -794,11 +794,11 @@
 "Translate Now" = "Translate Now";
 /* genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
-/* genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift(2) */
 "Twitter" = "Twitter";
 /* genl10n: Finder.BApp.swift */
 "Type" = "Type";
-/* genl10n: Clipboard.BApp.swift */
+/* genl10n: Clipboard.BApp.swift(2) */
 "URL" = "URL";
 /* genl10n: Resizer.BApp.swift */
 "Ultra Wide Vertical" = "Ultra Wide Vertical";
@@ -830,7 +830,7 @@
 "Vibrance" = "Vibrance";
 /* genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Video Tutorials" = "Video Tutorials";
-/* genl10n: Clipboard.BApp.swift, GIFMaker.BApp.swift */
+/* genl10n: Clipboard.BApp.swift(2), GIFMaker.BApp.swift */
 "Video" = "Video";
 /* genl10n: Cleaner.GarbageDetector.swift */
 "Videos Saved by Instagram" = "Videos Saved by Instagram";
@@ -844,7 +844,7 @@
 "Vignette Radius" = "Vignette Radius";
 /* genl10n: Adjustments.BApp.swift */
 "Vignette" = "Vignette";
-/* genl10n: Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift, Settings.SApp.swift, Shop.SApp.swift */
+/* genl10n: Shop.Payment.URLOpen.swift, Shop.Payment.SNSEngagement.swift, Settings.SApp.swift(2), Shop.SApp.swift(3) */
 "Visit" = "Visit";
 /* genl10n: Finder.BApp.swift */
 "Waiting To Select ..." = "Waiting To Select ...";
@@ -880,7 +880,7 @@
 "Your code is invalid. Please try again." = "Your code is invalid. Please try again.";
 /* genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Your code was expired." = "Your code was expired.";
-/* genl10n: Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift(2) */
 "Youtube" = "Youtube";
 /* genl10n: Period.swift */
 "day" = "day";
