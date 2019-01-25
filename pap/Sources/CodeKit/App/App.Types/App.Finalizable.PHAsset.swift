@@ -279,7 +279,7 @@ extension PHAssetFinalizableApp {
         if result.editingResultItems?.count == 1, let editingResultItem = result.editingResultItems?.first {
             return editingResultItem.url
         }
-        else if result.editingResultItems?.isLivePhoto == true, let photo = result.editingResultItems?.item(for: .photo), let _ = result.editingResultItems?.item(for: .pairedVideo) {
+        else if result.editingResultItems?.isLivePhoto == true, let photo = result.editingResultItems?.item(for: .photo) {
             //INFO: not work to share live photos
 //            var result: PHLivePhoto?
 //            let async = AsyncSignal()
@@ -480,6 +480,11 @@ extension PHAssetEditingResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Choose an export option for %@".localizedFormatted(formattedResultItemString)
     }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        guard editingResults?.contains(where: { $0.editingResultItems?.isLivePhoto == true }) == true else { return nil }
+        return "Saving or sharing Live Photo as a still photo only.".localizedCapitalized
+    }
 }
 
 extension PHAssetEditingResultViewController: UITableViewDelegate {
@@ -647,16 +652,12 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
                     }
                 }
             }
-            else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url, let pairedVideoURL = editingResult?.editingResultItems?.item(for: .pairedVideo)?.url {
-                self?.assetView.loadLivePhoto(from: photoURL, pairedVideoURL: pairedVideoURL, completion: { [weak self] (livePhoto) in
-                    DispatchQueue.main.async { [weak self] in
-                        guard self?.indexPath == indexPath else { return }
-                        self?.assetView.livePhotoView.isHidden = false
-                        self?.assetView.livePhoto = livePhoto
-                        self?.assetView.stopAny()
-                        self?.playIfNeeded()
-                    }
-                })
+            else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url {
+                let image = UIImage(contentsOfFile: photoURL.path)
+                DispatchQueue.main.async { [weak self] in
+                    guard self?.indexPath == indexPath else { return }
+                    self?.assetView.image = image
+                }
             }
         }
     }

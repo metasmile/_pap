@@ -642,6 +642,8 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Saving or sharing Live Photo as a still photo only." = "Saving or sharing Live Photo as a still photo only.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift, Stabilizer.BApp.swift */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */

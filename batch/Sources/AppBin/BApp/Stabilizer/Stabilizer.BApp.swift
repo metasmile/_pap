@@ -297,7 +297,10 @@ extension _StabilizerAppAsset: PHAssetLivePhotoEditable {
                     return
                 }
                 
-                completionHandler(self.asset, [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], item.output)
+                completionHandler(self.asset, [
+                    PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo),
+                    PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .pairedVideo)
+                ], item.output)
             })
             
             self.editingContext = editingContext
