@@ -31,7 +31,7 @@ src_paths = [expanduser(path) for path in args['src_paths'].split(" ")]
 dest_l10n_base_path = expanduser(args['dest_l10n_base_path'])
 split_key = args['split_key']
 
-__GEN_FLAG__ = "Generated from genl10n"
+__GEN_FLAG__ = "genl10n"
 
 complied_patterns_by_priority = [
     re.compile(r'((\"\b.*\b\")' + split_key + ')', re.I|re.U|re.MULTILINE|re.X)
@@ -116,8 +116,8 @@ for new_key in keys_in_gened_strs:
     # gened_strs[new_key][0] : code file path as string
     # gened_strs[new_key][1] : line as int
 
-    # from_files = ", ".join(map(lambda s: "{}#{}".format(os.path.basename(s[0]), s[1]), gened_strs[new_key]))
-    from_files = ", ".join(map(lambda s: "{}".format(os.path.basename(s[0])), gened_strs[new_key]))
+    files_list = map(lambda s: "{}".format(os.path.basename(s[0])), gened_strs[new_key])    
+    from_files = ", ".join([e for n,e in enumerate(files_list) if e not in files_list[:n]])
     wlines.append("/* {}: {} */".format(__GEN_FLAG__, from_files))
     wlines.append('\n')
     wlines.append(new_line)

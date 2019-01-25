@@ -118,14 +118,30 @@
 "cs_keyword_12" = "صديق";
 /*Translated from: lover*/
 "cs_keyword_13" = "حبيب";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Image" = "%@ صورة متحركة";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Images" = "%@ صور متحركة";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ اليوم";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ التنزيل الآن مجانًا!";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photo" = "%@ صورة حية";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photos" = "%@ صور حية";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ الملكية";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ ترخيص الشراكة";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photo" = "%@ صورة";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photos" = "%@ صور";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Video" = "%@ فيديو";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Videos" = "%@ مقاطع الفيديو";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "قد يتم العثور على %@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -198,6 +214,10 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "في أي وقت إلغاء مجاني.";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture" = "فتحة";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture+" = "فتحة +";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "طبق %@ على آخر عنصر";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -308,6 +328,8 @@
 "Could not detect anything." = "لا يمكن الكشف عن أي شيء.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "لا يمكن الحصول على الإعلانات.";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Create and save as new to your photos" = "إنشاء وحفظ كصورة جديدة لصورك";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "خلق";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -494,6 +516,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "رسالة لنا";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Modify the selected items" = "قم بتعديل العناصر المحددة";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "تعديل";
 /* Generated from genl10n: RawEditor.swift */
@@ -652,6 +676,8 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "حفظ النتائج ...";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Saving or sharing Live Photo as a still photo only." = "حفظ أو مشاركة Live Photo كصورة ثابتة فقط.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "مقياس للتناسب";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -690,6 +716,10 @@
 "Share This App" = "شارك هذا التطبيق";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "تبادل موهبتك ، وجعل معا. الحصول على كل مكافأة إذا اعتمدت.";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after saving" = "شارك مباشرة بعد الحفظ";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly without saving or modifying" = "مشاركة مباشرة دون حفظ أو تعديل";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
