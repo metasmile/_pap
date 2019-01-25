@@ -82,14 +82,30 @@
 "cs_keyword_12" = "Friend";
 "cs_keyword_13" = "Lover";
 
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Image" = "%@ Animated Image";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Images" = "%@ Animated Images";
 /* Generated from genl10n: Charge.Types.Trialable.swift, AppCenter.Charge.swift */
 "%@ Day" = "%@ Day";
 /* Generated from genl10n: batch.Strings.swift */
 "%@ Download now for FREE!" = "%@ Download now for FREE!";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photo" = "%@ Live Photo";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photos" = "%@ Live Photos";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Ownership";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ Partnership License";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photo" = "%@ Photo";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photos" = "%@ Photos";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Video" = "%@ Video";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Videos" = "%@ Videos";
 /* Generated from genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
 "%@ might be found" = "%@ might be found";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
@@ -276,6 +292,8 @@
 "Could not detect anything." = "Could not detect anything.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Could not receive Ads." = "Could not receive Ads.";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Create and save as new to your photos" = "Create and save as new to your photos";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -326,7 +344,7 @@
 "Enable Quick Actions" = "Enable Quick Actions";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* Generated from genl10n: GIFMaker.BApp.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, GIFMaker.BApp.swift */
 "Export" = "Export";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Exposure";
@@ -464,6 +482,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Message To Us" = "Message To Us";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Modify the selected items" = "Modify the selected items";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -660,7 +680,11 @@
 "Share This App" = "Share This App";
 /* Generated from genl10n: Settings.SApp.swift, Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Share Your Talent, Make Together. Obtain Each Reward If Adopted.";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after saving" = "Share directly after saving";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly without saving or modifying" = "Share directly without saving or modifying";
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.SApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Sharpening";
