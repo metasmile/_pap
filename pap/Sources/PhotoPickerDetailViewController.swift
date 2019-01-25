@@ -22,13 +22,14 @@ class PhotoPickerDetailViewController: UIViewController {
 
         title = "Detail".localized
 
-        if let asset = assetItem?.asset {
+        if let assetItem = assetItem {
+            let asset = assetItem.asset
+            
             view.addSubview(assetView)
 
-            let preferredTransform = assetItem?.editState.transform ?? .identity
+            let preferredTransform = assetItem.editState.transform
             
-            let pixelSize = asset.pixelSize
-            let preferredSize = AVVideoComposition.makeVideoRenderSize(assetItem?.editState.normalizedSize?.applying(CGAffineTransform(scaleX: pixelSize.maxLength, y: pixelSize.maxLength)) ?? asset.pixelSize)
+            let preferredSize = AVVideoComposition.makeVideoRenderSize(assetItem.outputSize)
             let boundingSize = preferredSize.width > preferredSize.height ? view.bounds.size.applying(preferredTransform).magnitude : view.bounds.size
             
             let actualContentSize = preferredSize.applying(preferredTransform).magnitude.aspectFit(in: boundingSize)

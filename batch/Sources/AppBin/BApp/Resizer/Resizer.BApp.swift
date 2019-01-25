@@ -716,7 +716,28 @@ fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
 }
 
-class _ResizerAppAsset: _FiltersAppAsset {}
+class _ResizerAppAsset: _FiltersAppAsset {
+    public override var outputSize: CGSize {
+        let preferredOutputSize = super.outputSize
+        if let borderWidth = editState.doubleValue, editState.normalizedSize == nil {
+            let borderInset = CGFloat(borderWidth) * (preferredOutputSize.minLength / 4)
+            let maximumBorderInset = CGFloat(borderWidth) * (preferredOutputSize.maxLength / 4)
+            
+            var outputSize = preferredOutputSize
+            if preferredOutputSize.height > preferredOutputSize.width {
+                outputSize.height -= (maximumBorderInset - borderInset) * 2
+            }
+            else {
+                outputSize.width -= (maximumBorderInset - borderInset) * 2
+            }
+            
+            return outputSize
+        }
+        else {
+            return preferredOutputSize
+        }
+    }
+}
 
 private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _ResizerAppAsset
@@ -754,7 +775,7 @@ private class _ResizerAppTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ResizerApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
-                        asset: asset,
+                        asset: assetItem,
                         editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }

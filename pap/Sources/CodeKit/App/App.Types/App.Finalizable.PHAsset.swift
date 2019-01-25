@@ -172,19 +172,6 @@ extension PHAssetFinalizableApp {
         let actionQueue = DispatchQueue.global()
         let actionSignal = AsyncSignal()
         
-        var numberOfImages = 0
-        var numberOfVideos = 0
-        for asset in targetResultAssets.map({ $0.asset }) {
-            if asset.mediaType == .image {
-                numberOfImages += 1
-            }
-            else if asset.mediaType == .video {
-                numberOfVideos += 1
-            }
-        }
-        
-        let numberOfItems = PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos).localizedLowercase
-        
         var excludedActions = excludedActions
         
         //INFO: can not export live photo
@@ -311,7 +298,7 @@ extension PHAssetFinalizableApp {
     }
 }
 
-class PHAssetEditingResultViewController: UIViewController {
+private class PHAssetEditingResultViewController: UIViewController {
     // preview collection view (with urls)
     // export options
     // - create
@@ -339,6 +326,7 @@ class PHAssetEditingResultViewController: UIViewController {
     private lazy var collectionViewLayout: PHAssetEditingResultCollectionLayout = {
         let layout = PHAssetEditingResultCollectionLayout()
         layout.minimumSpacing = 8
+        layout.dataSource = self
         return layout
     }()
     
@@ -370,6 +358,12 @@ class PHAssetEditingResultViewController: UIViewController {
     var didDismissHandler: (() -> Void)?
     
     var initialTargetIndexPath: IndexPath?
+}
+
+extension PHAssetEditingResultViewController: PHAssetEditingResultCollectionLayoutDataSource {
+    func appAssetInAssetEditingResultCollectionLayout(_ layout: PHAssetEditingResultCollectionLayout, at indexPath: IndexPath) -> AppAsset? {
+        return editingResults?[indexPath.item].appAsset
+    }
 }
 
 extension PHAssetEditingResultViewController {
@@ -406,6 +400,12 @@ extension PHAssetEditingResultViewController {
     
     @objc private func cancelButtonDidTap(sender: UIBarButtonItem) {
         dismiss(animated: true, completion: self.didDismissHandler)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
@@ -662,6 +662,10 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
     }
 }
 
+private protocol PHAssetEditingResultCollectionLayoutDataSource {
+    func appAssetInAssetEditingResultCollectionLayout(_ layout: PHAssetEditingResultCollectionLayout, at indexPath: IndexPath) -> AppAsset?
+}
+
 private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
     private enum LayoutItem: String {
         case item = "Item"
@@ -676,6 +680,8 @@ private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
         cache[.header] = [IndexPath: UICollectionViewLayoutAttributes]()
         cache[.footer] = [IndexPath: UICollectionViewLayoutAttributes]()
     }
+    
+    var dataSource: PHAssetEditingResultCollectionLayoutDataSource?
     
     override init() {
         super.init()
@@ -710,7 +716,7 @@ private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             let itemSize = sizeForItem(at: indexPath)
             
-            let itemPosition = CGPoint(x: itemPositionX, y: 0)
+            let itemPosition = CGPoint(x: itemPositionX, y: (collectionView.bounds.height - itemSize.height) / 2)
             attributes.frame = CGRect(origin: itemPosition, size: itemSize)
             itemPositionX += itemSize.width + minimumSpacing
             
@@ -718,10 +724,15 @@ private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
             
             _contentSize.width = attributes.frame.maxX
             _contentSize.height = attributes.frame.height
+            
+            if indexPath.item == 0 {
+                paddingLeft = (collectionView.bounds.width - itemSize.width) / 2
+            }
+            
+            if indexPath.item == numberOfItems - 1 {
+                paddingRight = (collectionView.bounds.width - itemSize.width) / 2
+            }
         }
-        
-        paddingLeft = _contentSize.width > collectionView.bounds.width ? minimumSpacing * 2 : (collectionView.bounds.width - _contentSize.width) / 2
-        paddingRight = paddingLeft
         
         cache[.item]?.forEach({ (indexPath, attributes) in
             attributes.frame.origin.x += paddingLeft
@@ -731,7 +742,9 @@ private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
     }
     
     private func estimatedSizeForItem(at indexPath: IndexPath, in collectionView: UICollectionView) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
+        let coutentSize = CGSize(width: collectionView.bounds.width * 0.75, height: collectionView.bounds.height)
+        guard let appAsset = self.dataSource?.appAssetInAssetEditingResultCollectionLayout(self, at: indexPath) else { return coutentSize }
+        return appAsset.outputSize.aspectFit(in: coutentSize)
     }
     
     private func sizeForItem(at indexPath: IndexPath) -> CGSize {

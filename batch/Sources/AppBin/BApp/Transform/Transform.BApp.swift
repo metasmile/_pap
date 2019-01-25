@@ -160,7 +160,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: TransformApp.self, editInfo: ["transform": NSCoder.string(for: assetItem.editState.transform)], from: asset)
                     
                     result = PHAssetResultItem(
-                            asset: asset,
+                            asset: assetItem,
                             editingResultItems: editingResultItems,
                             contentEditingOutput: contentEditingOutput)
                 }

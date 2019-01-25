@@ -314,7 +314,7 @@ private class _FiltersAppTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: FiltersApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
                     
                     result = PHAssetResultItem(
-                        asset: asset,
+                        asset: assetItem,
                         editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }

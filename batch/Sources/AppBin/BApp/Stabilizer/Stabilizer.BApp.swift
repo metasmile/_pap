@@ -144,7 +144,7 @@ private class StabilizerTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: StabilizerApp.self, editInfo: assetItem.editState.stabilizationMode != nil ? ["stabilizationMode": assetItem.editState.stabilizationMode!.rawValue] : [:], from: asset)
                     
                     result = PHAssetResultItem(
-                        asset: asset,
+                        asset: assetItem,
                         editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }

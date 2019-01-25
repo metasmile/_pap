@@ -134,7 +134,7 @@ private class _ExifGhostAppTask: AppTaskPrototype, AppTaskable {
 
                     do{
                         try ghostedData.write(to: item.output.renderedContentURL, options: .atomic)
-                        result = PHAssetResultItem(asset:param.asset, editingResultItems: [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], contentEditingOutput:item.output)
+                        result = PHAssetResultItem(asset:param, editingResultItems: [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)], contentEditingOutput:item.output)
                     }catch _ {}
                 }
 

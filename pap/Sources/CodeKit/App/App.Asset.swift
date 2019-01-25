@@ -45,8 +45,16 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
             return nil
         }
     }
+    
+    public var outputSize: CGSize {
+        if let imageEditState = editState as? StateValueSet<ImageEditStateValue> {
+            return (imageEditState.normalizedSize?.applying(CGAffineTransform(scaleX: asset.pixelSize.maxLength, y: asset.pixelSize.maxLength)) ?? asset.pixelSize).applying(imageEditState.transform).magnitude
+        }
+        else {
+            return asset.pixelSize
+        }
+    }
 }
-
 
 //TODO: remove specific "ImageEdit" meaning -> more general, expandable
 //TODO: change to associatedType for all types

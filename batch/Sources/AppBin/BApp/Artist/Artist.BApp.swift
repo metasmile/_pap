@@ -353,7 +353,7 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ArtistApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
                     
                     result = PHAssetResultItem(
-                        asset: asset,
+                        asset: assetItem,
                         editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }

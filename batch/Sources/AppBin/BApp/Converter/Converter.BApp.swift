@@ -133,7 +133,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
             return result
         }
         
-        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
+        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
 
         return result
     }

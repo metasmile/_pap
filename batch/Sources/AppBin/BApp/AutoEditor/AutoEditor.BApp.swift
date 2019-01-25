@@ -262,7 +262,7 @@ private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AutoEditorApp.self, editInfo: (assetItem.editState.ciFilter as? CIAutoAdjustmentFilter)?.options ?? [:], from: asset)
                     
                     result = PHAssetResultItem(
-                        asset: asset,
+                        asset: assetItem,
                         editingResultItems: editingResultItems,
                         contentEditingOutput: contentEditingOutput)
                 }

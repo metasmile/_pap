@@ -61,6 +61,7 @@ public struct PHAssetEditingResultItem {
 }
 
 public protocol PHAssetResultable: AppTaskResultable {
+    var appAsset: AppAsset { get }
     var asset: PHAsset { get }
     var contentEditingOutput: PHContentEditingOutput?  { get }
     var editingResultItems: [PHAssetEditingResultItem]? { get }
@@ -90,12 +91,16 @@ public struct PHAssetItem: PHAssetParamable{ //Non-mutable PHAsset VO
 }
 
 public struct PHAssetResultItem: PHAssetResultable {
-    public var asset: PHAsset
+    public var appAsset: AppAsset
     public var contentEditingOutput: PHContentEditingOutput?
     public var editingResultItems: [PHAssetEditingResultItem]?
+    
+    public var asset: PHAsset {
+        return appAsset.asset
+    }
 
-    init(asset:PHAsset, editingResultItems:[PHAssetEditingResultItem]?, contentEditingOutput:PHContentEditingOutput?=nil){
-        self.asset = asset
+    init(asset:AppAsset, editingResultItems:[PHAssetEditingResultItem]?, contentEditingOutput:PHContentEditingOutput?=nil){
+        self.appAsset = asset
         self.contentEditingOutput = contentEditingOutput
         self.editingResultItems = editingResultItems
     }

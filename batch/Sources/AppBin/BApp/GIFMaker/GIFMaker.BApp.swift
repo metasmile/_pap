@@ -316,10 +316,10 @@ public class GIFMakerApp: BApp,
             let urls = resultItems.compactMap({ $0.result?.compactMap({ $0.url }) }).reduce([], +)
 
             if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
-                results.append(PHAssetResultItem(asset: PHAsset(), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
+                results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
             }
 
-            default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: PHAsset(), editingResultItems: $0.result) }))
+            default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }))
         }
         
         showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)

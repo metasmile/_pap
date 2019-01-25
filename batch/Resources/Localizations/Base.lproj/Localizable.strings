@@ -482,7 +482,7 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Message To Us" = "Message To Us";
-/* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "Moire";
@@ -682,7 +682,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* Generated from genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.SApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
+/* Generated from genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.SApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, App.Finalizable.PHAsset.swift, Settings.SApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Shop.Payment.SocialShare.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Sharpening";
