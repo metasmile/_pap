@@ -51,9 +51,11 @@ qs = re.compile(r'\s[0-9]{1,}\s{0,}\/\/[0-9]{1,}', re.I | re.U)
 for src_path in src_paths:
     for root, dirnames, filenames in os.walk(src_path):
         for filename in fnmatch.filter(filenames, '*.txt'):
+            print "New Source File Found:", filename
             l10n_files.append(os.path.join(root, filename))
 
 error_lines = []
+duplicated_keys_on_usr = []
 line_kv = {}
 for code_file in l10n_files:
     lang_key_code = os.path.basename(code_file).split("_")[0]
@@ -64,7 +66,12 @@ for code_file in l10n_files:
         if line[0] == __split_key__:
             _k = p_line.replace("\n", "").strip()
             _v = line.replace(__split_key__, "").strip()
-            line_kv[lang_key_code][_k] = _v
+
+            if not _k in line_kv[lang_key_code]:
+                line_kv[lang_key_code][_k] = _v
+            else:
+                duplicated_keys_on_usr.append((_k,_v.encode('ascii', 'ignore').decode('ascii')))
+                print "    [!] The key was duplicated in source: ",_k, " - ", _v
         p_line = line
         if qs.search(line):
             error_lines.append((code_file, line))
@@ -87,7 +94,8 @@ for root, dirnames, filenames in os.walk(__res_path__):
 
     if lcode in line_kv:
         matched_key_cnt = 0
-        modified_key_cnt = 0
+        unmatched_keys = []
+        modified_keys = []
 
         line_kv_of_code = line_kv[lcode]
 
@@ -104,16 +112,19 @@ for root, dirnames, filenames in os.walk(__res_path__):
                 _k = line_spl[0].strip()
                 _v = line_spl[1].strip()
 
-                for k in line_kv_of_code:
-                    if _k == k.strip():
-                        matched_key_cnt += 1
-                        v = line_kv_of_code[k]
+                if not _k in line_kv_of_code:
+                    unmatched_keys.append(_k)
+                    print "    [!] A key user doesn't have (existed in project): ", _k
+                else:
+                    matched_key_cnt += 1
+                    k = _k
+                    v = line_kv_of_code[k]
 
-                        if v != _v:
-                            new_line = u'"{0}" = "{1}";\n'.format(k, v)
+                    if v.strip() != _v.strip():
+                        new_line = u'"{0}" = "{1}";\n'.format(k, v)
+                        modified_keys.append(k)
 
             if new_line is not None:
-                modified_key_cnt += 1
                 print "[i] Corrected line value - ", _v, "->>", new_line.split(
                     __split_key__)[1].replace("\"", "")
                 res_lines.append(new_line)
@@ -124,11 +135,22 @@ for root, dirnames, filenames in os.walk(__res_path__):
         wcur.writelines(res_lines)
         wcur.close()
 
-        mm = ' '.join(
-            map(str, (lcode, "- Matched:", matched_key_cnt, "Modified:",
-                      modified_key_cnt)))
+        duplicated_also_modified =  {e[1]:e[0] for e in duplicated_keys_on_usr if e[0] in modified_keys}
+
+        mm = u' '.join(
+            map(str, ("<"+lcode+">"
+            , "\nKeys Matched:", matched_key_cnt
+            , "\nValues Modified:", len(modified_keys), "- {}%".format(float(len(modified_keys))/float(matched_key_cnt)), "\n"
+            , u'\n'.join(map(lambda s: "   "+s, modified_keys))
+            , "\nDuplicated Key-Value On Values Modified:", len(duplicated_also_modified), "\n"
+            , u'\n'.join(map(lambda e: "   "+duplicated_also_modified[e]+"-"+e, duplicated_also_modified))
+            , "\nDuplicated Keys On User:", len(duplicated_keys_on_usr), "\n"
+            , u'\n'.join(map(lambda s: "   "+s[0]+" - "+s[1], duplicated_keys_on_usr))
+            , "\nNon-Existed Keys On User (Exists in Project):", len(unmatched_keys), "\n"
+            , u'\n'.join(map(lambda s: "  "+s, set(unmatched_keys)))
+            )))
         result_msgs.append(mm)
 
-print "Results:"
+print "\nResults:\n"
 for r in result_msgs:
     print(r)
