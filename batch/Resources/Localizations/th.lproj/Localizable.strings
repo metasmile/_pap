@@ -118,14 +118,30 @@
 "cs_keyword_12" = "เพื่อน";
 /*Translated from: lover*/
 "cs_keyword_13" = "คนรัก";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Image" = "%@ ภาพเคลื่อนไหว";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Animated Images" = "%@ ภาพเคลื่อนไหว";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ วัน";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ ดาวน์โหลดได้ฟรี!";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photo" = "%@ รูปถ่ายสด";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"%@ Live Photos" = "%@ รูปถ่ายสด";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ ความเป็นเจ้าของ";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ ใบอนุญาตการเป็นพันธมิตร";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photo" = "%@ รูปถ่าย";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Photos" = "%@ รูปภาพ";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Video" = "%@ วิดีโอ";
+/* Generated from genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
+"%@ Videos" = "%@ วิดีโอ";
 /* Generated from genl10n: Finder.BApp.swift#1513, Cleaner.BApp.swift#553 */
 "%@ might be found" = "อาจพบ %@";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#409 */
@@ -198,6 +214,10 @@
 "Animation" = "นิเมชั่น";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "การยกเลิกฟรีทุกเวลา";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture" = "รู";
+/* Generated from genl10n: DepthEditor.BApp.swift */
+"Aperture+" = "รูรับแสง +";
 /* Generated from genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "ใช้ %@ กับรายการสุดท้าย";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -308,6 +328,8 @@
 "Could not detect anything." = "ไม่พบสิ่งใด";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "ไม่สามารถรับโฆษณา";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Create and save as new to your photos" = "สร้างและบันทึกรูปภาพใหม่ของคุณ";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -494,6 +516,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "ข้อความถึงเรา";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Modify the selected items" = "ปรับเปลี่ยนรายการที่เลือก";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "แก้ไข";
 /* Generated from genl10n: RawEditor.swift */
@@ -652,6 +676,8 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Saving or sharing Live Photo as a still photo only." = "การบันทึกหรือแบ่งปัน Live Photo เป็นภาพนิ่งเท่านั้น";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "ปรับให้พอดี";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -690,6 +716,10 @@
 "Share This App" = "แชร์แอปนี้";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after saving" = "แชร์โดยตรงหลังจากบันทึก";
+/* Generated from genl10n: App.Finalizable.PHAsset.swift */
+"Share directly without saving or modifying" = "แชร์โดยตรงโดยไม่บันทึกหรือแก้ไข";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
 /* Generated from genl10n: RawEditor.swift */
