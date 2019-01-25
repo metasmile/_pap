@@ -193,7 +193,7 @@ extension PHAssetFinalizableApp {
         }
         
         let vc = PHAssetEditingResultViewController()
-        vc.title = (numberOfItems.isEmpty ? "Export" : numberOfItems).localized
+        vc.title = "Export".localized
         
         let nc = UINavigationController(rootViewController: vc)
         
@@ -204,32 +204,44 @@ extension PHAssetFinalizableApp {
         
         var exportOptionItems = [PHAssetEditingResultViewController.ExportOptionItem]()
         if !excludedActions.contains(.create) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save".localized, action: {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save".localized, description: "Create and save as new to your photos".localized.localizedCapitalized, action: { signal in
+                signal?.begin()
                 actionQueue.async{
                     self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    signal?.end()
                 }
+                signal?.waitUntilEnd()
             }))
         }
         if !excludedActions.contains(.share) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Share".localized, action: {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Share".localized, description: "Share directly without saving or modifying".localized.localizedCapitalized, action: { signal in
+                signal?.begin()
                 actionQueue.async{
                     self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    signal?.end()
                 }
+                signal?.waitUntilEnd()
             }))
         }
         if !excludedActions.contains(.modify) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, action: {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, action: { signal in
+                signal?.begin()
                 actionQueue.async{
                     self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    signal?.end()
                 }
+                signal?.waitUntilEnd()
             }))
         }
         if !excludedActions.contains(.share) && !excludedActions.contains(.create) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save and Share".localized, action: {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save and Share".localized, description: "Share directly after saving".localized.localizedCapitalized, action: { signal in
+                signal?.begin()
                 actionQueue.async{
                     let assets = self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
                     self.sharingAndWait(from: assets.map({ $0.localIdentifier }), actionSignal)
+                    signal?.end()
                 }
+                signal?.waitUntilEnd()
             }))
         }
         vc.exportOptionItems = exportOptionItems
@@ -241,64 +253,6 @@ extension PHAssetFinalizableApp {
         }
         
         asyncSignal.waitUntilEnd()
-        
-        return
-
-        let alert = UIAlertController.actionSheet(title: "Choose an export option for %@".localizedFormatted(numberOfItems), message: nil)
-        if !excludedActions.contains(.create) {
-            alert.addAction(UIAlertAction(title: "Save".localized, style: .default, handler: { action in
-                actionQueue.async{
-                    self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    DispatchQueue.main.async{
-                        asyncSignal.end()
-                    }
-                }
-            }))
-        }
-        if !excludedActions.contains(.share) {
-            alert.addAction(UIAlertAction(title: "Share".localized, style: .default, handler: { action in
-                actionQueue.async{
-                    self.sharingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    DispatchQueue.main.async{
-                        asyncSignal.end()
-                    }
-                }
-            }))
-        }
-        if !excludedActions.contains(.modify) {
-            alert.addAction(UIAlertAction(title: "Modify".localized, style: .default, handler: { action in
-                actionQueue.async{
-                    self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    DispatchQueue.main.async{
-                        asyncSignal.end()
-                    }
-                }
-            }))
-        }
-        if !excludedActions.contains(.share) && !excludedActions.contains(.create) {
-            alert.addAction(UIAlertAction(title: "Save and Share".localized, style: .default, handler: { action in
-                actionQueue.async{
-                    let assets = self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    self.sharingAndWait(from: assets.map({ $0.localIdentifier }), actionSignal)
-                    DispatchQueue.main.async{
-                        asyncSignal.end()
-                    }
-                }
-            }))
-        }
-
-        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: { action in
-            asyncSignal.end()
-        }))
-
-        asyncSignal.begin()
-
-        DispatchQueue.main.async{
-            UIViewController.present(alert, animated: true)
-        }
-
-        asyncSignal.waitUntilEnd()
-
     }
 
     private func routeUIActivityShareItems(by result:PHAssetResultable) -> Any?{
@@ -364,13 +318,21 @@ class PHAssetEditingResultViewController: UIViewController {
     // - modify
     // - share
     
-    struct ExportOptionItem {
+    class ExportOptionItem {
         var title: String
-        var action: (() -> Void)?
+        var action: ((AsyncWaitSignalable?) -> Void)?
+        var description: String?
         
-        init(_ title: String, action: (() -> Void)?) {
+        private(set) var exported: Bool = false
+        
+        init(_ title: String, description: String? = nil, action: ((AsyncWaitSignalable?) -> Void)?) {
             self.title = title
+            self.description = description
             self.action = action
+        }
+        
+        func markAsExported() {
+            exported = true
         }
     }
     
@@ -394,7 +356,7 @@ class PHAssetEditingResultViewController: UIViewController {
     
     private lazy var exportOptionView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.rowHeight = 52
+        tableView.rowHeight = 64
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
@@ -425,7 +387,7 @@ extension PHAssetEditingResultViewController {
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        collectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
         
         view.addSubview(exportOptionView)
         exportOptionView.translatesAutoresizingMaskIntoConstraints = false
@@ -448,10 +410,59 @@ extension PHAssetEditingResultViewController {
 }
 
 private class PHAssetEditingResultExportOptionCell: UITableViewIndicatorCell {
+    lazy var indicatorView: UIView = {
+        let view = UIView(frame: .zero)
+        return view
+    }()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        
+        contentView.addSubview(indicatorView)
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        indicatorView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        indicatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        indicatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        indicatorView.widthAnchor.constraint(equalTo: indicatorView.heightAnchor, multiplier: 0.75).isActive = true
+        
+        detailTextLabel?.textColor = UIColor.gray
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension PHAssetEditingResultViewController: UITableViewDataSource {
+    var formattedResultItemString: String {
+        var itemNumbers = [String]()
+        if let items = editingResults?.filter({ $0.editingResultItems?.isStillPhoto == true }), !items.isEmpty {
+            if let animatedItems = editingResults?.filter({ $0.editingResultItems?.isGIFImage == true }), !animatedItems.isEmpty {
+                print(#function, animatedItems, animatedItems.count, animatedItems.count.decimalStyleString)
+                if animatedItems.count == items.count {
+                    itemNumbers.append(animatedItems.count == 1 ? "%@ Animated Image".localizedFormatted(animatedItems.count.decimalStyleString) : "%@ Animated Images".localizedFormatted(animatedItems.count.decimalStyleString))
+                }
+                else {
+                    itemNumbers.append(items.count == 1 ? "%@ Photo".localizedFormatted(items.count.decimalStyleString) : "%@ Photos".localizedFormatted(items.count.decimalStyleString))
+                    itemNumbers.append(animatedItems.count == 1 ? "%@ Animated Image".localizedFormatted(animatedItems.count.decimalStyleString) : "%@ Animated Images".localizedFormatted(animatedItems.count.decimalStyleString))
+                }
+            }
+            else {
+                itemNumbers.append(items.count == 1 ? "%@ Photo".localizedFormatted(items.count.decimalStyleString) : "%@ Photos".localizedFormatted(items.count.decimalStyleString))
+            }
+        }
+        
+        if let items = editingResults?.filter({ $0.editingResultItems?.isVideo == true }), !items.isEmpty {
+            itemNumbers.append(items.count == 1 ? "%@ Video".localizedFormatted(items.count.decimalStyleString) : "%@ Videos".localizedFormatted(items.count.decimalStyleString))
+        }
+        
+        if let items = editingResults?.filter({ $0.editingResultItems?.isLivePhoto == true }), !items.isEmpty {
+            itemNumbers.append(items.count == 1 ? "%@ Live Photo".localizedFormatted(items.count.decimalStyleString) : "%@ Live Photos".localizedFormatted(items.count.decimalStyleString))
+        }
+        
+        return itemNumbers.joined(separator: ", ")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exportOptionItems?.count ?? 0
     }
@@ -461,25 +472,37 @@ extension PHAssetEditingResultViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExportOptionCell") ?? PHAssetEditingResultExportOptionCell(style: .subtitle, reuseIdentifier: "ExportOptionCell")
         cell.textLabel?.text = item?.title
+        cell.detailTextLabel?.text = item?.description
+        cell.accessoryType = item?.exported == true ? .checkmark : .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if editingResults?.count == 1 {
-            return "Export the item following options".localized
-        }
-        else {
-            return "Export %d items following options".localizedFormatted(editingResults?.count ?? 0)
-        }
+        return "Choose an export option for %@".localizedFormatted(formattedResultItemString)
     }
 }
 
 extension PHAssetEditingResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = exportOptionItems?[indexPath.row]
-        item?.action?()
+        UIFeedback.select()
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath) as! PHAssetEditingResultExportOptionCell
+        cell.accessoryType = .none
+        cell.startIndicating(targetSubview: cell.indicatorView)
+        
+        let item = exportOptionItems?[indexPath.row]
+        
+        DispatchQueue(label: #file + #function, qos: .utility).async {
+            item?.action?(AsyncSignal())
+            item?.markAsExported()
+            
+            DispatchQueue.main.async {
+                cell.stopIndicating(targetSubview: cell.indicatorView)
+                cell.accessoryType = .checkmark
+            }
+        }
     }
 }
 

@@ -22,6 +22,21 @@ extension Array where Element == PHAssetEditingResultItem {
         return true
     }
     
+    var isStillPhoto: Bool {
+        guard count == 1, let _ = item(for: .photo) else { return false }
+        return true
+    }
+    
+    var isGIFImage: Bool {
+        guard count == 1, let url = url(for: .photo), UTI(withURL: url).conforms(to: .gif) else { return false }
+        return true
+    }
+    
+    var isVideo: Bool {
+        guard count == 1, let _ = item(for: .video) else { return false }
+        return true
+    }
+    
     func item(for type: PHAssetResourceType) -> PHAssetEditingResultItem? {
         return first { $0.resourceType == type }
     }
