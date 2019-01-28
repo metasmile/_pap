@@ -120,7 +120,7 @@ extension PHAssetFinalizableApp {
         }
     }
     
-    internal func sharingAndWait(from assetIdentifiers :[String], _ asyncSignal: AsyncWaitSignalable){
+    internal func sharingAndWait(withLocalIdentifiers assetIdentifiers :[String], _ asyncSignal: AsyncWaitSignalable){
         if let _ = UIViewController.presentable {
             var activityItems = [Any]()
             
@@ -172,13 +172,6 @@ extension PHAssetFinalizableApp {
         let actionQueue = DispatchQueue.global()
         let actionSignal = AsyncSignal()
         
-        var excludedActions = excludedActions
-        
-        //INFO: can not export live photo
-        if targetResultAssets.contains(where: { $0.editingResultItems?.isLivePhoto == true }) {
-            excludedActions.append(.share)
-        }
-        
         let vc = PHAssetEditingResultViewController()
         vc.title = "Export".localized
         
@@ -190,6 +183,16 @@ extension PHAssetFinalizableApp {
         }
         
         var exportOptionItems = [PHAssetEditingResultViewController.ExportOptionItem]()
+        if !excludedActions.contains(.modify) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, description: "Modify the selected items".localized.localizedCapitalized, action: { signal in
+                signal?.begin()
+                actionQueue.async{
+                    self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    signal?.end()
+                }
+                signal?.waitUntilEnd()
+            }))
+        }
         if !excludedActions.contains(.create) {
             exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Save".localized, description: "Create and save as new to your photos".localized.localizedCapitalized, action: { signal in
                 signal?.begin()
@@ -210,11 +213,12 @@ extension PHAssetFinalizableApp {
                 signal?.waitUntilEnd()
             }))
         }
-        if !excludedActions.contains(.modify) {
-            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify".localized, description: "Modify the selected items".localized.localizedCapitalized, action: { signal in
+        if !excludedActions.contains(.share) && !excludedActions.contains(.modify) {
+            exportOptionItems.append(PHAssetEditingResultViewController.ExportOptionItem("Modify and Share".localized, description: "Share directly after modifying".localized.localizedCapitalized, action: { signal in
                 signal?.begin()
                 actionQueue.async{
                     self.modifyingAndWait(targetResultAssets: targetResultAssets, actionSignal)
+                    self.sharingAndWait(withLocalIdentifiers: targetResultAssets.map({ $0.asset.localIdentifier }), actionSignal)
                     signal?.end()
                 }
                 signal?.waitUntilEnd()
@@ -225,7 +229,7 @@ extension PHAssetFinalizableApp {
                 signal?.begin()
                 actionQueue.async{
                     let assets = self.creatingAndWait(targetResultAssets: targetResultAssets, actionSignal)
-                    self.sharingAndWait(from: assets.map({ $0.localIdentifier }), actionSignal)
+                    self.sharingAndWait(withLocalIdentifiers: assets.map({ $0.localIdentifier }), actionSignal)
                     signal?.end()
                 }
                 signal?.waitUntilEnd()
@@ -483,7 +487,7 @@ extension PHAssetEditingResultViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         guard editingResults?.contains(where: { $0.editingResultItems?.isLivePhoto == true }) == true else { return nil }
-        return "Saving or sharing Live Photo as a still photo only.".localizedCapitalized
+        return "Sharing a Live Photo directly as a still photo only.".localized.localizedCapitalized
     }
 }
 
@@ -543,6 +547,8 @@ extension PHAssetEditingResultViewController: UICollectionViewDelegate {
 
 extension PHAssetEditingResultViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard scrollView == collectionView else { return }
+        
         let centerOfCollection = view.convert(scrollView.center, to: scrollView)
         
         var nearestCell: PHAssetEditingResultCollectionViewCell?
@@ -621,6 +627,8 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
         self.indexPath = indexPath
         self.editingResult = editingResult
         
+        let targetSize = self.assetView.bounds.size
+        
         DispatchQueue(label: #file + #function, qos: .utility).async { [weak self] in
             guard self?.indexPath == indexPath else { return }
             
@@ -652,12 +660,16 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
                     }
                 }
             }
-            else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url {
-                let image = UIImage(contentsOfFile: photoURL.path)
-                DispatchQueue.main.async { [weak self] in
-                    guard self?.indexPath == indexPath else { return }
-                    self?.assetView.image = image
-                }
+            else if editingResult?.editingResultItems?.isLivePhoto == true, let photoURL = editingResult?.editingResultItems?.item(for: .photo)?.url, let videoURL = editingResult?.editingResultItems?.item(for: .pairedVideo)?.url {
+                PHLivePhoto.request(withResourceFileURLs: [photoURL, videoURL], placeholderImage: nil, targetSize: targetSize, contentMode: .default, resultHandler: { (livePhoto, info) in
+                    DispatchQueue.main.async { [weak self] in
+                        guard self?.indexPath == indexPath else { return }
+                        self?.assetView.livePhotoView.isHidden = false
+                        self?.assetView.livePhoto = livePhoto
+                        self?.assetView.stopAny()
+                        self?.playIfNeeded()
+                    }
+                })
             }
         }
     }
@@ -821,3 +833,4 @@ private class PHAssetEditingResultCollectionLayout: UICollectionViewLayout {
         return targetContentOffset(forProposedContentOffset: proposedContentOffset)
     }
 }
+

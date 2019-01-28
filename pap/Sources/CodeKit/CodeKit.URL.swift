@@ -42,3 +42,22 @@ extension Dictionary where Key==String, Value==String{
         }.joined(separator: "&")
     }
 }
+
+extension URL {
+    public var attributes: [FileAttributeKey: Any]? {
+        return try? FileManager.default.attributesOfItem(atPath: path)
+    }
+    
+    public var creationDate: Date? {
+        return attributes?[FileAttributeKey.creationDate] as? Date
+    }
+    
+    public var modificationDate: Date? {
+        return attributes?[FileAttributeKey.modificationDate] as? Date
+    }
+    
+    public var isModified: Bool {
+        guard let creationDate = creationDate, let modificationDate = modificationDate else { return false }
+        return creationDate != modificationDate
+    }
+}

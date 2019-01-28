@@ -61,38 +61,41 @@ extension PHAsset {
         let async = AsyncSignal()
         async.begin()
         
-        if self.mediaType == .video{
-            let videoRequestOptions = PHVideoRequestOptions()
-            videoRequestOptions.isNetworkAccessAllowed = true
-            videoRequestOptions.deliveryMode = .automatic
-            
-            PHImageManager.default().requestAVAsset(forVideo: self, options: videoRequestOptions, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                item = (asset as? AVURLAsset)?.url
-                async.end()
-            })
-        } else if self.imageType == .livePhoto{
-            
-            let livePhotoRequestOptions = PHLivePhotoRequestOptions()
-            livePhotoRequestOptions.deliveryMode = .opportunistic
-            livePhotoRequestOptions.isNetworkAccessAllowed = true
-            
-            PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
-                item = livePhoto
-                async.end()
-            })
-            
-        } else{
-            let defaultImageRequestOptions = PHImageRequestOptions()
-            defaultImageRequestOptions.isNetworkAccessAllowed = true
-            defaultImageRequestOptions.isSynchronous = false
-            defaultImageRequestOptions.deliveryMode = .opportunistic
-            defaultImageRequestOptions.resizeMode = .exact
-            
-            PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
-                item = data?.writeToLocalFile()
-                async.end()
+        DispatchQueue(label: #file + #function + "requests", qos: .utility).async {
+            if self.mediaType == .video{
+                let videoRequestOptions = PHVideoRequestOptions()
+                videoRequestOptions.isNetworkAccessAllowed = true
+                videoRequestOptions.deliveryMode = .automatic
+                
+                PHImageManager.default().requestAVAsset(forVideo: self, options: videoRequestOptions, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    item = (asset as? AVURLAsset)?.url
+                    async.end()
+                })
+            } else if self.imageType == .livePhoto{
+                
+                let livePhotoRequestOptions = PHLivePhotoRequestOptions()
+                livePhotoRequestOptions.deliveryMode = .opportunistic
+                livePhotoRequestOptions.isNetworkAccessAllowed = true
+                
+                PHImageManager.default().requestLivePhoto(for: self, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: livePhotoRequestOptions, resultHandler: { (livePhoto, info) in
+                    item = livePhoto
+                    async.end()
+                })
+                
+            } else{
+                let defaultImageRequestOptions = PHImageRequestOptions()
+                defaultImageRequestOptions.isNetworkAccessAllowed = true
+                defaultImageRequestOptions.isSynchronous = false
+                defaultImageRequestOptions.deliveryMode = .opportunistic
+                defaultImageRequestOptions.resizeMode = .exact
+                
+                PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
+                    item = data?.writeToLocalFile()
+                    async.end()
+                }
             }
         }
+        
         async.waitUntilEnd()
         
         return item

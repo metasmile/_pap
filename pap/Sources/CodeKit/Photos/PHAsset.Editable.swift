@@ -176,3 +176,28 @@ extension AppAssetItem {
         }
     }
 }
+
+extension PHContentEditingOutput {
+    var pairedVideoRenderedContentURL: URL? {
+        return autoreleasepool { () -> URL? in
+            let renderedContentDirectory = renderedContentURL.deletingLastPathComponent()
+            
+            let urls = (try? FileManager.default.contentsOfDirectory(atPath: renderedContentDirectory.path))?.map {
+                renderedContentDirectory.appendingPathComponent($0)
+                }
+            .filter { UTI(withURL: $0).conforms(to: .quickTimeMovie) }
+            
+            guard let imageSource = CGImageSourceCreateWithURL(renderedContentURL as CFURL, nil) else { return nil }
+            let options: [String: Any] = [kCGImageSourceShouldCache as String: false]
+            if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, options as CFDictionary) as? [String: Any], let makerAppleInfo = imageProperties[kCGImagePropertyMakerAppleDictionary as String] as? [String: Any], let assetIdentifier = makerAppleInfo["17"] as? String {
+                
+                for url in urls ?? [] {
+                    if assetIdentifier == LivePhotoVideoResourceWriter(path: url.path).readAssetIdentifier() {
+                        return url
+                    }
+                }
+            }
+            return nil
+        }
+    }
+}

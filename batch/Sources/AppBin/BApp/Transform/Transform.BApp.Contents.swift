@@ -96,10 +96,12 @@ extension _TransformAppAsset: PHAssetLivePhotoEditable {
                         return
                     }
                     
-                    completionHandler(self.asset, [
-                        PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo),
-                        PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .pairedVideo)
-                    ], item.output)
+                    var resultItems = [PHAssetEditingResultItem(url: item.output.renderedContentURL, resourceType: .photo)]
+                    if let pairedVideoURL = item.output.pairedVideoRenderedContentURL {
+                        resultItems.append(PHAssetEditingResultItem(url: pairedVideoURL, resourceType: .pairedVideo))
+                    }
+                    
+                    completionHandler(self.asset, resultItems, item.output)
                 })
                 
                 self.editingContext = editingContext
