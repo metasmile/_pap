@@ -72,14 +72,16 @@ struct LivePhotoConverter_Burst: LivePhotoConverter {
                 var result: [PHAssetEditingResultItem]?
                 
                 async.begin()
-                LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
-                    if let photoURL = photoURL, let videoURL = videoURL {
-                        result = [
-                            PHAssetEditingResultItem(photoURL, .photo),
-                            PHAssetEditingResultItem(videoURL, .pairedVideo),
-                        ]
+                DispatchQueue(label: #function, qos: .utility).async {
+                    LivePhotoWriter().writeLivePhotoFromVideo(videoPath: videoURL.path, timeLocationOfTitle: 0) { (success, photoURL, videoURL, error) in
+                        if let photoURL = photoURL, let videoURL = videoURL {
+                            result = [
+                                PHAssetEditingResultItem(photoURL, .photo),
+                                PHAssetEditingResultItem(videoURL, .pairedVideo),
+                            ]
+                        }
+                        async.end()
                     }
-                    async.end()
                 }
                 
                 async.waitUntilEnd()
