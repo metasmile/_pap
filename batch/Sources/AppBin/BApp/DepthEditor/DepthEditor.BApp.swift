@@ -72,7 +72,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public static let info = AppInfo(
             identifier: "com.stells.batch.deptheditor"
             , version: "1.0"
-            , phase: .develop
+            , phase: .beta
             , appType: DepthEditorApp.self
             , displayName: "Depth Editor".localized.localizedCapitalized
             , description: "Resize and fill to fit your photos by the various sizes.".localized
@@ -122,7 +122,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     }
 
     public func shouldSelect(item: AppAsset) -> Bool {
-        return item.asset.mediaType == .image// fastly check hasDepthData (!= DepthEffect)
+        return item.asset.mediaType == .image && item.asset.hasDepthEffect
     }
     
     func photoEditorShouldPreview(item: AppAsset) -> Bool {
@@ -315,7 +315,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 //        CIDepthMaskFilter(.original),
         CIDepthMaskFilter(.aperture),
         CIDepthMaskFilter(.aperture2),
-        CIDepthMaskFilter(.blur)
+//        CIDepthMaskFilter(.blur)
     ]
 
     struct CIFilterCollectionItem: AppUICollectionItem {
