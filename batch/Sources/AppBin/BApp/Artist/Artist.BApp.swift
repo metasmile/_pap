@@ -124,7 +124,7 @@ PhotoEditorViewControllerDelegatableApp {
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
-        return [.share]
+        return [.actions]
     }
 
     public static var fixedContentLayout: Bool {

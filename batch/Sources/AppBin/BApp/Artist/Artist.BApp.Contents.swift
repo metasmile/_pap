@@ -27,15 +27,16 @@ class _ArtistAppAsset: AppAsset {
 extension _ArtistAppAsset: PHAssetImageEditable {
     func edit<T: ImageProcessable>(processor: T.Type, progress progressHandler: PHAssetEditableProgressHandler?, completion completionHandler: @escaping PHAssetEditableCompletionHandler) -> [PHAssetRequestID]? {
         let asset = self.asset
-
+        
         guard
-            let uiImage = asset.asUIImage,
-            let filter = editState.ciFilter,
-            let image = uiImage.applyFilter(ciFilter: filter)
-        else {
-            completionHandler(nil, nil, nil)
-            return nil
+            let ciImage = asset.asCIImage,
+            let filter = editState.ciFilter
+            else {
+                completionHandler(nil, nil, nil)
+                return nil
         }
+        
+        let image = ciImage.applyFilter(ciFilter: filter)
         
         let r = self.requestContentEditing { _item in
             guard let item = _item else{
@@ -47,9 +48,8 @@ extension _ArtistAppAsset: PHAssetImageEditable {
                 // renderedContentURL supports only JPEG and MOV ...
                 // so... always export JPEG
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
-                let outputData = image.jpegData(compressionQuality: 1)
                 
-                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+                guard image.writeJPEGRepresentationOriginally(to: item.output.renderedContentURL) else {
                     completionHandler(nil, nil, nil)
                     return
                 }
