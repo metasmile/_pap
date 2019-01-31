@@ -23,12 +23,12 @@ extension PhotoPickerViewController{
     }
 
     func collectionViewDefaultImageSize(_ collectionView: UICollectionView, at indexPath: IndexPath) -> CGSize {
-        return self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath).screenScaled()
+        return preferredPhotoPickerCollectionItemSize.screenScaled()
     }
 
     func collectionViewDefaultCachingCellImageRequestOption(_ collectionView: UICollectionView, at indexPath: IndexPath) -> PHAssetRequestOption {
         return (
-                targetSize: self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath).screenScaled()
+                targetSize: preferredPhotoPickerCollectionItemSize.screenScaled()
                 , contentMode: collectionViewDefaultContentMode
                 , options: PhotoPickerViewControllerPHCachingImageDefault.RequestOption
         )
