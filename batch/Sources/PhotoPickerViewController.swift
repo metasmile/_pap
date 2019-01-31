@@ -288,7 +288,14 @@ class PhotoPickerViewController: AppDockViewController {
             self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
+        
+        let interitemSpacing: CGFloat = 1
+        let scaleTransform = CGAffineTransform(scaleX: 1 / UIScreen.main.nativeScale, y: 1 / UIScreen.main.nativeScale)
+        let gridWidth = (UIScreen.main.nativeBounds.applying(scaleTransform).inset(by: photoCollectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
+        preferredPhotoPickerCollectionItemSize = CGSize(width: gridWidth, height: gridWidth)
     }
+    
+    var preferredPhotoPickerCollectionItemSize: CGSize = .zero
     
     override func applyTheme(_ colorTheme: AppColorTheme) {
         super.applyTheme(colorTheme)
