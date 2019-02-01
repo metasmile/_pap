@@ -442,7 +442,6 @@ extension PHAssetEditingResultViewController: UITableViewDataSource {
         var itemNumbers = [String]()
         if let items = editingResults?.filter({ $0.editingResultItems?.isStillPhoto == true }), !items.isEmpty {
             if let animatedItems = editingResults?.filter({ $0.editingResultItems?.isGIFImage == true }), !animatedItems.isEmpty {
-                print(#function, animatedItems, animatedItems.count, animatedItems.count.decimalStyleString)
                 if animatedItems.count == items.count {
                     itemNumbers.append(animatedItems.count == 1 ? "%@ Animated Image".localizedFormatted(animatedItems.count.decimalStyleString) : "%@ Animated Images".localizedFormatted(animatedItems.count.decimalStyleString))
                 }
