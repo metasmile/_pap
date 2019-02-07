@@ -322,7 +322,10 @@ public class GIFMakerApp: BApp,
             default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }))
         }
         
-        showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
+        let success = showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
+        result.forEach {
+            $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
+        }
 
         return result
     }

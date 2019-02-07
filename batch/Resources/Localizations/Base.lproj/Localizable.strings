@@ -100,7 +100,7 @@
 "%@ Partnership License" = "%@ Partnership License";
 /* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photo" = "%@ Photo";
-/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift(2) */
+/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photos" = "%@ Photos";
 /* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Video" = "%@ Video";
@@ -198,9 +198,9 @@
 "Auto Editor" = "Auto Editor";
 /* genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* genl10n: Converter.BApp.swift, Finder.BApp.swift, Cleaner.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Revert.BApp.swift */
+/* genl10n: Finder.BApp.swift, Cleaner.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Revert.BApp.swift, Converter.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* genl10n: Finder.BApp.swift, Converter.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, ExifGhost.AppDockContent.swift */
+/* genl10n: Finder.BApp.swift, Revert.BApp.swift, Converter.BApp.swift, Cleaner.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -364,7 +364,7 @@
 "Flashlight" = "Flashlight";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
-/* genl10n: Converter.BApp.swift, Hashtagen.BApp.swift */
+/* genl10n: Hashtagen.BApp.swift, Converter.BApp.swift */
 "Formats" = "Formats";
 /* genl10n: GIFMaker.BApp.swift */
 "Forward" = "Forward";
@@ -418,7 +418,7 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
-/* genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
+/* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
 "Image" = "Image";
@@ -484,7 +484,7 @@
 "Modify and Share" = "Modify and Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modify the selected items";
-/* genl10n: App.Finalizable.UIActivity.PHAsset.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* genl10n: RawEditor.swift */
 "Moire" = "Moire";
@@ -588,7 +588,7 @@
 "Purchase Management" = "Purchase Management";
 /* genl10n: Shop.Payables.Store.LegalInfo.swift, Charge.Types.StoreKit.swift */
 "Purchase" = "Purchase";
-/* genl10n: GIFMaker.BApp.swift, Converter.BApp.swift */
+/* genl10n: Converter.BApp.swift, GIFMaker.BApp.swift */
 "Quality" = "Quality";
 /* genl10n: RawEditor.swift */
 "RAW Editor" = "RAW Editor";
@@ -638,7 +638,7 @@
 "Save and Share" = "Save and Share";
 /* genl10n: Clipboard.BApp.swift */
 "Save the copied image." = "Save the copied image.";
-/* genl10n: Clipboard.BApp.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, Clipboard.BApp.swift */
 "Save" = "Save";
 /* genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Saving Results...";
@@ -686,7 +686,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Settings.SApp.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, Shop.SApp.swift, Settings.SApp.swift, App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Sharing a Live Photo directly as a still photo only." = "Sharing a Live Photo directly as a still photo only.";

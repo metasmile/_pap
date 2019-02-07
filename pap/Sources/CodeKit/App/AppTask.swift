@@ -165,6 +165,8 @@ public class AppTaskInfo: Item<String> {
     internal(set) public var policy: AppTaskPolicy = AppTaskPolicy.default
     internal(set) public var queueLabel:String?
     internal(set) var error: AppTaskError?
+    
+    public var userInfo: [String: Any]
 
     required public init(_ requestToken: String, _ requestParam: AppTaskParamable, _ taskType: AppTaskable.Type, _ appType: App.Type){
         self.requestToken = requestToken
@@ -172,7 +174,16 @@ public class AppTaskInfo: Item<String> {
         self.taskType = taskType
         self.token = UUID().uuidString
         self.appType = appType
+        self.userInfo = [UserInfo.Key.removedOnCompletion: true]
         super.init()
     }
 
+}
+
+extension AppTaskInfo {
+    struct UserInfo {
+        struct Key {
+            static let removedOnCompletion = "removedOnCompletion"
+        }
+    }
 }

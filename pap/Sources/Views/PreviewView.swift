@@ -20,7 +20,7 @@ protocol PreviewViewDelegate {
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
     func batchPreviewViewWillBeginEdit(_ view: PreviewView)
-    func batchPreviewViewDidEndEdit(_ view: PreviewView)
+    func batchPreviewViewDidEndEdit(_ view: PreviewView, assetsForFinished assets: [PHAsset])
     func batchPreviewViewDidCancelEdit(_ view: PreviewView)
     
     func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool
@@ -407,8 +407,17 @@ extension PreviewView {
 
         }).did(finish: { resultsByApps, respondables in
             assert(!AppCenter.default.task.isRunning)
+            
+            let assets = respondables.compactMap { respondable -> PHAsset? in
+                if respondable.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] as? Bool == true {
+                    return (respondable.request.param as? AppAsset)?.asset
+                }
+                else {
+                    return nil
+                }
+            }
 
-            self.delegate?.batchPreviewViewDidEndEdit(self)
+            self.delegate?.batchPreviewViewDidEndEdit(self, assetsForFinished: assets)
 
             //log
             for (_, results) in resultsByApps{

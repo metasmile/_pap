@@ -68,7 +68,10 @@ extension PHAssetFinalizableApp {
             }
 
             if option == .actions {
-                self.showingActionsAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+                let success = self.showingActionsAndWait(targetResultAssets: targetResultAssets, asyncSignal)
+                result.forEach {
+                    $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
+                }
 
                 if exclusiveOption{ return result }
             }
@@ -167,8 +170,10 @@ extension PHAssetFinalizableApp {
         return createdAssets
     }
 
-
-    internal func showingActionsAndWait(targetResultAssets:[PHAssetResultable], excludedActions: [PHAssetFinalizingAction] = [], _ asyncSignal: AsyncWaitSignalable){
+    @discardableResult
+    internal func showingActionsAndWait(targetResultAssets:[PHAssetResultable], excludedActions: [PHAssetFinalizingAction] = [], _ asyncSignal: AsyncWaitSignalable) -> Bool {
+        var success = true
+        
         let actionQueue = DispatchQueue.global()
         let actionSignal = AsyncSignal()
         
@@ -178,7 +183,11 @@ extension PHAssetFinalizableApp {
         let nc = UINavigationController(rootViewController: vc)
         
         vc.editingResults = targetResultAssets
-        vc.didDismissHandler = {
+        vc.didCancelHandler = {
+            success = false
+            asyncSignal.end()
+        }
+        vc.didFinishHandler = {
             asyncSignal.end()
         }
         
@@ -244,6 +253,8 @@ extension PHAssetFinalizableApp {
         }
         
         asyncSignal.waitUntilEnd()
+        
+        return success
     }
 
     private func routeUIActivityShareItems(by result:PHAssetResultable) -> Any?{
@@ -359,7 +370,8 @@ private class PHAssetEditingResultViewController: UIViewController {
     var editingResults: [PHAssetResultable]?
     var exportOptionItems: [ExportOptionItem]?
     
-    var didDismissHandler: (() -> Void)?
+    var didCancelHandler: (() -> Void)?
+    var didFinishHandler: (() -> Void)?
     
     var initialTargetIndexPath: IndexPath?
 }
@@ -398,12 +410,19 @@ extension PHAssetEditingResultViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.cancelButtonDidTap))
-        navigationItem.setRightBarButton(cancelButton, animated: true)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonDidTap))
+        navigationItem.setLeftBarButton(cancelButton, animated: true)
+        
+        let finishButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.finishButtonDidTap))
+        navigationItem.setRightBarButton(finishButton, animated: true)
     }
     
     @objc private func cancelButtonDidTap(sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: self.didDismissHandler)
+        dismiss(animated: true, completion: self.didCancelHandler)
+    }
+    
+    @objc private func finishButtonDidTap(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: self.didFinishHandler)
     }
     
     override func viewWillLayoutSubviews() {

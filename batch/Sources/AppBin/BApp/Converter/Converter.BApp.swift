@@ -133,7 +133,10 @@ public class ConverterApp: NSObject, PropertyWatchable,
             return result
         }
         
-        showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
+        let success = showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
+        result.forEach {
+            $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
+        }
 
         return result
     }

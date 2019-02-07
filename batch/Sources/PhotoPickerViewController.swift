@@ -862,11 +862,13 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         updateAppDockViewProcessingEnd()
     }
     
-    func batchPreviewViewDidEndEdit(_ view: PreviewView) {
+    func batchPreviewViewDidEndEdit(_ view: PreviewView, assetsForFinished assets: [PHAsset]) {
         progressBar.isHidden = true
         
         //POLICY: no keeps selected items
-        deselectAllCollectionViewItems()
+        deselectCollectionViewItems(assets.compactMap({ asset -> IndexPath? in
+            return PHAssets.fetched.indexPath(of: asset)
+        }))
 
         updateAllPhotosTitle()
         updateUIDisplays()
