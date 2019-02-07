@@ -133,7 +133,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
             return result
         }
         
-        let success = showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
+        let success = showingActionsAndWait(targetResultAssets: items.map({ PHAssetResultItem(asset: AppAsset($0.asset), editingResultItems: $0.result) }), excludedActions: [.modify], asyncSignal)
         result.forEach {
             $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
         }
@@ -248,6 +248,7 @@ extension ConverterApp{
 
 
 private struct ConverterAppResult: AppTaskResultable {
+    var asset: PHAsset
     var result:[PHAssetEditingResultItem]?
     var orderedIndex: Int?
 }
@@ -315,7 +316,7 @@ private class ConverterAppTask: AppTaskPrototype, AppTaskable {
         }, async)
         let index = AppAssets.selected.index(of: assetItem)
 
-        return ConverterAppResult(result: result, orderedIndex: index)
+        return ConverterAppResult(asset: assetItem.asset, result: result, orderedIndex: index)
     }
 }
 
