@@ -16,8 +16,9 @@ import MobileCoreServices
 class _GIFMakerAppAsset: AppAsset {}
 
 private struct GIFMakerPHAssetResult: AppTaskResultable {
-    public var result: [PHAssetEditingResultItem]?
-    public var orderedIndex: Int?
+    var asset: PHAsset
+    var result: [PHAssetEditingResultItem]?
+    var orderedIndex: Int?
 }
 
 //MARK: -
@@ -319,7 +320,7 @@ public class GIFMakerApp: BApp,
                 results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
             }
 
-            default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: $0.result) }))
+            default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset($0.asset), editingResultItems: $0.result) }))
         }
         
         let success = showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
@@ -358,7 +359,7 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             
             if let image = response.1 {
                 let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
-                result = GIFMakerPHAssetResult(result: [PHAssetEditingResultItem(cachedAsset.imageFileURL, .photo)], orderedIndex: AppAssets.selected.index(of: assetItem))
+                result = GIFMakerPHAssetResult(asset: assetItem.asset, result: [PHAssetEditingResultItem(cachedAsset.imageFileURL, .photo)], orderedIndex: AppAssets.selected.index(of: assetItem))
 
                 assetItem.appendRequestId(PHAssetRequestID(forImage:response.0))
             }
@@ -367,14 +368,14 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
-                result = GIFMakerPHAssetResult(result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
+                result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
             
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
-                result = GIFMakerPHAssetResult(result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
+                result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break
         }
