@@ -1183,9 +1183,9 @@ fileprivate class UICameraPreviewView: UIView {
         return CameraPreviewLayer.self
     }
 
-    fileprivate var previewLayer: CameraPreviewLayer {
+    fileprivate lazy var previewLayer: CameraPreviewLayer = {
         return layer as! CameraPreviewLayer
-    }
+    }()
 
     override var contentMode: UIView.ContentMode {
         didSet {
