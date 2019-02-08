@@ -142,15 +142,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
     }
 
     public func performPreheating(item: PHAssetParamable, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
-        var autoSelect = false
-        async.begin()
-        DispatchQueue(label: #file + #function, qos: .utility).async{
-            autoSelect = self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil))
-            async.end()
-        }
-        if async.began{
-            async.waitUntilEnd()
-        }
+        let autoSelect = self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil))
         return autoSelect ? UICollectionViewPreheatableAppFinishAction.selectItem : nil
     }
 
@@ -212,7 +204,7 @@ extension ConverterApp{
     }
 
     static var availableConverterNames:[String] {
-        return Array(Set(availableDirections.map { $0.from.rawValue }))
+        return Array(Set(availableDirections.map { $0.from.rawValue })).sorted()
     }
 
     static func getAvailableConverters(fromRawValue:String) -> [Converter.Type]{
@@ -234,11 +226,11 @@ extension ConverterApp{
     }
 
     static func getAvailableConvertersNamesTo(fromRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
+        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue })).sorted()
     }
 
     static func getAvailableConvertersNamesFrom(toRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
+        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue })).sorted()
     }
 
     static var defaultConverter:Converter.Type{
