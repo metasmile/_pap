@@ -56,12 +56,19 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
+            else {
+                self.config?.filter = nil
+                self.defaultEditStateValue = nil
+            }
         }
         
         let controllerContentInPhotoEditor = self.photoEditorDockContent as? RawEditorDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
+            }
+            else {
+                self.config?.filter = nil
             }
         }
     }
@@ -369,12 +376,17 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
+        view.alpha = 0.5
         
         if filterAttributes.isEmpty {
             installFilters()
         }
         
         (view as? UITableView)?.reloadData()
+    }
+    
+    func willRemoveContentView() {
+        self.filter = nil
     }
     
     private(set) var rawFilter: CIRawFilter?
@@ -417,6 +429,14 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
         
         DispatchQueue.main.async {
+            if let _ = self.rawFilter {
+                self.view.alpha = 1
+                self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+            }
+            else {
+                self.view.alpha = 0.5
+                self.filter = nil
+            }
             (self.view as? UITableView)?.reloadData()
         }
     }
@@ -483,10 +503,12 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.switchDidChangeHandler = { isOn in
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                DispatchQueue.main.async {
                     self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }
+            
+            cell.isUserInteractionEnabled = tableView.alpha == 1
             
             return cell
         }
@@ -526,6 +548,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                     self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
                 }
             }
+            
+            cell.isUserInteractionEnabled = tableView.alpha == 1
             
             return cell
         }
