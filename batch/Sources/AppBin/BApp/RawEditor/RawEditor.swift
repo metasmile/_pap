@@ -376,7 +376,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
-        view.alpha = 0.5
+        enabledEditing = false
         
         if filterAttributes.isEmpty {
             installFilters()
@@ -430,11 +430,11 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         
         DispatchQueue.main.async {
             if let _ = self.rawFilter {
-                self.view.alpha = 1
+                self.enabledEditing = true
                 self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
             }
             else {
-                self.view.alpha = 0.5
+                self.enabledEditing = false
                 self.filter = nil
             }
             (self.view as? UITableView)?.reloadData()
@@ -462,8 +462,8 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             CIFilterAttributes(key: CIRAWFilterOption.noiseReductionContrastAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Noise Reduction Contrast".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
             CIFilterAttributes(key: CIRAWFilterOption.noiseReductionSharpnessAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Noise Reduction Sharpness".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
             CIFilterAttributes(key: CIRAWFilterOption.luminanceNoiseReductionAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Luminance Noise Reduction".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
-            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity X".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
-            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity Y".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+//            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityX.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity X".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
+//            CIFilterAttributes(key: CIRAWFilterOption.neutralChromaticityY.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Chromaticity Y".localized, defaultValue: 0.5, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
             CIFilterAttributes(key: CIRAWFilterOption.moireAmount.rawValue, attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Moire".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1)]),
             CIFilterAttributes(key: "inputHueMagMR", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Magenta / Red".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
             CIFilterAttributes(key: "inputHueMagBM", attributeType: kCIAttributeTypeScalar, attributes: [CIFilterAttributeItem(name: "Blue / Magenta".localized, defaultValue: 0, minimumValue: 0, maximumValue: 1, isIntensity: false)]), // no min max
@@ -481,6 +481,12 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
     }
     
     @objc dynamic var filter: CIFilter?
+    
+    private var enabledEditing: Bool = false {
+        didSet {
+            view.alpha = enabledEditing ? 1 : 0.5
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return filterAttributes.count
@@ -508,7 +514,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 }
             }
             
-            cell.isUserInteractionEnabled = tableView.alpha == 1
+            cell.isUserInteractionEnabled = enabledEditing
             
             return cell
         }
@@ -549,7 +555,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 }
             }
             
-            cell.isUserInteractionEnabled = tableView.alpha == 1
+            cell.isUserInteractionEnabled = enabledEditing
             
             return cell
         }
