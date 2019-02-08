@@ -832,6 +832,7 @@ public class CIAdjustmentSliderCell: UITableViewCell {
     }
     
     @objc private func resetButtonDidTap() {
+        UIFeedback.select()
         resetButtonDidTapHandler?()
     }
     
