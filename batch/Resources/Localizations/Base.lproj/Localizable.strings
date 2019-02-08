@@ -246,10 +246,6 @@
 "Choose an export option for %@" = "Choose an export option for %@";
 /* genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Choose some photos you want to find tags.";
-/* genl10n: RawEditor.swift */
-"Chromaticity X" = "Chromaticity X";
-/* genl10n: RawEditor.swift */
-"Chromaticity Y" = "Chromaticity Y";
 /* genl10n: Cleaner.BApp.swift */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!";
 /* genl10n: Cleaner.BApp.swift */
@@ -784,7 +780,7 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "The price is including every new tool. Today is the cheapest day to get this.";
 /* genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
-/* genl10n: Adjustments.BApp.swift, RawEditor.swift */
+/* genl10n: RawEditor.swift, Adjustments.BApp.swift */
 "Tint" = "Tint";
 /* genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "To use this app needs a corresponding access license. Would you like to open %@?";
