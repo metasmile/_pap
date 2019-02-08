@@ -509,9 +509,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             cell.switchDidChangeHandler = { isOn in
                 attributeItem.value = isOn ? 1.0 : 0.0
                 
-                DispatchQueue.main.async {
-                    self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                }
+                self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
             }
             
             cell.isUserInteractionEnabled = enabledEditing
@@ -550,9 +548,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
                 
                 cell.resetButton.isHidden = !attributeItem.hasChanges
                 
-                DispatchQueue.main.async {
-                    self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-                }
+                self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
             }
             
             cell.isUserInteractionEnabled = enabledEditing
