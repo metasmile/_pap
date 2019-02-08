@@ -226,11 +226,11 @@ extension ConverterApp{
     }
 
     static func getAvailableConvertersNamesTo(fromRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue })).sorted()
+        return Array(Set(self.getAvailableConverters(fromRawValue: fromRawValue).map { converter -> String in  converter.direction.to.rawValue }))
     }
 
     static func getAvailableConvertersNamesFrom(toRawValue:String) -> [String]{
-        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue })).sorted()
+        return Array(Set(self.getAvailableConverters(toRawValue: toRawValue).map { converter -> String in  converter.direction.from.rawValue }))
     }
 
     static var defaultConverter:Converter.Type{
@@ -508,8 +508,8 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
         let valueCollection = {
             return [
-                UIPickerItem(component: "From", values: ConverterApp.availableConverterNames),
-                UIPickerItem(component: "To", values: ConverterApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue)),
+                UIPickerItem(component: "From", values: ConverterApp.availableConverterNames.sorted()),
+                UIPickerItem(component: "To", values: ConverterApp.getAvailableConvertersNamesTo(fromRawValue:self.defaults.convertingDirection.from.rawValue).sorted()),
             ]
         }
 
