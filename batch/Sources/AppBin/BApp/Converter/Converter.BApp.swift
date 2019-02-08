@@ -144,7 +144,7 @@ public class ConverterApp: NSObject, PropertyWatchable,
     public func performPreheating(item: PHAssetParamable, _ async: AsyncWaitSignalable) -> PreheatingFinishAction? {
         var autoSelect = false
         async.begin()
-        DispatchQueue.global(qos: .userInteractive).async{
+        DispatchQueue(label: #file + #function, qos: .utility).async{
             autoSelect = self.defaults.autoSelect && self.shouldSelect(item: AppAsset(item.asset, indexPath: nil))
             async.end()
         }
