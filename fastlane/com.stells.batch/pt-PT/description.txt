@@ -14,7 +14,11 @@ Bot de Seleção Automática (Sistema ASB)
 O ASB é um mecanismo de assistente multiuso para escolher os itens certos no contexto atual de cada ferramenta.
 
 
-inventor
+Editor RAW
+Um editor de fotos RAW fácil de usar, mas muito poderoso, que oferece muitas vantagens para fotografar imagens originais. Permite qualidade de edição impossível em comparação com imagens JPEG.
+
+
+Descubridor
 Extrair todas as informações, como números de telefone, endereços, datas, URLs ou até código de voo e as informações de preços das suas fotos ou capturas de tela, e depois fazer as coisas certas. Você também pode traduzir ou salvar todos como texto bruto.
 Muitas ações serão atualizadas!
 

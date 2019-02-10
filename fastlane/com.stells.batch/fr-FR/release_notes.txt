@@ -1,2 +1,2 @@
-++ Un nouvel outil - Adjustments 1.0: Un outil de retouche photo hautement professionnel qui permet d’éditer en détail chaque propriété, par exemple l’intensité de l’exposition, le rayon de la vignette, etc.
-+ Beaucoup d'améliorations de performances essentielles pour les pré-processeurs d'images et la prévisualisation des vignettes.
+++ NOUVEAU - RAW Editor 1.0: Un éditeur de photos RAW facile à utiliser mais très puissant qui offre de nombreux avantages pour la prise de vue d’images non traitées. Permet une qualité d'édition impossible par rapport aux images JPEG.
++ Beaucoup d'améliorations et de corrections de performances.

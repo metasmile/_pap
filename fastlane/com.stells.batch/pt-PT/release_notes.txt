@@ -1,2 +1,2 @@
-+ + Uma nova ferramenta - Ajustes 1.0: Uma ferramenta de edição de fotos altamente profissional para editar habilmente para cada propriedade em detalhes, por exemplo, intensidade de exposição, raio de vinheta ou muito mais.
-+ Muitas melhorias essenciais de desempenho para pré-processadores de imagem e visualização de miniaturas.
+++ NEW - RAW Editor 1.0: Um editor de fotos RAW fácil de usar, mas muito poderoso, que oferece muitas vantagens para fotografar imagens não processadas. Permite qualidade de edição impossível em comparação com imagens JPEG.
++ Muitas melhorias e correções de desempenho.
