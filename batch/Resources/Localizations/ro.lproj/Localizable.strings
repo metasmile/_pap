@@ -118,18 +118,10 @@
 "cs_keyword_12" = "prieten";
 /*Translated from: lover*/
 "cs_keyword_13" = "amant";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Imagine animată";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Imagini animate";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ziua";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Descarcă acum GRATUIT!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Fotografie live";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Fotografii live";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Proprietate";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "N-am putut detecta nimic.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Nu s-a putut primi anunțuri.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Creați și salvați ca fotografii noi";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Crea";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesaj către noi";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Modificați elementele selectate";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Salvează rezultatele ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Salvarea sau partajarea fotografiilor Live Photo numai ca fotografie statică.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Distribuie aceasta aplicatie";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Împărtășește-ți talentul, fă Împreună. Obțineți fiecare recompensă dacă este adoptată.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Trimiteți direct după salvare";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Trimiteți direct, fără a salva sau a modifica";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */

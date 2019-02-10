@@ -64,18 +64,10 @@
 "cs_keyword_11" = "家庭";
 "cs_keyword_12" = "朋友";
 "cs_keyword_13" = "情人";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@動畫圖片";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@動畫圖片";
 /* Generated from genl10n: AppCenter.Charge.swift#311, Charge.Types.Trialable.swift#22 */
 "%@ Day" = "%@天";
 /* Generated from genl10n: InfoStrings.swift#50 */
 "%@ Download now for FREE!" = "%@立即免費下載！";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@現場照片";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@實時照片";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@所有權";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -274,8 +266,6 @@
 "Could not detect anything." = "無法檢測到任何東西。";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "無法接收廣告。";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "創建並保存為新照片";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#57 */
 "Create" = "創建";
 /* Generated from genl10n: GIFMaker.BApp.swift#508 */
@@ -462,8 +452,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "修改所選項目";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
 /* Generated from genl10n: RawEditor.swift */
@@ -622,8 +610,6 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "保存結果...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "僅將Live Photo保存或共享為靜態照片。";
 /* Generated from genl10n: Stabilizer.BApp.swift#424, PDFMaker.AppDockContent.swift#146 */
 "Scale To Fit" = "縮放以適應";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
@@ -662,10 +648,6 @@
 "Share This App" = "分享這個應用程式";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才華，團結一致。如果採納，則獲得每項獎勵。";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "保存後直接分享";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "直接共享而不保存或修改";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payment.SocialShare.Facebook.swift#73, Shop.Payment.SocialShare.Facebook.swift#138, Shop.Payment.SocialShare.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
 /* Generated from genl10n: RawEditor.swift */

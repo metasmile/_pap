@@ -118,18 +118,10 @@
 "cs_keyword_12" = "Freund";
 /*Translated from: lover*/
 "cs_keyword_13" = "Liebhaber";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Animiertes Bild";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Animierte Bilder";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Tag";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Jetzt kostenlos herunterladen!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Live-Foto";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Live-Fotos";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Eigentum";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Konnte nichts erkennen.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Es konnten keine Anzeigen empfangen werden.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Erstellen Sie Ihre Fotos und speichern Sie sie als neu";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Erstellen";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Nachricht an uns";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Ändern Sie die ausgewählten Elemente";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "sparen";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ergebnisse speichern ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Speichern oder Freigeben von Live Photo nur als Standbild.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Passend skalieren";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Teile diese App";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Teilen Sie Ihr Talent, machen Sie zusammen. Besorgen Sie jede Belohnung, wenn sie angenommen wird.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Direkt nach dem Speichern teilen";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Teilen Sie direkt, ohne zu speichern oder zu ändern";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Aktie";
 /* Generated from genl10n: RawEditor.swift */

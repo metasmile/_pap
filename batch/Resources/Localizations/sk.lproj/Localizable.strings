@@ -118,18 +118,10 @@
 "cs_keyword_12" = "priateľ";
 /*Translated from: lover*/
 "cs_keyword_13" = "milovník";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Animovaný obrázok";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Animované obrázky";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Deň";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Prevziať teraz ZDARMA!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Živá fotka";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Fotografie naživo";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Vlastníctvo";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Nie je možné zistiť nič.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Nepodarilo sa prijímať reklamy.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Vytvorte a uložte svoje fotky ako nové";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "vytvoriť";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Správa nám";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Upravte vybrané položky";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Uložiť";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Ukladanie výsledkov ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Ukladanie alebo zdieľanie služby Live Photo iba ako statická fotografia.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Zväčšiť aby to sedelo";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Zdieľať túto aplikáciu";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Zdieľajte svoj talent, spájajte. Získajte každú odmenu, ak ste boli prijatí.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Zdieľať priamo po uložení";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Zdieľať priamo bez uloženia alebo úpravy";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "zdieľam";
 /* Generated from genl10n: RawEditor.swift */

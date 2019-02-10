@@ -118,18 +118,10 @@
 "cs_keyword_12" = "Venn";
 /*Translated from: Lover*/
 "cs_keyword_13" = "Lover";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Animert bilde";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Animerte bilder";
 /* Generated from genl10n: AppCenter.Charge.swift, Charge.Types.Trialable.swift */
 "%@ Day" = "%@ Dag";
 /* Generated from genl10n: InfoStrings.swift */
 "%@ Download now for FREE!" = "%@ Last ned nå GRATIS!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Live Photo";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Live-bilder";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "%@ Ownership" = "%@ Eierskap";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Kunne ikke oppdage noe.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "Could not receive Ads." = "Kunne ikke motta annonser.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Opprett og lagre som ny på bildene dine";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Skape";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Melding til oss";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Endre de valgte elementene";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "endre";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Lagre";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Lagrer resultater ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Lagrer eller deler Live Photo som bare et stillbilde.";
 /* Generated from genl10n: Stabilizer.BApp.swift, PDFMaker.AppDockContent.swift */
 "Scale To Fit" = "Skala for å passe";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift */
@@ -716,10 +702,6 @@
 "Share This App" = "Del denne appen";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Del talentet ditt, gjør sammen. Få hver belønning hvis vedtatt.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Del direkte etter lagring";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Del direkte uten å lagre eller endre";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.Facebook.swift, Shop.Payment.SocialShare.swift, Shop.SApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
 "Share" = "Dele";
 /* Generated from genl10n: RawEditor.swift */

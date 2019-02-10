@@ -118,18 +118,10 @@
 "cs_keyword_12" = "חָבֵר";
 /*Translated from: lover*/
 "cs_keyword_13" = "מְאַהֵב";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ תמונה מונפשת";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ תמונות מונפשות";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ יום";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ הורד כעת בחינם!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ תמונה חיה";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ תמונות חיות";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ בעלות";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "לא הצלחתי לזהות שום דבר.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "לא ניתן היה לקבל מודעות.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "ליצור ולשמור חדש בתמונות שלך";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "לִיצוֹר";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "זיכרון";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "שנה את הפריטים שנבחרו";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "שמירה או שיתוף של Live Photo כתמונת סטילס בלבד.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "קנה מידה להתאמה";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "שתף את זה App";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. השג כל תגמול אם מאומץ.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "שתף ישירות לאחר השמירה";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "שתף ישירות ללא שמירה או שינוי";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
 /* Generated from genl10n: RawEditor.swift */

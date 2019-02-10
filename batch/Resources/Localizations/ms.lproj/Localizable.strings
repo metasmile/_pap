@@ -118,18 +118,10 @@
 "cs_keyword_12" = "kawan";
 /*Translated from: lover*/
 "cs_keyword_13" = "kekasih";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Imej Animasi";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Imej Animasi";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Hari";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Muat turun sekarang secara PERCUMA!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Foto Langsung";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Foto Live";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Pemilikan";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Tidak dapat mengesan apa-apa.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Tidak dapat menerima Iklan.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Buat dan simpan sebagai yang baru pada foto anda";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Buat";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Ubah suai item yang dipilih";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Simpan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Keputusan ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Menyimpan atau berkongsi Foto Langsung sebagai foto pegun sahaja.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Skala Untuk Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Kongsi Aplikasi ini";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Ganjaran Jika Dipercayai.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Kongsi terus selepas menyimpan";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Berkongsi secara langsung tanpa menyimpan atau mengubah suai";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
 /* Generated from genl10n: RawEditor.swift */

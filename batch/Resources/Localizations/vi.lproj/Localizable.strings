@@ -118,18 +118,10 @@
 "cs_keyword_12" = "người bạn";
 /*Translated from: lover*/
 "cs_keyword_13" = "người yêu";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Hình ảnh hoạt hình";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Hình ảnh hoạt hình";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ngày";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Tải xuống miễn phí!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Ảnh trực tiếp";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Ảnh trực tiếp";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Quyền sở hữu";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Không thể phát hiện bất cứ điều gì.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Không thể nhận quảng cáo.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Tạo và lưu như mới cho ảnh của bạn";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Tạo nên";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Thông báo cho chúng tôi";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Sửa đổi các mục đã chọn";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Sửa đổi";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Đang lưu kết quả ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Lưu hoặc chia sẻ Live Photo dưới dạng ảnh tĩnh.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Mở rộng để phù hợp với";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Chia sẻ tài năng của bạn, Cùng nhau làm. Nhận được mỗi phần thưởng nếu được chấp nhận.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Chia sẻ trực tiếp sau khi lưu";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Chia sẻ trực tiếp mà không lưu hoặc sửa đổi";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Chia sẻ";
 /* Generated from genl10n: RawEditor.swift */

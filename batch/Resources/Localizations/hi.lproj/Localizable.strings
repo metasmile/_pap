@@ -118,18 +118,10 @@
 "cs_keyword_12" = "दोस्त";
 /*Translated from: lover*/
 "cs_keyword_13" = "प्रेमी";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ एनिमेटेड इमेज";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ एनिमेटेड छवियाँ";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ दिन";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ अब मुफ्त में डाउनलोड करें!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ लाइव फोटो";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ लाइव तस्वीरें";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ स्वामित्व";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "कुछ भी पता नहीं लगा सका।";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "विज्ञापन प्राप्त नहीं कर सका";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "अपनी तस्वीरों के लिए नए रूप में बनाएं और सहेजें";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Create";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "हमें संदेश";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "चयनित आइटम संशोधित करें";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "बचाना";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "परिणाम सहेजा जा रहा है ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "अभी भी केवल फोटो के रूप में लाइव फोटो को सहेजना या साझा करना";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "फिट पैमाने";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "अपनी प्रतिभा साझा करें, एक साथ बनाओ। अगर अपनाया गया तो प्रत्येक पुरस्कार प्राप्त करें।";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "बचत करने के बाद सीधे साझा करें";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "बचत या संशोधन के बिना सीधे साझा करें";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "शेयर";
 /* Generated from genl10n: RawEditor.swift */

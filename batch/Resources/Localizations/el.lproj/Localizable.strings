@@ -118,18 +118,10 @@
 "cs_keyword_12" = "φίλος";
 /*Translated from: lover*/
 "cs_keyword_13" = "εραστής";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Image" = "%@ Κινούμενη εικόνα";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Animated Images" = "%@ Κινούμενες εικόνες";
 /* Generated from genl10n: AppCenter.Charge.swift#45 */
 "%@ Day" = "%@ Ημέρα";
 /* Generated from genl10n: InfoStrings.swift#41 */
 "%@ Download now for FREE!" = "%@ Κάντε λήψη τώρα ΔΩΡΕΑΝ!";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photo" = "%@ Ζωντανή φωτογραφία";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"%@ Live Photos" = "%@ Ζωντανές φωτογραφίες";
 /* Generated from genl10n: AppCenter.Charge.swift#396 */
 "%@ Ownership" = "%@ Ιδιοκτησία";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -328,8 +320,6 @@
 "Could not detect anything." = "Δεν μπορούσε να ανιχνεύσει τίποτα.";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#199 */
 "Could not receive Ads." = "Δεν ήταν δυνατή η λήψη διαφημίσεων.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Create and save as new to your photos" = "Δημιουργήστε και αποθηκεύστε ως νέες στις φωτογραφίες σας";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Create" = "Δημιουργώ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -516,8 +506,6 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Modify the selected items" = "Τροποποιήστε τα επιλεγμένα στοιχεία";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
 /* Generated from genl10n: RawEditor.swift */
@@ -676,8 +664,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Αποθήκευση ή κοινή χρήση της Live Photo ως μόνο φωτογραφίας.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -716,10 +702,6 @@
 "Share This App" = "Μοιραστείτε αυτήν την εφαρμογή";
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly after saving" = "Μοιραστείτε άμεσα μετά την αποθήκευση";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Share directly without saving or modifying" = "Μοιραστείτε απευθείας χωρίς αποθήκευση ή τροποποίηση";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
 /* Generated from genl10n: RawEditor.swift */
