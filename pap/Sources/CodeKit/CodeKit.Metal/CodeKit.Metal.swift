@@ -75,7 +75,7 @@ public class MTLContext {
 }
 
 extension MTLContext {
-    func makeRenderPipelineState(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String) -> MTLRenderPipelineState? {
+    func makeRenderPipelineState(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String, pixelFormat: MTLPixelFormat = .rgba8Unorm) -> MTLRenderPipelineState? {
         guard
             let vertexFunction = library?.makeFunction(name: vertexFunctionName),
             let fragmentFunction = library?.makeFunction(name: fragmentFunctionName)
@@ -84,7 +84,7 @@ extension MTLContext {
         }
         
         let descriptor = MTLRenderPipelineDescriptor()
-        descriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.bgra8Unorm
+        descriptor.colorAttachments[0].pixelFormat = pixelFormat
         descriptor.rasterSampleCount = 1
         descriptor.vertexFunction = vertexFunction
         descriptor.fragmentFunction = fragmentFunction
@@ -111,29 +111,37 @@ extension MTLTexture {
 }
 
 extension MTLCommandBuffer {
-    func renderQuad(pipelineState: MTLRenderPipelineState, inputTexture: MTLTexture, useNormalizedTextureCoordinates: Bool = true, imageVertices: [Float] = MTLUtility.standardImageVertices, outputTexture: MTLTexture) {
+    func renderQuad(pipelineState: MTLRenderPipelineState, inputTexture: MTLTexture, useNormalizedTextureCoordinates: Bool = true, imageVertices: [Float] = MTLUtility.standardImageVertices, outputTexture: MTLTexture, vertexBuffers: [MTLBuffer]? = nil) {
         guard let vertexBuffer = MTLContext.shared.device.makeBuffer(bytes: imageVertices, length: imageVertices.count * MemoryLayout<Float>.size, options: []) else { return }
         vertexBuffer.label = "Vertices"
         
         let renderPass = MTLRenderPassDescriptor()
         renderPass.colorAttachments[0].texture = outputTexture
-        renderPass.colorAttachments[0].clearColor = MTLClearColorMake(1, 0, 0, 1)
+        renderPass.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 1)
         renderPass.colorAttachments[0].storeAction = .store
         renderPass.colorAttachments[0].loadAction = .clear
         
         guard let renderEncoder = self.makeRenderCommandEncoder(descriptor: renderPass) else { return }
         renderEncoder.setFrontFacing(.counterClockwise)
         renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        
+        var vertexBufferIndex = 0
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: vertexBufferIndex)
+        vertexBufferIndex += 1
         
         let inputTextureCoordinates = inputTexture.textureCoordinates( normalized:useNormalizedTextureCoordinates)
         guard let textureBuffer = MTLContext.shared.device.makeBuffer(bytes: inputTextureCoordinates, length: inputTextureCoordinates.count * MemoryLayout<Float>.size, options: []) else { return }
         textureBuffer.label = "Texture Coordinates"
         
-        renderEncoder.setVertexBuffer(textureBuffer, offset: 0, index: 1)
+        renderEncoder.setVertexBuffer(textureBuffer, offset: 0, index: vertexBufferIndex)
+        vertexBufferIndex += 1
+        
         renderEncoder.setFragmentTexture(inputTexture, index: 0)
         
-//        uniformSettings?.restoreShaderSettings(renderEncoder: renderEncoder)
+        for (idx, vertexBuffer) in (vertexBuffers ?? []).enumerated() {
+            renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: idx + vertexBufferIndex)
+        }
+        
         renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
         renderEncoder.endEncoding()
     }
@@ -179,7 +187,7 @@ class CIImageView: MTKView {
         clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
         autoResizeDrawable = true
         
-        renderPipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: "oneInputVertex", fragmentFunction: "passthroughFragment")
+        renderPipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: "oneInputVertex", fragmentFunction: "passthroughFragment", pixelFormat: .bgra8Unorm)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -206,6 +214,19 @@ class CIImageView: MTKView {
         
         commandBuffer?.present(currentDrawable)
         commandBuffer?.commit()
+    }
+}
+
+extension MTLUtility {
+    static func commitShader(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String = "passthroughFragment", input inputTexture: MTLTexture, output outputTexture: MTLTexture, vertexBuffers: [MTLBuffer]? = nil) {
+        guard
+            let commandQueue = MTLContext.shared.device.makeCommandQueue(),
+            let commandBuffer = commandQueue.makeCommandBuffer(),
+            let pipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: vertexFunctionName, fragmentFunction: fragmentFunctionName)
+            else { return }
+        
+        commandBuffer.renderQuad(pipelineState: pipelineState, inputTexture: inputTexture, outputTexture: outputTexture, vertexBuffers: vertexBuffers)
+        commandBuffer.commit()
     }
 }
 
