@@ -44,7 +44,7 @@ public extension UIImage {
             return stabilizeHomographic(with: image, crop: mode.contains(.crop))
         }
         else {
-            return image
+            return self
         }
     }
 
