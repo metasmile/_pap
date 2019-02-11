@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Επιλέξτε μια επιλογή εξαγωγής για %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Επιλέξτε μερικές φωτογραφίες που θέλετε να βρείτε ετικέτες.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Χρωματισμός Χ";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Χρωματικότητα Υ";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner σάς δίνει τη δυνατότητα να βρείτε και να διαγράψετε διάφορα είδη λανθασμένων φωτογραφιών, αν έχουν αντιστοιχιστεί, για παράδειγμα, διπλότυπα και παρόμοιες εικόνες, φωτογραφίες κοντά στο σκοτάδι ή λήψεις Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Τροποποίηση και κοινή χρήση";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Τροποποιήστε τα επιλεγμένα στοιχεία";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Τροποποιώ";
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Αποθήκευση αποτελεσμάτων ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Αποθήκευση ή κοινή χρήση της Live Photo ως μόνο φωτογραφίας.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Μοιραστείτε το ταλέντο σας, κάνετε μαζί. Αποκτήστε κάθε ανταμοιβή εάν εγκριθεί.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Μοιραστείτε άμεσα μετά την τροποποίηση";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Μοιραστείτε άμεσα μετά την αποθήκευση";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Μοιραστείτε απευθείας χωρίς αποθήκευση ή τροποποίηση";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Μερίδιο";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Κοινή χρήση μιας ζωντανής φωτογραφίας μόνο ως φωτογραφική μηχανή μόνο.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Ακόνισμα";
 /* Generated from genl10n: Adjustments.BApp.swift */

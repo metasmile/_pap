@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "เลือกตัวเลือกการส่งออกสำหรับ %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "เลือกรูปภาพที่คุณต้องการหาแท็ก";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Chromaticity X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Chromaticity Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner ช่วยให้คุณสามารถค้นหาและลบรูปภาพประเภทต่างๆที่ไม่ถูกต้องหากจับคู่กันได้เช่นภาพที่ซ้ำกันและภาพใกล้เคียงกันหรือภาพ Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "ข้อความถึงเรา";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "แก้ไขและแบ่งปัน";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "ปรับเปลี่ยนรายการที่เลือก";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "แก้ไข";
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "กำลังบันทึกผลลัพธ์ ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "การบันทึกหรือแบ่งปัน Live Photo เป็นภาพนิ่งเท่านั้น";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "ปรับให้พอดี";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "แบ่งปันความสามารถพิเศษของคุณร่วมกัน ได้รับรางวัลถ้าได้รับ";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "แชร์โดยตรงหลังจากแก้ไข";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "แชร์โดยตรงหลังจากบันทึก";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "แชร์โดยตรงโดยไม่บันทึกหรือแก้ไข";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "หุ้น";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "การแบ่งปันภาพถ่ายสดโดยตรงเป็นภาพนิ่งเท่านั้น";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "การเหลา";
 /* Generated from genl10n: Adjustments.BApp.swift */

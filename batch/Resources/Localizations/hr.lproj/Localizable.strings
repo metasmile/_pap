@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Odaberite opciju izvoza za %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Odaberite neke fotografije koje želite pronaći oznake.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Kromatičnost X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Kromatičnost Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Čistač vam omogućuje da pronađete i izbrišete različite vrste netočnih fotografija ako se primjerice podudaraju s dupliciranim i sličnim slikama, fotografijama izbliza ili snimkama sa zasuna zaslona!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Poruka nam";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Izmijenite i dijelite";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Izmijenite odabrane stavke";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Spremanje rezultata ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Spremanje ili dijeljenje Live fotografije samo kao fotografija.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Skala za prilagodbu";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dijelite svoj talent, napravite zajedno. Preuzmite svaku nagradu ako se usvoji.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Dijelite odmah nakon izmjene";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Dijelite odmah nakon spremanja";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Dijelite izravno bez spremanja ili izmjene";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Udio";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Dijeljenje žive fotografije izravno kao fotografija.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "oštrenje";
 /* Generated from genl10n: Adjustments.BApp.swift */

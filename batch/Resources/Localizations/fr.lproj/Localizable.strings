@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Choisissez une option d'exportation pour %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Choisissez les photos que vous souhaitez rechercher.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Chromaticité X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Chromaticité Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vous permet de trouver et de supprimer différents types de photos incorrectes si elles correspondent, par exemple, des images en double et des images similaires, des photos en gros plan ou des captures d'écran!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -391,7 +387,7 @@
 /* Generated from genl10n: Finder.BApp.swift */
 "Finder enables extracting every meaningful information such as phone numbers, addresses, dates or URLs from your photos, and then call, open maps or navigate websites even search flights. You also can save them all as raw text." = "Le Finder permet d'extraire toutes les informations utiles telles que les numéros de téléphone, adresses, dates ou URL de vos photos, puis d'appeler, d'ouvrir des cartes ou de naviguer sur des sites Web, voire de rechercher des vols. Vous pouvez également les enregistrer en tant que texte brut.";
 /* Generated from genl10n: Finder.BApp.swift */
-"Finder" = "chercheur";
+"Finder" = "Finder";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Finding Hashtags In Photos..." = "Trouver des hashtags dans les photos ...";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -516,6 +512,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Message à nous";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Modifier et partager";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modifier les éléments sélectionnés";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Sauvegarder les résultats ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Enregistrement ou partage de Live Photo en tant que photo fixe uniquement.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Échelle à adapter";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Partagez votre talent, faites ensemble. Obtenez chaque récompense si elle est adoptée.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Partager directement après modification";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Partager directement après avoir économisé";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Partager directement sans enregistrer ou modifier";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Partager";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Partager une photo en direct directement en tant que photo fixe.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Affûtage";
 /* Generated from genl10n: Adjustments.BApp.swift */

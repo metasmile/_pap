@@ -14,7 +14,11 @@ Sélection automatique (système ASB)
 ASB est un moteur d'assistance polyvalent permettant de choisir les bons éléments dans le contexte actuel pour chaque outil.
 
 
-chercheur
+Éditeur RAW
+Un éditeur de photos RAW facile à utiliser mais très puissant qui offre de nombreux avantages pour la prise de vue d’images originales. Permet une qualité d'édition impossible par rapport aux images JPEG.
+
+
+Finder
 Extraire toutes les informations telles que les numéros de téléphone, adresses, dates, URL ou même les codes de vol et les informations de prix de vos photos ou captures d'écran, puis effectuez les actions appropriées. Vous pouvez également les traduire ou les enregistrer sous forme de texte brut.
 De nombreuses actions vont être mises à jour!
 
@@ -62,10 +66,6 @@ Auto Editor vous permet d'éditer automatiquement si vos photos sont nécessaire
 
 Hashtag
 Rechercher et collecter des hashtags à partir des photos que vous avez sélectionnées.
-
-
-Les filtres
-Appliquez des filtres de haute qualité sur toutes vos photos. Cet outil de traitement par lots n’a pas de limite au nombre de photos à appliquer aux filtres.
 
 
 PDFMaker

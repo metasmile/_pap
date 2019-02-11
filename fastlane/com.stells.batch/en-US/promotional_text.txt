@@ -1,2 +1,2 @@
-+ HashTag 1.0 - Finding and collecting hashtags from your photos.
-+ Camera 1.2 - RAW format, depth effect, GPS metadata control.
++ Adjustments - A highly professional photo editing tool.
++ HashTag - Finding and collecting hashtags from your photos.

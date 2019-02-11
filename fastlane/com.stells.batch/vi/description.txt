@@ -14,7 +14,11 @@ Bot chọn tự động (Hệ thống ASB)
 ASB là một công cụ trợ lý đa năng để chọn các mục phù hợp trong bối cảnh hiện tại cho mỗi công cụ.
 
 
-người tìm ra
+RAW editor
+Trình chỉnh sửa ảnh RAW dễ sử dụng nhưng rất mạnh mẽ cung cấp nhiều lợi thế để chụp ảnh gốc. Cho phép chất lượng chỉnh sửa không thể so với hình ảnh JPEG.
+
+
+Finder
 Trích xuất mọi thông tin như số điện thoại, địa chỉ, ngày, URL hoặc thậm chí mã chuyến bay và thông tin về giá từ ảnh hoặc ảnh chụp màn hình của bạn, sau đó thực hiện đúng. Bạn cũng có thể dịch hoặc lưu tất cả chúng dưới dạng văn bản thô.
 Nhiều hành động sẽ được cập nhật!
 

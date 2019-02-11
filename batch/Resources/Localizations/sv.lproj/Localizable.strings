@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Välj ett exportalternativ för %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Välj några foton du vill hitta taggar.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Kromaticitet X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Kromaticitet Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner gör att du kan hitta och ta bort olika typer av felaktiga foton om de har matchat till exempel dubbla och liknande bilder, närbilder eller Lockscreen-bilder!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Meddelande till oss";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Ändra och dela";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Ändra de valda objekten";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
@@ -676,8 +674,6 @@
 "Save" = "Spara";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Spara resultat ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Spara eller dela Live Photo som enbart stillbild.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Skalan ska passa";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Dela din talang, gör tillsammans. Få varje belöning om det antas.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Dela direkt efter modifiering";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Dela direkt efter att du har sparat";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Dela direkt utan att spara eller ändra";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Dela ett Live-foto direkt som ett stillbild.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Skärpning";
 /* Generated from genl10n: Adjustments.BApp.swift */

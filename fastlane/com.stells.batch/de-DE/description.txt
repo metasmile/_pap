@@ -14,6 +14,10 @@ Auto Selection Bot (ASB-System)
 ASB ist eine Mehrzweck-Assistenten-Engine zur Auswahl der richtigen Elemente im aktuellen Kontext für jedes Werkzeug.
 
 
+RAW-Editor
+Ein benutzerfreundlicher, aber sehr leistungsfähiger RAW-Fotoeditor, der viele Vorteile beim Aufnehmen von Originalbildern bietet. Ermöglicht eine im Vergleich zu JPEG-Bildern unmögliche Bearbeitungsqualität.
+
+
 Finder
 Extrahieren Sie alle Informationen wie Telefonnummern, Adressen, Datumsangaben, URLs oder sogar den Flugcode und die Preisinformationen aus Ihren Fotos oder Screenshots, und machen Sie dann die richtigen Schritte. Sie können sie auch als unformatierten Text übersetzen oder speichern.
 Viele Aktionen werden aktualisiert!
@@ -62,13 +66,6 @@ Mit dem automatischen Editor können Sie automatisch bearbeiten, wenn Ihre Fotos
 
 Hashtag
 Suchen und Sammeln von Hashtags aus den von Ihnen ausgewählten Fotos.
-
-
-Filter
-Wenden Sie hochwertige Filter auf alle gewünschten Fotos an. Dieses Stapelverarbeitungswerkzeug hat keine Begrenzung für die Anzahl der Fotos, um Filter anzuwenden.
-
-• Geprüfte Verarbeitungskapazität: 2000 + ein Foto auf einmal bei mininum.
-• Optimiert für die Multi-Core-Verarbeitung. Dies hängt von der Bildgröße und den iDevice-Modellen ab.
 
 
 PDFMaker
