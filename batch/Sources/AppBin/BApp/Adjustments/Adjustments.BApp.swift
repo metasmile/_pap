@@ -334,7 +334,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
         return autoreleasepool { () -> CIImage? in
             guard let image = inputImage else { return nil }
             let params = adjustmentItems.compactMap { $0.value.number }
-            return image.applyMetalShader("fadeEffect", params: params)
+            return image.applyMetalComputeShader("fadeEffect", params: params)
         }
     }
 }

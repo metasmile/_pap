@@ -9,30 +9,49 @@
 #include <metal_stdlib>
 using namespace metal;
 
-#include <CoreImage/CoreImage.h>
-
-struct destination {
-    float2 coord() const;
+struct SingleInputVertexIO
+{
+    float4 position [[position]];
+    float2 textureCoordinate [[user(texturecoord)]];
 };
 
-struct sampler {
-    float2 transform(float2 p) const;
-    float2 coord() const;
-    float4 sample(float2 p) const;
-    float4 extent() const;
-};
+typedef struct {
+    float2 translation;
+    float3x3 matrix;
+    float2 size;
+    float2 clampRange;
+} WarpMatrix;
 
-extern "C" {
-    namespace coreimage {
-        float2 warpHomographic(float3x3 h, float2 cmin, float2 cmax, destination dest) {
-            float3 homogeneousDestCoord = float3(dest.coord(), 1.0);
-            float3 homogeneousSrcCoord = h * homogeneousDestCoord;
-            float2 srcCoord = homogeneousSrcCoord.xy / max(homogeneousSrcCoord.z, 0.000001);
-            return dest.coord() + clamp(dest.coord() - srcCoord, cmin, cmax);
-        }
-        
-        float2 warpTranslation(float2 t, float2 cmin, float2 cmax, destination dest) {
-            return dest.coord() + clamp(t, cmin, cmax);
-        }
-    }
+vertex SingleInputVertexIO warpHomographic(device packed_float2 *position [[buffer(0)]],
+                                           device packed_float2 *texturecoord [[buffer(1)]],
+                                           constant WarpMatrix &warpMatrix [[buffer(2)]],
+                                           uint vid [[vertex_id]])
+{
+    SingleInputVertexIO outputVertices;
+    
+    float2 destCoord = position[vid] * warpMatrix.size;
+    float3 homogeneousDestCoord = float3(destCoord, 1.0);
+    float3 homogeneousSrcCoord = warpMatrix.matrix * homogeneousDestCoord;
+    float2 srcCoord = homogeneousSrcCoord.xy / max(homogeneousSrcCoord.z, 0.000001);
+    float2 translation = clamp(destCoord - srcCoord, -warpMatrix.clampRange, warpMatrix.clampRange);
+    
+    outputVertices.position = float4((destCoord + translation) / warpMatrix.size, 0, 1.0);
+    outputVertices.textureCoordinate = texturecoord[vid];
+    
+    return outputVertices;
+}
+
+vertex SingleInputVertexIO warpTranslation(device packed_float2 *position [[buffer(0)]],
+                                           device packed_float2 *texturecoord [[buffer(1)]],
+                                           constant WarpMatrix &warpMatrix [[buffer(2)]],
+                                           uint vid [[vertex_id]])
+{
+    SingleInputVertexIO outputVertices;
+    
+    float2 destCoord = position[vid];
+    
+    outputVertices.position = float4(destCoord + clamp(warpMatrix.translation, -warpMatrix.clampRange, warpMatrix.clampRange), 0, 1.0);
+    outputVertices.textureCoordinate = texturecoord[vid];
+    
+    return outputVertices;
 }

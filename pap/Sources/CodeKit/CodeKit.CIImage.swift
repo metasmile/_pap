@@ -90,7 +90,7 @@ extension CIImage {
 }
 
 extension CIImage {
-    func applyMetalShader(_ functionName: String, params parameters: [Any]? = nil) -> CIImage? {
+    func applyMetalComputeShader(_ functionName: String, params parameters: [Any]? = nil) -> CIImage? {
         return autoreleasepool { () -> CIImage? in
             guard
                 let inputTexture = self.asMTLTexture,
@@ -111,6 +111,33 @@ extension CIImage {
                 buffer.flush()
             }
             uniformValues.removeAll()
+            
+            let image = CIImage(mtlTexture: outputTexture, options: [
+                CIImageOption.colorSpace: defaultColorSpace
+            ])
+            
+            outputTexture.flush()
+            
+            return image
+        }
+    }
+}
+
+extension CIImage {
+    func applyMetalShader(vetexFunction vetexFunctionName: String = "oneInputVertex", fragmentFunction fragmentFunctionName: String = "passthroughFragment", uniformValues: [MTLBuffer]? = nil) -> CIImage? {
+        return autoreleasepool { () -> CIImage? in
+            guard
+                let inputTexture = self.asMTLTexture,
+                let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+                else { return nil }
+            
+            MTLUtility.commitShader(vertexFunction: vetexFunctionName, fragmentFunction: fragmentFunctionName, input: inputTexture, output: outputTexture, vertexBuffers: uniformValues)
+            
+            inputTexture.flush()
+            
+            for buffer in uniformValues ?? [] {
+                buffer.flush()
+            }
             
             let image = CIImage(mtlTexture: outputTexture, options: [
                 CIImageOption.colorSpace: defaultColorSpace

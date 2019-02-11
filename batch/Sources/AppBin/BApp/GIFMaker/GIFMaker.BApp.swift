@@ -32,6 +32,7 @@ protocol GIFMakerDefaults: AppDefaults{
     var direction: Int {get set}
     var gifQuality: Double {get set}
     var loopCount: Int {get set}
+    var stabilization: ImageAlignment.StabilizationMode {get set}
 }
 
 extension Defaults: GIFMakerDefaults {
@@ -73,6 +74,11 @@ extension Defaults: GIFMakerDefaults {
     var loopCount: Int {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0)}
+    }
+    
+    var stabilization: ImageAlignment.StabilizationMode {
+        set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
+        get { return ImageAlignment.StabilizationMode(rawValue: get(or: 0)) }
     }
 }
 
@@ -221,6 +227,28 @@ struct GIFMakerSettings {
             return (labels.first(where: { value == $0.value })?.key ?? .forward).rawValue
         }
     }
+    
+    struct stabilization {
+        static let none: ImageAlignment.StabilizationMode = ImageAlignment.StabilizationMode(rawValue: 0)
+        static let translation: ImageAlignment.StabilizationMode = [.translation, .crop]
+        static let homographic: ImageAlignment.StabilizationMode = [.homographic, .crop]
+        
+        static let labels: [ImageAlignment.StabilizationMode: String] = [
+            stabilization.none: "None".localized,
+            stabilization.translation: "Translation".localized,
+            stabilization.homographic: "Homographic".localized
+        ]
+        
+        static let orderedLabels: [String?] = [
+            labels[stabilization.none],
+            labels[stabilization.translation],
+            labels[stabilization.homographic],
+        ]
+        
+        static func key(with value: String) -> ImageAlignment.StabilizationMode {
+            return labels.first(where: { value == $0.value })?.key ?? stabilization.none
+        }
+    }
 }
 
 //MARK: -
@@ -313,13 +341,12 @@ public class GIFMakerApp: BApp,
         var results = [PHAssetResultItem]()
 
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
-        case .photo?:
-            let urls = resultItems.compactMap({ $0.result?.compactMap({ $0.url }) }).reduce([], +)
+            case .photo?:
+                let urls = resultItems.compactMap({ $0.result?.compactMap({ $0.url }) }).reduce([], +)
 
-            if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
-                results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
-            }
-
+                if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, stabilizationMode: defaults.stabilization, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
+                    results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
+                }
             default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset($0.asset), editingResultItems: $0.result) }))
         }
         
@@ -394,6 +421,7 @@ private enum Cells {
     case direction
     case gifQuality
     case loopCount
+    case stabilization
 }
 
 class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate,
@@ -602,9 +630,23 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         }
         cellDescribers.append(loopCell)
         
+        let stabilizationCell = UITableViewSegmentControlCellDescriber()
+        stabilizationCell.itemIdentifier = Cells.stabilization.hashValue
+        stabilizationCell.label = "Stabilization Mode".localized
+        stabilizationCell.valueGetter = { GIFMakerSettings.stabilization.labels[self.defaults.stabilization] }
+        stabilizationCell.valueCollection = GIFMakerSettings.stabilization.orderedLabels
+        stabilizationCell.valueHandler = {
+            if let index = $0 as? Int {
+                let key = GIFMakerSettings.stabilization.key(with: GIFMakerSettings.stabilization.orderedLabels[index] ?? "")
+                self.defaults.stabilization = key
+            }
+        }
+        cellDescribers.append(stabilizationCell)
+        
         sections.append(("GIF Maker".localized, [sourceTypeCell, exportCell]))
         sections.append(("Quality".localized, [cell0, cell1, qualityCell, cell2]))
         sections.append(("Animation".localized, [cell3, directionCell, loopCell]))
+        sections.append(("Advanced".localized, [stabilizationCell]))
 
         return cellDescribers
     }
