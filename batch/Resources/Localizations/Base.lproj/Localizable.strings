@@ -156,6 +156,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius.";
 /* genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Adjustments";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Advanced";
 /* genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
 /* genl10n: Shop.SApp.swift */
@@ -338,7 +340,7 @@
 "Enable Quick Actions" = "Enable Quick Actions";
 /* genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* genl10n: GIFMaker.BApp.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: App.Finalizable.PHAsset.swift, GIFMaker.BApp.swift */
 "Export" = "Export";
 /* genl10n: Adjustments.BApp.swift */
 "Exposure" = "Exposure";
@@ -414,7 +416,9 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
-/* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift */
+"Homographic" = "Homographic";
+/* genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
 "Image" = "Image";
@@ -494,7 +498,7 @@
 "New Event" = "New Event";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift */
 "New Number" = "New Number";
-/* genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift, Stabilizer.BApp.swift */
 "No Crop" = "No Crop";
 /* genl10n: GIFMaker.BApp.swift */
 "No loop" = "No loop";
@@ -508,6 +512,8 @@
 "Noise Reduction" = "Noise Reduction";
 /* genl10n: RawEditor.swift */
 "Noise Tracking" = "Noise Tracking";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "None";
 /* genl10n: Cleaner.BApp.swift, Hashtagen.BApp.swift, Finder.BApp.swift */
 "On Standby" = "On Standby";
 /* genl10n: AppCenter.Charge.swift */
@@ -708,7 +714,7 @@
 "Special Guest" = "Special Guest";
 /* genl10n: Resizer.BApp.swift(2), GIFMaker.BApp.swift */
 "Square" = "Square";
-/* genl10n: Stabilizer.BApp.swift */
+/* genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
 /* genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Stabilize";
@@ -794,6 +800,8 @@
 "Translate Now" = "Translate Now";
 /* genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
+/* genl10n: GIFMaker.BApp.swift */
+"Translation" = "Translation";
 /* genl10n: Resizer.BApp.swift(2) */
 "Twitter" = "Twitter";
 /* genl10n: Finder.BApp.swift */

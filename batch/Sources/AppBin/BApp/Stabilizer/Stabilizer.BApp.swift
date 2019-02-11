@@ -169,66 +169,6 @@ extension _StabilizerAppAsset: PHAssetVideoEditable {
                 return nil
         }
         
-        //TODO: Auto clamp ?
-//
-//        var assetReader: AVAssetReader?
-//        var assetReaderOutput: AVAssetReaderOutput?
-//
-//        do {
-//            let (reader, output) = try self.reader(asset: video, track: videoTrack, settings: [kCVPixelBufferPixelFormatTypeKey as String:
-//            NSNumber(value: kCVPixelFormatType_32BGRA)])
-//
-//            assetReader = reader
-//            assetReaderOutput = output
-//        }
-//        catch {}
-//
-//        let analyzing = AsyncSignal()
-//        analyzing.begin()
-//
-//        assetReaderOutput?.alwaysCopiesSampleData = false
-//
-//        DispatchQueue(label: Stabilizer.info.identifier + ".queue.analyzing").async {
-//            assetReader?.startReading()
-//
-//            var referenceBuffer: CVPixelBuffer?
-//
-//            while assetReader?.status == .reading {
-//                guard let sampleBuffer = assetReaderOutput?.copyNextSampleBuffer(), let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { continue }
-//
-//                guard let reference = referenceBuffer else {
-//                    referenceBuffer = pixelBuffer
-//                    continue
-//                }
-//
-//                if stabilizationMode == .translation {
-//                    guard let translation = ImageAlignment.translationTransform(reference, onto: pixelBuffer) else { continue }
-//
-//                    maximumClamp.x = max(maximumClamp.x, translation.tx.magnitude)
-//                    maximumClamp.y = max(maximumClamp.y, translation.ty.magnitude)
-//                }
-//                else if stabilizationMode == .homographic {
-//                    guard let homographic = ImageAlignment.homographicTransform(reference, onto: pixelBuffer) else { continue }
-//
-//                    let destCoord = float3(1, 1, 1)
-//                    let homogeneousSrcCoord = homographic * destCoord
-//                    let offsets = CGPoint(x: CGFloat(homogeneousSrcCoord.x / max(homogeneousSrcCoord.z, 0.000001)), y: CGFloat(homogeneousSrcCoord.y / max(homogeneousSrcCoord.z, 0.000001)))
-//
-//                    maximumClamp.x = max(maximumClamp.x, offsets.x.magnitude)
-//                    maximumClamp.y = max(maximumClamp.y, offsets.y.magnitude)
-//                }
-//
-//                referenceBuffer = pixelBuffer
-//            }
-//
-//            analyzing.end()
-//        }
-//
-//        analyzing.waitUntilEnd()
-//
-//        maximumClamp.x = min(maximumClamp.x, asset.pixelSize.width / 20)
-//        maximumClamp.y = min(maximumClamp.y, asset.pixelSize.height / 20)
-        
         var reqIDs = [PHAssetRequestID]()
         
         let r = self.requestContentEditing { _item in

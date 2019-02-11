@@ -21,7 +21,7 @@ import Vision
 public class ImageAlignment {
     static let sharedCIContext = CIContext.shared
     
-    public struct StabilizationMode: OptionSet {
+    public struct StabilizationMode: OptionSet, Hashable {
         public let rawValue: Int
         
         public static let homographic = StabilizationMode(rawValue: 1 << 0)
@@ -184,14 +184,8 @@ extension CIImage {
     }
     
     func applyHomographic(_ matrix: matrix_float3x3, crop: Bool) -> CIImage? {
-        let clamp = CGPoint(x: extent.width / 20, y: extent.height / 20)
-        var transform = CGAffineTransform.identity
-        
-        if crop {
-            let clamppedScale = max((extent.width + clamp.x) / extent.width, (extent.height + clamp.y) / extent.height)
-            transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
-            transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
-        }
+        let clamp: CGPoint = crop ? CGPoint(x: extent.width / 20, y: extent.height / 20) : .zero
+        let croppedRect = extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2)
         
         var value = WarpMatrix(matrix: matrix, size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
         
@@ -200,18 +194,12 @@ extension CIImage {
             uniformValues.append(buffer)
         }
         
-        return self.applyMetalShader(vetexFunction: "warpHomographic", uniformValues: uniformValues)?.oriented(.downMirrored).transformed(by: transform)
+        return self.applyMetalShader(vetexFunction: "warpHomographic", uniformValues: uniformValues)?.cropped(to: croppedRect).clamped(to: extent).oriented(.downMirrored)
     }
     
     func applyTranslation(_ translation: CGAffineTransform, crop: Bool) -> CIImage? {
-        let clamp = CGPoint(x: extent.width / 20, y: extent.height / 20)
-        var transform = CGAffineTransform.identity
-        
-        if crop {
-            let clamppedScale = max((extent.width + clamp.x) / extent.width, (extent.height + clamp.y) / extent.height)
-            transform = CGAffineTransform(scaleX: clamppedScale, y: clamppedScale)
-            transform = transform.translatedBy(x: -clamp.x / 2, y: -clamp.y / 2)
-        }
+        let clamp: CGPoint = crop ? CGPoint(x: extent.width / 20, y: extent.height / 20) : .zero
+        let croppedRect = extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2)
         
         var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
         
@@ -220,7 +208,7 @@ extension CIImage {
             uniformValues.append(buffer)
         }
         
-        return self.applyMetalShader(vetexFunction: "warpTranslation", uniformValues: uniformValues)?.oriented(.downMirrored).transformed(by: transform)
+        return self.applyMetalShader(vetexFunction: "warpTranslation", uniformValues: uniformValues)?.cropped(to: croppedRect).clamped(to: extent).oriented(.downMirrored)
     }
 }
 
