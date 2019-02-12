@@ -46,14 +46,14 @@ public extension UIImage {
     @objc
     public func stabilizeHomographic(with image: UIImage?, crop: Bool) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let ciImage = self.asCIImage, let warppedImage = ciImage.applyHomographic(matrix, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: ciImage.extent) else { return self }
+        guard let ciImage = self.asCIImage, let cgimage = ImageAlignment.sharedCIContext.createCGImage(ciImage.applyHomographic(matrix, crop: crop), from: ciImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
     public func stabilizeTranslation(with image: UIImage?, crop: Bool) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let ciImage = self.asCIImage, let transformedImage = ciImage.applyTranslation(transform, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: ciImage.extent) else { return self }
+        guard let ciImage = self.asCIImage, let cgimage = ImageAlignment.sharedCIContext.createCGImage(ciImage.applyTranslation(transform, crop: crop), from: ciImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
@@ -74,16 +74,14 @@ public extension CIImage {
     
     @objc
     public func stabilizeHomographic(with image: CIImage, crop: Bool) -> CIImage {
-        guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.applyHomographic(matrix, crop: crop) else { return self }
-        return warppedImage
+        let matrix = ImageAlignment.homographicTransform(image, onto: self)
+        return self.applyHomographic(matrix, crop: crop)
     }
     
     @objc
     public func stabilizeTranslation(with image: CIImage, crop: Bool) -> CIImage {
-        guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.applyTranslation(transform, crop: crop) else { return self }
-        return transformedImage
+        let transform = ImageAlignment.translationTransform(image, onto: self)
+        return self.applyTranslation(transform, crop: crop)
     }
 }
 
@@ -166,36 +164,42 @@ extension CIImage {
         }
     }
     
-    func applyHomographic(_ matrix: matrix_float3x3, crop: Bool) -> CIImage? {
+    func applyHomographic(_ matrix: matrix_float3x3?, crop: Bool) -> CIImage {
         let clamp: CGPoint = CGPoint(x: extent.size.minLength / 20, y: extent.size.minLength / 20)
         let croppedRect = crop ? extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2) : extent
         
-        var value = WarpMatrix(matrix: matrix, size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
-        
-        var uniformValues = [MTLBuffer]()
-        if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
-            uniformValues.append(buffer)
-        }
-        
         let transform = CGAffineTransform.identity.scaledBy(x: extent.width / croppedRect.width, y: extent.height / croppedRect.height).translatedBy(x: (croppedRect.width - extent.width) / 2, y: (croppedRect.height - extent.height) / 2)
         
-        return (self.applyMetalShader(vetexFunction: "warpHomographic", vertexUniforms: uniformValues) ?? self).cropped(to: croppedRect).transformed(by: transform)
+        return ({ () -> CIImage? in
+            guard let matrix = matrix else { return nil }
+            var value = WarpMatrix(matrix: matrix, size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
+            
+            var uniformValues = [MTLBuffer]()
+            if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
+                uniformValues.append(buffer)
+            }
+            
+            return self.applyMetalShader(vetexFunction: "warpHomographic", vertexUniforms: uniformValues)
+        }() ?? self).cropped(to: croppedRect).transformed(by: transform)
     }
     
-    func applyTranslation(_ translation: CGAffineTransform, crop: Bool) -> CIImage? {
+    func applyTranslation(_ translation: CGAffineTransform?, crop: Bool) -> CIImage {
         let clamp: CGPoint = CGPoint(x: extent.size.minLength / 20, y: extent.size.minLength / 20)
         let croppedRect = crop ? extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2) : extent
         
-        var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x / extent.width), y: Float(clamp.y / extent.height)))
-        
-        var uniformValues = [MTLBuffer]()
-        if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
-            uniformValues.append(buffer)
-        }
-        
         let transform = CGAffineTransform.identity.scaledBy(x: extent.width / croppedRect.width, y: extent.height / croppedRect.height).translatedBy(x: (croppedRect.width - extent.width) / 2, y: (croppedRect.height - extent.height) / 2)
         
-        return (self.applyMetalShader(vetexFunction: "warpTranslation", vertexUniforms: uniformValues) ?? self).cropped(to: croppedRect).transformed(by: transform)
+        return ({ () -> CIImage? in
+            guard let translation = translation else { return nil }
+            var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x / extent.width), y: Float(clamp.y / extent.height)))
+            
+            var uniformValues = [MTLBuffer]()
+            if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
+                uniformValues.append(buffer)
+            }
+            
+            return self.applyMetalShader(vetexFunction: "warpTranslation", vertexUniforms: uniformValues)
+        }() ?? self).cropped(to: croppedRect).transformed(by: transform)
     }
 }
 
