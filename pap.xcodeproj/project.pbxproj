@@ -1048,7 +1048,6 @@
 		51956E6D21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
 		51956E6E21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
 		51956E6F21AB7A9F0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
-		51A9DF12219445060013BE36 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A00FDD4E218235EE005EAD1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEA218235EE005EAD1B /* Localizable.strings */; };
 		A00FDD4F218235EE005EAD1B /* Intents.strings.deleted in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEC218235EE005EAD1B /* Intents.strings.deleted */; };
 		A00FDD50218235EE005EAD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC0F218235EE005EAD1B /* Assets.xcassets */; };
@@ -1110,7 +1109,6 @@
 		A096E7E421307942003C8E70 /* Shop.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */; };
 		A0CB0000219C8C64007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		A0CB0001219C8C64007A5278 /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
-		A0CB0002219C8C64007A5278 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A0CB0003219C8C64007A5278 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDD775E3A20882AB465F /* App.swift */; };
 		A0CB0004219C8C64007A5278 /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3C59C15463CFB3D8D39 /* App.Editable.swift */; };
 		A0CB0005219C8C64007A5278 /* App.Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6CE37278581313A8D45 /* App.Cacheable.swift */; };
@@ -1472,7 +1470,6 @@
 		A0CB0182219C9093007A5278 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
 		A0CB0183219C9093007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		A0CB0184219C9093007A5278 /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
-		A0CB0185219C9093007A5278 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A0CB0186219C9093007A5278 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDD775E3A20882AB465F /* App.swift */; };
 		A0CB0187219C9093007A5278 /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3C59C15463CFB3D8D39 /* App.Editable.swift */; };
 		A0CB0188219C9093007A5278 /* App.Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6CE37278581313A8D45 /* App.Cacheable.swift */; };
@@ -2073,7 +2070,6 @@
 		A0CBFF53219ADBA2007A5278 /* sap.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6FE063F036A0E4D5C1C /* sap.ExternalDelegate.swift */; };
 		A0CBFF54219ADBA2007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D210CB4BE44EA57A09AD /* PhotoPickerViewController.Operations.ShopApp.swift */; };
 		A0CBFF56219ADBA2007A5278 /* Resizer.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118E9972194FE6000EB6D6A /* Resizer.BApp.swift */; };
-		A0CBFF57219ADBA2007A5278 /* Settings.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9DF11219445060013BE36 /* Settings.SApp.swift */; };
 		A0CBFF59219ADBA2007A5278 /* Pods_sap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE4F82F49B391B18CEE742 /* Pods_sap.framework */; };
 		A0CBFF5B219ADBA2007A5278 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0956B6C2095004F00E680B9 /* Localizable.strings */; };
 		A0CBFF5C219ADBA2007A5278 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF921F14B7CB0078A583 /* Assets.xcassets */; };
@@ -2617,7 +2613,6 @@
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
 		51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjustments.BApp.swift; sourceTree = "<group>"; };
-		51A9DF11219445060013BE36 /* Settings.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.SApp.swift; sourceTree = "<group>"; };
 		6DE37DA314DD07B700208587 /* Pods-batch-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71D3A436A2443042ABEE399E /* Pods-batch-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests.release.xcconfig"; sourceTree = "<group>"; };
 		725400A349048E8B66FD7B40 /* Pods-pap-papTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3746,7 +3741,6 @@
 				4F71D384E82677E370069EFF /* Shop */,
 				4F71D560E1FB6A785B514D8F /* SApp.swift */,
 				4F71D1A1F05118B6E4FDAA49 /* Camera */,
-				51A9DF10219444CA0013BE36 /* Settings */,
 			);
 			path = SApp;
 			sourceTree = "<group>";
@@ -3887,14 +3881,6 @@
 				511CAD0321D5B82100FEA884 /* Adjustments.BApp.Assets.xcassets */,
 			);
 			path = Adjustments;
-			sourceTree = "<group>";
-		};
-		51A9DF10219444CA0013BE36 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				51A9DF11219445060013BE36 /* Settings.SApp.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		A00FDBE0218235EE005EAD1B /* mmc */ = {
@@ -5675,7 +5661,6 @@
 				4F71D41A81D16C12BB590B69 /* Transform.BApp.Contents.swift in Sources */,
 				A0DE010F216CFD4D00F99365 /* MultiArray.swift in Sources */,
 				4F71D237E0C62A1E6915D4BD /* Transform.BApp.Public.Contents.swift in Sources */,
-				51A9DF12219445060013BE36 /* Settings.SApp.swift in Sources */,
 				4F71D297B39DB140B876FDC4 /* BApp.Macro.AutoSelection.swift in Sources */,
 				4F71D55035FDEBDEDE636A04 /* Shop.SApp.swift in Sources */,
 				A0DE010B216CFD4D00F99365 /* Math.swift in Sources */,
@@ -6253,7 +6238,6 @@
 				A0CB0182219C9093007A5278 /* MemoCam.BApp.swift in Sources */,
 				A0CB0183219C9093007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */,
 				A0CB0184219C9093007A5278 /* Resizer.BApp.swift in Sources */,
-				A0CB0185219C9093007A5278 /* Settings.SApp.swift in Sources */,
 				A0CB0186219C9093007A5278 /* App.swift in Sources */,
 				A0CB0187219C9093007A5278 /* App.Editable.swift in Sources */,
 				A0CB0188219C9093007A5278 /* App.Cacheable.swift in Sources */,
@@ -6795,7 +6779,6 @@
 				A0CBFF53219ADBA2007A5278 /* sap.ExternalDelegate.swift in Sources */,
 				A0CBFF54219ADBA2007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */,
 				A0CBFF56219ADBA2007A5278 /* Resizer.BApp.swift in Sources */,
-				A0CBFF57219ADBA2007A5278 /* Settings.SApp.swift in Sources */,
 				4F71D2DFA82834CAB15EAD1D /* App.swift in Sources */,
 				4F71DD8595DF61B4DBF3BBD9 /* App.Editable.swift in Sources */,
 				4F71D8866515945C39C55B2B /* App.Cacheable.swift in Sources */,
@@ -7104,7 +7087,6 @@
 				A0CBFFFE219C8C64007A5278 /* MemoCam.BApp.swift in Sources */,
 				A0CB0000219C8C64007A5278 /* PhotoPickerViewController.Operations.ShopApp.swift in Sources */,
 				A0CB0001219C8C64007A5278 /* Resizer.BApp.swift in Sources */,
-				A0CB0002219C8C64007A5278 /* Settings.SApp.swift in Sources */,
 				A0CB0003219C8C64007A5278 /* App.swift in Sources */,
 				A0CB0004219C8C64007A5278 /* App.Editable.swift in Sources */,
 				A0CB0005219C8C64007A5278 /* App.Cacheable.swift in Sources */,

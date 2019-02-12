@@ -95,7 +95,7 @@ extension CALayer: ImageSourceable {
     }
 }
 
-extension CIImage: DataSourceable, ImageSourceable, VisionSourceable{
+extension CIImage: DataSourceable, ImageSourceable{
     public var asData:Data? {
         return CIContext.shared.jpegRepresentation(of: self, colorSpace: defaultColorSpace)
     }

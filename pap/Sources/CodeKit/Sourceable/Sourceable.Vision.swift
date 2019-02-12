@@ -26,3 +26,17 @@ extension VisionSourceable{
         return faceBoundingBoxes?.nilEmpty
     }
 }
+
+extension CIImage: VisionSourceable {
+    public var allFaces: [CIImage]? {
+        guard let faces = self.asFaceBoundingBoxes else { return nil }
+        let scale = CGAffineTransform(scaleX: extent.width, y: extent.height)
+        return faces.map { self.cropped(to: $0.applying(scale)) }
+    }
+    
+    public var faceGroup: CIImage? {
+        guard let faces = self.asFaceBoundingBoxes?.union() else { return nil }
+        let scale = CGAffineTransform(scaleX: extent.width, y: extent.height)
+        return self.cropped(to: faces.applying(scale))
+    }
+}
