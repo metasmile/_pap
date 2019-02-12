@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "%@에 대한 내보내기 옵션을 선택하십시오.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "태그를 찾으려는 사진을 선택하십시오.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "색도 X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "색도 Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "클리너를 사용하면 여러 종류의 부정확 한 사진을 찾거나 삭제할 수 있습니다 (예 : 중복되거나 유사한 이미지, 근접 사진 또는 잠금 화면 샷).";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "우리에게 보내는 메시지";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "수정 및 공유";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "선택한 항목 수정";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "수정";
@@ -676,8 +674,6 @@
 "Save" = "저장";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "결과 저장 중 ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "라이브 사진을 스틸 사진으로 만 저장하거나 공유 할 수 있습니다.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "크기에 맞게 조정";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "당신의 재능을 공유하고 함께하십시오. 채택되면 각 보상을 얻습니다.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "수정 후 바로 공유";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "저장 후 바로 공유";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "저장 또는 수정하지 않고 직접 공유";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift */
 "Share" = "공유";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "라이브 사진을 스틸 사진으로 만 직접 공유.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "선명하게하기";
 /* Generated from genl10n: Adjustments.BApp.swift */

@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Zvolte možnost exportu pro %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Vyberte některé fotky, které chcete najít značky.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Chromaticita X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Chromaticita Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Cleaner vám umožňuje najít a odstranit různé druhy nesprávných fotografií, pokud se hodí např. Pro duplikáty a podobné obrázky, blízké fotografie nebo záběry Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Zpráva nám";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Upravit a sdílet";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Upravit vybrané položky";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modifikovat";
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Uložení výsledků ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Ukládání nebo sdílení služby Live Photo pouze jako statickou fotografii.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Sdílejte svůj talent, udělejte spolu. Získejte každou odměnu při přijetí.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Sdílejte přímo po úpravě";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Sdílejte přímo po uložení";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Sdílejte přímo bez uložení nebo úpravy";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Podíl";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Sdílení živé fotografie přímo pouze jako fotografie.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Ostření";
 /* Generated from genl10n: Adjustments.BApp.swift */

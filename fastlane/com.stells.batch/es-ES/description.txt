@@ -10,6 +10,10 @@ Cámara
 La cámara incorporada estándar que admite el efecto de profundidad, la captura RAW y el control de guardado de metadatos GPS para su privacidad.
 
 
+Editor RAW
+Un editor de fotos RAW fácil de usar pero muy potente que ofrece muchas ventajas para tomar imágenes originales. Permite una calidad de edición imposible en comparación con las imágenes JPEG.
+
+
 Auto selección Bot (Sistema ASB)
 ASB es un motor auxiliar de uso múltiple para elegir los elementos correctos en el contexto actual para cada herramienta.
 
@@ -62,13 +66,6 @@ Auto Editor te permite editar automáticamente si necesitas corregir tus fotos.
 
 Hashtag
 Encontrar y recopilar hashtags de tus fotos que seleccionaste.
-
-
-Filtros
-Aplica filtros de alta calidad en todas tus fotos que quieras. Esta herramienta de procesamiento por lotes no tiene límite en el número de fotos para aplicar filtros.
-
-• Capacidad de procesamiento probada: 2000 + una foto a la vez en el mínimo.
-• Optimizado para el procesamiento multi-core. Depende del tamaño de la imagen y los modelos de iDevice.
 
 
 PDFMaker

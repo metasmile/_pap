@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "בחר באפשרות ייצוא עבור %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "בחר כמה תמונות שברצונך למצוא תגים.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "X כרומטיות";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "כרומטיות Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "מנקה מאפשר לך למצוא ולמחוק סוגים שונים של תמונות שגויות אם הם מתאימים למשל כפולות ותמונות דומות, צילום תקריב או יריות Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "שנה ושתף";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "שנה את הפריטים שנבחרו";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modify";
@@ -676,8 +674,6 @@
 "Save" = "Save";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "שומר תוצאות ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "שמירה או שיתוף של Live Photo כתמונת סטילס בלבד.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "קנה מידה להתאמה";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "שיתוף הכשרון שלך, לעשות ביחד. השג כל תגמול אם מאומץ.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "שתף ישירות לאחר שינוי";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "שתף ישירות לאחר השמירה";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "שתף ישירות ללא שמירה או שינוי";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Share";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "שיתוף תמונה חיה ישירות כתמונת סטילס בלבד.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "חידוד";
 /* Generated from genl10n: Adjustments.BApp.swift */

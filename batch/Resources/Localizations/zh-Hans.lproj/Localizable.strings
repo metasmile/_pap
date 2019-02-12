@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "为%@选择导出选项";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "选择一些您要查找标签的照片。";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "色度X.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "色度Y.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清洁器使您能够查找和删除各种不正确的照片，如果他们匹配了例如重复和类似的图像，特写照片或锁屏拍摄！";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "给我们留言";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "修改和分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "修改所选项目";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "修改";
@@ -676,8 +674,6 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "保存结果...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "仅将Live Photo保存或共享为静态照片。";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "缩放以适应";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才华，团结一致。如果采纳，则获得每项奖励。";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "修改后直接分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "保存后直接分享";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "直接共享而不保存或修改";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "仅将实时照片作为静态照片共享。";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "锐化";
 /* Generated from genl10n: Adjustments.BApp.swift */

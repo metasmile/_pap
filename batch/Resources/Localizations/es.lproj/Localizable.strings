@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Elija una opción de exportación para %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Elige algunas fotos que quieras encontrar etiquetas.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Cromaticidad x";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Cromaticidad y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "¡Cleaner le permite buscar y eliminar varios tipos de fotos incorrectas si coinciden, por ejemplo, imágenes duplicadas y similares, fotos de primeros planos o disparos de Lockscreen!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mensaje a nosotros";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Modificar y compartir";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modificar los elementos seleccionados.";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Modificar";
@@ -676,8 +674,6 @@
 "Save" = "Salvar";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Guardando resultados ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Guardar o compartir Live Photo solo como una foto fija.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Scale To Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Comparte tu talento, hazlo juntos. Obtener cada recompensa si se adopta.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Compartir directamente después de modificar";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Comparte directamente después de guardar";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Comparte directamente sin guardar ni modificar.";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Compartir";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Compartir una foto en vivo directamente como una foto fija solamente.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Afilado";
 /* Generated from genl10n: Adjustments.BApp.swift */

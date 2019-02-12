@@ -1,2 +1,2 @@
-+ HashTag 1.0 - Rechercher et collecter des hashtags à partir de vos photos.
-+ Appareil photo 1.2 - Format RAW, effet de profondeur, contrôle des métadonnées GPS.
++ Réglages - Un outil de retouche photo hautement professionnel.
++ HashTag - Recherche et collecte des hashtags à partir de vos photos.

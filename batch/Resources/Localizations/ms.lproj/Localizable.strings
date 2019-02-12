@@ -282,10 +282,6 @@
 "Choose an export option for %@" = "Pilih pilihan eksport untuk %@";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "Pilih beberapa gambar yang anda mahu cari tag.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "Chromaticity X";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "Chromaticity Y";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "Pembersih membolehkan anda mencari dan memadam pelbagai jenis gambar yang salah jika mereka telah dipadankan sebagai contoh pendua dan imej yang serupa, gambar rapat atau tangkapan skrin Kunci!";
 /* Generated from genl10n: Cleaner.BApp.swift#49 */
@@ -517,6 +513,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "Ubah dan Kongsi";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Ubah suai item yang dipilih";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift */
 "Modify" = "Ubah suai";
@@ -676,8 +674,6 @@
 "Save" = "Simpan";
 /* Generated from genl10n: PhotoPickerViewController.swift */
 "Saving Results..." = "Menyimpan Keputusan ...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "Menyimpan atau berkongsi Foto Langsung sebagai foto pegun sahaja.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#138 */
 "Scale To Fit" = "Skala Untuk Fit";
 /* Generated from genl10n: Cleaner.BApp.swift#246 */
@@ -717,11 +713,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "Kongsi Bakat Anda, Buat Bersama. Dapatkan Setiap Ganjaran Jika Dipercayai.";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "Kongsi terus selepas diubah suai";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "Kongsi terus selepas menyimpan";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Berkongsi secara langsung tanpa menyimpan atau mengubah suai";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift, App.Finalizable.UIActivity.PHAsset.swift, PHAsset.UIAlertController.SynchronizablePresenter.swift */
 "Share" = "Kongsi";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "Berkongsi Foto Langsung secara langsung sebagai foto pegun sahaja.";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "Mengasah";
 /* Generated from genl10n: Adjustments.BApp.swift */

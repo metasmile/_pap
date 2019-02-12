@@ -228,10 +228,6 @@
 "Choose an export option for %@" = "為%@選擇導出選項";
 /* Generated from genl10n: Hashtagen.BApp.swift */
 "Choose some photos you want to find tags." = "選擇一些您要查找標籤的照片。";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity X" = "色度X.";
-/* Generated from genl10n: RawEditor.swift */
-"Chromaticity Y" = "色度Y.";
 /* Generated from genl10n: Cleaner.BApp.swift#45 */
 "Cleaner enables you to find and delete various kind of incorrect photos if they have matched for example duplicate and similar images, close-up photos or Lockscreen shots!" = "清潔器使您能夠查找和刪除各種不正確的照片，如果他們匹配了例如重複和類似的圖像，特寫照片或鎖屏拍攝！";
 /* Generated from genl10n: Cleaner.BApp.swift#44 */
@@ -463,6 +459,8 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Modify and Share" = "修改和分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "修改所選項目";
 /* Generated from genl10n: App.Finalizable.UIActivity.PHAsset.swift#58 */
 "Modify" = "修改";
@@ -622,8 +620,6 @@
 "Save" = "保存";
 /* Generated from genl10n: PhotoPickerViewController.swift#897 */
 "Saving Results..." = "保存結果...";
-/* genl10n: App.Finalizable.PHAsset.swift */
-"Saving or sharing Live Photo as a still photo only." = "僅將Live Photo保存或共享為靜態照片。";
 /* Generated from genl10n: Stabilizer.BApp.swift#424, PDFMaker.AppDockContent.swift#146 */
 "Scale To Fit" = "縮放以適應";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#67 */
@@ -663,11 +659,15 @@
 /* Generated from genl10n: Shop.SApp.swift */
 "Share Your Talent, Make Together. Obtain Each Reward If Adopted." = "分享你的才華，團結一致。如果採納，則獲得每項獎勵。";
 /* genl10n: App.Finalizable.PHAsset.swift */
+"Share directly after modifying" = "修改後直接分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly after saving" = "保存後直接分享";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "直接共享而不保存或修改";
 /* Generated from genl10n: PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#96, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#109, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#135, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift#149, App.Finalizable.UIActivity.PHAsset.swift#60, PHAsset.UIAlertController.SynchronizablePresenter.swift#58, Shop.Payment.SocialShare.Facebook.swift#73, Shop.Payment.SocialShare.Facebook.swift#138, Shop.Payment.SocialShare.swift#31, Shop.SApp.swift#590, Finder.BApp.swift#211, Finder.BApp.swift#410, Finder.BApp.swift#494, Finder.BApp.swift#583, Finder.BApp.swift#680, Finder.BApp.swift#798, Finder.BApp.swift#895 */
 "Share" = "分享";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Sharing a Live Photo directly as a still photo only." = "僅將實時照片作為靜態照片共享。";
 /* Generated from genl10n: RawEditor.swift */
 "Sharpening" = "銳化";
 /* Generated from genl10n: Adjustments.BApp.swift */
