@@ -124,24 +124,28 @@ extension CIImage {
 }
 
 extension CIImage {
-    func applyMetalShader(vetexFunction vetexFunctionName: String = "oneInputVertex", fragmentFunction fragmentFunctionName: String = "passthroughFragment", uniformValues: [MTLBuffer]? = nil) -> CIImage? {
+    func applyMetalShader(vetexFunction vetexFunctionName: String = "oneInputVertex", fragmentFunction fragmentFunctionName: String = "passthroughFragment", vertexUniforms vertexBuffers: [MTLBuffer]? = nil, fragmentUniforms fragmentBuffers: [MTLBuffer]? = nil) -> CIImage? {
         return autoreleasepool { () -> CIImage? in
             guard
                 let inputTexture = self.asMTLTexture,
                 let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
                 else { return nil }
             
-            MTLUtility.commitShader(vertexFunction: vetexFunctionName, fragmentFunction: fragmentFunctionName, input: inputTexture, output: outputTexture, vertexBuffers: uniformValues)
+            MTLUtility.commitShader(vertexFunction: vetexFunctionName, fragmentFunction: fragmentFunctionName, input: inputTexture, output: outputTexture, vertexUniforms: vertexBuffers, fragmentUniforms: fragmentBuffers)
             
             inputTexture.flush()
             
-            for buffer in uniformValues ?? [] {
+            for buffer in vertexBuffers ?? [] {
+                buffer.flush()
+            }
+            
+            for buffer in fragmentBuffers ?? [] {
                 buffer.flush()
             }
             
             let image = CIImage(mtlTexture: outputTexture, options: [
                 CIImageOption.colorSpace: defaultColorSpace
-            ])
+            ])?.oriented(.downMirrored)
             
             outputTexture.flush()
             

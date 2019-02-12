@@ -340,7 +340,7 @@
 "Enable Quick Actions" = "Enable Quick Actions";
 /* genl10n: Shop.SApp.swift, Settings.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
-/* genl10n: App.Finalizable.PHAsset.swift, GIFMaker.BApp.swift */
+/* genl10n: GIFMaker.BApp.swift, App.Finalizable.PHAsset.swift */
 "Export" = "Export";
 /* genl10n: Adjustments.BApp.swift */
 "Exposure" = "Exposure";
@@ -418,7 +418,7 @@
 "Highlights" = "Highlights";
 /* genl10n: GIFMaker.BApp.swift */
 "Homographic" = "Homographic";
-/* genl10n: GIFMaker.BApp.swift, PDFMaker.AppDockContent.swift */
+/* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
 "Image" = "Image";

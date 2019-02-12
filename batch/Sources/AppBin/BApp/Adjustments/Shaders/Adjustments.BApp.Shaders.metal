@@ -21,15 +21,31 @@ using namespace metal;
 //    }
 //}
 
-kernel void fadeEffect(texture2d<float, access::read> inTexture [[texture(0)]],
-                       texture2d<float, access::write> outTexture [[texture(1)]],
-                       constant float &intensity [[buffer(0)]],
-                       uint2 gid [[thread_position_in_grid]]) {
-    if (gid.x >= outTexture.get_width() || gid.y >= outTexture.get_height()) {
-        return;
-    }
-    float4 inColor = inTexture.read(gid);
-    float4 fadedColor = float4(inColor.rgb * 0.77 + 0.149, 1.0);
-    float4 outColor = mix(inColor, fadedColor, intensity);
-    outTexture.write(outColor, gid);
+//kernel void fadeEffect(texture2d<float, access::read> inTexture [[texture(0)]],
+//                       texture2d<float, access::write> outTexture [[texture(1)]],
+//                       constant float &intensity [[buffer(0)]],
+//                       uint2 gid [[thread_position_in_grid]]) {
+//    if (gid.x >= outTexture.get_width() || gid.y >= outTexture.get_height()) {
+//        return;
+//    }
+//    float4 inColor = inTexture.read(gid);
+//    float4 fadedColor = float4(inColor.rgb * 0.77 + 0.149, 1.0);
+//    float4 outColor = mix(inColor, fadedColor, intensity);
+//    outTexture.write(outColor, gid);
+//}
+
+struct SingleInputVertexIO
+{
+    float4 position [[position]];
+    float2 textureCoordinate [[user(texturecoord)]];
+};
+
+fragment half4 fadeEffect(SingleInputVertexIO fragmentInput [[stage_in]],
+                          texture2d<half> inputTexture [[texture(0)]],
+                          constant float &intensity [[buffer(0)]])
+{
+    constexpr sampler quadSampler;
+    half4 color = inputTexture.sample(quadSampler, fragmentInput.textureCoordinate);
+    half4 fadedColor = half4(color.rgb * 0.77 + 0.149, 1.0);
+    return mix(color, fadedColor, intensity);
 }

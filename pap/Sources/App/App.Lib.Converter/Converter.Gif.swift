@@ -14,6 +14,7 @@ struct GifConverterDefaultOption {
     var direction: Int
     var gifQuality: Double
     var loopCount: Int
+    var stabilizationMode: ImageAlignment.StabilizationMode
 
     static var `default`: GifConverterDefaultOption {
         return GifConverterDefaultOption(
@@ -23,7 +24,8 @@ struct GifConverterDefaultOption {
                 size: 0,
                 direction: 0,
                 gifQuality: 0,
-                loopCount: 0
+                loopCount: 0,
+                stabilizationMode: .none
         )
     }
     
@@ -136,13 +138,19 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
         }
         
         var imageFiles = [URL]()
+        var referenceImage: UIImage?
         imageGenerator.generateCGImagesAsynchronously(forTimes: times) { (requestedTime, cgImage, actualTime, result, error) in
-            if let cgImage = cgImage {
-                imageFiles.append(LocalCachedAsset(image: UIImage(cgImage: cgImage), targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
-            }
-            
-            if requestedTime == times.last?.timeValue {
-                async.end()
+            autoreleasepool {
+                if let cgImage = cgImage {
+                    let image = UIImage(cgImage: cgImage).stabilize(with: referenceImage, mode: gifOptions.stabilizationMode)
+                    referenceImage = image
+                    
+                    imageFiles.append(LocalCachedAsset(image: image, targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
+                }
+                
+                if requestedTime == times.last?.timeValue {
+                    async.end()
+                }
             }
         }
         
@@ -203,7 +211,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
         let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
         
         guard
-            let urls = extractBurstImageURLs(source: source, param: param, async),
+            let urls = extractBurstImageURLs(source: source, param: param, stabilizationMode: gifOptions.stabilizationMode, async),
             let url = UIImageGIFRepresentationURL(with: gifOptions.urlWithDirection(urls: urls), loopCount: gifOptions.loopCount, cancellation: cancellation, progressHandler: progressHandler)
         else { return nil }
         return [PHAssetEditingResultItem(url, .photo)]

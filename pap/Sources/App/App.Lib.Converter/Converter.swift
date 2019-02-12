@@ -246,7 +246,7 @@ struct ConverterBurstImageExtractParam {
 
 extension Converter{
 
-    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), _ async: AsyncWaitSignalable) -> [(url: URL, frameDelay: Double)]?{
+    func extractBurstImageURLs(source:AppAsset, param: ConverterBurstImageExtractParam = ConverterBurstImageExtractParam(), stabilizationMode: ImageAlignment.StabilizationMode = .none, _ async: AsyncWaitSignalable) -> [(url: URL, frameDelay: Double)]?{
 
         let fetchOptions = PHFetchOptions()
         fetchOptions.includeAllBurstAssets = true
@@ -260,6 +260,8 @@ extension Converter{
         
         var interval = 0.1
         var assetDate: Date?
+        
+        var referenceImage: UIImage?
 
         let fetchedAsset = PHAsset.fetchAssets(withBurstIdentifier: source.asset.burstIdentifier ?? "", options: fetchOptions)
         fetchedAsset.enumerateObjects { (asset, idx, stop) in
@@ -268,12 +270,15 @@ extension Converter{
                 let response = asset.requestImage(targetSize: targetSize, contentMode: param.contentMode, options: PHAsset.highQualityImageRequestOptions)
 
                 var resultUrl: URL? = nil
-                if let image = response.1, let data = image.jpegData(compressionQuality: CGFloat(imageQuality)) {
+                if let image = response.1?.stabilize(with: referenceImage, mode: stabilizationMode) {
+                    referenceImage = image
+                    
+                    let data = image.jpegData(compressionQuality: CGFloat(imageQuality))
 
                     let identifier = "\(param.filenamePrefix)_\(asset.localIdentifierWithoutSplitter)_burst_\(idx)"
                     let url = FileURL.temp(identifier, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
                     do {
-                        try data.write(to: url)
+                        try data?.write(to: url)
                         resultUrl = url
                     } catch _ {}
                 }

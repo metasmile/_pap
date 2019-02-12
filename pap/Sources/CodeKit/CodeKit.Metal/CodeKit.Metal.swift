@@ -111,7 +111,7 @@ extension MTLTexture {
 }
 
 extension MTLCommandBuffer {
-    func renderQuad(pipelineState: MTLRenderPipelineState, inputTexture: MTLTexture, useNormalizedTextureCoordinates: Bool = true, imageVertices: [Float] = MTLUtility.standardImageVertices, outputTexture: MTLTexture, vertexBuffers: [MTLBuffer]? = nil) {
+    func renderQuad(pipelineState: MTLRenderPipelineState, inputTexture: MTLTexture, useNormalizedTextureCoordinates: Bool = true, imageVertices: [Float] = MTLUtility.standardImageVertices, outputTexture: MTLTexture, vertexUniforms vertexBuffers: [MTLBuffer]? = nil, fragmentUniforms fragmentBuffers: [MTLBuffer]? = nil) {
         guard let vertexBuffer = MTLContext.shared.device.makeBuffer(bytes: imageVertices, length: imageVertices.count * MemoryLayout<Float>.size, options: []) else { return }
         vertexBuffer.label = "Vertices"
         
@@ -140,6 +140,10 @@ extension MTLCommandBuffer {
         
         for (idx, vertexBuffer) in (vertexBuffers ?? []).enumerated() {
             renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: idx + vertexBufferIndex)
+        }
+        
+        for (idx, fragmentBuffer) in (fragmentBuffers ?? []).enumerated() {
+            renderEncoder.setFragmentBuffer(fragmentBuffer, offset: 0, index: idx)
         }
         
         renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
@@ -218,15 +222,16 @@ class CIImageView: MTKView {
 }
 
 extension MTLUtility {
-    static func commitShader(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String = "passthroughFragment", input inputTexture: MTLTexture, output outputTexture: MTLTexture, vertexBuffers: [MTLBuffer]? = nil) {
+    static func commitShader(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String = "passthroughFragment", input inputTexture: MTLTexture, output outputTexture: MTLTexture, vertexUniforms vertexBuffers: [MTLBuffer]? = nil, fragmentUniforms fragmentBuffers: [MTLBuffer]? = nil) {
         guard
             let commandQueue = MTLContext.shared.device.makeCommandQueue(),
             let commandBuffer = commandQueue.makeCommandBuffer(),
             let pipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: vertexFunctionName, fragmentFunction: fragmentFunctionName)
             else { return }
         
-        commandBuffer.renderQuad(pipelineState: pipelineState, inputTexture: inputTexture, outputTexture: outputTexture, vertexBuffers: vertexBuffers)
+        commandBuffer.renderQuad(pipelineState: pipelineState, inputTexture: inputTexture, outputTexture: outputTexture, vertexUniforms: vertexBuffers, fragmentUniforms: fragmentBuffers)
         commandBuffer.commit()
+        commandBuffer.waitUntilCompleted()
     }
 }
 

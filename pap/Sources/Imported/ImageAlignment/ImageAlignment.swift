@@ -9,12 +9,6 @@
 //  https://developer.apple.com/videos/play/wwdc2017/510/
 //
 
-// [!] README
-/*
-    cikernel metal 빌드에 추가하기
-    https://developer.apple.com/documentation/coreimage/cikernel/2880194-init
-*/
-
 import UIKit
 import Vision
 
@@ -24,6 +18,7 @@ public class ImageAlignment {
     public struct StabilizationMode: OptionSet, Hashable {
         public let rawValue: Int
         
+        public static let none = StabilizationMode(rawValue: 0)
         public static let homographic = StabilizationMode(rawValue: 1 << 0)
         public static let translation = StabilizationMode(rawValue: 1 << 1)
         public static let crop = StabilizationMode(rawValue: 1 << 2)
@@ -36,7 +31,7 @@ public class ImageAlignment {
 
 @available(iOS 11.0, *)
 public extension UIImage {
-    public func stabilize(with image: UIImage, mode: ImageAlignment.StabilizationMode = .translation) -> UIImage {
+    public func stabilize(with image: UIImage?, mode: ImageAlignment.StabilizationMode = .translation) -> UIImage {
         if mode.contains(.translation) {
             return stabilizeTranslation(with: image, crop: mode.contains(.crop))
         }
@@ -49,16 +44,16 @@ public extension UIImage {
     }
 
     @objc
-    public func stabilizeHomographic(with image: UIImage, crop: Bool) -> UIImage {
+    public func stabilizeHomographic(with image: UIImage?, crop: Bool) -> UIImage {
         guard let matrix = ImageAlignment.homographicTransform(image, onto: self) else { return self }
-        guard let warppedImage = self.asCIImage?.applyHomographic(matrix, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: warppedImage.extent) else { return self }
+        guard let ciImage = self.asCIImage, let warppedImage = ciImage.applyHomographic(matrix, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(warppedImage, from: ciImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 
     @objc
-    public func stabilizeTranslation(with image: UIImage, crop: Bool) -> UIImage {
+    public func stabilizeTranslation(with image: UIImage?, crop: Bool) -> UIImage {
         guard let transform = ImageAlignment.translationTransform(image, onto: self) else { return self }
-        guard let transformedImage = self.asCIImage?.applyTranslation(transform, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: transformedImage.extent) else { return self }
+        guard let ciImage = self.asCIImage, let transformedImage = ciImage.applyTranslation(transform, crop: crop), let cgimage = ImageAlignment.sharedCIContext.createCGImage(transformedImage, from: ciImage.extent) else { return self }
         return UIImage(cgImage: cgimage)
     }
 }
@@ -94,8 +89,8 @@ public extension CIImage {
 
 @available(iOS 11.0, *)
 extension ImageAlignment {
-    static func homographicTransform(_ floating: UIImage, onto reference: UIImage) -> matrix_float3x3? {
-        guard let floatingImage = floating.asCIImage, let referenceImage = reference.asCIImage else { return nil }
+    static func homographicTransform(_ floating: UIImage?, onto reference: UIImage) -> matrix_float3x3? {
+        guard let floatingImage = floating?.asCIImage, let referenceImage = reference.asCIImage else { return nil }
         return homographicTransform(floatingImage, onto: referenceImage)
     }
     
@@ -122,8 +117,8 @@ extension ImageAlignment {
 
 @available(iOS 11.0, *)
 extension ImageAlignment {
-    static func translationTransform(_ floating: UIImage, onto reference: UIImage) -> CGAffineTransform? {
-        guard let floatingImage = floating.asCIImage, let referenceImage = reference.asCIImage else { return nil }
+    static func translationTransform(_ floating: UIImage?, onto reference: UIImage) -> CGAffineTransform? {
+        guard let floatingImage = floating?.asCIImage, let referenceImage = reference.asCIImage else { return nil }
         return translationTransform(floatingImage, onto: referenceImage)
     }
     
@@ -146,18 +141,6 @@ extension ImageAlignment {
         guard let results = request.results, let observation = results.first as? VNImageTranslationAlignmentObservation else { return nil }
         return observation.alignmentTransform
     }
-}
-
-private struct Kernels {
-    static let translation: CIWarpKernel? = {
-        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
-        return try? CIWarpKernel(functionName: "warpTranslation", fromMetalLibraryData: data)
-    }()
-    
-    static let homographic: CIWarpKernel? = {
-        guard let url = Bundle.main.url(forResource: "default", withExtension: "metallib"), let data = try? Data(contentsOf: url) else { return nil }
-        return try? CIWarpKernel(functionName: "warpHomographic", fromMetalLibraryData: data)
-    }()
 }
 
 @available(iOS 11.0, *)
@@ -184,8 +167,8 @@ extension CIImage {
     }
     
     func applyHomographic(_ matrix: matrix_float3x3, crop: Bool) -> CIImage? {
-        let clamp: CGPoint = crop ? CGPoint(x: extent.width / 20, y: extent.height / 20) : .zero
-        let croppedRect = extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2)
+        let clamp: CGPoint = CGPoint(x: extent.size.minLength / 20, y: extent.size.minLength / 20)
+        let croppedRect = crop ? extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2) : extent
         
         var value = WarpMatrix(matrix: matrix, size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
         
@@ -194,21 +177,25 @@ extension CIImage {
             uniformValues.append(buffer)
         }
         
-        return self.applyMetalShader(vetexFunction: "warpHomographic", uniformValues: uniformValues)?.cropped(to: croppedRect).clamped(to: extent).oriented(.downMirrored)
+        let transform = CGAffineTransform.identity.scaledBy(x: extent.width / croppedRect.width, y: extent.height / croppedRect.height).translatedBy(x: (croppedRect.width - extent.width) / 2, y: (croppedRect.height - extent.height) / 2)
+        
+        return (self.applyMetalShader(vetexFunction: "warpHomographic", vertexUniforms: uniformValues) ?? self).cropped(to: croppedRect).transformed(by: transform)
     }
     
     func applyTranslation(_ translation: CGAffineTransform, crop: Bool) -> CIImage? {
-        let clamp: CGPoint = crop ? CGPoint(x: extent.width / 20, y: extent.height / 20) : .zero
-        let croppedRect = extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2)
+        let clamp: CGPoint = CGPoint(x: extent.size.minLength / 20, y: extent.size.minLength / 20)
+        let croppedRect = crop ? extent.insetBy(dx: clamp.x / 2, dy: clamp.y / 2) : extent
         
-        var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
+        var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x / extent.width), y: Float(clamp.y / extent.height)))
         
         var uniformValues = [MTLBuffer]()
         if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
             uniformValues.append(buffer)
         }
         
-        return self.applyMetalShader(vetexFunction: "warpTranslation", uniformValues: uniformValues)?.cropped(to: croppedRect).clamped(to: extent).oriented(.downMirrored)
+        let transform = CGAffineTransform.identity.scaledBy(x: extent.width / croppedRect.width, y: extent.height / croppedRect.height).translatedBy(x: (croppedRect.width - extent.width) / 2, y: (croppedRect.height - extent.height) / 2)
+        
+        return (self.applyMetalShader(vetexFunction: "warpTranslation", vertexUniforms: uniformValues) ?? self).cropped(to: croppedRect).transformed(by: transform)
     }
 }
 

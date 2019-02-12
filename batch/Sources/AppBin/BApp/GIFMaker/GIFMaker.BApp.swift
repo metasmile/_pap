@@ -229,7 +229,7 @@ struct GIFMakerSettings {
     }
     
     struct stabilization {
-        static let none: ImageAlignment.StabilizationMode = ImageAlignment.StabilizationMode(rawValue: 0)
+        static let none: ImageAlignment.StabilizationMode = .none
         static let translation: ImageAlignment.StabilizationMode = [.translation, .crop]
         static let homographic: ImageAlignment.StabilizationMode = [.homographic, .crop]
         
@@ -342,9 +342,21 @@ public class GIFMakerApp: BApp,
 
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
             case .photo?:
-                let urls = resultItems.compactMap({ $0.result?.compactMap({ $0.url }) }).reduce([], +)
+                let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
+                
+                var referenceImage: UIImage?
+                
+                let urls = resultItems.compactMap({ item -> URL? in
+                    return autoreleasepool {
+                        guard let url = item.result?.url(for: .photo), let image = UIImage(contentsOfFile: url.path)?.stabilize(with: referenceImage, mode: defaults.stabilization) else { return nil }
+                            referenceImage = image
+                        
+                        let cachedAsset = LocalCachedAsset(item.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
+                        return cachedAsset.imageFileURL
+                    }
+                })
 
-                if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, stabilizationMode: defaults.stabilization, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
+                if let url = UIImageGIFRepresentationURL(with: GifConverterDefaultOption.URLs(urls: urls, with: defaults.direction), loopCount: defaults.loopCount, frameDelay: defaults.frameDelay, cancellation: { result.contains(where: { $0.info.state == .cancelled }) == true }, progressHandler: { progress in AppAssetItemProgressNotification.update(progress: progress) }) {
                     results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url, .photo)]))
                 }
             default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset($0.asset), editingResultItems: $0.result) }))
@@ -385,21 +397,35 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode, async)
             
             if let image = response.1 {
-                let cachedAsset = LocalCachedAsset(assetItem.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
-                result = GIFMakerPHAssetResult(asset: assetItem.asset, result: [PHAssetEditingResultItem(cachedAsset.imageFileURL, .photo)], orderedIndex: AppAssets.selected.index(of: assetItem))
+                var data: Data?
+                var fileExtension = "jpg"
+                switch assetItem.asset.uniformTypeIdentifier {
+                case UTCoreTypes.PNG:
+                    data = image.pngData()
+                    fileExtension = "png"
+                default:
+                    data = image.jpegData(compressionQuality: CGFloat(defaults.gifQuality))
+                }
+                
+                let identifier = UUID().uuidString
+                let url = FileURL.temp("\(identifier).\(fileExtension)", group:String(describing: LocalCachedAsset.self)+FileURL.queuePrivateGroup())
+                
+                try? data?.write(to: url)
+                
+                result = GIFMakerPHAssetResult(asset: assetItem.asset, result: [PHAssetEditingResultItem(url, .photo)], orderedIndex: AppAssets.selected.index(of: assetItem))
 
                 assetItem.appendRequestId(PHAssetRequestID(forImage:response.0))
             }
         case .burst?:
             let converter = GifConverter_Burst()
-            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
+            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount, stabilizationMode: defaults.stabilization)
             
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
                 result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
-            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount)
+            converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount, stabilizationMode: defaults.stabilization)
             
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
                 result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))

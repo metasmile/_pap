@@ -334,7 +334,12 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
         return autoreleasepool { () -> CIImage? in
             guard let image = inputImage else { return nil }
             let params = adjustmentItems.compactMap { $0.value.number }
-            return image.applyMetalComputeShader("fadeEffect", params: params)
+            var uniformValues = [MTLBuffer]()
+            for var value in params {
+                guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
+                uniformValues.append(buffer)
+            }
+            return image.applyMetalShader(fragmentFunction: "fadeEffect", fragmentUniforms: uniformValues)
         }
     }
 }

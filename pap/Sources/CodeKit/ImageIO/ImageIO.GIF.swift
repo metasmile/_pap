@@ -15,7 +15,7 @@ public func UIImageGIFRepresentation(with imageFiles: [URL], loopCount: Int = 0,
     return gifData
 }
 
-public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, stabilizationMode: ImageAlignment.StabilizationMode? = nil, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil) -> URL? {
+public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int = 0, frameDelay: Double, cancellation: (() -> Bool)? = nil, progressHandler: ((Progress) -> Void)? = nil) -> URL? {
     let fileProperties = [
         ImageMetadata.Dictionary.GIF: [
             ImageMetadata.Property.GIFLoopCount: loopCount
@@ -34,18 +34,11 @@ public func UIImageGIFRepresentationURL(with imageFiles: [URL], loopCount: Int =
     
     let progress = Progress(totalUnitCount: Int64(imageFiles.count))
     
-    var previousImage: UIImage?
-    
     for imageFile in imageFiles {
         guard cancellation?() != true else { return nil }
         
         autoreleasepool {
-            var image = UIImage(contentsOfFile: imageFile.path)
-            if let referenceImage = previousImage, let mode = stabilizationMode {
-                image = image?.stabilize(with: referenceImage, mode: mode)
-            }
-            previousImage = image
-            guard let cgImage = image?.cgImage else { return }
+            guard let cgImage = UIImage(contentsOfFile: imageFile.path)?.cgImage else { return }
             CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
             
             progress.completedUnitCount += 1
