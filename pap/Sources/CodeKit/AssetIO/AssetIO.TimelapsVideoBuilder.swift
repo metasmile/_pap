@@ -21,8 +21,8 @@ let kFailedToAppendPixelBufferError = 1
 public final class TimelapsVideoBuilder: NSObject {
     private var videoWriter: AVAssetWriter?
 
-    var fps: Int32 = 30
-    var fpsEachImages = [String: Int32]()
+    var fps: Int32 = 60
+    var frameDelayEachImages = [String: Double]()
     
     var inputSize: CGSize {
         if let firestImagePath = imagePaths.first, let firstImageSize = UIImage(contentsOfFile: firestImagePath)?.size{
@@ -115,6 +115,8 @@ public final class TimelapsVideoBuilder: NSObject {
                 assert(pixelBufferAdaptor.pixelBufferPool != nil)
 
                 let media_queue = DispatchQueue(label: "mediaInputQueue")
+                
+                var lastFrameTime = CMTime.zero
 
                 videoWriterInput.requestMediaDataWhenReady(on: media_queue) {
                     let currentProgress = Progress(totalUnitCount: Int64(self.imagePaths.count))
@@ -125,10 +127,13 @@ public final class TimelapsVideoBuilder: NSObject {
                     while videoWriterInput.isReadyForMoreMediaData && !remainingPhotoURLs.isEmpty {
                         let nextPhotoURL = remainingPhotoURLs.remove(at: 0)
                         
-                        let fps: Int32 = self.fpsEachImages[nextPhotoURL] ?? self.fps
-                        let frameDuration = CMTimeMake(value: 1, timescale: fps)
-                        let lastFrameTime = CMTimeMake(value: frameCount, timescale: fps)
-                        let presentationTime = frameCount == 0 ? lastFrameTime : CMTimeAdd(lastFrameTime, frameDuration)
+                        let fps: Int32 = self.fps
+                        let frameDelay = self.frameDelayEachImages[nextPhotoURL] ?? 1 / Double(fps)
+                        
+                        let frameDuration = CMTime(seconds: frameDelay, preferredTimescale: fps * 10)
+                        let presentationTime = lastFrameTime
+                        
+                        lastFrameTime = CMTimeAdd(lastFrameTime, frameDuration)
 
                         if !self.appendPixelBufferForImageAtURL(nextPhotoURL, pixelBufferAdaptor: pixelBufferAdaptor, presentationTime: presentationTime) {
                             error = NSError(

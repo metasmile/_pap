@@ -176,23 +176,24 @@ extension Converter{
         if urls.count > 0{
             async.begin()
             
-            let builder = TimelapsVideoBuilder(imagePaths: urls.map { $0.url.path })
-            if let outputSize = outputSize {
-                builder.preferredOutputSize = outputSize
-
-            }
-            builder.fpsEachImages = urls.reduce(into: [String: Int32]()) { (result, value) in
-                var dict = result
-                dict[value.url.path] = Int32(1 / value.frameDelay)
-            }
-            builder.build(progressHandler ?? { _ in }, success: { url in
+            DispatchQueue(label: #function + #file, qos: .utility).async {
+                let builder = TimelapsVideoBuilder(imagePaths: urls.map { $0.url.path })
+                if let outputSize = outputSize {
+                    builder.preferredOutputSize = outputSize
+                }
                 
-                videoUrl = url
-                async.end()
-            }, failure: { error in
+                builder.frameDelayEachImages = Dictionary(uniqueKeysWithValues: urls.map { url -> (String, Double) in
+                    (url.url.path, url.frameDelay)
+                })
                 
-                async.end()
-            })
+                builder.build(progressHandler ?? { _ in }, success: { url in
+                    videoUrl = url
+                    async.end()
+                }, failure: { error in
+                    
+                    async.end()
+                })
+            }
             
             async.waitUntilEnd()
         }

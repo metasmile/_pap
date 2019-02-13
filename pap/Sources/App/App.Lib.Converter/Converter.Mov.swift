@@ -89,12 +89,24 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
     static let supportedPresets = ConverterQualityPreset.all
     
     func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
-
-        if let urls = self.extractBurstImageURLs(source: source, async), let url = self.buildVideo(urls: urls, outputSize: options?.exportSize, progressHandler: progressHandler, async) {
+        
+        var url: URL?
+        
+        async.begin()
+        DispatchQueue(label: #function, qos: .utility).async {
+            if let urls = self.extractBurstImageURLs(source: source, AsyncSignal()) {
+                url = self.buildVideo(urls: urls, outputSize: self.options?.exportSize, progressHandler: progressHandler, AsyncSignal())
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+        
+        if let url = url {
             return [PHAssetEditingResultItem(url, .video)]
         }
-
-        return nil
+        else {
+            return nil
+        }   
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {
@@ -167,5 +179,44 @@ struct MovConverter_LivePhoto: MovConverter {
 
     static func canPerformWith(asset: PHAsset) -> Bool {
         return asset.imageType == .livePhoto
+    }
+}
+
+class MovConverter_Jpeg: OptionableConverterBase<MovConverterOption>, MovConverter {
+    static var direction: ConvertingDirection { return ConvertingDirection(from:.jpeg, to:.mov) }
+    
+    static let supportedPresets = ConverterQualityPreset.all
+    
+    func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
+        
+        var url: URL?
+        
+        async.begin()
+        DispatchQueue(label: #function, qos: .utility).async {
+            if let imageURL = source.asset.asURL {
+                let copiedURL = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                try? FileManager.default.copyItem(at: imageURL, to: copiedURL)
+                
+                let duration = 2.0
+                let urls = [
+                    (url: imageURL, frameDelay: duration / 2),
+                    (url: copiedURL, frameDelay: duration / 2)
+                ]
+                url = self.buildVideo(urls: urls, outputSize: self.options?.exportSize, progressHandler: progressHandler, AsyncSignal())
+            }
+            async.end()
+        }
+        async.waitUntilEnd()
+        
+        if let url = url {
+            return [PHAssetEditingResultItem(url, .video)]
+        }
+        else {
+            return nil
+        }
+    }
+    
+    static func canPerformWith(asset: PHAsset) -> Bool {
+        return asset.imageType == .stillImage
     }
 }

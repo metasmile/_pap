@@ -472,6 +472,8 @@
 "Make GIF" = "Make GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Make the last item Lomography style";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Make";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
 /* genl10n: Shop.SApp.swift */
@@ -488,6 +490,8 @@
 "Modify" = "Modify";
 /* genl10n: RawEditor.swift */
 "Moire" = "Moire";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Movie Maker";
 /* genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";
 /* genl10n: Shop.Payment.MailContact.Types.swift */
