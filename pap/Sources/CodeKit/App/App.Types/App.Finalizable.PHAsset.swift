@@ -417,6 +417,15 @@ extension PHAssetEditingResultViewController {
         navigationItem.setRightBarButton(finishButton, animated: true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        for cell in collectionView.visibleCells {
+            let cell = cell as! PHAssetEditingResultCollectionViewCell
+            cell.assetView.stopAny()
+        }
+    }
+    
     @objc private func cancelButtonDidTap(sender: UIBarButtonItem) {
         dismiss(animated: true, completion: self.didCancelHandler)
     }
