@@ -194,7 +194,7 @@ class MovConverter_Jpeg: OptionableConverterBase<MovConverterOption>, MovConvert
         async.begin()
         DispatchQueue(label: #function, qos: .utility).async {
             if let imageURL = source.asset.asURL {
-                let copiedURL = FileURL.temp(UUID().uuidString, UTI.jpeg, group: FileURL.fileAndQueuePrivateGroup())
+                let copiedURL = FileURL.temp(UUID().uuidString, nil, group: FileURL.fileAndQueuePrivateGroup()).appendingPathExtension(imageURL.pathExtension)
                 try? FileManager.default.copyItem(at: imageURL, to: copiedURL)
                 
                 let duration = 2.0

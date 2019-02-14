@@ -125,6 +125,12 @@ struct MergerResultItem: AppTaskResultable {
 public class MergerAppValue: ImageEditStateValue {}
 
 private class MergerTask: AppTaskPrototype, AppTaskable {
+    override var info: AppTaskInfo {
+        let info = super.info
+        info.policy.estimatedConcurrencyCount = 1
+        return info
+    }
+    
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) {
         (param as? _MergerAppAsset)?.cancelAllRequestIDs()
     }
