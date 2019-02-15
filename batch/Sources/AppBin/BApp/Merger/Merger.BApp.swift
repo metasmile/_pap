@@ -69,6 +69,67 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
 }
 
 extension MergerApp {
+    private func mergeVideo(with resultItems: [MergerResultItem]) -> AVAsset {
+        var mergedItems = [MergerResultItem]()
+        var previousTimeRange = CMTimeRange.zero
+        for var resultItem in resultItems {
+            if let startTime = resultItem.asset.creationDate?.timeIntervalSinceReferenceDate, let duration = resultItem.video?.duration {
+                let globalTimeRange = CMTimeRange(start: CMTimeMakeWithSeconds(startTime, preferredTimescale: duration.timescale), duration: duration)
+                
+                if resultItem.asset.imageType == .livePhoto {
+                    let timeRange = previousTimeRange.intersection(globalTimeRange)
+                    if !timeRange.isEmpty {
+                        var estimatedTimeRange = CMTimeRange(start: timeRange.end, end: globalTimeRange.end)
+                        estimatedTimeRange.start = estimatedTimeRange.start - globalTimeRange.start
+                        resultItem.setEstimatedTimeRange(estimatedTimeRange)
+                        
+                        if !estimatedTimeRange.isEmpty {
+                            mergedItems.append(resultItem)
+                        }
+                    }
+                    else {
+                        mergedItems.append(resultItem)
+                    }
+                }
+                else {
+                    mergedItems.append(resultItem)
+                }
+                
+                previousTimeRange = globalTimeRange
+            }
+        }
+        
+        let composition = AVMutableComposition()
+        
+        let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        var insertTime = CMTime.zero
+        for mergedItem in mergedItems {
+            guard let video = mergedItem.video else { continue }
+            
+            let timeRange = mergedItem.timeRange ?? CMTimeRangeMake(start: CMTime.zero, duration: video.duration)
+            
+            if let videoTrack = video.tracks(withMediaType: .video).first, let _ = try? compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: insertTime) {
+                compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
+            }
+            else {
+                compositionVideoTrack?.insertEmptyTimeRange(timeRange)
+            }
+            
+            if let audioTrack = video.tracks(withMediaType: .audio).first, let _ = try? compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: insertTime) {
+                compositionAudioTrack?.preferredVolume = audioTrack.preferredVolume
+            }
+            else {
+                compositionAudioTrack?.insertEmptyTimeRange(timeRange)
+            }
+            
+            insertTime = insertTime + timeRange.duration
+        }
+        
+        return composition
+    }
+    
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
         let resultItems = result
             .filter { respondable in respondable.info.state == .completed }
@@ -77,11 +138,10 @@ extension MergerApp {
         
         var results = [PHAssetResultItem]()
         
-        let videos = resultItems.compactMap({ $0.result }).reduce([], +).map { AVAsset(url: $0.url) }
-        let video = AVAsset.mergeVideos(videos)
+        let video = mergeVideo(with: resultItems)
         
         asyncSignal.begin()
-        DispatchQueue(label: "mergeVideos", qos: .utility).async {
+        DispatchQueue(label: #file + "_mergeVideos", qos: .utility).async {
             let videoURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
             AVAssetExportSession.export(asset: video, outputURL: videoURL, progressHandler: { progress in
                 
@@ -120,6 +180,28 @@ struct MergerResultItem: AppTaskResultable {
     var asset: PHAsset
     var result: [PHAssetEditingResultItem]?
     var orderedIndex: Int?
+    
+    init(asset: PHAsset, result: [PHAssetEditingResultItem]?, orderedIndex: Int?) {
+        self.asset = asset
+        self.result = result
+        self.orderedIndex = orderedIndex
+    }
+    
+    var video: AVAsset? {
+        guard let url = result?.url(for: .video) else { return nil }
+        return AVAsset(url: url)
+    }
+    
+    //INFO: trimming
+    var timeRange: CMTimeRange?
+    private(set) var estimatedTimeRange: CMTimeRange? {
+        didSet {
+            timeRange = estimatedTimeRange
+        }
+    }
+    mutating func setEstimatedTimeRange(_ timeRange: CMTimeRange) {
+        self.estimatedTimeRange = timeRange
+    }
 }
 
 public class MergerAppValue: ImageEditStateValue {}

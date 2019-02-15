@@ -72,12 +72,12 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public static let info = AppInfo(
             identifier: "com.stells.batch.deptheditor"
             , version: "1.0"
-            , phase: .beta
+            , phase: .release
             , appType: DepthEditorApp.self
             , displayName: "Depth Editor".localized.localizedCapitalized
-            , description: "Resize and fill to fit your photos by the various sizes.".localized
-            , keywords: ["Resize", "Instasize", "Instafit", "No Crop", "Fit", "Scale", "Size","Transform","Instagram","Insta"]
-            , iconBundleName: nil
+            , description: "Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background.".localized
+            , keywords: ["depth", "focus", "blur", "portrait", "aperture", "focal length"]
+            , iconBundleName: R.image.cell_icon_depth.name
             , themeColor: UIColor(rgb: 0xFD8B24)
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
@@ -230,8 +230,8 @@ private enum DepthEditMode: Int, Codable {
     var description: String? {
         switch self {
         case .original: return nil
-        case .aperture: return "Aperture".localized
-        case .aperture2: return "Aperture+".localized
+        case .aperture: return "Depth".localized
+        case .aperture2: return "Depth+".localized
         case .blur: return "Blur".localized
         }
     }
@@ -418,7 +418,19 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
             let filter = self.selectedFilter
             filter?.depthLevel = CGFloat(self.depthLevelSlider.value)
             self.filterItem = CIFilterItem(filter)
+            
+            self.updateDepthLevelText()
         }
+    }
+    
+    private func updateDepthLevelText() {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 1
+        
+        let aperture = min(22, max(1, self.depthLevelSlider.value * 22))
+        self.depthLevelSlider.text = "ƒ " + (formatter.string(from: NSNumber(value: aperture)) ?? String(format: "%.01f", aperture))
     }
 
     var selectedEditStateValue: ImageEditStateValue?
@@ -438,6 +450,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         depthLevelSlider.value = Float(filter?.depthLevel ?? 1)
         
         selectedFilter = filter
+        
+        self.updateDepthLevelText()
     }
     
     fileprivate func updateItem(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
@@ -448,6 +462,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         filterItem = CIFilterItem(filter)
         
         selectedFilter = filter
+        
+        self.updateDepthLevelText()
     }
 
     fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {
@@ -632,7 +648,7 @@ extension DepthEditMode {
                 
                 let background = CIImage(cvPixelBuffer: depthDataMapPixelBuffer)
                 
-                let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
+                let aperture = min(22, max(1, filter.depthLevel * 22))
                 let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
                 var effect: CIFilter?
@@ -665,7 +681,7 @@ extension DepthEditMode {
                     let background = filter.depthImage
                     else { return nil }
                 
-                let aperture = min(22, max(1, (1 - filter.depthLevel) * 22))
+                let aperture = min(22, max(1, filter.depthLevel * 22))
                 let scale = filter.isExporting ? foreground.extent.maxLength / background.extent.maxLength : 0.1
                 
                 var effect: CIFilter?

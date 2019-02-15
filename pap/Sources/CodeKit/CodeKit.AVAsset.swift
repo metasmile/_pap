@@ -17,24 +17,24 @@ extension AVAsset {
         let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         
         var insertTime = CMTime.zero
-        var hasAudioTracks = false
         for video in videos {
-            guard let videoTrack = video.tracks(withMediaType: .video).first else { continue }
-            
             let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: video.duration)
             
-            try? compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: insertTime)
-            compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
+            if let videoTrack = video.tracks(withMediaType: .video).first, let _ = try? compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: insertTime) {
+                compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
+            }
+            else {
+                compositionVideoTrack?.insertEmptyTimeRange(timeRange)
+            }
             
             if let audioTrack = video.tracks(withMediaType: .audio).first, let _ = try? compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: insertTime) {
-                hasAudioTracks = true
+                compositionAudioTrack?.preferredVolume = audioTrack.preferredVolume
+            }
+            else {
+                compositionAudioTrack?.insertEmptyTimeRange(timeRange)
             }
             
             insertTime = insertTime + video.duration
-        }
-        
-        if !hasAudioTracks, let track = compositionAudioTrack {
-            composition.removeTrack(track)
         }
         
         return composition

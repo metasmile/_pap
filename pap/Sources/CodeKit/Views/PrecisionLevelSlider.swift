@@ -136,6 +136,22 @@ open class PrecisionLevelSlider: UIControl {
         return gradientLayer
     }()
 
+    private lazy var textLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.medium)
+        return label
+    }()
+    
+    var text: String? {
+        set {
+            textLabel.text = newValue
+            update()
+        }
+        
+        get {
+            return textLabel.text
+        }
+    }
 
     // MARK: - Initializers
     public override init(frame: CGRect) {
@@ -205,9 +221,15 @@ open class PrecisionLevelSlider: UIControl {
         contentView.layer.addSublayer(defaultValueMark)
 
         defaultValueMark.fillColor = shortNotchColor.cgColor
+        
+        textLabel.textColor = centerNotchColor
+        textLabel.sizeToFit()
+        textLabel.center.x = bounds.midX
 
         centerNotchLayer.backgroundColor = centerNotchColor.cgColor
-        centerNotchLayer.frame = CGRect(x: bounds.midX, y: 0, width: notchWidth, height: bounds.height)
+        centerNotchLayer.frame = CGRect(x: bounds.midX, y: 0, width: notchWidth, height: bounds.height - textLabel.height)
+        
+        textLabel.frame.origin.y = centerNotchLayer.bounds.height + 2
 
         let contentSize = CGSize(
                 width: notchLayers.last!.frame.maxX - notchWidth,
@@ -239,6 +261,8 @@ open class PrecisionLevelSlider: UIControl {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         layer.addSublayer(centerNotchLayer)
+        
+        addSubview(textLabel)
     }
 
     fileprivate func offsetToValue() -> Float {

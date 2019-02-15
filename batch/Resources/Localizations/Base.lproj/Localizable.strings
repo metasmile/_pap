@@ -98,11 +98,11 @@
 "%@ Ownership" = "%@ Ownership";
 /* genl10n: AppCenter.Charge.swift */
 "%@ Partnership License" = "%@ Partnership License";
-/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift(2) */
 "%@ Photo" = "%@ Photo";
-/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift(2) */
 "%@ Photos" = "%@ Photos";
-/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
 /* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
 "%@ Videos" = "%@ Videos";
@@ -152,6 +152,8 @@
 "Add an Event" = "Add an Event";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Address";
+/* genl10n: DepthEditor.BApp.swift */
+"Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background." = "Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background.";
 /* genl10n: Adjustments.BApp.swift */
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius.";
 /* genl10n: Adjustments.BApp.swift */
@@ -180,10 +182,6 @@
 "Animation" = "Animation";
 /* genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime free cancellation.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Aperture";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Aperture+";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Apply %@ to the last item";
 /* genl10n: Filters.BApp.swift */
@@ -312,6 +310,10 @@
 "Deleting Targets" = "Deleting Targets";
 /* genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Depth Editor";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Depth";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "Depth+";
 /* genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detecting ... %@ ";
 /* genl10n: Finder.BApp.swift */
@@ -614,7 +616,7 @@
 "Repaint the last item with a random art effect." = "Repaint the last item with a random art effect.";
 /* genl10n: GIFMaker.BApp.swift */
 "Repeat" = "Repeat";
-/* genl10n: DepthEditor.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Resizer.BApp.swift */
 "Resize and fill to fit your photos by the various sizes." = "Resize and fill to fit your photos by the various sizes.";
 /* genl10n: Resizer.BApp.swift */
 "Resize the last item to %@" = "Resize the last item to %@";
