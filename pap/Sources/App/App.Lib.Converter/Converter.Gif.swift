@@ -8,7 +8,7 @@ import Photos
 
 struct GifConverterDefaultOption {
     var aspectRatio: Double
-    var contentMode: Int
+    var contentMode: PHImageContentMode
     var frameDelay: Double
     var size: Double
     var direction: Int
@@ -19,7 +19,7 @@ struct GifConverterDefaultOption {
     static var `default`: GifConverterDefaultOption {
         return GifConverterDefaultOption(
                 aspectRatio: 0,
-                contentMode: 0,
+                contentMode: .aspectFit,
                 frameDelay: 0,
                 size: 0,
                 direction: 0,
@@ -145,7 +145,7 @@ class GifConverter_Mov: OptionableConverterBase<GifConverterDefaultOption>, GifC
                     let image = UIImage(cgImage: cgImage).stabilize(with: referenceImage, mode: gifOptions.stabilizationMode)
                     referenceImage = image
                     
-                    imageFiles.append(LocalCachedAsset(image: image, targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? .aspectFit).imageFileURL)
+                    imageFiles.append(LocalCachedAsset(image: image, targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: gifOptions.contentMode).imageFileURL)
                 }
                 
                 if requestedTime == times.last?.timeValue {
@@ -208,7 +208,7 @@ class GifConverter_Burst: OptionableConverterBase<GifConverterDefaultOption>, Gi
     func convert(source: AppAsset, cancellation: (() -> Bool)?, progressHandler: PHAssetEditableProgressHandler?, _ async: AsyncWaitSignalable) -> [PHAssetEditingResultItem]? {
         guard let gifOptions = options else { return nil }
         
-        let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: PHImageContentMode(rawValue: gifOptions.contentMode) ?? PHImageContentMode.aspectFit)
+        let param = ConverterBurstImageExtractParam(targetSize: gifOptions.sizeWithAspectRatio(), imageQuality: CGFloat(gifOptions.gifQuality), contentMode: gifOptions.contentMode)
         
         guard
             let urls = extractBurstImageURLs(source: source, param: param, stabilizationMode: gifOptions.stabilizationMode, async),

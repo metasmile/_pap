@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 extension AVAsset {
     static func mergeVideos(_ videos: [AVAsset]) -> AVAsset {
@@ -111,6 +112,30 @@ extension AVAsset {
             }
             else {
                 request.finish(with: result, context: nil)
+            }
+        }
+    }
+}
+
+extension AVAsset {
+    func resize(_ size: CGSize, with contentMode: PHImageContentMode = .aspectFit, cancellation: (() -> Bool)? = nil) -> AVVideoComposition {
+        let size = AVVideoComposition.makeVideoRenderSize(size)
+        
+        return AVVideoComposition(asset: self) { (request) in
+            var image = request.sourceImage
+            if contentMode == .aspectFit {
+                image = image.resizeAspectFit(size)
+            }
+            else {
+//                let fillSize = image.extent.size.aspectFill(in: size)
+//                image = image.resizeAspectFit(fillSize).cropped(to: AVMakeRect(aspectRatio: fillSize, insideRect: CGRect(origin: CGPoint(x: (fillSize.width - size.width) / 2, y: (fillSize.height - size.height) / 2), size: size)))
+            }
+            
+            if cancellation?() == true {
+                request.finish(with: NSError(domain: "AVAsset", code: -500, userInfo: nil)) // User Interrupt
+            }
+            else {
+                request.finish(with: image, context: nil)
             }
         }
     }

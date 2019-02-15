@@ -10,6 +10,15 @@ import UIKit
 import PropertyKit
 import Photos
 
+protocol MergerAppDefaults: AppDefaults {
+    var aspectRatio: Double {get set}
+    var contentMode: PHImageContentMode {get set}
+}
+
+extension Defaults: MergerAppDefaults {
+    
+}
+
 class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self

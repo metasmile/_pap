@@ -26,7 +26,7 @@ private struct GIFMakerPHAssetResult: AppTaskResultable {
 protocol GIFMakerDefaults: AppDefaults{
     var sourceType: Int {get set}
     var aspectRatio: Double {get set}
-    var contentMode: Int {get set}
+    var contentMode: PHImageContentMode {get set}
     var frameDelay: Double {get set}
     var size: Double {get set}
     var direction: Int {get set}
@@ -46,9 +46,9 @@ extension Defaults: GIFMakerDefaults {
         get{ return get(or: 1) }
     }
     
-    var contentMode: Int {
-        set{ set(newValue); papLog.app.defaults.log(value:newValue) }
-        get{ return get(or: PHImageContentMode.aspectFill.rawValue ) }
+    var contentMode: PHImageContentMode {
+        set{ set(newValue.rawValue); papLog.app.defaults.log(value:newValue) }
+        get{ return PHImageContentMode(rawValue: get(or: PHImageContentMode.aspectFit.rawValue)) ?? PHImageContentMode.aspectFit }
     }
     
     var frameDelay: Double {
@@ -144,18 +144,18 @@ struct GIFMakerSettings {
         static let fit = PHImageContentMode.aspectFit.rawValue
         static let fill = PHImageContentMode.aspectFill.rawValue
         
-        static let labels: [Int: String] = [
-            PHImageContentMode.aspectFit.rawValue: "No Crop".localized,
-            PHImageContentMode.aspectFill.rawValue: "Crop".localized
+        static let labels: [PHImageContentMode: String] = [
+            PHImageContentMode.aspectFit: "No Crop".localized,
+            PHImageContentMode.aspectFill: "Crop".localized
         ]
         
         static let orderedLabels: [String?] = [
-            labels[PHImageContentMode.aspectFill.rawValue],
-            labels[PHImageContentMode.aspectFit.rawValue],
+            labels[PHImageContentMode.aspectFill],
+            labels[PHImageContentMode.aspectFit],
         ]
         
-        static func key(with value: String) -> Int {
-            return labels.first(where: { value == $0.value })?.key ?? PHImageContentMode.aspectFill.rawValue
+        static func key(with value: String) -> PHImageContentMode {
+            return labels.first(where: { value == $0.value })?.key ?? PHImageContentMode.aspectFill
         }
     }
     
@@ -392,7 +392,7 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
-            let contentMode = PHImageContentMode(rawValue: defaults.contentMode) ?? PHImageContentMode.aspectFit
+            let contentMode = defaults.contentMode
             
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode, async)
             
