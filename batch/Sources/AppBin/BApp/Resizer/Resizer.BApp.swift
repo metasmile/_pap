@@ -153,14 +153,14 @@ PhotoEditorViewControllerDelegatableApp {
         self.config?.adoptValues(fromOther: config)
     }
     
-    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
+    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
         
-        let original = previewOriginalImageCache.object(forKey: cacheKey) ?? appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.asCIImage
+        let original = previewOriginalImageCache?.object(forKey: cacheKey) ?? appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.asCIImage
         
         if let image = original {
-            previewOriginalImageCache.setObject(image, forKey: cacheKey)
+            previewOriginalImageCache?.setObject(image, forKey: cacheKey)
         }
         
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)

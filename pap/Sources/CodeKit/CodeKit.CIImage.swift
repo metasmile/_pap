@@ -75,10 +75,20 @@ extension CIImage {
 }
 
 extension CIImage {
+    var asPixelBuffer: CVPixelBuffer? {
+        return autoreleasepool { () -> CVPixelBuffer? in
+            var pixelBuffer: CVPixelBuffer?
+            CVPixelBufferCreate(kCFAllocatorDefault, Int(extent.width), Int(extent.height), kCVPixelFormatType_32BGRA, [kCVPixelBufferMetalCompatibilityKey: true] as CFDictionary, &pixelBuffer)
+            return pixelBuffer
+        }
+    }
+}
+
+extension CIImage {
     var asMTLTexture: MTLTexture? {
         return autoreleasepool { () -> MTLTexture? in
             guard
-                let texture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height)),
+                let texture = MTLUtility.makeTexture(with: self),
                 let commandQueue = MTLContext.shared.device.makeCommandQueue(),
                 let commandBuffer = commandQueue.makeCommandBuffer()
                 else { return nil }
@@ -94,7 +104,7 @@ extension CIImage {
         return autoreleasepool { () -> CIImage? in
             guard
                 let inputTexture = self.asMTLTexture,
-                let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+                let outputTexture = MTLUtility.makeTexture(with: self)
             else { return nil }
             
             var uniformValues = [MTLBuffer]()
@@ -128,7 +138,7 @@ extension CIImage {
         return autoreleasepool { () -> CIImage? in
             guard
                 let inputTexture = self.asMTLTexture,
-                let outputTexture = MTLUtility.makeTexture(width: Int(extent.width), height: Int(extent.height))
+                let outputTexture = MTLUtility.makeTexture(with: self)
                 else { return nil }
             
             MTLUtility.commitShader(vertexFunction: vetexFunctionName, fragmentFunction: fragmentFunctionName, input: inputTexture, output: outputTexture, vertexUniforms: vertexBuffers, fragmentUniforms: fragmentBuffers)

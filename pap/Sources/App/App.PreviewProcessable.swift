@@ -11,7 +11,7 @@ import Photos
 
 public protocol PreviewProcessableApp: App {
     //INFO: prevent memory leak for creating CIImage(uiImage:)
-    var previewOriginalImageCache: NSCache<NSString, CIImage>? { get set }
+    var previewOriginalImageCache: NSCache<NSString, CIImage>? { get }
     func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void))
     
     //TODO: usage levels?
@@ -23,7 +23,7 @@ public protocol PreviewProcessableApp: App {
 }
 
 extension PreviewProcessableApp {
-    public var previewOriginalImageCache: NSCache<NSString, CIImage>? { get { return nil } set {} }
+    public var previewOriginalImageCache: NSCache<NSString, CIImage>? { return nil }
     public func showsVisibleEffectWhileProcessing() -> Bool {
         return false
     }

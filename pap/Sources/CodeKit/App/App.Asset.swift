@@ -15,7 +15,11 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
     public var indexPath:IndexPath?
     public private(set) var requestIDs:[PHAssetRequestID]?
     public var cachingRequestOptions:[PHAssetRequestOption]?
-    public var editState = StateValueSet<StateValueType>()
+    public var editState = StateValueSet<StateValueType>() {
+        didSet {
+            editStateIndex = max(editState.count - 1, 0)
+        }
+    }
 
     required public init(_ asset: PHAsset) {
         self.asset = asset
@@ -54,6 +58,8 @@ public class AppAssetItem<StateValueType:Hashable>: ItemObject, PHAssetParamable
             return asset.pixelSize
         }
     }
+    
+    internal var editStateIndex: Int = 0
 }
 
 //TODO: remove specific "ImageEdit" meaning -> more general, expandable
@@ -284,4 +290,60 @@ public final class AppAssets: NSObject {
         }
     }
 
+}
+
+protocol Undoable {
+    associatedtype T
+    func canUndo() -> Bool
+    
+    @discardableResult
+    func undo() -> T?
+}
+
+protocol Redoable {
+    associatedtype T
+    func canRedo() -> Bool
+    
+    @discardableResult
+    func redo() -> T?
+}
+
+extension AppAsset: Undoable & Redoable {
+    func canUndo() -> Bool {
+        return editStateIndex > 0
+    }
+    
+    func canRedo() -> Bool {
+        return editStateIndex - 1 < editState.count
+    }
+    
+    func undo() -> ImageEditStateValue? {
+        editStateIndex -= 1
+        print(#function, editStateIndex)
+        return editState.item(at: editStateIndex)
+    }
+    
+    func redo() -> ImageEditStateValue? {
+        editStateIndex += 1
+        print(#function, editStateIndex)
+        return editState.item(at: editStateIndex)
+    }
+}
+
+extension AppAssets: Undoable & Redoable {
+    func canUndo() -> Bool {
+        return _items.contains(where: { $0.canUndo() })
+    }
+    
+    func canRedo() -> Bool {
+        return _items.contains(where: { $0.canRedo() })
+    }
+    
+    func undo() -> [AppAsset]? {
+        return _items.filter { $0.undo() != nil }
+    }
+    
+    func redo() -> [AppAsset]? {
+        return _items.filter { $0.redo() != nil }
+    }
 }

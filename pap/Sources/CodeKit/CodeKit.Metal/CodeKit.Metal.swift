@@ -23,13 +23,26 @@ struct MTLUtility {
             if let textureCache = MTLContext.shared.textureCache, let sourceImage = pixelBuffer {
                 var metalTexture: CVMetalTexture?
                 CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache, sourceImage, nil, pixelFormat, width, height, 0, &metalTexture)
-
                 if let texture = metalTexture {
                     return CVMetalTextureGetTexture(texture)
+                }
+                else {
+                    CVMetalTextureCacheFlush(textureCache, 0)
                 }
             }
             return makeTexture(width: width, height: height, pixelFormat: pixelFormat)
 #endif
+        }
+    }
+    
+    static func makeTexture(with image: CIImage?) -> MTLTexture? {
+        return autoreleasepool { () -> MTLTexture? in
+            #if targetEnvironment(simulator)
+            return nil
+            #else
+            guard let image = image else { return nil }
+            return makeTexture(width: Int(image.extent.width), height: Int(image.extent.height), pixelFormat: .rgba8Unorm, pixelBuffer: image.asPixelBuffer)
+            #endif
         }
     }
     
@@ -47,7 +60,6 @@ public class MTLContext {
     static let shared = MTLContext()
     
     let device: MTLDevice
-//    let commandQueue: MTLCommandQueue?
     let library: MTLLibrary?
 
 #if targetEnvironment(simulator)
@@ -63,14 +75,7 @@ public class MTLContext {
     init() {
         guard let device = MTLCreateSystemDefaultDevice() else { fatalError("Could not create Metal Device") }
         self.device = device
-//        self.commandQueue = device.makeCommandQueue()
-        
-        if let libFilepath = Bundle.main.path(forResource: "default", ofType: "metallib") {
-            self.library = try? device.makeLibrary(filepath: libFilepath)
-        }
-        else {
-            self.library = device.makeDefaultLibrary()
-        }
+        self.library = device.makeDefaultLibrary()
     }
 }
 
@@ -223,15 +228,17 @@ class CIImageView: MTKView {
 
 extension MTLUtility {
     static func commitShader(vertexFunction vertexFunctionName: String, fragmentFunction fragmentFunctionName: String = "passthroughFragment", input inputTexture: MTLTexture, output outputTexture: MTLTexture, vertexUniforms vertexBuffers: [MTLBuffer]? = nil, fragmentUniforms fragmentBuffers: [MTLBuffer]? = nil) {
-        guard
-            let commandQueue = MTLContext.shared.device.makeCommandQueue(),
-            let commandBuffer = commandQueue.makeCommandBuffer(),
-            let pipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: vertexFunctionName, fragmentFunction: fragmentFunctionName)
-            else { return }
-        
-        commandBuffer.renderQuad(pipelineState: pipelineState, inputTexture: inputTexture, outputTexture: outputTexture, vertexUniforms: vertexBuffers, fragmentUniforms: fragmentBuffers)
-        commandBuffer.commit()
-        commandBuffer.waitUntilCompleted()
+        autoreleasepool {
+            guard
+                let commandQueue = MTLContext.shared.device.makeCommandQueue(),
+                let commandBuffer = commandQueue.makeCommandBuffer(),
+                let pipelineState = MTLContext.shared.makeRenderPipelineState(vertexFunction: vertexFunctionName, fragmentFunction: fragmentFunctionName)
+                else { return }
+            
+            commandBuffer.renderQuad(pipelineState: pipelineState, inputTexture: inputTexture, outputTexture: outputTexture, vertexUniforms: vertexBuffers, fragmentUniforms: fragmentBuffers)
+            commandBuffer.commit()
+            commandBuffer.waitUntilCompleted()
+        }
     }
 }
 

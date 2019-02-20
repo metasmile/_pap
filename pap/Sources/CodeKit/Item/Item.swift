@@ -172,3 +172,10 @@ public class ParameterItem<ValueType>: Item<ValueType>{
     }
 }
 
+
+extension ItemList {
+    func item(at index: Int) -> Element? {
+        return items[safe: index]
+    }
+    
+}

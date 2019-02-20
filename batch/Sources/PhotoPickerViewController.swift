@@ -409,6 +409,26 @@ class PhotoPickerViewController: AppDockViewController {
         }
     }
     
+    @objc private func undo() {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
+            let value = AppAssets.selected.undo()?.first
+            
+            app.selectEditStateValue(value?.editState.imageEditStateValue, in: (app as? AppDockApp)?.content)
+            
+            batchPreviewView.updatePreviews()
+        }
+    }
+    
+    @objc private func redo() {
+        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
+            let value = AppAssets.selected.redo()?.first
+            
+            app.selectEditStateValue(value?.editState.imageEditStateValue, in: (app as? AppDockApp)?.content)
+            
+            batchPreviewView.updatePreviews()
+        }
+    }
+    
     private func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
