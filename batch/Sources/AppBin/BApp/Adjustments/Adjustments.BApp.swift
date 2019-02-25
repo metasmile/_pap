@@ -125,7 +125,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
     public private(set) lazy var content: AppDockContent? = AdjustmentsAppDockContent(app: self)
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent(app: self)
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
@@ -213,7 +213,10 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         if let filter = editStateValue?.ciFilter as? CIFilterGroup {
             (content as? AdjustmentsAppDockContent)?.setFilterValues(filter, animated: false)
-            self.registerUndo(filter.filterAttributes)
+            
+            if self.undoStack.isEmpty {
+                self.registerUndo(filter.filterAttributes)
+            }
         }
     }
     
@@ -676,7 +679,8 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     }
     
     private func markAsSelectedFilterAttribiutes(_ filterAttributes: [CIFilterAttributes]?) {
-        self.app?.registerUndo((filterAttributes ?? []).compactMap({ $0.copy() as? CIFilterAttributes }))
+        guard let filterAttributes = filterAttributes else { return }
+        self.app?.registerUndo(filterAttributes.compactMap({ $0.copy() as? CIFilterAttributes }))
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
