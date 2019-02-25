@@ -103,7 +103,7 @@ class AppDockViewController: UIViewController, AppColorThemeable {
         return (navigationController as? AppDockNavigationController)
     }
     
-    lazy var cancelButton: UIBarButtonItem? = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
+    lazy var cancelButton: UIBarButtonItem = UIBarButtonItem(title: "Cancel".localized, style: .plain, target: self, action: #selector(self.cancelButtonDidTap))
     lazy var doneButton: UIBarButtonItem? = UIBarButtonItem(title: "Done".localized, style: .done, target: self, action: #selector(self.doneButtonDidTap))
     
     override func viewDidLoad() {

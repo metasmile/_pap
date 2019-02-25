@@ -106,7 +106,7 @@ class PhotoPickerViewController: AppDockViewController {
             papLog.allTasksAreFinished()
         }
         
-        navigationItem.setLeftBarButton(nil, animated: false)
+        navigationItem.setLeftBarButtonItems(nil, animated: false)
         navigationItem.setRightBarButton(nil, animated: false)
 
         //check photo library permission and load
@@ -408,26 +408,13 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         //update done execution state
+        updateNavigationLeftBarButton()
+        
         if updateDoneButtonChargeableState() {
-            if let app = AppCenter.default.currentInstanceAs(Undoable.self), let cancelButton = self.cancelButton {
-                self.updateUndoButtonStatus(app)
-                
-                navigationItem.setLeftBarButtonItems([
-                    cancelButton,
-                    self.undoButton,
-                    self.redoButton
-                ], animated: true)
-            }
-            else {
-                navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-            }
-
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
         } else {
-            updateNavigationLeftBarButton()
-
             if appDockView?.accessory != nil {
                 appDockView?.accessory = nil
                 batchPreviewView.reloadContent()
@@ -459,11 +446,27 @@ class PhotoPickerViewController: AppDockViewController {
     private func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            navigationItem.setLeftBarButton(nil, animated: true)
+            if updateDoneButtonChargeableState() {
+                if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
+                    self.updateUndoButtonStatus(app)
+                    
+                    navigationItem.setLeftBarButtonItems([
+                        cancelButton,
+                        self.undoButton,
+                        self.redoButton
+                        ], animated: true)
+                }
+                else {
+                    navigationItem.setLeftBarButtonItems([self.cancelButton], animated: true)
+                }
+            }
+            else {
+                navigationItem.setLeftBarButtonItems(nil, animated: true)
+            }
         }
         else {
             navigationItem.hidesBackButton = true
-            navigationItem.setLeftBarButton(UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
+            navigationItem.setLeftBarButtonItems([UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded))], animated: true)
         }
     }
 

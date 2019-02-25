@@ -49,6 +49,12 @@ extension CIFilterAttributeItem {
     }
 }
 
+extension CIFilterAttributeItem: Equatable {
+    static func == (lhs: CIFilterAttributeItem, rhs: CIFilterAttributeItem) -> Bool {
+        return lhs.name == rhs.name && lhs.value == rhs.value
+    }
+}
+
 public class CIFilterAttributes: Codable, NSCopying {
     var name: String
     var key: String
@@ -137,6 +143,12 @@ public class CIFilterAttributes: Codable, NSCopying {
             default: break
             }
         }
+    }
+}
+
+extension CIFilterAttributes: Equatable {
+    public static func == (lhs: CIFilterAttributes, rhs: CIFilterAttributes) -> Bool {
+        return lhs.name == rhs.name && lhs.key == rhs.key && lhs.attributeItems.elementsEqual(rhs.attributeItems)
     }
 }
 
