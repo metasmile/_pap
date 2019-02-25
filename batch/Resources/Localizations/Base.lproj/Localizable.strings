@@ -536,7 +536,7 @@
 "Open Web Page" = "Open Web Page";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift(2), Shop.SApp.swift(5) */
 "Open" = "Open";
-/* genl10n: App.PreviewProcessable.swift, Filters.BApp.swift, App.UI.AssetView.swift, Artist.BApp.swift, Resizer.BApp.swift */
+/* genl10n: Filters.BApp.swift, App.UI.AssetView.swift, App.PreviewProcessable.swift, Artist.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";
 /* genl10n: Shop.SApp.swift */
 "Our %@" = "Our %@";

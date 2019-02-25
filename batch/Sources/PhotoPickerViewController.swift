@@ -11,6 +11,9 @@ import Photos
 import PhotosUI
 
 class PhotoPickerViewController: AppDockViewController {
+    private lazy var undoButton = UIBarButtonItem(title: "◀︎", style: .plain, target: self, action: #selector(self.undo))
+    private lazy var redoButton = UIBarButtonItem(title: "▶︎", style: .plain, target: self, action: #selector(self.redo))
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var batchPreviewView: PreviewView!
@@ -163,6 +166,10 @@ class PhotoPickerViewController: AppDockViewController {
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
             app.selectEditStateValue(app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
+        
+        if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
+            self.updateUndoButtonStatus(app)
+        }
 
         updateUIDisplays()
         registerChargeObservingTimer()
@@ -245,6 +252,10 @@ class PhotoPickerViewController: AppDockViewController {
             app.selectEditStateValue(value, in: (app as? AppDockApp)?.content)
         }
         
+        if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
+            self.updateUndoButtonStatus(app)
+        }
+        
         redisplayVisibleCellsEnabled()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
@@ -273,6 +284,10 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         batchPreviewView.updatePreviews()
+        
+        if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
+            self.updateUndoButtonStatus(app)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -394,7 +409,18 @@ class PhotoPickerViewController: AppDockViewController {
 
         //update done execution state
         if updateDoneButtonChargeableState() {
-            navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+            if let app = AppCenter.default.currentInstanceAs(Undoable.self), let cancelButton = self.cancelButton {
+                self.updateUndoButtonStatus(app)
+                
+                navigationItem.setLeftBarButtonItems([
+                    cancelButton,
+                    self.undoButton,
+                    self.redoButton
+                ], animated: true)
+            }
+            else {
+                navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+            }
 
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
@@ -410,23 +436,24 @@ class PhotoPickerViewController: AppDockViewController {
     }
     
     @objc private func undo() {
-        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
-            let value = AppAssets.selected.undo()?.first
+        if var app = AppCenter.default.currentInstanceAs(Undoable.self) {
+            app.undo()
             
-            app.selectEditStateValue(value?.editState.imageEditStateValue, in: (app as? AppDockApp)?.content)
-            
-            batchPreviewView.updatePreviews()
+            self.updateUndoButtonStatus(app)
         }
     }
     
     @objc private func redo() {
-        if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
-            let value = AppAssets.selected.redo()?.first
+        if var app = AppCenter.default.currentInstanceAs(Undoable.self) {
+            app.redo()
             
-            app.selectEditStateValue(value?.editState.imageEditStateValue, in: (app as? AppDockApp)?.content)
-            
-            batchPreviewView.updatePreviews()
+            self.updateUndoButtonStatus(app)
         }
+    }
+    
+    private func updateUndoButtonStatus(_ app: Undoable) {
+        self.undoButton.isEnabled = app.canUndo
+        self.redoButton.isEnabled = app.canRedo
     }
     
     private func updateNavigationLeftBarButton() {

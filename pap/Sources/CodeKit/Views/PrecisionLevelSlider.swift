@@ -351,6 +351,8 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
     public final func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         beginningScrollPosition = scrollView.contentOffset
         previousScrollPosition = scrollView.contentOffset
+        
+        sendActions(for: .editingDidBegin)
     }
 
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -385,6 +387,8 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
             sendActions(for: .valueChanged)
         }
         defaultValueMark.isHidden = false
+        
+        sendActions(for: .editingDidEnd)
     }
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

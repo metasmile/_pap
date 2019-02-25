@@ -110,7 +110,7 @@ private struct Adjustments {
 class _AdjustmentsAppAsset: _FiltersAppAsset {}
 
 public class AdjustmentsApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
-    PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
+    PHAssetFinalizableApp, EditableApp, UndoableApp, PreviewProcessableApp, AppDockApp,
 PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
     
     public static let taskType: AppTaskable.Type = _AdjustmentsAppTask.self
@@ -124,8 +124,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = AdjustmentsAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent()
+    public private(set) lazy var content: AppDockContent? = AdjustmentsAppDockContent(app: self)
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent(app: self)
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
@@ -213,7 +213,26 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         if let filter = editStateValue?.ciFilter as? CIFilterGroup {
             (content as? AdjustmentsAppDockContent)?.setFilterValues(filter, animated: false)
+            self.registerUndo(filter.filterAttributes)
         }
+    }
+    
+    public var undoStack: [[CIFilterAttributes]] = [[CIFilterAttributes]]()
+    public var undoItemIndex: Int = 0
+    
+    public func undoItemIndexDidChange(_ item: Array<CIFilterAttributes>?) {
+        var controller: AdjustmentsAppDockContent?
+        if let content = self.content as? AdjustmentsAppDockContent {
+            controller = content
+        }
+        else if let content = self.photoEditorDockContent as? AdjustmentsAppDockContent {
+            controller = content
+        }
+        
+        let filter = controller?.preferredFilter(with: item ?? [])
+        controller?.setFilterValues(filter)
+        
+        self.config?.filter = CIFilterItem(filter)
     }
 }
 
@@ -496,6 +515,8 @@ extension Defaults: AdjustmentsAppDefaults {
 }
 
 fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDockContent, UITableViewDelegate, UITableViewDataSource{
+    var app: AdjustmentsApp?
+    
     fileprivate static var primaryColor = AdjustmentsApp.info.themeColor
     fileprivate lazy var orderedAdjustments: [Adjustments.Name] = [
         .Brightness,
@@ -515,6 +536,12 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         .Sharpness
     ]
     fileprivate var attributeItems = [CIFilterAttributeItem]()
+    
+    convenience init(app: AdjustmentsApp) {
+        self.init()
+        
+        self.app = app
+    }
     
     lazy var view: UIView = {
         let view = UITableView(frame: .zero)
@@ -631,6 +658,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             
             cell.slider.value = attributeItem.value
             
+            self.markAsSelectedFilterAttribiutes(self.filter?.filterAttributes)
             self.filter = self.filterManager.ciFilter
         }
         
@@ -644,8 +672,18 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
             }
         }
         
+        cell.sliderDidEndHandler = {
+            let filter = self.filterManager.ciFilter
+            self.markAsSelectedFilterAttribiutes(filter.filterAttributes)
+            self.filter = self.filterManager.ciFilter
+        }
+        
         return cell
 //        }
+    }
+    
+    private func markAsSelectedFilterAttribiutes(_ filterAttributes: [CIFilterAttributes]?) {
+        self.app?.registerUndo((filterAttributes ?? []).compactMap({ $0.copy() as? CIFilterAttributes }))
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -787,6 +825,8 @@ public class CIAdjustmentSliderCell: UITableViewCell {
     }()
     
     var resetButtonDidTapHandler: (() -> Void)?
+    var sliderDidBeginHandler: (() -> Void)?
+    var sliderDidEndHandler: (() -> Void)?
     var sliderDidChangeHandler: ((Float) -> Void)?
     
     override public func prepareForReuse() {
@@ -834,11 +874,21 @@ public class CIAdjustmentSliderCell: UITableViewCell {
         
         resetButton.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
+        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .editingDidBegin)
+        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .editingDidEnd)
     }
     
     @objc private func resetButtonDidTap() {
         UIFeedback.select()
         resetButtonDidTapHandler?()
+    }
+    
+    @objc private func sliderDidBegin() {
+        sliderDidBeginHandler?()
+    }
+    
+    @objc private func sliderDidEnd() {
+        sliderDidEndHandler?()
     }
     
     @objc private func sliderValueChanged() {
