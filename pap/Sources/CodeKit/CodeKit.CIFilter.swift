@@ -8,6 +8,43 @@
 
 import UIKit
 
+class CIFilterGroup<Filter: CIFilter>: CIFilter {
+    fileprivate(set) var filters: [Filter] = [Filter]()
+    
+    required init(filters: [Filter]? = nil) {
+        super.init()
+        
+        self.filters.append(contentsOf: filters ?? [])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = type(of: self).init(filters: filters.compactMap({ $0.copy() as? Filter }))
+        return copy
+    }
+    
+    @objc dynamic var inputImage : CIImage?
+    
+    override var outputImage: CIImage? {
+        
+        guard var image = inputImage else { return nil }
+        
+        for filter in filters {
+            autoreleasepool {
+                filter.setValue(image, forKey: kCIInputImageKey)
+                if let result = filter.outputImage {
+                    image = result
+                }
+            }
+        }
+        
+        return image
+    }
+}
+
 class CIFilterAttributeItem: Codable, NSCopying {
     var name: String
     var value: Float
