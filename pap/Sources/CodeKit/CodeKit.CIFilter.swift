@@ -189,6 +189,80 @@ extension CIFilterAttributes: Equatable {
     }
 }
 
+struct CIAdjustmentSliderInfo {
+    var name: String
+    var attributeKey: String
+    var range: ClosedRange<Float>?
+    
+    init(name: String, attributeKey: String, range: ClosedRange<Float>? = nil) {
+        self.name = name
+        self.attributeKey = attributeKey
+        self.range = range
+    }
+}
+
+class CIAdjustmentFilter: CIFilter {
+    var filterAttributes = [String: CIFilterAttributes]()
+    private var builtInFilter: CIFilter?
+    
+    var filter: CIFilter {
+        return builtInFilter ?? self
+    }
+    
+    required init(name: String, sliderInfo: [CIAdjustmentSliderInfo]) {
+        super.init()
+        
+        self.name = name
+        self.builtInFilter = CIFilter(name: name)
+        self.filterAttributes = [:]
+        for info in sliderInfo {
+            let attributes = CIFilterAttributes(name: info.name, key: info.attributeKey)
+            attributes.setDefaults(with: filter, name: info.name, sliderRange: info.range)
+            filterAttributes[info.attributeKey] = attributes
+        }
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = type(of: self).init(name: self.name, sliderInfo: [])
+        copy.filterAttributes = Dictionary(uniqueKeysWithValues: self.filterAttributes.compactMap({
+            guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
+            return ($0.key, item)
+        }))
+        return copy
+    }
+    
+    var hasChanges: Bool {
+        return filterAttributes.values.reduce(false) { $0 || $1.hasChanges }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        return (name == (object as? CIFilter)?.name) == true
+    }
+    
+    private func filterAttribute(with key: String) -> CIFilterAttributes? {
+        return filterAttributes[key]
+    }
+    
+    func setFilterAttribute(_ value: Float, with key: String, at index: Int) {
+        filterAttribute(with: key)?.setAttributes(value: value, at: index)
+    }
+    
+    @objc dynamic var inputImage : CIImage?
+    
+    override var outputImage: CIImage? {
+        return autoreleasepool { () -> CIImage? in
+            guard let image = inputImage else { return nil }
+            filter.setValue(image, forKey: kCIInputImageKey)
+            filterAttributes.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
+            return filter.outputImage
+        }
+    }
+}
+
 // https://github.com/muukii/ColorCube/blob/master/ColorCube/ColorCube.swift
 public class CIColorCube: CIFilter {
     private var lutImage: UIImage?

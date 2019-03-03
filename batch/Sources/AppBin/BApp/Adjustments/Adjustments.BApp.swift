@@ -8,7 +8,15 @@
 
 import UIKit
 
-private struct Adjustments {
+protocol CIAdjustmentFilterDataSource {
+    associatedtype Name
+    static func displayName(of name: Name) -> String
+    static func key(of name: Name) -> String
+    static func attributeIndex(of name: Name) -> Int
+    static func filterName(of name: Name) -> String
+}
+
+fileprivate struct Adjustments: CIAdjustmentFilterDataSource {
     enum Name: String, CaseIterable {
         case Brightness = "Brightness"
         case Contrast = "Contrast"
@@ -43,7 +51,7 @@ private struct Adjustments {
         }
     }
     
-    private static func displayName(of name: Name) -> String {
+    static func displayName(of name: Name) -> String {
         switch name {
         case Name.Brightness: return "Brightness".localized
         case Name.Contrast: return "Contrast".localized
@@ -63,7 +71,7 @@ private struct Adjustments {
         }
     }
     
-    private static func key(of name: Name) -> String {
+    static func key(of name: Name) -> String {
         switch name {
         case Name.Brightness: return kCIInputBrightnessKey
         case Name.Contrast: return kCIInputContrastKey
@@ -83,7 +91,7 @@ private struct Adjustments {
         }
     }
     
-    private static func attributeIndex(of name: Name) -> Int {
+    static func attributeIndex(of name: Name) -> Int {
         switch name {
         case Name.Temparature: return 0
         case Name.Tint: return 1
@@ -91,7 +99,7 @@ private struct Adjustments {
         }
     }
     
-    private static func filterName(of name: Name) -> String {
+    static func filterName(of name: Name) -> String {
         switch name {
         case Name.Brightness, Name.Contrast, Name.Saturation: return "CIColorControls"
         case Name.Highlights, Name.Shadows: return "CIHighlightShadowAdjust"
@@ -239,94 +247,29 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
-fileprivate struct AdjustmentSliderInfo {
-    var name: Adjustments.Name
-    var range: ClosedRange<Float>?
-    
+fileprivate extension CIAdjustmentSliderInfo {
     init(name: Adjustments.Name, range: ClosedRange<Float>? = nil) {
-        self.name = name
-        self.range = range
+        self.init(name: name.rawValue, attributeKey: name.key, range: range)
     }
 }
 
-fileprivate class CIAdjustmentFilter: CIFilter {
-    internal(set) var adjustmentItems = [String: CIFilterAttributes]()
-    private var builtInFilter: CIFilter?
-    
-    var filter: CIFilter {
-        return builtInFilter ?? self
+fileprivate extension CIAdjustmentFilter {
+    convenience init(adjustment: Adjustments.Name, sliderInfo: [CIAdjustmentSliderInfo]) {
+        self.init(name: adjustment.filterName, sliderInfo: sliderInfo)
     }
     
-    convenience init(adjustment: Adjustments.Name, adjustments: [AdjustmentSliderInfo]) {
-        self.init(name: adjustment.filterName, adjustments: adjustments)
-    }
-    
-    init(name: String, adjustments: [AdjustmentSliderInfo]) {
-        super.init()
-        
-        self.name = name
-        self.builtInFilter = CIFilter(name: name)
-        self.adjustmentItems = [:]
-        for adjustment in adjustments {
-            let attributes = CIFilterAttributes(name: adjustment.name.rawValue, key: adjustment.name.key)
-            attributes.setDefaults(with: filter, name: adjustment.name.rawValue, sliderRange: adjustment.range)
-            adjustmentItems[adjustment.name.key] = attributes
-        }
-    }
-    
-    override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIAdjustmentFilter(name: self.name, adjustments: [])
-        copy.adjustmentItems = Dictionary(uniqueKeysWithValues: self.adjustmentItems.compactMap({
-            guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
-            return ($0.key, item)
-        }))
-        return copy
-    }
-    
-    var hasChanges: Bool {
-        return adjustmentItems.values.reduce(false) { $0 || $1.hasChanges }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func isEqual(_ object: Any?) -> Bool {
-        return (name == (object as? CIFilter)?.name) == true
-    }
-    
-    func adjustmentItem(with adjustmentName: Adjustments.Name) -> CIFilterAttributes? {
-        return adjustmentItems[adjustmentName.key]
+    private func adjustmentItem(with adjustmentName: Adjustments.Name) -> CIFilterAttributes? {
+        return filterAttributes[adjustmentName.key]
     }
     
     func setAdjustmentValue(_ value: Float, with adjustmentName: Adjustments.Name) {
         adjustmentItem(with: adjustmentName)?.setAttributes(value: value, at: adjustmentName.attributeIndex)
     }
-    
-    @objc dynamic var inputImage : CIImage?
-    
-    override var outputImage: CIImage? {
-        return autoreleasepool { () -> CIImage? in
-            guard let image = inputImage else { return nil }
-            filter.setValue(image, forKey: kCIInputImageKey)
-            adjustmentItems.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
-            return filter.outputImage
-        }
-    }
 }
 
 fileprivate class CIFadeFilter: CIAdjustmentFilter {
-    convenience init(adjustments: [AdjustmentSliderInfo]) {
-        self.init(name: "CIFadeFilter", adjustments: adjustments)
-    }
-    
-    override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIFadeFilter(name: "CIFadeFilter", adjustments: [])
-        copy.adjustmentItems = Dictionary(uniqueKeysWithValues: self.adjustmentItems.compactMap({
-            guard let item = $0.value.copy() as? CIFilterAttributes else { return nil }
-            return ($0.key, item)
-        }))
-        return copy
+    convenience init(sliderInfo: [CIAdjustmentSliderInfo]) {
+        self.init(name: "CIFadeFilter", sliderInfo: sliderInfo)
     }
     
     override var attributes: [String: Any] {
@@ -355,7 +298,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
     override var outputImage: CIImage? {
         return autoreleasepool { () -> CIImage? in
             guard let image = inputImage else { return nil }
-            let params = adjustmentItems.compactMap { $0.value.number }
+            let params = filterAttributes.compactMap { $0.value.number }
             var uniformValues = [MTLBuffer]()
             for var value in params {
                 guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
@@ -369,16 +312,16 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
 fileprivate class AdjustmentFilterManager {
     private static var orderedFilters: [CIAdjustmentFilter] {
         return [
-            CIAdjustmentFilter(adjustment: .Temparature, adjustments: [AdjustmentSliderInfo(name: .Temparature), AdjustmentSliderInfo(name: .Tint)]),
-            CIAdjustmentFilter(adjustment: .Highlights, adjustments: [AdjustmentSliderInfo(name: .Highlights), AdjustmentSliderInfo(name: .Shadows)]),
-            CIAdjustmentFilter(adjustment: .Exposure, adjustments: [AdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
-            CIAdjustmentFilter(adjustment: .Gamma, adjustments: [AdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
-            CIAdjustmentFilter(adjustment: .Vibrance, adjustments: [AdjustmentSliderInfo(name: .Vibrance)]),
-            CIAdjustmentFilter(adjustment: .Brightness, adjustments: [AdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), AdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), AdjustmentSliderInfo(name: .Saturation)]),
-            CIFadeFilter(adjustments: [AdjustmentSliderInfo(name: .Fade, range: 0...1)]),
-            CIAdjustmentFilter(adjustment: .Vignette, adjustments: [AdjustmentSliderInfo(name: .Vignette), AdjustmentSliderInfo(name: .VignetteRadius)]),
-            CIAdjustmentFilter(adjustment: .SepiaTone, adjustments: [AdjustmentSliderInfo(name: .SepiaTone)]),
-            CIAdjustmentFilter(adjustment: .Sharpness, adjustments: [AdjustmentSliderInfo(name: .Sharpness)])
+            CIAdjustmentFilter(adjustment: .Temparature, sliderInfo: [CIAdjustmentSliderInfo(name: .Temparature), CIAdjustmentSliderInfo(name: .Tint)]),
+            CIAdjustmentFilter(adjustment: .Highlights, sliderInfo: [CIAdjustmentSliderInfo(name: .Highlights), CIAdjustmentSliderInfo(name: .Shadows)]),
+            CIAdjustmentFilter(adjustment: .Exposure, sliderInfo: [CIAdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
+            CIAdjustmentFilter(adjustment: .Gamma, sliderInfo: [CIAdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
+            CIAdjustmentFilter(adjustment: .Vibrance, sliderInfo: [CIAdjustmentSliderInfo(name: .Vibrance)]),
+            CIAdjustmentFilter(adjustment: .Brightness, sliderInfo: [CIAdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), CIAdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), CIAdjustmentSliderInfo(name: .Saturation)]),
+            CIFadeFilter(sliderInfo: [CIAdjustmentSliderInfo(name: .Fade, range: 0...1)]),
+            CIAdjustmentFilter(adjustment: .Vignette, sliderInfo: [CIAdjustmentSliderInfo(name: .Vignette), CIAdjustmentSliderInfo(name: .VignetteRadius)]),
+            CIAdjustmentFilter(adjustment: .SepiaTone, sliderInfo: [CIAdjustmentSliderInfo(name: .SepiaTone)]),
+            CIAdjustmentFilter(adjustment: .Sharpness, sliderInfo: [CIAdjustmentSliderInfo(name: .Sharpness)])
         ]
     }
     
@@ -398,7 +341,7 @@ fileprivate class AdjustmentFilterManager {
             let filter = filters?.first(where: { $0.name == filter.name }) ?? filter
             self.filters.append(filter)
             
-            for adjustmentItem in filter.adjustmentItems {
+            for adjustmentItem in filter.filterAttributes {
                 let attributes = filterAttributes?.first(where: { $0.name == adjustmentItem.value.name }) ?? adjustmentItem.value
                 for attributeItem in attributes.attributeItems {
                     if let name = Adjustments.Name(rawValue: attributeItem.name) {
@@ -412,7 +355,7 @@ fileprivate class AdjustmentFilterManager {
 
 fileprivate class CIAdjustmentFilterGroup: CIFilterGroup<CIAdjustmentFilter> {
     var filterAttributes: [CIFilterAttributes] {
-        return filters.map { $0.adjustmentItems.values }.reduce([], +)
+        return filters.map { $0.filterAttributes.values }.reduce([], +)
     }
 }
 
@@ -444,7 +387,7 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
-                    let adjustments = (assetItem.editState.ciFilter as? CIAdjustmentFilterGroup)?.filters.map({ $0.adjustmentItems.values }).reduce([], +) ?? []
+                    let adjustments = (assetItem.editState.ciFilter as? CIAdjustmentFilterGroup)?.filters.map({ $0.filterAttributes.values }).reduce([], +) ?? []
                     
                     var editInfo: [String: Any] = [:]
                     if let jsonData = try? JSONEncoder().encode(adjustments), let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? Array<Any> {
@@ -563,7 +506,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
         attributeItems.removeAll()
         
         for adjustmentFilter in filterManager.filters {
-            for adjustmentItem in adjustmentFilter.adjustmentItems {
+            for adjustmentItem in adjustmentFilter.filterAttributes {
                 for attributeItem in adjustmentItem.value.attributeItems {
                     guard let name = Adjustments.Name(rawValue: attributeItem.name), self.orderedAdjustments.contains(name) else { continue }
                     attributeItems.append(attributeItem)
