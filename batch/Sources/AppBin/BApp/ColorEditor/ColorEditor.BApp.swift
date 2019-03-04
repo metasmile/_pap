@@ -11,20 +11,22 @@ import PropertyKit
 import Photos
 
 protocol ColorEditorDefaults: AppDefaults {
-    var aspectRatio: Double {get set}
-    var contentMode: PHImageContentMode {get set}
+    var filterAttributes: [CIFilterAttributes] { get set }
 }
 
 extension Defaults: ColorEditorDefaults {
-    
+    internal var filterAttributes: [CIFilterAttributes] {
+        set { set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
+        get { return get(or: []) }
+    }
 }
 
-class ColorEditor: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
+class ColorEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
 PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = ColorEditorTask.self
     
-    public static let paramType: AppTaskParamable.Type = _ColorEditorAsset.self
+    public static let paramType: AppTaskParamable.Type = _ColorEditorAppAsset.self
     
     public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
@@ -34,13 +36,23 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = ColorEditorDockContent()
+    public private(set) lazy var content: AppDockContent? = ColorEditorAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = ColorEditorAppDockContent()
+    
+    public private(set) var defaultEditStateValue: ImageEditStateValue?
+    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
+        defaultEditStateValue = editStateValue
+        
+        if var defaults = type(of: self).defaults as? ColorEditorDefaults, let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
+            defaults.filterAttributes = filter.filterAttributes
+        }
+    }
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.coloreditor"
         , version: "0.1"
         , phase: .develop
-        , appType: ColorEditor.self
+        , appType: ColorEditorApp.self
         , displayName: "Color Tool".localized.localizedCapitalized, description:nil, keywords:nil
         , iconBundleName: nil
         , themeColor: UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
@@ -51,12 +63,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     required public override init() {
         super.init()
         
-        let controllerContent = self.content as? ColorEditorDockContent
+        let controllerContent = self.content as? ColorEditorAppDockContent
         controllerContent?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? ColorEditorDockContent {
+            else if var defaults = type(of: self).defaults as? ColorEditorAppDockContent {
 //                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
 //
 //                let filterItem = CIFilterItem(filter)
@@ -65,18 +77,18 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
         
-//        let controllerContentInPhotoEditor = self.photoEditorDockContent as? AdjustmentsAppDockContent
-//        controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
-//            if let filter = controllerContentInPhotoEditor?.filter {
-//                self.config?.filter = CIFilterItem(filter)
-//            }
-//            else if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
+        let controllerContentInPhotoEditor = self.photoEditorDockContent as? ColorEditorAppDockContent
+        controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
+            if let filter = controllerContentInPhotoEditor?.filter {
+                self.config?.filter = CIFilterItem(filter)
+            }
+            else if var defaults = type(of: self).defaults as? ColorEditorAppDockContent {
 //                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
 //
 //                let filterItem = CIFilterItem(filter)
 //                self.config?.filter = filterItem
-//            }
-//        }
+            }
+        }
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -99,12 +111,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         self.config?.adoptValues(fromOther: config)
     }
     
-    public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
-    }
-    
     //INFO: prevent memory leak for creating CIImage(uiImage:)
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
@@ -115,45 +121,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 }
 
-extension ColorEditor {
-    public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
-        let resultItems = result
-            .filter { respondable in respondable.info.state == .completed }
-            .compactMap { ($0.result as? ColorEditorResultItem) }
-        
-        var results = [PHAssetResultItem]()
-        
-//        let video = mergeVideo(with: resultItems)
-//
-//        asyncSignal.begin()
-//        DispatchQueue(label: #file + "_mergeVideos", qos: .utility).async {
-//            let videoURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-//            AVAssetExportSession.export(asset: video, outputURL: videoURL, progressHandler: { progress in
-//
-//            }, completionHandler: { (success) in
-//                if success {
-//                    results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url: videoURL, resourceType: .video)]))
-//                }
-//                asyncSignal.end()
-//            })
-//        }
-//        asyncSignal.waitUntilEnd()
-        
-        let success = showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
-        result.forEach {
-            $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
-        }
-        
-        return result
-    }
-}
-
 fileprivate class CIToneCurveFilter: CIAdjustmentFilter {
     convenience init() {
-        self.init(name: "CIToneCurve", sliderInfo: CIToneCurveFilter.toneCurveSliderInfoItems())
+        self.init(name: "CIToneCurve", sliderInfo: CIToneCurveFilter.sliderInfoItems())
     }
     
-    static func toneCurveSliderInfoItems() -> [CIAdjustmentSliderInfo] {
+    static func sliderInfoItems() -> [CIAdjustmentSliderInfo] {
         return [
             CIAdjustmentSliderInfo(name: "point0", attributeKey: "inputPoint0", userAttributeItems: [
                 CIFilterAttributeItem(name: "inputPoint0.x", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
@@ -185,7 +158,7 @@ fileprivate class CIColorFilterGroup: CIFilterGroup<CIAdjustmentFilter> {
     }
 }
 
-class _ColorEditorAsset: _FiltersAppAsset {}
+class _ColorEditorAppAsset: _FiltersAppAsset {}
 
 struct ColorEditorResultItem: AppTaskResultable {
     var asset: PHAsset
@@ -200,57 +173,57 @@ struct ColorEditorResultItem: AppTaskResultable {
 public class ColorEditorValue: ImageEditStateValue {}
 
 private class ColorEditorTask: AppTaskPrototype, AppTaskable {
-    public typealias ParamType = _ColorEditorAsset
+    public typealias ParamType = _ColorEditorAppAsset
     public typealias ResultType = PHAssetResultItem
     
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _ColorEditorAsset)?.cancelAllRequestIDs()
-        (param as? _ColorEditorAsset)?.cancelProcessing()
+        (param as? _ColorEditorAppAsset)?.cancelAllRequestIDs()
+        (param as? _ColorEditorAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is _ColorEditorAsset, "TaskParamable type of this app is \(_ColorEditorAsset.self)")
-        guard let _param = param as? _ColorEditorAsset else{
+        assert(param is _ColorEditorAppAsset, "TaskParamable type of this app is \(_ColorEditorAppAsset.self)")
+        guard let _param = param as? _ColorEditorAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _ColorEditorAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _ColorEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
-//        async.begin()
-//
-//        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
-//            assetItem.runEditing({ (progress) in
-//                AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
-//            }) { (asset, editingResultItems, contentEditingOutput) in
-//                if let asset = asset, let contentEditingOutput = contentEditingOutput {
-//                    let adjustments = (assetItem.editState.ciFilter as? CIFilterGroup)?.filters.map({ $0.adjustmentItems.values }).reduce([], +) ?? []
-//
-//                    var editInfo: [String: Any] = [:]
-//                    if let jsonData = try? JSONEncoder().encode(adjustments), let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? Array<Any> {
-//                        editInfo["adjustments"] = json
-//                    }
-//
-//                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AdjustmentsApp.self, editInfo: editInfo, from: asset)
-//
-//                    result = PHAssetResultItem(
-//                        asset: assetItem,
-//                        editingResultItems: editingResultItems,
-//                        contentEditingOutput: contentEditingOutput)
-//                }
-//                async.end()
-//            }
-//        }
-//
-//        async.waitUntilEnd()
+        async.begin()
+        
+        DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
+            assetItem.runEditing({ (progress) in
+                AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
+            }) { (asset, editingResultItems, contentEditingOutput) in
+                if let asset = asset, let contentEditingOutput = contentEditingOutput {
+                    let filterAttributes = (assetItem.editState.ciFilter as? CIColorFilterGroup)?.filters.map({ $0.filterAttributes.values }).reduce([], +) ?? []
+                    
+                    var editInfo: [String: Any] = [:]
+                    if let jsonData = try? JSONEncoder().encode(filterAttributes), let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? Array<Any> {
+                        editInfo["filterAttributes"] = json
+                    }
+                    
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ColorEditorApp.self, editInfo: editInfo, from: asset)
+                    
+                    result = PHAssetResultItem(
+                        asset: assetItem,
+                        editingResultItems: editingResultItems,
+                        contentEditingOutput: contentEditingOutput)
+                }
+                async.end()
+            }
+        }
+        
+        async.waitUntilEnd()
         return result
     }
 }
 
-class ColorEditorDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
+class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
     lazy var view: UIView = {
         let view = UITableView(frame: .zero)
         view.dataSource = self

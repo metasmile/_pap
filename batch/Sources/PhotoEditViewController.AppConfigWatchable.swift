@@ -64,7 +64,7 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
                 }
             }
             
-            appCenter.currentInstanceAs(ColorEditor.self)?.config?.watch(\.filter, id:"editor\(ColorEditor.info.identifier)") { (config, changed) in
+            appCenter.currentInstanceAs(ColorEditorApp.self)?.config?.watch(\.filter, id:"editor\(ColorEditorApp.info.identifier)") { (config, changed) in
                 if let value = config.filter {
                     self.appendImageEditState(value)
                 }
@@ -85,7 +85,7 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
         AppCenter.default.currentInstanceAs(AdjustmentsApp.self)?.config?.unwatch(\.filter, forIds:["editor\(AdjustmentsApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(DepthEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(DepthEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RawEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(RawEditorApp.info.identifier)"])
-        AppCenter.default.currentInstanceAs(ColorEditor.self)?.config?.unwatch(\.filter, forIds:["editor\(ColorEditor.info.identifier)"])
+        AppCenter.default.currentInstanceAs(ColorEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ColorEditorApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
 }
