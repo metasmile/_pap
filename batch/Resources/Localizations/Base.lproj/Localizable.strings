@@ -258,6 +258,8 @@
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* genl10n: RawEditor.swift */
 "Color Noise Reduction" = "Color Noise Reduction";
+/* genl10n: ColorEditor.BApp.swift */
+"Color Tool" = "Color Tool";
 /* genl10n: Finder.BApp.swift */
 "Contacts" = "Contacts";
 /* genl10n: Adjustments.BApp.swift */

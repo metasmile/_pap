@@ -248,7 +248,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
 }
 
 fileprivate extension CIAdjustmentSliderInfo {
-    init(name: Adjustments.Name, range: ClosedRange<Float>? = nil, userAttributeItems: [CIFilterAttributeItem]? = nil) {
+    convenience init(name: Adjustments.Name, range: ClosedRange<Float>? = nil, userAttributeItems: [CIFilterAttributeItem]? = nil) {
         self.init(name: name.rawValue, attributeKey: name.key, range: range, userAttributeItems: userAttributeItems)
     }
 }

@@ -53,18 +53,20 @@ class CIFilterAttributeItem: Codable, NSCopying {
     var maximumValue: Float
     var offset: Int
     var isIntensity: Bool
+    var canEdit: Bool = true
     
     var hasChanges: Bool {
         return defaultValue != value
     }
     
-    init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true) {
+    init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true, canEdit: Bool = true) {
         self.name = name
         self.defaultValue = defaultValue ?? 0
         self.minimumValue = minimumValue ?? 0
         self.maximumValue = maximumValue ?? 1
         self.offset = offset
         self.isIntensity = isIntensity
+        self.canEdit = canEdit
         
         self.value = defaultValue ?? 0
     }
@@ -167,8 +169,8 @@ public class CIFilterAttributes: Codable, NSCopying {
         }
         else if attributeType == kCIAttributeTypeOffset {
             attributeItems = [
-                CIFilterAttributeItem(name: "x", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
-                CIFilterAttributeItem(name: "y", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
+                CIFilterAttributeItem(name: "\(name).x", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
+                CIFilterAttributeItem(name: "\(name).y", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
             ]
         }
     }
@@ -184,7 +186,7 @@ extension CIFilterAttributes: Equatable {
     }
 }
 
-struct CIAdjustmentSliderInfo {
+class CIAdjustmentSliderInfo {
     var name: String
     var attributeKey: String
     var range: ClosedRange<Float>?
@@ -203,6 +205,7 @@ struct CIAdjustmentSliderInfo {
 class CIAdjustmentFilter: CIFilter {
     var filterAttributes = [String: CIFilterAttributes]()
     private var builtInFilter: CIFilter?
+    private(set) var sliderInfoItems: [CIAdjustmentSliderInfo]?
     
     var filter: CIFilter {
         return builtInFilter ?? self
@@ -214,6 +217,7 @@ class CIAdjustmentFilter: CIFilter {
         self.name = name
         self.builtInFilter = CIFilter(name: name)
         self.filterAttributes = [:]
+        self.sliderInfoItems = sliderInfo
         for info in sliderInfo {
             let attributes = CIFilterAttributes(name: info.name, key: info.attributeKey)
             attributes.setDefaults(with: filter, name: info.name, sliderRange: info.range)
