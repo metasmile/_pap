@@ -163,23 +163,18 @@ public class CIFilterAttributes: Codable, NSCopying {
         let maximumValue = sliderRange?.upperBound ?? attributes[kCIAttributeSliderMax] as? Float
         
         if attributeType == kCIAttributeTypeScalar {
-            switch filter?.name {
-            case "CISepiaTone"?:
-                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)]
-            default:
-                attributeItems = [CIFilterAttributeItem(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
-            }
+            attributeItems = [CIFilterAttributeItem(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
         }
         else if attributeType == kCIAttributeTypeOffset {
-            switch filter?.name {
-            case "CITemperatureAndTint"?:
-                attributeItems = [
-                    CIFilterAttributeItem(name: "Temparature", defaultValue: 6500, minimumValue: minimumValue ?? 2000, maximumValue: maximumValue ?? 10000),
-                    CIFilterAttributeItem(name: "Tint", defaultValue: 0, minimumValue: minimumValue ?? -150, maximumValue: maximumValue ?? 150)
-                ]
-            default: break
-            }
+            attributeItems = [
+                CIFilterAttributeItem(name: "x", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
+                CIFilterAttributeItem(name: "y", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
+            ]
         }
+    }
+    
+    func setAttributeItems(_ attributeItems: [CIFilterAttributeItem]) {
+        self.attributeItems = attributeItems
     }
 }
 
@@ -194,11 +189,15 @@ struct CIAdjustmentSliderInfo {
     var attributeKey: String
     var range: ClosedRange<Float>?
     
-    init(name: String, attributeKey: String, range: ClosedRange<Float>? = nil) {
+    init(name: String, attributeKey: String, range: ClosedRange<Float>? = nil, userAttributeItems: [CIFilterAttributeItem]? = nil) {
         self.name = name
         self.attributeKey = attributeKey
         self.range = range
+        
+        self.userAttributeItems = userAttributeItems
     }
+    
+    var userAttributeItems: [CIFilterAttributeItem]?
 }
 
 class CIAdjustmentFilter: CIFilter {
@@ -218,6 +217,9 @@ class CIAdjustmentFilter: CIFilter {
         for info in sliderInfo {
             let attributes = CIFilterAttributes(name: info.name, key: info.attributeKey)
             attributes.setDefaults(with: filter, name: info.name, sliderRange: info.range)
+            if let userAttributeItems = info.userAttributeItems {
+                attributes.setAttributeItems(userAttributeItems)
+            }
             filterAttributes[info.attributeKey] = attributes
         }
     }
