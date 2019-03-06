@@ -55,3 +55,8 @@ extension Collection {
     }
 }
 
+extension Array where Element: NSCopying {
+    func copyElements() -> [Element] {
+        return compactMap { $0.copy() as? Element }
+    }
+}
