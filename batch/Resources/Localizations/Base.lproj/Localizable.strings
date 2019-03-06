@@ -214,6 +214,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.";
 /* genl10n: RawEditor.swift */
 "Bias" = "Bias";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Blacks";
 /* genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blue / Magenta";
 /* genl10n: Resizer.BApp.swift */
@@ -418,7 +420,7 @@
 "Hide" = "Hide";
 /* genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Hiding Selected Items...";
-/* genl10n: Adjustments.BApp.swift */
+/* genl10n: Adjustments.BApp.swift, ColorEditor.BApp.swift */
 "Highlights" = "Highlights";
 /* genl10n: GIFMaker.BApp.swift */
 "Homographic" = "Homographic";
@@ -486,6 +488,8 @@
 "MemoCam" = "MemoCam";
 /* genl10n: Shop.SApp.swift */
 "Message To Us" = "Message To Us";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midtones";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modify and Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -684,7 +688,7 @@
 "Settings for Main Tools License" = "Settings for Main Tools License";
 /* genl10n: Converter.BApp.swift, ExifGhost.AppDockContent.swift, Shop.SApp.swift */
 "Settings" = "Settings";
-/* genl10n: Adjustments.BApp.swift */
+/* genl10n: ColorEditor.BApp.swift, Adjustments.BApp.swift */
 "Shadows" = "Shadows";
 /* genl10n: Shop.SApp.swift */
 "Share This App" = "Share This App";
@@ -874,6 +878,8 @@
 "Welcome to our promotion license program!" = "Welcome to our promotion license program!";
 /* genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Welcome to our special guest license program!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "Whites";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Wipe my privacy from the last item.";
 /* genl10n: ExifGhost.BApp.swift */

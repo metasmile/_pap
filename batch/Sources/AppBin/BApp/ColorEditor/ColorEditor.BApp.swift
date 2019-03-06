@@ -11,11 +11,11 @@ import PropertyKit
 import Photos
 
 protocol ColorEditorDefaults: AppDefaults {
-    var filterAttributes: [CIFilterAttributes] { get set }
+    var colorFilters: [CIBuiltInFilter] { get set }
 }
 
 extension Defaults: ColorEditorDefaults {
-    internal var filterAttributes: [CIFilterAttributes] {
+    internal var colorFilters: [CIBuiltInFilter] {
         set { set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
         get { return get(or: []) }
     }
@@ -44,7 +44,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         defaultEditStateValue = editStateValue
         
         if var defaults = type(of: self).defaults as? ColorEditorDefaults, let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
-            defaults.filterAttributes = filter.filterAttributes
+            defaults.colorFilters = filter.filters
         }
     }
     
@@ -68,12 +68,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? ColorEditorAppDockContent {
-//                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
-//
-//                let filterItem = CIFilterItem(filter)
-//                self.config?.filter = filterItem
-//                self.defaultEditStateValue = filterItem
+            else if var defaults = type(of: self).defaults as? ColorEditorDefaults {
+                let filter = CIColorFilterGroup(filters: defaults.colorFilters)
+
+                let filterItem = CIFilterItem(filter)
+                self.config?.filter = filterItem
+                self.defaultEditStateValue = filterItem
             }
         }
         
@@ -82,11 +82,11 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? ColorEditorAppDockContent {
-//                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
-//
-//                let filterItem = CIFilterItem(filter)
-//                self.config?.filter = filterItem
+            else if var defaults = type(of: self).defaults as? ColorEditorDefaults {
+                let filter = CIColorFilterGroup(filters: defaults.colorFilters)
+
+                let filterItem = CIFilterItem(filter)
+                self.config?.filter = filterItem
             }
         }
     }
@@ -119,40 +119,31 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original?.asUIImage, filtered?.asUIImage)
     }
-}
-
-fileprivate class CIToneCurveFilter: CIAdjustmentFilter {
-    convenience init() {
-        self.init(name: "CIToneCurve", sliderInfo: CIToneCurveFilter.sliderInfoItems())
-    }
     
-    static func sliderInfoItems() -> [CIAdjustmentSliderInfo] {
-        return [
-            CIAdjustmentSliderInfo(name: "point0", attributeKey: "inputPoint0", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint0.x", attributeKey: "inputPoint0", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint0.y", attributeKey: "inputPoint0", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)
-                ]),
-            CIAdjustmentSliderInfo(name: "point1", attributeKey: "inputPoint1", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint1.x", attributeKey: "inputPoint0", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint1.y", attributeKey: "inputPoint0", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 1)
-                ]),
-            CIAdjustmentSliderInfo(name: "point2", attributeKey: "inputPoint2", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint2.x", attributeKey: "inputPoint0", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint2.y", attributeKey: "inputPoint0", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 1)
-                ]),
-            CIAdjustmentSliderInfo(name: "point3", attributeKey: "inputPoint3", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint3.x", attributeKey: "inputPoint0", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint3.y", attributeKey: "inputPoint0", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 1)
-                ]),
-            CIAdjustmentSliderInfo(name: "point4", attributeKey: "inputPoint4", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint4.x", attributeKey: "inputPoint0", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint4.y", attributeKey: "inputPoint0", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 1)
-                ])
-        ]
+    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
+        if let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
+            (content as? ColorEditorAppDockContent)?.setFilterValues(filter, animated: false)
+            
+//            if self.undoStack.isEmpty {
+//                self.registerUndo(filter.filterAttributes)
+//            }
+        }
     }
 }
 
-fileprivate class CIColorFilterGroup: CIFilterGroup<CIAdjustmentFilter> {
+fileprivate class CIToneCurveFilter: CIBuiltInFilter {
+    convenience init() {
+        self.init(name: "CIToneCurve", editableItems: [
+            CIFilterAttributeItem(name: "Blacks".localized, attributeKey: "inputPoint0", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1),
+            CIFilterAttributeItem(name: "Shadows".localized, attributeKey: "inputPoint1", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 1),
+            CIFilterAttributeItem(name: "Midtones".localized, attributeKey: "inputPoint2", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 1),
+            CIFilterAttributeItem(name: "Highlights".localized, attributeKey: "inputPoint3", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 1),
+            CIFilterAttributeItem(name: "Whites".localized, attributeKey: "inputPoint4", defaultValue: 1.0, minimumValue: 0, maximumValue: 1, offset: 1)
+        ])
+    }
+}
+
+fileprivate class CIColorFilterGroup: CIFilterGroup<CIBuiltInFilter> {
     var filterAttributes: [CIFilterAttributes] {
         return filters.map { $0.filterAttributes.values }.reduce([], +)
     }
@@ -262,23 +253,27 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     
     @objc dynamic var filter: CIFilter?
     
-    fileprivate var colorFilters = [CIAdjustmentFilter]()
+    fileprivate var colorFilters = [CIBuiltInFilter]()
     
-    private func installFilters(with filters: [CIAdjustmentFilter]? = nil) {
-//        filterManager.setAdjustmentFilters(filters)
+    private func installFilters(with filters: [CIBuiltInFilter]? = nil) {
         colorFilters.removeAll()
         
-        colorFilters = [CIToneCurveFilter()]
+        if let filters = filters, !filters.isEmpty {
+            colorFilters = filters
+        }
+        else {
+            colorFilters = [CIToneCurveFilter()]
+        }
+    }
+    
+    fileprivate func setFilterValues(_ filter: CIColorFilterGroup?, animated: Bool = true) {
+        guard let tableView = view as? UITableView, let filter = filter?.copy() as? CIColorFilterGroup else { return }
         
+        self.installFilters(with: filter.filters)
         
-//        for adjustmentFilter in filterManager.filters {
-//            for adjustmentItem in adjustmentFilter.filterAttributes {
-//                for attributeItem in adjustmentItem.value.attributeItems {
-//                    guard let name = Adjustments.Name(rawValue: attributeItem.name), self.orderedAdjustments.contains(name) else { continue }
-//                    attributeItems.append(attributeItem)
-//                }
-//            }
-//        }
+        DispatchQueue.main.async {
+            tableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -286,7 +281,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colorFilters[safe: section]?.sliderInfoItems?.count ?? 0
+        return colorFilters[safe: section]?.editableItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -294,11 +289,11 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         
         let filter = colorFilters[indexPath.section]
         
-        guard let sliderInfo = filter.sliderInfoItems?[indexPath.item], let attributeItem = sliderInfo.userAttributeItems?.first(where: { $0.canEdit }) else { return cell }
+        guard let attributeItem = filter.editableItems?[indexPath.item] else { return cell }
         
-        cell.titleLabel.text = sliderInfo.name
+        cell.titleLabel.text = attributeItem.name
         
-        cell.highlightedColor = AdjustmentsApp.info.themeColor
+        cell.highlightedColor = ColorEditorApp.info.themeColor
         
         cell.slider.minimumValue = attributeItem.minimumValue
         cell.slider.maximumValue = attributeItem.maximumValue

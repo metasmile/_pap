@@ -166,19 +166,27 @@ public class CIFilterAttributes: Codable, NSCopying {
         let minimumValue = sliderRange?.lowerBound ?? attributes[kCIAttributeSliderMin] as? Float
         let maximumValue = sliderRange?.upperBound ?? attributes[kCIAttributeSliderMax] as? Float
         
+        let defaultValue = attributes[kCIAttributeDefault]
+        
         if attributeType == kCIAttributeTypeScalar {
-            attributeItems = [CIFilterAttributeItem(name: name, attributeKey: key, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
+            attributeItems = [CIFilterAttributeItem(name: name, attributeKey: key, defaultValue: defaultValue as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
         }
         else if attributeType == kCIAttributeTypeOffset {
+            let defaultVector = defaultValue as? CIVector
+            
             attributeItems = [
-                CIFilterAttributeItem(name: "\(name).x", attributeKey: key, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
-                CIFilterAttributeItem(name: "\(name).y", attributeKey: key, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
+                CIFilterAttributeItem(name: "\(name).x", attributeKey: key, defaultValue: Float(defaultVector?.x ?? 0), minimumValue: minimumValue, maximumValue: maximumValue),
+                CIFilterAttributeItem(name: "\(name).y", attributeKey: key, defaultValue: Float(defaultVector?.y ?? 0), minimumValue: minimumValue, maximumValue: maximumValue)
             ]
         }
     }
     
     func setAttributeItems(_ attributeItems: [CIFilterAttributeItem]) {
         self.attributeItems = attributeItems
+    }
+    
+    func setAttributeItem(_ attributeItem: CIFilterAttributeItem, at offset: Int = 0) {
+        self.attributeItems[offset] = attributeItem
     }
 }
 
@@ -224,6 +232,7 @@ class CIBuiltInFilter: CIFilter, Codable {
         for attributeItem in attributeItems {
             let attributes = CIFilterAttributes(name: attributeItem.name, key: attributeItem.attributeKey)
             attributes.setDefaults(with: filter, name: attributeItem.name, sliderRange: attributeItem.minimumValue...attributeItem.maximumValue)
+            attributes.setAttributeItem(attributeItem, at: attributeItem.offset)
             filterAttributes[attributeItem.attributeKey] = attributes
         }
     }
@@ -234,22 +243,25 @@ class CIBuiltInFilter: CIFilter, Codable {
     
     private enum CodingKeys: Int, CodingKey {
         case filterName
+        case editableItems
     }
     
     required convenience init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let filterName = try container.decode(String.self, forKey: .filterName)
+        let editableItems = try container.decode([CIFilterAttributeItem].self, forKey: .editableItems)
         
-        self.init(name: filterName)
+        self.init(name: filterName, editableItems: editableItems)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.name, forKey: .filterName)
+        try container.encode(self.editableItems, forKey: .editableItems)
     }
     
     override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = type(of: self).init(name: self.name)
+        let copy = type(of: self).init(name: self.name, editableItems: editableItems?.copyElements() ?? [])
         return copy
     }
 
