@@ -22,7 +22,7 @@ class CIFilterGroup<Filter: CIFilter>: CIFilter {
     }
     
     override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = type(of: self).init(filters: filters.compactMap({ $0.copy() as? Filter }))
+        let copy = type(of: self).init(filters: filters.copyElements())
         return copy
     }
     
@@ -46,6 +46,7 @@ class CIFilterGroup<Filter: CIFilter>: CIFilter {
 }
 
 class CIFilterAttributeItem: Codable, NSCopying {
+    var attributeKey: String
     var name: String
     var value: Float
     var defaultValue: Float
@@ -59,8 +60,9 @@ class CIFilterAttributeItem: Codable, NSCopying {
         return defaultValue != value
     }
     
-    init(name: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true, canEdit: Bool = true) {
+    init(name: String, attributeKey: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true, canEdit: Bool = true) {
         self.name = name
+        self.attributeKey = attributeKey
         self.defaultValue = defaultValue ?? 0
         self.minimumValue = minimumValue ?? 0
         self.maximumValue = maximumValue ?? 1
@@ -71,12 +73,12 @@ class CIFilterAttributeItem: Codable, NSCopying {
         self.value = defaultValue ?? 0
     }
     
-    convenience init(name: String, boolValue: Bool) {
-        self.init(name: name, defaultValue: boolValue ? 1.0 : 0.0)
+    convenience init(name: String, attributeKey: String, boolValue: Bool) {
+        self.init(name: name, attributeKey: attributeKey, defaultValue: boolValue ? 1.0 : 0.0)
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIFilterAttributeItem(name: name, defaultValue: defaultValue, minimumValue: minimumValue, maximumValue: maximumValue, offset: offset, isIntensity: isIntensity)
+        let copy = CIFilterAttributeItem(name: name, attributeKey: attributeKey, defaultValue: defaultValue, minimumValue: minimumValue, maximumValue: maximumValue, offset: offset, isIntensity: isIntensity)
         copy.value = value
         return copy
     }
@@ -137,7 +139,7 @@ public class CIFilterAttributes: Codable, NSCopying {
     }
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        let copy = CIFilterAttributes(name: name, key: key, attributeType: attributeType ?? "", attributes: attributeItems.compactMap({ $0.copy() as? CIFilterAttributeItem }))
+        let copy = CIFilterAttributes(name: name, key: key, attributeType: attributeType ?? "", attributes: attributeItems.copyElements())
         return copy
     }
     
@@ -165,12 +167,12 @@ public class CIFilterAttributes: Codable, NSCopying {
         let maximumValue = sliderRange?.upperBound ?? attributes[kCIAttributeSliderMax] as? Float
         
         if attributeType == kCIAttributeTypeScalar {
-            attributeItems = [CIFilterAttributeItem(name: name, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
+            attributeItems = [CIFilterAttributeItem(name: name, attributeKey: key, defaultValue: attributes[kCIAttributeDefault] as? Float, minimumValue: minimumValue, maximumValue: maximumValue)]
         }
         else if attributeType == kCIAttributeTypeOffset {
             attributeItems = [
-                CIFilterAttributeItem(name: "\(name).x", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
-                CIFilterAttributeItem(name: "\(name).y", defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
+                CIFilterAttributeItem(name: "\(name).x", attributeKey: key, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue),
+                CIFilterAttributeItem(name: "\(name).y", attributeKey: key, defaultValue: 0, minimumValue: minimumValue, maximumValue: maximumValue)
             ]
         }
     }
@@ -200,6 +202,83 @@ class CIAdjustmentSliderInfo {
     }
     
     var userAttributeItems: [CIFilterAttributeItem]?
+}
+
+class CIBuiltInFilter: CIFilter, Codable {
+    var filterAttributes = [String: CIFilterAttributes]()
+    private var builtInFilter: CIFilter?
+    private(set) var editableItems: [CIFilterAttributeItem]?
+    
+    var filter: CIFilter {
+        return builtInFilter ?? self
+    }
+    
+    required init(name: String, editableItems attributeItems: [CIFilterAttributeItem] = []) {
+        super.init()
+        
+        self.name = name
+        self.builtInFilter = CIFilter(name: name)
+        self.editableItems = attributeItems
+        
+        self.filterAttributes = [:]
+        for attributeItem in attributeItems {
+            let attributes = CIFilterAttributes(name: attributeItem.name, key: attributeItem.attributeKey)
+            attributes.setDefaults(with: filter, name: attributeItem.name, sliderRange: attributeItem.minimumValue...attributeItem.maximumValue)
+            filterAttributes[attributeItem.attributeKey] = attributes
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private enum CodingKeys: Int, CodingKey {
+        case filterName
+    }
+    
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let filterName = try container.decode(String.self, forKey: .filterName)
+        
+        self.init(name: filterName)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.name, forKey: .filterName)
+    }
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copy = type(of: self).init(name: self.name)
+        return copy
+    }
+
+    var hasChanges: Bool {
+        return filterAttributes.values.reduce(false) { $0 || $1.hasChanges }
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        return (name == (object as? CIFilter)?.name) == true
+    }
+    
+    private func filterAttribute(with key: String) -> CIFilterAttributes? {
+        return filterAttributes[key]
+    }
+    
+    func setFilterAttribute(_ value: Float, with key: String, at index: Int) {
+        filterAttribute(with: key)?.setAttributes(value: value, at: index)
+    }
+    
+    @objc dynamic var inputImage : CIImage?
+    
+    override var outputImage: CIImage? {
+        return autoreleasepool { () -> CIImage? in
+            guard let image = inputImage else { return nil }
+            filter.setValue(image, forKey: kCIInputImageKey)
+            filterAttributes.forEach { filter.setValue($0.value.value, forKey: $0.value.key) }
+            return filter.outputImage
+        }
+    }
 }
 
 class CIAdjustmentFilter: CIFilter {

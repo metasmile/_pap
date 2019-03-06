@@ -129,24 +129,24 @@ fileprivate class CIToneCurveFilter: CIAdjustmentFilter {
     static func sliderInfoItems() -> [CIAdjustmentSliderInfo] {
         return [
             CIAdjustmentSliderInfo(name: "point0", attributeKey: "inputPoint0", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint0.x", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint0.y", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)
+                CIFilterAttributeItem(name: "inputPoint0.x", attributeKey: "inputPoint0", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
+                CIFilterAttributeItem(name: "inputPoint0.y", attributeKey: "inputPoint0", defaultValue: 0, minimumValue: 0, maximumValue: 1, offset: 1)
                 ]),
             CIAdjustmentSliderInfo(name: "point1", attributeKey: "inputPoint1", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint1.x", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint1.y", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 1)
+                CIFilterAttributeItem(name: "inputPoint1.x", attributeKey: "inputPoint0", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
+                CIFilterAttributeItem(name: "inputPoint1.y", attributeKey: "inputPoint0", defaultValue: 0.25, minimumValue: 0, maximumValue: 1, offset: 1)
                 ]),
             CIAdjustmentSliderInfo(name: "point2", attributeKey: "inputPoint2", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint2.x", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint2.y", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 1)
+                CIFilterAttributeItem(name: "inputPoint2.x", attributeKey: "inputPoint0", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
+                CIFilterAttributeItem(name: "inputPoint2.y", attributeKey: "inputPoint0", defaultValue: 0.5, minimumValue: 0, maximumValue: 1, offset: 1)
                 ]),
             CIAdjustmentSliderInfo(name: "point3", attributeKey: "inputPoint3", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint3.x", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint3.y", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 1)
+                CIFilterAttributeItem(name: "inputPoint3.x", attributeKey: "inputPoint0", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
+                CIFilterAttributeItem(name: "inputPoint3.y", attributeKey: "inputPoint0", defaultValue: 0.75, minimumValue: 0, maximumValue: 1, offset: 1)
                 ]),
             CIAdjustmentSliderInfo(name: "point4", attributeKey: "inputPoint4", userAttributeItems: [
-                CIFilterAttributeItem(name: "inputPoint4.x", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
-                CIFilterAttributeItem(name: "inputPoint4.y", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 1)
+                CIFilterAttributeItem(name: "inputPoint4.x", attributeKey: "inputPoint0", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 0, canEdit: false),
+                CIFilterAttributeItem(name: "inputPoint4.y", attributeKey: "inputPoint0", defaultValue: 1, minimumValue: 0, maximumValue: 1, offset: 1)
                 ])
         ]
     }
@@ -231,7 +231,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         view.rowHeight = UITableView.automaticDimension
         view.estimatedRowHeight = 52
         view.allowsSelection = false
-        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: AdjustmentsApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
+        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
         view.backgroundColor = .clear
         view.separatorStyle = .none
         return view
@@ -290,7 +290,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdjustmentsApp.info.identifier + "\(CIAdjustmentSliderCell.self)") as! CIAdjustmentSliderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)") as! CIAdjustmentSliderCell
         
         let filter = colorFilters[indexPath.section]
         

@@ -312,7 +312,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
 fileprivate class AdjustmentFilterManager {
     private static var orderedFilters: [CIAdjustmentFilter] {
         return [
-            CIAdjustmentFilter(adjustment: .Temparature, sliderInfo: [CIAdjustmentSliderInfo(name: .Temparature, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.Temparature.rawValue, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000), CIFilterAttributeItem(name: Adjustments.Name.Tint.rawValue, defaultValue: 0, minimumValue: -150, maximumValue: 150)]), CIAdjustmentSliderInfo(name: .Tint, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.Temparature.rawValue, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000), CIFilterAttributeItem(name: Adjustments.Name.Tint.rawValue, defaultValue: 0, minimumValue: -150, maximumValue: 150)])]),
+            CIAdjustmentFilter(adjustment: .Temparature, sliderInfo: [CIAdjustmentSliderInfo(name: .Temparature, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.Temparature.rawValue, attributeKey: Adjustments.Name.Temparature.key, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000), CIFilterAttributeItem(name: Adjustments.Name.Tint.rawValue, attributeKey: Adjustments.Name.Tint.key, defaultValue: 0, minimumValue: -150, maximumValue: 150)]), CIAdjustmentSliderInfo(name: .Tint, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.Temparature.rawValue, attributeKey: Adjustments.Name.Temparature.key, defaultValue: 6500, minimumValue: 2000, maximumValue: 10000), CIFilterAttributeItem(name: Adjustments.Name.Tint.rawValue, attributeKey: Adjustments.Name.Tint.key, defaultValue: 0, minimumValue: -150, maximumValue: 150)])]),
             CIAdjustmentFilter(adjustment: .Highlights, sliderInfo: [CIAdjustmentSliderInfo(name: .Highlights), CIAdjustmentSliderInfo(name: .Shadows)]),
             CIAdjustmentFilter(adjustment: .Exposure, sliderInfo: [CIAdjustmentSliderInfo(name: .Exposure, range: -2...2)]),
             CIAdjustmentFilter(adjustment: .Gamma, sliderInfo: [CIAdjustmentSliderInfo(name: .Gamma, range: 0.5...3)]),
@@ -320,7 +320,7 @@ fileprivate class AdjustmentFilterManager {
             CIAdjustmentFilter(adjustment: .Brightness, sliderInfo: [CIAdjustmentSliderInfo(name: .Brightness, range: -0.2...0.2), CIAdjustmentSliderInfo(name: .Contrast, range: 0.7...1.5), CIAdjustmentSliderInfo(name: .Saturation)]),
             CIFadeFilter(sliderInfo: [CIAdjustmentSliderInfo(name: .Fade, range: 0...1)]),
             CIAdjustmentFilter(adjustment: .Vignette, sliderInfo: [CIAdjustmentSliderInfo(name: .Vignette), CIAdjustmentSliderInfo(name: .VignetteRadius)]),
-            CIAdjustmentFilter(adjustment: .SepiaTone, sliderInfo: [CIAdjustmentSliderInfo(name: .SepiaTone, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.SepiaTone.rawValue, defaultValue: 0, minimumValue: 0, maximumValue: 1)])]),
+            CIAdjustmentFilter(adjustment: .SepiaTone, sliderInfo: [CIAdjustmentSliderInfo(name: .SepiaTone, userAttributeItems: [CIFilterAttributeItem(name: Adjustments.Name.SepiaTone.rawValue, attributeKey: Adjustments.Name.SepiaTone.key, defaultValue: 0, minimumValue: 0, maximumValue: 1)])]),
             CIAdjustmentFilter(adjustment: .Sharpness, sliderInfo: [CIAdjustmentSliderInfo(name: .Sharpness)])
         ]
     }
@@ -593,7 +593,7 @@ fileprivate class AdjustmentsAppDockContent: NSObject, PropertyWatchable, AppDoc
     
     private func markAsSelectedFilterAttribiutes(_ filterAttributes: [CIFilterAttributes]?) {
         guard let filterAttributes = filterAttributes else { return }
-        self.app?.registerUndo(filterAttributes.compactMap({ $0.copy() as? CIFilterAttributes }))
+        self.app?.registerUndo(filterAttributes.copyElements())
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
