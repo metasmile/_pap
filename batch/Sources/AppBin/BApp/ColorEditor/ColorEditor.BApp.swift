@@ -366,7 +366,99 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
 }
 
+// https://github.com/FlexMonkey/ImageToneCurveEditor/tree/master/ToneCurveEditor
+
+fileprivate extension UIBezierPath
+{
+    func interpolatePointsWithHermite(interpolationPoints : [CGPoint], alpha: CGFloat = 1.0/3.0)
+    {
+        guard !interpolationPoints.isEmpty else { return }
+        move(to: interpolationPoints[0])
+        
+        let n = interpolationPoints.count - 1
+        
+        for index in 0..<n
+        {
+            var currentPoint = interpolationPoints[index]
+            var nextIndex = (index + 1) % interpolationPoints.count
+            var prevIndex = index == 0 ? interpolationPoints.count - 1 : index - 1
+            var previousPoint = interpolationPoints[prevIndex]
+            var nextPoint = interpolationPoints[nextIndex]
+            let endPoint = nextPoint
+            var mx : CGFloat
+            var my : CGFloat
+            
+            if index > 0
+            {
+                mx = (nextPoint.x - previousPoint.x) / 2.0
+                my = (nextPoint.y - previousPoint.y) / 2.0
+            }
+            else
+            {
+                mx = (nextPoint.x - currentPoint.x) / 2.0
+                my = (nextPoint.y - currentPoint.y) / 2.0
+            }
+            
+            let controlPoint1 = CGPoint(x: currentPoint.x + mx * alpha, y: currentPoint.y + my * alpha)
+            currentPoint = interpolationPoints[nextIndex]
+            nextIndex = (nextIndex + 1) % interpolationPoints.count
+            prevIndex = index
+            previousPoint = interpolationPoints[prevIndex]
+            nextPoint = interpolationPoints[nextIndex]
+            
+            if index < n - 1
+            {
+                mx = (nextPoint.x - previousPoint.x) / 2.0
+                my = (nextPoint.y - previousPoint.y) / 2.0
+            }
+            else
+            {
+                mx = (currentPoint.x - previousPoint.x) / 2.0
+                my = (currentPoint.y - previousPoint.y) / 2.0
+            }
+            
+            let controlPoint2 = CGPoint(x: currentPoint.x - mx * alpha, y: currentPoint.y - my * alpha)
+            
+            addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+        }
+    }
+}
+
 fileprivate class CIToneCurveControl: DesignableView {
+    private class CIToneCurveLayer: CALayer {
+        var strokeColor: CGColor?
+        var lineWidth: CGFloat = 1
+        var curveValues: [Float]?
+        
+        override func draw(in ctx: CGContext) {
+            if let curveValues = curveValues {
+                let path = UIBezierPath()
+                
+                let margin = 20
+                let thumbRadius = 15
+                let widgetWidth = Int(frame.width)
+                let widgetHeight = Int(frame.height) - margin - margin - thumbRadius - thumbRadius
+                
+                var interpolationPoints : [CGPoint] = [CGPoint]()
+                
+                for (i, value) in curveValues.enumerated() {
+                    let pathPointX = i * (widgetWidth / curveValues.count) + (widgetWidth / curveValues.count / 2)
+                    let pathPointY = thumbRadius + margin + widgetHeight - Int(Float(widgetHeight) * value)
+                    
+                    interpolationPoints.append(CGPoint(x: pathPointX,y: pathPointY))
+                }
+                
+                path.interpolatePointsWithHermite(interpolationPoints: interpolationPoints)
+                
+                ctx.setLineJoin(.round)
+                ctx.addPath(path.cgPath)
+                ctx.setStrokeColor(strokeColor ?? UIColor.yellow.cgColor)
+                ctx.setLineWidth(lineWidth)
+                ctx.strokePath()
+            }
+        }
+    }
+    
     private lazy var containerView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.alignment = UIStackView.Alignment.fill
@@ -375,8 +467,17 @@ fileprivate class CIToneCurveControl: DesignableView {
         return view
     }()
     
+    private lazy var curveLayer: CIToneCurveLayer = {
+        let layer = CIToneCurveLayer()
+        layer.strokeColor = UIColor(white: 1, alpha: 0.5).cgColor
+        layer.lineWidth = 1
+        return layer
+    }()
+    
     override func initialize() {
         super.initialize()
+        
+        layer.addSublayer(curveLayer)
         
         addSubview(containerView)
         containerView.fitConstraints(to: self)
@@ -384,6 +485,12 @@ fileprivate class CIToneCurveControl: DesignableView {
         for slider in sliders {
             containerView.addArrangedSubview(slider)
         }
+    }
+    
+    private func updateCurve() {
+        curveLayer.frame = bounds
+        curveLayer.curveValues = sliders.map { $0.value }
+        curveLayer.setNeedsDisplay()
     }
     
     private func generateSlider() -> PrecisionLevelSlider {
@@ -415,11 +522,13 @@ fileprivate class CIToneCurveControl: DesignableView {
         slider?.maximumValue = range.upperBound
         slider?.defaultValue = defaultValue
         slider?.value = value
+        updateCurve()
     }
     
     func setValue(_ value: Float, at index: Int) {
         let slider = sliders[safe: index]
         slider?.value = value
+        updateCurve()
     }
     
     var sliderDidChangeHandler: ((Int, Float) -> Void)?
@@ -429,15 +538,18 @@ fileprivate class CIToneCurveControl: DesignableView {
     @objc private func sliderValueChanged(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidChangeHandler?(idx, sender.value)
+        self.updateCurve()
     }
     
     @objc private func sliderDidBegin(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidBeginHandler?(idx, sender.value)
+        self.updateCurve()
     }
     
     @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidEndHandler?(idx, sender.value)
+        self.updateCurve()
     }
 }
