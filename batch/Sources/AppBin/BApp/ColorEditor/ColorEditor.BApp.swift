@@ -216,24 +216,26 @@ private class ColorEditorTask: AppTaskPrototype, AppTaskable {
 
 class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
     lazy var view: UIView = {
-        let view = UITableView(frame: .zero)
-        view.dataSource = self
-        view.delegate = self
-        view.rowHeight = UITableView.automaticDimension
-        view.estimatedRowHeight = 52
-        view.allowsSelection = false
-        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
-        view.backgroundColor = .clear
-        view.separatorStyle = .none
-        return view
+        let toneCurveControl = CIToneCurveControl(frame: .zero)
+        return toneCurveControl
+//        let view = UITableView(frame: .zero)
+//        view.dataSource = self
+//        view.delegate = self
+//        view.rowHeight = UITableView.automaticDimension
+//        view.estimatedRowHeight = 52
+//        view.allowsSelection = false
+//        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
+//        view.backgroundColor = .clear
+//        view.separatorStyle = .none
+//        return view
     }()
     
     var preferences: AppDockContentPreferable? {
-        guard let tableView = view as? UITableView else{
-            return nil
-        }
+//        guard let tableView = view as? UITableView else{
+//            return nil
+//        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = tableView.estimatedRowHeight * 5
+        preferences.preferredHeight = 260//tableView.estimatedRowHeight * 5
         return preferences
     }
     
@@ -248,7 +250,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             installFilters()
         }
         
-        (view as? UITableView)?.reloadData()
+        reloadData()
     }
     
     @objc dynamic var filter: CIFilter?
@@ -267,13 +269,37 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     fileprivate func setFilterValues(_ filter: CIColorFilterGroup?, animated: Bool = true) {
-        guard let tableView = view as? UITableView, let filter = filter?.copy() as? CIColorFilterGroup else { return }
+        guard let filter = filter?.copy() as? CIColorFilterGroup else { return }
         
         self.installFilters(with: filter.filters)
         
         DispatchQueue.main.async {
-            tableView.reloadData()
+            self.reloadData()
         }
+    }
+    
+    private func reloadData() {
+        if let control = view as? CIToneCurveControl {
+            let filter = colorFilters.first
+            
+            filter?.editableItems?.enumerated().forEach { idx, item in
+                control.setValue(item.value, defaultValue: item.defaultValue, range: item.minimumValue...item.maximumValue, at: idx)
+            }
+            
+            control.sliderDidChangeHandler = { idx, value in
+                filter?.editableItems?[safe: idx]?.value = value
+                
+                DispatchQueue.main.async {
+                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
+                }
+            }
+            control.sliderDidEndHandler = { idx, value in
+                DispatchQueue.main.async {
+                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
+                }
+            }
+        }
+//        (view as? UITableView)?.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -337,5 +363,81 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+fileprivate class CIToneCurveControl: DesignableView {
+    private lazy var containerView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.alignment = UIStackView.Alignment.fill
+        view.distribution = UIStackView.Distribution.fillProportionally
+        view.axis = NSLayoutConstraint.Axis.horizontal
+        return view
+    }()
+    
+    override func initialize() {
+        super.initialize()
+        
+        addSubview(containerView)
+        containerView.fitConstraints(to: self)
+        
+        for slider in sliders {
+            containerView.addArrangedSubview(slider)
+        }
+    }
+    
+    private func generateSlider() -> PrecisionLevelSlider {
+        let slider = PrecisionLevelSlider(axis: .vertical)
+        slider.longNotchColor = .white
+        slider.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
+        slider.centerNotchColor = ColorEditorApp.info.themeColor ?? .red
+        slider.numberOfNotches = 20
+        
+        slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
+        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .editingDidBegin)
+        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .editingDidEnd)
+        return slider
+    }
+    
+    private(set) lazy var sliders: [PrecisionLevelSlider] = {
+        return (0...4).map { _ in generateSlider() }
+    }()
+    
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        
+        sliders.forEach { $0.tintColor = self.tintColor }
+    }
+    
+    func setValue(_ value: Float, defaultValue: Float, range: ClosedRange<Float>, at index: Int) {
+        let slider = sliders[safe: index]
+        slider?.minimumValue = range.lowerBound
+        slider?.maximumValue = range.upperBound
+        slider?.defaultValue = defaultValue
+        slider?.value = value
+    }
+    
+    func setValue(_ value: Float, at index: Int) {
+        let slider = sliders[safe: index]
+        slider?.value = value
+    }
+    
+    var sliderDidChangeHandler: ((Int, Float) -> Void)?
+    var sliderDidBeginHandler: ((Int, Float) -> Void)?
+    var sliderDidEndHandler: ((Int, Float) -> Void)?
+    
+    @objc private func sliderValueChanged(sender: PrecisionLevelSlider) {
+        guard let idx = sliders.index(of: sender) else { return }
+        self.sliderDidChangeHandler?(idx, sender.value)
+    }
+    
+    @objc private func sliderDidBegin(sender: PrecisionLevelSlider) {
+        guard let idx = sliders.index(of: sender) else { return }
+        self.sliderDidBeginHandler?(idx, sender.value)
+    }
+    
+    @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
+        guard let idx = sliders.index(of: sender) else { return }
+        self.sliderDidEndHandler?(idx, sender.value)
     }
 }

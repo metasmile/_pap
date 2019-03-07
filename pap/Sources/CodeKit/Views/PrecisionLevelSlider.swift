@@ -30,6 +30,11 @@ import UIKit
 // THE SOFTWARE.
 
 open class PrecisionLevelSlider: UIControl {
+    open var axis: NSLayoutConstraint.Axis = .horizontal {
+        didSet {
+            update()
+        }
+    }
 
     // MARK: - Properties
     open var longNotchColor: UIColor = .black {
@@ -57,7 +62,12 @@ open class PrecisionLevelSlider: UIControl {
     }
     
     var velocity: CGFloat {
-        return scrollView.panGestureRecognizer.velocity(in: self).x
+        if axis == .horizontal {
+            return scrollView.panGestureRecognizer.velocity(in: self).x
+        }
+        else {
+            return scrollView.panGestureRecognizer.velocity(in: self).y
+        }
     }
 
     /// default 0.0. this value will be pinned to min/max
@@ -104,7 +114,12 @@ open class PrecisionLevelSlider: UIControl {
 
     @objc dynamic open var defaultValue: Float = 0 {
         didSet {
-            defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+            if axis == .horizontal {
+                defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
+            }
+            else {
+                defaultValueMark.position.y = valueToOffset(value: defaultValue).y + scrollView.contentInset.top
+            }
         }
     }
 
@@ -130,8 +145,6 @@ open class PrecisionLevelSlider: UIControl {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
         gradientLayer.locations = [0, 0.4, 0.6, 1]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
 
         return gradientLayer
     }()
@@ -163,6 +176,12 @@ open class PrecisionLevelSlider: UIControl {
         super.init(coder: aDecoder)
         setup()
     }
+    
+    convenience init(axis: NSLayoutConstraint.Axis = .horizontal) {
+        self.init(frame: .zero)
+        self.axis = axis
+        setup()
+    }
 
     // MARK: - Functions
     open override func layoutSubviews() {
@@ -171,79 +190,169 @@ open class PrecisionLevelSlider: UIControl {
     }
 
     open override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
+        if axis == .horizontal {
+            return CGSize(width: UIView.noIntrinsicMetric, height: 50)
+        }
+        else {
+            return CGSize(width: 50, height: UIView.noIntrinsicMetric)
+        }
     }
-
-    func update() {
-
+    
+    private func updateHorizontal() {
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
         let offset = valueToOffset(value: value)
         scrollView.setContentOffset(offset, animated: false)
-
+        
         gradientLayer.frame = bounds
         let notchWidth: CGFloat = 1
-
+        
         let interval = floor((bounds.size.width) / CGFloat(numberOfNotches))
-
+        
         let longNotchHeight: CGFloat = 10
         let shortNotchHeight: CGFloat = 8
         let offsetY = bounds.height / 2
-
+        
         let notchLayers: [CALayer] = {
             return (0...numberOfNotches).map { _ -> CALayer in
                 CALayer()
             }
         }()
-
+        
         notchLayers.enumerated().forEach { i, l in
-
+            
             let x: CGFloat = CGFloat(i) * interval
-
+            
             if i % 5 == 0 {
                 l.backgroundColor = longNotchColor.cgColor
-
+                
                 l.frame = CGRect(
-                        x: x,
-                        y: offsetY - (longNotchHeight / 2),
-                        width: notchWidth,
-                        height: longNotchHeight)
-
+                    x: x,
+                    y: offsetY - (longNotchHeight / 2),
+                    width: notchWidth,
+                    height: longNotchHeight)
+                
             } else {
                 l.backgroundColor = shortNotchColor.cgColor
                 l.frame = CGRect(
-                        x: x,
-                        y: offsetY - (shortNotchHeight / 2),
-                        width: notchWidth,
-                        height: shortNotchHeight)
+                    x: x,
+                    y: offsetY - (shortNotchHeight / 2),
+                    width: notchWidth,
+                    height: shortNotchHeight)
             }
         }
-
+        
         contentView.layer.sublayers = notchLayers
         contentView.layer.addSublayer(defaultValueMark)
-
+        
         defaultValueMark.fillColor = shortNotchColor.cgColor
         
         textLabel.textColor = centerNotchColor
         textLabel.sizeToFit()
         textLabel.center.x = bounds.midX
-
+        
         centerNotchLayer.backgroundColor = centerNotchColor.cgColor
         centerNotchLayer.frame = CGRect(x: bounds.midX, y: 0, width: notchWidth, height: bounds.height - textLabel.height)
         
         textLabel.frame.origin.y = centerNotchLayer.bounds.height + 2
-
+        
         let contentSize = CGSize(
-                width: notchLayers.last!.frame.maxX - notchWidth,
-                height: bounds.height
+            width: notchLayers.last!.frame.maxX - notchWidth,
+            height: bounds.height
         )
-
+        
         contentView.frame.size = contentSize
         scrollView.contentSize = contentSize
-
+        
         let inset = contentSize.width / 2 + (max(0, scrollView.bounds.width - contentSize.width) / 2)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
         
         defaultValueMark.position.x = valueToOffset(value: defaultValue).x + scrollView.contentInset.left
         defaultValueMark.position.y = max(3, (bounds.height - longNotchHeight) / 2 - 10)
+    }
+    
+    private func updateVertical() {
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        
+        let offset = valueToOffset(value: value)
+        scrollView.setContentOffset(offset, animated: false)
+        
+        gradientLayer.frame = bounds
+        let notchHeight: CGFloat = 1
+        
+        let interval = floor((bounds.size.height) / CGFloat(numberOfNotches))
+        
+        let longNotchWidth: CGFloat = 10
+        let shortNotchWidth: CGFloat = 8
+        let offsetX = bounds.width / 2
+        
+        let notchLayers: [CALayer] = {
+            return (0...numberOfNotches).map { _ -> CALayer in
+                CALayer()
+            }
+        }()
+        
+        notchLayers.enumerated().forEach { i, l in
+            
+            let y: CGFloat = CGFloat(i) * interval
+            
+            if i % 5 == 0 {
+                l.backgroundColor = longNotchColor.cgColor
+                
+                l.frame = CGRect(
+                    x: offsetX - (longNotchWidth / 2),
+                    y: y,
+                    width: longNotchWidth,
+                    height: notchHeight)
+                
+            } else {
+                l.backgroundColor = shortNotchColor.cgColor
+                l.frame = CGRect(
+                    x: offsetX - (shortNotchWidth / 2),
+                    y: y,
+                    width: shortNotchWidth,
+                    height: notchHeight)
+            }
+        }
+        
+        contentView.layer.sublayers = notchLayers
+        contentView.layer.addSublayer(defaultValueMark)
+        
+        defaultValueMark.fillColor = shortNotchColor.cgColor
+        
+        textLabel.textColor = centerNotchColor
+        textLabel.sizeToFit()
+        textLabel.center.y = bounds.midY
+        
+        centerNotchLayer.backgroundColor = centerNotchColor.cgColor
+        centerNotchLayer.frame = CGRect(x: 0, y: bounds.midY, width: bounds.width - textLabel.width, height: notchHeight)
+        
+        textLabel.frame.origin.x = centerNotchLayer.bounds.width + 2
+        
+        let contentSize = CGSize(
+            width: bounds.width,
+            height: notchLayers.last!.frame.maxY - notchHeight
+        )
+        
+        contentView.frame.size = contentSize
+        scrollView.contentSize = contentSize
+        
+        let inset = contentSize.height / 2 + (max(0, scrollView.bounds.height - contentSize.height) / 2)
+        scrollView.contentInset = UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0)
+        
+        defaultValueMark.position.x = max(3, (bounds.width - longNotchWidth) / 2 - 10)
+        defaultValueMark.position.y = valueToOffset(value: defaultValue).y + scrollView.contentInset.top
+    }
+
+    func update() {
+        if axis == .horizontal {
+            updateHorizontal()
+        }
+        else {
+            updateVertical()
+        }
     }
 
     func setup() {
@@ -270,17 +379,33 @@ open class PrecisionLevelSlider: UIControl {
     }
 
     fileprivate func value(with offset: CGPoint) -> Float {
-        let progress = (offset.x + scrollView.contentInset.left) / contentView.bounds.size.width
-        let actualProgress = Float(min(max(0, progress), 1))
-        let value = ((maximumValue - minimumValue) * actualProgress) + minimumValue
+        if axis == .horizontal {
+            let progress = (offset.x + scrollView.contentInset.left) / contentView.bounds.size.width
+            let actualProgress = Float(min(max(0, progress), 1))
+            let value = ((maximumValue - minimumValue) * actualProgress) + minimumValue
 
-        return value
+            return value
+        }
+        else {
+            let progress = (offset.y + scrollView.contentInset.top) / contentView.bounds.size.height
+            let actualProgress = Float(min(max(0, progress), 1))
+            let value = ((maximumValue - minimumValue) * actualProgress) + minimumValue
+            
+            return value
+        }
     }
 
     fileprivate func valueToOffset(value: Float) -> CGPoint {
-        let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
-        let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
-        return CGPoint(x: x.isNormal ? x : 0, y: 0)
+        if axis == .horizontal {
+            let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
+            let x = contentView.bounds.size.width * CGFloat(progress) - scrollView.contentInset.left
+            return CGPoint(x: x.isNormal ? x : 0, y: 0)
+        }
+        else {
+            let progress = (value - minimumValue).magnitude / (maximumValue - minimumValue)
+            let y = contentView.bounds.size.height * CGFloat(progress) - scrollView.contentInset.top
+            return CGPoint(x: 0, y: y.isNormal ? y : 0)
+        }
     }
 
     private var needsStickToDefaultValue: Bool = false {
@@ -319,11 +444,21 @@ extension PrecisionLevelSlider {
     }
 
     private var stickTouchDifference: CGFloat {
-        return scrollView.panGestureRecognizer.location(in: self).x - stickTouchLocation.x
+        if axis == .horizontal {
+            return scrollView.panGestureRecognizer.location(in: self).x - stickTouchLocation.x
+        }
+        else {
+            return scrollView.panGestureRecognizer.location(in: self).y - stickTouchLocation.y
+        }
     }
 
     private var scrollOffsetDifference: CGFloat {
-        return scrollView.contentOffset.x - beginningScrollPosition.x
+        if axis == .horizontal {
+            return scrollView.contentOffset.x - beginningScrollPosition.x
+        }
+        else {
+            return scrollView.contentOffset.y - beginningScrollPosition.y
+        }
     }
 
     private var scrollDirection: Direction {
@@ -331,7 +466,12 @@ extension PrecisionLevelSlider {
     }
 
     private var sliderDifference: CGFloat {
-        return scrollView.contentOffset.x - previousScrollPosition.x
+        if axis == .horizontal {
+            return scrollView.contentOffset.x - previousScrollPosition.x
+        }
+        else {
+            return scrollView.contentOffset.y - previousScrollPosition.y
+        }
     }
 
     private var sliderDirection: Direction {
@@ -339,7 +479,12 @@ extension PrecisionLevelSlider {
     }
 
     private var defaultValueOffsetDifference: CGFloat {
-        return scrollView.contentOffset.x - valueToOffset(value: defaultValue).x
+        if axis == .horizontal {
+            return scrollView.contentOffset.x - valueToOffset(value: defaultValue).x
+        }
+        else {
+            return scrollView.contentOffset.y - valueToOffset(value: defaultValue).y
+        }
     }
 
     private var directionFromDefault: Direction {
@@ -356,7 +501,7 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
     }
 
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.bounds.width > 0 else {
+        guard scrollView.bounds.width > 0, scrollView.bounds.height > 0 else {
             return
         }
 
