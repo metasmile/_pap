@@ -19,6 +19,31 @@ extension UIView {
 }
 
 @IBDesignable
+class DesignableControl: UIControl {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        initialize()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        
+        initialize()
+    }
+    
+    open func initialize() {
+        
+    }
+}
+
+@IBDesignable
 class DesignableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)

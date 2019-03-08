@@ -492,6 +492,10 @@ extension PrecisionLevelSlider {
     }
 }
 
+extension UIControl.Event {
+    static let scrollDidChanged: UIControl.Event = .init(rawValue: 999999)
+}
+
 extension PrecisionLevelSlider: UIScrollViewDelegate {
     public final func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         beginningScrollPosition = scrollView.contentOffset
@@ -501,6 +505,8 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
     }
 
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        sendActions(for: .scrollDidChanged)
+        
         guard scrollView.bounds.width > 0, scrollView.bounds.height > 0 else {
             return
         }

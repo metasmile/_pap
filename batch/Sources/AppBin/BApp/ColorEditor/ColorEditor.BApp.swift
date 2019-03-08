@@ -214,28 +214,15 @@ private class ColorEditorTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, UITableViewDelegate, UITableViewDataSource {
+class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
     lazy var view: UIView = {
         let toneCurveControl = CIToneCurveControl(frame: .zero)
         return toneCurveControl
-//        let view = UITableView(frame: .zero)
-//        view.dataSource = self
-//        view.delegate = self
-//        view.rowHeight = UITableView.automaticDimension
-//        view.estimatedRowHeight = 52
-//        view.allowsSelection = false
-//        view.register(CIAdjustmentSliderCell.self, forCellReuseIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)")
-//        view.backgroundColor = .clear
-//        view.separatorStyle = .none
-//        return view
     }()
     
     var preferences: AppDockContentPreferable? {
-//        guard let tableView = view as? UITableView else{
-//            return nil
-//        }
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = 260//tableView.estimatedRowHeight * 5
+        preferences.preferredHeight = 260
         return preferences
     }
     
@@ -283,11 +270,25 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             let filter = colorFilters.first
             
             filter?.editableItems?.enumerated().forEach { idx, item in
-                control.setValue(item.value, defaultValue: item.defaultValue, range: item.minimumValue...item.maximumValue, at: idx)
+                control.setItem(item, at: idx)
+            }
+            
+            control.resetHandler = { idx in
+                guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
+                
+                attributeItem.value = attributeItem.defaultValue
+                control.setItem(attributeItem, at: idx)
+                
+                DispatchQueue.main.async {
+                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
+                }
             }
             
             control.sliderDidChangeHandler = { idx, value in
-                filter?.editableItems?[safe: idx]?.value = value
+                guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
+                
+                attributeItem.value = value
+                control.setToolViewItem(showsButton: attributeItem.hasChanges, at: idx)
                 
                 DispatchQueue.main.async {
                     self.filter = CIColorFilterGroup(filters: self.colorFilters)
@@ -299,86 +300,24 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
                 }
             }
         }
-//        (view as? UITableView)?.reloadData()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return colorFilters.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colorFilters[safe: section]?.editableItems?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ColorEditorApp.info.identifier + "\(CIAdjustmentSliderCell.self)") as! CIAdjustmentSliderCell
-        
-        let filter = colorFilters[indexPath.section]
-        
-        guard let attributeItem = filter.editableItems?[indexPath.item] else { return cell }
-        
-        cell.titleLabel.text = attributeItem.name
-        
-        cell.highlightedColor = ColorEditorApp.info.themeColor
-        
-        cell.slider.minimumValue = attributeItem.minimumValue
-        cell.slider.maximumValue = attributeItem.maximumValue
-        cell.slider.defaultValue = attributeItem.defaultValue
-        cell.slider.value = attributeItem.value
-        
-        cell.resetButton.isHidden = !attributeItem.hasChanges
-        cell.resetButtonDidTapHandler = {
-            attributeItem.value = attributeItem.defaultValue
-            cell.resetButton.isHidden = !attributeItem.hasChanges
-            
-            cell.slider.value = attributeItem.value
-            
-//            self.markAsSelectedFilterAttribiutes((self.filter as? CIAdjustmentFilterGroup)?.filterAttributes)
-            self.filter = CIColorFilterGroup(filters: self.colorFilters)
-        }
-        
-        cell.sliderDidChangeHandler = { value in
-            attributeItem.value = value
-            
-            cell.resetButton.isHidden = !attributeItem.hasChanges
-            
-            DispatchQueue.main.async {
-                self.filter = CIColorFilterGroup(filters: self.colorFilters)
-            }
-        }
-        
-        cell.sliderDidEndHandler = {
-//            let filter = self.filterManager.ciFilter
-//            self.markAsSelectedFilterAttribiutes(filter.filterAttributes)
-            self.filter = CIColorFilterGroup(filters: self.colorFilters)
-        }
-        
-        return cell
     }
     
 //    private func markAsSelectedFilterAttribiutes(_ filterAttributes: [CIFilterAttributes]?) {
 //        guard let filterAttributes = filterAttributes else { return }
 //        self.app?.registerUndo(filterAttributes.compactMap({ $0.copy() as? CIFilterAttributes }))
 //    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
 
 // https://github.com/FlexMonkey/ImageToneCurveEditor/tree/master/ToneCurveEditor
 
-fileprivate extension UIBezierPath
-{
-    func interpolatePointsWithHermite(interpolationPoints : [CGPoint], alpha: CGFloat = 1.0/3.0)
-    {
+fileprivate extension UIBezierPath {
+    func interpolatePointsWithHermite(_ interpolationPoints : [CGPoint], alpha: CGFloat = 1.0/3.0) {
         guard !interpolationPoints.isEmpty else { return }
         move(to: interpolationPoints[0])
         
         let n = interpolationPoints.count - 1
         
-        for index in 0..<n
-        {
+        for index in 0..<n {
             var currentPoint = interpolationPoints[index]
             var nextIndex = (index + 1) % interpolationPoints.count
             var prevIndex = index == 0 ? interpolationPoints.count - 1 : index - 1
@@ -388,13 +327,11 @@ fileprivate extension UIBezierPath
             var mx : CGFloat
             var my : CGFloat
             
-            if index > 0
-            {
+            if index > 0 {
                 mx = (nextPoint.x - previousPoint.x) / 2.0
                 my = (nextPoint.y - previousPoint.y) / 2.0
             }
-            else
-            {
+            else {
                 mx = (nextPoint.x - currentPoint.x) / 2.0
                 my = (nextPoint.y - currentPoint.y) / 2.0
             }
@@ -406,13 +343,11 @@ fileprivate extension UIBezierPath
             previousPoint = interpolationPoints[prevIndex]
             nextPoint = interpolationPoints[nextIndex]
             
-            if index < n - 1
-            {
+            if index < n - 1 {
                 mx = (nextPoint.x - previousPoint.x) / 2.0
                 my = (nextPoint.y - previousPoint.y) / 2.0
             }
-            else
-            {
+            else {
                 mx = (currentPoint.x - previousPoint.x) / 2.0
                 my = (currentPoint.y - previousPoint.y) / 2.0
             }
@@ -424,6 +359,53 @@ fileprivate extension UIBezierPath
     }
 }
 
+fileprivate class CIToneCurveResetControl: DesignableControl {
+    var highlightedColor: UIColor? {
+        didSet {
+            resetButton.setTitleColor(highlightedColor ?? .white, for: .normal)
+        }
+    }
+    
+    private(set) lazy var resetButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("☀︎", for: .normal)
+        button.setTitleColor(highlightedColor ?? .white, for: .normal)
+        button.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
+        return button
+    }()
+    
+    private(set) lazy var titleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textAlignment = .right
+        label.backgroundColor = UIColor.clear
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
+    
+    @objc private func resetButtonDidTap(sender: UIButton) {
+        UIFeedback.select()
+        sendActions(for: .touchUpInside)
+    }
+    
+    override func initialize() {
+        super.initialize()
+        
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubview(resetButton)
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor).isActive = true
+        resetButton.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 2).isActive = true
+        resetButton.isHidden = true
+    }
+}
+
 fileprivate class CIToneCurveControl: DesignableView {
     private class CIToneCurveLayer: CALayer {
         var strokeColor: CGColor?
@@ -431,35 +413,50 @@ fileprivate class CIToneCurveControl: DesignableView {
         var curveValues: [Float]?
         
         override func draw(in ctx: CGContext) {
-            if let curveValues = curveValues {
-                let path = UIBezierPath()
+            guard let curveValues = curveValues else { return }
+            
+            let path = UIBezierPath()
+            
+            let margin = 20
+            let thumbRadius = 15
+            let widgetWidth = Int(frame.width)
+            let widgetHeight = Int(frame.height) - margin - margin - thumbRadius - thumbRadius
+            
+            var interpolationPoints : [CGPoint] = [CGPoint]()
+            
+            for (i, value) in curveValues.enumerated() {
+                let pathPointX = i * (widgetWidth / curveValues.count) + (widgetWidth / curveValues.count / 2)
+                let pathPointY = thumbRadius + margin + widgetHeight - Int(Float(widgetHeight) * value)
                 
-                let margin = 20
-                let thumbRadius = 15
-                let widgetWidth = Int(frame.width)
-                let widgetHeight = Int(frame.height) - margin - margin - thumbRadius - thumbRadius
-                
-                var interpolationPoints : [CGPoint] = [CGPoint]()
-                
-                for (i, value) in curveValues.enumerated() {
-                    let pathPointX = i * (widgetWidth / curveValues.count) + (widgetWidth / curveValues.count / 2)
-                    let pathPointY = thumbRadius + margin + widgetHeight - Int(Float(widgetHeight) * value)
-                    
-                    interpolationPoints.append(CGPoint(x: pathPointX,y: pathPointY))
-                }
-                
-                path.interpolatePointsWithHermite(interpolationPoints: interpolationPoints)
-                
-                ctx.setLineJoin(.round)
-                ctx.addPath(path.cgPath)
-                ctx.setStrokeColor(strokeColor ?? UIColor.yellow.cgColor)
-                ctx.setLineWidth(lineWidth)
-                ctx.strokePath()
+                interpolationPoints.append(CGPoint(x: pathPointX,y: pathPointY))
+            }
+            
+            path.interpolatePointsWithHermite(interpolationPoints)
+            
+            ctx.setLineJoin(.round)
+            ctx.addPath(path.cgPath)
+            ctx.setStrokeColor(strokeColor ?? UIColor.yellow.cgColor)
+            ctx.setLineWidth(lineWidth)
+            ctx.strokePath()
+        }
+        
+        override func action(forKey event: String) -> CAAction? {
+            switch event {
+            case "bounds", "position": return NSNull()
+            default: return super.action(forKey: event)
             }
         }
     }
     
-    private lazy var containerView: UIStackView = {
+    private lazy var sliderView: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.alignment = UIStackView.Alignment.fill
+        view.distribution = UIStackView.Distribution.fillProportionally
+        view.axis = NSLayoutConstraint.Axis.horizontal
+        return view
+    }()
+    
+    private lazy var toolView: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.alignment = UIStackView.Alignment.fill
         view.distribution = UIStackView.Distribution.fillProportionally
@@ -469,7 +466,7 @@ fileprivate class CIToneCurveControl: DesignableView {
     
     private lazy var curveLayer: CIToneCurveLayer = {
         let layer = CIToneCurveLayer()
-        layer.strokeColor = UIColor(white: 1, alpha: 0.5).cgColor
+        layer.strokeColor = UIColor.init(white: 0.5, alpha: 1).cgColor
         layer.lineWidth = 1
         return layer
     }()
@@ -479,16 +476,35 @@ fileprivate class CIToneCurveControl: DesignableView {
         
         layer.addSublayer(curveLayer)
         
-        addSubview(containerView)
-        containerView.fitConstraints(to: self)
+        addSubview(sliderView)
+        addSubview(toolView)
+        
+        toolView.translatesAutoresizingMaskIntoConstraints = false
+        toolView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        toolView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        toolView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        toolView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        sliderView.translatesAutoresizingMaskIntoConstraints = false
+        sliderView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        sliderView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        sliderView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        sliderView.bottomAnchor.constraint(equalTo: toolView.topAnchor).isActive = true
         
         for slider in sliders {
-            containerView.addArrangedSubview(slider)
+            sliderView.addArrangedSubview(slider)
+            
+            let resetControl = CIToneCurveResetControl(frame: .zero)
+            resetControl.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
+            resetControl.highlightedColor = ColorEditorApp.info.themeColor
+            toolView.addArrangedSubview(resetControl)
         }
+        
+        updateCurve()
     }
     
-    private func updateCurve() {
-        curveLayer.frame = bounds
+    @objc private func updateCurve() {
+        curveLayer.frame = sliderView.bounds
         curveLayer.curveValues = sliders.map { $0.value }
         curveLayer.setNeedsDisplay()
     }
@@ -500,6 +516,7 @@ fileprivate class CIToneCurveControl: DesignableView {
         slider.centerNotchColor = ColorEditorApp.info.themeColor ?? .red
         slider.numberOfNotches = 20
         
+        slider.addTarget(self, action: #selector(self.updateCurve), for: .scrollDidChanged)
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
         slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .editingDidBegin)
         slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .editingDidEnd)
@@ -516,40 +533,59 @@ fileprivate class CIToneCurveControl: DesignableView {
         sliders.forEach { $0.tintColor = self.tintColor }
     }
     
-    func setValue(_ value: Float, defaultValue: Float, range: ClosedRange<Float>, at index: Int) {
+    func setItem(_ item: CIFilterAttributeItem, at index: Int) {
+        setToolViewItem(title: item.name, showsButton: item.hasChanges, at: index)
+        setValue(item.value, defaultValue: item.defaultValue, range: item.minimumValue...item.maximumValue, at: index)
+    }
+    
+    private func setToolViewItem(title: String, showsButton: Bool, at index: Int) {
+        let resetControl = toolView.arrangedSubviews[safe: index] as? CIToneCurveResetControl
+        resetControl?.titleLabel.text = title
+        resetControl?.titleLabel.textColor = .white
+        
+        resetControl?.resetButton.isHidden = !showsButton
+    }
+    
+    func setToolViewItem(showsButton: Bool, at index: Int) {
+        let resetControl = toolView.arrangedSubviews[safe: index] as? CIToneCurveResetControl
+        resetControl?.resetButton.isHidden = !showsButton
+    }
+    
+    private func setValue(_ value: Float, defaultValue: Float, range: ClosedRange<Float>, at index: Int) {
         let slider = sliders[safe: index]
         slider?.minimumValue = range.lowerBound
         slider?.maximumValue = range.upperBound
         slider?.defaultValue = defaultValue
         slider?.value = value
-        updateCurve()
     }
     
-    func setValue(_ value: Float, at index: Int) {
+    private func setValue(_ value: Float, at index: Int) {
         let slider = sliders[safe: index]
         slider?.value = value
-        updateCurve()
     }
     
+    var resetHandler: ((Int) -> Void)?
     var sliderDidChangeHandler: ((Int, Float) -> Void)?
     var sliderDidBeginHandler: ((Int, Float) -> Void)?
     var sliderDidEndHandler: ((Int, Float) -> Void)?
     
+    @objc private func resetButtonDidTap(sender: CIToneCurveResetControl) {
+        guard let idx = toolView.arrangedSubviews.index(of: sender) else { return }
+        self.resetHandler?(idx)
+    }
+    
     @objc private func sliderValueChanged(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidChangeHandler?(idx, sender.value)
-        self.updateCurve()
     }
     
     @objc private func sliderDidBegin(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidBeginHandler?(idx, sender.value)
-        self.updateCurve()
     }
     
     @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
         self.sliderDidEndHandler?(idx, sender.value)
-        self.updateCurve()
     }
 }
