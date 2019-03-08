@@ -775,8 +775,8 @@ public class CIAdjustmentSliderCell: UITableViewCell {
         
         resetButton.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .editingDidBegin)
-        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .editingDidEnd)
+        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .scrollDidBegin)
+        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .scrollDidEnd)
     }
     
     @objc private func resetButtonDidTap() {

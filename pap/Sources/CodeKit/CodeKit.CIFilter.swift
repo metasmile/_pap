@@ -277,6 +277,12 @@ class CIBuiltInFilter: CIFilter, Codable {
     }
 }
 
+extension CIBuiltInFilter {
+    public static func == (lhs: CIBuiltInFilter, rhs: CIBuiltInFilter) -> Bool {
+        return lhs.name == rhs.name && lhs.editableItems?.elementsEqual(rhs.editableItems ?? []) == true
+    }
+}
+
 // https://github.com/muukii/ColorCube/blob/master/ColorCube/ColorCube.swift
 public class CIColorCube: CIFilter {
     private var lutImage: UIImage?

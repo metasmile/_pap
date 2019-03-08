@@ -125,10 +125,28 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             (content as? ColorEditorAppDockContent)?.setFilterValues(filter, animated: false)
             
 //            if self.undoStack.isEmpty {
-//                self.registerUndo(filter.filterAttributes)
+//                self.registerUndo(filter.filters)
 //            }
         }
     }
+    
+//    public var undoStack: [[CIBuiltInFilter]] = [[CIBuiltInFilter]]()
+//    public var undoItemIndex: Int = 0
+//
+//    public func undoItemIndexDidChange(_ item: Array<CIBuiltInFilter>?) {
+//        var controller: ColorEditorAppDockContent?
+//        if let content = self.content as? ColorEditorAppDockContent {
+//            controller = content
+//        }
+//        else if let content = self.photoEditorDockContent as? ColorEditorAppDockContent {
+//            controller = content
+//        }
+//
+//        let filter = CIColorFilterGroup(filters: item)
+//        controller?.setFilterValues(filter)
+//
+//        self.config?.filter = CIFilterItem(filter)
+//    }
 }
 
 fileprivate class CIToneCurveFilter: CIBuiltInFilter {
@@ -215,6 +233,13 @@ private class ColorEditorTask: AppTaskPrototype, AppTaskable {
 }
 
 class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
+    var app: ColorEditorApp?
+    convenience init(app: ColorEditorApp) {
+        self.init()
+        
+        self.app = app
+    }
+    
     lazy var view: UIView = {
         let toneCurveControl = CIToneCurveControl(frame: .zero)
         return toneCurveControl
@@ -266,45 +291,46 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     private func reloadData() {
-        if let control = view as? CIToneCurveControl {
-            let filter = colorFilters.first
+        guard let control = view as? CIToneCurveControl else { return }
+        let filter = colorFilters.first
+        
+        filter?.editableItems?.enumerated().forEach { idx, item in
+            control.setItem(item, at: idx)
+        }
+        
+        control.resetHandler = { idx in
+            guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
             
-            filter?.editableItems?.enumerated().forEach { idx, item in
-                control.setItem(item, at: idx)
-            }
+            attributeItem.value = attributeItem.defaultValue
+            control.setItem(attributeItem, at: idx)
             
-            control.resetHandler = { idx in
-                guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
-                
-                attributeItem.value = attributeItem.defaultValue
-                control.setItem(attributeItem, at: idx)
-                
-                DispatchQueue.main.async {
-                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
-                }
+            DispatchQueue.main.async {
+//                self.markAsEditedFilter(self.colorFilters)
+                self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
+        }
+        
+        control.sliderDidChangeHandler = { idx, value in
+            guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
             
-            control.sliderDidChangeHandler = { idx, value in
-                guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
-                
-                attributeItem.value = value
-                control.setToolViewItem(showsButton: attributeItem.hasChanges, at: idx)
-                
-                DispatchQueue.main.async {
-                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
-                }
+            attributeItem.value = value
+            control.setToolViewItem(showsButton: attributeItem.hasChanges, at: idx)
+            
+            DispatchQueue.main.async {
+                self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
-            control.sliderDidEndHandler = { idx, value in
-                DispatchQueue.main.async {
-                    self.filter = CIColorFilterGroup(filters: self.colorFilters)
-                }
+        }
+        control.sliderDidEndHandler = { idx, value in
+            DispatchQueue.main.async {
+//                self.markAsEditedFilter(self.colorFilters)
+                self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
     }
     
-//    private func markAsSelectedFilterAttribiutes(_ filterAttributes: [CIFilterAttributes]?) {
-//        guard let filterAttributes = filterAttributes else { return }
-//        self.app?.registerUndo(filterAttributes.compactMap({ $0.copy() as? CIFilterAttributes }))
+//    private func markAsEditedFilter(_ filters: [CIBuiltInFilter]?) {
+//        guard let filters = filters else { return }
+//        self.app?.registerUndo(filters.copyElements())
 //    }
 }
 
@@ -518,8 +544,8 @@ fileprivate class CIToneCurveControl: DesignableView {
         
         slider.addTarget(self, action: #selector(self.updateCurve), for: .scrollDidChanged)
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
-        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .editingDidBegin)
-        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .editingDidEnd)
+        slider.addTarget(self, action: #selector(self.sliderDidBegin), for: .scrollDidBegin)
+        slider.addTarget(self, action: #selector(self.sliderDidEnd), for: .scrollDidEnd)
         return slider
     }
     
@@ -586,6 +612,7 @@ fileprivate class CIToneCurveControl: DesignableView {
     
     @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
+        print(#function, idx)
         self.sliderDidEndHandler?(idx, sender.value)
     }
 }

@@ -493,7 +493,9 @@ extension PrecisionLevelSlider {
 }
 
 extension UIControl.Event {
-    static let scrollDidChanged: UIControl.Event = .init(rawValue: 999999)
+    static let scrollDidBegin: UIControl.Event = .init(rawValue: 90000)
+    static let scrollDidChanged: UIControl.Event = .init(rawValue: 90001)
+    static let scrollDidEnd: UIControl.Event = .init(rawValue: 90002)
 }
 
 extension PrecisionLevelSlider: UIScrollViewDelegate {
@@ -501,7 +503,7 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
         beginningScrollPosition = scrollView.contentOffset
         previousScrollPosition = scrollView.contentOffset
         
-        sendActions(for: .editingDidBegin)
+        sendActions(for: .scrollDidBegin)
     }
 
     public final func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -539,7 +541,7 @@ extension PrecisionLevelSlider: UIScrollViewDelegate {
         }
         defaultValueMark.isHidden = false
         
-        sendActions(for: .editingDidEnd)
+        sendActions(for: .scrollDidEnd)
     }
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
