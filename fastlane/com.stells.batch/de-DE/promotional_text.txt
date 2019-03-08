@@ -1,2 +1,2 @@
 + Anpassungen - Ein äußerst professionelles Werkzeug zur Fotobearbeitung.
-+ HashTag - Finden und Sammeln von Hashtags aus Ihren Fotos.
++ RAW Editor - Ein leistungsfähiger, verlustfreier Fotoeditor.

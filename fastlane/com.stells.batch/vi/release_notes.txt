@@ -1,2 +1,1 @@
-++ MỚI - Trình chỉnh sửa RAW 1.0: Trình chỉnh sửa ảnh RAW dễ sử dụng nhưng rất mạnh mẽ, cung cấp nhiều lợi thế để chụp ảnh chưa xử lý. Cho phép chất lượng chỉnh sửa không thể so với hình ảnh JPEG.
-+ Rất nhiều cải tiến hiệu suất và sửa lỗi.
++ MỚI - Giới thiệu hệ thống hộp thoại hành động mới cùng với bản xem trước kết quả. Nó cũng cho phép xuất kết quả theo từng cách khác nhau cùng một lúc.
