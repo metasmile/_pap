@@ -61,7 +61,15 @@ extension UIViewController{
         if let popoverPresentationController = self.popoverPresentationController{
             //Check developer-defined sourceView, set default
             if popoverPresentationController.sourceView == nil{
-                popoverPresentationController.sourceView = sourceView ?? UIViewController.presentable?.view
+                if let sourceView = sourceView {
+                    popoverPresentationController.sourceView = sourceView
+                }
+                else if let sourceView = UIViewController.presentable?.view {
+                    //fallback: opened in the center
+                    popoverPresentationController.sourceView = sourceView
+                    popoverPresentationController.permittedArrowDirections = []
+                    popoverPresentationController.sourceRect = CGRect(origin: CGPoint(x: sourceView.bounds.midX, y: sourceView.bounds.midY), size: .zero)
+                }
             }
         }
     }

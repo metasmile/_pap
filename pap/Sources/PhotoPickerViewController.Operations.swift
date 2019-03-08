@@ -24,6 +24,7 @@ extension PhotoPickerViewController{
                     self.cancelAllSelection()
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+                alert.popoverPresentationController?.barButtonItem = self.cancelButton
                 present(alert, animated: true, completion: nil)
             }
             else {
