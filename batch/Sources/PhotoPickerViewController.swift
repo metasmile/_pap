@@ -185,6 +185,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        batchPreviewView.collectionView.collectionViewLayout.invalidateLayout()
         photoCollectionView.collectionViewLayout.invalidateLayout()
     }
 
