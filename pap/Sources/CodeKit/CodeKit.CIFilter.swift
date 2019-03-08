@@ -45,7 +45,7 @@ class CIFilterGroup<Filter: CIFilter>: CIFilter {
     }
 }
 
-class CIFilterAttributeItem: Codable, NSCopying {
+class CIFilterAttributeItem: NSObject, Codable, NSCopying {
     var attributeKey: String
     var name: String
     var value: Float
@@ -54,13 +54,12 @@ class CIFilterAttributeItem: Codable, NSCopying {
     var maximumValue: Float
     var offset: Int
     var isIntensity: Bool
-    var canEdit: Bool = true
     
     var hasChanges: Bool {
         return defaultValue != value
     }
     
-    init(name: String, attributeKey: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true, canEdit: Bool = true) {
+    init(name: String, attributeKey: String, defaultValue: Float?, minimumValue: Float? = nil, maximumValue: Float? = nil, offset: Int = 0, isIntensity: Bool = true) {
         self.name = name
         self.attributeKey = attributeKey
         self.defaultValue = defaultValue ?? 0
@@ -68,7 +67,6 @@ class CIFilterAttributeItem: Codable, NSCopying {
         self.maximumValue = maximumValue ?? 1
         self.offset = offset
         self.isIntensity = isIntensity
-        self.canEdit = canEdit
         
         self.value = defaultValue ?? 0
     }
@@ -82,6 +80,10 @@ class CIFilterAttributeItem: Codable, NSCopying {
         copy.value = value
         return copy
     }
+    
+    override var description: String {
+        return "\(attributeKey): \(value) in \(minimumValue)...\(maximumValue) at \(offset)"
+    }
 }
 
 extension CIFilterAttributeItem {
@@ -90,7 +92,7 @@ extension CIFilterAttributeItem {
     }
 }
 
-extension CIFilterAttributeItem: Equatable {
+extension CIFilterAttributeItem {
     static func == (lhs: CIFilterAttributeItem, rhs: CIFilterAttributeItem) -> Bool {
         return lhs.name == rhs.name && lhs.value == rhs.value
     }

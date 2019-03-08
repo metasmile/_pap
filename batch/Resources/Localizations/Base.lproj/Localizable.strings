@@ -260,8 +260,6 @@
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* genl10n: RawEditor.swift */
 "Color Noise Reduction" = "Color Noise Reduction";
-/* genl10n: ColorEditor.BApp.swift */
-"Color Tool" = "Color Tool";
 /* genl10n: Finder.BApp.swift */
 "Contacts" = "Contacts";
 /* genl10n: Adjustments.BApp.swift */
@@ -304,6 +302,8 @@
 "Currency Exchange" = "Currency Exchange";
 /* genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
+/* genl10n: ColorEditor.BApp.swift */
+"Curve Tool" = "Curve Tool";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */

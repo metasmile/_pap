@@ -51,9 +51,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public static let info = AppInfo(
         identifier: "com.stells.batch.coloreditor"
         , version: "0.1"
-        , phase: .develop
+        , phase: .beta
         , appType: ColorEditorApp.self
-        , displayName: "Color Tool".localized.localizedCapitalized, description:nil, keywords:nil
+        , displayName: "Curve Tool".localized.localizedCapitalized, description:nil, keywords:nil
         , iconBundleName: nil
         , themeColor: UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
         , policy: AppPolicy.default
@@ -326,6 +326,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
+        control.updateCurve()
     }
     
 //    private func markAsEditedFilter(_ filters: [CIBuiltInFilter]?) {
@@ -529,8 +530,20 @@ fileprivate class CIToneCurveControl: DesignableView {
         updateCurve()
     }
     
-    @objc private func updateCurve() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layoutIfNeeded()
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
         curveLayer.frame = sliderView.bounds
+        updateCurve()
+    }
+    
+    @objc fileprivate func updateCurve() {
         curveLayer.curveValues = sliders.map { $0.value }
         curveLayer.setNeedsDisplay()
     }
@@ -612,7 +625,6 @@ fileprivate class CIToneCurveControl: DesignableView {
     
     @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
         guard let idx = sliders.index(of: sender) else { return }
-        print(#function, idx)
         self.sliderDidEndHandler?(idx, sender.value)
     }
 }
