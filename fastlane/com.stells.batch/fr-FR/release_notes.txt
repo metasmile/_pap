@@ -1,1 +1,2 @@
 + NOUVEAU - Introduire un nouveau système de dialogue d’action avec un aperçu des résultats. Il permet également d’exporter les résultats de différentes manières en même temps.
+- Plusieurs améliorations de performances et corrections de bugs.

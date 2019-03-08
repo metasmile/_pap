@@ -1,1 +1,2 @@
 + NUEVO - Presentando un nuevo sistema de diálogo de acción junto con una vista previa del resultado. También permite exportar resultados en cada forma diferente al mismo tiempo.
+- Varias mejoras de rendimiento y corrección de errores.

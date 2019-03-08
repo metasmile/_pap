@@ -1,1 +1,2 @@
 + MỚI - Giới thiệu hệ thống hộp thoại hành động mới cùng với bản xem trước kết quả. Nó cũng cho phép xuất kết quả theo từng cách khác nhau cùng một lúc.
+- Một số cải tiến hiệu suất và sửa lỗi.

@@ -1,1 +1,2 @@
 + NEU - Einführung eines neuen Aktionsdialogsystems zusammen mit einer Ergebnisvorschau. Es ermöglicht auch, Ergebnisse auf verschiedenen Wegen gleichzeitig zu exportieren.
+- Mehrere Leistungsverbesserungen und Fehlerbehebungen.

@@ -1,1 +1,2 @@
 + NEW - Introducing a new action dialog system together with a result preview. It also enables to export results on each different ways at the same time.
+- Several performance improvements and bug fixes.

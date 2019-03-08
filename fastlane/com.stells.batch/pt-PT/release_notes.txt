@@ -1,1 +1,2 @@
 + NEW - Introduzindo um novo sistema de diálogo de ação junto com uma prévia de resultado. Ele também permite exportar os resultados de cada maneira diferente ao mesmo tempo.
+- Várias melhorias de desempenho e correções de bugs.
