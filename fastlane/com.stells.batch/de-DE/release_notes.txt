@@ -1,2 +1,2 @@
-++ NEU - RAW Editor 1.0: Ein benutzerfreundlicher, aber sehr leistungsfähiger RAW-Fotoeditor, der viele Vorteile für die Aufnahme von unverarbeiteten Bildern bietet. Ermöglicht eine im Vergleich zu JPEG-Bildern unmögliche Bearbeitungsqualität.
-+ Viele Leistungsverbesserungen und Korrekturen.
++ NEU - Einführung eines neuen Aktionsdialogsystems zusammen mit einer Ergebnisvorschau. Es ermöglicht auch, Ergebnisse auf verschiedenen Wegen gleichzeitig zu exportieren.
+- Mehrere Leistungsverbesserungen und Fehlerbehebungen.

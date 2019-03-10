@@ -1,2 +1,2 @@
 + Điều chỉnh - Một công cụ chỉnh sửa ảnh rất chuyên nghiệp.
-+ HashTag - Tìm kiếm và thu thập hashtag từ ảnh của bạn.
++ RAW Editor - Trình chỉnh sửa ảnh lossless mạnh mẽ.
