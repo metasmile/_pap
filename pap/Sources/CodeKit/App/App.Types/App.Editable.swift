@@ -38,6 +38,7 @@ public protocol UndoableDataSource: NSObjectProtocol {
 
 extension UndoableDataSource where UndoItem: Equatable {
     public func registerUndo(_ item: UndoItem) {
+        print(#function, self.undoStack[safe: self.undoItemIndex], item, self.undoStack[safe: self.undoItemIndex] == item)
         guard self.undoStack[safe: self.undoItemIndex] != item else { return }
         if !self.undoStack.isEmpty {
             self.undoStack = Array<UndoItem>(self.undoStack[0...max(0, self.undoItemIndex)])

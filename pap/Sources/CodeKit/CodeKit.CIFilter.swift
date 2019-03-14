@@ -255,10 +255,6 @@ class CIBuiltInFilter: CIFilter, Codable {
         return filterAttributes.values.reduce(false) { $0 || $1.hasChanges }
     }
     
-    override func isEqual(_ object: Any?) -> Bool {
-        return (name == (object as? CIFilter)?.name) == true
-    }
-    
     private func filterAttribute(with key: String) -> CIFilterAttributes? {
         return filterAttributes[key]
     }

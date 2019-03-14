@@ -22,7 +22,7 @@ extension Defaults: ColorEditorDefaults {
 }
 
 class ColorEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
-    PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
+    PHAssetFinalizableApp, EditableApp, UndoableApp, PreviewProcessableApp, AppDockApp,
 PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = ColorEditorTask.self
     
@@ -36,7 +36,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = ColorEditorAppDockContent()
+    public private(set) lazy var content: AppDockContent? = ColorEditorAppDockContent(app: self)
     public private(set) lazy var photoEditorDockContent: AppDockContent? = ColorEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
@@ -53,7 +53,9 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , version: "0.1"
         , phase: .beta
         , appType: ColorEditorApp.self
-        , displayName: "Curve Tool".localized.localizedCapitalized, description:nil, keywords:nil
+        , displayName: "Curve Tool".localized.localizedCapitalized
+        , description: "Curve Tool".localized
+        , keywords: ["Curve", "Color", "RGB"]
         , iconBundleName: nil
         , themeColor: UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
         , policy: AppPolicy.default
@@ -124,29 +126,29 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         if let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
             (content as? ColorEditorAppDockContent)?.setFilterValues(filter, animated: false)
             
-//            if self.undoStack.isEmpty {
-//                self.registerUndo(filter.filters)
-//            }
+            if self.undoStack.isEmpty {
+                self.registerUndo(filter.filters)
+            }
         }
     }
     
-//    public var undoStack: [[CIBuiltInFilter]] = [[CIBuiltInFilter]]()
-//    public var undoItemIndex: Int = 0
-//
-//    public func undoItemIndexDidChange(_ item: Array<CIBuiltInFilter>?) {
-//        var controller: ColorEditorAppDockContent?
-//        if let content = self.content as? ColorEditorAppDockContent {
-//            controller = content
-//        }
-//        else if let content = self.photoEditorDockContent as? ColorEditorAppDockContent {
-//            controller = content
-//        }
-//
-//        let filter = CIColorFilterGroup(filters: item)
-//        controller?.setFilterValues(filter)
-//
-//        self.config?.filter = CIFilterItem(filter)
-//    }
+    public var undoStack: [[CIBuiltInFilter]] = [[CIBuiltInFilter]]()
+    public var undoItemIndex: Int = 0
+
+    public func undoItemIndexDidChange(_ item: Array<CIBuiltInFilter>?) {
+        var controller: ColorEditorAppDockContent?
+        if let content = self.content as? ColorEditorAppDockContent {
+            controller = content
+        }
+        else if let content = self.photoEditorDockContent as? ColorEditorAppDockContent {
+            controller = content
+        }
+
+        let filter = CIColorFilterGroup(filters: item)
+        controller?.setFilterValues(filter)
+
+        self.config?.filter = CIFilterItem(filter)
+    }
 }
 
 fileprivate class CIToneCurveFilter: CIBuiltInFilter {
@@ -305,7 +307,7 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             control.setItem(attributeItem, at: idx)
             
             DispatchQueue.main.async {
-//                self.markAsEditedFilter(self.colorFilters)
+                self.markAsEditedFilter(self.colorFilters)
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
@@ -322,17 +324,17 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         }
         control.sliderDidEndHandler = { idx, value in
             DispatchQueue.main.async {
-//                self.markAsEditedFilter(self.colorFilters)
+                self.markAsEditedFilter(self.colorFilters)
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
         control.updateCurve()
     }
     
-//    private func markAsEditedFilter(_ filters: [CIBuiltInFilter]?) {
-//        guard let filters = filters else { return }
-//        self.app?.registerUndo(filters.copyElements())
-//    }
+    private func markAsEditedFilter(_ filters: [CIBuiltInFilter]?) {
+        guard let filters = filters else { return }
+        self.app?.registerUndo(filters.copyElements())
+    }
 }
 
 // https://github.com/FlexMonkey/ImageToneCurveEditor/tree/master/ToneCurveEditor

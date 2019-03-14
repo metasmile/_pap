@@ -493,9 +493,9 @@ extension PrecisionLevelSlider {
 }
 
 extension UIControl.Event {
-    static let scrollDidBegin: UIControl.Event = .init(rawValue: 90000)
-    static let scrollDidChanged: UIControl.Event = .init(rawValue: 90001)
-    static let scrollDidEnd: UIControl.Event = .init(rawValue: 90002)
+    static let scrollDidBegin: UIControl.Event = .init(rawValue: 0b0001 << 24)
+    static let scrollDidChanged: UIControl.Event = .init(rawValue: 0b0010 << 24)
+    static let scrollDidEnd: UIControl.Event = .init(rawValue: 0b0100 << 24)
 }
 
 extension PrecisionLevelSlider: UIScrollViewDelegate {
