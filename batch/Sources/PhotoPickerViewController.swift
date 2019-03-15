@@ -856,26 +856,27 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.setProgress(progress, animated: animated)
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
-        if progressBar.progress < progress {
-            taskProgress = progress
-            updateProgress(progress, title: "Processing...".localized)
+    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Progress) {
+        let progressValue = Float(progress.fractionCompleted)
+        if progressBar.progress < progressValue {
+            taskProgress = progressValue
+            updateProgress(progressValue, title: "Processing...".localized)
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Progress) {
         guard AppAssets.selected.count > 0 else { return }
-        let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
+        let fetchingProgressPerTask = Float(progress.fractionCompleted) / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
             updateProgress(currentProgress, title: "Downloading...".localized)
         }
     }
     
-    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Progress) {
         guard AppAssets.selected.count > 0 else { return }
         
-        let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
+        let fetchingProgressPerTask = Float(progress.fractionCompleted) / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
         if progressBar.progress < currentProgress {
             updateProgress(currentProgress, title: "Processing...".localized)

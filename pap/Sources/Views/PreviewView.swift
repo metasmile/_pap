@@ -13,9 +13,9 @@ protocol PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath)
     func batchPreviewViewWillFinalize(_ view: PreviewView)
 
-    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float)
-    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float)
+    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Progress)
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Progress)
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Progress)
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
@@ -394,7 +394,7 @@ extension PreviewView {
             }
 
             // it is possible totalCount != numberOfItems (e.g. if an item was runtime-removed while progress as batch tasks)
-            let destItem = Int(Float(totalCount-1)*progress).clamped(to: 0...numberOfItems-1)
+            let destItem = Int(Float(totalCount-1)*Float(progress.fractionCompleted)).clamped(to: 0...numberOfItems-1)
 
             //TODO: confirm - https://fabric.io/jessi/ios/apps/com.stells.batch/issues/5aca0f2936c7b23527e26e8a?time=last-thirty-days
             self.scrollToNeareastItem(at: IndexPath(item: destItem, section: index.section))
@@ -435,7 +435,7 @@ extension PreviewView {
     }
     
     @objc func fetchProgressChanged(sender: NSNotification) {
-        if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Float {
+        if let progress = sender.userInfo?[RemoteSourceFetchNotification.UserInfo.Key.progress] as? Progress {
             DispatchQueue.main.async {
                 self.delegate?.batchPreviewView(self, didUpdateRemoteFetchingProgress: progress)
             }
@@ -443,7 +443,7 @@ extension PreviewView {
     }
     
     @objc func processingProgressChanged(sender: NSNotification) {
-        if let progress = sender.userInfo?[PHAssetProgressNotification.UserInfo.Key.progress] as? Float {
+        if let progress = sender.userInfo?[PHAssetProgressNotification.UserInfo.Key.progress] as? Progress {
             DispatchQueue.main.async {
                 self.delegate?.batchPreviewView(self, didUpdateInternalProgress: progress)
             }

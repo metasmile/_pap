@@ -26,7 +26,7 @@ extension AppTaskRespondable {
 // Appable
 public typealias AppTaskReactableProgressHanlder = (
         _ progressedResult: AppTaskRespondable
-        , _ progress:Float
+        , _ progress:Progress
         , _ remainedResponses:[AppTaskRespondable]
         , _ completedResponses:[AppTaskRespondable]
 ) -> Void

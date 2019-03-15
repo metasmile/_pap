@@ -109,7 +109,7 @@ public struct PHAssetResultItem: PHAssetResultable {
 public struct AppAssetItemProgressNotification {
     static func update(item: AppAsset?=nil, progress: Progress) {
         var userInfo: [String: Any] = [
-            PHAssetProgressNotification.UserInfo.Key.progress: Float(progress.fractionCompleted)
+            PHAssetProgressNotification.UserInfo.Key.progress: progress
         ]
 
         if let assetItem = item {

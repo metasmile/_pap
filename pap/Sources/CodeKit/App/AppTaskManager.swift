@@ -269,7 +269,8 @@ public class AppTaskManager: NSObject, PropertyWatchable, AppTaskOperationQueueD
         //progress
         let creq = staticRequestedWorkItems.count
         let cres = staticFinishedWorkItems.count
-        let progress = Float(cres)/Float(creq + cres)
+        let progress = Progress(totalUnitCount: Int64(creq + cres)) //Float(cres)/Float(creq + cres)
+        progress.completedUnitCount = Int64(cres)
 
         let remainedResponses = Array(self.staticRequestedWorkItems.values)
         let finishedResponses = self.staticFinishedWorkItems
