@@ -57,7 +57,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , description: "Curve Tool".localized
         , keywords: ["Curve", "Color", "RGB"]
         , iconBundleName: nil
-        , themeColor: UIColor(red: 1.0, green: 0, blue: 0, alpha: 1)
+        , themeColor: UIColor(rgb: 0x49CE8A)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
