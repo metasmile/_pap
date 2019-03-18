@@ -512,7 +512,7 @@ fileprivate class CIToneCurveControl: DesignableView {
         toolView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         toolView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         toolView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        toolView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        toolView.heightAnchor.constraint(lessThanOrEqualToConstant: 44).isActive = true
         
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         sliderView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

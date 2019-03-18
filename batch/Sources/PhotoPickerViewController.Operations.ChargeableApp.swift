@@ -41,26 +41,26 @@ extension PhotoPickerViewController{
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let balanceValue = AppCenter.charge.bank.balanceValue
 
-        if selected{
+        if selected {
 
             if let chargeInCurrentContext = chargeInCurrentContext {
 
                 switch chargeInCurrentContext.reward{
                     case .blockOfUses:
-                        self.doneButton?.action = #selector(self.doneButtonDidTapWhereRewardIsBlockOfUses)
+                        self.doneButton.action = #selector(self.doneButtonDidTapWhereRewardIsBlockOfUses)
                     default:
-                        self.doneButton?.action = #selector(self.doneButtonDidTap)
+                        self.doneButton.action = #selector(self.doneButtonDidTap)
                 }
 
-                navigationItem.setRightBarButton(self.doneButton, animated: true)
+                navigationItem.setRightBarButtonItems([self.doneButton], animated: true)
 
             } else {
                 let rightButtonItem = ChargeableBarButtonItem.make(appearance: ChargeButtonAppearance(charge: chargeInCurrentContext))
-                rightButtonItem.title = doneButton?.title
+                rightButtonItem.title = doneButton.title
                 rightButtonItem.normalizedValue = balanceValue
                 rightButtonItem.target = self
                 rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenSelected)
-                navigationItem.setRightBarButton(rightButtonItem, animated: false)
+                navigationItem.setRightBarButtonItems([rightButtonItem], animated: false)
             }
             
             return true
@@ -83,9 +83,20 @@ extension PhotoPickerViewController{
         rightButtonItem.normalizedValue = balanceValue
         rightButtonItem.target = self
         rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenDeselected)
-        navigationItem.setRightBarButton(rightButtonItem, animated: false)
+        
+        var barButtonItems = [UIBarButtonItem]()
+        if !self.allowSelection {
+            barButtonItems.append(UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap)))
+        }
+        barButtonItems.append(rightButtonItem)
+        
+        navigationItem.setRightBarButtonItems(barButtonItems, animated: false)
 
-        return false
+        return self.allowSelection && selected
+    }
+    
+    @objc fileprivate func selectButtonDidTap() {
+        self.allowSelection = true
     }
 
     @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {
@@ -98,12 +109,12 @@ extension PhotoPickerViewController{
 
     @objc fileprivate func doneButtonDidTapWhereRewardIsBlockOfUses(sender: Any) {
 
-        let doneButtonEnabled = self.doneButton?.isEnabled ?? true
+        let doneButtonEnabled = self.doneButton.isEnabled
 
         openShopAppWithBlockOfUsesReward(willBlock: {
-            self.doneButton?.isEnabled = false
+            self.doneButton.isEnabled = false
         }, didBlock:{
-            self.doneButton?.isEnabled = doneButtonEnabled
+            self.doneButton.isEnabled = doneButtonEnabled
         }, perform :{
             self.doneButtonDidTap(sender: "")
         })

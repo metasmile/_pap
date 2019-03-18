@@ -112,7 +112,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
     override var isSelected: Bool {
         didSet {
             selectionCheckView.checked = isSelected
-            selectionView.visible = isSelected
+            selectionView.visible = true
         }
     }
 
@@ -121,15 +121,21 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
             contentView.alpha = isEnabled ? 1 : 0.4
         }
     }
+    
+    public var isSelectable:Bool = false {
+        didSet{
+            updateSelectionState()
+        }
+    }
 
     private func updateSelectionState(){
         selectionCheckView.checked = isSelected
-        selectionCheckView.visible = isEnabled
+        selectionCheckView.visible = true
 
         if isEnabled{
-            selectionView.visible = isSelected
+            selectionView.visible = isSelectable
         } else{
-            selectionView.visible = true
+            selectionView.visible = isSelectable
         }
 
         if selectionView.visible{

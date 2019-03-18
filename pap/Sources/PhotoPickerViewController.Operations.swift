@@ -36,16 +36,7 @@ extension PhotoPickerViewController{
     }
 
     @objc func cancelAllSelection() {
-        guard let indexPaths = photoCollectionView.indexPathsForSelectedItems else { return }
-        for indexPath in indexPaths {
-            photoCollectionView.deselectItem(at: indexPath, animated: true)
-        }
-
-        batchPreviewView.removeAllCollectionViewItems()
-        updateUIDisplays()
-        updateVisibleCellsEnabled()
-
-        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselectAll(callee: self)
+        self.allowSelection = false
     }
 }
 

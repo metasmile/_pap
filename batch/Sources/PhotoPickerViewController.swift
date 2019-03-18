@@ -55,6 +55,30 @@ class PhotoPickerViewController: AppDockViewController {
 
         photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
     }
+    
+    var allowSelection = false {
+        didSet {
+            if allowSelection == true {
+                updateNavigationLeftBarButton()
+                
+                updateUIDisplays()
+                updateVisibleCellsEnabled()
+            }
+            else {
+                if let indexPaths = photoCollectionView.indexPathsForSelectedItems {
+                    for indexPath in indexPaths {
+                        photoCollectionView.deselectItem(at: indexPath, animated: true)
+                    }
+                }
+                
+                batchPreviewView.removeAllCollectionViewItems()
+                updateUIDisplays()
+                updateVisibleCellsEnabled()
+                
+                AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselectAll(callee: self)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         self.appDockView?.delegate = self
@@ -107,7 +131,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         navigationItem.setLeftBarButtonItems(nil, animated: false)
-        navigationItem.setRightBarButton(nil, animated: false)
+        navigationItem.setRightBarButtonItems(nil, animated: false)
 
         //check photo library permission and load
         loadPhotoLibraryIfNeeded()
@@ -377,7 +401,12 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            if allowSelection {
+                title = "Select items".localized
+            }
+            else {
+                title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            }
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
@@ -399,13 +428,13 @@ class PhotoPickerViewController: AppDockViewController {
 
         //update done button
         if AppCenter.default.current == nil{
-            doneButton?.isEnabled = false
-            doneButton?.title = nil
+            doneButton.isEnabled = false
+            doneButton.title = nil
         }else{
-            doneButton?.isEnabled = true
+            doneButton.isEnabled = true
 
             let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)?.doneButtonTitle
-            doneButton?.title = definedTitle ?? "Start".localized
+            doneButton.title = definedTitle ?? "Start".localized
         }
 
         //update done execution state
@@ -444,10 +473,10 @@ class PhotoPickerViewController: AppDockViewController {
         self.redoButton.isEnabled = app.canRedo
     }
     
-    private func updateNavigationLeftBarButton() {
+    internal func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            if updateDoneButtonChargeableState() {
+            if updateDoneButtonChargeableState() || self.allowSelection {
                 if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
                     self.updateUndoButtonStatus(app)
                     
@@ -526,6 +555,7 @@ class PhotoPickerViewController: AppDockViewController {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
             cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
+            cell?.isSelectable = self.allowSelection
         }
     }
 
@@ -759,7 +789,11 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let asset = photoEditor.asset else { return }
 
         if let indexPath = indexPath {
-            if let editItem = editItem, editItem.hasChanges {
+            if let editItem = editItem, (editItem.hasChanges || !allowSelection) {
+                if !allowSelection {
+                    allowSelection = true
+                }
+                
                 if AppAssets.selected.by(asset) == nil{
                     self.selectCollectionViewItem(at: indexPath, animated: false)
                 }
@@ -830,7 +864,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
         let loadingIndicator = UIActivityIndicatorView(style: .gray)
         loadingIndicator.startAnimating()
-        navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
+        navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: loadingIndicator)], animated: true)
 
         progressBar.isHidden = false
         progressBar.progress = 0

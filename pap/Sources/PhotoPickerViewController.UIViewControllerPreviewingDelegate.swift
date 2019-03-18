@@ -74,6 +74,9 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
     private func setActions(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+            if !allowSelection, let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue {
+                item.editState.append(value)
+            }
             _setActionsWithEditor(with:item, at:indexPath,to:vc)
 
         }else{

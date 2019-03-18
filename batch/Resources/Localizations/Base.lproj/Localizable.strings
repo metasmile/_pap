@@ -674,8 +674,12 @@
 "Select Photos To Delete." = "Select Photos To Delete.";
 /* genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Select Photos To Find Something.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Select items";
 /* genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Select";
 /* genl10n: Cleaner.BApp.swift */
 "Selected" = "Selected";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(3) */
@@ -700,7 +704,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, Shop.SApp.swift, App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), Shop.SApp.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Sharing a Live Photo directly as a still photo only." = "Sharing a Live Photo directly as a still photo only.";

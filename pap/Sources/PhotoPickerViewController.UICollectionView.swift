@@ -58,6 +58,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         scrollToBottomIfNeeded()
         
         (cell as? PhotoCollectionViewCell)?.isEnabled = self.collectionView(collectionView, shouldSelectItemAt: indexPath)
+        (cell as? PhotoCollectionViewCell)?.isSelectable = self.allowSelection
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -95,34 +96,51 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        updateUIDisplays()
+        if allowSelection {
+            updateUIDisplays()
 
-        if let asset = PHAssets.fetched.asset(at: indexPath){
-            batchPreviewView.appendCollectionViewItem(with:asset)
+            if let asset = PHAssets.fetched.asset(at: indexPath){
+                batchPreviewView.appendCollectionViewItem(with:asset)
 
-            if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
-                AppAssets.selected.appendValue(value, for: [item])
+                if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue, let item = AppAssets.selected.by(asset) {
+                    AppAssets.selected.appendValue(value, for: [item])
+                }
+
+                AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didSelect(asset: asset, indexPath:indexPath, callee: self)
             }
 
-            AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didSelect(asset: asset, indexPath:indexPath, callee: self)
+            if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+                updateVisibleCellsEnabled()
+            }
         }
-
-        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisibleCellsEnabled()
+        else {
+            collectionView.deselectItem(at: indexPath, animated: false)
+            (collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell)?.isSelectable = false
+            
+            if let asset = PHAssets.fetched.asset(at: indexPath) {
+                let item = AppAsset.create(for:asset)
+                if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue {
+                    item?.editState.append(value)
+                }
+                
+                self.showPhotoEditor(with: item, animated: true)
+            }
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let asset = PHAssets.fetched.asset(at: indexPath) else { return }
-        batchPreviewView.removeCollectionViewItems(with: [asset])
+        if allowSelection {
+            guard let asset = PHAssets.fetched.asset(at: indexPath) else { return }
+            batchPreviewView.removeCollectionViewItems(with: [asset])
 
-        updateUIDisplays()
+            updateUIDisplays()
 
-        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-            updateVisibleCellsEnabled()
+            if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+                updateVisibleCellsEnabled()
+            }
+
+            AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselect(asset: asset, indexPath:indexPath, callee: self)
         }
-
-        AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselect(asset: asset, indexPath:indexPath, callee: self)
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout

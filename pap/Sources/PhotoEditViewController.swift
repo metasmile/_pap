@@ -158,7 +158,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         appDockView?.delegate = self
 
-        doneButton?.title = "Done".localized
+        doneButton.title = "Done".localized
         
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
             if asset.mediaType == .image {
