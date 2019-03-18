@@ -41,7 +41,7 @@ extension PhotoPickerViewController{
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let balanceValue = AppCenter.charge.bank.balanceValue
         
-        self.doneButton.setTitleTextAttributes(nil, for: .normal)
+        self.doneButton.setTitleTextAttributes([:], for: .normal)
 
         if selected {
 
