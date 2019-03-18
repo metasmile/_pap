@@ -49,6 +49,12 @@ extension PhotoPickerViewController{
                     case .blockOfUses:
                         self.doneButton.action = #selector(self.doneButtonDidTapWhereRewardIsBlockOfUses)
                     default:
+                        if let color = AppCenter.default.current?.info.themeColor {
+                            self.doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .normal)
+                        }
+                        else {
+                            self.doneButton.setTitleTextAttributes(nil, for: .normal)
+                        }
                         self.doneButton.action = #selector(self.doneButtonDidTap)
                 }
 
