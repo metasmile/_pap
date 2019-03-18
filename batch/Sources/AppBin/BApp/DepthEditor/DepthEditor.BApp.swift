@@ -77,8 +77,8 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             , displayName: "Depth Editor".localized.localizedCapitalized
             , description: "Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background.".localized
             , keywords: ["depth", "focus", "blur", "portrait", "aperture", "focal length"]
-            , iconBundleName: R.image.cell_icon_depth.name
-            , themeColor: UIColor(rgb: 0xFD8B24)
+            , iconBundleName: R.image.depthEditorBAppIcon.name
+            , themeColor: UIColor(rgb: 0xFFB195)
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
     )
@@ -344,7 +344,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 //        }, filter: originalFilter))
 
         items += self.filters.map({ (filter) -> CIFilterCollectionItem in
-            let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize).inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
+            let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize)
+                    .inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
 
             return CIFilterCollectionItem(title: filter.depthEditMode.displayName, image: icon, action: {
                 filter.depthLevel = CGFloat(self.depthLevelSlider.value)
@@ -380,8 +381,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     fileprivate lazy var depthLevelSlider: PrecisionLevelSlider = {
         let view = PrecisionLevelSlider()
         view.longNotchColor = .white
-        view.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-        view.centerNotchColor = .yellow
+        view.shortNotchColor = UIColor(white: 0.5, alpha: 1)
+        view.centerNotchColor = DepthEditorApp.info.themeColor!
         view.numberOfNotches = 30
         return view
     }()
