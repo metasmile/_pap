@@ -16,7 +16,7 @@ extension PhotoPickerViewController{
 
     @discardableResult
     func selectCollectionViewItem(at indexPath: IndexPath, animated:Bool=false, scrollPosition: UICollectionView.ScrollPosition?=nil) -> Bool {
-        if photoCollectionView.delegate?.collectionView!(photoCollectionView, shouldSelectItemAt: indexPath) == false {
+        if shouldSelectPhoto(at: indexPath) == false {
             return false
         }
         
@@ -65,7 +65,7 @@ extension PhotoPickerViewController{
     func updateCollectionViewSelection(by asset: PHAsset, animated:Bool = false) {
         guard let indexPath = PHAssets.fetched.indexPath(of: asset) else { return }
 
-        if photoCollectionView.delegate?.collectionView?(photoCollectionView, shouldSelectItemAt: indexPath) == false {
+        if shouldSelectPhoto(at: indexPath) == false {
             deselectCollectionViewItems([indexPath])
         }
         else {

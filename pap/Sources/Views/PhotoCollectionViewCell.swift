@@ -132,11 +132,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
         selectionCheckView.checked = isSelected
         selectionCheckView.visible = true
 
-        if isEnabled{
-            selectionView.visible = isSelectable
-        } else{
-            selectionView.visible = isSelectable
-        }
+        selectionView.visible = isSelectable
 
         if selectionView.visible{
             selectionView.backgroundColor = UIColor(white: 1, alpha: isEnabled ? 0.25: 0.5)

@@ -31,7 +31,7 @@ extension PhotoPickerViewController{
         }
 
         for indexPath in self.photoCollectionView.indexPathsForVisibleItems
-            where self.collectionView(self.photoCollectionView, shouldSelectItemAt: indexPath)
+            where self.shouldSelectPhoto(at: indexPath)
                     && self.photoCollectionView.indexPathsForSelectedItems?.contains(indexPath) == false{
 
             PreheatingQueue.dispatchQueue.async{

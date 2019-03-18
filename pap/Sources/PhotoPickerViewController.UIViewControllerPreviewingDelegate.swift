@@ -25,7 +25,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             vc.placeholderImage = placeholderImage?.applyFilter(ciFilter: item.editState.ciFilter) ?? placeholderImage
             vc.assetItem = item
             
-            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+            if self.shouldSelectPhoto(at: indexPath) {
                 setActions(with: item, at: indexPath, to: vc)
             }
 
@@ -51,7 +51,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             let vc = PhotoPickerDetailViewController()
             vc.assetItem = item
             
-            if self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) {
+            if self.shouldSelectPhoto(at: indexPath) {
                 setActions(with: item, at: selectedIndexPath, to: vc)
             }
 
@@ -63,7 +63,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let vc = viewControllerToCommit as? PhotoPickerDetailViewController, let item = vc.assetItem, let indexPath = PHAssets.fetched.indexPath(of: item.asset), self.collectionView(photoCollectionView, shouldSelectItemAt: indexPath) else {
+        guard let vc = viewControllerToCommit as? PhotoPickerDetailViewController, let item = vc.assetItem, let indexPath = PHAssets.fetched.indexPath(of: item.asset), self.shouldSelectPhoto(at: indexPath) else {
             return
         }
 

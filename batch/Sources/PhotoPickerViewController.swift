@@ -384,7 +384,7 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     func redisplayVisibleCellsEnabled(){
-        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !collectionView(self.photoCollectionView, shouldSelectItemAt: $0) }) ?? [])
+        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !shouldSelectPhoto(at: $0) }) ?? [])
         updateVisibleCellsEnabled()
     }
 
@@ -554,7 +554,7 @@ class PhotoPickerViewController: AppDockViewController {
     func updateVisibleCellsEnabled() {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-            cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
+            cell?.isEnabled = shouldSelectPhoto(at: indexPath)
             cell?.isSelectable = self.allowSelection
         }
     }
