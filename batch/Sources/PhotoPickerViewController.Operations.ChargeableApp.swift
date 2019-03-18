@@ -40,6 +40,8 @@ extension PhotoPickerViewController{
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let balanceValue = AppCenter.charge.bank.balanceValue
+        
+        self.doneButton.setTitleTextAttributes(nil, for: .normal)
 
         if selected {
 
@@ -51,9 +53,6 @@ extension PhotoPickerViewController{
                     default:
                         if let color = AppCenter.default.current?.info.themeColor {
                             self.doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .normal)
-                        }
-                        else {
-                            self.doneButton.setTitleTextAttributes(nil, for: .normal)
                         }
                         self.doneButton.action = #selector(self.doneButtonDidTap)
                 }
