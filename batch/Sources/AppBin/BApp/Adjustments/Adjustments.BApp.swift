@@ -380,14 +380,26 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
 
     override var outputImage: CIImage? {
         return autoreleasepool { () -> CIImage? in
-            guard let image = inputImage else { return nil }
+            guard let background = inputImage else { return nil }
             let params = filterAttributes.compactMap { $0.value.number }
-            var uniformValues = [MTLBuffer]()
-            for var value in params {
-                guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
-                uniformValues.append(buffer)
-            }
-            return image.applyMetalShader(fragmentFunction: "fadeEffect", fragmentUniforms: uniformValues)
+            let intensity = params.first ?? 0
+            guard let foreground = CIFilter(name: "CIConstantColorGenerator", parameters: [
+                kCIInputColorKey: CIColor(red: 1, green: 1, blue: 1, alpha: CGFloat(intensity * 0.1))
+            ])?.outputImage?.cropped(to: background.extent) else { return nil }
+            
+            return CIFilter(name: "CISourceOverCompositing", parameters: [
+                kCIInputImageKey: foreground,
+                kCIInputBackgroundImageKey: background
+            ])?.outputImage
+            
+//            guard let image = inputImage else { return nil }
+//            let params = filterAttributes.compactMap { $0.value.number }
+//            var uniformValues = [MTLBuffer]()
+//            for var value in params {
+//                guard let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) else { continue }
+//                uniformValues.append(buffer)
+//            }
+//            return image.applyMetalShader(fragmentFunction: "fadeEffect", fragmentUniforms: uniformValues)
         }
     }
 }

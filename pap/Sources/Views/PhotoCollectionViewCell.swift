@@ -129,7 +129,7 @@ class PhotoCollectionViewCell: CustomCollectionViewCell {
 
     private func updateSelectionState(){
         selectionCheckView.checked = isSelected
-        selectionCheckView.visible = isEnabled
+        selectionCheckView.visible = isEnabled || isSelected
         
         selectionCheckView.alpha = isSelected ? 1 : 0.5
 
