@@ -11,8 +11,8 @@ import Photos
 import PhotosUI
 
 class PhotoPickerViewController: AppDockViewController {
-    private lazy var undoButton = UIBarButtonItem(title: "◀︎", style: .plain, target: self, action: #selector(self.undo))
-    private lazy var redoButton = UIBarButtonItem(title: "▶︎", style: .plain, target: self, action: #selector(self.redo))
+    private lazy var undoButton = UIBarButtonItem(image: R.image.systemIconUndo(), style: .plain, target: self, action: #selector(self.undo))
+    private lazy var redoButton = UIBarButtonItem(image: R.image.systemIconRedo(), style: .plain, target: self, action: #selector(self.redo))
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
