@@ -379,6 +379,7 @@ fileprivate class CIFadeFilter: CIAdjustmentFilter {
     }
 
     override var outputImage: CIImage? {
+        // https://github.com/muukii/Pixel/blob/master/Sources/PixelEngine/Filter/FilterFade.swift
         return autoreleasepool { () -> CIImage? in
             guard let background = inputImage else { return nil }
             let params = filterAttributes.compactMap { $0.value.number }
