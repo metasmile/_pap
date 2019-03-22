@@ -16,6 +16,7 @@ protocol PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Progress)
     func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Progress)
     func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Progress)
+    func batchPreviewView(_ view: PreviewView, didUpdateFinalizingProgress progress: Progress)
 
     func batchPreviewViewWillCancelProgress(_ view: PreviewView)
 
@@ -167,6 +168,12 @@ internal class PreviewCollectionLayout: UICollectionViewLayout {
     }
 }
 
+enum BatchProcessingState {
+    case ready
+    case processing
+    case finalizing
+}
+
 class PreviewView: CustomView, AppDockContentTransition {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightLayout: NSLayoutConstraint!
@@ -175,6 +182,8 @@ class PreviewView: CustomView, AppDockContentTransition {
 
     let appAssetsSelected = AppAssets.selected
     let _preferences = AppDockContentPreferences(preferredHeight:44)
+    
+    private var batchProcessingState = BatchProcessingState.ready
 
     override func initialize() {
         super.initialize()
@@ -347,6 +356,7 @@ extension PreviewView {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.fetchProgressChanged), name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.processingProgressChanged), name: PHAssetProgressNotification.Name.progressChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.finalizingProgressChanged), name: PHAssetFinalizableNotification.Name.progressChanged, object: nil)
 
         //TODO: BatchAppCenter.default.task.append immediatly from UI action instead of using "EditItems"
 
@@ -360,9 +370,15 @@ extension PreviewView {
 
         return true
     }
+    
+    public var isTaskRunning: Bool {
+        return batchProcessingState != .ready
+    }
 
     public func createTaskReaction() -> AppTaskReaction{
         let reaction = AppTaskReaction()
+        
+        batchProcessingState = .processing
 
         reaction.when(progress:{ response, progress, remained, completed in
             assert(response.info.state != .completed || response.info.state == .completed && response.result != nil, "task state is .completed but result is nil")
@@ -402,11 +418,14 @@ extension PreviewView {
 
         }).will(finish: { resultsByApps, respondables in
 
+            self.batchProcessingState = .finalizing
             self.delegate?.batchPreviewViewWillFinalize(self)
 
 
         }).did(finish: { resultsByApps, respondables in
             assert(!AppCenter.default.task.isRunning)
+            
+            guard self.batchProcessingState != .ready else { return }
             
             let assets = respondables.compactMap { respondable -> PHAsset? in
                 if respondable.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] as? Bool == true {
@@ -417,6 +436,7 @@ extension PreviewView {
                 }
             }
 
+            self.batchProcessingState = .ready
             self.delegate?.batchPreviewViewDidEndEdit(self, assetsForFinished: assets)
 
             //log
@@ -450,22 +470,48 @@ extension PreviewView {
         }
     }
     
+    @objc func finalizingProgressChanged(sender: NSNotification) {
+        if let progress = sender.userInfo?[PHAssetFinalizableNotification.UserInfo.Key.progress] as? Progress {
+            DispatchQueue.main.async {
+                self.delegate?.batchPreviewView(self, didUpdateFinalizingProgress: progress)
+            }
+        }
+    }
+    
     func cancelBatchProcessing() {
+        if AppCenter.default.task.isRunning {
+            cancelProcessing()
+        }
+        else if batchProcessingState == .finalizing {
+            cancelFinalizing()
+        }
+    }
+    
+    private func cancelProcessing() {
         assert(AppCenter.default.task.isRunning)
-
+        
         NotificationCenter.default.removeObserver(self, name: RemoteSourceFetchNotification.Name.progressChanged, object: nil)
         NotificationCenter.default.removeObserver(self, name: PHAssetProgressNotification.Name.progressChanged, object: nil)
-
-
+        
+        self.batchProcessingState = .ready
         self.delegate?.batchPreviewViewWillCancelProgress(self)
         UIApplication.shared.beginIgnoringInteractionEvents()
-
+        
         AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
             UIApplication.shared.endIgnoringInteractionEvents()
-        }.did{
-//            self.delegate?.batchPreviewViewDidEndEdit(self)
-            self.delegate?.batchPreviewViewDidCancelEdit(self)
+            }.did{
+                self.delegate?.batchPreviewViewDidCancelEdit(self)
         })
+        
+        papLog.cancelWhilePerforming()
+    }
+    
+    private func cancelFinalizing() {
+        guard let app = AppCenter.default.currentInstanceAs(PHAssetFinalizableApp.self) else { return }
+        app.cancelFinalizing()
+        
+        self.batchProcessingState = .ready
+        self.delegate?.batchPreviewViewDidCancelEdit(self)
     }
 }
 

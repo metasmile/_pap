@@ -6,6 +6,28 @@
 import Foundation
 import Photos
 
+public struct PHAssetFinalizableNotification {
+    enum Name {
+        static let progressChanged = Notification.Name("PHAssetFinalizableNotificationProgressChanged")
+    }
+    
+    struct UserInfo {
+        enum Key {
+            static let progress = "progress"
+        }
+    }
+}
+
+extension PHAssetFinalizableApp {
+    func finalizingProgressDidUpdate(_ progress: Progress) {
+        let userInfo: [String: Any] = [
+            PHAssetFinalizableNotification.UserInfo.Key.progress: progress
+        ]
+        
+        NotificationCenter.default.post(name: PHAssetFinalizableNotification.Name.progressChanged, object: self, userInfo: userInfo)
+    }
+}
+
 public enum PHAssetFinalizingAction: Int{
     case modify
     case create
@@ -16,12 +38,15 @@ public enum PHAssetFinalizingAction: Int{
 
 public protocol PHAssetFinalizableApp: FinalizableApp {
     var finalizingActions: [PHAssetFinalizingAction] {get}
+    func cancelFinalizing()
 }
 
 extension PHAssetFinalizableApp{
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.share]
     }
+    
+    public func cancelFinalizing() {}
 }
 
 extension PHAssetFinalizableApp {
@@ -40,6 +65,10 @@ extension PHAssetFinalizableApp {
         if targetResultAssets.count == 0{
             return result
         }
+        
+        let completedProgress = Progress(totalUnitCount: 1)
+        completedProgress.completedUnitCount = 1
+        self.finalizingProgressDidUpdate(completedProgress)
 
         let exclusiveOption = finalizingActions.count==1
         for option in finalizingActions{
@@ -77,6 +106,7 @@ extension PHAssetFinalizableApp {
             }
         }
         assert(asyncSignal.began == false)
+        
         return result
     }
 

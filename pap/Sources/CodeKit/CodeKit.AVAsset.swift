@@ -11,38 +11,6 @@ import AVFoundation
 import Photos
 
 extension AVAsset {
-    static func mergeVideos(_ videos: [AVAsset]) -> AVAsset {
-        let composition = AVMutableComposition()
-        
-        let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-        let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        
-        var insertTime = CMTime.zero
-        for video in videos {
-            let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: video.duration)
-            
-            if let videoTrack = video.tracks(withMediaType: .video).first, let _ = try? compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: insertTime) {
-                compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
-            }
-            else {
-                compositionVideoTrack?.insertEmptyTimeRange(timeRange)
-            }
-            
-            if let audioTrack = video.tracks(withMediaType: .audio).first, let _ = try? compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: insertTime) {
-                compositionAudioTrack?.preferredVolume = audioTrack.preferredVolume
-            }
-            else {
-                compositionAudioTrack?.insertEmptyTimeRange(timeRange)
-            }
-            
-            insertTime = insertTime + video.duration
-        }
-        
-        return composition
-    }
-}
-
-extension AVAsset {
     func applyTransform(_ transform: CGAffineTransform) -> AVAsset {
         guard
             let videoTrack = tracks(withMediaType: .video).first
@@ -138,6 +106,20 @@ extension AVAsset {
                 request.finish(with: image, context: nil)
             }
         }
+    }
+}
+
+extension AVAsset {
+    var renderSize: CGSize {
+        return naturalSize.applying(preferredTransform).magnitude
+    }
+    
+    var naturalSize: CGSize {
+        return tracks(withMediaType: .video).first?.naturalSize ?? .zero
+    }
+    
+    var preferredTransform: CGAffineTransform {
+        return tracks(withMediaType: .video).first?.preferredTransform ?? .identity
     }
 }
 

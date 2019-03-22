@@ -62,7 +62,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func shouldSelectPhoto(at indexPath: IndexPath) -> Bool {
-        guard !AppCenter.default.task.isRunning else { return false }
+        guard !batchPreviewView.isTaskRunning else { return false }
         
         // Scope that able to handle Asset if not -> Selection will be disabled.
         if let asset = PHAssets.fetched.asset(at: indexPath)
@@ -95,7 +95,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        guard !AppCenter.default.task.isRunning else { return false }
+        guard !batchPreviewView.isTaskRunning else { return false }
         return true
     }
 

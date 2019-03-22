@@ -36,7 +36,7 @@ extension PhotoPickerViewController{
         let selected = self.estimatedAvailableSelectedItems > 0
         
         //INFO: keep activity indicator in right bar button
-        guard !AppCenter.default.task.isRunning else { return selected }
+        guard !batchPreviewView.isTaskRunning else { return selected }
 
         let chargeInCurrentContext = AppCenter.paidChargeableTypeInCurrentContext
         let balanceValue = AppCenter.charge.bank.balanceValue

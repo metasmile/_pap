@@ -19,7 +19,7 @@ extension Defaults: MergerAppDefaults {
     
 }
 
-class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp
+class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, /*AppDockApp,*/ PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
     
@@ -43,7 +43,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
         , appType: MergerApp.self
         , displayName: "Movie Maker".localized.localizedCapitalized, description:nil, keywords:nil
         , iconBundleName: nil
-        , themeColor: UIColor(red: 0, green: 0, blue: 128 / 255.0, alpha: 1)
+        , themeColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
@@ -75,15 +75,31 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
     }
+    
+    private var exportSession: AVAssetExportSession?
 }
 
 extension MergerApp {
-    private func mergeVideo(with resultItems: [MergerResultItem]) -> AVAsset {
+    private func mergeVideo(with resultItems: [MergerResultItem]) -> AVPlayerItem {
         var mergedItems = [MergerResultItem]()
         var previousTimeRange = CMTimeRange.zero
+        
+        var estimatedVideoSize = CGSize.zero
+        var exportsPassThrough = true
+        let intersectsTimeRange = true
         for var resultItem in resultItems {
-            if let startTime = resultItem.asset.creationDate?.timeIntervalSinceReferenceDate, let duration = resultItem.video?.duration {
-                let globalTimeRange = CMTimeRange(start: CMTimeMakeWithSeconds(startTime, preferredTimescale: duration.timescale), duration: duration)
+            guard let video = resultItem.video else { continue }
+            let videoSize = video.renderSize
+            
+            let videoBounds = CGRect(origin: .zero, size: videoSize)
+            
+            if estimatedVideoSize != .zero {
+                exportsPassThrough = exportsPassThrough && (estimatedVideoSize == videoSize)
+            }
+            estimatedVideoSize = CGRect(origin: .zero, size: estimatedVideoSize).union(videoBounds).size
+            
+            if intersectsTimeRange, let startTime = resultItem.asset.creationDate?.timeIntervalSinceReferenceDate {
+                let globalTimeRange = CMTimeRange(start: CMTimeMakeWithSeconds(startTime, preferredTimescale: video.duration.timescale), duration: video.duration)
                 
                 if resultItem.asset.imageType == .livePhoto {
                     let timeRange = previousTimeRange.intersection(globalTimeRange)
@@ -106,6 +122,9 @@ extension MergerApp {
                 
                 previousTimeRange = globalTimeRange
             }
+            else {
+                mergedItems.append(resultItem)
+            }
         }
         
         let composition = AVMutableComposition()
@@ -113,21 +132,62 @@ extension MergerApp {
         let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         
+        var instructions = [AVMutableVideoCompositionInstruction]()
+        
         var insertTime = CMTime.zero
         for mergedItem in mergedItems {
             guard let video = mergedItem.video else { continue }
             
             let timeRange = mergedItem.timeRange ?? CMTimeRangeMake(start: CMTime.zero, duration: video.duration)
             
-            if let videoTrack = video.tracks(withMediaType: .video).first, let _ = try? compositionVideoTrack?.insertTimeRange(timeRange, of: videoTrack, at: insertTime) {
-                compositionVideoTrack?.preferredTransform = videoTrack.preferredTransform
+            if let compositionVideoTrack = compositionVideoTrack, let videoTrack = video.tracks(withMediaType: .video).first, let _ = try? compositionVideoTrack.insertTimeRange(timeRange, of: videoTrack, at: insertTime) {
+                let preferredTransform = videoTrack.preferredTransform
+                if exportsPassThrough {
+                    compositionVideoTrack.preferredTransform = preferredTransform
+                }
+                else {
+                    let preferredVideoRect = CGRect(origin: .zero, size: video.naturalSize).applying(preferredTransform)
+                    
+                    var renderScale: CGFloat = 1
+                    if mergedItem.contentMode == .aspectFill {
+                        
+                    }
+                    else {
+                        if estimatedVideoSize.ratio <= preferredVideoRect.size.ratio {
+                            if preferredVideoRect.size.ratio > 1 {
+                                renderScale = preferredVideoRect.maxLength / estimatedVideoSize.minLength
+                            }
+                            else {
+                                renderScale = estimatedVideoSize.minLength / preferredVideoRect.minLength
+                            }
+                        }
+                        else {
+                            renderScale = estimatedVideoSize.maxLength / preferredVideoRect.maxLength
+                        }
+                    }
+                    
+                    let scaleTransform = CGAffineTransform(scaleX: renderScale, y: renderScale)
+                    let renderVideoRect = preferredVideoRect.applying(scaleTransform)
+                    
+                    let translateTransform = CGAffineTransform(translationX: -renderVideoRect.minX + (estimatedVideoSize.width - renderVideoRect.width) / 2, y: (estimatedVideoSize.height - renderVideoRect.height) / 2)
+                    
+                    var transform = scaleTransform.concatenating(translateTransform)
+                    transform = preferredTransform.concatenating(transform)
+                    
+                    let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionVideoTrack)
+                    layerInstruction.setTransform(transform, at: .zero)
+                    
+                    let instruction = AVMutableVideoCompositionInstruction()
+                    instruction.timeRange = CMTimeRange(start: insertTime, duration: timeRange.duration)
+                    instruction.layerInstructions = [layerInstruction]
+                    instructions.append(instruction)
+                }
             }
             else {
                 compositionVideoTrack?.insertEmptyTimeRange(timeRange)
             }
             
             if let audioTrack = video.tracks(withMediaType: .audio).first, let _ = try? compositionAudioTrack?.insertTimeRange(timeRange, of: audioTrack, at: insertTime) {
-                compositionAudioTrack?.preferredVolume = audioTrack.preferredVolume
             }
             else {
                 compositionAudioTrack?.insertEmptyTimeRange(timeRange)
@@ -136,7 +196,16 @@ extension MergerApp {
             insertTime = insertTime + timeRange.duration
         }
         
-        return composition
+        let videoComposition = AVMutableVideoComposition(propertiesOf: composition)
+        videoComposition.instructions = instructions
+        videoComposition.renderSize = AVVideoComposition.makeVideoRenderSize(estimatedVideoSize)
+        
+        let playerItem = AVPlayerItem(asset: composition)
+        if !exportsPassThrough {
+            playerItem.videoComposition = videoComposition
+        }
+        
+        return playerItem
     }
     
     public func finalize(result: [AppTaskRespondable], _ asyncSignal: AsyncWaitSignalable) -> [AppTaskRespondable] {
@@ -147,15 +216,23 @@ extension MergerApp {
         
         var results = [PHAssetResultItem]()
         
-        let video = mergeVideo(with: resultItems)
+        let playerItem = mergeVideo(with: resultItems)
+        let exportPreset: String = playerItem.videoComposition == nil ? AVAssetExportPresetPassthrough : AVAssetExportPresetHighestQuality
+        
+        var exportSuccess = false
         
         asyncSignal.begin()
         DispatchQueue(label: #file + "_mergeVideos", qos: .utility).async {
             let videoURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            AVAssetExportSession.export(asset: video, outputURL: videoURL, progressHandler: { progress in
-                
+            self.exportSession = AVAssetExportSession.export(asset: playerItem.asset, videoComposition: playerItem.videoComposition, presetName: exportPreset, outputURL: videoURL, progressHandler: { progress in
+                self.finalizingProgressDidUpdate(progress)
             }, completionHandler: { (success) in
+                exportSuccess = success
                 if success {
+                    let progress = Progress(totalUnitCount: 1)
+                    progress.completedUnitCount = 1
+                    self.finalizingProgressDidUpdate(progress)
+                    
                     results.append(PHAssetResultItem(asset: AppAsset(PHAsset()), editingResultItems: [PHAssetEditingResultItem(url: videoURL, resourceType: .video)]))
                 }
                 asyncSignal.end()
@@ -163,12 +240,19 @@ extension MergerApp {
         }
         asyncSignal.waitUntilEnd()
         
+        guard exportSuccess else { return result }
+        
         let success = showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
         result.forEach {
             $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
         }
         
         return result
+    }
+    
+    public func cancelFinalizing() {
+        self.exportSession?.cancelExport()
+        self.exportSession = nil
     }
 }
 
@@ -211,6 +295,9 @@ struct MergerResultItem: AppTaskResultable {
     mutating func setEstimatedTimeRange(_ timeRange: CMTimeRange) {
         self.estimatedTimeRange = timeRange
     }
+    
+    //INFO: resize
+    var contentMode: PHImageContentMode = .aspectFit
 }
 
 public class MergerAppValue: ImageEditStateValue {}

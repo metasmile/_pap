@@ -11,11 +11,9 @@ extension PhotoPickerViewController{
 
     func cancelAllInCurrentContext(){
         cancelPreheatingIfNeeded()
-
-        if AppCenter.default.task.isRunning {
+        
+        if batchPreviewView.isTaskRunning {
             batchPreviewView.cancelBatchProcessing()
-
-            papLog.cancelWhilePerforming()
         }
         else {
             if AppAssets.selected.hasChanges {

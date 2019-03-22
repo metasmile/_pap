@@ -32,6 +32,7 @@ extension AppCenter{
             , DepthEditorApp.self
             , RawEditorApp.self
             , ColorEditorApp.self
+            , MergerApp.self
 
         ].sorted { (appType1: App.Type, appType2: App.Type) -> Bool in
 
