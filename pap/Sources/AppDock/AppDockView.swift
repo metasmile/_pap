@@ -213,6 +213,13 @@ class AppDockView: CustomView {
     private func reloadAppDock() {
         appCollectionView.reloadData()
     }
+    
+    override func invalidateIntrinsicContentSize() {
+        super.invalidateIntrinsicContentSize()
+        
+        let contentHeight = drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant
+        dockContainerView.isHidden = contentHeight == 0
+    }
 
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: drawerViewHeightLayout.constant + appContentViewHeightLayout.constant + dockViewHeightLayout.constant + bottomAccesoryViewSafeHeight)
