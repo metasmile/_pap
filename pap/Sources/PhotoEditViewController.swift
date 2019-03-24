@@ -96,6 +96,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return UIImageView(frame: zoomingContentView.bounds)
     }()
     
+    var assetItem: AppAsset?
+    
     fileprivate var editItem = StateValueSet<ImageEditStateValue>()
 
     var indexPathInPicker: IndexPath?
@@ -139,7 +141,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Edit".localized
+        title = canEdit ? "Edit".localized : nil
         
         zoomingContentView.isHidden = true
         
@@ -199,6 +201,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     override func content(in view: AppDockView) -> AppDockContent? {
+        guard canEdit else { return nil }
         return AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent
     }
     
@@ -264,6 +267,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     // MARK: - Navigation Bar Actions
     
     private func setEditState(_ editState: StateValueSet<ImageEditStateValue>) {
+        guard canEdit else { return }
+        
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
             let targetSize = self.assetView.size
             
@@ -393,5 +398,16 @@ extension PhotoEditViewController: UIViewControllerTransitioningDelegate {
         transitionAnimator.transitionView = imageView
         transitionAnimator.presented = false
         return transitionAnimator
+    }
+}
+
+extension PhotoEditViewController {
+    private var canEdit: Bool {
+        if let app = AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self), let assetItem = assetItem, !app.shouldSelect(item: assetItem) {
+            return false
+        }
+        else {
+            return true
+        }
     }
 }
