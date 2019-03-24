@@ -169,7 +169,7 @@ extension MergerApp {
                     let scaleTransform = CGAffineTransform(scaleX: renderScale, y: renderScale)
                     let renderVideoRect = preferredVideoRect.applying(scaleTransform)
                     
-                    let translateTransform = CGAffineTransform(translationX: -renderVideoRect.minX + (estimatedVideoSize.width - renderVideoRect.width) / 2, y: (estimatedVideoSize.height - renderVideoRect.height) / 2)
+                    let translateTransform = CGAffineTransform(translationX: -renderVideoRect.minX + (estimatedVideoSize.width - renderVideoRect.width) / 2, y: -renderVideoRect.minY + (estimatedVideoSize.height - renderVideoRect.height) / 2)
                     
                     var transform = scaleTransform.concatenating(translateTransform)
                     transform = preferredTransform.concatenating(transform)
