@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "ไฮไลท์";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Homographic";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "ข้อความถึงเรา";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "โหมด H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "โหมด T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "แก้ไขและแบ่งปัน";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "การตั้งค่า";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "เงา";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "ลดการสั่นไหว";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "แชร์แอปนี้";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "แปลตอนนี้";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "การแก้ไขการแปล";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "การแปล";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "พูดเบาและรวดเร็ว";
 /* Generated from genl10n: Finder.BApp.swift */

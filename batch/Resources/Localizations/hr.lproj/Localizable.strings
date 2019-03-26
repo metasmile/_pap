@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Skrivanje odabranih stavki ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Naglasci";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "homografnih";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvaliteta slike";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Poruka nam";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Način H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Način T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Izmijenite i dijelite";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "postavke";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "sjene";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Smanjenje tresenja";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Prevedi sada";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Ispravak prevođenja";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Prijevod";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Cvrkut";
 /* Generated from genl10n: Finder.BApp.swift */

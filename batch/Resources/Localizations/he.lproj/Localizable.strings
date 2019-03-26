@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "מסתיר פריטים שנבחרו ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "עיקרי הדברים";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "הומוגרפיה";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "איכות תמונה";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "זיכרון";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "מצב ח";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "מצב T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "שנה ושתף";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "הגדרות";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "צללים";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "לנער הפחתה";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "שתף את זה App";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "תרגם כעת";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "תיקון תרגום";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "תרגום";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "טוויטר";
 /* Generated from genl10n: Finder.BApp.swift */

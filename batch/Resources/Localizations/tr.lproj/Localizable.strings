@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Seçilen Öğeleri Gizlemek ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Önemli";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Eşyazımlı";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Görüntü kalitesi";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bize Mesaj";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "H modu";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "T modu";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Değiştir ve Paylaş";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "Ayarlar";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Gölgeler";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Sallanma azaltma";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Bu uygulamayı paylaş";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Şimdi Çevir";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Çeviri Düzeltme";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Çeviri";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "heyecan";
 /* Generated from genl10n: Finder.BApp.swift */

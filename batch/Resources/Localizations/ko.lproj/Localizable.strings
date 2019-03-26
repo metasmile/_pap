@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "선택한 항목 숨기기 ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "하이라이트";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "동질화";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "메모 캠";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "우리에게 보내는 메시지";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "모드 H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "모드 T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "수정 및 공유";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "설정";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "그림자";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "흔들림 제거";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "이 앱 공유";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "지금 번역하기";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "번역 교정";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "번역";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "지저귀다";
 /* Generated from genl10n: Finder.BApp.swift */

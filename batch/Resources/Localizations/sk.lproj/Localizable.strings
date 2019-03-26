@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Skryť vybrané položky ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "prednosti";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Homographic";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kvalita obrazu";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Správa nám";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Režim H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Režim T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Upraviť a zdieľať";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "nastavenie";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "tiene";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Redukcia otrasov";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Zdieľať túto aplikáciu";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Preložiť teraz";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Korekcia prekladu";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "preklad";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "cvrlikání";
 /* Generated from genl10n: Finder.BApp.swift */

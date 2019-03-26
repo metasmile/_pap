@@ -40,42 +40,42 @@ extension Defaults: GIFMakerDefaults {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0) }
     }
-    
+
     var aspectRatio: Double {
         set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 1) }
     }
-    
+
     var contentMode: PHImageContentMode {
         set{ set(newValue.rawValue); papLog.app.defaults.log(value:newValue) }
         get{ return PHImageContentMode(rawValue: get(or: PHImageContentMode.aspectFit.rawValue)) ?? PHImageContentMode.aspectFit }
     }
-    
+
     var frameDelay: Double {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0.05)}
     }
-    
+
     var size: Double {
         set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 640 ) }
     }
-    
+
     var direction: Int {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0) }
     }
-    
+
     var gifQuality: Double {
         set{ set(newValue); papLog.app.defaults.log(value:newValue) }
         get{ return get(or: 0.8) }
     }
-    
+
     var loopCount: Int {
         set { set(newValue); papLog.app.defaults.log(value:newValue) }
         get { return get(or: 0)}
     }
-    
+
     var stabilization: ImageAlignment.StabilizationMode {
         set { set(newValue.rawValue); papLog.app.defaults.log(value:newValue.rawValue) }
         get { return ImageAlignment.StabilizationMode(rawValue: get(or: 0)) }
@@ -90,26 +90,26 @@ struct GIFMakerSettings {
             case livePhoto
             case video
         }
-        
+
         static let labels: [type: String] = [
             .photo: "Photos".localized,
             .burst: "Burst".localized,
             .livePhoto: "Live Photo".localized,
             .video: "Video".localized
         ]
-        
+
         static let orderedLabels: [String?] = [
             labels[.photo],
             labels[.burst],
             labels[.livePhoto],
 //            labels[.video]
         ]
-        
+
         static func key(with value: String) -> Int {
             return (labels.first(where: { value == $0.value })?.key ?? .photo).rawValue
         }
     }
-    
+
     struct aspectRatio {
         struct labels {
             static let square = "Square".localized
@@ -118,7 +118,7 @@ struct GIFMakerSettings {
             static let w3h4 = "3:4"
             static let w9h16 = "9:16"
         }
-        
+
         static let values: [String: Double] = [
             labels.square: 1.0,
             labels.w3h4: 3.0 / 4.0,
@@ -126,7 +126,7 @@ struct GIFMakerSettings {
             labels.w4h3: 4.0 / 3.0,
             labels.w16h9: 16.0 / 9.0
         ]
-        
+
         static let orderedLabels: [String] = [
             labels.w9h16,
             labels.w3h4,
@@ -134,31 +134,31 @@ struct GIFMakerSettings {
             labels.w4h3,
             labels.w16h9
         ]
-        
+
         static func value(_ key: String) -> Double {
             return values[key] ?? 1.0
         }
     }
-    
+
     struct contentMode {
         static let fit = PHImageContentMode.aspectFit.rawValue
         static let fill = PHImageContentMode.aspectFill.rawValue
-        
+
         static let labels: [PHImageContentMode: String] = [
             PHImageContentMode.aspectFit: "No Crop".localized,
             PHImageContentMode.aspectFill: "Crop".localized
         ]
-        
+
         static let orderedLabels: [String?] = [
             labels[PHImageContentMode.aspectFill],
             labels[PHImageContentMode.aspectFit],
         ]
-        
+
         static func key(with value: String) -> PHImageContentMode {
             return labels.first(where: { value == $0.value })?.key ?? PHImageContentMode.aspectFill
         }
     }
-    
+
     // https://en.wikipedia.org/wiki/Graphics_display_resolution
     struct size {
         struct labels {
@@ -169,7 +169,7 @@ struct GIFMakerSettings {
             static let qvga = "QVGA (320×240)"
             static let hvga = "HVGA (480×320)"
         }
-        
+
         static let values: [String: Double] = [
             labels.nhd: 640,
             labels.qhd: 960,
@@ -178,7 +178,7 @@ struct GIFMakerSettings {
             labels.qvga: 320,
             labels.hvga: 480
         ]
-        
+
         static let orderedLabels: [String] = [
             labels.qvga,
             labels.hvga,
@@ -187,11 +187,11 @@ struct GIFMakerSettings {
             labels.hd,
             labels.fhd,
         ]
-        
+
         static func value(_ key: String) -> Double {
             return values[key] ?? 640
         }
-        
+
         static func sizeWithAspectRatio() -> CGSize {
             let size = (GIFMakerApp.defaults as! GIFMakerDefaults).size
             let aspectRatio = (GIFMakerApp.defaults as! GIFMakerDefaults).aspectRatio
@@ -203,48 +203,48 @@ struct GIFMakerSettings {
             }
         }
     }
-    
+
     struct direction {
         enum type: Int {
             case forward
             case reverse
             case rewind
         }
-        
+
         static let labels: [type: String] = [
             .forward: "Forward".localized,
             .reverse: "Reverse".localized,
             .rewind: "Rewind".localized
         ]
-        
+
         static let orderedLabels: [String?] = [
             labels[.forward],
             labels[.reverse],
             labels[.rewind]
         ]
-        
+
         static func key(with value: String) -> Int {
             return (labels.first(where: { value == $0.value })?.key ?? .forward).rawValue
         }
     }
-    
+
     struct stabilization {
         static let none: ImageAlignment.StabilizationMode = .none
         static let translation: ImageAlignment.StabilizationMode = [.translation, .crop]
         static let homographic: ImageAlignment.StabilizationMode = [.homographic, .crop]
-        
+
         static let labels: [ImageAlignment.StabilizationMode: String] = [
             stabilization.none: "None".localized,
-            stabilization.translation: "Translation".localized,
-            stabilization.homographic: "Homographic".localized
+            stabilization.translation: "Mode T".localized,
+            stabilization.homographic: "Mode H".localized
         ]
-        
+
         static let orderedLabels: [String?] = [
             labels[stabilization.none],
             labels[stabilization.translation],
             labels[stabilization.homographic],
         ]
-        
+
         static func key(with value: String) -> ImageAlignment.StabilizationMode {
             return labels.first(where: { value == $0.value })?.key ?? stabilization.none
         }
@@ -259,7 +259,7 @@ public class GIFMakerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAtt
 
     @objc dynamic
     public var sourceType: Int = Int.max
-    
+
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
@@ -290,10 +290,10 @@ public class GIFMakerApp: BApp,
     public private(set) lazy var config: GIFMakerAppConfigValue? = type(of: self).defaultConfigValue as? GIFMakerAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = GIFMakerAppDockContent()
-    
+
     public static let info = AppInfo(
         identifier: "com.stells.batch.gifmaker"
-        , version: "1.0"
+        , version: "1.1"
         , phase: .release
         , appType: GIFMakerApp.self
         , displayName: "GIF Maker".localized
@@ -303,13 +303,13 @@ public class GIFMakerApp: BApp,
         , themeColor: UIColor(red:0.22, green:0.75, blue:0.31, alpha:1), policy: AppPolicy.default
         , minOSVersion: nil
     )
-    
+
     required public init() {}
-    
+
     public var doneButtonTitle: String? {
         return "Make GIF".localized
     }
-    
+
     public func shouldSelect(item: AppAsset) -> Bool {
         return (content as? GIFMakerAppDockContent)?.shouldImport(asset: item.asset) ?? false
     }
@@ -343,14 +343,14 @@ public class GIFMakerApp: BApp,
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
             case .photo?:
                 let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
-                
+
                 var referenceImage: UIImage?
-                
+
                 let urls = resultItems.compactMap({ item -> URL? in
                     return autoreleasepool {
                         guard let url = item.result?.url(for: .photo), let image = UIImage(contentsOfFile: url.path)?.stabilize(with: referenceImage, mode: defaults.stabilization) else { return nil }
                             referenceImage = image
-                        
+
                         let cachedAsset = LocalCachedAsset(item.asset, image: image, targetSize: targetSize, imageQuality: CGFloat(defaults.gifQuality))
                         return cachedAsset.imageFileURL
                     }
@@ -361,7 +361,7 @@ public class GIFMakerApp: BApp,
                 }
             default: results.append(contentsOf: resultItems.map({ PHAssetResultItem(asset: AppAsset($0.asset), editingResultItems: $0.result) }))
         }
-        
+
         let success = showingActionsAndWait(targetResultAssets: results, excludedActions: [.modify], asyncSignal)
         result.forEach {
             $0.info.userInfo[AppTaskInfo.UserInfo.Key.removedOnCompletion] = success
@@ -374,28 +374,28 @@ public class GIFMakerApp: BApp,
 private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
     public typealias ParamType = _GIFMakerAppAsset
     public typealias ResultType = PHAssetResultItem
-    
+
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         (param as? _GIFMakerAppAsset)?.cancelAllRequestIDs()
     }
-    
+
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         guard let appAsset = param as? AppAsset else { return nil }
         return try _perform(appAsset, async)
     }
-    
+
     private func _perform(_ assetItem: AppAsset, _ async: AsyncWaitSignalable) throws -> GIFMakerPHAssetResult?  {
         var result: GIFMakerPHAssetResult?
-        
+
         let defaults = (GIFMakerApp.defaults as! GIFMakerDefaults)
-        
+
         switch GIFMakerSettings.sourceType.type(rawValue: (GIFMakerApp.defaults as! GIFMakerDefaults).sourceType) {
         case .photo?:
             let targetSize = GIFMakerSettings.size.sizeWithAspectRatio()
             let contentMode = defaults.contentMode
-            
+
             let response = assetItem.asset.requestImage(targetSize: targetSize, contentMode: contentMode, async)
-            
+
             if let image = response.1 {
                 var data: Data?
                 var fileExtension = "jpg"
@@ -406,12 +406,12 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
                 default:
                     data = image.jpegData(compressionQuality: CGFloat(defaults.gifQuality))
                 }
-                
+
                 let identifier = UUID().uuidString
                 let url = FileURL.temp("\(identifier).\(fileExtension)", group:String(describing: LocalCachedAsset.self)+FileURL.queuePrivateGroup())
-                
+
                 try? data?.write(to: url)
-                
+
                 result = GIFMakerPHAssetResult(asset: assetItem.asset, result: [PHAssetEditingResultItem(url, .photo)], orderedIndex: AppAssets.selected.index(of: assetItem))
 
                 assetItem.appendRequestId(PHAssetRequestID(forImage:response.0))
@@ -419,20 +419,20 @@ private class _GIFMakerAppTask: AppTaskPrototype, AppTaskable {
         case .burst?:
             let converter = GifConverter_Burst()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount, stabilizationMode: defaults.stabilization)
-            
+
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
                 result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         case .livePhoto?:
             let converter = GifConverter_LivePhoto()
             converter.options = GifConverterDefaultOption(aspectRatio: defaults.aspectRatio, contentMode: defaults.contentMode, frameDelay: defaults.frameDelay, size: defaults.size, direction: defaults.direction, gifQuality: defaults.gifQuality, loopCount: defaults.loopCount, stabilizationMode: defaults.stabilization)
-            
+
             if let convertedResult = converter.convert(source: assetItem, cancellation: { self.info.state == .cancelled }, progressHandler: { progress in AppAssetItemProgressNotification.update(item: assetItem, progress: progress) }, async) {
                 result = GIFMakerPHAssetResult(asset: assetItem.asset, result: convertedResult, orderedIndex: AppAssets.selected.index(of: assetItem))
             }
         default: break
         }
-        
+
         return result
     }
 }
@@ -454,18 +454,18 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         UITableViewDelegate, UITableViewDataSource, UITableViewPickerCellDelegate {
 
     private var defaults = GIFMakerApp.defaults as! GIFMakerDefaults
-    
+
     lazy var view: UIView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.tintColor = GIFMakerApp.info.themeColor
         return tableView
     }()
-    
+
     var contentScrollable: AppDockContentScrollable? {
         guard let scrollView = view as? UITableView else { return nil }
         return AppDockScrollableContent(scrollView)
     }
-    
+
     var preferences: AppDockContentPreferable? {
         guard let tableView = view as? UITableView else{
             return nil
@@ -474,7 +474,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         preferences.preferredHeight = tableView.rowHeight * 5 + 27
         return preferences
     }
-    
+
     func shouldImport(asset: PHAsset) -> Bool {
         switch GIFMakerSettings.sourceType.type(rawValue: defaults.sourceType) {
         case .photo?: return asset.mediaType == .image // live photo and burst as a photo
@@ -483,9 +483,9 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         default: return false
         }
     }
-    
+
     var appDock:AppDock?
-    
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
         appDock = dock
 
@@ -503,12 +503,12 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
     }
-    
+
     private var sections = [(String, [UITableViewCellDefaultDescribable])]()
 
     private func createCellDescribers() -> [UITableViewCellDefaultDescribable] {
         var cellDescribers = [UITableViewCellDefaultDescribable]()
-        
+
         let sourceTypeCell = UITableViewSegmentControlCellDescriber()
         sourceTypeCell.itemIdentifier = Cells.sourceType.hashValue
         sourceTypeCell.label = "Import".localized
@@ -522,14 +522,14 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
         cellDescribers.append(sourceTypeCell)
-        
+
         let exportCell = UITableViewSegmentControlCellDescriber()
         exportCell.itemIdentifier = Cells.export.hashValue
         exportCell.label = "Export".localized
         exportCell.valueGetter = { "Animated GIF".localized }
         exportCell.valueCollection = ["Animated GIF".localized]
         cellDescribers.append(exportCell)
-        
+
         let cell0 = UITableViewActionSheetCellDescriber()
         cell0.itemIdentifier = Cells.size.hashValue
         cell0.label = "Size".localized
@@ -540,7 +540,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         cell0.valueHandler = { value in
             if let key = value as? String, let sizeValue = GIFMakerSettings.size.values[key]{
                 self.defaults.size = sizeValue
-                
+
                 guard let indexPath = self.indexPath(with: cell0.itemIdentifier) else { return }
                 (self.view as? UITableView)?.reloadRows(at: [indexPath], with: .none)
             }
@@ -597,7 +597,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             return (label ?? "-")+"s"
         }
         cellDescribers.append(cell3)
-        
+
         let qualityCell =  UITableViewStepperCellDescriber()
         qualityCell.label = "Image Quality".localized
         qualityCell.itemIdentifier = Cells.gifQuality.hashValue
@@ -610,7 +610,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         qualityCell.stepValue = 10
         qualityCell.valuePresenter = UITableViewStepperCellDescriber.percentageAsIntValuePresenter
         cellDescribers.append(qualityCell)
-        
+
         let directionCell = UITableViewActionSheetCellDescriber()
         directionCell.itemIdentifier = Cells.direction.hashValue
         directionCell.label = "Direction".localized
@@ -624,7 +624,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
         cellDescribers.append(directionCell)
-        
+
         let loopCell =  UITableViewStepperCellDescriber()
         loopCell.label = "Repeat".localized
         loopCell.itemIdentifier = Cells.loopCount.hashValue
@@ -641,7 +641,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             else if let val = value as? Double {
                 count = Int(val)
             }
-            
+
             if count > 0 {
                 if count == 1 {
                     return "No loop".localized
@@ -655,10 +655,10 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
         cellDescribers.append(loopCell)
-        
+
         let stabilizationCell = UITableViewSegmentControlCellDescriber()
         stabilizationCell.itemIdentifier = Cells.stabilization.hashValue
-        stabilizationCell.label = "Stabilization Mode".localized
+        stabilizationCell.label = "Shake Reduction".localized
         stabilizationCell.valueGetter = { GIFMakerSettings.stabilization.labels[self.defaults.stabilization] }
         stabilizationCell.valueCollection = GIFMakerSettings.stabilization.orderedLabels
         stabilizationCell.valueHandler = {
@@ -668,7 +668,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
         cellDescribers.append(stabilizationCell)
-        
+
         sections.append(("GIF Maker".localized, [sourceTypeCell, exportCell]))
         sections.append(("Quality".localized, [cell0, cell1, qualityCell, cell2]))
         sections.append(("Animation".localized, [cell3, directionCell, loopCell]))
@@ -689,15 +689,15 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         (view as? UITableView)?.reloadData()
         updateFrameDelayPreview()
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].0
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].1.count
     }
@@ -708,7 +708,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = tableView.cellForRow(at: indexPath)
-        
+
         if let c = cell as? UITableViewPickerCell {
             return c.estimatedHeightForRowSelected
         }
@@ -717,13 +717,13 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         if let cell = tableView.cellForRow(at: indexPath) as? UITableViewExpandableCell {
             if cell.isExpanded {
                 cell.contract(tableView, animated: true, completion: nil)
             } else{
                 tableView.contractAllVisiblePickerCells()
-                
+
                 appDock?.expandDockIfNeeded(reloadContents: nil)
                 DispatchQueue.main.async{
                     cell.expand(tableView, animated: true, completion: nil)
@@ -731,7 +731,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             }
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = self.sections[indexPath.section].1[indexPath.item]
 
@@ -746,7 +746,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             } else{
                 cell.selectedRow = 0
             }
-            
+
             if item.itemIdentifier == Cells.size.hashValue {
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()
                 cell.titleLabel.text = "\("Size".localized) (\(Int(size.width)) x \(Int(size.height)))"
@@ -790,14 +790,14 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             cell.textLabel?.text = item.label
             cell.imageView?.image = item.iconImage?.asUIImage
             cell.detailTextLabel?.textColor = UIColor.gray
-            
+
             cell.segmentedControl.apportionsSegmentWidthsByContent = true
             cell.segmentedControl.removeAllSegments()
             for k in valueCollection{
                 cell.segmentedControl.insertSegment(withTitle: k, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
             cell.segmentedControl.sizeToFit()
-            
+
             if let label = item.valueGetter() as? String {
                 cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
             }
@@ -807,22 +807,22 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         else if let cellDescriber = item as? UITableViewStepperCellDescriber
             , let value = item.valueGetter() as? Int
             , let cell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewStepperCell {
-            
+
             cell.textLabel?.text = item.label
             cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value)
             cell.imageView?.image = item.iconImage?.asUIImage
-            
+
             cell.stepper.stepValue = cellDescriber.stepValue
             cell.stepper.minimumValue = cellDescriber.minimumValue
             cell.stepper.maximumValue = cellDescriber.maximumValue
             cell.stepper.value = Double(value)
-            
+
             cell.textLabel?.isEnabled = true
             cell.detailTextLabel?.isEnabled = true
             cell.stepper.isEnabled = true
             cell.stepper.tintColor = self.view.tintColor
             cell.isUserInteractionEnabled = true
-            
+
             cell.didChangeValue = { value in
                 cell.detailTextLabel?.text = cellDescriber.valuePresenter?(value)
                 item.valueHandler?(value)
@@ -831,14 +831,14 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             if item.itemIdentifier == Cells.frameDelay.hashValue {
                 updateFrameDelayPreview(cell:cell)
             }
-            
+
             return cell
         }
         else {
             return UITableViewCell()
         }
     }
-    
+
     private func indexPath(with itemIdentifier: Int) -> IndexPath? {
         return sections.enumerated().compactMap({ (idx, section) -> IndexPath? in
             guard let row = section.1.index(where: { (describer) -> Bool in
@@ -847,7 +847,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             return IndexPath(row: row, section: idx)
         }).first
     }
-    
+
     private func updateFrameDelayPreview(cell:UITableViewStepperCell?=nil) {
         guard let indexPath = indexPath(with: Cells.frameDelay.hashValue) else { return }
         guard let cell = cell ?? (view as? UITableView)?.cellForRow(at: indexPath) else { return }
@@ -871,26 +871,26 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
         cell.imageView?.startAnimating()
         cell.setNeedsLayout()
     }
-    
+
     func pickerCell(_ cell: UITableViewPickerCell, didPick row: Int, value: Any) {
         guard let indexPath = (view as? UITableView)?.indexPath(for: cell) else { return }
 
         let setting = sections[indexPath.section].1[indexPath.row]
-        
+
         var needsToUpdateSizeCell = false
 
         if setting.itemIdentifier == Cells.aspectRatio.hashValue {
             defaults.aspectRatio = GIFMakerSettings.aspectRatio.values[cell.values[row]] ?? GIFMakerSettings.aspectRatio.value(GIFMakerSettings.aspectRatio.labels.square)
-            
+
             needsToUpdateSizeCell = true
-            
+
         }
         else if setting.itemIdentifier == Cells.size.hashValue {
             defaults.size = GIFMakerSettings.size.values[cell.values[row]] ?? GIFMakerSettings.size.value(GIFMakerSettings.size.labels.qhd)
-            
+
             needsToUpdateSizeCell = true
         }
-        
+
         if needsToUpdateSizeCell, let indexPathOfSizeSetting = self.indexPath(with: Cells.size.hashValue) {
             if let sizeCell = (view as? UITableView)?.cellForRow(at: indexPathOfSizeSetting) as? UITableViewPickerCell{
                 let size = GIFMakerSettings.size.sizeWithAspectRatio()

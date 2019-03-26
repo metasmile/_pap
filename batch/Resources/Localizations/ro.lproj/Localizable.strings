@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Ascunderea elementelor selectate ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Repere";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "omografice";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Calitatea imaginii";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesaj către noi";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Modul H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Modul T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modificați și distribuiți";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "Setări";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "umbre";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Reducerea mișcării";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Distribuie aceasta aplicatie";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Traduceți acum";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Traducerea corectă";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Traducere";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Stare de nervozitate";
 /* Generated from genl10n: Finder.BApp.swift */
