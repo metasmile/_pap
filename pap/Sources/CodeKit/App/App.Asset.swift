@@ -139,7 +139,7 @@ public extension StateValueSet where T: ImageEditStateValue {
 }
 
 public extension StateValueSet where T: ImageEditStateValue {
-    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
+    func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         return imageEditStateValue?.playerItem(with: video, for: exporting)
     }
 }
@@ -148,7 +148,7 @@ public extension StateValueSet where T: ImageEditStateValue {
 private let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
 
 public extension StateValueSet where T: ImageEditStateValue {
-    public var transform: CGAffineTransform {
+    var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
         
         for value in self.iterator() {
@@ -157,7 +157,7 @@ public extension StateValueSet where T: ImageEditStateValue {
         return t
     }
     
-    public var transform3d: CATransform3D {
+    var transform3d: CATransform3D {
         var t = CATransform3DIdentity
         t.m34 = -1 / kEditItemPreviewWidth
         

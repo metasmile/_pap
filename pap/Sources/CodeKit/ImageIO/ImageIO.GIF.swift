@@ -123,11 +123,11 @@ public func UIImageGIFRepresentation(_ image: UIImage, duration: TimeInterval, l
 
 
 public extension UIImage {
-    public static func animatedImageWithGIFData(_ data: Data) -> UIImage? {
+    static func animatedImageWithGIFData(_ data: Data) -> UIImage? {
         return animatedImageWithGIFData(_: data, scale: UIScreen.main.scale, duration: 0.0)
     }
 
-    public static func animatedImageWithGIFData(_ data: Data, scale: CGFloat, duration: TimeInterval) -> UIImage? {
+    static func animatedImageWithGIFData(_ data: Data, scale: CGFloat, duration: TimeInterval) -> UIImage? {
 
         let options = [kCGImageSourceShouldCache as String: true, kCGImageSourceTypeIdentifierHint as String: kUTTypeGIF] as [String : Any]
         guard let imageSource = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {
@@ -162,7 +162,7 @@ public extension UIImage {
         }
     }
 
-    public static func animatedImageURLsWithGIFData(_ data: Data, directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [(url: URL, frameDelay: Double)]? {
+    static func animatedImageURLsWithGIFData(_ data: Data, directory:String=NSTemporaryDirectory(), filenamePrefix:String="exported_gif_image_") -> [(url: URL, frameDelay: Double)]? {
 
         let options = [kCGImageSourceShouldCache as String: true, kCGImageSourceTypeIdentifierHint as String: kUTTypeGIF] as [String : Any]
         guard let imageSource = CGImageSourceCreateWithData(data as CFData, options as CFDictionary) else {

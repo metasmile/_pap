@@ -8,11 +8,11 @@ import Foundation
 public typealias SequenceOptionSet = OptionSet & Sequence
 
 public extension OptionSet where Self.RawValue == Int, Self:Sequence {
-    public func makeIterator() -> OptionSetIterator<Self> {
+    func makeIterator() -> OptionSetIterator<Self> {
         return OptionSetIterator(element: self)
     }
 
-    public var underestimatedCount: Int{
+    var underestimatedCount: Int{
         var count = 0
         var iter = makeIterator()
         while let _ = iter.next(){

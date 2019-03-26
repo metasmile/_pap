@@ -20,24 +20,24 @@ private struct UIAlertControllerPool{
 
 public extension UIAlertController{
 
-    public static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
+    static func actionSheet(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         alert.setDefaultPopoverPresentationControllerIfUndefined(sourceView:sourceView)
         return alert
     }
     
-    public static func alert(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
+    static func alert(title: String?, message: String?, sourceView:UIView?=nil) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.setDefaultPopoverPresentationControllerIfUndefined(sourceView:sourceView)
         return alert
     }
     
-    public static var presenting:UIAlertController?{
+    static var presenting:UIAlertController?{
         return UIAlertControllerPool.shared.presentingAlertViewController
     }
 
     @discardableResult
-    public static func alert(_ message:String
+    static func alert(_ message:String
             , title:String?=nil
             , buttonTitle:String="OK".localized
             , cancelButtonTitle:String?=nil

@@ -15,7 +15,7 @@ public extension ProcessInfo{
     }
 
     @available(iOS 2.0, *)
-    public var physicalUsingMemory:UInt64 {
+    var physicalUsingMemory:UInt64 {
         var info = mach_task_basic_info()
         var count = mach_msg_type_number_t(MemoryLayout.size(ofValue: info) / MemoryLayout<integer_t>.size)
         let kerr = withUnsafeMutablePointer(to: &info) { infoPtr in
@@ -36,7 +36,7 @@ public extension ProcessInfo{
     }
 
     @available(iOS 2.0, *)
-    public var physicalRemainingMemory: UInt64 {
+    var physicalRemainingMemory: UInt64 {
         return physicalMemory - physicalUsingMemory
     }
 }
