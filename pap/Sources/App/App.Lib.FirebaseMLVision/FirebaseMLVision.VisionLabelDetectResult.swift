@@ -26,8 +26,8 @@ struct VisionLabelPHAssetDetectResult: VisionLabelDetectResult, AppTaskResultabl
         return lhs.asset==rhs.asset
     }
 
-    public var hashValue: Int {
-        return asset.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(asset.hashValue)
     }
 
 }

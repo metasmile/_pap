@@ -418,8 +418,8 @@ private struct ClipboardGroup: Hashable, Equatable, Section {
         return values
     }
     
-    var hashValue: Int{
-        return type.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type.hashValue)
     }
     
     static func == (lhs: ClipboardGroup, rhs: ClipboardGroup) -> Bool{

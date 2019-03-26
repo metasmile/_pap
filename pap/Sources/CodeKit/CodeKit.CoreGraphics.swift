@@ -124,23 +124,23 @@ extension CGAffineTransform {
 
 //Hashable
 extension CGAffineTransform: Hashable {
-    public var hashValue: Int {
-        return String(describing: self).hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self).hashValue)
     }
 }
 extension CGPoint: Hashable {
-    public var hashValue: Int {
-        return String(describing: self).hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self).hashValue)
     }
 }
 extension CGSize: Hashable {
-    public var hashValue: Int {
-        return String(describing: self).hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self).hashValue)
     }
 }
 extension CGRect: Hashable {
-    public var hashValue: Int {
-        return String(describing: self).hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self).hashValue)
     }
 }
 

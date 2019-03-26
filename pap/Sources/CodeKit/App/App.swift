@@ -102,8 +102,8 @@ public struct AppInfo: Hashable, AppInfoSchemeKey, AppInfoSchemeValues, AppInfoA
     public let policy:AppPolicy
     public let minOSVersion:OperatingSystemVersion?
 
-    public var hashValue: Int {
-        return self.identifier.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.identifier.hashValue)
     }
 
     public static func ==(lhs: AppInfo, rhs: AppInfo) -> Bool {
@@ -154,9 +154,10 @@ public struct AppQuery: OptionSet, Hashable {
         self.rawValue = rawValue
     }
 
-    public var hashValue: Int{
-        return rawValue.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue.hashValue)
     }
+    
     public static func ==(lhs: AppQuery, rhs: AppQuery) -> Bool{
         return lhs.hashValue==rhs.hashValue
     }

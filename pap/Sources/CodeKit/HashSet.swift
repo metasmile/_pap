@@ -16,8 +16,8 @@ struct HashElement<T> : Hashable {
         self.element = element
     }
 
-    var hashValue: Int {
-        return String(describing: self).hashValue //== "HashElement<Payable.Type>(type: {Type Name})"
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self).hashValue) //== "HashElement<Payable.Type>(type: {Type Name})"
     }
 
     static func == (lhs: HashElement, rhs: HashElement) -> Bool {
