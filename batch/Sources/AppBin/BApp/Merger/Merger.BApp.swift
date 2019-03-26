@@ -19,6 +19,8 @@ extension Defaults: MergerAppDefaults {
     
 }
 
+fileprivate typealias MergeInfoItem = (timeRange: CMTimeRange, asset: PHAsset)
+
 class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
@@ -49,10 +51,24 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
         , minOSVersion: nil
     )
     
+    private var mergeEditInfo = [String: MergeInfoItem]()
+    fileprivate func mergeEditInfo(with asset: PHAsset?) -> MergeInfoItem? {
+        guard let asset = asset else { return nil }
+        return mergeEditInfo[asset.localIdentifierWithoutSplitter]
+    }
+    
     required public override init() {
         super.init()
         
-        self.defaultEditStateValue = nil
+        mergeEditInfo = [:]
+        
+        if let controllerContent = self.photoEditorDockContent as? MergerPhotoEditorAppDockContent {
+            controllerContent.watch(\.timeRange, options: [.initial, .new]) {
+                if let timeRange = controllerContent.timeRange, let assetItem = controllerContent.assetItem {
+                    self.mergeEditInfo[assetItem.asset.localIdentifierWithoutSplitter] = (timeRange: timeRange.timeRangeValue, asset: assetItem.asset)
+                }
+            }
+        }
     }
     
     public var finalizingActions: [PHAssetFinalizingAction] {
@@ -86,7 +102,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     public var dataSource: AppDockAppDataSource?
     func reloadData() {
         let assetItem = dataSource?.appDockApp(self, appAssetAt: 0)
-        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
+        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem, with: mergeEditInfo(with: assetItem?.asset))
     }
 }
 
@@ -362,6 +378,10 @@ private class MergerTask: AppTaskPrototype, AppTaskable {
         
         if let url = videoURL {
             result = MergerResultItem(asset: assetItem.asset, result: [PHAssetEditingResultItem(url: url, resourceType: .video)], orderedIndex: AppAssets.selected.index(of: assetItem))
+            
+            if let app = AppCenter.default.currentInstanceAs(MergerApp.self), let mergeInfo = app.mergeEditInfo(with: assetItem.asset) {
+                result?.setEstimatedTimeRange(mergeInfo.timeRange)
+            }
         }
         
         return result
@@ -395,14 +415,14 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         self.app = app
     }
     
-    private var video: AVAsset? {
-        didSet {
-            (view as? VideoTrimControl)?.video = video
-        }
-    }
+    private(set) var assetItem: AppAsset?
+    fileprivate var mergeInfo: MergeInfoItem?
     
-    fileprivate func setAssetItem(_ assetItem: AppAsset?) {
-        self.video = nil
+    fileprivate func setAssetItem(_ assetItem: AppAsset?, with mergeInfo: MergeInfoItem?) {
+        self.assetItem = assetItem
+        self.mergeInfo = mergeInfo
+        
+        (view as? VideoTrimControl)?.setVideo(nil, with: .zero)
         
         guard let assetItem = assetItem else { return }
         DispatchQueue(label: #file + #function, qos: .utility).async {
@@ -421,7 +441,8 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
             }
             
             if let url = videoURL {
-                self.video = AVAsset(url: url)
+                let video = AVAsset(url: url)
+                (self.view as? VideoTrimControl)?.setVideo(video, with: mergeInfo?.timeRange ?? CMTimeRange(start: .zero, duration: video.duration))
             }
         }
     }
@@ -446,6 +467,8 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         view.tintColor = view.colorTheme.tintColor
     }
     
+    @objc dynamic var timeRange: NSValue?
+    
     // crop or fit
     // trimming
 }
@@ -468,13 +491,18 @@ class VideoTrimControl: UIControl {
     typealias ThumbnailInfo = (image: CGImage?, time: CMTime, size: CGSize)
     var thumbnails: [ThumbnailInfo] = [ThumbnailInfo]()
     
-    var video: AVAsset? {
-        didSet {
-            DispatchQueue.main.async {
-                self.reloadData()
-            }
+    var timeRange: CMTimeRange = .zero
+    
+    func setVideo(_ video: AVAsset?, with timeRange: CMTimeRange) {
+        self.video = video
+        self.timeRange = timeRange
+        
+        DispatchQueue.main.async {
+            self.reloadData()
         }
     }
+    
+    private var video: AVAsset?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -492,10 +520,31 @@ class VideoTrimControl: UIControl {
         
         contentView.addSubview(thumbnailCollectionView)
         thumbnailCollectionView.fitConstraints(to: contentView)
+        
+        contentView.addSubview(timeRangeView)
+    }
+    
+    private lazy var timeRangeView: UIView = {
+        let view = UIView(frame: .zero)
+        view.layer.borderColor = UIColor.yellow.cgColor
+        view.layer.borderWidth = 4
+        return view
+    }()
+    
+    private func drawTimeRange() {
+        guard let video = video else { return }
+        
+        let hasChanged = CMTimeRange(start: .zero, duration: video.duration) != self.timeRange
+        timeRangeView.layer.borderColor = hasChanged ? UIColor.yellow.cgColor : UIColor.black.cgColor
+        
+        let insets = self.thumbnailCollectionView.contentInset
+        let borderWidth = timeRangeView.layer.borderWidth
+        let contentBounds = self.contentView.bounds.inset(by: insets).inset(by: UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
+        
+        timeRangeView.frame = contentBounds
     }
     
     func reloadData() {
-        
         let insets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         let contentBounds = self.thumbnailCollectionView.bounds.inset(by: insets)
         
@@ -548,6 +597,7 @@ class VideoTrimControl: UIControl {
         }
         
         self.thumbnailCollectionView.reloadData()
+        self.drawTimeRange()
     }
 }
 
