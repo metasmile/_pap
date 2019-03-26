@@ -960,7 +960,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewViewDidEndEdit(_ view: PreviewView, assetsForFinished assets: [PHAsset]) {
         progressBar.isHidden = true
         
-        allowSelection = false
+        if !assets.isEmpty {
+            allowSelection = false
+        }
         
         //POLICY: no keeps selected items
         deselectCollectionViewItems(assets.compactMap({ asset -> IndexPath? in
