@@ -384,8 +384,8 @@ private struct GDItem:Codable, Hashable {
         self.enabled = CleanerApp.DefaultEnabledGDTypes.contains(where:{ $0 == gd })
     }
 
-    var hashValue: Int {
-        return _hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(_hashValue)
     }
 }
 
@@ -409,8 +409,8 @@ private struct GDDictionary:Codable, Hashable {
         return items.map { $0.gdIdentifier }
     }
 
-    var hashValue: Int{
-        return key.rawValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(key.rawValue)
     }
 }
 
