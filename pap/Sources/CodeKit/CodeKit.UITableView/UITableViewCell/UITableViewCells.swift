@@ -155,7 +155,7 @@ class UITableViewActionSheetCell: UITableViewSimpleValueCell {
             for l in labels {
                 alert.addAction(UIAlertAction(title: l, style: . default, handler: { action in
                     if let title = action.title{
-                        self.valueSelected?(action, self.valueLabels?.index(of: title))
+                        self.valueSelected?(action, self.valueLabels?.firstIndex(of: title))
                         self.valueLabelText = title
                     }
                 }))

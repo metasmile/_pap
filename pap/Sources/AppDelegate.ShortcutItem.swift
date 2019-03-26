@@ -65,7 +65,7 @@ extension ShortcutItemAppDelegate {
         let item = UIApplicationShortcutItem(type: UIApplicationShortcutItem.prefix + app.info.identifier, localizedTitle: app.info.displayName, localizedSubtitle: app.info.description, icon: nil, userInfo: nil)
         
         var items = UIApplication.shared.shortcutItems ?? []
-        if let index = items.index(where: { item.type == $0.type }) {
+        if let index = items.firstIndex(where: { item.type == $0.type }) {
             items.remove(at: index)
         }
         items.insert(item, at: 0)

@@ -81,7 +81,7 @@ extension ExifGhostAppAppDefaults{
             return
         }
 
-        if let index = ghostedImageMetadataCollection[dictionary]?.index(of: property){
+        if let index = ghostedImageMetadataCollection[dictionary]?.firstIndex(of: property){
             var immutableSelf = self
             var p = immutableSelf.ghostedImageMetadataCollection
             p[dictionary]?.remove(at: index)
@@ -262,7 +262,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
             if let handledItems = defaultsCollection[dictionary.key]{
 
                 return handledItems.compactMap { key -> IndexPath? in
-                    guard let item = dictionary.items.index(where: { item -> Bool in
+                    guard let item = dictionary.items.firstIndex(where: { item -> Bool in
                         return key == item.key
                     }) else{
                         return nil
@@ -344,7 +344,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -401,7 +401,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 
@@ -419,10 +419,10 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         let dict = self.metadataCollection[indexPath.section-1]
 
         var selected = false
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
+        if let _ = initialSelectedIndexPaths?.firstIndex(of: indexPath) {
             selected = true
         }
-        if let _ = defaults.ghostedImageMetadataCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = defaults.ghostedImageMetadataCollection[dict.key]?.firstIndex(of: dict.items[indexPath.item].key){
             selected = true
         }
 

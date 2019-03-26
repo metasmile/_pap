@@ -76,7 +76,7 @@ open class AppManager: NSObject, SelectableCollection {
 
     private(set) public var previous: App.Type?
     public var previousIndex: Int? {
-        return _apps.index { previous == $0 }
+        return _apps.firstIndex { previous == $0 }
     }
 
     @objc dynamic
@@ -131,7 +131,7 @@ open class AppManager: NSObject, SelectableCollection {
 
     public var currentIndex: Int? {
         get {
-            return _apps.index { current == $0 }
+            return _apps.firstIndex { current == $0 }
         }
         set {
             if let index = newValue, _apps.indices.contains(index) {

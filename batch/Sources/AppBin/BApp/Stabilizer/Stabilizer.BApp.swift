@@ -433,7 +433,7 @@ class StabilizerAppDockContent: NSObject, PropertyWatchable, AppDockContent, App
             cell.segmentedControl.sizeToFit()
             
             if let label = item.valueGetter() as? String {
-                cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
+                cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex(of: label) ?? 0
             }
             cell.didChangeValue = item.valueHandler
             return cell

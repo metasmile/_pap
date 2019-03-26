@@ -504,7 +504,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -604,7 +604,7 @@ fileprivate class HashtagenAppDockContent: NSObject, UITableViewPickerCellDelega
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 

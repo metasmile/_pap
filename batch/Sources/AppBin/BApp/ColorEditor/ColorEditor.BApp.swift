@@ -611,22 +611,22 @@ fileprivate class CIToneCurveControl: DesignableView {
     var sliderDidEndHandler: ((Int, Float) -> Void)?
     
     @objc private func resetButtonDidTap(sender: CIToneCurveResetControl) {
-        guard let idx = toolView.arrangedSubviews.index(of: sender) else { return }
+        guard let idx = toolView.arrangedSubviews.firstIndex(of: sender) else { return }
         self.resetHandler?(idx)
     }
     
     @objc private func sliderValueChanged(sender: PrecisionLevelSlider) {
-        guard let idx = sliders.index(of: sender) else { return }
+        guard let idx = sliders.firstIndex(of: sender) else { return }
         self.sliderDidChangeHandler?(idx, sender.value)
     }
     
     @objc private func sliderDidBegin(sender: PrecisionLevelSlider) {
-        guard let idx = sliders.index(of: sender) else { return }
+        guard let idx = sliders.firstIndex(of: sender) else { return }
         self.sliderDidBeginHandler?(idx, sender.value)
     }
     
     @objc private func sliderDidEnd(sender: PrecisionLevelSlider) {
-        guard let idx = sliders.index(of: sender) else { return }
+        guard let idx = sliders.firstIndex(of: sender) else { return }
         self.sliderDidEndHandler?(idx, sender.value)
     }
 }

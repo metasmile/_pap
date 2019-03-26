@@ -160,7 +160,7 @@ public struct FileCollectableURL {
         var urlsInBaseURL = getURLs(baseURL)
 
         for url in targetURLsInBaseURL {
-            if let index = urlsInBaseURL.index(where:{ $0 == url }) {
+            if let index = urlsInBaseURL.firstIndex(where:{ $0 == url }) {
                 urlsInBaseURL.remove(at: index)
                 removedURLs.append(url)
 

@@ -215,7 +215,7 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     var selectedEditStateValue: ImageEditStateValue?
     
     fileprivate func selectItem(by filterName: String?) {
-        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
+        let index = items.firstIndex(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
         (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
     
@@ -224,7 +224,7 @@ fileprivate class FiltersAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     fileprivate func getFilterItem(by filterName: String?) -> CIFilterItem? {
-        let index = items.index(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
+        let index = items.firstIndex(where: { $0.title == PhotosFilterNames.aliasName(filterName ?? "") }) ?? 0
         return CIFilterItem(CIFilters.filters[safe: index - 1])
     }
     

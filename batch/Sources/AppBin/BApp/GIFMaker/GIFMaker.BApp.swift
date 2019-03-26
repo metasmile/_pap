@@ -741,7 +741,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -799,7 +799,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
             cell.segmentedControl.sizeToFit()
             
             if let label = item.valueGetter() as? String {
-                cell.segmentedControl.selectedSegmentIndex = valueCollection.index(of: label) ?? 0
+                cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex(of: label) ?? 0
             }
             cell.didChangeValue = item.valueHandler
             return cell
@@ -841,7 +841,7 @@ class GIFMakerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDo
     
     private func indexPath(with itemIdentifier: Int) -> IndexPath? {
         return sections.enumerated().compactMap({ (idx, section) -> IndexPath? in
-            guard let row = section.1.index(where: { (describer) -> Bool in
+            guard let row = section.1.firstIndex(where: { (describer) -> Bool in
                 describer.itemIdentifier == itemIdentifier
             }), row != NSNotFound else { return nil }
             return IndexPath(row: row, section: idx)
