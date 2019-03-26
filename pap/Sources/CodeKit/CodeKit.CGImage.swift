@@ -43,11 +43,11 @@ public extension CGImage{
         return destCGImage
     }
 
-    public var size:CGSize{
+    var size:CGSize{
         return CGSize(width:width, height: height)
     }
 
-    public func pixelBuffer() -> CVPixelBuffer? {
+    func pixelBuffer() -> CVPixelBuffer? {
 
         var pxbuffer: CVPixelBuffer?
 

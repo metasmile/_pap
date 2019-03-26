@@ -11,7 +11,7 @@ public protocol AppDefaults: PropertyDefaults{
 }
 
 public extension AppDefaults where Self:Defaults{
-    public var touchedVersion: String? {
+    var touchedVersion: String? {
         set{ set(newValue) } get{ return get() }
     }
 }

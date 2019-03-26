@@ -164,7 +164,7 @@ public class AppTaskInfo: Item<String> {
     internal(set) public var state: AppTaskState = .unqueued
     internal(set) public var policy: AppTaskPolicy = AppTaskPolicy.default
     internal(set) public var queueLabel:String?
-    internal(set) var error: AppTaskError?
+    internal(set) public var error: AppTaskError?
     
     public var userInfo: [String: Any]
 
