@@ -19,7 +19,7 @@ extension Defaults: MergerAppDefaults {
     
 }
 
-class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, /*AppDockApp,*/ PhotoPickerViewControllerAppearanceDelegatableApp
+class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
     
@@ -34,7 +34,8 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, /*AppDoc
     @objc dynamic
     public private(set) lazy var config: MergerAppConfigValue? = type(of:self).defaultConfigValue as? MergerAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = MergerAppDockContent()
+    public private(set) lazy var content: AppDockContent? = nil//MergerAppDockContent()
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = MergerPhotoEditorAppDockContent(app: self)
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.merger"
@@ -66,6 +67,10 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, /*AppDoc
         return true
     }
     
+    public static var fixedContentLayout: Bool {
+        return true
+    }
+    
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
@@ -77,6 +82,12 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, /*AppDoc
     }
     
     private var exportSession: AVAssetExportSession?
+    
+    public var dataSource: AppDockAppDataSource?
+    func reloadData() {
+        let assetItem = dataSource?.appDockApp(self, appAssetAt: 0)
+        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
+    }
 }
 
 extension MergerApp {
@@ -366,8 +377,231 @@ class MergerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDock
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
-        preferences.preferredHeight = 120
+        preferences.preferredHeight = 64
         return preferences
     }
     
+    // crop or fit
+    // aspect ratio
+    // quality options
+    // intersects time range
+}
+
+class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
+    var app: MergerApp?
+    convenience init(app: MergerApp) {
+        self.init()
+        
+        self.app = app
+    }
+    
+    private var video: AVAsset? {
+        didSet {
+            (view as? VideoTrimControl)?.video = video
+        }
+    }
+    
+    fileprivate func setAssetItem(_ assetItem: AppAsset?) {
+        self.video = nil
+        
+        guard let assetItem = assetItem else { return }
+        DispatchQueue(label: #file + #function, qos: .utility).async {
+            var videoURL: URL?
+            if assetItem.asset.mediaType == .video {
+                videoURL = assetItem.asset.asAVAsset?.asURL
+            }
+            else if assetItem.asset.imageType == .livePhoto {
+                videoURL = MovConverter_LivePhoto().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+            }
+            else if assetItem.asset.imageType == .burst {
+                videoURL = MovConverter_Burst().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+            }
+            else {
+                videoURL = MovConverter_Jpeg().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+            }
+            
+            if let url = videoURL {
+                self.video = AVAsset(url: url)
+            }
+        }
+    }
+    
+    lazy var view: UIView = {
+        let view = VideoTrimControl(frame: .zero)
+        view.tintColor = MergerApp.info.themeColor
+        return view
+    }()
+    
+    var preferences: AppDockContentPreferable? {
+        var preferences = AppDockContentPreferences()
+        preferences.preferredHeight = 64
+        return preferences
+    }
+    
+    func willSetContentView(_ view: UIView, dock: AppDock) {
+        
+    }
+    
+    func didSetContentView(_ view:UIView, dock:AppDock) {
+        view.tintColor = view.colorTheme.tintColor
+    }
+    
+    // crop or fit
+    // trimming
+}
+
+class VideoTrimControl: UIControl {
+    private lazy var contentView: UIView = UIView(frame: .zero)
+    private lazy var thumbnailCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.dataSource = self
+        view.delegate = self
+        view.register(VideoThumbnailCell.self, forCellWithReuseIdentifier: VideoThumbnailCell.reuseIdentifier)
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
+    typealias ThumbnailInfo = (image: CGImage?, time: CMTime, size: CGSize)
+    var thumbnails: [ThumbnailInfo] = [ThumbnailInfo]()
+    
+    var video: AVAsset? {
+        didSet {
+            DispatchQueue.main.async {
+                self.reloadData()
+            }
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        addSubview(contentView)
+        contentView.fitConstraints(to: self)
+        
+        contentView.addSubview(thumbnailCollectionView)
+        thumbnailCollectionView.fitConstraints(to: contentView)
+    }
+    
+    func reloadData() {
+        
+        let insets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        let contentBounds = self.thumbnailCollectionView.bounds.inset(by: insets)
+        
+        self.thumbnailCollectionView.contentInset = insets
+        
+        self.thumbnails = []
+        
+        if let video = self.video {
+            let videoSize = video.renderSize
+            let thumbnailSize = videoSize.aspectFit(in: contentBounds.size)
+            
+            let imageGenerator = AVAssetImageGenerator(asset: video)
+            imageGenerator.appliesPreferredTrackTransform = true
+            imageGenerator.requestedTimeToleranceBefore = .zero
+            imageGenerator.requestedTimeToleranceAfter = .zero
+            imageGenerator.maximumSize = thumbnailSize * UIScreen.main.scale
+            
+            let sampleImage = try? imageGenerator.copyCGImage(at: .zero, actualTime: nil)
+            
+            var contentWidth: CGFloat = 0
+            let numberOfThumbnails = Int(contentBounds.width / thumbnailSize.width)
+            for i in 0..<numberOfThumbnails {
+                let time = CMTimeMultiplyByRatio(video.duration, multiplier: Int32(i), divisor: Int32(numberOfThumbnails))
+                let thumbnailInfo = ThumbnailInfo(image: sampleImage, time: time, size: thumbnailSize)
+                self.thumbnails.append(thumbnailInfo)
+                
+                contentWidth += thumbnailSize.width
+            }
+            
+            let thumbnailInfo = ThumbnailInfo(image: sampleImage, time: video.duration, size: CGSize(width: max(0, contentBounds.width - contentWidth), height: thumbnailSize.height))
+            self.thumbnails.append(thumbnailInfo)
+            
+            DispatchQueue.main.async {
+                var idx = 0
+                imageGenerator.generateCGImagesAsynchronously(forTimes: self.thumbnails.map({ NSValue(time: $0.time) })) { (requestTime, image, actualTime, result, error) in
+                    autoreleasepool {
+                        let indexPath = IndexPath(item: idx, section: 0)
+                        self.thumbnails[idx].image = image
+                        
+                        idx += 1
+                        
+                        DispatchQueue.main.async {
+                            self.thumbnailCollectionView.performBatchUpdates({
+                                self.thumbnailCollectionView.reloadItems(at: [indexPath])
+                            }, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
+        
+        self.thumbnailCollectionView.reloadData()
+    }
+}
+
+extension VideoTrimControl: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return thumbnails.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoThumbnailCell.reuseIdentifier, for: indexPath) as! VideoThumbnailCell
+        if let cgImage = self.thumbnails[safe: indexPath.item]?.image {
+            cell.imageView.image = UIImage(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
+        }
+        return cell
+    }
+}
+
+extension VideoTrimControl: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return self.thumbnails[safe: indexPath.item]?.size ?? .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
+private class VideoThumbnailCell: UICollectionViewCell {
+    class var reuseIdentifier: String {
+        return "VideoThumbnailCell"
+    }
+    
+    lazy var imageView: UIImageView = {
+        let view = UIImageView(frame: .zero)
+        view.contentMode = .left
+        view.clipsToBounds = true
+        return view
+    }()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+    
+    private func initialize() {
+        contentView.addSubview(imageView)
+        imageView.fitConstraints(to: contentView)
+    }
 }

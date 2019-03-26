@@ -162,13 +162,28 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
         doneButton.title = "Done".localized
         
+        assetView.imageEditType = asset?.imageType ?? .notImage
+        
         if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
             if asset.mediaType == .image {
                 let appAsset = AppAsset(asset)
                 appAsset.editState = preferredEditState
                 
-                assetView.shouldEditImageAsStillImage = !app.photoEditorShouldPreview(item: appAsset)
+                assetView.imageEditType = app.photoEditorShouldPreview(item: appAsset) ? .stillImage : asset.imageType
             }
+        }
+        else if let _ = AppCenter.default.currentInstanceAs(EditableApp.self), let asset = asset {
+            if asset.imageType == .livePhoto {
+                let appAsset = AppAsset(asset)
+                appAsset.editState = preferredEditState
+                
+                assetView.imageEditType = canEdit ? .notImage : asset.imageType
+            }
+        }
+        
+        if let app = AppCenter.default.currentInstanceAs(AppDockApp.self) {
+            app.dataSource = self
+            app.reloadData()
         }
         
         assetView.isHidden = true
@@ -409,5 +424,15 @@ extension PhotoEditViewController {
         else {
             return true
         }
+    }
+}
+
+extension PhotoEditViewController: AppDockAppDataSource {
+    func numberOfAppAssets(in app: AppDockApp) -> Int {
+        return assetItem == nil ? 0 : 1
+    }
+    
+    func appDockApp(_ app: AppDockApp, appAssetAt index: Int) -> AppAsset? {
+        return assetItem
     }
 }

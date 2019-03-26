@@ -290,7 +290,7 @@ extension AssetView {
         }
     }
     
-    private func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
+    internal func setVideoAsset(_ asset: PHAsset, cancelDrawingIfNeeded cancellation: @escaping () -> Bool = { return false }, completion: (() -> Void)? = nil) {
         videoView.isHidden = false
         
         loadVideo(from: asset) { [weak self] playerItem in
@@ -351,16 +351,42 @@ extension AssetView {
     }
     
     fileprivate func loadVideo(from asset: PHAsset, completion: @escaping (AVPlayerItem?) -> Void) {
-        imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
-            guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
-            self?.videoDidLoad(video: video)
-            if let video = video {
-                let playerItem = AVPlayerItem(asset: video)
-                playerItem.audioMix = audioMix
-                completion(playerItem)
+        if asset.mediaType == .video {
+            imageRequestID = AssetView.imageManager.requestAVAsset(forVideo: asset, options: videoRequestOptions) { [weak self] (video, audioMix, info) in
+                guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
+                self?.videoDidLoad(video: video)
+                if let video = video {
+                    let playerItem = AVPlayerItem(asset: video)
+                    playerItem.audioMix = audioMix
+                    completion(playerItem)
+                }
+                else {
+                    completion(nil)
+                }
             }
-            else {
-                completion(nil)
+        }
+        else if asset.imageType == .livePhoto {
+            loadLivePhoto(from: asset) { (livePhoto) in
+                if let livePhoto = livePhoto, let videoResource = PHAssetResource.assetResources(for: livePhoto).first(where: { $0.type == PHAssetResourceType.pairedVideo }) {
+                    var videoData = Data()
+                    
+                    self.imageRequestID = PHAssetResourceManager.default().requestData(for: videoResource, options: nil, dataReceivedHandler: { (data) in
+                        videoData.append(data)
+                    }) { (error) in
+                        let pairedVideoFileURL = FileURL.temp("\(UUID().uuidString)_pairedVideo", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+                        try? videoData.write(to: pairedVideoFileURL, options: Data.WritingOptions.atomicWrite)
+                        
+                        let video = AVAsset(url: pairedVideoFileURL)
+                        
+                        self.videoDidLoad(video: video)
+                        let playerItem = AVPlayerItem(asset: video)
+                        
+                        completion(playerItem)
+                    }
+                }
+                else {
+                    completion(nil)
+                }
             }
         }
     }

@@ -109,7 +109,15 @@ class AppUIAssetView: AssetView {
         }
     }
     
-    var shouldEditImageAsStillImage: Bool = false
+    var shouldEditImageAsStillImage: Bool {
+        return asset?.imageType == .livePhoto && imageEditType == .stillImage
+    }
+    
+    var shouldEditImageAsVideo: Bool {
+        return asset?.imageType == .livePhoto && imageEditType == .notImage
+    }
+    
+    var imageEditType: PHAssetImageType = .stillImage
     
     override func initialize() {
         super.initialize()
@@ -159,6 +167,9 @@ class AppUIAssetView: AssetView {
             DispatchQueue.main.async {
                 completion?()
             }
+        }
+        else if shouldEditImageAsVideo {
+            super.setVideoAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)
         }
         else {
             super.setImageAsset(asset, cancelDrawingIfNeeded: cancellation, completion: completion)

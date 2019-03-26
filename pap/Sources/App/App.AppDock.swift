@@ -10,6 +10,9 @@ public protocol AppDockApp: class, App {
     var content: AppDockContent? {get}
 
     static var fixedContentLayout:Bool {get}
+    
+    var dataSource: AppDockAppDataSource? {get set}
+    func reloadData()
 }
 
 extension AppDockApp {
@@ -25,4 +28,18 @@ extension AppDockApp {
 
         return AppDockContentItem(view: label, preferences: nil, contentScrollable: nil)
     }
+}
+
+extension AppDockApp {
+    public var dataSource: AppDockAppDataSource? {
+        get { return nil }
+        set {}
+    }
+    
+    public func reloadData() {}
+}
+
+public protocol AppDockAppDataSource {
+    func numberOfAppAssets(in app: AppDockApp) -> Int
+    func appDockApp(_ app: AppDockApp, appAssetAt index: Int) -> AppAsset?
 }
