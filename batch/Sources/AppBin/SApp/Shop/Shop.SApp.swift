@@ -286,6 +286,7 @@ private struct PayGroup:Hashable, Equatable, Section {
 //                    , PayItem(payable:OneMonthAllAppsPayment.self)
 
                     , PayItem(payable: SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self)
+                    , PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher)
                 ]
         )
         , PayGroup(
@@ -300,7 +301,6 @@ private struct PayGroup:Hashable, Equatable, Section {
             PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram>.self),
             PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram6M>.self),
             PayItem(payable: SecretCodeProgramPayment<YouAppSecretCodeProgram3M>.self),
-            PayItem(payable: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self, cellType:.switcher),
 //                    PayItem(payable: SNSEngagementPayment.self)
         ]
         )
