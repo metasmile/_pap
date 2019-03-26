@@ -47,7 +47,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
                 let outputData = image.jpegData(compressionQuality: 1)
 
-                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+                guard let _ = try? outputData?.write(to: item.output.renderedContentURL, options: .atomic) else {
                     completionHandler(nil, nil, nil)
                     return
                 }

@@ -149,7 +149,7 @@ class PDFMakerAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
         cell4.valueHandler = {
             self.defaults.scaleMode = Array(PDFMakerAppSettings.ScaleMode.Labels.values)[$0 as? Int ?? 0]
 
-            if let index = (self.cellDescribers.index { item in item.itemIdentifier == Cells.margin.hashValue }) {
+            if let index = (self.cellDescribers.firstIndex { item in item.itemIdentifier == Cells.margin.hashValue }) {
                 (self.view as? UITableView)?.reloadRows(at: [IndexPath(row: index, section: 0)], with: UITableView.RowAnimation.automatic)
             }
         }
@@ -206,7 +206,7 @@ class PDFMakerAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
             , let cell: UITableViewPickerCell = tableView.dequeueReusableCell(withIdentifier: cellDescriber.cellIdentifier) as? UITableViewPickerCell{
 
             cell.values = valueCollection
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -280,7 +280,7 @@ class PDFMakerAppAppDockContent: NSObject, AppDockContent, AppDockDelegate
             }
             cell.segmentedControl.sizeToFit()
 
-            cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.index(of: item.valueGetter() as? Int ?? PDFMakerAppSettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = values.map{ $0.1 }.firstIndex(of: item.valueGetter() as? Int ?? PDFMakerAppSettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }

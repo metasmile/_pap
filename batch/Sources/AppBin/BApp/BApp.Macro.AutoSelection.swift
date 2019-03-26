@@ -41,7 +41,7 @@ extension AppDockContent {
 
         let timerId = #function
 
-        if let index = cellDescribers.index(where: { describable in
+        if let index = cellDescribers.firstIndex(where: { describable in
             return describable.itemIdentifier == itemIdentifier
         }) {
             var desc = cellDescribers[index]

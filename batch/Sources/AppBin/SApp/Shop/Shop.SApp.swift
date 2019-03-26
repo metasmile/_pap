@@ -184,7 +184,7 @@ extension ShopApp{
         }
 
         return mutableDefaultCollection.filter {
-            if let index = mutableDefaultCollection.index(of: $0), removingIndexes.contains(index) {
+            if let index = mutableDefaultCollection.firstIndex(of: $0), removingIndexes.contains(index) {
                 return false
             }
             return true
@@ -1062,7 +1062,7 @@ extension ShopAppDockContent {
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 

@@ -447,7 +447,7 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
     var selectedEditStateValue: ImageEditStateValue?
 
     fileprivate func indexOfItem(by filterName: String?) -> Int? {
-        return items.index(where: { $0.filter?.name == filterName })
+        return items.firstIndex(where: { $0.filter?.name == filterName })
     }
 
     fileprivate func selectItem(by filterName: String?) {

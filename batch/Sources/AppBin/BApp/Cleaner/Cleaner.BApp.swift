@@ -328,8 +328,8 @@ extension Defaults: CleanerAppDefaults {
                 let nGDIds = ndict.itemsGDIdentifiers
                 
                 for nGDId in nGDIds{
-                    if let oindex = oGDIds.index(of: nGDId)
-                        , let nindex = nGDIds.index(of: nGDId){
+                    if let oindex = oGDIds.firstIndex(of: nGDId)
+                        , let nindex = nGDIds.firstIndex(of: nGDId){
                         m_dict.items[oindex] = ndict.items[nindex]
                         modCount += 1
                     }
@@ -685,7 +685,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -744,7 +744,7 @@ fileprivate class CleanerAppDockContent: NSObject, AppDockContent, UITableViewDe
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 

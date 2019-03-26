@@ -570,7 +570,7 @@ extension FinderAppDefaults{
 
     fileprivate func removeHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
 
-        if let index = selectedParserCollection[dictionary]?.index(of: property){
+        if let index = selectedParserCollection[dictionary]?.firstIndex(of: property){
             var immutableSelf = self
             var p = immutableSelf.selectedParserCollection
             p[dictionary]?.remove(at: index)
@@ -786,7 +786,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 , FinderAppSettingCells.quickActionOnly.hashValue
             ].forEach { hashValue in
 
-                if let index = self.settingCellDescribers.index(where:{ describable in
+                if let index = self.settingCellDescribers.firstIndex(where:{ describable in
                     return describable.itemIdentifier == hashValue
                 }){
                     self.settingCellDescribers.remove(at: index)
@@ -856,7 +856,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             if let handledItems = defaultsCollection[dictionary.key]{
 
                 return handledItems.compactMap { key -> IndexPath? in
-                    guard let item = dictionary.items.index(where: { item -> Bool in
+                    guard let item = dictionary.items.firstIndex(where: { item -> Bool in
                         return key == item.key
                     }) else{
                         return nil
@@ -943,7 +943,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -1023,7 +1023,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 
@@ -1041,10 +1041,10 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let dict = self.parserCollection[indexPath.section-1]
 
         var selected = false
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
+        if let _ = initialSelectedIndexPaths?.firstIndex(of: indexPath) {
             selected = true
         }
-        if let _ = FinderApp.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = FinderApp.privateDefaults.selectedParserCollection[dict.key]?.firstIndex(of: dict.items[indexPath.item].key){
             selected = true
         }
 
