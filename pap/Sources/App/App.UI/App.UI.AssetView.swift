@@ -182,7 +182,12 @@ class AppUIAssetView: AssetView {
 extension AppUIAssetView {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == compareOriginalGesture {
-            return filteredImage != nil
+            if let _ = AppCenter.default.currentInstanceAs(PreviewProcessableApp.self) {
+                return filteredImage != nil
+            }
+            else {
+                return false
+            }
         }
         else {
             return true
