@@ -1,2 +1,2 @@
-+ Adjustments - A highly professional photo editing tool.
++ RAW Editor - An easy and powerful RAW image editor.
 + HashTag - Finding and collecting hashtags from your photos.

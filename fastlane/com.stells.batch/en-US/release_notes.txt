@@ -1,2 +1,2 @@
-++ NEW - RAW Editor 1.0: An easy-to-use but very powerful RAW photo editor that provides many advantages to shooting original images. Enables impossible editing quality compared with JPEG images.
-+ A lot of performance improvements and fixes.
+++ NEW - Depth Editor 1.0: Enables you to adjust the intensity of background blur after capturing a portrait.
++ Performance improvements and fixes.

@@ -1,2 +1,2 @@
-+ Réglages - Un outil de retouche photo hautement professionnel.
++ RAW Editor - Un éditeur d’images RAW simple et puissant.
 + HashTag - Recherche et collecte des hashtags à partir de vos photos.

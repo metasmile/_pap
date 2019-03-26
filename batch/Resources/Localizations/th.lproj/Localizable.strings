@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "การปรับแต่งช่วยให้คุณสามารถแก้ไขภาพถ่ายของคุณอย่างเชี่ยวชาญด้วยคุณสมบัติแต่ละอย่างเช่นความเข้มแสงหรือรัศมีบทความ";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "การปรับ";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "สูง";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "อัลบัม";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "นิเมชั่น";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "การยกเลิกฟรีทุกเวลา";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "รู";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "รูรับแสง +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "ใช้ %@ กับรายการสุดท้าย";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "การลบเป้าหมาย";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "ตัวแก้ไขความลึก";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "ความลึก";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "ความลึก +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "กำลังตรวจจับ ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "เปิดใช้งานการติดแท็กอัตโนมัติ";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "เปิดใช้การดำเนินการด่วน";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "ช่วยให้คุณปรับความเข้มของพื้นหลังเบลอหลังจากถ่ายภาพบุคคล";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "วิศวกรรมหมายเหตุ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -450,6 +454,8 @@
 "Hiding Selected Items..." = "กำลังซ่อนรายการที่เลือกไว้ ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "ไฮไลท์";
+/* genl10n: GIFMaker.BApp.swift */
+"Homographic" = "Homographic";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "คุณภาพรูปภาพ";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -504,6 +510,8 @@
 "Make GIF" = "ทำ GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "สร้างสไตล์ Lomography ของไอเท็มสุดท้าย";
+/* genl10n: Merger.BApp.swift */
+"Make" = "ทำ";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "การโทรออก";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -520,6 +528,8 @@
 "Modify" = "แก้ไข";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "ผ้ามวา";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Movie Maker";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "อัลบั้มของฉัน";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +554,8 @@
 "Noise Reduction" = "ลดเสียงรบกวน";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "ติดตามเสียงรบกวน";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "ไม่มี";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "เมื่อสแตนด์บาย";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -830,6 +842,8 @@
 "Translate Now" = "แปลตอนนี้";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "การแก้ไขการแปล";
+/* genl10n: GIFMaker.BApp.swift */
+"Translation" = "การแปล";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "พูดเบาและรวดเร็ว";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -848,8 +862,6 @@
 "Use Trial" = "ใช้การทดลองใช้";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "ใช้";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "ชุมชนผู้ใช้";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "วีไอพี Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

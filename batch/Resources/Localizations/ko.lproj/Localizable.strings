@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "조정을 통해 노출 강도 또는 비 네트 반경과 같은 각 속성을 사용하여 사진을 전문적으로 편집 할 수 있습니다.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "조정";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "많은";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "앨범";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "에니메이션";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "언제든지 무료 취소.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "구멍";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Aperture +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "마지막 항목에 %@를 적용하십시오.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "대상 삭제";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "깊이 편집기";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "깊이";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "깊이 +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "감지 중 ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "자동 태그 추가를 사용.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "빠른 액션 사용";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "인물 촬영 후 배경 흐림의 강도를 조정할 수 있습니다.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -450,6 +454,8 @@
 "Hiding Selected Items..." = "선택한 항목 숨기기 ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "하이라이트";
+/* genl10n: GIFMaker.BApp.swift */
+"Homographic" = "동질화";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -504,6 +510,8 @@
 "Make GIF" = "GIF 만들기";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "로모 그래피 스타일의 마지막 항목 만들기";
+/* genl10n: Merger.BApp.swift */
+"Make" = "하다";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "전화 걸기";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -520,6 +528,8 @@
 "Modify" = "수정";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "물결 무늬";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "영화 제작자";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "내 앨범";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +554,8 @@
 "Noise Reduction" = "노이즈 제거";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "소음 추적";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "없음";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "대기";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -830,6 +842,8 @@
 "Translate Now" = "지금 번역하기";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "번역 교정";
+/* genl10n: GIFMaker.BApp.swift */
+"Translation" = "번역";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "지저귀다";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -848,8 +862,6 @@
 "Use Trial" = "평가판 사용";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "용도";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "사용자 커뮤니티";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP 핫라인";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

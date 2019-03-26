@@ -152,8 +152,6 @@
 "Add an Event" = "Add an Event";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Address" = "Address";
-/* genl10n: DepthEditor.BApp.swift */
-"Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background." = "Adjustable Depth Control. When editing portraits, you can now adjust the depth of field to get the amount of blur you want in the background.";
 /* genl10n: Adjustments.BApp.swift */
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius.";
 /* genl10n: Adjustments.BApp.swift */
@@ -340,6 +338,8 @@
 "Enable Auto-tagging." = "Enable Auto-tagging.";
 /* genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "Enable Quick Actions" = "Enable Quick Actions";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Enables you to adjust the intensity of background blur after capturing a portrait.";
 /* genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* genl10n: GIFMaker.BApp.swift, App.Finalizable.PHAsset.swift */

@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Коригування дозволяє редагувати фотографії професійно з кожним властивістю, наприклад, інтенсивністю експозиції або радіусом віньєтки.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Коригування";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Додатково";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Анімація";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "В будь-який час безкоштовно скасування.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Діафрагма";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Діафрагма +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Застосуйте %@ до останнього елемента";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Видалення цілей";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Редактор глибини";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Глибина";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "Глибина +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Виявлення ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Увімкнути автоматичне позначення тегом.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Увімкнути швидкі дії";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Дозволяє регулювати інтенсивність розмиття фону після зйомки портрета.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Інженерні замітки";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -450,6 +454,8 @@
 "Hiding Selected Items..." = "Приховати вибрані елементи ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Основні моменти";
+/* genl10n: GIFMaker.BApp.swift */
+"Homographic" = "Гомографічні";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Якість зображення";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -504,6 +510,8 @@
 "Make GIF" = "Зробити GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Зробіть останній елемент Lomography стиль";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Зробити";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Зателефонувати";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -520,6 +528,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "муар";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Творець фільму";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Мої альбоми";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +554,8 @@
 "Noise Reduction" = "Зменшення шуму";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Відстеження шуму";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "Немає";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "В режимі очікування";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -830,6 +842,8 @@
 "Translate Now" = "Перекласти зараз";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Переклад корекції";
+/* genl10n: GIFMaker.BApp.swift */
+"Translation" = "Переклад";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -848,8 +862,6 @@
 "Use Trial" = "Використовуйте Trial";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Використовуйте";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Користувацька спільнота";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
