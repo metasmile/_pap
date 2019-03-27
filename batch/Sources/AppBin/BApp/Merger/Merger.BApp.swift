@@ -181,15 +181,10 @@ extension MergerApp {
                     }
                     else {
                         if estimatedVideoSize.ratio <= preferredVideoRect.size.ratio {
-                            if preferredVideoRect.size.ratio > 1 {
-                                renderScale = preferredVideoRect.maxLength / estimatedVideoSize.minLength
-                            }
-                            else {
-                                renderScale = estimatedVideoSize.minLength / preferredVideoRect.minLength
-                            }
+                            renderScale = estimatedVideoSize.width / preferredVideoRect.width
                         }
                         else {
-                            renderScale = estimatedVideoSize.maxLength / preferredVideoRect.maxLength
+                            renderScale = estimatedVideoSize.height / preferredVideoRect.height
                         }
                     }
                     
