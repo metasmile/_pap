@@ -981,7 +981,7 @@ internal class CIBokehImage {
                     let delta = 1.0 / max(abs(start.x - end.x), abs(start.y - end.y))
                     
                     stride(from: Float(0), through: Float(1), by: delta).forEach { t in
-                        let coord = simd_mix(start, end, simd_float2(t))
+                        let coord = simd_mix(start, end, simd_float2(repeating: t))
                         
                         values[(Int(round(coord.x)) + Int(round(coord.y)) * diameter)] = 0
                     }
