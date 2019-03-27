@@ -365,6 +365,9 @@ private class MergerTask: AppTaskPrototype, AppTaskable {
             else if assetItem.asset.imageType == .livePhoto {
                 videoURL = MovConverter_LivePhoto().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
             }
+            else if assetItem.asset.imageType == .animatedGIF {
+                videoURL = MovConverter_Gif().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+            }
             else if assetItem.asset.imageType == .burst {
                 videoURL = MovConverter_Burst().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
             }
@@ -432,6 +435,9 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
             }
             else if assetItem.asset.imageType == .livePhoto {
                 videoURL = MovConverter_LivePhoto().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+            }
+            else if assetItem.asset.imageType == .animatedGIF {
+                videoURL = MovConverter_Gif().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
             }
             else if assetItem.asset.imageType == .burst {
                 videoURL = MovConverter_Burst().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url

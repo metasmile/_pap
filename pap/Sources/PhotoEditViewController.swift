@@ -204,8 +204,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                     if self.assetView.isProcessing {
                         self.assetView.isProcessing(false, animated: true)
                     }
-                    self.assetView.playAny()
                 }
+                self.assetView.playAny()
             })
         }
     }
