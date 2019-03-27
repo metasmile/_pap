@@ -1,2 +1,2 @@
-+ Ajustes - Uma ferramenta de edição de fotos altamente profissional.
-+ RAW Editor - Um poderoso editor de fotos sem perdas.
++ Editor RAW - Um editor de imagens RAW fácil e poderoso.
++ HashTag - Encontrando e coletando hashtags de suas fotos.

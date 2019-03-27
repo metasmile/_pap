@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Med justeringar kan du redigera dina foton på ett expertiskt sätt med varje egendom som exponeringsintensitet eller vignettradie.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "justeringar";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Avancerad";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "album";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "När som helst gratis avbokning.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Öppning";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Aperture +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Applicera %@ till sista objektet";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Radera mål";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Djupredigerare";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Djup";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "djup +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detekterar ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Aktivera automatisk märkning.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Aktivera snabba åtgärder";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Gör det möjligt för dig att justera intensiteten hos bakgrundssläckning efter att ha tagit ett porträtt.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Tekniska anteckningar";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Gör GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Gör det sista objektet Lomography stil";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Göra";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Ringa ett samtal";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Meddelande till oss";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Läge H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Läge T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Ändra och dela";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "moire";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Movie Maker";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Mina album";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Brusreducering";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Bullerspårning";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "Ingen";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "I vänteläge";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "inställningar";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "skuggor";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Shake Reduction";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Dela denna appen";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Använd prov";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Använda sig av";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Användargemenskap";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

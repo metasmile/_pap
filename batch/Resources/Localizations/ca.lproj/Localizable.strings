@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Els ajustaments us permeten editar les vostres fotos de manera experta amb cada propietat, com ara la intensitat d'exposició o el radi de vignette.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Ajustaments";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Avançat";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Àlbums";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Animació";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Cancel·lació gratuïta en qualsevol moment.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Obertura";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Aperture +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Apliqueu %@ a l'últim element";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "S'estan suprimint objectius";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Editor de profunditat";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Profunditat";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "Profunditat +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "S'està detectant ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Activa l'etiquetatge automàtic.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Activa les accions ràpides";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Permet ajustar la intensitat del desenfocament de fons després de capturar un retrat.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notes d'enginyeria";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Make GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Feu l'últim element de l'estil Lomography";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Fer";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fer una trucada";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Missatge per a nosaltres";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Mode H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Mode T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modificar i compartir";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "moaré";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Creador de pel · lícules";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Els meus àlbums";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Reducció de soroll";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Rastreig de soroll";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "Cap";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "En espera";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "Configuració";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Ombres";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Shake Reduction";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Comparteix aquesta aplicació";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Utilitza la prova";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Ús";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Comunitat d'usuaris";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "Línia directa VIP";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

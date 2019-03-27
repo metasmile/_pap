@@ -40,3 +40,9 @@ extension RawEditorApp:ChargeableApp{
         return self.defaultNonConsumablePaidBAppLocalCharges
     }
 }
+
+extension DepthEditorApp:ChargeableApp{
+    static var localCharges: [Charge] {
+        return self.defaultNonConsumablePaidBAppLocalCharges
+    }
+}

@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Os ajustes permitem editar suas fotos habilmente com cada propriedade, como a intensidade da exposição ou o raio da vinheta.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Ajustes";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Avançado";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albums";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Animação";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "A qualquer momento cancelamento gratuito.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Abertura";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Abertura +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Aplicar %@ ao último item";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Excluindo Destinos";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Editor de Profundidade";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Profundidade";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "Profundidade +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detectando ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Ativar marcação automática.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ativar ações rápidas";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Permite ajustar a intensidade do desfoque do fundo após a captura de um retrato.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Notas de engenharia";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Faça o GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Faça o último item do estilo Lomography";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Faço";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Fazer uma chamada";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mensagem para nós";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Modo H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Modo T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modificar e compartilhar";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modificar";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "tecido de seda ondeada";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Movie Maker";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Meus álbuns";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Redução de ruído";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Rastreamento de ruído";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "Nenhum";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Em espera";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "Configurações";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Sombras";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Redução de Agitação";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Compartilhe esse aplicativo";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Use o teste";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Usar";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Comunidade de usuários";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Säädöillä voit muokata valokuvia asiantuntevasti jokaisen ominaisuuden, kuten valotuksen intensiteetin tai vinjetti-säteen, avulla.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "säädöt";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Pitkälle kehittynyt";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "albumit";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "animaatio";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Aina vapaa peruutus.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Aukko";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "aukko +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Käytä %@ viimeiseen kohtaan";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Kohdeiden poistaminen";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Syvyyseditori";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Syvyys";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "syvyys +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Havaitsemalla ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Ota automaattinen koodaus käyttöön.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Ota käyttöön pikatoiminnot";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Voit säätää taustan hämärtymisen voimakkuutta muotokuvan ottamisen jälkeen.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Tee GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Tee viimeinen kohde Lomography-tyyli";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Tehdä";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Puhelun soittaminen";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Viesti meille";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Tila H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Tila T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Muokkaa ja jaa";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "moire";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Elokuvantekijä";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Omat albumit";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Melun vähentäminen";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Melun seuranta";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "Ei mitään";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Valmiustilassa";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "asetukset";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "varjot";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Shake Reduction";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Jaa tämä sovellus";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Käytä kokeilua";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Käyttää";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Käyttäjäyhteisö";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

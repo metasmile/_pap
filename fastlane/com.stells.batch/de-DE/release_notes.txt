@@ -1,2 +1,3 @@
-+ NEU - Einführung eines neuen Aktionsdialogsystems zusammen mit einer Ergebnisvorschau. Es ermöglicht auch, Ergebnisse auf verschiedenen Wegen gleichzeitig zu exportieren.
-- Mehrere Leistungsverbesserungen und Fehlerbehebungen.
+++ NEU - Tiefeneditor 1.0: Ermöglicht das Anpassen der Intensität der Hintergrundunschärfe nach der Aufnahme eines Porträts.
++ NEU - GIF Maker 1.1: Neuer Shake-Reduction-Modus zur Stabilisierung von Animationsbildern.
++ Leistungsverbesserungen und Korrekturen.

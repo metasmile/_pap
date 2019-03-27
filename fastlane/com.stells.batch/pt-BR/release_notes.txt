@@ -1,2 +1,3 @@
-+ NEW - Introduzindo um novo sistema de diálogo de ação junto com uma prévia de resultado. Ele também permite exportar os resultados de cada maneira diferente ao mesmo tempo.
-- Várias melhorias de desempenho e correções de bugs.
+++ NEW - Depth Editor 1.0: Permite ajustar a intensidade do fundo desfocado após a captura de um retrato.
++ NEW - GIF Maker 1.1: Adicionado o modo de redução de tremores para estabilizar os quadros de animação.
++ Melhorias e correções de desempenho.

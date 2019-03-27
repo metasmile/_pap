@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "समायोजन आपको अपनी तस्वीरों को प्रत्येक संपत्ति जैसे एक्सपोज़र इंटेंसिटी या विगनेट रेडियस के साथ संपादित करने देता है।";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "समायोजन";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "उन्नत";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "एल्बम";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "एनीमेशन";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "कभी भी मुफ्त रद्दीकरण।";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "छेद";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "एपर्चर +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "अंतिम आइटम पर %@ लागू करें";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "लक्ष्य हटाया जा रहा है";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "गहराई संपादक";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "गहराई";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "गहराई +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "पता लगा रहा है ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "ऑटो-टैगिंग सक्षम करें।";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "त्वरित क्रियाएं सक्षम करें";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "आपको पोर्ट्रेट कैप्चर करने के बाद बैकग्राउंड ब्लर की तीव्रता को समायोजित करने में सक्षम बनाता है।";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "इंजीनियरिंग नोट्स";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "जीआईएफ बनाओ";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "अंतिम आइटम लोमोग्राफी शैली बनाएं";
+/* genl10n: Merger.BApp.swift */
+"Make" = "बनाना";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "एक फोन करना";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "हमें संदेश";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "मोड एच";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "मोड टी";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "संशोधित करें और साझा करें";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "मौआ";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "फिल्म निर्माता";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "मेरे एल्बम";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "शोर में कमी";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "शोर ट्रैकिंग";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "कोई नहीं";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "स्टैंडबाय पर";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "सेटिंग्स";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "छैया छैया";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "हिलाओ कमी";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "इस एप को शेयर कीजिए";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "परीक्षण का प्रयोग करें";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "उपयोग";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "उपयोगकर्ता समुदाय";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "वीआईपी हॉटलाइन";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

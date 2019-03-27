@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Prilagodbe omogućuju stručno uređivanje fotografija pomoću svakog svojstva kao što je intenzitet ekspozicije ili radijus vinjeta.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Podešavanja";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Napredna";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Albumi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Animacija";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime besplatno otkazivanje.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Otvor";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Otvor +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Primijenite %@ na posljednju stavku";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Brisanje ciljeva";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Uređivač dubine";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Dubina";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "dubina +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Otkrivanje ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Omogući automatsko označavanje.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Omogući brze radnje";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Omogućuje podešavanje intenziteta zamućenja pozadine nakon snimanja portreta.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Tehničke napomene";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Napravite GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Napravite posljednju stavku Lomography stil";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Napraviti";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Upućivanje poziva";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Poruka nam";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Način H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Način T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Izmijenite i dijelite";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Modify";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "mramorastog izgleda";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Tvorac filmova";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Moji albumi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Smanjenje buke";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Praćenje šuma";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "nijedan";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Na čekanju";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "postavke";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "sjene";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Smanjenje tresenja";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Dijelite ovu aplikaciju";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Koristite probnu verziju";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Koristiti";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Korisnička zajednica";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

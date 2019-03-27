@@ -1037,6 +1037,9 @@
 		511EA5AE21C3724C00B47926 /* RawEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA5AA21C3724C00B47926 /* RawEditor.swift */; };
 		511EA6492212913A00DBF9FD /* Merger.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA6482212913A00DBF9FD /* Merger.BApp.swift */; };
 		511EA64A2212913A00DBF9FD /* Merger.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EA6482212913A00DBF9FD /* Merger.BApp.swift */; };
+		511EFC1B224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
+		511EFC1C224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
+		511EFC1D224AFBEB002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
 		5120EBFC21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFD21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFE21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
@@ -1072,6 +1075,7 @@
 		A00FDE38218235EF005EAD1B /* MMCMemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */; };
 		A00FDE3A218235EF005EAD1B /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD42218235EE005EAD1B /* BApp.swift */; };
 		A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
+		A017812A224056E600D91702 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
 		A02389D1219043750039F398 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02389CF219043750039F398 /* Finder.BApp.swift */; };
 		A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */; };
 		A0729AB121B0118300B43575 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0729AB021B0118300B43575 /* CloudKit.framework */; };
@@ -2715,6 +2719,7 @@
 		A00FDD42218235EE005EAD1B /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
 		A00FDD46218235EE005EAD1B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A00FDD47218235EE005EAD1B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DepthEditor.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A01B12CA2153F31B00D58600 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Intents.strings; sourceTree = "<group>"; };
 		A01EF6A520E3BE27004A6CCC /* batch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = batch.entitlements; sourceTree = "<group>"; };
 		A02389CF219043750039F398 /* Finder.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finder.BApp.swift; sourceTree = "<group>"; };
@@ -3718,6 +3723,7 @@
 			children = (
 				4F71D99073437FD86D2E03DA /* DepthEditor.BApp.swift */,
 				4F71D9DE52FC61D1ADD4ECDF /* DepthImageFilters.swift */,
+				A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */,
 			);
 			path = DepthEditor;
 			sourceTree = "<group>";
@@ -4718,6 +4724,7 @@
 				4F71D58C2B40BC3B670A6A85 /* Transform.BApp.Assets.xcassets in Resources */,
 				4F71DF9085AE27ED0953C7B7 /* Camera.SApp.Assets.xcassets in Resources */,
 				4F71DD4929E40C82925D98A4 /* Localizable.strings in Resources */,
+				A017812A224056E600D91702 /* DepthEditor.BApp.Assets.xcassets in Resources */,
 				4F71DCE1B26B01F4BECF8276 /* Localizable.strings in Resources */,
 				4F71DDD058DAFF2DB8A7A290 /* Localizable.strings in Resources */,
 				4F71D36E953DFB8F5A8AFA0E /* Localizable.strings in Resources */,
@@ -4830,6 +4837,7 @@
 				A0CB0107219C8C64007A5278 /* gifmaker_preview_frame_3.png in Resources */,
 				A0CB0108219C8C64007A5278 /* PDFMaker.BApp.Assets.xcassets in Resources */,
 				A0CB0109219C8C64007A5278 /* Artist.BApp.Assets.xcassets in Resources */,
+				511EFC1C224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */,
 				A0CB010A219C8C64007A5278 /* Filters.BApp.Assets.xcassets in Resources */,
 				A0CB010B219C8C64007A5278 /* Filters.jpg in Resources */,
 				A0CB010C219C8C64007A5278 /* Revert.BApp.Assets.xcassets in Resources */,
@@ -4920,6 +4928,7 @@
 				A0CB028A219C9093007A5278 /* gifmaker_preview_frame_3.png in Resources */,
 				A0CB028B219C9093007A5278 /* PDFMaker.BApp.Assets.xcassets in Resources */,
 				A0CB028C219C9093007A5278 /* Artist.BApp.Assets.xcassets in Resources */,
+				511EFC1D224AFBEB002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */,
 				A0CB028D219C9093007A5278 /* Filters.BApp.Assets.xcassets in Resources */,
 				A0CB028E219C9093007A5278 /* Filters.jpg in Resources */,
 				A0CB028F219C9093007A5278 /* Revert.BApp.Assets.xcassets in Resources */,
@@ -5043,6 +5052,7 @@
 				A0CBFF95219ADBA2007A5278 /* gifmaker_preview_frame_2.png in Resources */,
 				A0CBFF96219ADBA2007A5278 /* gifmaker_preview_frame_3.png in Resources */,
 				A0CBFF97219ADBA2007A5278 /* PDFMaker.BApp.Assets.xcassets in Resources */,
+				511EFC1B224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */,
 				A0CBFF98219ADBA2007A5278 /* Artist.BApp.Assets.xcassets in Resources */,
 				A0CBFF99219ADBA2007A5278 /* Filters.BApp.Assets.xcassets in Resources */,
 				A0CBFF9A219ADBA2007A5278 /* Filters.jpg in Resources */,
@@ -8099,7 +8109,7 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8126,7 +8136,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

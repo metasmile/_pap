@@ -138,6 +138,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "通過調整，您可以熟練地使用每個屬性編輯照片，例如曝光強度或暈影半徑。";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "調整";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "高級";
 /* Generated from genl10n: PhotoAlbumViewController.swift#105 */
 "Albums" = "相冊";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -160,10 +162,6 @@
 "Animation" = "動畫";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "隨時免費取消。";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "光圈";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "光圈+";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "將%@應用於最後一項";
 /* Generated from genl10n: Filters.BApp.swift#103 */
@@ -292,6 +290,10 @@
 "Deleting Targets" = "刪除目標";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "深度編輯器";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "深度";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "深度+";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "檢測... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -318,6 +320,8 @@
 "Enable Auto-tagging." = "啟用自動標記。";
 /* Generated from genl10n: Finder.BApp.swift#1318, Cleaner.BApp.swift#496 */
 "Enable Quick Actions" = "啟";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "可以在捕獲肖像後調整背景模糊的強度。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
@@ -450,6 +454,8 @@
 "Make GIF" = "製作GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "製作最後一項Lomography風格";
+/* genl10n: Merger.BApp.swift */
+"Make" = "使";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "打個電話";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -458,6 +464,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "模式H.";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "模式T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "修改和分享";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -466,6 +476,8 @@
 "Modify" = "修改";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "莫爾";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "電影製造商";
 /* Generated from genl10n: PhotoAlbumViewController.swift#258 */
 "My Albums" = "我的相冊";
 /* Generated from genl10n: Shop.Payment.MailContact.Types.swift#18 */
@@ -490,6 +502,8 @@
 "Noise Reduction" = "降噪";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "噪音跟踪";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "沒有";
 /* Generated from genl10n: PhoneCalls.BApp.swift#615, Finder.BApp.swift#1727, Cleaner.BApp.swift#889 */
 "On Standby" = "隨時待命";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -654,6 +668,8 @@
 "Settings" = "設置";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "陰影";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "減震";
 /* Generated from genl10n: Shop.SApp.swift#589 */
 "Share This App" = "分享這個應用程式";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -794,8 +810,6 @@
 "Use Trial" = "使用試用版";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "用戶社區";
 /* Generated from genl10n: Shop.SApp.swift#624 */
 "VIP Hotline" = "貴賓熱線";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

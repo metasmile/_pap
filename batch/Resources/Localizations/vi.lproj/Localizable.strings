@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "Điều chỉnh cho phép bạn chỉnh sửa ảnh của mình một cách thành thạo với từng thuộc tính như cường độ phơi sáng hoặc bán kính họa tiết.";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "Điều chỉnh";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "Nâng cao";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "Album";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "Hoạt ảnh";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Hủy miễn phí mọi lúc.";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "Khẩu độ";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "Khẩu độ +";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Áp dụng %@ cho mục cuối cùng";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "Xóa mục tiêu";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Biên tập sâu";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "Độ sâu";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "Độ sâu +";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Đang phát hiện ... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "Bật Tự động gắn thẻ.";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "Bật tác vụ nhanh";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "Cho phép bạn điều chỉnh cường độ mờ nền sau khi chụp chân dung.";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "Ghi chú kỹ thuật";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "Tạo GIF";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "Tạo mục cuối cùng theo phong cách Lomography";
+/* genl10n: Merger.BApp.swift */
+"Make" = "Chế tạo";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "Thực hiện cuộc gọi";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Thông báo cho chúng tôi";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Chế độ H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Chế độ T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Sửa đổi và chia sẻ";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "Sửa đổi";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "gợn sóng";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "Nhà sản xuất phim";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "Album của tôi";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "Giảm tiếng ồn";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "Theo dõi tiếng ồn";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "không ai";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "Đã sẵn sàng";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "Cài đặt";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Shadows";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Lắc giảm";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Chia sẻ ứng dụng này";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "Dùng thử";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "Sử dụng";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "Cộng đồng người dùng";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIP Hotline";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

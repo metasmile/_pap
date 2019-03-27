@@ -10,6 +10,10 @@ Camera
 The standard built-in camera which supports Depth Effect, RAW capture, and GPS metadata saving control for your privacy.
 
 
+Depth Editor
+Enables you to adjust the intensity of background blur after capturing a portrait.
+
+
 Auto Selection Bot (ASB System)
 ASB is a multi-purpose assistant engine for choosing the relevant items for each tool.
 

@@ -192,6 +192,8 @@
 "Adjustments lets you edit your photos expertly with each property such as exposure intensity or vignette radius." = "調整を使用すると、露出強度やビネット半径などの各プロパティを使用して写真を巧妙に編集できます。";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Adjustments" = "調整";
+/* genl10n: GIFMaker.BApp.swift */
+"Advanced" = "高度な";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "Albums" = "アルバム";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -214,10 +216,6 @@
 "Animation" = "アニメーション";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "いつでも無料でキャンセルできます。";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture" = "絞り";
-/* genl10n: DepthEditor.BApp.swift */
-"Aperture+" = "絞り+";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "最後の項目に%@を適用";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -346,6 +344,10 @@
 "Deleting Targets" = "ターゲットの削除";
 /* Generated from genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "深度エディタ";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth" = "深さ";
+/* genl10n: DepthEditor.BApp.swift */
+"Depth+" = "深さ+";
 /* Generated from genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "検出中... %@";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -372,6 +374,8 @@
 "Enable Auto-tagging." = "自動タグ設定を有効にする。";
 /* Generated from genl10n: Finder.BApp.swift#1264 */
 "Enable Quick Actions" = "クイックアクションを有効にする";
+/* genl10n: DepthEditor.BApp.swift */
+"Enables you to adjust the intensity of background blur after capturing a portrait." = "ポートレートを撮影した後の背景ぼかしの強度を調整できます。";
 /* Generated from genl10n: Shop.SApp.swift */
 "Engineering Notes" = "エンジニアリングノート";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -504,6 +508,8 @@
 "Make GIF" = "GIFを作る";
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "最後のアイテムにする";
+/* genl10n: Merger.BApp.swift */
+"Make" = "作る";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "電話をかける";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -512,6 +518,10 @@
 "MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "モードH";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "モードT";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "変更して共有";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +530,8 @@
 "Modify" = "修正";
 /* Generated from genl10n: RawEditor.swift */
 "Moire" = "モアレ";
+/* genl10n: Merger.BApp.swift */
+"Movie Maker" = "ムービーメーカー";
 /* Generated from genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "私のアルバム";
 /* Generated from genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift#338 */
@@ -544,6 +556,8 @@
 "Noise Reduction" = "ノイズ減少";
 /* Generated from genl10n: RawEditor.swift */
 "Noise Tracking" = "ノイズトラッキング";
+/* genl10n: GIFMaker.BApp.swift */
+"None" = "無し";
 /* Generated from genl10n: PhoneCalls.BApp.swift#595, Finder.BApp.swift#1665, Cleaner.BApp.swift#876 */
 "On Standby" = "待機";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -708,6 +722,8 @@
 "Settings" = "設定";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "影";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "手ぶれ補正";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "このアプリを共有する";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -848,8 +864,6 @@
 "Use Trial" = "試用版を使用する";
 /* Generated from genl10n: Shop.Payment.Promotion.swift#13 */
 "Use" = "使用";
-/* Generated from genl10n: Settings.SApp.swift */
-"User Community" = "ユーザーコミュニティ";
 /* Generated from genl10n: Shop.SApp.swift#606 */
 "VIP Hotline" = "VIPホットライン";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */

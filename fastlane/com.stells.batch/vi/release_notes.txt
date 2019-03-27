@@ -1,2 +1,3 @@
-+ MỚI - Giới thiệu hệ thống hộp thoại hành động mới cùng với bản xem trước kết quả. Nó cũng cho phép xuất kết quả theo từng cách khác nhau cùng một lúc.
-- Một số cải tiến hiệu suất và sửa lỗi.
+++ MỚI - Depth Editor 1.0: Cho phép bạn điều chỉnh cường độ mờ hậu cảnh sau khi chụp chân dung.
++ MỚI - GIF Maker 1.1: Đã thêm chế độ giảm rung để ổn định khung hình động.
++ Cải thiện hiệu suất và sửa lỗi.
