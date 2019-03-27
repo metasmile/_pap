@@ -177,7 +177,12 @@ extension MergerApp {
                     
                     var renderScale: CGFloat = 1
                     if mergedItem.contentMode == .aspectFill {
-                        
+                        if estimatedVideoSize.ratio <= preferredVideoRect.size.ratio {
+                            renderScale = estimatedVideoSize.height / preferredVideoRect.height
+                        }
+                        else {
+                            renderScale = estimatedVideoSize.width / preferredVideoRect.width
+                        }
                     }
                     else {
                         if estimatedVideoSize.ratio <= preferredVideoRect.size.ratio {
