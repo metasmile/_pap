@@ -415,13 +415,15 @@ class MergerAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDock
     // intersects time range
 }
 
-class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
+class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate, AppDockContentPlayerControllable {
     var app: MergerApp?
     convenience init(app: MergerApp) {
         self.init()
         
         self.app = app
     }
+    
+    var player: AVPlayer?
     
     private(set) var assetItem: AppAsset?
     fileprivate var mergeInfo: MergeInfoItem?
@@ -448,8 +450,31 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         return view
     }()
     
+    private var playerBoundaryTimeObserver: Any?
     @objc private func trimControlDidChange(sender: VideoTrimControl) {
         self.timeRange = NSValue(timeRange: sender.timeRange)
+        
+        if player?.rate != 0 {
+            player?.pause()
+        }
+        player?.seek(to: sender.seekTime, toleranceBefore: .zero, toleranceAfter: .zero)
+//        player?.actionAtItemEnd = .pause
+//
+//        if let observer = self.playerBoundaryTimeObserver {
+//            player?.removeTimeObserver(observer)
+//        }
+//
+//        self.playerBoundaryTimeObserver = player?.addBoundaryTimeObserver(forTimes: [NSValue(time: sender.timeRange.start), NSValue(time: sender.timeRange.end)], queue: DispatchQueue.main, using: {
+//            guard let playTime = self.player?.currentTime() else { return }
+//
+//            if playTime < sender.timeRange.start {
+//                self.player?.seek(to: sender.timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
+//                self.player?.play()
+//            }
+//            else if playTime >= sender.timeRange.end {
+//                self.player?.pause()
+//            }
+//        })
     }
     
     var preferences: AppDockContentPreferable? {
@@ -491,6 +516,7 @@ class VideoTrimControl: UIControl {
     var thumbnails: [ThumbnailInfo] = [ThumbnailInfo]()
     
     var timeRange: CMTimeRange = .zero
+    var seekTime: CMTime = .zero
     
     func setVideo(_ video: AVAsset?, with timeRange: CMTimeRange) {
         self.video = video
@@ -608,6 +634,7 @@ class VideoTrimControl: UIControl {
                 timeRange = CMTimeRange(start: .zero, end: timeRange.end)
                 startTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: .zero) - startTimeThumb.frame.width + timeRangeBorderWidth / 2
             }
+            seekTime = timeRange.start
             drawTimeRange()
             sendActions(for: .valueChanged)
         }
@@ -632,6 +659,7 @@ class VideoTrimControl: UIControl {
                 endTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: duration) - timeRangeBorderWidth / 2
             }
             drawTimeRange()
+            seekTime = timeRange.end
             sendActions(for: .valueChanged)
         }
     }

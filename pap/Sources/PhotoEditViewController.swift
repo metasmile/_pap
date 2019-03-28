@@ -206,6 +206,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                     }
                 }
                 self.assetView.playAny()
+                
+                if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+                    playerControl.player = self.assetView.player
+                }
             })
         }
     }

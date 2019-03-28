@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 import PropertyKit
+import AVFoundation
 
 // AppDock
 public protocol AppDock {
@@ -111,6 +112,10 @@ public struct AppDockScrollableContent: AppDockContentScrollable {
             collectionView.collectionViewLayout.invalidateLayout()
         }
     }
+}
+
+public protocol AppDockContentPlayerControllable {
+    var player: AVPlayer? { get set }
 }
 
 public struct AppDockContentItem: AppDockContent {

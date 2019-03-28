@@ -120,6 +120,10 @@ class AssetView: UIView {
     
     func imageDidLoad(image: UIImage?) {}
     
+    var player: AVPlayer? {
+        return videoView.player
+    }
+    
     var playerItem: AVPlayerItem? {
         didSet {
             videoView.player?.replaceCurrentItem(with: playerItem)
