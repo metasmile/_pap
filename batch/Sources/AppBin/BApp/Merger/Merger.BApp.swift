@@ -113,7 +113,7 @@ extension MergerApp {
         
         var estimatedVideoSize = CGSize.zero
         var exportsPassThrough = true
-        let intersectsTimeRange = true
+        let intersectsTimeRange = false
         for var resultItem in resultItems {
             guard let video = resultItem.video else { continue }
             let videoSize = video.renderSize
@@ -329,6 +329,26 @@ struct MergerResultItem: AppTaskResultable {
 
 public class MergerAppValue: ImageEditStateValue {}
 
+private extension AppAsset {
+    var asVideoURL: URL? {
+        if self.asset.mediaType == .video {
+            return self.asset.asAVAsset?.asURL
+        }
+        else if self.asset.imageType == .livePhoto {
+            return MovConverter_LivePhoto().convert(source: self, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+        }
+        else if self.asset.imageType == .animatedGIF {
+            return MovConverter_Gif().convert(source: self, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+        }
+        else if self.asset.imageType == .burst {
+            return MovConverter_Burst().convert(source: self, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+        }
+        else {
+            return MovConverter_Jpeg().convert(source: self, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
+        }
+    }
+}
+
 private class MergerTask: AppTaskPrototype, AppTaskable {
     override var info: AppTaskInfo {
         let info = super.info
@@ -359,22 +379,7 @@ private class MergerTask: AppTaskPrototype, AppTaskable {
         async.begin()
         
         DispatchQueue(label: #file + "_prepareVideo", qos: .utility).async {
-            if assetItem.asset.mediaType == .video {
-                videoURL = assetItem.asset.asAVAsset?.asURL
-            }
-            else if assetItem.asset.imageType == .livePhoto {
-                videoURL = MovConverter_LivePhoto().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else if assetItem.asset.imageType == .animatedGIF {
-                videoURL = MovConverter_Gif().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else if assetItem.asset.imageType == .burst {
-                videoURL = MovConverter_Burst().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else {
-                videoURL = MovConverter_Jpeg().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            
+            videoURL = assetItem.asVideoURL
             async.end()
         }
         async.waitUntilEnd()
@@ -429,24 +434,7 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         
         guard let assetItem = assetItem else { return }
         DispatchQueue(label: #file + #function, qos: .utility).async {
-            var videoURL: URL?
-            if assetItem.asset.mediaType == .video {
-                videoURL = assetItem.asset.asAVAsset?.asURL
-            }
-            else if assetItem.asset.imageType == .livePhoto {
-                videoURL = MovConverter_LivePhoto().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else if assetItem.asset.imageType == .animatedGIF {
-                videoURL = MovConverter_Gif().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else if assetItem.asset.imageType == .burst {
-                videoURL = MovConverter_Burst().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            else {
-                videoURL = MovConverter_Jpeg().convert(source: assetItem, cancellation: nil, progressHandler: nil, AsyncSignal())?.first?.url
-            }
-            
-            if let url = videoURL {
+            if let url = assetItem.asVideoURL {
                 let video = AVAsset(url: url)
                 (self.view as? VideoTrimControl)?.setVideo(video, with: mergeInfo?.timeRange ?? CMTimeRange(start: .zero, duration: video.duration))
             }
@@ -456,8 +444,13 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     lazy var view: UIView = {
         let view = VideoTrimControl(frame: .zero)
         view.tintColor = MergerApp.info.themeColor
+        view.addTarget(self, action: #selector(self.trimControlDidChange), for: .valueChanged)
         return view
     }()
+    
+    @objc private func trimControlDidChange(sender: VideoTrimControl) {
+        self.timeRange = NSValue(timeRange: sender.timeRange)
+    }
     
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
@@ -509,6 +502,9 @@ class VideoTrimControl: UIControl {
     }
     
     private var video: AVAsset?
+    private var duration: CMTime {
+        return video?.duration ?? .zero
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -528,30 +524,149 @@ class VideoTrimControl: UIControl {
         thumbnailCollectionView.fitConstraints(to: contentView)
         
         contentView.addSubview(timeRangeView)
+        contentView.addSubview(startTimeThumb)
+        contentView.addSubview(endTimeThumb)
+        contentView.addSubview(seekTimeThumb)
+    }
+    
+    private var timeRangeControlTintColor: UIColor? {
+        didSet {
+            timeRangeView.layer.borderColor = timeRangeControlTintColor?.cgColor
+            startTimeThumb.backgroundColor = timeRangeControlTintColor
+            endTimeThumb.backgroundColor = timeRangeControlTintColor
+        }
     }
     
     private lazy var timeRangeView: UIView = {
         let view = UIView(frame: .zero)
-        view.layer.borderColor = UIColor.yellow.cgColor
-        view.layer.borderWidth = 4
+        view.layer.borderWidth = timeRangeBorderWidth
         return view
     }()
     
+    private var timeRangeBorderWidth: CGFloat = 4
+    
+    class ThumbView: UIView {
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
+        
+        override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+            if bounds.inset(by: UIEdgeInsets(top: 0, left: -10, bottom: 0, right: -10)).contains(point) {
+                return self
+            }
+            else {
+                return super.hitTest(point, with: event)
+            }
+        }
+    }
+    
+    private lazy var startTimeThumb: ThumbView = {
+        let view = ThumbView(frame: .zero)
+        view.addGestureRecognizer(startThumbGesture)
+        return view
+    }()
+    
+    private lazy var endTimeThumb: ThumbView = {
+        let view = ThumbView(frame: .zero)
+        view.addGestureRecognizer(endThumbGesture)
+        return view
+    }()
+    
+    private lazy var seekTimeThumb: ThumbView = {
+        let view = ThumbView(frame: .zero)
+        view.addGestureRecognizer(seekThumbGesture)
+        return view
+    }()
+    
+    private lazy var startThumbGesture = UIPanGestureRecognizer(target: self, action: #selector(self.startThumbDidChange))
+    private lazy var endThumbGesture = UIPanGestureRecognizer(target: self, action: #selector(self.endThumbDidChange))
+    private lazy var seekThumbGesture = UIPanGestureRecognizer(target: self, action: #selector(self.seekThumbDidChange))
+    
+    private var startThumbBeginRect = CGRect.zero
+    private var endThumbBeginRect = CGRect.zero
+    private var seekThumbBeginRect = CGRect.zero
+    
+    @objc private func startThumbDidChange(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: contentView)
+        switch sender.state {
+        case .began: startThumbBeginRect = startTimeThumb.frame
+        default:
+            let location = startThumbBeginRect.origin.x + translation.x
+            
+            let offset = location - timeRangeContentBounds.minX + startTimeThumb.frame.width - timeRangeBorderWidth / 2
+            guard offset + startTimeThumb.frame.width < endTimeOffset else { break }
+            
+            if offset > 0 {
+                timeRange = CMTimeRange(start: time(offset: offset), end: timeRange.end)
+                startTimeThumb.frame.origin.x = location
+            }
+            else {
+                timeRange = CMTimeRange(start: .zero, end: timeRange.end)
+                startTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: .zero) - startTimeThumb.frame.width + timeRangeBorderWidth / 2
+            }
+            drawTimeRange()
+            sendActions(for: .valueChanged)
+        }
+    }
+    
+    @objc private func endThumbDidChange(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: contentView)
+        switch sender.state {
+        case .began: endThumbBeginRect = endTimeThumb.frame
+        default:
+            let location = endThumbBeginRect.origin.x + translation.x
+            
+            let offset = location - timeRangeContentBounds.minX + timeRangeBorderWidth / 2
+            guard offset - endTimeThumb.frame.width > startTimeOffset else { break }
+            
+            if offset < timeRangeContentBounds.width {
+                timeRange = CMTimeRange(start: timeRange.start, end: time(offset: offset))
+                endTimeThumb.frame.origin.x = location
+            }
+            else {
+                timeRange = CMTimeRange(start: timeRange.start, end: duration)
+                endTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: duration) - timeRangeBorderWidth / 2
+            }
+            drawTimeRange()
+            sendActions(for: .valueChanged)
+        }
+    }
+    
+    @objc private func seekThumbDidChange(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: contentView)
+        switch sender.state {
+        case .began: seekThumbBeginRect = seekTimeThumb.frame
+        case .changed: seekTimeThumb.frame.origin.x = seekThumbBeginRect.origin.x + translation.x
+        default: break
+        }
+    }
+    
+    var hasChanged: Bool {
+        return duration.seconds - self.timeRange.duration.seconds > 0
+    }
+    
     private func drawTimeRange() {
-        guard let video = video else { return }
+        timeRangeControlTintColor = hasChanged ? UIColor.yellow : UIColor.black
         
-        let hasChanged = CMTimeRange(start: .zero, duration: video.duration) != self.timeRange
-        timeRangeView.layer.borderColor = hasChanged ? UIColor.yellow.cgColor : UIColor.black.cgColor
+        let contentBounds = timeRangeContentBounds
         
-        let insets = self.thumbnailCollectionView.contentInset
-        let borderWidth = timeRangeView.layer.borderWidth
-        let contentBounds = self.contentView.bounds.inset(by: insets).inset(by: UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
+        var timeRangeRect = contentBounds
         
-        timeRangeView.frame = contentBounds
+        let startOffset = startTimeOffset
+        let endOffset = endTimeOffset
+        
+        timeRangeRect.origin.x = contentBounds.minX + startOffset
+        timeRangeRect.size.width = endOffset - startOffset
+        
+        timeRangeView.frame = timeRangeRect
     }
     
     func reloadData() {
-        let insets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        let insets = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
         let contentBounds = self.thumbnailCollectionView.bounds.inset(by: insets)
         
         self.thumbnailCollectionView.contentInset = insets
@@ -604,6 +719,45 @@ class VideoTrimControl: UIControl {
         
         self.thumbnailCollectionView.reloadData()
         self.drawTimeRange()
+        
+        let thumbWidth: CGFloat = 10
+        
+        let timeRangeBounds = timeRangeContentBounds
+        var startRect = timeRangeBounds
+        startRect.size.width = thumbWidth
+        startRect.origin.x = timeRangeContentBounds.minX + startTimeOffset - thumbWidth + timeRangeBorderWidth / 2
+        
+        var endRect = timeRangeBounds
+        endRect.size.width = thumbWidth
+        endRect.origin.x = timeRangeContentBounds.minX + endTimeOffset - timeRangeBorderWidth / 2
+        
+        startTimeThumb.frame = startRect
+        endTimeThumb.frame = endRect
+    }
+    
+    private var timeRangeContentBounds: CGRect {
+        let insets = self.thumbnailCollectionView.contentInset
+        let borderWidth = timeRangeBorderWidth
+        return self.contentView.bounds.inset(by: insets).inset(by: UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
+    }
+    
+    private var startTimeOffset: CGFloat {
+        return offset(time: timeRange.start)
+    }
+    
+    private var endTimeOffset: CGFloat {
+        return offset(time: timeRange.end)
+    }
+    
+    private func time(offset: CGFloat) -> CMTime {
+        guard duration != .zero else { return .zero }
+        let ratio = (offset / timeRangeContentBounds.width).clamped(to: 0...1)
+        return CMTimeMultiplyByFloat64(duration, multiplier: Float64(ratio))
+    }
+    
+    private func offset(time: CMTime) -> CGFloat {
+        guard duration != .zero else { return 0 }
+        return timeRangeContentBounds.width * CGFloat(time.seconds / duration.seconds)
     }
 }
 

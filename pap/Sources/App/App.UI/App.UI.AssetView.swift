@@ -117,7 +117,7 @@ class AppUIAssetView: AssetView {
         return asset?.imageType == .livePhoto && imageEditType == .notImage
     }
     
-    var imageEditType: PHAssetImageType = .stillImage
+    var imageEditType: PHAssetImageType? = nil
     
     override func initialize() {
         super.initialize()
