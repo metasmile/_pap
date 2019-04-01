@@ -467,6 +467,8 @@ extension AssetView {
         else if let _ = self.gifImage {
             self.stopGIFImage()
         }
+        
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
     
     func pauseAny() {
