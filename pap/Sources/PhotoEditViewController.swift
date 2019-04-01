@@ -245,6 +245,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewDidDisappear(animated)
         
         assetView.clearDrawing()
+        
+        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+            playerControl.player = nil
+        }
     }
     
     override func viewDidLayoutSubviews() {

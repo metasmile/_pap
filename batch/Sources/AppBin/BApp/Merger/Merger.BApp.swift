@@ -423,7 +423,31 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         self.app = app
     }
     
-    var player: AVPlayer?
+    private var timePeriodicObserver: Any?
+    var player: AVPlayer? {
+        willSet {
+            if let observer = self.timePeriodicObserver {
+                player?.removeTimeObserver(observer)
+            }
+            self.timePeriodicObserver = nil
+            
+            if let observer = self.playerBoundaryTimeObserver {
+                player?.removeTimeObserver(observer)
+            }
+            self.playerBoundaryTimeObserver = nil
+        }
+        
+        didSet {
+            if let player = player {
+                let interval = CMTime(value: 1, timescale: 30)
+                self.timePeriodicObserver = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (time) in
+                    if player.rate > 0 {
+                        (self.view as? VideoTrimControl)?.seekTime(time)
+                    }
+                })
+            }
+        }
+    }
     
     private(set) var assetItem: AppAsset?
     fileprivate var mergeInfo: MergeInfoItem?
@@ -512,6 +536,18 @@ class VideoTrimControl: UIControl {
         return view
     }()
     
+    private lazy var startDimmedView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        return view
+    }()
+    
+    private lazy var endDimmedView: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        return view
+    }()
+    
     typealias ThumbnailInfo = (image: CGImage?, time: CMTime, size: CGSize)
     var thumbnails: [ThumbnailInfo] = [ThumbnailInfo]()
     
@@ -525,6 +561,13 @@ class VideoTrimControl: UIControl {
         DispatchQueue.main.async {
             self.reloadData()
         }
+    }
+    
+    func seekTime(_ time: CMTime) {
+        guard let _ = video, time.isNumeric, duration.isNumeric else { return }
+        seekTimeThumb.frame.origin.x = thumbnailViewBounds.minX + (thumbnailViewBounds.width - startTimeThumb.width) * CGFloat(time.seconds / duration.seconds)
+        
+        seekTime = time
     }
     
     private var video: AVAsset?
@@ -548,6 +591,9 @@ class VideoTrimControl: UIControl {
         
         contentView.addSubview(thumbnailCollectionView)
         thumbnailCollectionView.fitConstraints(to: contentView)
+        
+        contentView.addSubview(startDimmedView)
+        contentView.addSubview(endDimmedView)
         
         contentView.addSubview(timeRangeView)
         contentView.addSubview(startTimeThumb)
@@ -605,6 +651,9 @@ class VideoTrimControl: UIControl {
     private lazy var seekTimeThumb: ThumbView = {
         let view = ThumbView(frame: .zero)
         view.addGestureRecognizer(seekThumbGesture)
+        view.layer.cornerRadius = 4
+        view.clipsToBounds = true
+        view.backgroundColor = UIColor.white
         return view
     }()
     
@@ -618,6 +667,9 @@ class VideoTrimControl: UIControl {
     
     @objc private func startThumbDidChange(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: contentView)
+        
+        seekTimeThumb.isHidden = true
+        
         switch sender.state {
         case .began: startThumbBeginRect = startTimeThumb.frame
         default:
@@ -638,10 +690,18 @@ class VideoTrimControl: UIControl {
             drawTimeRange()
             sendActions(for: .valueChanged)
         }
+        
+        switch sender.state {
+        case .began, .changed: break
+        default: seekTimeThumb.isHidden = false
+        }
     }
     
     @objc private func endThumbDidChange(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: contentView)
+        
+        seekTimeThumb.isHidden = true
+        
         switch sender.state {
         case .began: endThumbBeginRect = endTimeThumb.frame
         default:
@@ -662,13 +722,30 @@ class VideoTrimControl: UIControl {
             seekTime = timeRange.end
             sendActions(for: .valueChanged)
         }
+        
+        switch sender.state {
+        case .began, .changed: break
+        default: seekTimeThumb.isHidden = false
+        }
     }
     
     @objc private func seekThumbDidChange(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: contentView)
         switch sender.state {
         case .began: seekThumbBeginRect = seekTimeThumb.frame
-        case .changed: seekTimeThumb.frame.origin.x = seekThumbBeginRect.origin.x + translation.x
+        case .changed:
+            let seekBounds = CGRect(origin: CGPoint(x: startTimeThumb.frame.maxX, y: seekThumbBeginRect.origin.y), size: CGSize(width: endTimeThumb.frame.minX - startTimeThumb.frame.maxX - startTimeThumb.width, height: seekThumbBeginRect.height))
+            var offset = seekThumbBeginRect.origin.x + translation.x
+            if offset < seekBounds.minX {
+                offset = seekBounds.minX
+            }
+            else if offset > seekBounds.maxX {
+                offset = seekBounds.maxX
+            }
+            seekTimeThumb.frame.origin.x = offset
+            
+            seekTime = CMTimeMultiplyByFloat64(duration, multiplier: Float64((offset - seekBounds.minX) / seekBounds.width))
+            sendActions(for: .valueChanged)
         default: break
         }
     }
@@ -678,19 +755,27 @@ class VideoTrimControl: UIControl {
     }
     
     private func drawTimeRange() {
-        timeRangeControlTintColor = hasChanged ? UIColor.yellow : UIColor.black
+        timeRangeControlTintColor = hasChanged ? UIColor(rgb: 0xF7D349) : UIColor.black
         
         let contentBounds = timeRangeContentBounds
         
         var timeRangeRect = contentBounds
         
-        let startOffset = startTimeOffset
-        let endOffset = endTimeOffset
-        
-        timeRangeRect.origin.x = contentBounds.minX + startOffset
-        timeRangeRect.size.width = endOffset - startOffset
+        if let _ = video {
+            let startOffset = startTimeOffset
+            let endOffset = endTimeOffset
+            
+            timeRangeRect.origin.x = contentBounds.minX + startOffset
+            timeRangeRect.size.width = endOffset - startOffset
+        }
         
         timeRangeView.frame = timeRangeRect
+        
+        let insets = self.thumbnailCollectionView.contentInset
+        let thumbnailViewBounds = self.contentView.bounds.inset(by: insets)
+        
+        startDimmedView.frame = CGRect(origin: thumbnailViewBounds.origin, size: CGSize(width: timeRangeRect.minX - thumbnailViewBounds.minX, height: thumbnailViewBounds.height))
+        endDimmedView.frame = CGRect(origin: CGPoint(x: timeRangeRect.maxX, y: thumbnailViewBounds.origin.y), size: CGSize(width: thumbnailViewBounds.maxX - timeRangeRect.maxX, height: thumbnailViewBounds.height))
     }
     
     func reloadData() {
@@ -746,7 +831,6 @@ class VideoTrimControl: UIControl {
         }
         
         self.thumbnailCollectionView.reloadData()
-        self.drawTimeRange()
         
         let thumbWidth: CGFloat = 10
         
@@ -761,20 +845,31 @@ class VideoTrimControl: UIControl {
         
         startTimeThumb.frame = startRect
         endTimeThumb.frame = endRect
+        
+        var seekRect = timeRangeBounds
+        seekRect.size.width = thumbWidth
+        seekRect.origin.x = startTimeThumb.frame.maxX
+        seekTimeThumb.frame = seekRect
+        
+        self.drawTimeRange()
+    }
+    
+    private var thumbnailViewBounds: CGRect {
+        let insets = self.thumbnailCollectionView.contentInset
+        return self.contentView.bounds.inset(by: insets)
     }
     
     private var timeRangeContentBounds: CGRect {
-        let insets = self.thumbnailCollectionView.contentInset
         let borderWidth = timeRangeBorderWidth
-        return self.contentView.bounds.inset(by: insets).inset(by: UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
+        return thumbnailViewBounds.inset(by: UIEdgeInsets(top: -borderWidth, left: -borderWidth, bottom: -borderWidth, right: -borderWidth))
     }
     
     private var startTimeOffset: CGFloat {
-        return offset(time: timeRange.start)
+        return offset(time: timeRange.start, or: 0)
     }
     
     private var endTimeOffset: CGFloat {
-        return offset(time: timeRange.end)
+        return offset(time: timeRange.end, or: timeRangeContentBounds.width)
     }
     
     private func time(offset: CGFloat) -> CMTime {
@@ -783,9 +878,39 @@ class VideoTrimControl: UIControl {
         return CMTimeMultiplyByFloat64(duration, multiplier: Float64(ratio))
     }
     
-    private func offset(time: CMTime) -> CGFloat {
-        guard duration != .zero else { return 0 }
+    private func offset(time: CMTime, or value: CGFloat? = nil) -> CGFloat {
+        guard duration != .zero else { return value ?? 0 }
         return timeRangeContentBounds.width * CGFloat(time.seconds / duration.seconds)
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let distanceFromStart = startTimeThumb.origin.distance(to: point)
+        let distanceFromEnd = endTimeThumb.origin.distance(to: point)
+        let distanceFromSeek = seekTimeThumb.origin.distance(to: point)
+        
+        let closestThumb: ThumbView
+        if distanceFromStart < distanceFromEnd {
+            if distanceFromStart < distanceFromSeek {
+                closestThumb = startTimeThumb
+            }
+            else {
+                closestThumb = seekTimeThumb
+            }
+        }
+        else {
+            if distanceFromEnd < distanceFromSeek {
+                closestThumb = endTimeThumb
+            }
+            else {
+                closestThumb = seekTimeThumb
+            }
+        }
+        
+        let hitView = super.hitTest(point, with: event)
+        if let _ = hitView as? ThumbView {
+            return closestThumb
+        }
+        return hitView
     }
 }
 
