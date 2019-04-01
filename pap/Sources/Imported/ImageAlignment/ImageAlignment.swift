@@ -144,14 +144,14 @@ extension ImageAlignment {
 @available(iOS 11.0, *)
 extension CIImage {
     fileprivate struct WarpMatrix {
-        var translation: float2 = float2(0)
+        var translation: float2 = float2(repeating: 0)
         var matrix: float3x3 = float3x3(0)
         var size: float2
         var clampRange: float2
         
         init(matrix: float3x3, size: float2, clampRange: float2) {
             self.matrix = matrix
-            self.translation = float2(0)
+            self.translation = float2(repeating: 0)
             self.size = size
             self.clampRange = clampRange
         }

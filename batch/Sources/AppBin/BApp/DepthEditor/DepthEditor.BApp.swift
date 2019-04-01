@@ -143,7 +143,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
     private lazy var previewFilterCache: NSCache<NSString, CIDepthMaskFilter> = NSCache<NSString, CIDepthMaskFilter>()
 
-    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage> = NSCache<NSString, CIImage>()
+    public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = cachedOriginalImage(with: appAsset.asset, targetSize: targetSize)
 
@@ -992,8 +992,8 @@ internal class CIBokehImage {
                     let delta = 1.0 / max(abs(start.x - end.x), abs(start.y - end.y))
 
                     stride(from: Float(0), through: Float(1), by: delta).forEach { t in
-                        let coord = simd_mix(start, end, simd_float2(t))
-
+                        let coord = simd_mix(start, end, simd_float2(repeating: t))
+                        
                         values[(Int(round(coord.x)) + Int(round(coord.y)) * diameter)] = 0
                     }
 

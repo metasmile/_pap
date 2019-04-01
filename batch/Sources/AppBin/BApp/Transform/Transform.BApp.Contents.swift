@@ -244,6 +244,7 @@ private extension UIImage {
             break
         case .up, .upMirrored:
             break
+        default: break
         }
 
         switch imageOrientation {
@@ -256,6 +257,7 @@ private extension UIImage {
             transform.scaledBy(x: -1, y: 1)
         case .up, .down, .left, .right:
             break
+        default: break
         }
 
         var rotatedSize = size
