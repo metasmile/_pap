@@ -239,6 +239,15 @@ private enum DepthEditMode: Int, Codable {
     var displayName: String {
         return description ?? name
     }
+
+    var iconImageName: String?{ // 32x32 @ dp
+        switch self {
+        case .original: return nil
+        case .aperture: return R.image.depthEditorEffectAperture.name
+        case .aperture2: return R.image.depthEditorEffectAperture2.name
+        case .blur: return nil
+        }
+    }
 }
 
 @available(iOS 12.0, *)
@@ -344,7 +353,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
 //        }, filter: originalFilter))
 
         items += self.filters.map({ (filter) -> CIFilterCollectionItem in
-            let icon = UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize)
+            let icon = filter.depthEditMode.iconImageName?.asUIImageNamed
+                    ?? UIImage(path: UIBezierPath(roundedRect: CGRect(origin: .zero, size: imageSize)
                     .inset(by: imageInsets), cornerRadius: imageSize.minLength / 8), fillColor: UIColor(white: 1, alpha: 0.9), strokeColor: .white)
 
             return CIFilterCollectionItem(title: filter.depthEditMode.displayName, image: icon, action: {
