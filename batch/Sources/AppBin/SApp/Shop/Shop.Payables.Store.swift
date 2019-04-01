@@ -121,6 +121,7 @@ struct StoreKitPayableCenter {
                     case .failed, .purchasing, .deferred:
                         print("[!] WARNING: \(purchase.transaction.transactionState.debugDescription): \(purchase.productId)")
                         break // do nothing
+                    default: break
                 }
             }
             

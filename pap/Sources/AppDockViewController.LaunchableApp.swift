@@ -10,7 +10,7 @@ private extension AppDockViewController {
     private var indexPathOfCurrentApp: IndexPath? {
         guard let currentApp = AppCenter.default.current else { return nil }
         for (section, group) in appDockItemGroups.enumerated() {
-            if let item = group.index(where: { $0.app == currentApp }), item != NSNotFound {
+            if let item = group.firstIndex(where: { $0.app == currentApp }), item != NSNotFound {
                 return IndexPath(item: item, section: section)
             }
         }

@@ -532,7 +532,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.values = valueCollection()
                 cell.picker.reloadComponent(1)
 
-                cell.setSelectedRow(cell.values[1].values.index(of: direction.to.rawValue) ?? 0, inComponent: 1, animated: true)
+                cell.setSelectedRow(cell.values[1].values.firstIndex(of: direction.to.rawValue) ?? 0, inComponent: 1, animated: true)
             }
             else if component == 1, let direction = ConverterApp.availableDirections.first(where:{ $0.from == self.defaults.convertingDirection.from && $0.to.rawValue == convertTypeRawValue }) {
                 self.defaults.convertingDirection = direction
@@ -701,8 +701,8 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
             cell.values = valueCollection()
             if let value = item.valueGetter() as? (ConvertingType, ConvertingType) {
-                let row1 = cell.values[0].values.index(where: { $0 == value.0.rawValue }) ?? 0
-                let row2 = cell.values[1].values.index(where: { $0 == value.1.rawValue }) ?? 0
+                let row1 = cell.values[0].values.firstIndex(where: { $0 == value.0.rawValue }) ?? 0
+                let row2 = cell.values[1].values.firstIndex(where: { $0 == value.1.rawValue }) ?? 0
 
                 cell.setSelectedRow(row1, inComponent: 0, animated: true)
                 cell.setSelectedRow(row2, inComponent: 1, animated: true)
@@ -724,7 +724,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
 
             cell.values = valueCollection
             cell.delegate = self as? UITableViewPickerCellDelegate
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -822,7 +822,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
                 cell.segmentedControl.insertSegment(withTitle: k.key, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = Array(valueCollection.values).index(of: item.valueGetter() as? Int ?? PDFMakerAppSettings.ScaleMode.fitPage.rawValue) ?? 0
+            cell.segmentedControl.selectedSegmentIndex = Array(valueCollection.values).firstIndex(of: item.valueGetter() as? Int ?? PDFMakerAppSettings.ScaleMode.fitPage.rawValue) ?? 0
             cell.didChangeValue = item.valueHandler
             return cell
         }
@@ -843,7 +843,7 @@ class ConverterAppDockContent: NSObject, AppDockContent, AppDockDelegate
             cell.segmentedControl.sizeToFit()
 
             if let label = item.valueGetter() as? String {
-                cell.segmentedControl.selectedSegmentIndex = values.index(of: label) ?? 0
+                cell.segmentedControl.selectedSegmentIndex = values.firstIndex(of: label) ?? 0
             }
             cell.didChangeValue = item.valueHandler
             return cell

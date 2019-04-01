@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Menyembunyikan Item Terpilih ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Sorotan";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Homograf";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kualiti gambar";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Mod H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Mod T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Ubah dan Kongsi";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "Tetapan";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Shadows";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Pengurangan Shake";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Kongsi Aplikasi ini";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Terjemah Sekarang";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Pembetulan Terjemahan";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Terjemahan";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */

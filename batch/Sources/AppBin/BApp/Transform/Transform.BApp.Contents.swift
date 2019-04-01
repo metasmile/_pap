@@ -47,7 +47,7 @@ extension _TransformAppAsset: PHAssetImageEditable {
                 //TODO: investigate PHAssetChangeRequest.creationRequestForAssetFromImage(url)
                 let outputData = image.jpegData(compressionQuality: 1)
 
-                guard (try? outputData?.write(to: item.output.renderedContentURL, options: .atomic)) != nil else {
+                guard let _ = try? outputData?.write(to: item.output.renderedContentURL, options: .atomic) else {
                     completionHandler(nil, nil, nil)
                     return
                 }
@@ -244,6 +244,7 @@ private extension UIImage {
             break
         case .up, .upMirrored:
             break
+        default: break
         }
 
         switch imageOrientation {
@@ -256,6 +257,7 @@ private extension UIImage {
             transform.scaledBy(x: -1, y: 1)
         case .up, .down, .left, .right:
             break
+        default: break
         }
 
         var rotatedSize = size

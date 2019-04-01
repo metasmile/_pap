@@ -51,8 +51,8 @@ struct Period:Equatable, Hashable, Codable {
         return lhs.hashValue == rhs.hashValue
     }
 
-    var hashValue: Int {
-        return (String(describing: numberOfUnits)+String(describing: unit)).hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine((String(describing: numberOfUnits)+String(describing: unit)).hashValue)
     }
 
     var timeInterval:TimeInterval{

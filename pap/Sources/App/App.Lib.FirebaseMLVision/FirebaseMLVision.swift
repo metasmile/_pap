@@ -26,6 +26,7 @@ struct FirebaseMLVisionUtil{
             return .leftTop
         case .rightMirrored:
             return .rightBottom
+        default: return .topLeft
         }
     }
 }

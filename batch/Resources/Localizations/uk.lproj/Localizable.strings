@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "Приховати вибрані елементи ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Основні моменти";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Гомографічні";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Якість зображення";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Повідомлення нам";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Режим H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Режим Т";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Змінити та обмінюватися";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "Налаштування";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "Тіні";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Зменшення струсу";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "Поділитися цим додатком";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "Перекласти зараз";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "Переклад корекції";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Переклад";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */

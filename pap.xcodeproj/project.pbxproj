@@ -10,7 +10,6 @@
 		0A8FDA051FA76EF8002380AA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FDA041FA76EF8002380AA /* Launch Screen.storyboard */; };
 		0ABFCF931F14B7CB0078A583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABFCF921F14B7CB0078A583 /* Assets.xcassets */; };
 		20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */; };
-		29EE98E37A9DA3E0523286CC /* Pods_sap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE4F82F49B391B18CEE742 /* Pods_sap.framework */; };
 		2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */; };
 		343A0A8E9503523A9A599A57 /* Pods_batch_papTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */; };
 		351611B3DF0F053B3CDF48DA /* Pods_mmc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */; };
@@ -245,6 +244,7 @@
 		4F71D3A6FBC25D9CCD2AC95F /* App.PreviewView.Actionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3AF94BBAF9128607E47 /* App.PreviewView.Actionable.swift */; };
 		4F71D3B28A365D72A5268F1D /* Filters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D93194BD75FB4B17AAC0 /* Filters.jpg */; };
 		4F71D3B4FD3914A2E7065484 /* CodeKit.UIView.Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA1BA6C1703484DE20AC /* CodeKit.UIView.Hierarchy.swift */; };
+		4F71D3B84AC66271441D42B9 /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71D3BA6CEE53BA8C24C5D0 /* CodeKit.CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0BCC7EB4DF7DC229747 /* CodeKit.CVPixelBuffer.swift */; };
 		4F71D3C8B5BD60BFF6E09690 /* CodeKit.AVAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD40A5CCF4C55889275 /* CodeKit.AVAsset.swift */; };
 		4F71D3CFBB30366E4993A4E5 /* Converter.Mov.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D03D7AB64514D796410D /* Converter.Mov.swift */; };
@@ -416,8 +416,10 @@
 		4F71D6312B59A48079207438 /* Shop.Payment.SecretCodeProgram.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEBF0CA4B76514B1E7DB /* Shop.Payment.SecretCodeProgram.Types.swift */; };
 		4F71D633CE413F947BD26BCE /* CodeKit.UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D96C68C5B2B5F04099AA /* CodeKit.UIActivityViewController.swift */; };
 		4F71D64210E92026F2174F21 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D987697C94A0A3FD4004 /* PhotoPickerViewController.swift */; };
+		4F71D644DD9A5E3AA3C4868D /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71D64890941B0552F8147B /* App.UI.AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D35F82E6ED912C40BF19 /* App.UI.AssetView.swift */; };
 		4F71D656E6E54297FB7632EB /* PDFMaker.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3BE56AF451D39D5CFC8 /* PDFMaker.BApp.Assets.xcassets */; };
+		4F71D6584D82C75282233D0B /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71D65BEE08FB162E16B971 /* PHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2641BA9E027864B3419 /* PHAssets.swift */; };
 		4F71D65EF826ACFD4CF7C3BC /* CodeKit.String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3A04E11B9C01098FCF0 /* CodeKit.String.swift */; };
 		4F71D6630B84463926C8ED0A /* AppDockViewController.LaunchableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0EEFBDE618EBAC0CAB9 /* AppDockViewController.LaunchableApp.swift */; };
@@ -436,6 +438,7 @@
 		4F71D6A7D60327E870D40115 /* FileIO.URL.File.Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E97627CE0C276C040A /* FileIO.URL.File.Glob.swift */; };
 		4F71D6ADAD0A346C923D02C2 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71D6AF31743C0361F5C54B /* UITableViewExpandableCell.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D34E9FE70D9143CF80D7 /* UITableViewExpandableCell.UITableView.swift */; };
+		4F71D6B62126CBAA9BE569EE /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71D6B8F7172BAECCF18B7B /* Charge.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4985F3D6B4D939F57CB /* Charge.Types.swift */; };
 		4F71D6BA9B8C00629F31F09A /* CodeKit.UITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D32D17B745630914FC37 /* CodeKit.UITableViewController.swift */; };
 		4F71D6C141D91C34F1FBEDC6 /* CodeKit.String.NSDataDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EA2DFC266677751E41 /* CodeKit.String.NSDataDetector.swift */; };
@@ -476,6 +479,7 @@
 		4F71D748112A656B82733D56 /* CodeKit.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10005DA73FADC61882 /* CodeKit.Contacts.swift */; };
 		4F71D74A5C3A9C3ECD2046B4 /* CodeKit.UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */; };
 		4F71D74B166F8D38B3433390 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7C9C51F6AE6DF806B59 /* Selectable.swift */; };
+		4F71D74B6D7F6D6825BB2C01 /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71D74B9EA6B0564BC4CBDC /* CodeKit.EventKitUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E5B0CD4464882A59CA /* CodeKit.EventKitUI.swift */; };
 		4F71D74C0AF53FC5C957C53D /* Shop.Payment.SNSEngagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D21407FC99275C1F1080 /* Shop.Payment.SNSEngagement.swift */; };
 		4F71D74D3B4CFA1C278D579B /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B49FE907208B69ECCF /* Defaults.Version.swift */; };
@@ -518,6 +522,7 @@
 		4F71D802E00DEF806EBED2A2 /* Charge.Objects.Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D197CD6BCCD0B2151DEE /* Charge.Objects.Amount.swift */; };
 		4F71D80A8545BB55A3965546 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEEBC1694E701F39E7A2 /* PreviewCollectionViewCell.swift */; };
 		4F71D80AAF0E02EDBB9A9E58 /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6F988C3258A32D3DAE3 /* Period.swift */; };
+		4F71D8102ACC4994651188D5 /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71D81B0C50D6BA6990E63A /* CodeKit.Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3382F4A7D988F41FA08 /* CodeKit.Bundle.swift */; };
 		4F71D821F205FE714E0F7582 /* FirebaseMLVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFD3574E82899D962735 /* FirebaseMLVision.swift */; };
 		4F71D8223E5DF8A16B29D232 /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D134C2C1CA981897CC95 /* AppDelegate.Intents.swift */; };
@@ -532,6 +537,7 @@
 		4F71D8402151E3D626C826DD /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71D84A8902F4D86EA4FADB /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D839E9433881EAEAFD00 /* App.Configurable.swift */; };
 		4F71D84A8E25700DCBDC186A /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
+		4F71D84BED46BE8CE40397E8 /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71D84E8D9174A3F8B4E2D9 /* CodeKit.Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA10005DA73FADC61882 /* CodeKit.Contacts.swift */; };
 		4F71D8522F757F80DA18E033 /* App.UICamera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D517075E921BC9843D7F /* App.UICamera.xcassets */; };
 		4F71D8524825671084DA4434 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
@@ -554,6 +560,7 @@
 		4F71D8883846EB813C1DA4FF /* PhotoPickerViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D45197AABF077C42D925 /* PhotoPickerViewController.Operations.swift */; };
 		4F71D88C5ED85BB00A5B766E /* CodeKit.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D131F0089C1618725619 /* CodeKit.UITableView.swift */; };
 		4F71D89176548D2556D095CA /* CodeKit.DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7B6419DABF4EDA2C5A9 /* CodeKit.DispatchQueue.swift */; };
+		4F71D89582AED4F28FCA8FC0 /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71D89F343704F531566CA5 /* CodeKit.ContactsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3A99C4A9986C439DB50 /* CodeKit.ContactsUI.swift */; };
 		4F71D8A026520AF1FD21ABDF /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB28E47DFA2B35937E82 /* PreviewView.xib */; };
 		4F71D8A4283F06DD603734D9 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
@@ -606,9 +613,11 @@
 		4F71D9505D67D989B4AB7D40 /* Sourceable.Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3ACC28BD0E84528C27 /* Sourceable.Vision.swift */; };
 		4F71D954F1FE52C09CFC80AB /* Charge.Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF256F438CFD32C75BE /* Charge.Manager.swift */; };
 		4F71D95FC7CEB1D4CEF86D7B /* App.Editable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3C59C15463CFB3D8D39 /* App.Editable.swift */; };
+		4F71D960772C52DF0223B0EC /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71D963CB8BE19E20A8C4A2 /* CodeKit.UIView.UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC8D5DF259CEB1A88B0B /* CodeKit.UIView.UIActivityIndicatorView.swift */; };
 		4F71D964240454F8002E2D43 /* PhotoPickerViewController.Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D45197AABF077C42D925 /* PhotoPickerViewController.Operations.swift */; };
 		4F71D96894EF4BD5E0DDB94F /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7FEC6906907A5D456CF /* Converter.swift */; };
+		4F71D96BE940C8F33CA95509 /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71D97D52F941F5A53AFB45 /* App.UICamera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D517075E921BC9843D7F /* App.UICamera.xcassets */; };
 		4F71D98063AC9DEA552B3C86 /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36FBD7A9C6C9A6C8A86 /* PhotosManager.swift */; };
 		4F71D980F7E0BB2F26B47940 /* Converter.Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC9A825C95E7661E0E8 /* Converter.Gif.swift */; };
@@ -776,6 +785,7 @@
 		4F71DC6628FBE783AC4D354D /* CodeKit.UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD9D6869FDB773BFED8B /* CodeKit.UUID.swift */; };
 		4F71DC6B84F808E90FEAABC8 /* PreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB3C74D258C6C4D1CBA0 /* PreviewCollectionViewCell.xib */; };
 		4F71DC72BD8890B9CF9F9B3E /* ImageIO.HEIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D496FA1519ED3E951214 /* ImageIO.HEIF.swift */; };
+		4F71DC775D8F91BA0716421D /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71DC781330A924D89CA7B7 /* iOSCheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D09DAB0849B24A7E0EAB /* iOSCheckMarkView.swift */; };
 		4F71DC783B62C0CAA70C5A23 /* CodeKit.UIActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D96C68C5B2B5F04099AA /* CodeKit.UIActivityViewController.swift */; };
 		4F71DC7D08EF93AE0BAEA96E /* Camera.SApp.AppCenter.Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D51084803C2BC3B90ED1 /* Camera.SApp.AppCenter.Macro.swift */; };
@@ -849,6 +859,7 @@
 		4F71DDA411274FD692EAA88E /* Charge.Types.Trialable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3F9F3A159709359F245 /* Charge.Types.Trialable.swift */; };
 		4F71DDAC82E75BF4D9E30F46 /* CodeKit.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D131F0089C1618725619 /* CodeKit.UITableView.swift */; };
 		4F71DDAC9F25D1D06141F43A /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
+		4F71DDB14434766DEBA7BFDA /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71DDB5279D40B5338CBA7B /* CodeKit.EventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D060B94D0D7549CAFFA7 /* CodeKit.EventKit.swift */; };
 		4F71DDB6F1A8E89905890D1C /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE09168585F4CB1016B0 /* FloatingView.swift */; };
 		4F71DDB7F7E9734BD330983A /* PrecisionLevelSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD4ED2E5D0A917B6473A /* PrecisionLevelSlider.swift */; };
@@ -859,6 +870,7 @@
 		4F71DDCEC022697C044F7A0F /* AppDockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D645D1F2CE3449AC7E60 /* AppDockViewCell.xib */; };
 		4F71DDD058DAFF2DB8A7A290 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCB43D9D3F8B1E8D1B3B /* Localizable.strings */; };
 		4F71DDD0EB726AF26BD9F467 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D013F78DEDAA88B8D625 /* Numeric.swift */; };
+		4F71DDDB0744B73A9A2DDCF7 /* DepthEditorEffectAperture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */; };
 		4F71DDDBF54DC7100E318DBB /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5F105A06D72325B22BA /* HashSet.swift */; };
 		4F71DDDD228F36035E878902 /* CodeKit.UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */; };
 		4F71DDE03E4BAFE797CA2EC5 /* App.ManagerConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D58B738B812E323D1BCC /* App.ManagerConfigurable.swift */; };
@@ -916,6 +928,7 @@
 		4F71DED5EFE817A94FD18340 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA63EF0D1658753F49C /* Version.swift */; };
 		4F71DEDCB2076589070FBD24 /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7DC54CA496D886EC2FA /* PhotoPickerDetailViewController.swift */; };
 		4F71DEE2BE5112B43F77CBD7 /* Converter.Jpeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEB92BBCCC0B43EA5840 /* Converter.Jpeg.swift */; };
+		4F71DEE3A11262A79C6B2C81 /* DepthEditorEffectAperture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */; };
 		4F71DEE5BF45DF0C228BB2D9 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D922609B379A7E972C43 /* System.swift */; };
 		4F71DEECCEEA86BA0C2AF378 /* App.Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6CE37278581313A8D45 /* App.Cacheable.swift */; };
 		4F71DEEF19EE08A0F5BC0AB7 /* Shop.Payment.URLOpen.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36C0730E8334DE54349 /* Shop.Payment.URLOpen.Types.swift */; };
@@ -2381,6 +2394,7 @@
 		4F71D4B49FE907208B69ECCF /* Defaults.Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.Version.swift; sourceTree = "<group>"; };
 		4F71D4B8663659484DE3B777 /* FirebaseMLVision.VisionText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMLVision.VisionText.swift; sourceTree = "<group>"; };
 		4F71D4CDFED44D662FBDCE33 /* Converter.Mp4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.Mp4.swift; sourceTree = "<group>"; };
+		4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DepthEditorEffectAperture.png; sourceTree = "<group>"; };
 		4F71D4DAC28042EF6B5EF31B /* Converter.LivePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.LivePhoto.swift; sourceTree = "<group>"; };
 		4F71D4E100A7B47875A1F77B /* CodeKit.UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIApplication.swift; sourceTree = "<group>"; };
 		4F71D4E436C91FD6C315F797 /* Revert.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Revert.BApp.swift; sourceTree = "<group>"; };
@@ -2538,6 +2552,7 @@
 		4F71DCDB8707934A7F9D75F3 /* auto_straighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auto_straighten.png; sourceTree = "<group>"; };
 		4F71DCE64BE8A7E6A7F412E9 /* PhotoPickerViewController.Operations.PreheatableApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.Operations.PreheatableApp.swift; sourceTree = "<group>"; };
 		4F71DCE9AC0A77CA14DA34C1 /* ocra.ExternalDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ocra.ExternalDelegate.swift; sourceTree = "<group>"; };
+		4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DepthEditorEffectAperture2.png; sourceTree = "<group>"; };
 		4F71DD1794F6D10DAF0B017A /* PhotoPickerViewController.UICollectionView.CachingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.UICollectionView.CachingImage.swift; sourceTree = "<group>"; };
 		4F71DD2B31C0FB25B712B7BA /* Shop.Payment.MailContact.Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.MailContact.Types.swift; sourceTree = "<group>"; };
 		4F71DD2C99CADBC03C0E8BD8 /* PhotoEditViewController.AppConfigWatchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditViewController.AppConfigWatchable.swift; sourceTree = "<group>"; };
@@ -2867,7 +2882,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0CBFF59219ADBA2007A5278 /* Pods_sap.framework in Frameworks */,
-				29EE98E37A9DA3E0523286CC /* Pods_sap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3285,6 +3299,15 @@
 				4F71DF4F9E9BC358C8F0D379 /* Localizable.strings */,
 			);
 			path = nb.lproj;
+			sourceTree = "<group>";
+		};
+		4F71D55AC414642801CC7D69 /* DepthEditor.BApp.Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4F71D4D130AD38D3471C94AC /* DepthEditorEffectAperture.png */,
+				4F71DCEB0F9CE25230D597B6 /* DepthEditorEffectAperture2.png */,
+			);
+			path = DepthEditor.BApp.Assets;
 			sourceTree = "<group>";
 		};
 		4F71D61F4CBF0D63F651785A /* Charge */ = {
@@ -3715,6 +3738,7 @@
 				4F71D99073437FD86D2E03DA /* DepthEditor.BApp.swift */,
 				4F71D9DE52FC61D1ADD4ECDF /* DepthImageFilters.swift */,
 				A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */,
+				4F71D55AC414642801CC7D69 /* DepthEditor.BApp.Assets */,
 			);
 			path = DepthEditor;
 			sourceTree = "<group>";
@@ -4507,7 +4531,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Stells;
 				TargetAttributes = {
 					0ABFCF771F14B65C0078A583 = {
@@ -4551,6 +4575,7 @@
 						ProvisioningStyle = Manual;
 					};
 					A0CBFE3B219ADBA2007A5278 = {
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -4723,6 +4748,8 @@
 				4F71D2C069634FD6B858D652 /* cell_icon_pano.png in Resources */,
 				4F71D90CE49B7DA50577DAE3 /* cell_icon_favorite.png in Resources */,
 				4F71D3F87197B5296B94AE5C /* cell_icon_gif.png in Resources */,
+				4F71D84BED46BE8CE40397E8 /* DepthEditorEffectAperture.png in Resources */,
+				4F71D89582AED4F28FCA8FC0 /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4755,6 +4782,8 @@
 				4F71D326E44E89221407C2DC /* cell_icon_gif.png in Resources */,
 				5115848221D085BF00A37736 /* CodeKit.CIFilter.lut64.png in Resources */,
 				4F71D57858083C79B6E87D3C /* MemoCam.BApp.Assets.xcassets in Resources */,
+				4F71DDB14434766DEBA7BFDA /* DepthEditorEffectAperture.png in Resources */,
+				4F71DC775D8F91BA0716421D /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4845,6 +4874,8 @@
 				A0CB0120219C8C64007A5278 /* cell_icon_favorite.png in Resources */,
 				A0CB0121219C8C64007A5278 /* cell_icon_gif.png in Resources */,
 				4F71D390C9499C22919204AC /* artist.entitlements in Resources */,
+				4F71D8102ACC4994651188D5 /* DepthEditorEffectAperture.png in Resources */,
+				4F71DDDB0744B73A9A2DDCF7 /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4935,6 +4966,8 @@
 				A0CB02A5219C9093007A5278 /* cell_icon_gif.png in Resources */,
 				4F71D87EA93BA8906D28FCCC /* xfgst.entitlements in Resources */,
 				4F71DB85325E750D74DF2B2D /* GoogleService-Info.plist in Resources */,
+				4F71D960772C52DF0223B0EC /* DepthEditorEffectAperture.png in Resources */,
+				4F71D644DD9A5E3AA3C4868D /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4968,6 +5001,8 @@
 				4F71D20F187FEC7A01C2054D /* ocra.entitlements in Resources */,
 				4F71DAB7EB4BACBA54CFA0A5 /* GoogleService-Info.plist in Resources */,
 				4F71DF66964043DC515FF322 /* MemoCam.BApp.Assets.xcassets in Resources */,
+				4F71D96BE940C8F33CA95509 /* DepthEditorEffectAperture.png in Resources */,
+				4F71D3B84AC66271441D42B9 /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5058,6 +5093,8 @@
 				4F71DDE8C732ADDB06A8EDAE /* cell_icon_favorite.png in Resources */,
 				4F71DD86DD593EC879362253 /* cell_icon_gif.png in Resources */,
 				4F71D58A8625A1D2DBF7DFF6 /* sap.entitlements in Resources */,
+				4F71D6584D82C75282233D0B /* DepthEditorEffectAperture.png in Resources */,
+				4F71D74B6D7F6D6825BB2C01 /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5069,6 +5106,8 @@
 				4F71D202661296A5D3106A2D /* App.Resources.xcassets in Resources */,
 				4F71D1F7AFF1F77D339A92BE /* AppUICollectionViewCell.xib in Resources */,
 				4F71DE1AD64E43687AC66E0E /* App.UICamera.xcassets in Resources */,
+				4F71DEE3A11262A79C6B2C81 /* DepthEditorEffectAperture.png in Resources */,
+				4F71D6B62126CBAA9BE569EE /* DepthEditorEffectAperture2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8002,7 +8041,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -8055,7 +8094,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -8347,8 +8386,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap Development 2";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8374,8 +8412,7 @@
 				PROVISIONING_PROFILE = "9feb2654-45ae-49f0-a275-9e905554b9e0";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

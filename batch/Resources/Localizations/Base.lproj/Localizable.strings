@@ -418,8 +418,6 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* genl10n: Adjustments.BApp.swift */
 "Highlights" = "Highlights";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "Homographic";
 /* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
@@ -484,6 +482,10 @@
 "MemoCam" = "MemoCam";
 /* genl10n: Shop.SApp.swift */
 "Message To Us" = "Message To Us";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "Mode H";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "Mode T";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modify and Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -684,6 +686,8 @@
 "Settings" = "Settings";
 /* genl10n: Adjustments.BApp.swift */
 "Shadows" = "Shadows";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "Shake Reduction";
 /* genl10n: Shop.SApp.swift */
 "Share This App" = "Share This App";
 /* genl10n: Shop.SApp.swift */
@@ -720,7 +724,7 @@
 "Special Guest" = "Special Guest";
 /* genl10n: Resizer.BApp.swift(2), GIFMaker.BApp.swift */
 "Square" = "Square";
-/* genl10n: Stabilizer.BApp.swift, GIFMaker.BApp.swift */
+/* genl10n: Stabilizer.BApp.swift */
 "Stabilization Mode" = "Stabilization Mode";
 /* genl10n: Stabilizer.BApp.swift */
 "Stabilize" = "Stabilize";
@@ -806,8 +810,6 @@
 "Translate Now" = "Translate Now";
 /* genl10n: Shop.SApp.swift */
 "Translation Correction" = "Translation Correction";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "Translation";
 /* genl10n: Resizer.BApp.swift(2) */
 "Twitter" = "Twitter";
 /* genl10n: Finder.BApp.swift */

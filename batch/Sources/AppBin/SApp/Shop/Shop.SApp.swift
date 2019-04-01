@@ -184,7 +184,7 @@ extension ShopApp{
         }
 
         return mutableDefaultCollection.filter {
-            if let index = mutableDefaultCollection.index(of: $0), removingIndexes.contains(index) {
+            if let index = mutableDefaultCollection.firstIndex(of: $0), removingIndexes.contains(index) {
                 return false
             }
             return true
@@ -331,8 +331,8 @@ private struct PayGroup:Hashable, Equatable, Section {
         self.detailedLabel = detailedLabel
     }
 
-    var hashValue: Int{
-        return key.rawValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(key.rawValue)
     }
 
     static func == (lhs: PayGroup, rhs: PayGroup) -> Bool{
@@ -454,8 +454,8 @@ private class PayItem: Hashable, Equatable {
         self.rewardLabel = charge?.rewardDescribable?.title
     }
 
-    var hashValue: Int {
-        return String(describing: self.payable).hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: self.payable).hashValue)
     }
 
     public static func == (lhs: PayItem, rhs: PayItem) -> Bool{
@@ -1062,7 +1062,7 @@ extension ShopAppDockContent {
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 

@@ -228,7 +228,7 @@ fileprivate struct AdjustmentSliderInfo {
 }
 
 fileprivate class CIAdjustmentFilter: CIFilter {
-    internal(set) var adjustmentItems = [String: CIFilterAttributes]()
+    var adjustmentItems = [String: CIFilterAttributes]()
     private var builtInFilter: CIFilter?
     
     var filter: CIFilter {

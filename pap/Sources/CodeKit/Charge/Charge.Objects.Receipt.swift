@@ -109,8 +109,8 @@ struct ChargeableReceipt: Codable, Hashable{
         try container.encode(dataData, forKey: .dataData)
     }
 
-    var hashValue: Int {
-        return self.uuid.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.uuid.hashValue)
     }
 
     func isFrom(charge:Chargeable) -> Bool{

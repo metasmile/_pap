@@ -1,2 +1,3 @@
 ++ MỚI - Depth Editor 1.0: Cho phép bạn điều chỉnh cường độ mờ hậu cảnh sau khi chụp chân dung.
++ MỚI - GIF Maker 1.1: Đã thêm chế độ giảm rung để ổn định khung hình động.
 + Cải thiện hiệu suất và sửa lỗi.

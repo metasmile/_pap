@@ -454,8 +454,6 @@
 "Hiding Selected Items..." = "選択アイテムを非表示にします...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "ハイライト";
-/* genl10n: GIFMaker.BApp.swift */
-"Homographic" = "ホモグラフィック";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "画質";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -520,6 +518,10 @@
 "MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode H" = "モードH";
+/* genl10n: GIFMaker.BApp.swift */
+"Mode T" = "モードT";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "変更して共有";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -720,6 +722,8 @@
 "Settings" = "設定";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Shadows" = "影";
+/* genl10n: GIFMaker.BApp.swift */
+"Shake Reduction" = "手ぶれ補正";
 /* Generated from genl10n: Shop.SApp.swift#584 */
 "Share This App" = "このアプリを共有する";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -842,8 +846,6 @@
 "Translate Now" = "今すぐ翻訳する";
 /* Generated from genl10n: Shop.SApp.swift */
 "Translation Correction" = "翻訳訂正";
-/* genl10n: GIFMaker.BApp.swift */
-"Translation" = "翻訳";
 /* Generated from genl10n: Resizer.BApp.swift */
 "Twitter" = "Twitter";
 /* Generated from genl10n: Finder.BApp.swift */

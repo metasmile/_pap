@@ -30,7 +30,7 @@ public class ItemList<Element>: ItemObject{
 
     public func index(where predicate: (Element) throws -> Bool) -> Int?{
         do {
-            return try items.index(where: predicate)
+            return try items.firstIndex(where: predicate)
         } catch _ {
             return nil
         }

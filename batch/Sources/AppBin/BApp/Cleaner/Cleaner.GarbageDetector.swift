@@ -534,10 +534,10 @@ class PHAssetGarbageDetector_Blurry: PHAssetGarbageDetector{
 
         let histogramContents = histogramInfoBuffer.contents().bindMemory(to: Float.self, capacity: numberOfHistogramEntries)
 
-        let threshold: Float = 0.00000000000000000000000000000000000000000031 //TODO: this is a manual threshold
+        let threshold = 0.000000000000000000000000000000000000000031 //TODO: this is a manual threshold
         let numberOfWhitePixels = histogramContents[numberOfHistogramEntries - 1]
 
-        return numberOfWhitePixels < threshold
+        return numberOfWhitePixels < Float(threshold)
     }
 
     private func croppedFaceGroup(_ image: CIImage) -> CIImage? {

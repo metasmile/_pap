@@ -139,7 +139,7 @@ public extension StateValueSet where T: ImageEditStateValue {
 }
 
 public extension StateValueSet where T: ImageEditStateValue {
-    public func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
+    func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         return imageEditStateValue?.playerItem(with: video, for: exporting)
     }
 }
@@ -148,7 +148,7 @@ public extension StateValueSet where T: ImageEditStateValue {
 private let kEditItemPreviewWidth: CGFloat = UIScreen.main.bounds.width * 0.9
 
 public extension StateValueSet where T: ImageEditStateValue {
-    public var transform: CGAffineTransform {
+    var transform: CGAffineTransform {
         var t = CGAffineTransform.identity
         
         for value in self.iterator() {
@@ -157,7 +157,7 @@ public extension StateValueSet where T: ImageEditStateValue {
         return t
     }
     
-    public var transform3d: CATransform3D {
+    var transform3d: CATransform3D {
         var t = CATransform3DIdentity
         t.m34 = -1 / kEditItemPreviewWidth
         
@@ -199,7 +199,7 @@ public final class AppAssets: NSObject {
     }
 
     func by(_ asset:PHAsset) -> AppAsset?{
-        if let index = _itemsAssets.index(of: asset){
+        if let index = _itemsAssets.firstIndex(of: asset){
             return _items[index]
         }
         return nil
@@ -217,11 +217,11 @@ public final class AppAssets: NSObject {
     }
 
     func index(of assetItem: AppAsset) -> Int?{
-        return  _items.index(of: assetItem)
+        return  _items.firstIndex(of: assetItem)
     }
     
     func index(for asset: PHAsset) -> Int? {
-        return _itemsAssets.index(of:asset)
+        return _itemsAssets.firstIndex(of:asset)
     }
 
     @discardableResult
@@ -232,7 +232,7 @@ public final class AppAssets: NSObject {
 
         var nextIndex = 0
 
-        if let _indexOfAsset = _itemsAssets.index(of:asset){
+        if let _indexOfAsset = _itemsAssets.firstIndex(of:asset){
             _items[_indexOfAsset] = item
             nextIndex = _indexOfAsset
 
@@ -251,7 +251,7 @@ public final class AppAssets: NSObject {
 
     @discardableResult
     func remove(for asset: PHAsset) -> IndexPath? {
-        guard let index = _itemsAssets.index(of:asset) else {
+        guard let index = _itemsAssets.firstIndex(of:asset) else {
             return nil
         }
 
