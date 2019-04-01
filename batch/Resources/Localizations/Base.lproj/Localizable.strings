@@ -468,7 +468,7 @@
 "Luminance Noise Reduction" = "Luminance Noise Reduction";
 /* genl10n: RawEditor.swift */
 "Magenta / Red" = "Magenta / Red";
-/* genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Shop.SApp.swift */
+/* genl10n: Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
 "Main Tools License" = "Main Tools License";
 /* genl10n: AppCenter.Charge.swift */
 "Main Tools Use of %@ Day" = "Main Tools Use of %@ Day";
@@ -542,7 +542,7 @@
 "Open Google Maps" = "Open Google Maps";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
-/* genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift(2), Shop.SApp.swift(5) */
+/* genl10n: Clipboard.BApp.swift(2), Shop.SApp.swift(5), Shop.Payment.GADInterestialAdsViewing.swift */
 "Open" = "Open";
 /* genl10n: Filters.BApp.swift, App.UI.AssetView.swift, App.PreviewProcessable.swift, Artist.BApp.swift, Resizer.BApp.swift */
 "Original" = "Original";

@@ -110,10 +110,7 @@ struct GADInterestialTypeBlockOfUses: GADInterestialType, GADOfflineInterestialT
     }
 }
 
-class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativePayable, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
-    static var superPayables: HashSet<Payable.Type> {
-        return self.defaultSuperPayables
-    }
+class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, PropertyWatchable, PreparablePayable, GADManagerInterestialDelegate{
 
     private let adManager: GADManager = GADManager()
 
@@ -297,3 +294,9 @@ class GADInterestialAdsViewingPayment<T: GADInterestialType>:NSObject, RelativeP
 }
 
 
+//INFO: If it requires to make some dependency for other payable, unlock this.
+//extension GADInterestialAdsViewingPayment: RelativePayable{
+//    static var superPayables: HashSet<Payable.Type> {
+//        return self.defaultSuperPayables
+//    }
+//}
