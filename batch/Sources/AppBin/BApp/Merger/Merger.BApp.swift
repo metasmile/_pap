@@ -595,9 +595,9 @@ class VideoTrimControl: UIControl {
         contentView.addSubview(endDimmedView)
         
         contentView.addSubview(timeRangeView)
+        contentView.addSubview(seekTimeThumb)
         contentView.addSubview(startTimeThumb)
         contentView.addSubview(endTimeThumb)
-        contentView.addSubview(seekTimeThumb)
     }
     
     private var timeRangeControlTintColor: UIColor? {
