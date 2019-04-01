@@ -565,8 +565,7 @@ class VideoTrimControl: UIControl {
     
     func seekTime(_ time: CMTime) {
         guard let _ = video, time.isNumeric, duration.isNumeric else { return }
-        seekTimeThumb.frame.origin.x = thumbnailViewBounds.minX + (thumbnailViewBounds.width - startTimeThumb.width) * CGFloat(time.seconds / duration.seconds)
-        
+        seekTimeThumb.frame.origin.x = thumbnailViewBounds.minX + (thumbnailViewBounds.width - thumbWidth) * CGFloat(time.seconds / duration.seconds)
         seekTime = time
     }
     
@@ -674,17 +673,15 @@ class VideoTrimControl: UIControl {
         case .began: startThumbBeginRect = startTimeThumb.frame
         default:
             let location = startThumbBeginRect.origin.x + translation.x
-            
-            let offset = location - timeRangeContentBounds.minX + startTimeThumb.frame.width - timeRangeBorderWidth / 2
-            guard offset + startTimeThumb.frame.width < endTimeOffset else { break }
+            let offset = min(location - thumbnailViewBounds.minX, endTimeOffset)
             
             if offset > 0 {
                 timeRange = CMTimeRange(start: time(offset: offset), end: timeRange.end)
-                startTimeThumb.frame.origin.x = location
+                startTimeThumb.frame.origin.x = thumbnailViewBounds.minX + offset - thumbWidth
             }
             else {
                 timeRange = CMTimeRange(start: .zero, end: timeRange.end)
-                startTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: .zero) - startTimeThumb.frame.width + timeRangeBorderWidth / 2
+                startTimeThumb.frame.origin.x = thumbnailViewBounds.minX + self.offset(time: .zero) - startTimeThumb.frame.width
             }
             seekTime = timeRange.start
             drawTimeRange()
@@ -693,7 +690,9 @@ class VideoTrimControl: UIControl {
         
         switch sender.state {
         case .began, .changed: break
-        default: seekTimeThumb.isHidden = false
+        default:
+            seekTimeThumb.isHidden = false
+            seekTime(timeRange.start)
         }
     }
     
@@ -706,17 +705,15 @@ class VideoTrimControl: UIControl {
         case .began: endThumbBeginRect = endTimeThumb.frame
         default:
             let location = endThumbBeginRect.origin.x + translation.x
+            let offset = max(location - thumbnailViewBounds.minX, startTimeOffset + thumbWidth)
             
-            let offset = location - timeRangeContentBounds.minX + timeRangeBorderWidth / 2
-            guard offset - endTimeThumb.frame.width > startTimeOffset else { break }
-            
-            if offset < timeRangeContentBounds.width {
-                timeRange = CMTimeRange(start: timeRange.start, end: time(offset: offset))
-                endTimeThumb.frame.origin.x = location
+            if offset < thumbnailViewBounds.width {
+                timeRange = CMTimeRange(start: timeRange.start, end: time(offset: offset - thumbWidth))
+                endTimeThumb.frame.origin.x = thumbnailViewBounds.minX + offset
             }
             else {
                 timeRange = CMTimeRange(start: timeRange.start, end: duration)
-                endTimeThumb.frame.origin.x = timeRangeContentBounds.minX + self.offset(time: duration) - timeRangeBorderWidth / 2
+                endTimeThumb.frame.origin.x = thumbnailViewBounds.minX + self.offset(time: duration) + thumbWidth
             }
             drawTimeRange()
             seekTime = timeRange.end
@@ -725,7 +722,9 @@ class VideoTrimControl: UIControl {
         
         switch sender.state {
         case .began, .changed: break
-        default: seekTimeThumb.isHidden = false
+        default:
+            seekTimeThumb.isHidden = false
+            seekTime(timeRange.start)
         }
     }
     
@@ -734,7 +733,7 @@ class VideoTrimControl: UIControl {
         switch sender.state {
         case .began: seekThumbBeginRect = seekTimeThumb.frame
         case .changed:
-            let seekBounds = CGRect(origin: CGPoint(x: startTimeThumb.frame.maxX, y: seekThumbBeginRect.origin.y), size: CGSize(width: endTimeThumb.frame.minX - startTimeThumb.frame.maxX - startTimeThumb.width, height: seekThumbBeginRect.height))
+            let seekBounds = CGRect(origin: CGPoint(x: startTimeThumb.frame.maxX, y: seekThumbBeginRect.origin.y), size: CGSize(width: endTimeThumb.frame.minX - startTimeThumb.frame.maxX - thumbWidth, height: seekThumbBeginRect.height))
             var offset = seekThumbBeginRect.origin.x + translation.x
             if offset < seekBounds.minX {
                 offset = seekBounds.minX
@@ -744,40 +743,36 @@ class VideoTrimControl: UIControl {
             }
             seekTimeThumb.frame.origin.x = offset
             
-            seekTime = CMTimeMultiplyByFloat64(duration, multiplier: Float64((offset - seekBounds.minX) / seekBounds.width))
+            seekTime = time(offset: offset - thumbnailViewBounds.minX)
             sendActions(for: .valueChanged)
         default: break
         }
     }
     
     var hasChanged: Bool {
-        return duration.seconds - self.timeRange.duration.seconds > 0
+        return (duration.seconds - self.timeRange.duration.seconds) * 1000 > 0.1
     }
     
     private func drawTimeRange() {
         timeRangeControlTintColor = hasChanged ? UIColor(rgb: 0xF7D349) : UIColor.black
         
-        let contentBounds = timeRangeContentBounds
-        
-        var timeRangeRect = contentBounds
+        var timeRangeRect = timeRangeContentBounds
         
         if let _ = video {
             let startOffset = startTimeOffset
             let endOffset = endTimeOffset
             
-            timeRangeRect.origin.x = contentBounds.minX + startOffset
-            timeRangeRect.size.width = endOffset - startOffset
+            timeRangeRect.origin.x = timeRangeRect.minX + startOffset
+            timeRangeRect.size.width = endOffset - startOffset + thumbWidth * 2
         }
         
         timeRangeView.frame = timeRangeRect
-        
-        let insets = self.thumbnailCollectionView.contentInset
-        let thumbnailViewBounds = self.contentView.bounds.inset(by: insets)
         
         startDimmedView.frame = CGRect(origin: thumbnailViewBounds.origin, size: CGSize(width: timeRangeRect.minX - thumbnailViewBounds.minX, height: thumbnailViewBounds.height))
         endDimmedView.frame = CGRect(origin: CGPoint(x: timeRangeRect.maxX, y: thumbnailViewBounds.origin.y), size: CGSize(width: thumbnailViewBounds.maxX - timeRangeRect.maxX, height: thumbnailViewBounds.height))
     }
     
+    private var thumbWidth: CGFloat = 10
     func reloadData() {
         let insets = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
         let contentBounds = self.thumbnailCollectionView.bounds.inset(by: insets)
@@ -832,16 +827,14 @@ class VideoTrimControl: UIControl {
         
         self.thumbnailCollectionView.reloadData()
         
-        let thumbWidth: CGFloat = 10
-        
         let timeRangeBounds = timeRangeContentBounds
         var startRect = timeRangeBounds
         startRect.size.width = thumbWidth
-        startRect.origin.x = timeRangeContentBounds.minX + startTimeOffset - thumbWidth + timeRangeBorderWidth / 2
+        startRect.origin.x = thumbnailViewBounds.minX + startTimeOffset - thumbWidth
         
         var endRect = timeRangeBounds
         endRect.size.width = thumbWidth
-        endRect.origin.x = timeRangeContentBounds.minX + endTimeOffset - timeRangeBorderWidth / 2
+        endRect.origin.x = thumbnailViewBounds.minX + endTimeOffset + thumbWidth
         
         startTimeThumb.frame = startRect
         endTimeThumb.frame = endRect
@@ -865,22 +858,21 @@ class VideoTrimControl: UIControl {
     }
     
     private var startTimeOffset: CGFloat {
-        return offset(time: timeRange.start, or: 0)
+        return offset(time: timeRange.start, ratio: 0)
     }
     
     private var endTimeOffset: CGFloat {
-        return offset(time: timeRange.end, or: timeRangeContentBounds.width)
+        return offset(time: timeRange.end, ratio: 1)
     }
     
     private func time(offset: CGFloat) -> CMTime {
         guard duration != .zero else { return .zero }
-        let ratio = (offset / timeRangeContentBounds.width).clamped(to: 0...1)
+        let ratio = (offset / (thumbnailViewBounds.width - thumbWidth)).clamped(to: 0...1)
         return CMTimeMultiplyByFloat64(duration, multiplier: Float64(ratio))
     }
     
-    private func offset(time: CMTime, or value: CGFloat? = nil) -> CGFloat {
-        guard duration != .zero else { return value ?? 0 }
-        return timeRangeContentBounds.width * CGFloat(time.seconds / duration.seconds)
+    private func offset(time: CMTime, ratio: CGFloat = 0) -> CGFloat {
+        return (thumbnailViewBounds.width - thumbWidth) * (duration != .zero ? CGFloat(time.seconds / duration.seconds) : ratio)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
