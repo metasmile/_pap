@@ -19,7 +19,19 @@ extension Defaults: MergerAppDefaults {
     
 }
 
-fileprivate typealias MergeInfoItem = (timeRange: CMTimeRange, asset: PHAsset)
+public class MergerAppValue: ImageEditStateValue {
+    override public var timeRange: CMTimeRange? {
+        return _timeRange
+    }
+    
+    private var _timeRange: CMTimeRange?
+    
+    init(_ timeRange: CMTimeRange? = nil) {
+        super.init()
+        
+        _timeRange = timeRange
+    }
+}
 
 class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
@@ -51,21 +63,13 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
         , minOSVersion: nil
     )
     
-    private var mergeEditInfo = [String: MergeInfoItem]()
-    fileprivate func mergeEditInfo(with asset: PHAsset?) -> MergeInfoItem? {
-        guard let asset = asset else { return nil }
-        return mergeEditInfo[asset.localIdentifierWithoutSplitter]
-    }
-    
     required public override init() {
         super.init()
         
-        mergeEditInfo = [:]
-        
         if let controllerContent = self.photoEditorDockContent as? MergerPhotoEditorAppDockContent {
             controllerContent.watch(\.timeRange, options: [.initial, .new]) {
-                if let timeRange = controllerContent.timeRange, let assetItem = controllerContent.assetItem {
-                    self.mergeEditInfo[assetItem.asset.localIdentifierWithoutSplitter] = (timeRange: timeRange.timeRangeValue, asset: assetItem.asset)
+                if let timeRange = controllerContent.timeRange {
+                    self.config?.timeRange = MergerAppValue(timeRange.timeRangeValue)
                 }
             }
         }
@@ -93,28 +97,26 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
-    }
+    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {}
     
     private var exportSession: AVAssetExportSession?
     
     public var dataSource: AppDockAppDataSource?
     func reloadData() {
         let assetItem = dataSource?.appDockApp(self, appAssetAt: 0)
-        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem, with: mergeEditInfo(with: assetItem?.asset))
+        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
     }
 }
 
 extension MergerApp {
     private func mergeVideo(with resultItems: [MergerResultItem]) -> AVPlayerItem {
         var mergedItems = [MergerResultItem]()
-        var previousTimeRange = CMTimeRange.zero
+//        var previousTimeRange = CMTimeRange.zero
         
         var estimatedVideoSize = CGSize.zero
         var exportsPassThrough = true
-        let intersectsTimeRange = false
-        for var resultItem in resultItems {
+//        let intersectsTimeRange = false
+        for resultItem in resultItems {
             guard let video = resultItem.video else { continue }
             let videoSize = video.renderSize
             
@@ -125,33 +127,35 @@ extension MergerApp {
             }
             estimatedVideoSize = CGRect(origin: .zero, size: estimatedVideoSize).union(videoBounds).size
             
-            if intersectsTimeRange, let startTime = resultItem.asset.creationDate?.timeIntervalSinceReferenceDate {
-                let globalTimeRange = CMTimeRange(start: CMTimeMakeWithSeconds(startTime, preferredTimescale: video.duration.timescale), duration: video.duration)
-                
-                if resultItem.asset.imageType == .livePhoto {
-                    let timeRange = previousTimeRange.intersection(globalTimeRange)
-                    if !timeRange.isEmpty {
-                        var estimatedTimeRange = CMTimeRange(start: timeRange.end, end: globalTimeRange.end)
-                        estimatedTimeRange.start = estimatedTimeRange.start - globalTimeRange.start
-                        resultItem.setEstimatedTimeRange(estimatedTimeRange)
-                        
-                        if !estimatedTimeRange.isEmpty {
-                            mergedItems.append(resultItem)
-                        }
-                    }
-                    else {
-                        mergedItems.append(resultItem)
-                    }
-                }
-                else {
-                    mergedItems.append(resultItem)
-                }
-                
-                previousTimeRange = globalTimeRange
-            }
-            else {
-                mergedItems.append(resultItem)
-            }
+//            if intersectsTimeRange, let startTime = resultItem.asset.creationDate?.timeIntervalSinceReferenceDate {
+//                let globalTimeRange = CMTimeRange(start: CMTimeMakeWithSeconds(startTime, preferredTimescale: video.duration.timescale), duration: video.duration)
+//
+//                if resultItem.asset.imageType == .livePhoto {
+//                    let timeRange = previousTimeRange.intersection(globalTimeRange)
+//                    if !timeRange.isEmpty {
+//                        var estimatedTimeRange = CMTimeRange(start: timeRange.end, end: globalTimeRange.end)
+//                        estimatedTimeRange.start = estimatedTimeRange.start - globalTimeRange.start
+//                        resultItem.setEstimatedTimeRange(estimatedTimeRange)
+//
+//                        if !estimatedTimeRange.isEmpty {
+//                            mergedItems.append(resultItem)
+//                        }
+//                    }
+//                    else {
+//                        mergedItems.append(resultItem)
+//                    }
+//                }
+//                else {
+//                    mergedItems.append(resultItem)
+//                }
+//
+//                previousTimeRange = globalTimeRange
+//            }
+//            else {
+//                mergedItems.append(resultItem)
+//            }
+            
+            mergedItems.append(resultItem)
         }
         
         let composition = AVMutableComposition()
@@ -287,9 +291,16 @@ public class MergerAppConfigValue: NSObject, PropertyWatchable, AppConfigUIAttri
     @objc dynamic
     public var tintColor: UIColor?
     
+    @objc dynamic
+    public var timeRange: ImageEditStateValue?
+    
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? AppConfigUIAttributeValuable {
             self.tintColor = other.tintColor
+        }
+        
+        if let other = fromOther as? MergerAppConfigValue, let timeRange = other.timeRange {
+            self.timeRange = timeRange
         }
     }
 }
@@ -326,8 +337,6 @@ struct MergerResultItem: AppTaskResultable {
     //INFO: resize
     var contentMode: PHImageContentMode = .aspectFit
 }
-
-public class MergerAppValue: ImageEditStateValue {}
 
 private extension AppAsset {
     var asVideoURL: URL? {
@@ -387,8 +396,8 @@ private class MergerTask: AppTaskPrototype, AppTaskable {
         if let url = videoURL {
             result = MergerResultItem(asset: assetItem.asset, result: [PHAssetEditingResultItem(url: url, resourceType: .video)], orderedIndex: AppAssets.selected.index(of: assetItem))
             
-            if let app = AppCenter.default.currentInstanceAs(MergerApp.self), let mergeInfo = app.mergeEditInfo(with: assetItem.asset) {
-                result?.setEstimatedTimeRange(mergeInfo.timeRange)
+            if let timeRange = assetItem.editState.timeRange {
+                result?.setEstimatedTimeRange(timeRange)
             }
         }
         
@@ -450,11 +459,9 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     }
     
     private(set) var assetItem: AppAsset?
-    fileprivate var mergeInfo: MergeInfoItem?
     
-    fileprivate func setAssetItem(_ assetItem: AppAsset?, with mergeInfo: MergeInfoItem?) {
+    fileprivate func setAssetItem(_ assetItem: AppAsset?) {
         self.assetItem = assetItem
-        self.mergeInfo = mergeInfo
         
         (view as? VideoTrimControl)?.setVideo(nil, with: .zero)
         
@@ -462,7 +469,9 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
         DispatchQueue(label: #file + #function, qos: .utility).async {
             if let url = assetItem.asVideoURL {
                 let video = AVAsset(url: url)
-                (self.view as? VideoTrimControl)?.setVideo(video, with: mergeInfo?.timeRange ?? CMTimeRange(start: .zero, duration: video.duration))
+                let timeRange = assetItem.editState.timeRange ?? CMTimeRange(start: .zero, duration: video.duration)
+                (self.view as? VideoTrimControl)?.setVideo(video, with: timeRange)
+                self.setPlayerBoundaryTime(timeRange)
             }
         }
     }
@@ -470,35 +479,33 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     lazy var view: UIView = {
         let view = VideoTrimControl(frame: .zero)
         view.tintColor = MergerApp.info.themeColor
-        view.addTarget(self, action: #selector(self.trimControlDidChange), for: .valueChanged)
+        view.addTarget(self, action: #selector(self.seekTimeDidChange), for: .valueChanged)
+        view.addTarget(self, action: #selector(self.timeRangeDidChange), for: .scrollDidEnd)
         return view
     }()
     
-    private var playerBoundaryTimeObserver: Any?
-    @objc private func trimControlDidChange(sender: VideoTrimControl) {
-        self.timeRange = NSValue(timeRange: sender.timeRange)
-        
+    @objc private func seekTimeDidChange(sender: VideoTrimControl) {
         if player?.rate != 0 {
             player?.pause()
         }
         player?.seek(to: sender.seekTime, toleranceBefore: .zero, toleranceAfter: .zero)
-//        player?.actionAtItemEnd = .pause
-//
-//        if let observer = self.playerBoundaryTimeObserver {
-//            player?.removeTimeObserver(observer)
-//        }
-//
-//        self.playerBoundaryTimeObserver = player?.addBoundaryTimeObserver(forTimes: [NSValue(time: sender.timeRange.start), NSValue(time: sender.timeRange.end)], queue: DispatchQueue.main, using: {
-//            guard let playTime = self.player?.currentTime() else { return }
-//
-//            if playTime < sender.timeRange.start {
-//                self.player?.seek(to: sender.timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
-//                self.player?.play()
-//            }
-//            else if playTime >= sender.timeRange.end {
-//                self.player?.pause()
-//            }
-//        })
+    }
+    
+    private var playerBoundaryTimeObserver: Any?
+    @objc private func timeRangeDidChange(sender: VideoTrimControl) {
+        self.timeRange = NSValue(timeRange: sender.timeRange)
+        setPlayerBoundaryTime(sender.timeRange)
+    }
+    
+    private func setPlayerBoundaryTime(_ timeRange: CMTimeRange) {
+        if let observer = self.playerBoundaryTimeObserver {
+            player?.removeTimeObserver(observer)
+        }
+        
+        self.playerBoundaryTimeObserver = player?.addBoundaryTimeObserver(forTimes: [NSValue(time: timeRange.end)], queue: DispatchQueue.main, using: {
+            self.player?.seek(to: timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
+            self.player?.play()
+        })
     }
     
     var preferences: AppDockContentPreferable? {
@@ -691,6 +698,7 @@ class VideoTrimControl: UIControl {
         switch sender.state {
         case .began, .changed: break
         default:
+            sendActions(for: .scrollDidEnd)
             seekTimeThumb.isHidden = false
             seekTime(timeRange.start)
         }
@@ -723,6 +731,7 @@ class VideoTrimControl: UIControl {
         switch sender.state {
         case .began, .changed: break
         default:
+            sendActions(for: .scrollDidEnd)
             seekTimeThumb.isHidden = false
             seekTime(timeRange.start)
         }

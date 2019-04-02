@@ -69,6 +69,12 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
                     self.appendImageEditState(value)
                 }
             }
+            
+            appCenter.currentInstanceAs(MergerApp.self)?.config?.watch(\.timeRange, id:"editor\(MergerApp.info.identifier)") { (config, changed) in
+                if let value = config.timeRange {
+                    self.appendImageEditState(value)
+                }
+            }
 
             //common ui attributes if current app is ConfigurableApp
             appCenter.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
@@ -86,6 +92,7 @@ extension PhotoEditViewController:AppDockViewControllerAppConfigWatchableDelegat
         AppCenter.default.currentInstanceAs(DepthEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(DepthEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(RawEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(RawEditorApp.info.identifier)"])
         AppCenter.default.currentInstanceAs(ColorEditorApp.self)?.config?.unwatch(\.filter, forIds:["editor\(ColorEditorApp.info.identifier)"])
+        AppCenter.default.currentInstanceAs(MergerApp.self)?.config?.unwatch(\.timeRange, forIds:["editor\(MergerApp.info.identifier)"])
         AppCenter.default.unwatch(\.currentIdentifier, forIds:["editor"])
     }
 }

@@ -255,7 +255,7 @@ extension AppUIAssetView {
     fileprivate func applyFilter<T>(_ editState: StateValueSet<T>?) where T: ImageEditStateValue {
         guard let asset = asset else { return }
         
-        stopAny()
+        pauseAny()
         prepareProcessing()
         
         if originalCIImage == nil {

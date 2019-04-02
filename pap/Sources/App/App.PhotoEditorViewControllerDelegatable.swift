@@ -6,8 +6,11 @@
 import Foundation
 import Photos
 
-public protocol PhotoEditorPreviewProcessableApp: PreviewProcessableApp {
+public protocol PhotoEditorPreviewInteractionable {
     func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?)
+}
+
+public protocol PhotoEditorPreviewProcessableApp: PreviewProcessableApp & PhotoEditorPreviewInteractionable {
     func photoEditorShouldPreview(item: AppAsset) -> Bool
 }
 

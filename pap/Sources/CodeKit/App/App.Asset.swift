@@ -98,6 +98,9 @@ public class ImageEditStateValue: Object {
     public var doubleValue: Double? {
         return nil
     }
+    public var timeRange: CMTimeRange? {
+        return nil
+    }
 }
 
 public class CIFilterItem: ImageEditStateValue {
@@ -141,6 +144,12 @@ public extension StateValueSet where T: ImageEditStateValue {
 public extension StateValueSet where T: ImageEditStateValue {
     func playerItem(with video: AVAsset, for exporting: Bool = false) -> AVPlayerItem? {
         return imageEditStateValue?.playerItem(with: video, for: exporting)
+    }
+}
+
+public extension StateValueSet where T: ImageEditStateValue {
+    var timeRange: CMTimeRange? {
+        return imageEditStateValue?.timeRange
     }
 }
 

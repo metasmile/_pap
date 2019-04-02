@@ -467,8 +467,6 @@ extension AssetView {
         else if let _ = self.gifImage {
             self.stopGIFImage()
         }
-        
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
     
     func pauseAny() {
@@ -526,6 +524,7 @@ extension AssetView {
     func stopVideo() {
         pauseVideo()
         seekVideo(to: CMTime.zero)
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
     
     func seekVideo(to: CMTime, toleranceBefore: CMTime = CMTime.zero, toleranceAfter: CMTime = CMTime.zero, completionHandler: ((Bool) -> Void)? = nil) {
