@@ -1,2 +1,2 @@
-+ RAW Editor  - 簡單而強大的RAW圖像編輯器。
++ RAW Editor  - 一個簡單而強大的無損圖像編輯器。
 + HashTag  - 從您的照片中查找和收集主題標籤。

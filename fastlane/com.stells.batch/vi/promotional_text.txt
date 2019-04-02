@@ -1,2 +1,2 @@
-+ Trình chỉnh sửa RAW - Trình chỉnh sửa ảnh RAW dễ dàng và mạnh mẽ.
++ Trình chỉnh sửa RAW - Trình chỉnh sửa hình ảnh lossless dễ dàng và mạnh mẽ.
 + HashTag - Tìm kiếm và thu thập hashtag từ ảnh của bạn.
