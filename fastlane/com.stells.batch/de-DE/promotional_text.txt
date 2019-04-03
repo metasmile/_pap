@@ -1,2 +1,2 @@
-+ RAW-Editor - Ein einfacher und leistungsstarker RAW-Bildeditor.
++ RAW-Editor - Ein einfacher und leistungsstarker, verlustfreier Bildeditor.
 + HashTag - Finden und Sammeln von Hashtags aus Ihren Fotos.
