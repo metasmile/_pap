@@ -377,7 +377,7 @@ extension AppUIAssetView {
             }
         }
         
-        stopAny()
+        pauseAny()
         
         if let item = editState?.playerItem(with: composition) {
             playerItem = item
@@ -393,7 +393,7 @@ extension AppUIAssetView {
         else {
             playerItem = AVPlayerItem(asset: composition)
         }
-        seekVideo(to: .zero)
+        seekVideo(to: editState?.timeRange?.start ?? .zero)
         playAny()
     }
 }

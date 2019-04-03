@@ -459,7 +459,7 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
             if let player = player {
                 let interval = CMTime(value: 1, timescale: 30)
                 self.timePeriodicObserver = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (time) in
-                    if player.rate > 0 {
+                    if player.timeControlStatus == .playing {
                         (self.view as? VideoTrimControl)?.seekTime(time)
                     }
                 })
@@ -498,7 +498,7 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     }()
     
     @objc private func seekTimeDidChange(sender: VideoTrimControl) {
-        if player?.rate != 0 {
+        if player?.timeControlStatus == .playing {
             player?.pause()
         }
         player?.seek(to: sender.seekTime, toleranceBefore: .zero, toleranceAfter: .zero)
