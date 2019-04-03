@@ -452,7 +452,7 @@ extension PHAssetEditingResultViewController {
         
         for cell in collectionView.visibleCells {
             let cell = cell as! PHAssetEditingResultCollectionViewCell
-            cell.assetView.stopAny()
+            cell.assetView.teardown()
         }
     }
     

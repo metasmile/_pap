@@ -55,7 +55,7 @@ class PhotoPickerDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        assetView.stopAny()
+        assetView.teardown()
     }
 
     override var previewActionItems: [UIPreviewActionItem] {

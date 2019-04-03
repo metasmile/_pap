@@ -195,6 +195,14 @@ class AssetView: UIView {
         livePhoto = nil
     }
     
+    func teardown() {
+        clearDrawing()
+        
+        DispatchQueue(label: "AudioSessionQueue", qos: .utility).asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        }
+    }
+    
     fileprivate func cancelCurrentImageRequest() {
         if let imageRequestID = imageRequestID {
             AssetView.imageManager.cancelImageRequest(imageRequestID)
@@ -524,7 +532,6 @@ extension AssetView {
     func stopVideo() {
         pauseVideo()
         seekVideo(to: CMTime.zero)
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
     
     func seekVideo(to: CMTime, toleranceBefore: CMTime = CMTime.zero, toleranceAfter: CMTime = CMTime.zero, completionHandler: ((Bool) -> Void)? = nil) {
