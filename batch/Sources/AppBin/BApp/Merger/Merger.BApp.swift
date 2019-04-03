@@ -33,7 +33,7 @@ public class MergerAppValue: ImageEditStateValue {
     }
 }
 
-class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
+class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorPreviewInteractionable, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
     
@@ -105,6 +105,15 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     func reloadData() {
         let assetItem = dataSource?.appDockApp(self, appAssetAt: 0)
         (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
+    }
+    
+    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
+        if let content = self.photoEditorDockContent as? MergerPhotoEditorAppDockContent, let player = content.player, let timeRange = editStateValue?.timeRange {
+            if !timeRange.containsTime(player.currentTime()) {
+                (content.view as? VideoTrimControl)?.seekTime(timeRange.start)
+                player.seek(to: timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
+            }
+        }
     }
 }
 
@@ -454,6 +463,10 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
                         (self.view as? VideoTrimControl)?.seekTime(time)
                     }
                 })
+                
+                if let timeRange = (self.view as? VideoTrimControl)?.timeRange {
+                    self.setPlayerBoundaryTime(timeRange)
+                }
             }
         }
     }
@@ -494,6 +507,7 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     private var playerBoundaryTimeObserver: Any?
     @objc private func timeRangeDidChange(sender: VideoTrimControl) {
         self.timeRange = NSValue(timeRange: sender.timeRange)
+        self.player?.seek(to: sender.timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
         setPlayerBoundaryTime(sender.timeRange)
     }
     
