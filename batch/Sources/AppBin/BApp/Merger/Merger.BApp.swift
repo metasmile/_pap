@@ -512,14 +512,16 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     }
     
     private func setPlayerBoundaryTime(_ timeRange: CMTimeRange) {
-        if let observer = self.playerBoundaryTimeObserver {
-            player?.removeTimeObserver(observer)
+        DispatchQueue(label: #file + #function, qos: .utility).async {
+            if let observer = self.playerBoundaryTimeObserver {
+                self.player?.removeTimeObserver(observer)
+            }
+            
+            self.playerBoundaryTimeObserver = self.player?.addBoundaryTimeObserver(forTimes: [NSValue(time: timeRange.end)], queue: DispatchQueue.main, using: {
+                self.player?.seek(to: timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
+                self.player?.play()
+            })
         }
-        
-        self.playerBoundaryTimeObserver = player?.addBoundaryTimeObserver(forTimes: [NSValue(time: timeRange.end)], queue: DispatchQueue.main, using: {
-            self.player?.seek(to: timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
-            self.player?.play()
-        })
     }
     
     var preferences: AppDockContentPreferable? {
