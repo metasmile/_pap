@@ -53,12 +53,14 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     
     public static let info = AppInfo(
         identifier: "com.stells.batch.merger"
-        , version: "0.1"
-        , phase: .develop
+        , version: "1.0"
+        , phase: .beta
         , appType: MergerApp.self
-        , displayName: "Movie Maker".localized.localizedCapitalized, description:nil, keywords:nil
+        , displayName: "Movie Maker".localized.localizedCapitalized
+        , description: "Combine videos, live photos and photos."
+        , keywords: ["movie", "merge", "combine", "slideshow", "montage"]
         , iconBundleName: nil
-        , themeColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+        , themeColor: UIColor(rgb: 0xFFE259)//https://uigradients.com/#Mango
         , policy: AppPolicy.default
         , minOSVersion: nil
     )
