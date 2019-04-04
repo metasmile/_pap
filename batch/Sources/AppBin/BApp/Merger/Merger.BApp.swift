@@ -509,7 +509,7 @@ class MergerPhotoEditorAppDockContent: NSObject, PropertyWatchable, AppDockConte
     private var playerBoundaryTimeObserver: Any?
     @objc private func timeRangeDidChange(sender: VideoTrimControl) {
         self.timeRange = NSValue(timeRange: sender.timeRange)
-        self.player?.seek(to: sender.timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)
+        self.player?.seek(to: sender.seekTime, toleranceBefore: .zero, toleranceAfter: .zero)
         setPlayerBoundaryTime(sender.timeRange)
     }
     
@@ -595,7 +595,7 @@ class VideoTrimControl: UIControl {
         
         let seekBounds = CGRect(origin: CGPoint(x: startTimeThumb.frame.maxX, y: seekThumbBeginRect.origin.y), size: CGSize(width: endTimeThumb.frame.minX - startTimeThumb.frame.maxX - seekTimeThumb.width, height: seekThumbBeginRect.height))
         var offset = seekBounds.minX + seekBounds.width * CGFloat((time.seconds - timeRange.start.seconds) / timeRange.duration.seconds)
-        if offset < seekBounds.minX {
+        if offset.isNaN || offset < seekBounds.minX {
             offset = seekBounds.minX
         }
         else if offset > seekBounds.maxX {
@@ -796,7 +796,7 @@ class VideoTrimControl: UIControl {
         default:
             sendActions(for: .scrollDidEnd)
             seekTimeThumb.isHidden = false
-            seekTime(timeRange.start)
+            seekTime(timeRange.end)
         }
     }
     
