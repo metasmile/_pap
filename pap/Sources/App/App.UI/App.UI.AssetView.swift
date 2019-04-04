@@ -272,12 +272,17 @@ extension AppUIAssetView {
             editStateForPlayableAsset = editState as? StateValueSet<ImageEditStateValue>
         }
         else if asset.mediaType == .video, let video = playerItem?.asset {
-            videoView.isHidden = true
-            Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
-                DispatchQueue.main.async {
-                    self.videoView.isHidden = false
-                    self.applyFilterToVideo(video: video, editState: editState)
+            if let _ = editState?.ciFilter {
+                videoView.isHidden = true
+                Timer.scheduledTimer(identifier: fileName() + #function + "media", withTimeInterval: 0) { timer in
+                    DispatchQueue.main.async {
+                        self.videoView.isHidden = false
+                        self.applyFilterToVideo(video: video, editState: editState)
+                    }
                 }
+            }
+            else if let timeRange = editState?.timeRange {
+                seekVideo(to: timeRange.start)
             }
         }
     }
@@ -292,11 +297,18 @@ extension AppUIAssetView {
             }
             else if asset.mediaType == .video, let video = playerItem?.asset {
                 videoView.isHidden = false
-                self.applyFilterToVideo(video: video, editState: editState)
+                if let _ = editState.ciFilter {
+                    self.applyFilterToVideo(video: video, editState: editState)
+                }
+                seekVideo(to: editState.timeRange?.start ?? .zero)
             }
         }
         else {
             super.playAny()
+            
+            if let timeRange = editState?.timeRange, !timeRange.containsTime(videoSeekTime) {
+                seekVideo(to: timeRange.start)
+            }
         }
     }
 }
