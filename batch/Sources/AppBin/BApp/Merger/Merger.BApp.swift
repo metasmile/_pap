@@ -586,8 +586,19 @@ class VideoTrimControl: UIControl {
     
     func seekTime(_ time: CMTime) {
         guard let _ = video, time.isNumeric, duration.isNumeric else { return }
-        seekTimeThumb.frame.origin.x = thumbnailViewBounds.minX + (thumbnailViewBounds.width - seekTimeThumb.width) * CGFloat(time.seconds / duration.seconds)
+        
         seekTime = time
+        
+        let seekBounds = CGRect(origin: CGPoint(x: startTimeThumb.frame.maxX, y: seekThumbBeginRect.origin.y), size: CGSize(width: endTimeThumb.frame.minX - startTimeThumb.frame.maxX - seekTimeThumb.width, height: seekThumbBeginRect.height))
+        var offset = seekBounds.minX + seekBounds.width * CGFloat((time.seconds - timeRange.start.seconds) / timeRange.duration.seconds)
+        if offset < seekBounds.minX {
+            offset = seekBounds.minX
+        }
+        else if offset > seekBounds.maxX {
+            offset = seekBounds.maxX
+        }
+        
+        seekTimeThumb.frame.origin.x = offset
     }
     
     private var video: AVAsset?
