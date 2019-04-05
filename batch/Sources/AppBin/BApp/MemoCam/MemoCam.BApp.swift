@@ -1105,7 +1105,9 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
             DispatchQueue.global(qos: .userInteractive).async{
                 let async = AsyncSignal()
                 if let results = self.detector.detectResult(image: image, async) {
-                    self.resultPreviewView.reloadResults(results, includingPlainText:self.isShowingAllText)
+                    DispatchQueue.main.async {
+                        self.resultPreviewView.reloadResults(results, includingPlainText:self.isShowingAllText)
+                    }
                 }
 
                 DispatchQueue.main.async {

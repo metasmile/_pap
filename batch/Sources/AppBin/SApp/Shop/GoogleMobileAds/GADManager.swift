@@ -104,7 +104,9 @@ public final class GADManager: NSObject {
     }
     
     public func configureWithApp(_ id : String){
-        GADMobileAds.configure(withApplicationID: id)
+        GADMobileAds.sharedInstance().start { (status) in
+            
+        }
     }
     
     public func setTestDevics(testDevices: [String]){

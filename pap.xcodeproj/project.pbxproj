@@ -5101,7 +5101,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-mmc/Pods-mmc-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5110,7 +5110,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mmc/Pods-mmc-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E897BB37740463D954FAA6D /* [CP] Embed Pods Frameworks */ = {
@@ -5119,7 +5119,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -5148,7 +5148,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mmc/Pods-mmc-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A2766D0FF202207C76379AF /* [CP] Check Pods Manifest.lock */ = {
@@ -5317,7 +5317,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
@@ -5346,7 +5346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ocra/Pods-ocra-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CB03A7219DE4F2007A5278 /* ShellScript */ = {
@@ -5368,7 +5368,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ocra/Pods-ocra-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5377,7 +5377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ocra/Pods-ocra-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ocra/Pods-ocra-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CBFE3C219ADBA2007A5278 /* [CP] Check Pods Manifest.lock */ = {
@@ -5417,7 +5417,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-sap/Pods-sap-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-sap/Pods-sap-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -5454,7 +5454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sap/Pods-sap-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sap/Pods-sap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CBFFA8219ADBA2007A5278 /* ShellScript */ = {
@@ -5476,7 +5476,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-sap/Pods-sap-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-sap/Pods-sap-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5485,7 +5485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sap/Pods-sap-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sap/Pods-sap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0CBFFB1219C8C64007A5278 /* ShellScript */ = {
@@ -5507,7 +5507,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5516,7 +5516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF725CC5B4C04BFDC2F5DEED /* [CP] Copy Pods Resources */ = {
@@ -5525,7 +5525,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-batch/Pods-batch-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -5534,7 +5534,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-batch/Pods-batch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E335F0661EDA9957ABAAE76F /* [CP] Embed Pods Frameworks */ = {
@@ -5543,7 +5543,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -5580,7 +5580,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-batch-papTests/Pods-batch-papTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3607A0050E70D649848C2DD /* [CP] Embed Pods Frameworks */ = {
@@ -5589,7 +5589,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-batch/Pods-batch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Armchair/Armchair.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -5626,7 +5626,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-batch/Pods-batch-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-batch/Pods-batch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6329068ABA98C157F8EC116 /* [CP] Check Pods Manifest.lock */ = {
@@ -8023,6 +8023,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -8077,6 +8078,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
@@ -8107,7 +8109,6 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8134,7 +8135,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.batch AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8161,7 +8161,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.mmc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.mmc Development";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8186,7 +8185,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.mmc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.mmc AppStore";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8213,7 +8211,6 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8239,7 +8236,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.artist AppStore 1542215127";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8266,7 +8262,6 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8292,7 +8287,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.xfgst AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8319,7 +8313,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.ocra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.ocra Development 1542303982";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8344,7 +8337,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.ocra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.ocra AppStore 1542303956";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8371,7 +8363,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap Development 2";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -8397,7 +8388,6 @@
 				PROVISIONING_PROFILE = "9feb2654-45ae-49f0-a275-9e905554b9e0";
 				PROVISIONING_PROFILE_SPECIFIER = "com.stells.sap AppStore";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -8420,7 +8410,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap.papTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/batch.app/batch";
 			};
@@ -8444,7 +8433,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.pap.papTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/batch.app/batch";
 			};

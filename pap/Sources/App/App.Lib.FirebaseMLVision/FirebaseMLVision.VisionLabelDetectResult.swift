@@ -8,18 +8,18 @@ import FirebaseMLVision
 import Photos
 
 protocol VisionLabelDetectResult {
-    var sourceVisionLabels:[VisionLabel] {get}
+    var sourceVisionLabels:[VisionImageLabel] {get}
 }
 
 struct VisionLabelPHAssetDetectResult: VisionLabelDetectResult, AppTaskResultable, Equatable, Hashable {
     let asset:PHAsset
-    let sourceVisionLabels:[VisionLabel]
+    let sourceVisionLabels:[VisionImageLabel]
     let labelTextsConfidenceDescending:[String]
 
-    init(asset:PHAsset, visionLabels:[VisionLabel]){
+    init(asset:PHAsset, visionLabels:[VisionImageLabel]){
         self.asset = asset
         self.sourceVisionLabels = visionLabels
-        self.labelTextsConfidenceDescending = visionLabels.sorted { l1, l2 in return l1.confidence > l2.confidence }.map { $0.label }
+        self.labelTextsConfidenceDescending = visionLabels.sorted { l1, l2 in return (l1.confidence?.floatValue ?? 0) > (l2.confidence?.floatValue ?? 0) }.map { $0.text }
     }
 
     static func ==(lhs: VisionLabelPHAssetDetectResult, rhs: VisionLabelPHAssetDetectResult) -> Bool {
@@ -36,8 +36,8 @@ extension Array where Element==VisionLabelPHAssetDetectResult{
 
     var labelTextsConfidenceDescending:[String]{
         return map{ $0.sourceVisionLabels }.reduce([],+)
-                .sorted { l1, l2 in return l1.confidence > l2.confidence }
-                .map { $0.label }
+                .sorted { l1, l2 in return (l1.confidence?.floatValue ?? 0) > (l2.confidence?.floatValue ?? 0) }
+                .map { $0.text }
                 .uniq()
     }
 }

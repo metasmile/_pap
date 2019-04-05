@@ -219,8 +219,8 @@ private struct HashtagenAppDetector{
         if let image = asset.asUIImage  {
             async.begin()
 
-            vision.labelDetector().detect(in: VisionImage(image: image), completion:{ (labels,e) in
-                if e == nil, let labels:[VisionLabel] = labels?.nilEmpty{
+            vision.onDeviceImageLabeler().process(VisionImage(image: image), completion:{ (labels,e) in
+                if e == nil, let labels:[VisionImageLabel] = labels?.nilEmpty{
                     results = VisionLabelPHAssetDetectResult(asset: asset, visionLabels: labels)
                 }
                 async.end()
