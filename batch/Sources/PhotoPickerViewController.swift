@@ -11,8 +11,25 @@ import Photos
 import PhotosUI
 
 class PhotoPickerViewController: AppDockViewController {
-    private lazy var undoButton = UIBarButtonItem(image: R.image.systemIconUndo(), style: .plain, target: self, action: #selector(self.undo))
-    private lazy var redoButton = UIBarButtonItem(image: R.image.systemIconRedo(), style: .plain, target: self, action: #selector(self.redo))
+    private lazy var undoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(R.image.systemIconUndo(), for: .normal)
+        button.addTarget(self, action: #selector(self.undo), for: .touchUpInside)
+        return button
+    }()
+    private lazy var redoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(R.image.systemIconRedo(), for: .normal)
+        button.addTarget(self, action: #selector(self.redo), for: .touchUpInside)
+        return button
+    }()
+    private lazy var undoRedoControl: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [undoButton, redoButton])
+        view.axis = .horizontal
+        view.spacing = 12
+        return view
+    }()
+    private lazy var undoRedoControlItem: UIBarButtonItem = UIBarButtonItem(customView: undoRedoControl)
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
@@ -480,10 +497,13 @@ class PhotoPickerViewController: AppDockViewController {
                 if let app = AppCenter.default.currentInstanceAs(Undoable.self) {
                     self.updateUndoButtonStatus(app)
                     
+                    let spacing = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                    spacing.width = 14
+                    
                     navigationItem.setLeftBarButtonItems([
                         cancelButton,
-                        self.undoButton,
-                        self.redoButton
+                        spacing,
+                        self.undoRedoControlItem
                         ], animated: true)
                 }
                 else {
