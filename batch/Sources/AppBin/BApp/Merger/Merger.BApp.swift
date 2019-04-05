@@ -743,7 +743,7 @@ class VideoTrimControl: UIControl {
         case .began: startThumbBeginRect = startTimeThumb.frame
         default:
             let location = startThumbBeginRect.origin.x + translation.x
-            let offset = min(location - thumbnailViewBounds.minX, endTimeOffset)
+            let offset = min(location - thumbnailViewBounds.minX + thumbWidth, endTimeOffset)
             
             if offset > 0 {
                 timeRange = CMTimeRange(start: time(offset: offset), end: timeRange.end)
@@ -751,7 +751,7 @@ class VideoTrimControl: UIControl {
             }
             else {
                 timeRange = CMTimeRange(start: .zero, end: timeRange.end)
-                startTimeThumb.frame.origin.x = thumbnailViewBounds.minX + self.offset(time: .zero) - startTimeThumb.frame.width
+                startTimeThumb.frame.origin.x = thumbnailViewBounds.minX + self.offset(time: .zero) - thumbWidth
             }
             seekTime = timeRange.start
             drawTimeRange()
