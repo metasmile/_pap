@@ -180,7 +180,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     }
 
     var previewOriginalBadgeTitle: String {
-        return "Depth Map"
+        return "Depth Map".localized
     }
 
     func previewOriginalImageCompare(with appAsset: AppAsset, targetSize: CGSize) -> UIImage? {
