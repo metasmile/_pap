@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "成为一名艺术家。艺术家可以让您将所有照片或视频戏剧性地转变为着名的风格画作。此批处理工具对要转换的照片数量没有限制。";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "偏压";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "黑人";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "蓝/洋红色";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "货币兑换";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "目前，我们的AI文本识别模型仅适用于字母数字和一些特殊字符，并且可能受当前系统语言的影响。";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "曲线工具";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "自定义";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "下载...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "电子邮件地址";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可让您删除包含照片的各种数据，包括私人信息。";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "给我们留言";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "中间调";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "模式H.";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "选择要删除的照片。";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "选择照片查找内容。";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "选择项目";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "选择要复制的内容，然后使用Handoff将其复制到iPhone或Mac上";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "选择";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "选";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "欢迎来到我们的促销许可计划！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "欢迎来到我们的特邀嘉宾计划！";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "白人";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "从最后一项中删除我的隐私。";
 /* genl10n: ExifGhost.BApp.swift */

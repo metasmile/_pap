@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Будь художником. Виконавець дозволить вам різко перетворити ваші фотографії або відео на знамениті картини. Цей пакетний інструмент обробки не має обмежень на кількість фотографій для перетворення.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Упередження";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Чорні";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Синій / пурпуровий";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Обмін валюти";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "В даний час наша модель розпізнавання тексту AI доступна лише для буквено-цифрових та деяких спеціальних символів, і це може вплинути на поточну системну мову.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Інструмент &quot;Крива&quot;";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Завантаження ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Адреса електронної пошти";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "ДІМ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Повідомлення нам";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Режим H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Виберіть 'Фотографії для видалення'.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Виберіть &quot;Фотографії&quot;, щоб знайти щось.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Виберіть елементи";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Виберіть вміст, який ви хочете скопіювати, а потім скопіюйте його на свій iPhone або Mac за допомогою Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Виберіть";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Вибрано";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Ласкаво просимо до нашої ліцензійної програми!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Ласкаво просимо до нашої спеціальної ліцензійної програми!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "Білі";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Протріть мою конфіденційність з останнього елемента.";
 /* genl10n: ExifGhost.BApp.swift */

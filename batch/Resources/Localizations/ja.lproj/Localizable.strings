@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "アーティストになるアーティストは劇的にすべての写真やビデオを有名な絵画に変えることができます。このバッチ処理ツールには、変換する写真の数に制限はありません。";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "バイアス";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "黒人";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "ブルー/マゼンタ";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "為替";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "現在のところ、AIテキスト認識モデルは、英数字および一部の特殊文字に対してのみ使用でき、現在のシステム言語の影響を受ける可能性があります。";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "曲線ツール";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "カスタム";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "ダウンロード中...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "電子メールアドレス";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostでは、個人情報および写真を含むあらゆる種類のデータを削除できます。";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "メモ帳";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "私たちへのメッセージ";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "ミッドトーン";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "モードH";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "削除する写真を選択";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "写真を選択して何かを検索する。";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "アイテムを選択";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "コピーしたいコンテンツを選択し、Handoffを使ってiPhoneまたはMacにコピーします";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "選択する";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "選択されました。";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "プロモーションライセンスプログラムへようこそ！";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "スペシャルゲストライセンスプログラムへようこそ！";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "白人";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "最後のアイテムから私のプライバシーを拭いてください。";
 /* genl10n: ExifGhost.BApp.swift */

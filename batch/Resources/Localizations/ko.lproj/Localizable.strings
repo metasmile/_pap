@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "예술가가 되십시오. 아티스트는 모든 사진이나 비디오를 유명한 스타일의 그림으로 전환 할 수있게 해줍니다. 이 일괄 처리 도구는 변환 할 사진 수에 제한이 없습니다.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "바이어스";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "흑인";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "청색 / 자홍색";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "환전소";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "현재 AI 텍스트 인식 모델은 영숫자 및 일부 특수 문자에만 사용할 수 있으며 현재 시스템 언어의 영향을받을 수 있습니다.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "곡선 도구";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "사용자 정의";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "다운로드 중 ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "이메일 주소";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "메모 캠";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "우리에게 보내는 메시지";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "모드 H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "삭제할 사진을 선택하십시오.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "찾을 사진을 선택하십시오.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "항목 선택";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "복사 할 콘텐츠를 선택한 다음 Handoff를 사용하여 iPhone 또는 Mac에 복사합니다.";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "고르다";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "선택됨";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "프로모션 라이센스 프로그램에 오신 것을 환영합니다!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "특별 게스트 라이센스 프로그램에 오신 것을 환영합니다!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "백대하";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "마지막 항목에서 개인 정보를 삭제하십시오.";
 /* genl10n: ExifGhost.BApp.swift */

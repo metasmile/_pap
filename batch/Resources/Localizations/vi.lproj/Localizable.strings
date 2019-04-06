@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Hãy là một nghệ sĩ. Nghệ sĩ cho phép bạn biến tất cả ảnh hoặc video của bạn thành những bức tranh nổi tiếng. Công cụ xử lý hàng loạt này không có giới hạn về số lượng ảnh cần chuyển đổi.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Xu hướng";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Người da đen";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Màu xanh / đỏ tươi";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Thu đổi ngoại tệ";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Hiện tại, mô hình nhận dạng văn bản AI của chúng tôi chỉ có sẵn cho chữ và số và một số ký tự đặc biệt và nó có thể bị ảnh hưởng bởi ngôn ngữ hệ thống hiện tại.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Công cụ đường cong";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Tập quán";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Đang tải xuống ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Địa chỉ email";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "NHÀ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Thông báo cho chúng tôi";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midton";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Chế độ H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Chọn Ảnh để Xóa.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Chọn ảnh để tìm nội dung nào đó.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Chọn các mục";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Chọn nội dung bạn muốn sao chép, sau đó sao chép nội dung trên iPhone hoặc Mac bằng Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Lựa chọn";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Đã chọn";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Chào mừng bạn đến với chương trình giấy phép quảng cáo của chúng tôi!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Chào mừng bạn đến với chương trình giấy phép khách mời đặc biệt của chúng tôi!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "Người da trắng";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Xóa sạch sự riêng tư của tôi từ mục cuối cùng.";
 /* genl10n: ExifGhost.BApp.swift */

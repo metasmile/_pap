@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Ole taiteilija. Esittäjä antaa sinulle dramaattisesti kaikki valokuvasi tai videosi kuuluisiksi tyylikkäiksi maalauksiksi. Tämä eräprosessointityökalu ei rajoita muunnettavien valokuvien määrää.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Puolueellisuus";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "mustat";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Sininen / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Valuutanvaihto";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Tällä hetkellä AI-tekstintunnistusmallimme on käytettävissä vain aakkosnumeerisille ja tietyille erikoismerkille, ja nykyinen järjestelmäkieli saattaa vaikuttaa siihen.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Käyrätyökalu";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Lataamista ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Sähköpostiosoite";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghostin avulla voit poistaa kaikenlaisia ​​valokuvasi sisältäviä tietoja, kuten yksityisiä tietoja.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Viesti meille";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "keskisävyt";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Tila H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Valitse valokuvien poistaminen.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Valokuvien valitseminen jotain löytämiseksi.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Valitse kohteet";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Valitse kopioitava sisältö ja kopioi se iPhonella tai Macilla kanavanvaihtoon";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "valita";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "valittu";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Tervetuloa myynninedistämisohjelmaan!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Tervetuloa erityisvieraiden lisenssiohjelmaan!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "valkopyykki";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Pyyhi yksityisyyteni viimeisestä kohdasta.";
 /* genl10n: ExifGhost.BApp.swift */

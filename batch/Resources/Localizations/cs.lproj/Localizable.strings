@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Buď umělec. Umělec vás dramaticky změní na všechny fotografie nebo videa do slavných stylizovaných obrazů. Tento dávkový nástroj pro zpracování nemá žádný limit pro počet fotografií, které je třeba převést.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Bias";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Černoši";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Modrá / Purpurová";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Směnárna";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "V současné době je náš model rozpoznávání textu AI dostupný pouze pro alfanumerické a některé speciální znaky a mohl by být ovlivněn současným systémovým jazykem.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Nástroj Křivka";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Zvyk";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Stahování ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Emailová adresa";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost vám umožní odstranit všechny druhy dat obsahující vaše fotografie, včetně soukromých informací.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Zpráva nám";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midtony";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Režim H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Vyberte fotky k odstranění.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Vyberte fotky, chcete-li něco najít.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Vyberte položky";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Vyberte obsah, který chcete zkopírovat, a zkopírujte jej do zařízení iPhone nebo Mac pomocí funkce Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Vybrat";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Vybraný";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Vítejte v našem licenčním programu!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Vítejte v našem licenčním programu pro zvláštní hosty!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "Bílí";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Vymaž mi soukromí od poslední položky.";
 /* genl10n: ExifGhost.BApp.swift */

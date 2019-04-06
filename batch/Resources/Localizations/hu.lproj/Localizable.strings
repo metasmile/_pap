@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Legyen művész. Az előadó lehetővé teszi, hogy drámaian minden fényképét vagy videóját híres festményként alakítsa át. Ez a kötegelt feldolgozó eszköz nem korlátozza a konvertálandó fotók számát.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Elfogultság";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "feketék";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Kék / magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Valutaváltó";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Jelenleg az AI szövegfelismerési modellünk csak az alfanumerikus és néhány speciális karakter számára elérhető, és az aktuális rendszernyelv befolyásolhatja.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Curve eszköz";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Szokás";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Letöltés ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "Email cím";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HÁZ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Az EXIF ​​Ghost lehetővé teszi, hogy eltávolítson minden olyan adatot, amely a fényképeket tartalmazza, beleértve a privát adatokat is.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Üzenet nekünk";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "középtónusok";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "H mód";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Válassza ki a Fotók törléshez lehetőséget.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Válassza ki a fotókat, hogy valamit találjon.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Válassza ki az elemeket";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Válassza ki a másolni kívánt tartalmat, majd másolja át iPhone-ra vagy Mac-re a Handoff segítségével";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "választ";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Kiválasztott";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Üdvözöljük a promóciós licencprogramunkban!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Üdvözöljük a különleges vendégprogramunkban!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "fehér ruhák";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Törölje az adataimat az utolsó elemből.";
 /* genl10n: ExifGhost.BApp.swift */

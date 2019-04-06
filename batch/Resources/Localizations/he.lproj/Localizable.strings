@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "להיות אמן. האמן מאפשר לך להפוך באופן דרמטי את כל התמונות או קטעי וידאו לתוך ציורים מנוסח מפורסם. זה כלי אצווה עיבוד אין הגבלה על מספר התמונות להמיר.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "הטיה";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "שחורים";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "כחול / מגנטה";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "המרת מטבע";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "נכון לעכשיו, מודל זיהוי הטקסט AI שלנו זמין רק עבור אלפאנומריים וכמה תווים מיוחדים, וזה יכול להיות מושפע שפת המערכת הנוכחית.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "כלי עקומה";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Custom";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "מוריד ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "כתובת דוא'ל";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost מאפשר לך להסיר כל מיני נתונים המכילים את התמונות שלך, כולל מידע פרטי.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "זיכרון";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "הודעה לנו";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "מידטון";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "מצב ח";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "בחר תמונות למחיקה.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "בחר תמונות כדי למצוא משהו.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "בחר פריטים";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "בחר את התוכן שברצונך להעתיק, ולאחר מכן להעתיק אותו ב- iPhone או Mac עם Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "בחר";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "נבחר";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "ברוכים הבאים לתוכנית הרישוי שלנו!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "ברוכים הבאים לתוכנית הרישיון המיוחדת שלנו!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "לבנים";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "מחק את הפרטיות שלי מהפריט האחרון.";
 /* genl10n: ExifGhost.BApp.swift */

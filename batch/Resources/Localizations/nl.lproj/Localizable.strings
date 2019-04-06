@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Wees een artiest. Kunstenaar laat je dramatisch je alle foto's of video's omzetten in beroemde gestileerde schilderijen. Deze batchverwerkingstool kent geen limiet voor het aantal te converteren foto's.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Vooroordeel";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Blacks";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blauw / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Wisselkantoor";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Momenteel is ons AI-tekstherkenningsmodel alleen beschikbaar voor alfanumerieke tekens en enkele speciale tekens. Mogelijk is dit van invloed op de huidige systeemtaal.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Curve Tool";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Gewoonte";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Downloaden ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Met EXIF ​​Ghost kunt u alle soorten gegevens verwijderen die uw foto's bevatten, inclusief privégegevens.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Bericht aan ons";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "middentonen";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Modus H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Selecteer Foto's om te verwijderen.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Selecteer Foto's om iets te vinden.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Selecteer items";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Selecteer de inhoud die u wilt kopiëren en kopieer deze vervolgens op uw iPhone of Mac met Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "kiezen";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Gekozen";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Welkom bij ons promotie-licentieprogramma!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Welkom bij ons speciale gastlicentieprogramma!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "witte was";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Wis mijn privacy van het laatste item.";
 /* genl10n: ExifGhost.BApp.swift */

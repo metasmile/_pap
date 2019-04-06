@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Vær en kunstner. Artist lar deg dramatisk slå alle bildene eller videoene inn i berømte stilte malerier. Dette batchbehandlingsverktøyet har ingen grense for antall bilder som skal konverteres.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Partiskhet";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Blacks";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blå / Magenta";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Valutaveksling";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "For øyeblikket er vår AI-tekstgjenkjenningsmodell kun tilgjengelig for alfanumeriske og noen spesialtegn, og det kan bli påvirket av det nåværende systemspråket.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Kurveverktøy";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Tilpasset";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Nedlasting av ...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift */
 "E-mail Address" = "Epostadresse";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Melding til oss";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "tonene";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Modus H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Velg bilder for å slette.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Velg bilder for å finne noe.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Velg elementer";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Velg innholdet du vil kopiere, og kopier det på iPhone eller Mac med Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Å velge";
 /* Generated from genl10n: Cleaner.BApp.swift */
 "Selected" = "valgt";
 /* Generated from genl10n: Finder.BApp.swift, Finder.BApp.swift, Finder.BApp.swift */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Velkommen til vår kampanje lisensprogram!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Velkommen til vårt spesielle gjestelisensprogram!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "hvitt";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Tørk mitt personvern fra det siste elementet.";
 /* genl10n: ExifGhost.BApp.swift */

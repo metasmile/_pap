@@ -248,6 +248,8 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Γίνε καλλιτέχνης. Ο καλλιτέχνης σάς επιτρέπει να μετατρέπετε δραματικά όλες τις φωτογραφίες ή τα βίντεό σας σε διάσημα ζωγραφισμένα στυλ. Αυτό το εργαλείο επεξεργασίας παρτίδας δεν έχει όριο στον αριθμό των φωτογραφιών που θα μετατραπούν.";
 /* Generated from genl10n: RawEditor.swift */
 "Bias" = "Προκατάληψη";
+/* genl10n: ColorEditor.BApp.swift */
+"Blacks" = "Μαύροι";
 /* Generated from genl10n: RawEditor.swift */
 "Blue / Magenta" = "Μπλε / Ματζέντα";
 /* Generated from genl10n: Resizer.BApp.swift */
@@ -334,6 +336,8 @@
 "Currency Exchange" = "Ανταλλαγή συναλλάγματος";
 /* Generated from genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Προς το παρόν, το μοντέλο αναγνώρισης κειμένων AI είναι διαθέσιμο μόνο για αλφαριθμητικούς και με ορισμένους ειδικούς χαρακτήρες και θα μπορούσε να επηρεαστεί από την τρέχουσα γλώσσα του συστήματος.";
+/* genl10n: ColorEditor.BApp.swift(2) */
+"Curve Tool" = "Εργαλείο καμπύλης";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#178 */
 "Custom" = "Εθιμο";
 /* Generated from genl10n: RawEditor.swift */
@@ -364,8 +368,6 @@
 "Downloading..." = "Λήψη ...";
 /* Generated from genl10n: FinderApp.AppDockContent.swift */
 "E-mail Address" = "E-mail Address";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "ΣΠΙΤΙ";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
 /* Generated from genl10n: RawEditor.swift */
@@ -518,6 +520,8 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
+/* genl10n: ColorEditor.BApp.swift */
+"Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Τρόπος H";
 /* genl10n: GIFMaker.BApp.swift */
@@ -706,8 +710,12 @@
 "Select Photos To Delete." = "Επιλέξτε Φωτογραφίες για Διαγραφή.";
 /* Generated from genl10n: Finder.BApp.swift */
 "Select Photos To Find Something." = "Επιλέξτε φωτογραφίες για να βρείτε κάτι.";
+/* genl10n: PhotoPickerViewController.swift */
+"Select items" = "Επιλέξτε στοιχεία";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Select the content you want to copy, then copy it on your iPhone or Mac with Handoff" = "Επιλέξτε το περιεχόμενο που θέλετε να αντιγράψετε και, στη συνέχεια, αντιγράψτε το στο iPhone ή το Mac με Handoff";
+/* genl10n: PhotoPickerViewController.Operations.ChargeableApp.swift */
+"Select" = "Επιλέγω";
 /* Generated from genl10n: Cleaner.BApp.swift#510 */
 "Selected" = "Επιλεγμένο";
 /* Generated from genl10n: Finder.BApp.swift#532, Finder.BApp.swift#543, Finder.BApp.swift#553 */
@@ -910,6 +918,8 @@
 "Welcome to our promotion license program!" = "Καλωσορίσατε στο πρόγραμμα αδειών προώθησης!";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Καλώς ήρθατε στο πρόγραμμα ειδικών αδειών επισκέπτη!";
+/* genl10n: ColorEditor.BApp.swift */
+"Whites" = "Λευκά";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Σκουπίστε την ιδιωτική μου ζωή από το τελευταίο στοιχείο.";
 /* genl10n: ExifGhost.BApp.swift */

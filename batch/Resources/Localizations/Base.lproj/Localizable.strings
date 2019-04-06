@@ -313,8 +313,6 @@
 /* genl10n: DepthEditor.BApp.swift */
 "Depth Editor" = "Depth Editor";
 /* genl10n: DepthEditor.BApp.swift */
-"Depth Map" = "Depth Map";
-/* genl10n: DepthEditor.BApp.swift */
 "Depth" = "Depth";
 /* genl10n: DepthEditor.BApp.swift */
 "Depth+" = "Depth+";
@@ -334,8 +332,6 @@
 "Downloading..." = "Downloading...";
 /* genl10n: Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "E-mail Address" = "E-mail Address";
-/* genl10n: RawEditor.swift */
-"EV" = "EV";
 /* genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
 /* genl10n: RawEditor.swift */
