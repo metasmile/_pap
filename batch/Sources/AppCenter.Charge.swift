@@ -173,7 +173,7 @@ private final class AppChargeManager: ChargeManager{
             )
 
             , AppCharge(type: .instantAdsShowingAllowance
-                    , reward: .rented
+                    , reward: .blockOfUses
                     , payment: GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self
                     , priceAmount: AmountObject(value:0.0)
                     , describable: AppChargeDescription(title:"Activate Ads".localized, description: nil, iconImage: nil)

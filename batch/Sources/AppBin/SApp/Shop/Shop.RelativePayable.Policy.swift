@@ -27,7 +27,6 @@ extension RelativePayable{
             AllTimeAllAppsPayment.self,
             FreeAllAppsPayment.self,
             SecretCodeProgramPayment<PermanentVIPSecretCodeProgram>.self,
-            GADInterestialAdsViewingPayment<GADInterestialTypeBlockOfUses>.self,
 //            MonthlyAllAppsPayment.self,
 //            YearlyAllAppsPayment.self
         ].hashSet
