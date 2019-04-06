@@ -1,6 +1,6 @@
-O PAPS é a caixa de ferramentas de foto, vídeo e câmera de finalidade infinita com uma edição de mídia em lote rápida e em larga escala. Basta escolher uma ferramenta e, em seguida, selecione todas as fotos que você precisa e, em seguida, toque no botão. Isso é tudo.
+O Fotos Plus é a caixa de ferramentas de foto, vídeo e câmera de finalidade infinita com uma edição de mídia em lote rápida e em larga escala. Basta escolher uma ferramenta e, em seguida, selecione todas as fotos que você precisa e, em seguida, toque no botão. Isso é tudo.
 
-Com o PAPS, você pode fazer tudo o que precisa para todas as suas fotos com apenas um toque.
+Com o Fotos Plus, você pode fazer tudo o que precisa para todas as suas fotos com apenas um toque.
 
 
 A lista de ferramentas -
@@ -8,6 +8,10 @@ A lista de ferramentas -
 
 Câmera
 A câmera interna padrão que suporta efeitos de profundidade, captura RAW e metadados de GPS que economizam controle para sua privacidade.
+
+
+Depth Editor
+Permite ajustar a intensidade do desfoque do fundo após a captura de um retrato.
 
 
 Bot de Seleção Automática (Sistema ASB)
@@ -57,10 +61,7 @@ Uma ferramenta de edição de fotos altamente profissional para editar habilment
 Rotação
 Esta ferramenta de transformação de imagens em lote simples, mas em grande escala, permite girar e girar rapidamente muitos arquivos de mídia, incluindo Fotos e vídeos ao vivo. A ferramenta simples não tem limitação ao número de fotos para editá-las.
 
-• Capacidade de processamento testada: mínimo de 2000 + fotos ao mesmo tempo.
-• Otimizado para processamento multi-core. Depende dos modelos do iDevice.
-
-
+ 
 Editor auto
 O Auto Editor permite que você edite automaticamente se suas fotos são necessárias para corrigir.
 

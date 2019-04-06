@@ -1,3 +1,3 @@
-++ NEU - Tiefeneditor 1.0: Ermöglicht das Anpassen der Intensität der Hintergrundunschärfe nach der Aufnahme eines Porträts.
-+ NEU - GIF Maker 1.1: Neuer Shake-Reduction-Modus zur Stabilisierung von Animationsbildern.
-+ Leistungsverbesserungen und Korrekturen.
+++ NEW - Depth Editor 1.0: Enables you to adjust the intensity of background blur after capturing a portrait.
++ NEW - GIF Maker 1.1: Added shake reduction mode for stabilizing animation frames.
++ Performance improvements and fixes.

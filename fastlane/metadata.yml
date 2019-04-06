@@ -11,8 +11,8 @@ com.stells.batch:
         marketing_url: 'https://apps.photo'
         privacy_url: 'https://apps.photo/privacy'
         support_url: 'https://apps.photo/support'
-        promotional_text: 'An App, But Contains Many PAPS: PAPS, an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and PAPS built with the latest technologies on its own.'
+        promotional_text: 'An App, But Contains Many Photos Plus: Photos Plus, an app designed for a familiar and standard UI, is an extensive-purpose app contains a lot of subalternate camera and Photos Plus built with the latest technologies on its own.'
     en-US:
-        name: PAPS
+        name: Photos Plus
         subtitle: 'Do Everything With Photos.'
         release_notes: ''

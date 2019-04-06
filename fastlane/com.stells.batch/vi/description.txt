@@ -1,6 +1,6 @@
-PAPS là hộp công cụ ảnh, video và máy ảnh có mục đích vô hạn với khả năng chỉnh sửa phương tiện hàng loạt nhanh, quy mô lớn. Chỉ cần chọn một công cụ và sau đó chọn tất cả các ảnh bạn cần, sau đó nhấn nút. Đó là tất cả.
+Photos Plus là hộp công cụ ảnh, video và máy ảnh có mục đích vô hạn với khả năng chỉnh sửa phương tiện hàng loạt nhanh, quy mô lớn. Chỉ cần chọn một công cụ và sau đó chọn tất cả các ảnh bạn cần, sau đó nhấn nút. Đó là tất cả.
 
-Với PAPS, bạn có thể làm bất cứ điều gì bạn cần cho tất cả các bức ảnh của mình chỉ bằng một cú chạm.
+Với Photos Plus, bạn có thể làm bất cứ điều gì bạn cần cho tất cả các bức ảnh của mình chỉ bằng một cú chạm.
 
 
 Danh sách các công cụ -
@@ -8,6 +8,10 @@ Danh sách các công cụ -
 
 Máy ảnh
 Máy ảnh tích hợp tiêu chuẩn hỗ trợ Hiệu ứng sâu, chụp RAW và kiểm soát tiết kiệm siêu dữ liệu GPS để bảo mật thông tin cá nhân của bạn.
+
+
+Biên tập sâu
+Cho phép bạn điều chỉnh cường độ mờ nền sau khi chụp chân dung.
 
 
 Bot chọn tự động (Hệ thống ASB)
