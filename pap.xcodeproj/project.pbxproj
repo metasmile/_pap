@@ -12,7 +12,7 @@
 		20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */; };
 		2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */; };
 		343A0A8E9503523A9A599A57 /* Pods_batch_papTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */; };
-		351611B3DF0F053B3CDF48DA /* Pods_mmc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */; };
+		351611B3DF0F053B3CDF48DA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		4F71D000D20543E2B6ADD425 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71D00EDD845A754DE1A3F0 /* Transform.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D192F1C169A5B62B2F3A /* Transform.BApp.swift */; };
 		4F71D01027896F2F7238E57F /* FileIO.URL.File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1768CAE59DE1CE3D5DA /* FileIO.URL.File.swift */; };
@@ -1056,6 +1056,7 @@
 		51956E6D21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
 		51956E6E21AB7A9E0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
 		51956E6F21AB7A9F0067CCEA /* Adjustments.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51956E6A21AB7A9A0067CCEA /* Adjustments.BApp.swift */; };
+		75E4427B893664F90EABC64F /* Pods_mmc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF4E5E34F9E520F1C2FE5F7 /* Pods_mmc.framework */; };
 		A00FDD4E218235EE005EAD1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEA218235EE005EAD1B /* Localizable.strings */; };
 		A00FDD4F218235EE005EAD1B /* Intents.strings.deleted in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEC218235EE005EAD1B /* Intents.strings.deleted */; };
 		A00FDD50218235EE005EAD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC0F218235EE005EAD1B /* Assets.xcassets */; };
@@ -1973,7 +1974,6 @@
 		A0CB0389219DE4F2007A5278 /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8E599B3BDD84A485BFF /* PhotoPickerViewController.UIGestureRecognizerDelegate.swift */; };
 		A0CB038A219DE4F2007A5278 /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDD9E77AA19B60BF026A /* PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift */; };
 		A0CB038B219DE4F2007A5278 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D277C9A9FC81B87A4CAD /* AppDelegate.swift */; };
-		A0CB038D219DE4F2007A5278 /* Pods_mmc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */; };
 		A0CB0390219DE4F2007A5278 /* Intents.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC12218235EE005EAD1B /* Intents.strings */; };
 		A0CB0391219DE4F2007A5278 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A00FDBEA218235EE005EAD1B /* Localizable.strings */; };
 		A0CB0392219DE4F2007A5278 /* MMCMemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */; };
@@ -2262,6 +2262,7 @@
 		0ABFCF921F14B7CB0078A583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18EE4F82F49B391B18CEE742 /* Pods_sap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB639CA86D7F085825EB367 /* Pods-pap-papTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap-papTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pap-papTests/Pods-pap-papTests.release.xcconfig"; sourceTree = "<group>"; };
+		2AF4E5E34F9E520F1C2FE5F7 /* Pods_mmc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mmc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D37ED5B737EE655DF40FEE /* Pods-pap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pap/Pods-pap.debug.xcconfig"; sourceTree = "<group>"; };
 		412390868F1C018CFF62CC0B /* Pods-ocra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ocra.release.xcconfig"; path = "Pods/Target Support Files/Pods-ocra/Pods-ocra.release.xcconfig"; sourceTree = "<group>"; };
 		4832016FF02E8E6CF7291036 /* Pods-ocra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ocra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ocra/Pods-ocra.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2630,7 +2631,6 @@
 		7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2EBAF617078582AB6112DC /* Pods-batch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-batch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-batch/Pods-batch.debug.xcconfig"; sourceTree = "<group>"; };
 		91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_batch_papTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mmc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00FDBCD21823532005EAD1B /* mmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00FDBEB218235EE005EAD1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A00FDBED218235EE005EAD1B /* de */ = {isa = PBXFileReference; lastKnownFileType = text; name = de; path = de.lproj/Intents.strings.deleted; sourceTree = "<group>"; };
@@ -2842,7 +2842,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351611B3DF0F053B3CDF48DA /* Pods_mmc.framework in Frameworks */,
+				351611B3DF0F053B3CDF48DA /* BuildFile in Frameworks */,
+				75E4427B893664F90EABC64F /* Pods_mmc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2864,7 +2865,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0CB038D219DE4F2007A5278 /* Pods_mmc.framework in Frameworks */,
 				20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4358,9 +4358,9 @@
 				514CEBFA20E1A31D00098DFA /* Vision.framework */,
 				7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */,
 				91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */,
-				9434E4A2150F34EE4F982AEC /* Pods_mmc.framework */,
 				18EE4F82F49B391B18CEE742 /* Pods_sap.framework */,
 				E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */,
+				2AF4E5E34F9E520F1C2FE5F7 /* Pods_mmc.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -65,10 +65,12 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      if ['PropertyKit','Armchair','SwiftyGif','TPPDF'].include? "#{target}"
+      if ['PropertyKit','Armchair','SwiftyGif','TPPDF','TagListView'].include? target.name
         config.build_settings['SWIFT_VERSION'] = '4.2'
-      else
+      elsif ['Protobuf','SwiftyStoreKit','R.swift.Library','PhoneNumberKit'].include? target.name
         config.build_settings['SWIFT_VERSION'] = '4.0'
+      else
+        config.build_settings['SWIFT_VERSION'] = '5.0'
       end
     end
   end

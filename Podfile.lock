@@ -120,7 +120,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.6.0)
   - PhoneNumberKit/UIKit (2.6.0):
     - PhoneNumberKit/PhoneNumberKitCore
-  - PropertyKit (1.0)
+  - PropertyKit (1.1)
   - Protobuf (3.7.0)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -220,7 +220,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
-  PropertyKit: e193df8d2df4e53db40399fd13638dcc8c4ad639
+  PropertyKit: 1f183d03dd0d88f6b3a9deadd39aabaeec974be7
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
@@ -230,6 +230,6 @@ SPEC CHECKSUMS:
   TagListView: 0c7e9c26b9aff858224ee6b155f5fcacd9e27c83
   TPPDF: eeb79f455ad3f277d41031f90e93cc37459fe109
 
-PODFILE CHECKSUM: 12c9aa4a337b19d79265b9c07d23a4155171e290
+PODFILE CHECKSUM: 98df3c5b36f6538fe512b496ac2968f7178a9a6e
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0.beta.3
