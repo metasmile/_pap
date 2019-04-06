@@ -1,3 +1,3 @@
-++ NEW - Depth Editor 1.0: Enables you to adjust the intensity of background blur after capturing a portrait.
-+ NEW - GIF Maker 1.1: Added shake reduction mode for stabilizing animation frames.
-+ Performance improvements and fixes.
+++ NEW  - 深度編輯器1.0：使您能夠在拍攝肖像後調整背景模糊的強度。
++ NEW  -  GIF Maker 1.1：增加了減震模式，用於穩定動畫幀。
++性能改進和修復。

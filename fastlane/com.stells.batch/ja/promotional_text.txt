@@ -1,2 +1,2 @@
-+ RAW Editor - An easy and powerful lossless image editor.
-+ HashTag - Finding and collecting hashtags from your photos.
++ RAW Editor  - 簡単で強力なロスレス画像エディタ。
++ HashTag  - あなたの写真からハッシュタグを見つけて集めます。
