@@ -1,6 +1,6 @@
-PAPS ist die Foto-, Video- und Kamera-Toolbox für unendlich viele Zwecke mit einer schnellen, umfangreichen Stapelbearbeitung von Medien. Wählen Sie einfach ein Werkzeug und dann alle Fotos aus, die Sie benötigen, und tippen Sie anschließend auf die Schaltfläche. Das ist alles.
+Fotos Plus ist die Foto-, Video- und Kamera-Toolbox für unendlich viele Zwecke mit einer schnellen, umfangreichen Stapelbearbeitung von Medien. Wählen Sie einfach ein Werkzeug und dann alle Fotos aus, die Sie benötigen, und tippen Sie anschließend auf die Schaltfläche. Das ist alles.
 
-Mit PAPS können Sie mit nur einem Fingertipp alles tun, was Sie für alle Ihre Fotos benötigen.
+Mit Fotos Plus können Sie mit nur einem Fingertipp alles tun, was Sie für alle Ihre Fotos benötigen.
 
 
 Die Liste der Werkzeuge -
@@ -8,6 +8,10 @@ Die Liste der Werkzeuge -
 
 Kamera
 Die standardmäßig integrierte Kamera, die Tiefenschärfe, RAW-Erfassung und GPS-Metadaten-Steuerung für Ihre Privatsphäre unterstützt.
+
+
+Tiefeneditor
+Ermöglicht die Anpassung der Intensität der Hintergrundunschärfe nach der Aufnahme eines Porträts.
 
 
 Auto Selection Bot (ASB-System)
@@ -55,9 +59,6 @@ Ein hochprofessionelles Fotobearbeitungswerkzeug, mit dem Sie jede Eigenschaft i
 
 Drehung
 Mit diesem einfachen, aber umfangreichen Batch-Image-Transformationstool können Sie viele Mediendateien, einschließlich Live-Fotos und Videos, schnell drehen und spiegeln. Das einfache Werkzeug hat keine Begrenzung auf die Anzahl der Fotos, die zum Bearbeiten verwendet werden sollen.
-
-• Geprüfte Verarbeitungskapazität: mindestens 2000 Fotos gleichzeitig.
-• Optimiert für die Multi-Core-Verarbeitung. Das hängt von den iDevice-Modellen ab.
 
 
 Auto Editor

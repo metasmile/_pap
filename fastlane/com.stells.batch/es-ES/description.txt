@@ -1,6 +1,6 @@
-PAPS es la caja de herramientas de fotografía, video y cámara de propósito infinito con una edición de medios por lotes rápida ya gran escala. Simplemente elija una herramienta y luego seleccione todas las fotos que necesita, luego toque el botón. Eso es todo.
+Fotos Plus es la caja de herramientas de fotografía, video y cámara de propósito infinito con una edición de medios por lotes rápida ya gran escala. Simplemente elija una herramienta y luego seleccione todas las fotos que necesita, luego toque el botón. Eso es todo.
 
-Con PAPS, puedes hacer todo lo que necesites para todas tus fotos con solo un toque.
+Con Fotos Plus, puedes hacer todo lo que necesites para todas tus fotos con solo un toque.
 
 
 La lista de herramientas -
@@ -8,6 +8,10 @@ La lista de herramientas -
 
 Cámara
 La cámara incorporada estándar que admite el efecto de profundidad, la captura RAW y el control de guardado de metadatos GPS para su privacidad.
+
+
+Depth Editor
+Le permite ajustar la intensidad del desenfoque del fondo después de capturar un retrato.
 
 
 Editor RAW
@@ -18,7 +22,7 @@ Auto selección Bot (Sistema ASB)
 ASB es un motor auxiliar de uso múltiple para elegir los elementos correctos en el contexto actual para cada herramienta.
 
 
-descubridor
+Descubridor
 Extraiga toda la información, como números de teléfono, direcciones, fechas, URL o incluso el código de vuelo y la información de precios de sus fotos o capturas de pantalla, y luego haga las cosas bien. También puede traducirlos o guardarlos todos como texto sin formato.
 ¡Muchas acciones van a ser actualizadas!
 
@@ -55,9 +59,6 @@ Una herramienta de edición de fotos altamente profesional que puede editar por 
 
 Rotación
 Esta sencilla herramienta de transformación de imagen por lotes a gran escala le permite rotar y voltear rápidamente muchos archivos multimedia, incluyendo fotos en vivo y videos. La herramienta simple no tiene limitación en cuanto al número de fotos para editarlas.
-
-• Capacidad de procesamiento comprobada: mínimo de 2000 + fotos al mismo tiempo.
-• Optimizado para el procesamiento multi-core. Depende de los modelos de iDevice.
 
 
 Editor automático

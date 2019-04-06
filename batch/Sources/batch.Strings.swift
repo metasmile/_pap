@@ -204,8 +204,8 @@ struct batchStrings {
 
         static var hashTags: [String]{
             return [
-                "#PAPS",
-                "#GetPAPS"
+                "#Photos+",
+                "#GetPhotos+"
             ]
         }
     }

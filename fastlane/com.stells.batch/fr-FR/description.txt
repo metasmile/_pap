@@ -1,6 +1,6 @@
-PAPS est la boîte à outils infinie de photos, vidéos et appareils photo offrant une édition rapide et à grande échelle de supports par lots. Il suffit de choisir un outil, puis sélectionnez toutes les photos dont vous avez besoin, puis appuyez sur le bouton. C'est tout.
+Photos+ est la boîte à outils infinie de photos, vidéos et appareils photo offrant une édition rapide et à grande échelle de supports par lots. Il suffit de choisir un outil, puis sélectionnez toutes les photos dont vous avez besoin, puis appuyez sur le bouton. C'est tout.
 
-Avec PAPS, vous pouvez faire tout ce dont vous avez besoin pour toutes vos photos en un seul clic.
+Avec Photos+, vous pouvez faire tout ce dont vous avez besoin pour toutes vos photos en un seul clic.
 
 
 La liste des outils -
@@ -8,6 +8,10 @@ La liste des outils -
 
 Caméra
 L'appareil photo intégré standard qui prend en charge l'effet de profondeur, la capture RAW et le contrôle de sauvegarde des métadonnées GPS pour votre confidentialité.
+
+
+Depth Editor
+Vous permet de régler l'intensité du flou d'arrière-plan après la capture d'un portrait.
 
 
 Sélection automatique (système ASB)
@@ -55,9 +59,6 @@ Un outil de retouche photo hautement professionnel qui permet d’éditer en dé
 
 Rotation
 Cet outil de transformation d'images par lots, simple mais à grande échelle, vous permet de faire pivoter et de retourner rapidement de nombreux fichiers multimédias, notamment des photos et des vidéos en direct. L'outil simple n'a pas de limite au nombre de photos pour les éditer.
-
-• Capacité de traitement testée: minimum 2000 + une photo à la fois.
-• Optimisé pour le traitement multicœur. Cela dépend des modèles d'iDevice.
 
 
 Éditeur automatique

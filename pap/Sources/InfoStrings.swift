@@ -13,7 +13,7 @@ struct InfoStrings {
     }
 
     static var name:String{
-        return Bundle.main.displayName ?? "PAPS"
+        return Bundle.main.displayName ?? "Photos+"
     }
 
     static var title: String {

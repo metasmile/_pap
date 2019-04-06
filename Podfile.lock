@@ -198,7 +198,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ameingast/cocoaimagehashing
 
 SPEC CHECKSUMS:
-  Armchair: 2dd361337cf81937e73e8b9d48f9eda9a21d316c
+  Armchair: 1c8c24a42f57b8442e0785018df71498cd9432ad
   CocoaImageHashing: 2c8efd6dd60f9030cd54086b34ffc48e927821c3
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
