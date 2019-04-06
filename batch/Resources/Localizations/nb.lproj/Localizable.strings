@@ -364,8 +364,6 @@
 "Downloading..." = "Nedlasting av ...";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift, Finder.BApp.swift */
 "E-mail Address" = "Epostadresse";
-/* Generated from genl10n: RawEditor.swift */
-"EV" = "HOUSE";
 /* Generated from genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lar deg fjerne alle typer data som inneholder bildene dine, inkludert privat informasjon.";
 /* Generated from genl10n: RawEditor.swift */
