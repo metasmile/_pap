@@ -101,7 +101,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if allowSelection {
+        if allowSelection && shouldSelectPhoto(at: indexPath) {
             updateUIDisplays()
 
             if let asset = PHAssets.fetched.asset(at: indexPath){

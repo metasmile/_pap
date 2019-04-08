@@ -95,6 +95,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(self.infoButtonDidTap), for: .touchUpInside)
+        infoButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         
         let view = UIStackView(arrangedSubviews: [titleLabel, infoButton] )
         view.axis = .horizontal
@@ -263,12 +264,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        if self.isBeingDismissed {
-            assetView.teardown()
-            
-            if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
-                playerControl.player = nil
-            }
+        assetView.teardown()
+        
+        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+            playerControl.player = nil
         }
     }
     
@@ -477,6 +476,7 @@ extension PhotoEditViewController {
         vc.asset = asset
         
         let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .overCurrentContext
         self.present(nc, animated: true, completion: nil)
     }
 }
