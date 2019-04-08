@@ -87,6 +87,22 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         return UIView(frame: view.bounds)
     }()
     
+    lazy var titleLabel: UILabel = UILabel(frame: .zero)
+    
+    lazy var titleView: UIView = {
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.textColor = .white
+        
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(self.infoButtonDidTap), for: .touchUpInside)
+        
+        let view = UIStackView(arrangedSubviews: [titleLabel, infoButton] )
+        view.axis = .horizontal
+        view.spacing = 4
+        
+        return view
+    }()
+    
     lazy var assetView: AppUIAssetView = {
         return AppUIAssetView(frame: zoomingContentView.bounds)
     }()
@@ -140,8 +156,9 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = canEdit ? "Edit".localized : nil
+        
+        titleLabel.text = canEdit ? "Edit".localized : nil
+        navigationItem.titleView = titleView
         
         zoomingContentView.isHidden = true
         
@@ -164,20 +181,22 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         
         assetView.imageEditType = asset?.imageType ?? .notImage
         
-        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
-            if asset.mediaType == .image {
-                let appAsset = AppAsset(asset)
-                appAsset.editState = preferredEditState
-                
-                assetView.imageEditType = app.photoEditorShouldPreview(item: appAsset) ? .stillImage : asset.imageType
+        if canEdit {
+            if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+                if asset.mediaType == .image {
+                    let appAsset = AppAsset(asset)
+                    appAsset.editState = preferredEditState
+                    
+                    assetView.imageEditType = app.photoEditorShouldPreview(item: appAsset) ? .stillImage : asset.imageType
+                }
             }
-        }
-        else if let _ = AppCenter.default.currentInstanceAs(EditableApp.self), let asset = asset {
-            if asset.imageType == .livePhoto {
-                let appAsset = AppAsset(asset)
-                appAsset.editState = preferredEditState
-                
-                assetView.imageEditType = canEdit ? .notImage : asset.imageType
+            else if let _ = AppCenter.default.currentInstanceAs(EditableApp.self), let asset = asset {
+                if asset.imageType == .livePhoto {
+                    let appAsset = AppAsset(asset)
+                    appAsset.editState = preferredEditState
+                    
+                    assetView.imageEditType = canEdit ? .notImage : asset.imageType
+                }
             }
         }
         
@@ -244,10 +263,12 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        assetView.teardown()
-        
-        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
-            playerControl.player = nil
+        if self.isBeingDismissed {
+            assetView.teardown()
+            
+            if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+                playerControl.player = nil
+            }
         }
     }
     
@@ -346,6 +367,11 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }
     
     override func doneButtonDidTap(sender: Any) {
+        guard canEdit else {
+            cancelButtonDidTap(sender: cancelButton)
+            return
+        }
+        
         super.doneButtonDidTap(sender: sender)
         
         if editItem.hasChanges {
@@ -443,4 +469,254 @@ extension PhotoEditViewController: AppDockAppDataSource {
     func appDockApp(_ app: AppDockApp, appAssetAt index: Int) -> AppAsset? {
         return assetItem
     }
+}
+
+extension PhotoEditViewController {
+    @objc func infoButtonDidTap(sender: UIButton) {
+        let vc = PHAssetMetadataViewController()
+        vc.asset = asset
+        
+        let nc = UINavigationController(rootViewController: vc)
+        self.present(nc, animated: true, completion: nil)
+    }
+}
+
+class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
+    private class MetadataTableViewCell: UITableViewCell {
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            
+            textLabel?.text = nil
+            detailTextLabel?.text = nil
+        }
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: .value2, reuseIdentifier: reuseIdentifier)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            
+            textLabel?.textColor = .white
+        }
+    }
+    
+    private struct Metadata {
+        var key: String
+        var displayName: String
+        var value: Any
+    }
+    
+    private struct MetadataItem {
+        var title: String
+        private(set) var metadata: [Metadata]
+        
+        init(title: String, metadata: [Metadata]) {
+            self.title = title
+            self.metadata = metadata
+        }
+    }
+    
+    var asset: PHAsset?
+    private var metadataItems: [MetadataItem] = []
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(MetadataTableViewCell.self, forCellReuseIdentifier: "MetadataTableViewCell")
+        tableView.allowsSelection = false
+        return tableView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.addSubview(tableView)
+        tableView.fitConstraints(to: view)
+        
+        registerThemeable()
+        
+        title = "Metadata".localized
+        
+        reloadMetadata()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
+    }
+    
+    @objc private func closeButtonDidTap(sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func reloadMetadata() {
+        if let asset = asset, asset.mediaType == .image {
+            reloadImageMetadata(with: asset)
+        }
+        else {
+            
+        }
+    }
+    
+    private func reloadImageMetadata(with asset: PHAsset) {
+        let options = PHContentEditingInputRequestOptions()
+        options.isNetworkAccessAllowed = true
+        
+        asset.requestContentEditingInput(with: options) { (input, info) in
+            guard let url = input?.fullSizeImageURL, let data = try? Data(contentsOf: url), let properties = data.getMetadata() else { return }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .medium
+            
+            self.metadataItems = []
+            
+            var metadatas = [Metadata]()
+            
+            let filename = url.lastPathComponent
+            metadatas.append(Metadata(key: "Filename", displayName: "File Name".localized, value: "\(filename)"))
+            metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(UTI(withURL: url).rawValue)"))
+            
+            let dataFormatter = ByteCountFormatter()
+            dataFormatter.countStyle = .binary
+            
+            metadatas.append(Metadata(key: "Filesize", displayName: "File Size".localized, value: "\(dataFormatter.string(fromByteCount: Int64(data.count)))"))
+            
+            if let date = asset.creationDate {
+                metadatas.append(Metadata(key: "Date", displayName: "Date".localized, value: "\(dateFormatter.string(from: date))"))
+            }
+            
+            if let pixelWidth = properties[ImageMetadata.PixelWidth], let pixelHeight = properties[ImageMetadata.PixelHeight] {
+                metadatas.append(Metadata(key: "PixelSize", displayName: "Size".localized, value: "\(pixelWidth)x\(pixelHeight)"))
+            }
+            
+            if let profileName = properties[ImageMetadata.ProfileName] {
+                metadatas.append(Metadata(key: ImageMetadata.ProfileName, displayName: "Profile Name".localized, value: profileName))
+            }
+            
+            if !metadatas.isEmpty {
+                let metadataItem = MetadataItem(title: "File".localized, metadata: metadatas)
+                self.metadataItems.append(metadataItem)
+            }
+            
+            if let info = properties[ImageMetadata.Dictionary.TIFF] as? [String: Any] {
+                var metadatas = [Metadata]()
+                
+                if let value = info[ImageMetadata.Property.TIFFModel] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.TIFFModel, displayName: "Model".localized, value: "\(value)"))
+                }
+                
+                if !metadatas.isEmpty {
+                    let metadataItem = MetadataItem(title: "TIFF".localized, metadata: metadatas)
+                    self.metadataItems.append(metadataItem)
+                }
+            }
+            
+            if let info = properties[ImageMetadata.Dictionary.Exif] as? [String: Any] {
+                var metadatas = [Metadata]()
+                
+                if let value = info[ImageMetadata.Property.ExifFocalLenIn35mmFilm] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFocalLenIn35mmFilm, displayName: "Focal Length".localized, value: "\(value) mm (in 35 mm)"))
+                }
+                
+                if let value = (info[ImageMetadata.Property.ExifISOSpeedRatings] as? [Any])?.first {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifISOSpeedRatings, displayName: "ISO".localized, value: "\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.ExifFNumber] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFNumber, displayName: "Aperture".localized, value: "ƒ/\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.ExifLensMake] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifLensMake, displayName: "Lens Maker".localized, value: "\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.ExifLensModel] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifLensModel, displayName: "Lens Model".localized, value: "\(value)"))
+                }
+                
+                if !metadatas.isEmpty {
+                    let metadataItem = MetadataItem(title: "EXIF".localized, metadata: metadatas)
+                    self.metadataItems.append(metadataItem)
+                }
+            }
+            
+            if let info = properties[ImageMetadata.Dictionary.GPS] as? [String: Any] {
+                var metadatas = [Metadata]()
+                
+                if let lat = info[ImageMetadata.Property.GPSLatitude] as? Double, let lon = info[ImageMetadata.Property.GPSLongitude] as? Double {
+                    let _ = CLLocationCoordinate2DMake(lat, lon)
+                }
+                
+                if let value = info[ImageMetadata.Property.GPSLatitude] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.GPSLatitude, displayName: "Latitude".localized, value: "\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.GPSLongitude] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.GPSLongitude, displayName: "Longitude".localized, value: "\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.GPSAltitude] {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.GPSAltitude, displayName: "Altitude".localized, value: "\(value)"))
+                }
+                
+                if !metadatas.isEmpty {
+                    let metadataItem = MetadataItem(title: "GPS".localized, metadata: metadatas)
+                    self.metadataItems.append(metadataItem)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func applyTheme(_ colorTheme: AppColorTheme) {
+        tableView.tintColor = colorTheme.tintColor
+    }
+}
+
+extension PHAssetMetadataViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return metadataItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let metadataItem = metadataItems[safe: section] else { return 0 }
+        return metadataItem.metadata.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewCell") as? MetadataTableViewCell ?? UITableViewCell()
+        guard let metadataItem = metadataItems[safe: indexPath.section], let metadata = metadataItem.metadata[safe: indexPath.row] else { return cell }
+        
+        cell.detailTextLabel?.textColor = view.colorTheme.textGrayColor
+        
+        cell.textLabel?.text = metadata.displayName
+        
+        if let value = (metadata.value as? [Any])?.first {
+            cell.detailTextLabel?.text = "\(value)"
+        }
+        else {
+            cell.detailTextLabel?.text = "\(metadata.value)"
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return metadataItems[safe: section]?.title
+    }
+}
+
+extension PHAssetMetadataViewController: UITableViewDelegate {
+    
 }

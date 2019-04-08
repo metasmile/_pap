@@ -172,6 +172,8 @@
 "All processes you have confirmed were finished." = "All processes you have confirmed were finished.";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "All" = "All";
+/* genl10n: PhotoEditViewController.swift */
+"Altitude" = "Altitude";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
 /* genl10n: GIFMaker.BApp.swift(2) */
@@ -180,6 +182,8 @@
 "Animation" = "Animation";
 /* genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime free cancellation.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture" = "Aperture";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Apply %@ to the last item";
 /* genl10n: Filters.BApp.swift */
@@ -306,7 +310,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -334,6 +338,8 @@
 "E-mail Address" = "E-mail Address";
 /* genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* genl10n: RawEditor.swift */
 "Edit your raw photos." = "Edit your raw photos.";
 /* genl10n: Hashtagen.BApp.swift */
@@ -350,6 +356,14 @@
 "Exposure" = "Exposure";
 /* genl10n: Adjustments.BApp.swift */
 "Fade" = "Fade";
+/* genl10n: PhotoEditViewController.swift */
+"File Name" = "File Name";
+/* genl10n: PhotoEditViewController.swift */
+"File Size" = "File Size";
+/* genl10n: PhotoEditViewController.swift */
+"File Type" = "File Type";
+/* genl10n: PhotoEditViewController.swift */
+"File" = "File";
 /* genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
 /* genl10n: Finder.BApp.swift */
@@ -366,6 +380,8 @@
 "Flashlight" = "Flashlight";
 /* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Focal Length";
 /* genl10n: Hashtagen.BApp.swift, Converter.BApp.swift */
 "Formats" = "Formats";
 /* genl10n: GIFMaker.BApp.swift */
@@ -386,6 +402,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* genl10n: GIFMaker.BApp.swift(2) */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift */
+"GPS" = "GPS";
 /* genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* genl10n: Shop.Payment.SecretCodeProgram.swift */
@@ -420,6 +438,8 @@
 "Hiding Selected Items..." = "Hiding Selected Items...";
 /* genl10n: ColorEditor.BApp.swift, Adjustments.BApp.swift */
 "Highlights" = "Highlights";
+/* genl10n: PhotoEditViewController.swift */
+"ISO" = "ISO";
 /* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
@@ -452,14 +472,22 @@
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
 /* genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Landscape" = "Landscape";
+/* genl10n: PhotoEditViewController.swift */
+"Latitude" = "Latitude";
 /* genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Lens Maker";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Lens Model";
 /* genl10n: MemoCam.BApp.swift */
 "Limited Performance Notice" = "Limited Performance Notice";
 /* genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
 /* genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
 "Lockscreens" = "Lockscreens";
+/* genl10n: PhotoEditViewController.swift */
+"Longitude" = "Longitude";
 /* genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* genl10n: RawEditor.swift */
@@ -484,12 +512,16 @@
 "MemoCam" = "MemoCam";
 /* genl10n: Shop.SApp.swift */
 "Message To Us" = "Message To Us";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Metadata";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Mode H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Mode T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Model";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modify and Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -592,6 +624,8 @@
 "Privacy" = "Privacy";
 /* genl10n: ActionViewController.swift */
 "Processing" = "Processing";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Profile Name";
 /* genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotion License Program";
 /* genl10n: AppCenter.Charge.swift */
@@ -718,7 +752,7 @@
 "Similarity" = "Similarity";
 /* genl10n: Shop.SApp.swift */
 "Single Tools License" = "Single Tools License";
-/* genl10n: GIFMaker.BApp.swift(4) */
+/* genl10n: GIFMaker.BApp.swift(4), PhotoEditViewController.swift */
 "Size" = "Size";
 /* genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
@@ -758,6 +792,8 @@
 "Stories of Us" = "Stories of Us";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
+/* genl10n: PhotoEditViewController.swift */
+"TIFF" = "TIFF";
 /* genl10n: Finder.BApp.swift */
 "Take A Photo" = "Take A Photo";
 /* genl10n: Shop.SApp.swift */
