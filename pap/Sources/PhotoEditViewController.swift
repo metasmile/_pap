@@ -557,11 +557,13 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
     }
     
     private func reloadMetadata() {
-        if let asset = asset, asset.mediaType == .image {
+        guard let asset = asset else { return }
+        
+        if asset.mediaType == .image {
             reloadImageMetadata(with: asset)
         }
         else {
-            
+            reloadVideoMetadata(with: asset)
         }
     }
     
@@ -677,6 +679,43 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    private func reloadVideoMetadata(with asset: PHAsset) {
+        guard let resource = PHAssetResource.assetResources(for: asset).first else { return }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .medium
+        
+        self.metadataItems = []
+        
+        var metadatas = [Metadata]()
+        
+        let filename = resource.originalFilename
+        
+        metadatas.append(Metadata(key: "Filename", displayName: "File Name".localized, value: "\(filename)"))
+//        metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(UTI(withURL: url).rawValue)"))
+        
+        let dataFormatter = ByteCountFormatter()
+        dataFormatter.countStyle = .binary
+        
+        if let fileSize = resource.value(forKey: "fileSize") as? CLong {
+            metadatas.append(Metadata(key: "Filesize", displayName: "File Size".localized, value: "\(dataFormatter.string(fromByteCount: Int64(bitPattern: UInt64(fileSize))))"))
+        }
+        
+        if let date = asset.creationDate {
+            metadatas.append(Metadata(key: "Date", displayName: "Date".localized, value: "\(dateFormatter.string(from: date))"))
+        }
+        
+        metadatas.append(Metadata(key: "PixelSize", displayName: "Size".localized, value: "\(asset.pixelWidth)x\(asset.pixelHeight)"))
+        
+        if !metadatas.isEmpty {
+            let metadataItem = MetadataItem(title: "File".localized, metadata: metadatas)
+            self.metadataItems.append(metadataItem)
+        }
+        
+        self.tableView.reloadData()
     }
     
     func applyTheme(_ colorTheme: AppColorTheme) {

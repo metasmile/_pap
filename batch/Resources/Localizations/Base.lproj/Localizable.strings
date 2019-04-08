@@ -310,7 +310,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -356,13 +356,13 @@
 "Exposure" = "Exposure";
 /* genl10n: Adjustments.BApp.swift */
 "Fade" = "Fade";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "File Name" = "File Name";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "File Size" = "File Size";
 /* genl10n: PhotoEditViewController.swift */
 "File Type" = "File Type";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "File" = "File";
 /* genl10n: Filters.BApp.swift */
 "Filters" = "Filters";
@@ -752,7 +752,7 @@
 "Similarity" = "Similarity";
 /* genl10n: Shop.SApp.swift */
 "Single Tools License" = "Single Tools License";
-/* genl10n: GIFMaker.BApp.swift(4), PhotoEditViewController.swift */
+/* genl10n: GIFMaker.BApp.swift(4), PhotoEditViewController.swift(2) */
 "Size" = "Size";
 /* genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
