@@ -58,7 +58,6 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
             else {
                 self.config?.filter = nil
-                self.defaultEditStateValue = nil
             }
         }
 
@@ -104,8 +103,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     //INFO: prevent memory leak for creating CIImage(uiImage:)
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
     private lazy var rawFilterCache: NSCache<NSString, CIFilter> = NSCache<NSString, CIFilter>()
-    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
-        guard let rawFilter = loadRawFilter(with: appAsset.asset, asyncSignal: AsyncSignal()) else { return }
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
+        guard let rawFilter = loadRawFilter(with: appAsset.asset, in: content, asyncSignal: AsyncSignal()) else { return }
 
         rawFilter.setDefaults()
 
@@ -132,15 +131,16 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         guard let content = content as? RawEditorDockContent else { return }
 
-        let rawFilter = editStateValue?.ciFilter as? CIRawFilter
-        setFilter(rawFilter, to: content)
+        if let rawFilter = editStateValue?.ciFilter as? CIRawFilter {
+            setFilter(rawFilter, to: content)
+        }
     }
 
     func didSelect(asset: PHAsset, indexPath: IndexPath, callee: PhotoPickerViewControllerUniversalOperations) {
         resetFilter(in: self.content as? RawEditorDockContent)
     }
 
-    private func loadRawFilter(with asset: PHAsset, asyncSignal: AsyncWaitSignalable) -> CIFilter? {
+    private func loadRawFilter(with asset: PHAsset, in content: AppDockContent?, asyncSignal: AsyncWaitSignalable) -> CIFilter? {
         if let filter = self.rawFilterCache.object(forKey: asset.localIdentifier as NSString) {
             return filter
         }
@@ -150,7 +150,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         asyncSignal.begin()
         rawFilterCache.removeAllObjects()
         rawFilter(from: asset) { (rawFilter) in
-            self.setFilter(rawFilter, to: self.content as? RawEditorDockContent)
+            self.setFilter(rawFilter, to: content as? RawEditorDockContent)
 
             if let imageURL = rawFilter?.rawURL, let filter = CIFilter(imageURL: imageURL, options: nil) {
                 self.rawFilterCache.setObject(filter, forKey: asset.localIdentifier as NSString)
@@ -196,6 +196,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     private func resetFilter(in content: RawEditorDockContent?) {
         rawFilterCache.removeAllObjects()
         setFilter(nil, to: content)
+        self.defaultEditStateValue = nil
     }
 }
 

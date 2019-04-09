@@ -144,7 +144,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     private lazy var previewFilterCache: NSCache<NSString, CIDepthMaskFilter> = NSCache<NSString, CIDepthMaskFilter>()
 
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
-    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = cachedOriginalImage(with: appAsset.asset, targetSize: targetSize)
 
         guard let currentFilter = appAsset.editState.ciFilter as? CIDepthMaskFilter else {

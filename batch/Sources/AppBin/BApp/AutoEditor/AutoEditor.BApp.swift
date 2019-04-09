@@ -121,7 +121,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
         self.config?.adoptValues(fromOther: config)
     }
     
-    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
+    public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original, filtered)

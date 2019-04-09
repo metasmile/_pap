@@ -172,7 +172,7 @@
 "All processes you have confirmed were finished." = "All processes you have confirmed were finished.";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "All" = "All";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "Altitude" = "Altitude";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
 "An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
@@ -310,7 +310,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, PhotoEditViewController.swift(2), FirebaseMLVision.VisionText.Parser.Types.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -360,7 +360,7 @@
 "File Name" = "File Name";
 /* genl10n: PhotoEditViewController.swift(2) */
 "File Size" = "File Size";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "File Type" = "File Type";
 /* genl10n: PhotoEditViewController.swift(2) */
 "File" = "File";
@@ -402,7 +402,7 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos.";
 /* genl10n: GIFMaker.BApp.swift(2) */
 "GIF Maker" = "GIF Maker";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "GPS" = "GPS";
 /* genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
@@ -472,7 +472,7 @@
 "Just select photos you need and then run it." = "Just select photos you need and then run it.";
 /* genl10n: PDFMaker.AppDockContent.swift, Resizer.BApp.swift */
 "Landscape" = "Landscape";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "Latitude" = "Latitude";
 /* genl10n: PDFMaker.AppDockContent.swift */
 "Layout" = "Layout";
@@ -484,9 +484,11 @@
 "Limited Performance Notice" = "Limited Performance Notice";
 /* genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Location" = "Location";
 /* genl10n: Cleaner.GarbageDetector.Lockscreen.swift */
 "Lockscreens" = "Lockscreens";
-/* genl10n: PhotoEditViewController.swift */
+/* genl10n: PhotoEditViewController.swift(2) */
 "Longitude" = "Longitude";
 /* genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
@@ -602,6 +604,8 @@
 "Phone Number" = "Phone Number";
 /* genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Pixel Size" = "Pixel Size";
 /* genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please Input Your Secret Code" = "Please Input Your Secret Code";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -752,7 +756,7 @@
 "Similarity" = "Similarity";
 /* genl10n: Shop.SApp.swift */
 "Single Tools License" = "Single Tools License";
-/* genl10n: GIFMaker.BApp.swift(4), PhotoEditViewController.swift(2) */
+/* genl10n: GIFMaker.BApp.swift(4) */
 "Size" = "Size";
 /* genl10n: Finder.BApp.swift */
 "Some contacts were saved, but someones were not." = "Some contacts were saved, but someones were not.";
@@ -840,7 +844,7 @@
 "The price is including every new tool. Today is the cheapest day to get this." = "The price is including every new tool. Today is the cheapest day to get this.";
 /* genl10n: Transform.BApp.swift */
 "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them." = "This straightforward but large-scale batch image transform tool lets you quickly rotate and flip a lot of media files including Live Photos. There is no limit to the number of photos to edit them.";
-/* genl10n: RawEditor.swift, Adjustments.BApp.swift */
+/* genl10n: Adjustments.BApp.swift, RawEditor.swift */
 "Tint" = "Tint";
 /* genl10n: PhotoPickerViewController.Operations.ShopApp.swift */
 "To use this app needs a corresponding access license. Would you like to open %@?" = "To use this app needs a corresponding access license. Would you like to open %@?";

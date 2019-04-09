@@ -599,7 +599,7 @@ extension PreviewView {
                         cell.setOriginalImage(with: item)
                     }
                     
-                    app.previewProcessing(item, targetSize: targetSize, completion: { (original, filtered) in
+                    app.previewProcessing(item, targetSize: targetSize, in: AppCenter.default.currentInstanceAs(AppDockApp.self)?.content, completion: { (original, filtered) in
                         if let image = filtered {
                             PreviewProcessingQueue.cacheImage(image, targetSize: targetSize, with: item)
                         }
