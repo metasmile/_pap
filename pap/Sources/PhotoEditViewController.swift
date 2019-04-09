@@ -320,7 +320,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             appAsset.editState = editState
             
             DispatchQueue(label: #file + #function, qos: .utility).async {
-                app.previewProcessing(appAsset, targetSize: targetSize, content: AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent) { (original, filtered) in
+                app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
                     DispatchQueue.main.async {
                         if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) ?? original {
                             self.assetView.originalImageForCompare = image
