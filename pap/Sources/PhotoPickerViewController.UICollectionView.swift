@@ -113,16 +113,11 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
 
                 AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didSelect(asset: asset, indexPath:indexPath, callee: self)
             }
-
-            if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
-                updateVisibleCellsEnabled()
-            }
         }
         else {
             collectionView.deselectItem(at: indexPath, animated: false)
-            (collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell)?.isSelectable = false
             
-            if let asset = PHAssets.fetched.asset(at: indexPath) {
+            if let asset = PHAssets.fetched.asset(at: indexPath), !allowSelection {
                 let item = AppAsset.create(for:asset)
                 if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue {
                     item?.editState.append(value)
@@ -130,6 +125,10 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
                 
                 self.showPhotoEditor(with: item, animated: true)
             }
+        }
+        
+        if let _ = collectionViewDisplayableApp?.numberOfItemsShouldSelect{
+            updateVisibleCellsEnabled()
         }
     }
 
