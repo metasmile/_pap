@@ -137,7 +137,8 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
             signal.begin()
             let options: PHVideoRequestOptions = PHVideoRequestOptions()
             options.version = .original
-
+            options.isNetworkAccessAllowed = true
+            
             PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                 if let urlAsset = asset as? AVURLAsset {
                     returningURL = urlAsset.url as URL
@@ -156,6 +157,7 @@ extension PHAsset: ImageSourceable, DataSourceable, URLSourceable, PHAssetSource
 
             signal.begin()
             let options: PHContentEditingInputRequestOptions = PHContentEditingInputRequestOptions()
+            options.isNetworkAccessAllowed = true
             options.canHandleAdjustmentData = {(adjustmeta: PHAdjustmentData) -> Bool in
                 return true
             }
