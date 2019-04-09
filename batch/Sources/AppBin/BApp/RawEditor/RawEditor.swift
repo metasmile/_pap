@@ -383,7 +383,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             installFilters()
         }
 
-        (view as? UITableView)?.reloadData()
+        reloadFilter()
     }
 
     func willRemoveContentView() {
@@ -430,16 +430,20 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
         }
 
         DispatchQueue.main.async {
-            if let _ = self.rawFilter {
-                self.enabledEditing = true
-                self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
-            }
-            else {
-                self.enabledEditing = false
-                self.filter = nil
-            }
-            (self.view as? UITableView)?.reloadData()
+            self.reloadFilter()
         }
+    }
+    
+    private func reloadFilter() {
+        if let _ = self.rawFilter {
+            self.enabledEditing = true
+            self.filter = CIRawFilter(rawURL: self.rawFilter?.rawURL, params: Dictionary(uniqueKeysWithValues: self.filterAttributes.map({ ($0.key, $0.value) })))
+        }
+        else {
+            self.enabledEditing = false
+            self.filter = nil
+        }
+        (self.view as? UITableView)?.reloadData()
     }
 
     private func rawAttributes() -> [CIFilterAttributes] {
