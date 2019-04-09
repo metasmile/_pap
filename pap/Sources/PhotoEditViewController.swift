@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import MapKit
 
 class PhotoEditorTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var presented: Bool = true
@@ -318,15 +319,17 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
             let appAsset = AppAsset(asset)
             appAsset.editState = editState
             
-            app.previewProcessing(appAsset, targetSize: targetSize) { (original, filtered) in
-                DispatchQueue.main.async {
-                    if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) ?? original {
-                        self.assetView.originalImageForCompare = image
-                        self.assetView.originalBadgeTitle = app.previewOriginalBadgeTitle
+            DispatchQueue(label: #file + #function, qos: .utility).async {
+                app.previewProcessing(appAsset, targetSize: targetSize, content: AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent) { (original, filtered) in
+                    DispatchQueue.main.async {
+                        if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) ?? original {
+                            self.assetView.originalImageForCompare = image
+                            self.assetView.originalBadgeTitle = app.previewOriginalBadgeTitle
+                        }
+                        
+                        self.assetView.originalImage = original
+                        self.assetView.filteredImage = filtered
                     }
-                    
-                    self.assetView.originalImage = original
-                    self.assetView.filteredImage = filtered
                 }
             }
         }
@@ -472,6 +475,8 @@ extension PhotoEditViewController: AppDockAppDataSource {
 
 extension PhotoEditViewController {
     @objc func infoButtonDidTap(sender: UIButton) {
+        assetView.pauseAny()
+        
         let vc = PHAssetMetadataViewController()
         vc.asset = asset
         
@@ -492,6 +497,34 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
         
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: .value2, reuseIdentifier: reuseIdentifier)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func tintColorDidChange() {
+            super.tintColorDidChange()
+            
+            textLabel?.textColor = .white
+        }
+    }
+    
+    private class MetadataTableViewMapCell: UITableViewCell {
+        lazy var mapView: MKMapView = MKMapView(frame: .zero)
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            
+            textLabel?.text = nil
+            detailTextLabel?.text = nil
+        }
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: .default, reuseIdentifier: reuseIdentifier)
+            
+            contentView.addSubview(mapView)
+            mapView.fitConstraints(to: contentView)
         }
         
         required init?(coder aDecoder: NSCoder) {
@@ -529,6 +562,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MetadataTableViewCell.self, forCellReuseIdentifier: "MetadataTableViewCell")
+        tableView.register(MetadataTableViewMapCell.self, forCellReuseIdentifier: "MetadataTableViewMapCell")
         tableView.allowsSelection = false
         return tableView
     }()
@@ -583,8 +617,10 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             var metadatas = [Metadata]()
             
             let filename = url.lastPathComponent
+            let uti = UTI(withURL: url)
+            
             metadatas.append(Metadata(key: "Filename", displayName: "File Name".localized, value: "\(filename)"))
-            metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(UTI(withURL: url).rawValue)"))
+            metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(uti.fileExtension?.uppercased() ?? uti.rawValue)"))
             
             let dataFormatter = ByteCountFormatter()
             dataFormatter.countStyle = .binary
@@ -596,7 +632,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             }
             
             if let pixelWidth = properties[ImageMetadata.PixelWidth], let pixelHeight = properties[ImageMetadata.PixelHeight] {
-                metadatas.append(Metadata(key: "PixelSize", displayName: "Size".localized, value: "\(pixelWidth)x\(pixelHeight)"))
+                metadatas.append(Metadata(key: "PixelSize", displayName: "Pixel Size".localized, value: "\(pixelWidth)x\(pixelHeight)"))
             }
             
             if let profileName = properties[ImageMetadata.ProfileName] {
@@ -654,7 +690,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                 var metadatas = [Metadata]()
                 
                 if let lat = info[ImageMetadata.Property.GPSLatitude] as? Double, let lon = info[ImageMetadata.Property.GPSLongitude] as? Double {
-                    let _ = CLLocationCoordinate2DMake(lat, lon)
+                    metadatas.append(Metadata(key: "Location", displayName: "Location".localized, value: CLLocationCoordinate2DMake(lat, lon)))
                 }
                 
                 if let value = info[ImageMetadata.Property.GPSLatitude] {
@@ -693,9 +729,10 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
         var metadatas = [Metadata]()
         
         let filename = resource.originalFilename
+        let uti = UTI(withURL: URL(fileURLWithPath: resource.originalFilename))
         
         metadatas.append(Metadata(key: "Filename", displayName: "File Name".localized, value: "\(filename)"))
-//        metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(UTI(withURL: url).rawValue)"))
+        metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(uti.fileExtension?.uppercased() ?? uti.rawValue)"))
         
         let dataFormatter = ByteCountFormatter()
         dataFormatter.countStyle = .binary
@@ -708,11 +745,29 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             metadatas.append(Metadata(key: "Date", displayName: "Date".localized, value: "\(dateFormatter.string(from: date))"))
         }
         
-        metadatas.append(Metadata(key: "PixelSize", displayName: "Size".localized, value: "\(asset.pixelWidth)x\(asset.pixelHeight)"))
+        metadatas.append(Metadata(key: "PixelSize", displayName: "Pixel Size".localized, value: "\(asset.pixelWidth)x\(asset.pixelHeight)"))
         
         if !metadatas.isEmpty {
             let metadataItem = MetadataItem(title: "File".localized, metadata: metadatas)
             self.metadataItems.append(metadataItem)
+        }
+        
+        if let location = asset.location {
+            var gpsMetadatas = [Metadata]()
+            
+            gpsMetadatas.append(Metadata(key: "Location", displayName: "Location".localized, value: location.coordinate))
+            
+            gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLatitude, displayName: "Latitude".localized, value: "\(location.coordinate.latitude)"))
+            gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLongitude, displayName: "Longitude".localized, value: "\(location.coordinate.longitude)"))
+            
+            if location.altitude > 0 {
+                gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSAltitude, displayName: "Altitude".localized, value: "\(location.altitude)"))
+            }
+            
+            if !gpsMetadatas.isEmpty {
+                let metadataItem = MetadataItem(title: "GPS".localized, metadata: gpsMetadatas)
+                self.metadataItems.append(metadataItem)
+            }
         }
         
         self.tableView.reloadData()
@@ -734,25 +789,48 @@ extension PHAssetMetadataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewCell") as? MetadataTableViewCell ?? UITableViewCell()
-        guard let metadataItem = metadataItems[safe: indexPath.section], let metadata = metadataItem.metadata[safe: indexPath.row] else { return cell }
+        guard let metadataItem = metadataItems[safe: indexPath.section], let metadata = metadataItem.metadata[safe: indexPath.row] else { return UITableViewCell() }
         
-        cell.detailTextLabel?.textColor = view.colorTheme.textGrayColor
-        
-        cell.textLabel?.text = metadata.displayName
-        
-        if let value = (metadata.value as? [Any])?.first {
-            cell.detailTextLabel?.text = "\(value)"
+        if let location = metadata.value as? CLLocationCoordinate2D {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewMapCell") as! MetadataTableViewMapCell
+            
+            cell.mapView.setRegion(MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000), animated: true)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            cell.mapView.addAnnotation(annotation)
+            
+            return cell
         }
         else {
-            cell.detailTextLabel?.text = "\(metadata.value)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewCell") as! MetadataTableViewCell
+            cell.detailTextLabel?.textColor = view.colorTheme.textGrayColor
+            
+            cell.textLabel?.text = metadata.displayName
+            
+            if let value = (metadata.value as? [Any])?.first {
+                cell.detailTextLabel?.text = "\(value)"
+            }
+            else {
+                cell.detailTextLabel?.text = "\(metadata.value)"
+            }
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return metadataItems[safe: section]?.title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let metadataItem = metadataItems[safe: indexPath.section], let metadata = metadataItem.metadata[safe: indexPath.row] else { return 0 }
+        
+        if let _ = metadata.value as? CLLocationCoordinate2D {
+            return tableView.width * 9 / 16
+        }
+        else {
+            return tableView.rowHeight
+        }
     }
 }
 
