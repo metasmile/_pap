@@ -193,11 +193,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
             }
             else if let _ = AppCenter.default.currentInstanceAs(EditableApp.self), let asset = asset {
-                if asset.imageType == .livePhoto {
-                    let appAsset = AppAsset(asset)
-                    appAsset.editState = preferredEditState
-                    
-                    assetView.imageEditType = canEdit ? .notImage : asset.imageType
+                if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable, asset.imageType == .livePhoto {
+                    assetView.imageEditType = .notImage
                 }
             }
         }
