@@ -579,7 +579,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
+        navigationItem.setLeftBarButton(UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
     }
     
     @objc private func closeButtonDidTap(sender: UIBarButtonItem) {
@@ -608,6 +608,15 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .medium
             
+            let doubleFormatter = NumberFormatter()
+            doubleFormatter.numberStyle = .decimal
+            doubleFormatter.minimumFractionDigits = 0
+            doubleFormatter.maximumFractionDigits = 4
+            doubleFormatter.roundingMode = .halfEven
+            
+            let dataFormatter = ByteCountFormatter()
+            dataFormatter.countStyle = .binary
+            
             self.metadataItems = []
             
             var metadatas = [Metadata]()
@@ -618,9 +627,6 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             metadatas.append(Metadata(key: "Filename", displayName: "File Name".localized, value: "\(filename)"))
             metadatas.append(Metadata(key: "Filetype", displayName: "File Type".localized, value: "\(uti.fileExtension?.uppercased() ?? uti.rawValue)"))
             
-            let dataFormatter = ByteCountFormatter()
-            dataFormatter.countStyle = .binary
-            
             metadatas.append(Metadata(key: "Filesize", displayName: "File Size".localized, value: "\(dataFormatter.string(fromByteCount: Int64(data.count)))"))
             
             if let date = asset.creationDate {
@@ -628,7 +634,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             }
             
             if let pixelWidth = properties[ImageMetadata.PixelWidth], let pixelHeight = properties[ImageMetadata.PixelHeight] {
-                metadatas.append(Metadata(key: "PixelSize", displayName: "Pixel Size".localized, value: "\(pixelWidth)x\(pixelHeight)"))
+                metadatas.append(Metadata(key: "PixelSize", displayName: "Resolution".localized, value: "\(pixelWidth)x\(pixelHeight)"))
             }
             
             if let profileName = properties[ImageMetadata.ProfileName] {
@@ -656,16 +662,33 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             if let info = properties[ImageMetadata.Dictionary.Exif] as? [String: Any] {
                 var metadatas = [Metadata]()
                 
+                var focalLength = ""
+                if let value = info[ImageMetadata.Property.ExifFocalLength] {
+                    focalLength = "\(value)mm"
+                }
+                
                 if let value = info[ImageMetadata.Property.ExifFocalLenIn35mmFilm] {
-                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFocalLenIn35mmFilm, displayName: "Focal Length".localized, value: "\(value) mm (in 35 mm)"))
+                    focalLength += " (\("35mm equivalent:".localized) \(value)mm)"
+                }
+                
+                if !focalLength.isEmpty {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFocalLength, displayName: "Focal Length".localized, value: focalLength))
                 }
                 
                 if let value = (info[ImageMetadata.Property.ExifISOSpeedRatings] as? [Any])?.first {
-                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifISOSpeedRatings, displayName: "ISO".localized, value: "\(value)"))
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifISOSpeedRatings, displayName: "ISO Speed".localized, value: "\(value)"))
                 }
                 
                 if let value = info[ImageMetadata.Property.ExifFNumber] {
                     metadatas.append(Metadata(key: ImageMetadata.Property.ExifFNumber, displayName: "Aperture".localized, value: "ƒ/\(value)"))
+                }
+                
+                if let value = info[ImageMetadata.Property.ExifShutterSpeedValue] as? Double, let time = doubleFormatter.string(from: NSNumber(value: value / 100)) {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifShutterSpeedValue, displayName: "Shutter Speed".localized, value: "\(time)s (1/\(Int(100 / value)))"))
+                }
+                
+                if let value = info[ImageMetadata.Property.ExifExposureTime] as? Double, let time = doubleFormatter.string(from: NSNumber(value: value)) {
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifExposureTime, displayName: "Exposure Time".localized, value: "\(time)s (1/\(Int(1 / value)))"))
                 }
                 
                 if let value = info[ImageMetadata.Property.ExifLensMake] {
@@ -741,7 +764,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             metadatas.append(Metadata(key: "Date", displayName: "Date".localized, value: "\(dateFormatter.string(from: date))"))
         }
         
-        metadatas.append(Metadata(key: "PixelSize", displayName: "Pixel Size".localized, value: "\(asset.pixelWidth)x\(asset.pixelHeight)"))
+        metadatas.append(Metadata(key: "PixelSize", displayName: "Resolution".localized, value: "\(asset.pixelWidth)x\(asset.pixelHeight)"))
         
         if !metadatas.isEmpty {
             let metadataItem = MetadataItem(title: "File".localized, metadata: metadatas)

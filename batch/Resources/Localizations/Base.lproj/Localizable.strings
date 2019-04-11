@@ -126,6 +126,8 @@
 "14-Day Use of Main and New Tools" = "14-Day Use of Main and New Tools";
 /* genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-Month Use of Main And New Tools";
+/* genl10n: PhotoEditViewController.swift */
+"35mm equivalent:" = "35mm equivalent:";
 /* genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-Month Use of Main And New Tools";
 /* genl10n: AppCenter.Charge.swift */
@@ -258,6 +260,8 @@
 "Clipboard is empty" = "Clipboard is empty";
 /* genl10n: Clipboard.BApp.swift(2) */
 "Clipboard" = "Clipboard";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Close";
 /* genl10n: Shop.SApp.swift */
 "Color And Reminder for Each Phases" = "Color And Reminder for Each Phases";
 /* genl10n: RawEditor.swift */
@@ -310,7 +314,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, PhotoEditViewController.swift(2), FirebaseMLVision.VisionText.Parser.Types.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), PhotoEditViewController.swift(2), FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -352,6 +356,8 @@
 "Engineering Notes" = "Engineering Notes";
 /* genl10n: GIFMaker.BApp.swift, App.Finalizable.PHAsset.swift */
 "Export" = "Export";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Exposure Time";
 /* genl10n: Adjustments.BApp.swift */
 "Exposure" = "Exposure";
 /* genl10n: Adjustments.BApp.swift */
@@ -439,7 +445,7 @@
 /* genl10n: ColorEditor.BApp.swift, Adjustments.BApp.swift */
 "Highlights" = "Highlights";
 /* genl10n: PhotoEditViewController.swift */
-"ISO" = "ISO";
+"ISO Speed" = "ISO Speed";
 /* genl10n: PDFMaker.AppDockContent.swift, GIFMaker.BApp.swift */
 "Image Quality" = "Image Quality";
 /* genl10n: Clipboard.BApp.swift(3) */
@@ -604,8 +610,6 @@
 "Phone Number" = "Phone Number";
 /* genl10n: GIFMaker.BApp.swift */
 "Photos" = "Photos";
-/* genl10n: PhotoEditViewController.swift(2) */
-"Pixel Size" = "Pixel Size";
 /* genl10n: Shop.Payment.SecretCodeProgram.swift */
 "Please Input Your Secret Code" = "Please Input Your Secret Code";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift */
@@ -666,6 +670,8 @@
 "Resize the last item to %@" = "Resize the last item to %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Resize";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Resolution";
 /* genl10n: AppCenter.Charge.swift */
 "Restore All Purchases" = "Restore All Purchases";
 /* genl10n: Shop.Payment.System.swift */
@@ -752,6 +758,8 @@
 "Sharpening" = "Sharpening";
 /* genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Sharpness";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Shutter Speed";
 /* genl10n: Cleaner.GarbageDetector.swift */
 "Similarity" = "Similarity";
 /* genl10n: Shop.SApp.swift */
