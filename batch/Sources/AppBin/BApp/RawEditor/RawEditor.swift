@@ -170,7 +170,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     }
 
     private func rawFilter(from asset: PHAsset, completion: ((CIRawFilter?) -> Void)?) {
-        DispatchQueue(label: RawEditorApp.info.identifier, qos: .utility).async {
+        DispatchQueue(label: RawEditorApp.info.identifier, qos: .background).async {
             let rawURL = self.urlForRawImage(with: asset)
 
             let rawData = asset.asRawData
