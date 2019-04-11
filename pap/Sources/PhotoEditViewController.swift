@@ -207,7 +207,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.isHidden = true
         assetView.asset = asset
         assetView.preferredTransform = preferredEditState.transform
-        setEditState(preferredEditState)
         
         assetView.addGestureRecognizer(tapToPlayGesture)
         
