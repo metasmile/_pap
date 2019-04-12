@@ -132,3 +132,148 @@ extension AVVideoComposition {
         return CGSize(width: makeVideoRenderWidth(size.width), height: makeVideoRenderWidth(size.height))
     }
 }
+
+extension AVAsset {
+    // https://chrissung.com/2017/03/11/reverse-video-in-ios/
+    func reverse(completion: @escaping (AVAsset?) -> Void) {
+        guard let videoTrack = tracks(withMediaType: .video).first else { completion(nil); return }
+        
+        let numberOfSamplesInGroup = 100
+        
+        DispatchQueue(label: #file + #function, qos: .utility).async {
+            let fps = videoTrack.nominalFrameRate
+            
+            let assetReader = try? AVAssetReader(asset: self)
+            let outputSettings = [
+                kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+            ]
+            let output = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: outputSettings)
+            output.supportsRandomAccess = true
+            
+            assetReader?.add(output)
+            assetReader?.startReading()
+            
+            let outputSize = videoTrack.naturalSize
+            
+            // presentation times
+            
+            var presentationTimes = [CMTime]()
+            
+            while let sample = output.copyNextSampleBuffer() {
+                let presentationTime = CMSampleBufferGetPresentationTimeStamp(sample)
+                presentationTimes.append(presentationTime)
+            }
+            
+            guard let initialTime = presentationTimes.first else { completion(nil); return }
+            
+            // make reversed groups
+            
+            struct ReverseGroup {
+                var startTime: CMTime
+                var endTime: CMTime
+                var timeStartIndex: Int
+                var timeEndIndex: Int
+                var frameStartIndex: Int
+                var frameEndIndex: Int
+                
+                var duration: CMTime {
+                    return CMTimeSubtract(endTime, startTime)
+                }
+            }
+            
+            let numberOfFrames = presentationTimes.count
+            let estimatedNumberOfGroups = Int(ceil(Float(numberOfFrames) / Float(numberOfSamplesInGroup)))
+            
+            var reverseGroups = [ReverseGroup]()
+            
+            var startTime: CMTime = initialTime
+            var timeStartIndex: Int = 0
+            var frameStartIndex: Int = numberOfFrames - 1
+            
+            for (i, presentationTime) in presentationTimes.enumerated() {
+                if i > 0, i % numberOfSamplesInGroup == 0 {
+                    let reversedIndex = numberOfFrames - 1 - i
+                    
+                    let group = ReverseGroup(startTime: startTime, endTime: presentationTime, timeStartIndex: timeStartIndex, timeEndIndex: i, frameStartIndex: frameStartIndex, frameEndIndex: reversedIndex)
+                    reverseGroups.append(group)
+                    
+                    startTime = presentationTime
+                    timeStartIndex = i
+                    frameStartIndex = reversedIndex
+                }
+            }
+            
+            if reverseGroups.count < estimatedNumberOfGroups || presentationTimes.count % numberOfSamplesInGroup > 0, let presentationTime = presentationTimes[safe: numberOfFrames - 1] {
+                let group = ReverseGroup(startTime: startTime, endTime: presentationTime, timeStartIndex: timeStartIndex, timeEndIndex: numberOfFrames - 1, frameStartIndex: frameStartIndex, frameEndIndex: 0)
+                reverseGroups.append(group)
+            }
+            
+            // write reversed video
+            
+            let url = FileURL.temp("\(UUID().uuidString)_reversed", UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
+            let assetWriter = try? AVAssetWriter(url: url, fileType: AVFileType.mov)
+            let inputSettings: [String: Any] = [
+                AVVideoCodecKey: AVVideoCodecType.h264,
+                AVVideoWidthKey: Int(outputSize.width),
+                AVVideoHeightKey: Int(outputSize.height)
+            ]
+            let input = AVAssetWriterInput(mediaType: .video, outputSettings: inputSettings)
+            input.expectsMediaDataInRealTime = false
+            input.transform = videoTrack.preferredTransform
+            
+            let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
+            
+            assetWriter?.add(input)
+            assetWriter?.startWriting()
+            assetWriter?.startSession(atSourceTime: initialTime)
+            
+            var frameCount = 0
+            let fpsInt = Int(fps + 0.5)
+            
+            for group in reverseGroups.reversed() {
+                let timeRange = CMTimeRange(start: group.startTime, duration: group.duration)
+                output.reset(forReadingTimeRanges: [NSValue(timeRange: timeRange)])
+                
+                var samples = [CMSampleBuffer]()
+                while let sample = output.copyNextSampleBuffer() {
+                    samples.append(sample)
+                }
+                
+                let numberOfSamples = samples.count
+                
+                for i in 0..<numberOfSamples {
+                    let reversedIndex = numberOfSamples - 1 - i
+                    
+                    guard
+                        let time = presentationTimes[safe: frameCount],
+                        let sample = samples[safe: reversedIndex],
+                        let pixelBuffer = CMSampleBufferGetImageBuffer(sample)
+                    else {
+                        frameCount += 1
+                        continue
+                    }
+                    
+                    var appended = false
+                    var attempToAppendCount = 0
+                    while !appended && attempToAppendCount < fpsInt {
+                        if adaptor.assetWriterInput.isReadyForMoreMediaData {
+                            appended = adaptor.append(pixelBuffer, withPresentationTime: time)
+                        }
+                        else {
+                            Thread.sleep(forTimeInterval: 0.05)
+                        }
+                        attempToAppendCount += 1
+                    }
+                    
+                    frameCount += 1
+                }
+            }
+            
+            input.markAsFinished()
+            
+            assetWriter?.finishWriting {
+                completion(AVAsset(url: url))
+            }
+        }
+    }
+}
