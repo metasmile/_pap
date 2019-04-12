@@ -135,7 +135,7 @@ extension AVVideoComposition {
 
 extension AVAsset {
     // https://chrissung.com/2017/03/11/reverse-video-in-ios/
-    func reverse(completion: @escaping (AVAsset?) -> Void) {
+    func reverse(progress progressHandler: ((Progress) -> Void)? = nil, completion: @escaping (AVAsset?) -> Void) {
         guard let videoTrack = tracks(withMediaType: .video).first else { completion(nil); return }
         
         let numberOfSamplesInGroup = 100
@@ -230,6 +230,8 @@ extension AVAsset {
             var frameCount = 0
             let fpsInt = Int(fps + 0.5)
             
+            let progress = Progress(totalUnitCount: Int64(reverseGroups.count))
+            
             for group in reverseGroups.reversed() {
                 let timeRange = CMTimeRange(start: group.startTime, duration: group.duration)
                 output.reset(forReadingTimeRanges: [NSValue(timeRange: timeRange)])
@@ -242,6 +244,9 @@ extension AVAsset {
                 let numberOfSamples = samples.count
                 
                 for i in 0..<numberOfSamples {
+                    let childProgress = Progress(totalUnitCount: Int64(numberOfSamples))
+                    progress.addChild(childProgress, withPendingUnitCount: 1)
+                    
                     let reversedIndex = numberOfSamples - 1 - i
                     
                     guard
@@ -250,6 +255,8 @@ extension AVAsset {
                         let pixelBuffer = CMSampleBufferGetImageBuffer(sample)
                     else {
                         frameCount += 1
+                        childProgress.completedUnitCount += 1
+                        progressHandler?(progress)
                         continue
                     }
                     
@@ -266,6 +273,8 @@ extension AVAsset {
                     }
                     
                     frameCount += 1
+                    childProgress.completedUnitCount += 1
+                    progressHandler?(progress)
                 }
             }
             
