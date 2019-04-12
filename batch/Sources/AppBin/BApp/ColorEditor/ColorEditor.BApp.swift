@@ -167,6 +167,22 @@ fileprivate class CIColorFilterGroup: CIFilterGroup<CIBuiltInFilter> {
     var filterAttributes: [CIFilterAttributes] {
         return filters.map { $0.filterAttributes.values }.reduce([], +)
     }
+    
+    override var outputImage: CIImage? {
+        
+        guard var image = inputImage else { return nil }
+        
+        for filter in filters {
+            autoreleasepool {
+                filter.setValue(image, forKey: kCIInputImageKey)
+                if let result = filter.outputImage {
+                    image = result
+                }
+            }
+        }
+        
+        return image
+    }
 }
 
 class _ColorEditorAppAsset: _FiltersAppAsset {}
@@ -242,9 +258,67 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         self.app = app
     }
     
+    private lazy var toneCurveControl = CIToneCurveControl(frame: .zero)
+    
+    private var channelButtonActions: [UIButton: (() -> Void)] = [:]
+    private func createChannelButton(with title: String, tintColor: UIColor? = nil, handler: (() -> Void)? = nil) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        if let tintColor = tintColor {
+            button.tintColor = tintColor
+        }
+        button.addTarget(self, action: #selector(self.channelButtonDidTap), for: .touchUpInside)
+        
+        if let handler = handler {
+            channelButtonActions[button] = handler
+        }
+        return button
+    }
+    
+    @objc private func channelButtonDidTap(sender: UIButton) {
+        channelButtonActions[sender]?()
+    }
+    
+    fileprivate var selectedChannel = 0 {
+        didSet {
+            rgbButton.isSelected = selectedChannel == 0
+            redButton.isSelected = selectedChannel == 1
+            greenButton.isSelected = selectedChannel == 2
+            blueButton.isSelected = selectedChannel == 3
+            reloadData()
+        }
+    }
+    
+    private lazy var rgbButton = createChannelButton(with: "RGB", handler: { self.selectedChannel = 0 })
+    private lazy var redButton = createChannelButton(with: "Red", handler: { self.selectedChannel = 1 })
+    private lazy var greenButton = createChannelButton(with: "Green", handler: { self.selectedChannel = 2 })
+    private lazy var blueButton = createChannelButton(with: "Blue", handler: { self.selectedChannel = 3 })
+    
     lazy var view: UIView = {
-        let toneCurveControl = CIToneCurveControl(frame: .zero)
-        return toneCurveControl
+        let view = UIView(frame: .zero)
+        
+        rgbButton.isSelected = true
+        
+        let stackView = UIStackView(arrangedSubviews: [rgbButton, redButton, greenButton, blueButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        
+        view.addSubview(toneCurveControl)
+        toneCurveControl.translatesAutoresizingMaskIntoConstraints = false
+        toneCurveControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        toneCurveControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        toneCurveControl.leadingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 8).isActive = true
+        toneCurveControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        return view
     }()
     
     var preferences: AppDockContentPreferable? {
@@ -274,11 +348,16 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     private func installFilters(with filters: [CIBuiltInFilter]? = nil) {
         colorFilters.removeAll()
         
-        if let filters = filters, !filters.isEmpty {
+        if let filters = filters, filters.count == 4 {
             colorFilters = filters
         }
         else {
-            colorFilters = [CIToneCurveFilter()]
+            colorFilters = [
+                CIToneCurveFilter(),
+                CIToneCurveFilter(),
+                CIToneCurveFilter(),
+                CIToneCurveFilter()
+            ]
         }
     }
     
@@ -293,18 +372,24 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     private func reloadData() {
-        guard let control = view as? CIToneCurveControl else { return }
-        let filter = colorFilters.first
+        let filter = colorFilters[safe: selectedChannel]
         
-        filter?.editableItems?.enumerated().forEach { idx, item in
-            control.setItem(item, at: idx)
+        switch selectedChannel {
+        case 1: self.toneCurveControl.highlightedColor = .red
+        case 2: self.toneCurveControl.highlightedColor = .green
+        case 3: self.toneCurveControl.highlightedColor = .blue
+        default: self.toneCurveControl.highlightedColor = nil
         }
         
-        control.resetHandler = { idx in
+        filter?.editableItems?.enumerated().forEach { idx, item in
+            self.toneCurveControl.setItem(item, at: idx)
+        }
+        
+        self.toneCurveControl.resetHandler = { idx in
             guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
             
             attributeItem.value = attributeItem.defaultValue
-            control.setItem(attributeItem, at: idx)
+            self.toneCurveControl.setItem(attributeItem, at: idx)
             
             DispatchQueue.main.async {
                 self.markAsEditedFilter(self.colorFilters)
@@ -312,23 +397,23 @@ class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             }
         }
         
-        control.sliderDidChangeHandler = { idx, value in
+        self.toneCurveControl.sliderDidChangeHandler = { idx, value in
             guard let attributeItem = filter?.editableItems?[safe: idx] else { return }
             
             attributeItem.value = value
-            control.setToolViewItem(showsButton: attributeItem.hasChanges, at: idx)
+            self.toneCurveControl.setToolViewItem(showsButton: attributeItem.hasChanges, at: idx)
             
             DispatchQueue.main.async {
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
-        control.sliderDidEndHandler = { idx, value in
+        self.toneCurveControl.sliderDidEndHandler = { idx, value in
             DispatchQueue.main.async {
                 self.markAsEditedFilter(self.colorFilters)
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
             }
         }
-        control.updateCurve()
+        self.toneCurveControl.updateCurve()
     }
     
     private func markAsEditedFilter(_ filters: [CIBuiltInFilter]?) {
@@ -572,6 +657,13 @@ fileprivate class CIToneCurveControl: DesignableView {
         super.tintColorDidChange()
         
         sliders.forEach { $0.tintColor = self.tintColor }
+    }
+    
+    var highlightedColor: UIColor? {
+        didSet {
+            sliders.forEach { $0.centerNotchColor = highlightedColor ?? ColorEditorApp.info.themeColor ?? .red }
+            toolView.arrangedSubviews.forEach { ($0 as? CIToneCurveResetControl)?.highlightedColor = highlightedColor ?? ColorEditorApp.info.themeColor }
+        }
     }
     
     func setItem(_ item: CIFilterAttributeItem, at index: Int) {
