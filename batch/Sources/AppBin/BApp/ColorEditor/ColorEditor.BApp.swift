@@ -163,25 +163,81 @@ fileprivate class CIToneCurveFilter: CIBuiltInFilter {
     }
 }
 
+private class RGBChannelCompositing: CIFilter {
+    var inputRedImage : CIImage?
+    var inputGreenImage : CIImage?
+    var inputBlueImage : CIImage?
+    
+    let rgbChannelCompositingKernel = CIColorKernel(source:
+        "kernel vec4 rgbChannelCompositing(__sample red, __sample green, __sample blue)" +
+            "{" +
+            "   return vec4(red.r, green.g, blue.b, 1.0);" +
+        "}"
+    )
+    
+    override var attributes: [String : Any]
+    {
+        return [
+            kCIAttributeFilterDisplayName: "RGB Compositing",
+            
+            "inputRedImage": [kCIAttributeIdentity: 0,
+                              kCIAttributeClass: "CIImage",
+                              kCIAttributeDisplayName: "Red Image",
+                              kCIAttributeType: kCIAttributeTypeImage],
+            
+            "inputGreenImage": [kCIAttributeIdentity: 0,
+                                kCIAttributeClass: "CIImage",
+                                kCIAttributeDisplayName: "Green Image",
+                                kCIAttributeType: kCIAttributeTypeImage],
+            
+            "inputBlueImage": [kCIAttributeIdentity: 0,
+                               kCIAttributeClass: "CIImage",
+                               kCIAttributeDisplayName: "Blue Image",
+                               kCIAttributeType: kCIAttributeTypeImage]
+        ]
+    }
+    
+    override var outputImage: CIImage!
+    {
+        guard let inputRedImage = inputRedImage,
+            let inputGreenImage = inputGreenImage,
+            let inputBlueImage = inputBlueImage,
+            let rgbChannelCompositingKernel = rgbChannelCompositingKernel else
+        {
+            return nil
+        }
+        
+        let extent = inputRedImage.extent.union(inputGreenImage.extent.union(inputBlueImage.extent))
+        let arguments = [inputRedImage, inputGreenImage, inputBlueImage]
+        
+        return rgbChannelCompositingKernel.apply(extent: extent, arguments: arguments)
+    }
+}
+
 fileprivate class CIColorFilterGroup: CIFilterGroup<CIBuiltInFilter> {
     var filterAttributes: [CIFilterAttributes] {
         return filters.map { $0.filterAttributes.values }.reduce([], +)
     }
     
     override var outputImage: CIImage? {
+        guard let image = inputImage else { return nil }
         
-        guard var image = inputImage else { return nil }
-        
-        for filter in filters {
-            autoreleasepool {
-                filter.setValue(image, forKey: kCIInputImageKey)
-                if let result = filter.outputImage {
-                    image = result
-                }
-            }
+        let compositing = RGBChannelCompositing()
+        autoreleasepool {
+            filters[safe: 1]?.setValue(image, forKey: kCIInputImageKey)
+            compositing.inputRedImage = filters[safe: 1]?.outputImage
+        }
+        autoreleasepool {
+            filters[safe: 2]?.setValue(image, forKey: kCIInputImageKey)
+            compositing.inputGreenImage = filters[safe: 2]?.outputImage
+        }
+        autoreleasepool {
+            filters[safe: 3]?.setValue(image, forKey: kCIInputImageKey)
+            compositing.inputBlueImage = filters[safe: 3]?.outputImage
         }
         
-        return image
+        filters[safe: 0]?.setValue(compositing.outputImage, forKey: kCIInputImageKey)
+        return filters[safe: 0]?.outputImage
     }
 }
 
