@@ -1,5 +1,5 @@
 //
-//  ColorEditor.BApp.swift
+//  CurveEditor.BApp.swift
 //  pap
 //
 //  Created by HYOJIN MO on 28/02/2019.
@@ -10,23 +10,23 @@ import UIKit
 import PropertyKit
 import Photos
 
-protocol ColorEditorDefaults: AppDefaults {
+protocol CurveEditorDefaults: AppDefaults {
     var colorFilters: [CIBuiltInFilter] { get set }
 }
 
-extension Defaults: ColorEditorDefaults {
+extension Defaults: CurveEditorDefaults {
     internal var colorFilters: [CIBuiltInFilter] {
         set { set(newValue); papLog.app.defaults.log(value:String(describing: newValue)) }
         get { return get(or: []) }
     }
 }
 
-class ColorEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
+class CurveEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, UndoableApp, PreviewProcessableApp, AppDockApp,
 PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
-    public static let taskType: AppTaskable.Type = ColorEditorTask.self
+    public static let taskType: AppTaskable.Type = CurveEditorTask.self
     
-    public static let paramType: AppTaskParamable.Type = _ColorEditorAppAsset.self
+    public static let paramType: AppTaskParamable.Type = _CurveEditorAppAsset.self
     
     public static var defaultConfigValue: AppConfigValuable {
         let config = FiltersAppConfigValue()
@@ -36,23 +36,23 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     @objc dynamic
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
     
-    public private(set) lazy var content: AppDockContent? = ColorEditorAppDockContent(app: self)
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = ColorEditorAppDockContent()
+    public private(set) lazy var content: AppDockContent? = CurveEditorAppDockContent(app: self)
+    public private(set) lazy var photoEditorDockContent: AppDockContent? = CurveEditorAppDockContent()
     
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
         defaultEditStateValue = editStateValue
         
-        if var defaults = type(of: self).defaults as? ColorEditorDefaults, let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
+        if var defaults = type(of: self).defaults as? CurveEditorDefaults, let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
             defaults.colorFilters = filter.filters
         }
     }
     
     public static let info = AppInfo(
-        identifier: "com.stells.batch.coloreditor"
-        , version: "0.1"
-        , phase: .beta
-        , appType: ColorEditorApp.self
+        identifier: "com.stells.batch.curveeditor"
+        , version: "1.0"
+        , phase: .release
+        , appType: CurveEditorApp.self
         , displayName: "Curve Tool".localized.localizedCapitalized
         , description: "Curve Tool".localized
         , keywords: ["Curve", "Color", "RGB"]
@@ -65,12 +65,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     required public override init() {
         super.init()
         
-        let controllerContent = self.content as? ColorEditorAppDockContent
+        let controllerContent = self.content as? CurveEditorAppDockContent
         controllerContent?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? ColorEditorDefaults {
+            else if var defaults = type(of: self).defaults as? CurveEditorDefaults {
                 let filter = CIColorFilterGroup(filters: defaults.colorFilters)
 
                 let filterItem = CIFilterItem(filter)
@@ -79,12 +79,12 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
         
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? ColorEditorAppDockContent
+        let controllerContentInPhotoEditor = self.photoEditorDockContent as? CurveEditorAppDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? ColorEditorDefaults {
+            else if var defaults = type(of: self).defaults as? CurveEditorDefaults {
                 let filter = CIColorFilterGroup(filters: defaults.colorFilters)
 
                 let filterItem = CIFilterItem(filter)
@@ -124,7 +124,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     
     public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
         if let filter = editStateValue?.ciFilter as? CIColorFilterGroup {
-            (content as? ColorEditorAppDockContent)?.setFilterValues(filter, animated: false)
+            (content as? CurveEditorAppDockContent)?.setFilterValues(filter, animated: false)
             
             if self.undoStack.isEmpty {
                 self.registerUndo(filter.filters)
@@ -136,11 +136,11 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public var undoItemIndex: Int = 0
 
     public func undoItemIndexDidChange(_ item: Array<CIBuiltInFilter>?) {
-        var controller: ColorEditorAppDockContent?
-        if let content = self.content as? ColorEditorAppDockContent {
+        var controller: CurveEditorAppDockContent?
+        if let content = self.content as? CurveEditorAppDockContent {
             controller = content
         }
-        else if let content = self.photoEditorDockContent as? ColorEditorAppDockContent {
+        else if let content = self.photoEditorDockContent as? CurveEditorAppDockContent {
             controller = content
         }
 
@@ -241,9 +241,9 @@ fileprivate class CIColorFilterGroup: CIFilterGroup<CIBuiltInFilter> {
     }
 }
 
-class _ColorEditorAppAsset: _FiltersAppAsset {}
+class _CurveEditorAppAsset: _FiltersAppAsset {}
 
-struct ColorEditorResultItem: AppTaskResultable {
+struct CurveEditorResultItem: AppTaskResultable {
     var asset: PHAsset
     var result: [PHAssetEditingResultItem]?
     
@@ -253,27 +253,27 @@ struct ColorEditorResultItem: AppTaskResultable {
     }
 }
 
-public class ColorEditorValue: ImageEditStateValue {}
+public class CurveEditorValue: ImageEditStateValue {}
 
-private class ColorEditorTask: AppTaskPrototype, AppTaskable {
-    public typealias ParamType = _ColorEditorAppAsset
+private class CurveEditorTask: AppTaskPrototype, AppTaskable {
+    public typealias ParamType = _CurveEditorAppAsset
     public typealias ResultType = PHAssetResultItem
     
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
         
-        (param as? _ColorEditorAppAsset)?.cancelAllRequestIDs()
-        (param as? _ColorEditorAppAsset)?.cancelProcessing()
+        (param as? _CurveEditorAppAsset)?.cancelAllRequestIDs()
+        (param as? _CurveEditorAppAsset)?.cancelProcessing()
     }
     
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
-        assert(param is _ColorEditorAppAsset, "TaskParamable type of this app is \(_ColorEditorAppAsset.self)")
-        guard let _param = param as? _ColorEditorAppAsset else{
+        assert(param is _CurveEditorAppAsset, "TaskParamable type of this app is \(_CurveEditorAppAsset.self)")
+        guard let _param = param as? _CurveEditorAppAsset else{
             throw AppTaskError.invalidParam
         }
         return try self._perform(_param, async)
     }
     
-    private func _perform(_ assetItem: _ColorEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
+    private func _perform(_ assetItem: _CurveEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
         
         async.begin()
@@ -290,7 +290,7 @@ private class ColorEditorTask: AppTaskPrototype, AppTaskable {
                         editInfo["filterAttributes"] = json
                     }
                     
-                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ColorEditorApp.self, editInfo: editInfo, from: asset)
+                    contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: CurveEditorApp.self, editInfo: editInfo, from: asset)
                     
                     result = PHAssetResultItem(
                         asset: assetItem,
@@ -306,9 +306,9 @@ private class ColorEditorTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class ColorEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
-    var app: ColorEditorApp?
-    convenience init(app: ColorEditorApp) {
+class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, AppDockDelegate {
+    var app: CurveEditorApp?
+    convenience init(app: CurveEditorApp) {
         self.init()
         
         self.app = app
@@ -666,7 +666,7 @@ fileprivate class CIToneCurveControl: DesignableView {
             
             let resetControl = CIToneCurveResetControl(frame: .zero)
             resetControl.addTarget(self, action: #selector(self.resetButtonDidTap), for: .touchUpInside)
-            resetControl.highlightedColor = ColorEditorApp.info.themeColor
+            resetControl.highlightedColor = CurveEditorApp.info.themeColor
             toolView.addArrangedSubview(resetControl)
         }
         
@@ -695,7 +695,7 @@ fileprivate class CIToneCurveControl: DesignableView {
         let slider = PrecisionLevelSlider(axis: .vertical)
         slider.longNotchColor = .white
         slider.shortNotchColor = UIColor.init(white: 0.5, alpha: 1)
-        slider.centerNotchColor = ColorEditorApp.info.themeColor ?? .red
+        slider.centerNotchColor = CurveEditorApp.info.themeColor ?? .red
         slider.numberOfNotches = 20
         
         slider.addTarget(self, action: #selector(self.updateCurve), for: .scrollDidChanged)
@@ -717,8 +717,8 @@ fileprivate class CIToneCurveControl: DesignableView {
     
     var highlightedColor: UIColor? {
         didSet {
-            sliders.forEach { $0.centerNotchColor = highlightedColor ?? ColorEditorApp.info.themeColor ?? .red }
-            toolView.arrangedSubviews.forEach { ($0 as? CIToneCurveResetControl)?.highlightedColor = highlightedColor ?? ColorEditorApp.info.themeColor }
+            sliders.forEach { $0.centerNotchColor = highlightedColor ?? CurveEditorApp.info.themeColor ?? .red }
+            toolView.arrangedSubviews.forEach { ($0 as? CIToneCurveResetControl)?.highlightedColor = highlightedColor ?? CurveEditorApp.info.themeColor }
         }
     }
     

@@ -12,7 +12,7 @@
 		20F9F6E075A13A5A1A62CDDA /* Pods_ocra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1492C98BC5F09A387CACF96 /* Pods_ocra.framework */; };
 		2CBEAE69A52BB05E9E11EA85 /* Pods_batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A074C5E49CC6D432B1D8F56 /* Pods_batch.framework */; };
 		343A0A8E9503523A9A599A57 /* Pods_batch_papTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ADB3AC2CD7663D1C11937F /* Pods_batch_papTests.framework */; };
-		351611B3DF0F053B3CDF48DA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		351611B3DF0F053B3CDF48DA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		4F71D000D20543E2B6ADD425 /* AppDockDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8EAAB9A8ED410854A00 /* AppDockDrawerView.swift */; };
 		4F71D00EDD845A754DE1A3F0 /* Transform.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D192F1C169A5B62B2F3A /* Transform.BApp.swift */; };
 		4F71D01027896F2F7238E57F /* FileIO.URL.File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1768CAE59DE1CE3D5DA /* FileIO.URL.File.swift */; };
@@ -1045,10 +1045,10 @@
 		5120EBFF21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EC0021B9D247001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EC0121B9D248001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
-		512410E822274F790080278C /* ColorEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* ColorEditor.BApp.swift */; };
-		512410E922274F790080278C /* ColorEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* ColorEditor.BApp.swift */; };
-		512410EA22274F790080278C /* ColorEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* ColorEditor.BApp.swift */; };
-		512410EB22274F790080278C /* ColorEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* ColorEditor.BApp.swift */; };
+		512410E822274F790080278C /* CurveEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* CurveEditor.BApp.swift */; };
+		512410E922274F790080278C /* CurveEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* CurveEditor.BApp.swift */; };
+		512410EA22274F790080278C /* CurveEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* CurveEditor.BApp.swift */; };
+		512410EB22274F790080278C /* CurveEditor.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512410E722274F790080278C /* CurveEditor.BApp.swift */; };
 		515E9BD021784DAC0090CEEC /* Clipboard.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */; };
 		51683500214F2E1F00338AE6 /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516834FF214F2E1F00338AE6 /* Siri.SApp.swift */; };
 		51683502214F318A00338AE6 /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51683501214F318A00338AE6 /* Siri.SApp.Assets.xcassets */; };
@@ -2619,7 +2619,7 @@
 		511EA5AA21C3724C00B47926 /* RawEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawEditor.swift; sourceTree = "<group>"; };
 		511EA6482212913A00DBF9FD /* Merger.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.BApp.swift; sourceTree = "<group>"; };
 		5120EBFB21B9D211001D8696 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
-		512410E722274F790080278C /* ColorEditor.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEditor.BApp.swift; sourceTree = "<group>"; };
+		512410E722274F790080278C /* CurveEditor.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveEditor.BApp.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		515E9BCF21784DAC0090CEEC /* Clipboard.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.BApp.swift; sourceTree = "<group>"; };
 		516834FF214F2E1F00338AE6 /* Siri.SApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
@@ -2842,7 +2842,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351611B3DF0F053B3CDF48DA /* BuildFile in Frameworks */,
+				351611B3DF0F053B3CDF48DA /* (null) in Frameworks */,
 				75E4427B893664F90EABC64F /* Pods_mmc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3013,7 +3013,7 @@
 		4F71D0E2346FDC70B46A6272 /* BApp */ = {
 			isa = PBXGroup;
 			children = (
-				512410E622274F010080278C /* ColorEditor */,
+				512410E622274F010080278C /* CurveEditor */,
 				511EA64722128AE200DBF9FD /* Merger */,
 				511EA5A921C3723000B47926 /* RawEditor */,
 				51956E6921AB7A3A0067CCEA /* Adjustments */,
@@ -3877,12 +3877,12 @@
 			path = Merger;
 			sourceTree = "<group>";
 		};
-		512410E622274F010080278C /* ColorEditor */ = {
+		512410E622274F010080278C /* CurveEditor */ = {
 			isa = PBXGroup;
 			children = (
-				512410E722274F790080278C /* ColorEditor.BApp.swift */,
+				512410E722274F790080278C /* CurveEditor.BApp.swift */,
 			);
-			path = ColorEditor;
+			path = CurveEditor;
 			sourceTree = "<group>";
 		};
 		515E9BCE21784D270090CEEC /* Clipboard */ = {
@@ -5759,7 +5759,7 @@
 				4F71DCA5F26E80101C019E71 /* Loggable.swift in Sources */,
 				4F71D9D45C2FC0F55507CA69 /* Item.swift in Sources */,
 				4F71D07AF5F8512F989487C3 /* UIKitItem.swift in Sources */,
-				512410E822274F790080278C /* ColorEditor.BApp.swift in Sources */,
+				512410E822274F790080278C /* CurveEditor.BApp.swift in Sources */,
 				4F71D0D85F27F04FD842B41C /* StateValue.swift in Sources */,
 				4F71D3362819557F5F4E26D0 /* AssetView.swift in Sources */,
 				4F71D472C9D75AB7D5A5A3D1 /* CustomView.swift in Sources */,
@@ -6367,7 +6367,7 @@
 				A0CB01DF219C9093007A5278 /* UITableViewMultiplePickerCell.swift in Sources */,
 				A0CB01E0219C9093007A5278 /* UITableViewExpandableCell.UITableView.swift in Sources */,
 				A0CB01E1219C9093007A5278 /* UITableViewCellDescribable.UITableView.swift in Sources */,
-				512410EB22274F790080278C /* ColorEditor.BApp.swift in Sources */,
+				512410EB22274F790080278C /* CurveEditor.BApp.swift in Sources */,
 				A0CB01E2219C9093007A5278 /* CodeKit.UITableView.swift in Sources */,
 				A0CB01E3219C9093007A5278 /* CodeKit.UITableViewCell.swift in Sources */,
 				A0CB01E4219C9093007A5278 /* CodeKit.UITableViewController.swift in Sources */,
@@ -6842,7 +6842,7 @@
 				4F71D4A5F400045EC5C63E3C /* Loggable.swift in Sources */,
 				4F71DFE01452ACD6B35A8CB6 /* Item.swift in Sources */,
 				4F71DB96339DECBB2D78ADA9 /* UIKitItem.swift in Sources */,
-				512410E922274F790080278C /* ColorEditor.BApp.swift in Sources */,
+				512410E922274F790080278C /* CurveEditor.BApp.swift in Sources */,
 				4F71D9393443EA95E697E3BD /* StateValue.swift in Sources */,
 				4F71DE45E23B72A59A7C8FA2 /* AssetView.swift in Sources */,
 				4F71D67D6D1DD310FFA9EB41 /* CustomView.swift in Sources */,
@@ -7219,7 +7219,7 @@
 				A0CB005A219C8C64007A5278 /* UITableViewCellDescribable.swift in Sources */,
 				A0CB005B219C8C64007A5278 /* UITableViewMultiplePickerCell.swift in Sources */,
 				A0CB005C219C8C64007A5278 /* UITableViewExpandableCell.UITableView.swift in Sources */,
-				512410EA22274F790080278C /* ColorEditor.BApp.swift in Sources */,
+				512410EA22274F790080278C /* CurveEditor.BApp.swift in Sources */,
 				A0CB005D219C8C64007A5278 /* UITableViewCellDescribable.UITableView.swift in Sources */,
 				A0CB005E219C8C64007A5278 /* CodeKit.UITableView.swift in Sources */,
 				A0CB005F219C8C64007A5278 /* CodeKit.UITableViewCell.swift in Sources */,

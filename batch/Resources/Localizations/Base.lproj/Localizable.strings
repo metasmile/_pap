@@ -218,7 +218,7 @@
 "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert." = "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.";
 /* genl10n: RawEditor.swift */
 "Bias" = "Bias";
-/* genl10n: ColorEditor.BApp.swift */
+/* genl10n: CurveEditor.BApp.swift */
 "Blacks" = "Blacks";
 /* genl10n: RawEditor.swift */
 "Blue / Magenta" = "Blue / Magenta";
@@ -308,13 +308,13 @@
 "Currency Exchange" = "Currency Exchange";
 /* genl10n: Finder.BApp.swift, MemoCam.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
-/* genl10n: ColorEditor.BApp.swift(2) */
+/* genl10n: CurveEditor.BApp.swift(2) */
 "Curve Tool" = "Curve Tool";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), PhotoEditViewController.swift(2), FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -442,7 +442,7 @@
 "Hide" = "Hide";
 /* genl10n: ExifGhost.BApp.swift */
 "Hiding Selected Items..." = "Hiding Selected Items...";
-/* genl10n: ColorEditor.BApp.swift, Adjustments.BApp.swift */
+/* genl10n: Adjustments.BApp.swift, CurveEditor.BApp.swift */
 "Highlights" = "Highlights";
 /* genl10n: PhotoEditViewController.swift */
 "ISO Speed" = "ISO Speed";
@@ -522,7 +522,7 @@
 "Message To Us" = "Message To Us";
 /* genl10n: PhotoEditViewController.swift */
 "Metadata" = "Metadata";
-/* genl10n: ColorEditor.BApp.swift */
+/* genl10n: CurveEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Mode H";
@@ -736,7 +736,7 @@
 "Settings for Main Tools License" = "Settings for Main Tools License";
 /* genl10n: Converter.BApp.swift, ExifGhost.AppDockContent.swift, Shop.SApp.swift */
 "Settings" = "Settings";
-/* genl10n: Adjustments.BApp.swift, ColorEditor.BApp.swift */
+/* genl10n: CurveEditor.BApp.swift, Adjustments.BApp.swift */
 "Shadows" = "Shadows";
 /* genl10n: GIFMaker.BApp.swift */
 "Shake Reduction" = "Shake Reduction";
@@ -930,7 +930,7 @@
 "Welcome to our promotion license program!" = "Welcome to our promotion license program!";
 /* genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Welcome to our special guest license program!" = "Welcome to our special guest license program!";
-/* genl10n: ColorEditor.BApp.swift */
+/* genl10n: CurveEditor.BApp.swift */
 "Whites" = "Whites";
 /* genl10n: ExifGhost.BApp.swift */
 "Wipe my privacy from the last item." = "Wipe my privacy from the last item.";
