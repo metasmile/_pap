@@ -56,7 +56,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , displayName: "Curve Tool".localized.localizedCapitalized
         , description: "Curve Tool".localized
         , keywords: ["Curve", "Color", "RGB"]
-        , iconBundleName: nil
+        , iconBundleName: R.image.curveEditorBAppIcon.name
         , themeColor: UIColor(rgb: 0x49CE8A)
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -347,9 +347,9 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     private lazy var rgbButton = createChannelButton(with: "RGB", handler: { self.selectedChannel = 0 })
-    private lazy var redButton = createChannelButton(with: "Red", handler: { self.selectedChannel = 1 })
-    private lazy var greenButton = createChannelButton(with: "Green", handler: { self.selectedChannel = 2 })
-    private lazy var blueButton = createChannelButton(with: "Blue", handler: { self.selectedChannel = 3 })
+    private lazy var redButton = createChannelButton(with: "R", handler: { self.selectedChannel = 1 })
+    private lazy var greenButton = createChannelButton(with: "G", handler: { self.selectedChannel = 2 })
+    private lazy var blueButton = createChannelButton(with: "B", handler: { self.selectedChannel = 3 })
     
     lazy var view: UIView = {
         let view = UIView(frame: .zero)
@@ -431,10 +431,10 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         let filter = colorFilters[safe: selectedChannel]
         
         switch selectedChannel {
-        case 1: self.toneCurveControl.highlightedColor = .red
-        case 2: self.toneCurveControl.highlightedColor = .green
-        case 3: self.toneCurveControl.highlightedColor = .blue
-        default: self.toneCurveControl.highlightedColor = nil
+        case 1: self.toneCurveControl.highlightedColor = UIColor(rgb: 0xEC2F4B)
+        case 2: self.toneCurveControl.highlightedColor = UIColor(rgb: 0x38EF7D)
+        case 3: self.toneCurveControl.highlightedColor = UIColor(rgb: 0x00C3FF)
+        default: self.toneCurveControl.highlightedColor = .white
         }
         
         filter?.editableItems?.enumerated().forEach { idx, item in

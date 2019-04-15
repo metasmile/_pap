@@ -1039,6 +1039,10 @@
 		511EFC1B224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
 		511EFC1C224AFBEA002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
 		511EFC1D224AFBEB002A1644 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
+		512079D2226449E200787895 /* CurveEditor.BApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512079D1226449E200787895 /* CurveEditor.BApp.xcassets */; };
+		512079D3226449E200787895 /* CurveEditor.BApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512079D1226449E200787895 /* CurveEditor.BApp.xcassets */; };
+		512079D4226449E200787895 /* CurveEditor.BApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512079D1226449E200787895 /* CurveEditor.BApp.xcassets */; };
+		512079D5226449E200787895 /* CurveEditor.BApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 512079D1226449E200787895 /* CurveEditor.BApp.xcassets */; };
 		5120EBFC21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFD21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
 		5120EBFE21B9D211001D8696 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5120EBFB21B9D211001D8696 /* AppLocationManager.swift */; };
@@ -2618,6 +2622,7 @@
 		511D20D2214B198000056AD3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		511EA5AA21C3724C00B47926 /* RawEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawEditor.swift; sourceTree = "<group>"; };
 		511EA6482212913A00DBF9FD /* Merger.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merger.BApp.swift; sourceTree = "<group>"; };
+		512079D1226449E200787895 /* CurveEditor.BApp.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CurveEditor.BApp.xcassets; sourceTree = "<group>"; };
 		5120EBFB21B9D211001D8696 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
 		512410E722274F790080278C /* CurveEditor.BApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveEditor.BApp.swift; sourceTree = "<group>"; };
 		514CEBFA20E1A31D00098DFA /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
@@ -3881,6 +3886,7 @@
 			isa = PBXGroup;
 			children = (
 				512410E722274F790080278C /* CurveEditor.BApp.swift */,
+				512079D1226449E200787895 /* CurveEditor.BApp.xcassets */,
 			);
 			path = CurveEditor;
 			sourceTree = "<group>";
@@ -4683,6 +4689,7 @@
 				A0956C192095005200E680B9 /* Localizable.strings in Resources */,
 				A0956C082095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BBD2095005200E680B9 /* Localizable.strings in Resources */,
+				512079D2226449E200787895 /* CurveEditor.BApp.xcassets in Resources */,
 				A0956BE52095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BD12095005200E680B9 /* Localizable.strings in Resources */,
 				A0956BC42095005200E680B9 /* Localizable.strings in Resources */,
@@ -4825,6 +4832,7 @@
 				A0CB00FE219C8C64007A5278 /* auto_redeye.png in Resources */,
 				A0CB00FF219C8C64007A5278 /* auto_straighten.png in Resources */,
 				A0CB0100219C8C64007A5278 /* Cleaner.BApp.Assets.xcassets in Resources */,
+				512079D4226449E200787895 /* CurveEditor.BApp.xcassets in Resources */,
 				A0CB0101219C8C64007A5278 /* Converter.BApp.Assets.xcassets in Resources */,
 				A0CB0102219C8C64007A5278 /* ExifGhost.BApp.Assets.xcassets in Resources */,
 				A0CB0103219C8C64007A5278 /* GIFMaker.BApp.Assets.xcassets in Resources */,
@@ -4916,6 +4924,7 @@
 				A0CB0281219C9093007A5278 /* auto_redeye.png in Resources */,
 				A0CB0282219C9093007A5278 /* auto_straighten.png in Resources */,
 				A0CB0283219C9093007A5278 /* Cleaner.BApp.Assets.xcassets in Resources */,
+				512079D5226449E200787895 /* CurveEditor.BApp.xcassets in Resources */,
 				A0CB0284219C9093007A5278 /* Converter.BApp.Assets.xcassets in Resources */,
 				A0CB0285219C9093007A5278 /* ExifGhost.BApp.Assets.xcassets in Resources */,
 				A0CB0286219C9093007A5278 /* GIFMaker.BApp.Assets.xcassets in Resources */,
@@ -5040,6 +5049,7 @@
 				A0CBFF8C219ADBA2007A5278 /* auto_crop.png in Resources */,
 				A0CBFF8D219ADBA2007A5278 /* auto_redeye.png in Resources */,
 				A0CBFF8E219ADBA2007A5278 /* auto_straighten.png in Resources */,
+				512079D3226449E200787895 /* CurveEditor.BApp.xcassets in Resources */,
 				A0CBFF8F219ADBA2007A5278 /* Cleaner.BApp.Assets.xcassets in Resources */,
 				A0CBFF90219ADBA2007A5278 /* Converter.BApp.Assets.xcassets in Resources */,
 				A0CBFF91219ADBA2007A5278 /* ExifGhost.BApp.Assets.xcassets in Resources */,
