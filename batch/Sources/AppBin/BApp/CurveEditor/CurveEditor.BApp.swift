@@ -333,6 +333,7 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
     }
     
     @objc private func channelButtonDidTap(sender: UIButton) {
+        UIFeedback.select()
         channelButtonActions[sender]?()
     }
     
@@ -427,6 +428,12 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         }
     }
     
+    private func updateChannelButtonStates() {
+        redButton.tintColor = colorFilters[safe: 1]?.hasChanges == true ? UIColor(rgb: 0xEC2F4B) : rgbButton.tintColor
+        greenButton.tintColor = colorFilters[safe: 2]?.hasChanges == true ? UIColor(rgb: 0x38EF7D) : rgbButton.tintColor
+        blueButton.tintColor = colorFilters[safe: 3]?.hasChanges == true ? UIColor(rgb: 0x00C3FF) : rgbButton.tintColor
+    }
+    
     private func reloadData() {
         let filter = colorFilters[safe: selectedChannel]
         
@@ -436,6 +443,8 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
         case 3: self.toneCurveControl.highlightedColor = UIColor(rgb: 0x00C3FF)
         default: self.toneCurveControl.highlightedColor = .white
         }
+        
+        updateChannelButtonStates()
         
         filter?.editableItems?.enumerated().forEach { idx, item in
             self.toneCurveControl.setItem(item, at: idx)
@@ -450,6 +459,7 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             DispatchQueue.main.async {
                 self.markAsEditedFilter(self.colorFilters)
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
+                self.updateChannelButtonStates()
             }
         }
         
@@ -467,6 +477,7 @@ class CurveEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, Ap
             DispatchQueue.main.async {
                 self.markAsEditedFilter(self.colorFilters)
                 self.filter = CIColorFilterGroup(filters: self.colorFilters)
+                self.updateChannelButtonStates()
             }
         }
         self.toneCurveControl.updateCurve()
