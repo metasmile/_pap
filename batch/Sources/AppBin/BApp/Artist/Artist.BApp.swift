@@ -188,7 +188,7 @@ fileprivate extension CIFilter{
     var processedImage:UIImage?{
         set{
             DispatchQueue.global(qos: .background).async{
-                try? newValue?.pngData()?.write(to: self.cacheFileURL)
+                try? newValue?.asPNGData?.write(to: self.cacheFileURL)
             }
         }
         get{

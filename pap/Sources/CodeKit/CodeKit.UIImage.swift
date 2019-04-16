@@ -179,3 +179,15 @@ public extension UIImage {
         self.init(cgImage: result, scale: 1, orientation: .up)
     }
 }
+
+extension UIImage {
+    var asPNGData: Data? {
+        if let cgImage = self.cgImage {
+            return pngData()
+        }
+        else if let ciImage = self.ciImage, let cgImage = ciImage.asCGImage {
+            return UIImage(cgImage: cgImage).pngData()
+        }
+        return nil
+    }
+}
