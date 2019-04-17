@@ -333,7 +333,11 @@ public struct VisionTextCurrencyParser: VisionTextParser{
     private static let currencyRegexPatternType7 = "\(currencyCodeRegexPattern)\\s*\(numberRegexPattern)"
     private static let currencyRegexPatternType8 = "\(numberRegexPattern)\\s*\(currencyCodeRegexPattern)"
     
-    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4)|\(currencyRegexPatternType5)|\(currencyRegexPatternType6)|\(currencyRegexPatternType7)|\(currencyRegexPatternType8))"
+    //for USD60.40
+    private static let currencyRegexPatternType9 = "[A-Z]+\\s*\(priceRegexPattern)"
+    private static let currencyRegexPatternType10 = "[A-Z]+\\s*\(numberRegexPattern)"
+    
+    private static let regexPattern = "(\(currencyRegexPatternType1)|\(currencyRegexPatternType2)|\(currencyRegexPatternType3)|\(currencyRegexPatternType4)|\(currencyRegexPatternType5)|\(currencyRegexPatternType6)|\(currencyRegexPatternType7)|\(currencyRegexPatternType8)|\(currencyRegexPatternType9)|\(currencyRegexPatternType10))"
     
     public static func matchesInText(text:String) -> [String]?{
         if text.count==0{
@@ -361,7 +365,7 @@ public struct VisionTextCurrencyParser: VisionTextParser{
                 if let currencySymbol = match.matchedStrings(VisionTextCurrencyParser.currencySymbolRegexPattern).first {
                     formatter.currencySymbol = currencySymbol
                 }
-                else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first {
+                else if let currencyCode = match.matchedStrings(VisionTextCurrencyParser.currencyCodeRegexPattern).first ?? match.matchedStrings("[A-Z]+").first {
                     
                     let estimatedLocale = Locale.availableIdentifiers.map { Locale(identifier: $0) }.first { $0.currencyCode == currencyCode }
                     if let currencySymbol = estimatedLocale?.currencySymbol {
