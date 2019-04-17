@@ -1122,24 +1122,26 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 
 extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     fileprivate func showActions(with results: [VisionTextImageDetectResult]) {
-        let quickMode = isShowingAllText == false
+        AppCenter.default.currentInstanceAs(MemoCamApp.self)?.photoPickerCallee?.performInNonSelectionContext {
+            let quickMode = self.isShowingAllText == false
 
         DispatchQueue.global(qos: .userInteractive).async{
             let asyncSignal = AsyncSignal()
 
-            var previewTexts:String?
-            if !quickMode{
-                previewTexts = results.compactMap{ $0.plainText }.joined().trimmed.nilEmpty
-            }
-
-            if let resultMessage = results.handleAsAction(quickMode, message: previewTexts, asyncSignal){
-                asyncSignal.begin()
-                DispatchQueue.main.async {
-                    UIAlertController.alert(resultMessage, completion:{ _ in
-                        asyncSignal.end()
-                    })
+                var previewTexts:String?
+                if !quickMode{
+                    previewTexts = results.compactMap{ $0.plainText }.joined().trimmed.nilEmpty
                 }
-                asyncSignal.waitUntilEnd()
+
+                if let resultMessage = results.handleAsAction(quickMode, message: previewTexts, asyncSignal){
+                    asyncSignal.begin()
+                    DispatchQueue.main.async {
+                        UIAlertController.alert(resultMessage, completion:{ _ in
+                            asyncSignal.end()
+                        })
+                    }
+                    asyncSignal.waitUntilEnd()
+                }
             }
         }
     }

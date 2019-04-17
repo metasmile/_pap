@@ -106,7 +106,7 @@
 "%@ Video" = "%@ Video";
 /* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Videos";
-/* genl10n: Finder.BApp.swift, Cleaner.BApp.swift */
+/* genl10n: Cleaner.BApp.swift, Finder.BApp.swift */
 "%@ might be found" = "%@ might be found";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "%@ will be hidden" = "%@ will be hidden";
@@ -202,9 +202,9 @@
 "Auto Editor" = "Auto Editor";
 /* genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Revert.BApp.swift */
+/* genl10n: Cleaner.BApp.swift, Converter.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Revert.BApp.swift, Finder.BApp.swift */
 "Auto Select on %@." = "Auto Select on %@.";
-/* genl10n: Finder.BApp.swift, Revert.BApp.swift, Cleaner.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
+/* genl10n: Cleaner.BApp.swift, Revert.BApp.swift, Finder.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";
 /* genl10n: AutoEditor.BApp.swift */
 "Auto Straighten" = "Auto Straighten";
@@ -338,7 +338,7 @@
 "Download" = "Download";
 /* genl10n: PhotoPickerViewController.swift */
 "Downloading..." = "Downloading...";
-/* genl10n: Finder.BApp.swift, FirebaseMLVision.VisionTextDetectResult.Handlers.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "E-mail Address" = "E-mail Address";
 /* genl10n: ExifGhost.BApp.swift */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lets you remove all kinds of data containing your photos including private information.";
@@ -566,7 +566,7 @@
 "Noise Tracking" = "Noise Tracking";
 /* genl10n: GIFMaker.BApp.swift */
 "None" = "None";
-/* genl10n: Cleaner.BApp.swift, Hashtagen.BApp.swift, Finder.BApp.swift */
+/* genl10n: Finder.BApp.swift, Cleaner.BApp.swift, Hashtagen.BApp.swift */
 "On Standby" = "On Standby";
 /* genl10n: AppCenter.Charge.swift */
 "Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
@@ -578,6 +578,8 @@
 "Open Apple Maps" = "Open Apple Maps";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Google Maps" = "Open Google Maps";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Open In %@";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift, Clipboard.BApp.swift(2), Shop.SApp.swift(5) */
@@ -750,7 +752,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), Shop.SApp.swift, App.Finalizable.UIActivity.PHAsset.swift, Finder.BApp.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), Shop.SApp.swift, Finder.BApp.swift, App.Finalizable.UIActivity.PHAsset.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.PHAsset.swift, Shop.Payment.SocialShare.swift */
 "Share" = "Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Sharing a Live Photo directly as a still photo only." = "Sharing a Live Photo directly as a still photo only.";

@@ -175,15 +175,18 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     }
 
     public var titleForAction: String? {
-        return "Detail".localized
+        return "Open In %@".localizedFormatted(MemoCamApp.info.displayName)
     }
 
     public func didAction(with appAsset: AppAsset) {
-//        if let image = appAsset.asset.asUIImage {
-//            var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
-//            option.identifierToReturn = FinderApp.info.identifier
-//            AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
-//        }
+        if let image = appAsset.asset.asUIImage {
+            var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
+            option.identifierToReturn = FinderApp.info.identifier
+            
+            DispatchQueue.mainAsyncIfNot {
+                AppCenter.default.openApp(identifier:MemoCamApp.info.identifier, options:option)
+            }
+        }
     }
 }
 
