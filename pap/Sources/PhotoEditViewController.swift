@@ -260,12 +260,6 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        assetView.teardown()
-        
-        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
-            playerControl.player = nil
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -362,6 +356,8 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 //        updatePreview { [unowned self] in
             self.delegate?.editViewController(self, didFinishWith: nil, at: self.indexPathInPicker)
 //        }
+        
+        teardown()
     }
     
     override func doneButtonDidTap(sender: Any) {
@@ -382,6 +378,16 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         }
         
         delegate?.editViewController(self, didFinishWith: self.editItem, at: self.indexPathInPicker)
+        
+        teardown()
+    }
+    
+    private func teardown() {
+        assetView.teardown()
+        
+        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+            playerControl.player = nil
+        }
     }
     
     // MARK: - UIScrollViewDelegate
@@ -476,9 +482,11 @@ extension PhotoEditViewController {
         let vc = PHAssetMetadataViewController()
         vc.asset = asset
         
-        let nc = UINavigationController(rootViewController: vc)
-        nc.modalPresentationStyle = .overCurrentContext
-        self.present(nc, animated: true, completion: nil)
+//        let nc = UINavigationController(rootViewController: vc)
+//        nc.modalPresentationStyle = .overCurrentContext
+//        self.present(nc, animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -579,7 +587,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationItem.setLeftBarButton(UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
+//        navigationItem.setLeftBarButton(UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
     }
     
     @objc private func closeButtonDidTap(sender: UIBarButtonItem) {
