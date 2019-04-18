@@ -47,9 +47,11 @@ struct SNSEngagementPayment: RelativePayable {
         if let localUrl = urlType.localUrl, UIApplication.shared.canOpenURL(localUrl){
             asyncSignal.begin()
 
-            UIApplication.shared.open(localUrl, options: [:]) { b in
-                paid = b
-                asyncSignal.end()
+            DispatchQueue.mainAsyncIfNot {
+                UIApplication.shared.open(localUrl, options: [:]) { b in
+                    paid = b
+                    asyncSignal.end()
+                }
             }
 
         }else{
@@ -58,15 +60,17 @@ struct SNSEngagementPayment: RelativePayable {
 
             var presented = false
 
-            UIApplication.openSafari(with: webUrl, didPresent: {
-                presented = true
+            DispatchQueue.mainAsyncIfNot {
+                UIApplication.openSafari(with: webUrl, didPresent: {
+                    presented = true
 
-            }, didLoad:{ loaded in
-                paid = presented && loaded
+                }, didLoad:{ loaded in
+                    paid = presented && loaded
 
-            }, didDismiss: {
-                asyncSignal.end()
-            })
+                }, didDismiss: {
+                    asyncSignal.end()
+                })
+            }
         }
 
         asyncSignal.waitUntilEnd()

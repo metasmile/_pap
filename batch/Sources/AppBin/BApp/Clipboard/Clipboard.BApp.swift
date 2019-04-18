@@ -356,15 +356,18 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 
                 let async = AsyncSignal()
                 async.begin()
-                UIApplication.openSafari(with: url, didPresent: {
-                    
-                }, didLoad:{ loaded in
-                    
-                }, didDismiss: {
-                    async.end()
-                    completion?()
-                    self.isSafariOpened = false
-                })
+                
+                DispatchQueue.mainAsyncIfNot {
+                    UIApplication.openSafari(with: url, didPresent: {
+                        
+                    }, didLoad:{ loaded in
+                        
+                    }, didDismiss: {
+                        async.end()
+                        completion?()
+                        self.isSafariOpened = false
+                    })
+                }
                 async.waitUntilEnd()
             }
         }
