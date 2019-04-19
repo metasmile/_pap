@@ -482,11 +482,9 @@ extension PhotoEditViewController {
         let vc = PHAssetMetadataViewController()
         vc.asset = asset
         
-//        let nc = UINavigationController(rootViewController: vc)
-//        nc.modalPresentationStyle = .overCurrentContext
-//        self.present(nc, animated: true, completion: nil)
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .overCurrentContext
+        self.present(nc, animated: true, completion: nil)
     }
 }
 
@@ -587,7 +585,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        navigationItem.setLeftBarButton(UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
+        navigationItem.setLeftBarButton(UIBarButtonItem(title: "Close".localized, style: .plain, target: self, action: #selector(self.closeButtonDidTap)), animated: animated)
     }
     
     @objc private func closeButtonDidTap(sender: UIBarButtonItem) {
