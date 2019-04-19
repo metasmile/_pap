@@ -202,7 +202,7 @@ public final class TimelapsVideoBuilder: NSObject {
                         pixelBufferPointer
                 )
 
-                if let pixelBuffer = pixelBufferPointer.pointee, status == 0 {
+                if let pixelBuffer = pixelBufferPointer.pointee, status == 0, presentationTime.isNumeric {
                     fillPixelBufferFromImage(image, pixelBuffer: pixelBuffer)
 
                     appendSucceeded = pixelBufferAdaptor.append(
