@@ -67,12 +67,12 @@ PhotoEditorViewControllerDelegatableApp {
     public private(set) lazy var photoEditorDockContent: AppDockContent? = ResizerAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
+    public func setDefaultEditState(value: ImageEditStateValue?) {
+        defaultEditStateValue = value
 
         var defaults = type(of: self).defaults as! ResizerAppDefaults
 
-        let filter = editStateValue?.ciFilter as? CIFrameFillFilter
+        let filter = value?.ciFilter as? CIFrameFillFilter
         defaults.resizeFilterName = filter?.name
         defaults.backgroundColorValue = filter?.backgroundColor.rgba() ?? 0xFFFFFFFF
         defaults.borderWidth = Double(filter?.borderWidth ?? 0)
@@ -152,17 +152,17 @@ PhotoEditorViewControllerDelegatableApp {
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
-    
+
     public lazy var previewOriginalImageCache: NSCache<NSString, CIImage>? = NSCache<NSString, CIImage>()
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let cacheKey = fileName() + appAsset.asset.localIdentifierWithoutSplitter + "\(targetSize)" as NSString
-        
+
         let original = previewOriginalImageCache?.object(forKey: cacheKey) ?? appAsset.asset.requestThumbnailImage(targetSize: targetSize)?.asCIImage
-        
+
         if let image = original {
             previewOriginalImageCache?.setObject(image, forKey: cacheKey)
         }
-        
+
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original?.asUIImage, filtered?.asUIImage)
     }
@@ -175,8 +175,8 @@ PhotoEditorViewControllerDelegatableApp {
         photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
 
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        if let filter = editStateValue?.ciFilter?.copy() as? CIFrameFillFilter {
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
+        if let filter = value?.ciFilter?.copy() as? CIFrameFillFilter {
             (content as? ResizerAppDockContent)?.selectFilter(filter)
         }
     }

@@ -72,19 +72,19 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]
     }
-    
+
     public func shouldSelect(item: AppAsset) -> Bool {
         return item.asset.imageType != .animatedGIF
     }
-    
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {}
+
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {}
 }
 
 fileprivate class TransformAppDockContent: NSObject, AppDockContent {
     private var config: TransformAppConfigValue? {
         return AppCenter.default.currentInstanceAs(TransformApp.self)?.config
     }
-    
+
     lazy var items = [
         AppUICollectionView.CollectionItem(title: nil, image: R.image.flipVertical()?.withRenderingMode(.alwaysTemplate), action: {
             self.config?.transform = VerticalFlipTransformItem()
@@ -99,7 +99,7 @@ fileprivate class TransformAppDockContent: NSObject, AppDockContent {
             self.config?.transform = RotationTransformItem(degrees: 90)
         })
     ]
-    
+
     lazy var view: UIView = {
         let view = AppUICollectionStackView(items: items)
         view.cellAppearance.size = CGSize(width: 44, height: 44)
@@ -107,22 +107,22 @@ fileprivate class TransformAppDockContent: NSObject, AppDockContent {
         view.cellAppearance.imageInsets = UIEdgeInsets(top: 8, left: 10, bottom: 10, right: 10)
         return view
     }()
-    
+
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 52
         return preferences
     }
-    
+
     var contentScrollable: AppDockContentScrollable? {
         guard let view = view as? AppUICollectionStackView else { return nil }
         return AppDockScrollableContent(view.collectionView)
     }
-    
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
-        
+
     }
-    
+
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = TransformApp.info.themeColor ?? view.colorTheme.tintColor
     }
@@ -158,7 +158,7 @@ private class _TransfromAppTask: AppTaskPrototype, AppTaskable {
             }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: TransformApp.self, editInfo: ["transform": NSCoder.string(for: assetItem.editState.transform)], from: asset)
-                    
+
                     result = PHAssetResultItem(
                             asset: assetItem,
                             editingResultItems: editingResultItems,

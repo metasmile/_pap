@@ -59,12 +59,12 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public private(set) lazy var photoEditorDockContent: AppDockContent? = DepthEditorAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
+    public func setDefaultEditState(value: ImageEditStateValue?) {
+        defaultEditStateValue = value
 
         var defaults = type(of: self).defaults as! DepthEditorAppDefaults
 
-        let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
+        let filter = value?.ciFilter as? CIDepthMaskFilter
         defaults.depthModeName = filter?.name
         defaults.depthLevel = Double(filter?.depthLevel ?? 1)
     }
@@ -203,12 +203,12 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
 
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        (content as? DepthEditorAppDockContent)?.selectItem(with: editStateValue)
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
+        (content as? DepthEditorAppDockContent)?.selectItem(with: value)
     }
 
-    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
-        (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint, with: editStateValue)
+    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
+        (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint, with: value)
     }
 }
 
@@ -455,8 +455,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         collectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
 
-    fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
-        let filter = editStateValue?.ciFilter as? CIDepthMaskFilter
+    fileprivate func selectItem(with value: ImageEditStateValue?) {
+        let filter = value?.ciFilter as? CIDepthMaskFilter
         selectItem(by: filter?.name)
         depthLevelSlider.value = Float(filter?.depthLevel ?? 1)
 
@@ -465,8 +465,8 @@ fileprivate class DepthEditorAppDockContent: NSObject, PropertyWatchable, AppDoc
         self.updateDepthLevelText()
     }
 
-    fileprivate func updateItem(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {
-        let filter = (editStateValue?.ciFilter ?? selectedFilter) as? CIDepthMaskFilter
+    fileprivate func updateItem(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
+        let filter = (value?.ciFilter ?? selectedFilter) as? CIDepthMaskFilter
         filter?.focusRect = CGRect(origin: CGPoint(x: normalizedPoint.x, y: 1 - normalizedPoint.y), size: CGSize(width: 0.01, height: 0.01))
         depthLevelSlider.value = Float(filter?.depthLevel ?? 1)
 

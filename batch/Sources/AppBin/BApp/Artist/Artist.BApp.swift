@@ -20,16 +20,16 @@ extension Defaults: ArtistAppDefaults {
         get {
             return get(or: nil)
         }
-        
+
         set { set(newValue); papLog.app.defaults.log(value:newValue ?? "Original") }
     }
 }
- 
+
 
 public class ArtistAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
     @objc dynamic
     public var filter: ImageEditStateValue?
-    
+
     public func adoptValues(fromOther: AppConfigValuable) {
         if let other = fromOther as? ArtistAppConfigValue, let filter = other.filter{
             self.filter = filter
@@ -55,13 +55,13 @@ PhotoEditorViewControllerDelegatableApp {
 
     public private(set) lazy var content: AppDockContent? = ArtistAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = ArtistAppDockContent()
-    
+
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
-        
+    public func setDefaultEditState(value: ImageEditStateValue?) {
+        defaultEditStateValue = value
+
         var defaults = type(of: self).defaults as! ArtistAppDefaults
-        defaults.artistFilterName = editStateValue?.ciFilter?.name
+        defaults.artistFilterName = value?.ciFilter?.name
     }
 
     public static let info = AppInfo(
@@ -77,10 +77,10 @@ PhotoEditorViewControllerDelegatableApp {
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil
     )
-    
+
     required public override init() {
         super.init()
-        
+
         if let controllerContent = self.content as? ArtistAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
@@ -94,7 +94,7 @@ PhotoEditorViewControllerDelegatableApp {
                 }
             }
         }
-        
+
         if let controllerContent = self.photoEditorDockContent as? ArtistAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
@@ -122,7 +122,7 @@ PhotoEditorViewControllerDelegatableApp {
     func didAppear(callee: PhotoPickerViewControllerUniversalOperations) {
         self.photoPickerCallee = callee
     }
-    
+
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]
     }
@@ -130,31 +130,31 @@ PhotoEditorViewControllerDelegatableApp {
     public static var fixedContentLayout: Bool {
         return true
     }
-    
+
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
-    
+
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original, filtered)
     }
-    
+
     public func showsVisibleEffectWhileProcessing() -> Bool {
         return true
     }
-    
+
     public func photoEditorWillBeginProcessing() {
         photoEditorDockContent?.view.isUserInteractionEnabled = false
     }
-    
+
     public func photoEditorWillEndProcessing() {
         photoEditorDockContent?.view.isUserInteractionEnabled = true
     }
-    
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        (content as? ArtistAppDockContent)?.selectItem(with: editStateValue)
+
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
+        (content as? ArtistAppDockContent)?.selectItem(with: value)
     }
 }
 //
@@ -214,13 +214,13 @@ fileprivate class ArtistAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
     fileprivate lazy var items: [AppUICollectionView.CollectionItem] = {
         let image = R.image.filtersJpg()
-        
+
         var items = [AppUICollectionView.CollectionItem]()
-        
+
         items.append(AppUICollectionView.CollectionItem(title: "Original".localized, image: image, action: {
             self.filterItem = CIFilterItem()
         }))
-        
+
         items += self.filters.map({ (filter) -> AppUICollectionView.CollectionItem in
             return AppUICollectionView.CollectionItem(title: filter.name, image: filter.processedImage ?? image, action: {
                 let filterItem = CIFilterItem(filter)
@@ -230,47 +230,47 @@ fileprivate class ArtistAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
         return items
     }()
-    
+
     lazy var view: UIView = {
         let view = AppUICollectionView(items: items)
         view.cellAppearance.size = CGSize(width: 80, height: 120)
         view.cellAppearance.spacing = 2
         view.cellAppearance.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-        
+
         return view
     }()
-    
+
     var selectedEditStateValue: ImageEditStateValue?
-    
+
     fileprivate func selectItem(by filterName: String?) {
         let index = items.firstIndex(where: { $0.title == filterName ?? "" }) ?? 0
         (view as? AppUICollectionView)?.selectItem(at: IndexPath(item: index, section: 0), animated: true)
     }
-    
-    fileprivate func selectItem(with editStateValue: ImageEditStateValue?) {
-        selectItem(by: editStateValue?.ciFilter?.name)
+
+    fileprivate func selectItem(with value: ImageEditStateValue?) {
+        selectItem(by: value?.ciFilter?.name)
     }
-    
+
     fileprivate func getArtistItem(by filterName: String?) -> CIFilterItem? {
         let index = items.firstIndex(where: { $0.title == filterName ?? "" }) ?? 0
         return CIFilterItem(self.filters[safe: index - 1])
     }
-    
+
     var contentScrollable: AppDockContentScrollable? {
         guard let view = view as? AppUICollectionView else { return nil }
         return AppDockScrollableContent(view.collectionView)
     }
-    
+
     var preferences: AppDockContentPreferable? {
         var preferences = AppDockContentPreferences()
         preferences.preferredHeight = 120
         return preferences
     }
-    
+
     func willSetContentView(_ view: UIView, dock: AppDock) {
-        
+
     }
-    
+
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
         loadPreview()
@@ -327,11 +327,11 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
-        
+
         (param as? _ArtistAppAsset)?.cancelAllRequestIDs()
         (param as? _ArtistAppAsset)?.cancelProcessing()
     }
-    
+
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is _ArtistAppAsset, "TaskParamable type of this app is \(_ArtistAppAsset.self)")
         guard let _param = param as? _ArtistAppAsset else{
@@ -339,19 +339,19 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
         }
         return try self._perform(_param, async)
     }
-    
+
     private func _perform(_ assetItem: _ArtistAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
-        
+
         async.begin()
-        
+
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: ArtistApp.self, editInfo: ["filterName": assetItem.editState.ciFilter?.name ?? ""], from: asset)
-                    
+
                     result = PHAssetResultItem(
                         asset: assetItem,
                         editingResultItems: editingResultItems,
@@ -360,7 +360,7 @@ private class _ArtistAppTask: AppTaskPrototype, AppTaskable {
                 async.end()
             }
         }
-        
+
         async.waitUntilEnd()
         return result
     }
@@ -392,18 +392,18 @@ extension ArtistApp: UIApplicationDelegateLaunchableApp {
                 if name == type(of: self).RepaintRandom
                     , let items = (content as? ArtistAppDockContent)?.items
                     , let randIndex = (1 ..< items.count).randomElement(){
-                    
+
                     let randomItem = items[randIndex]
 
                     (content as? ArtistAppDockContent)?.selectItem(by: randomItem.title)
-                    
+
                     DispatchQueue.global(qos: .userInteractive).async{ [unowned self] in
-                        
+
                         //find latest asset with matched converter
                         let foundAsset = PHAssets.fetched.searchLast{ i, a in
                             return self.shouldSelect(item: AppAsset(a))
                         }
-                        
+
                         if let foundAsset = foundAsset{
                             DispatchQueue.main.async{
                                 assert(self.photoPickerCallee != nil)
@@ -413,7 +413,7 @@ extension ArtistApp: UIApplicationDelegateLaunchableApp {
                         }
                     }
                 }
-                
+
             }
         }
 

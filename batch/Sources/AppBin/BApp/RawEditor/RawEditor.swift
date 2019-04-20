@@ -30,8 +30,8 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) lazy var photoEditorDockContent: AppDockContent? = RawEditorDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
+    public func setDefaultEditState(value: ImageEditStateValue?) {
+        defaultEditStateValue = value
     }
 
     public static let info = AppInfo(
@@ -128,10 +128,10 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         completion(original?.asUIImage, rawFilter.outputImage?.asUIImage)
     }
 
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
         guard let content = content as? RawEditorDockContent else { return }
 
-        if let rawFilter = editStateValue?.ciFilter as? CIRawFilter {
+        if let rawFilter = value?.ciFilter as? CIRawFilter {
             setFilter(rawFilter, to: content)
         }
     }
@@ -433,7 +433,7 @@ fileprivate class RawEditorDockContent: NSObject, PropertyWatchable, AppDockCont
             self.reloadFilter()
         }
     }
-    
+
     private func reloadFilter() {
         if let _ = self.rawFilter {
             self.enabledEditing = true

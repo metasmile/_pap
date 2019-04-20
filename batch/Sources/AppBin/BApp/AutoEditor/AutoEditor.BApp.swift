@@ -27,23 +27,23 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
 
     public private(set) lazy var content: AppDockContent? = AutoEditorAppDockContent()
     public private(set) lazy var photoEditorDockContent: AppDockContent? = AutoEditorAppDockContent()
-    
+
     public private(set) var defaultEditStateValue: ImageEditStateValue?
-    public func setDefaultEditStateValue(_ editStateValue: ImageEditStateValue?) {
-        defaultEditStateValue = editStateValue
-        
+    public func setDefaultEditState(value: ImageEditStateValue?) {
+        defaultEditStateValue = value
+
         var defaults = type(of: self).defaults as! AutoEditorAppDefaults
-        
-        if let options = (editStateValue?.ciFilter as? CIAutoAdjustmentFilter)?.options {
+
+        if let options = (value?.ciFilter as? CIAutoAdjustmentFilter)?.options {
             var optionsToStore = [String:Bool]()
             for (k,v) in options{
                 optionsToStore[k] = v
             }
-            
+
             defaults.autoAdjustmentOptions = optionsToStore
         }
     }
-    
+
     public static let info = AppInfo(
         identifier: "com.stells.batch.autoeditor"
         , version: "1.0"
@@ -57,7 +57,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
             , policy: AppPolicy.default
         , minOSVersion: nil
     )
-    
+
     required public override init() {
         super.init()
 
@@ -70,24 +70,24 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
             }else{
                 var defaults = type(of: self).defaults as! AutoEditorAppDefaults
                 controllerContent?.options = defaults.autoAdjustmentOptions
-                
+
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
                 let filterItem = CIFilterItem(filter)
                 self.config?.filter = filterItem
                 self.defaultEditStateValue = filterItem
             }
         }
-        
+
         let controllerContentInPhotoEditor = self.photoEditorDockContent as? AutoEditorAppDockContent
         controllerContentInPhotoEditor?.watch(\.options, options: [.initial, .new]) {
             if let options = controllerContentInPhotoEditor?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)
                 self.config?.filter = CIFilterItem(filter)
-                
+
             } else{
                 var defaults = type(of: self).defaults as! AutoEditorAppDefaults
                 controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
-                
+
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
                 let filterItem = CIFilterItem(filter)
                 self.config?.filter = filterItem
@@ -116,44 +116,44 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     public var finalizingActions: [PHAssetFinalizingAction] {
         return [.actions]
     }
-    
+
     public func setConfigValues<T: AppConfigValuable>(_ config:T){
         self.config?.adoptValues(fromOther: config)
     }
-    
+
     public func previewProcessing(_ appAsset: AppAsset, targetSize: CGSize, in content: AppDockContent?, completion: @escaping ((_ original: UIImage?, _ filtered: UIImage?) -> Void)) {
         let original = appAsset.asset.requestThumbnailImage(targetSize: targetSize)
         let filtered = original?.applyFilter(ciFilter: appAsset.editState.ciFilter)
         completion(original, filtered)
     }
-    
-    public func selectEditStateValue(_ editStateValue: ImageEditStateValue?, in content: AppDockContent?) {
-        let filter = editStateValue?.ciFilter as? CIAutoAdjustmentFilter
+
+    public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
+        let filter = value?.ciFilter as? CIAutoAdjustmentFilter
         (content as? AutoEditorAppDockContent)?.switchOptions(filter?.options, animated: false)
     }
 }
 
 class CIAutoAdjustmentFilter: CIFilter {
     var options: [String: Bool]?
-    
+
     init(options: [String: Bool]? = nil) {
         super.init()
-        
+
         self.options = options
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     @objc dynamic var inputImage : CIImage?
-    
+
     override var outputImage: CIImage? {
 
         guard var image = inputImage else { return nil }
         guard let optionsDict = options?.dictionary(transform: { o -> (key: CIImageAutoAdjustmentOption, value: Bool) in
             return (CIImageAutoAdjustmentOption(rawValue: o.key), o.value)
-            
+
         }) else{
             return nil
         }
@@ -167,14 +167,14 @@ class CIAutoAdjustmentFilter: CIFilter {
                 targetFilters.append(exclusiveFilter)
             }
         }
-        
+
         for filter in targetFilters {
             filter.setValue(image, forKey: kCIInputImageKey)
             if let result = filter.outputImage {
                 image = result
             }
         }
-        
+
         return image
     }
 }
@@ -236,11 +236,11 @@ private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
     public typealias ResultType = PHAssetResultItem
 
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){
-        
+
         (param as? _FiltersAppAsset)?.cancelAllRequestIDs()
         (param as? _FiltersAppAsset)?.cancelProcessing()
     }
-    
+
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {
         assert(param is _AutoEditorAppAsset, "TaskParamable type of this app is \(_FiltersAppAsset.self)")
         guard let _param = param as? _AutoEditorAppAsset else{
@@ -248,19 +248,19 @@ private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
         }
         return try self._perform(_param, async)
     }
-    
+
     private func _perform(_ assetItem: _AutoEditorAppAsset, _ async: AsyncWaitSignalable) throws -> PHAssetResultItem?  {
         var result: PHAssetResultItem?
-        
+
         async.begin()
-        
+
         DispatchQueue(label: "com.stells.internal."+fileName(), qos: .utility).async {
             assetItem.runEditing({ (progress) in
                 AppAssetItemProgressNotification.update(item: assetItem, progress: progress)
             }) { (asset, editingResultItems, contentEditingOutput) in
                 if let asset = asset, let contentEditingOutput = contentEditingOutput {
                     contentEditingOutput.adjustmentData = PAPAdjustmentData.createAdjustmentData(for: AutoEditorApp.self, editInfo: (assetItem.editState.ciFilter as? CIAutoAdjustmentFilter)?.options ?? [:], from: asset)
-                    
+
                     result = PHAssetResultItem(
                         asset: assetItem,
                         editingResultItems: editingResultItems,
@@ -269,7 +269,7 @@ private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
                 async.end()
             }
         }
-        
+
         async.waitUntilEnd()
         return result
     }
@@ -298,7 +298,7 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         let tableView = UITableView(frame: .zero)
         return tableView
     }()
-    
+
     var contentScrollable: AppDockContentScrollable? {
         guard let scrollView = view as? UITableView else { return nil }
         return AppDockScrollableContent(scrollView)
@@ -327,15 +327,15 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
 
     func didSetContentView(_ view:UIView, dock:AppDock) {
         view.tintColor = view.colorTheme.tintColor
-        
+
         if options != nil{
             (view as? UITableView)?.reloadData()
         }
     }
-    
+
     @objc dynamic
     var options:[String: Bool]? // Bool may be other custom Codable type instead of Any
-    
+
     func switchOptions(_ options: [String: Bool]?, animated: Bool) {
         guard let tableView = self.view as? UITableView else{
             return
@@ -346,21 +346,21 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
             (cell as? Cell)?.optionSwitch.setOn(option, animated: animated)
         }
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return autoAdjustmentOptionKeys.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AutoEditorApp.info.identifier) as! Cell
         let filterName = autoAdjustmentOptionKeys[indexPath.row]
-        
+
         cell.imageView?.image = AutoEditorApp.AutoAdjustments.iconImage(filterName)
-        
+
         cell.imageView?.tintColor = AutoEditorAppDockContent.primaryColor
         cell.imageView?.contentMode = .scaleAspectFit
 
@@ -370,56 +370,56 @@ class AutoEditorAppDockContent: NSObject, PropertyWatchable, AppDockContent, UIT
         cell.switchDidChange = { on in
             self.options?[self.autoAdjustmentOptionKeys[indexPath.row].rawValue] = on ? true : false
         }
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     private class Cell: UITableViewCell {
         lazy var optionSwitch: UISwitch = {
             let view = UISwitch()
             view.addTarget(self, action: #selector(self.cellSwitchDidChange), for: .valueChanged)
             return view
         }()
-        
+
         var switchDidChange: ((Bool) -> Void)?
-        
+
         override func prepareForReuse() {
             super.prepareForReuse()
-            
+
             switchDidChange = nil
         }
-        
+
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-            
+
             accessoryView = optionSwitch
             backgroundColor = .clear
         }
-        
+
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        
+
         @objc func cellSwitchDidChange(sender: UISwitch) {
             switchDidChange?(sender.isOn)
         }
-        
+
         override func layoutSubviews() {
             super.layoutSubviews()
-            
+
             imageView?.frame.size = CGSize(width: 30, height: 30)
             imageView?.frame.origin = CGPoint(x: 10, y: (contentView.bounds.height - 30) / 2)
-            
+
             textLabel?.frame.origin.x = (imageView?.frame.maxX ?? 0) + 10
         }
-        
+
         override func tintColorDidChange() {
             super.tintColorDidChange()
-            
+
             textLabel?.textColor = tintColor
         }
     }
@@ -457,16 +457,16 @@ extension AutoEditorApp: UIApplicationDelegateLaunchableApp {
             }
 
             if let i = intent as? DoAnyIntent, let name = i.doWhat{
-                
+
                 let actionNameByKey = AutoEditorApp.AutoAdjustmentsKeys.dictionary { option -> String in
                     return option.intentActionName
                 }
-                
+
                 let content = self.content as? AutoEditorAppDockContent
-                
+
                 if let optionKey = actionNameByKey[name]
                     , let options = content?.options{
-                    
+
                     for key in options.keys{
                         content?.options?.updateValue(key==optionKey.rawValue, forKey: key)
                     }

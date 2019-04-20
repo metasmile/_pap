@@ -7,7 +7,7 @@ import Foundation
 import Photos
 
 public protocol PhotoEditorPreviewInteractionable {
-    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?)
+    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?)
 }
 
 public protocol PhotoEditorPreviewProcessableApp: PreviewProcessableApp & PhotoEditorPreviewInteractionable {
@@ -27,6 +27,6 @@ extension PhotoEditorViewControllerDelegatableApp {
 }
 
 extension PhotoEditorPreviewProcessableApp {
-    public func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with editStateValue: ImageEditStateValue?) {}
+    public func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {}
     public func photoEditorShouldPreview(item: AppAsset) -> Bool { return true }
 }
