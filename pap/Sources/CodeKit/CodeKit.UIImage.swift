@@ -10,7 +10,7 @@ import UIKit
 import Accelerate
 
 public extension UIImage {
-    
+
     func applyFilter(ciFilter: CIFilter?) -> UIImage? {
         return autoreleasepool { () -> UIImage? in
             guard let filter = ciFilter, filter.inputKeys.contains(kCIInputImageKey) else { return nil }
@@ -66,16 +66,16 @@ public extension UIImage {
             return false
         }
     }
-    
+
     //INFO: Old way
     func resize(to size: CGSize) -> UIImage? {
         guard size != self.size else { return self }
-        
+
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         draw(in: CGRect(origin: .zero, size: size))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return scaledImage
     }
 
@@ -90,40 +90,40 @@ public extension UIImage {
 
     func resize(aspectFit size: CGSize) -> UIImage? {
         guard size != self.size else { return self }
-        
+
         let resize = self.size.aspectFit(in: size)
-        
+
         UIGraphicsBeginImageContextWithOptions(resize, false, 0)
         draw(in: CGRect(origin: .zero, size: resize))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return scaledImage
     }
-    
+
     func resize(aspectFill size: CGSize) -> UIImage? {
         guard size != self.size else { return self }
-        
+
         let resize = self.size.aspectFit(in: size)
-        
+
         UIGraphicsBeginImageContextWithOptions(resize, false, 0)
         draw(in: CGRect(origin: .zero, size: resize))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return scaledImage
     }
-    
+
     func crop(aspectFill size: CGSize) -> UIImage? {
         guard size != self.size else { return self }
-        
+
         let resize = self.size.aspectFill(in: size)
-        
+
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         draw(in: CGRect(origin: CGPoint(x: min(0, (size.width - resize.width) / 2), y: min(0, (size.height - resize.height) / 2)), size: resize))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return scaledImage
     }
 
@@ -141,10 +141,10 @@ public extension UIImage {
         return UIGraphicsImageRenderer(size: size).imageWithCurrentContext { (ctx) in
             ctx.scaleBy(x: 1, y: -1)
             ctx.translateBy(x: 0, y: -size.height)
-            
+
             ctx.setBlendMode(blendMode)
             ctx.clip(to: drawRect, mask: cgImage)
-            
+
             ctx.setFillColor(color.cgColor)
             ctx.fill(drawRect)
         }?.withRenderingMode(.alwaysOriginal) ?? self
@@ -160,11 +160,11 @@ public extension UIImage {
         })?.cgImage else { return nil }
         self.init(cgImage: result)
     }
-    
+
     convenience init?(path: UIBezierPath, fillColor: UIColor? = nil, strokeColor: UIColor? = nil, strokeWidth: CGFloat? = nil) {
         let lineWidth: CGFloat = strokeWidth ?? (strokeColor != nil ? 1 : 0)
         let pathBounds = path.bounds
-        
+
         guard let result = UIGraphicsImageRenderer(size: CGSize(width: pathBounds.minX + pathBounds.maxX, height: pathBounds.minY + pathBounds.maxY)).imageWithCurrentContext(actions: { (ctx) in
             if let color = fillColor {
                 ctx.setFillColor(color.cgColor)
@@ -182,7 +182,7 @@ public extension UIImage {
 
 extension UIImage {
     var asPNGData: Data? {
-        if let cgImage = self.cgImage {
+        if self.cgImage != nil {
             return pngData()
         }
         else if let ciImage = self.ciImage, let cgImage = ciImage.asCGImage {

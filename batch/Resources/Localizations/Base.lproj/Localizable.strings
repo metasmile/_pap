@@ -314,7 +314,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), PhotoEditViewController.swift(2), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";
@@ -572,7 +572,7 @@
 "Ongoing Use of All and New Main Tools" = "Ongoing Use of All and New Main Tools";
 /* genl10n: Shop.Payment.GADInterestialAdsViewing.swift, PhotoPickerViewController.Operations.ShopApp.swift */
 "Open %@" = "Open %@";
-/* genl10n: BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift, Clipboard.BApp.swift */
+/* genl10n: Clipboard.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Camera.SApp.swift */
 "Open %@." = "Open %@.";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(2) */
 "Open Apple Maps" = "Open Apple Maps";
