@@ -114,7 +114,9 @@ extension PHAssetFinalizableApp {
         asyncSignal.begin()
         PHPhotoLibrary.shared().performChanges({
             for result in targetResultAssets{
-                PHAssetChangeRequest(for: result.asset).contentEditingOutput = result.contentEditingOutput
+                let request = PHAssetChangeRequest(for: result.asset)
+                request.location = result.asset.location
+                request.contentEditingOutput = result.contentEditingOutput
             }
 
         }, completionHandler: { (success, info) in

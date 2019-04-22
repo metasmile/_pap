@@ -735,7 +735,24 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                     self.metadataItems.append(metadataItem)
                 }
             }
-
+            else if let location = asset.location {
+                var gpsMetadatas = [Metadata]()
+                
+                gpsMetadatas.append(Metadata(key: "Location", displayName: "Location".localized, value: location.coordinate))
+                
+                gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLatitude, displayName: "Latitude".localized, value: "\(location.coordinate.latitude)"))
+                gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLongitude, displayName: "Longitude".localized, value: "\(location.coordinate.longitude)"))
+                
+                if location.altitude > 0 {
+                    gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSAltitude, displayName: "Altitude".localized, value: "\(location.altitude)"))
+                }
+                
+                if !gpsMetadatas.isEmpty {
+                    let metadataItem = MetadataItem(title: "GPS".localized, metadata: gpsMetadatas)
+                    self.metadataItems.append(metadataItem)
+                }
+            }
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
