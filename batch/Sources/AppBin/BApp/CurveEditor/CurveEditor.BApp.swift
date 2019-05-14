@@ -51,7 +51,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public static let info = AppInfo(
         identifier: "com.stells.batch.curveeditor"
         , version: "1.0"
-        , phase: .release
+        , phase: .beta
         , appType: CurveEditorApp.self
         , displayName: "Curve Tool".localized.localizedCapitalized
         , description: "Curve Tool".localized
