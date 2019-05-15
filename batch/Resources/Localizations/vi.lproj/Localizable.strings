@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "14 ngày sử dụng các công cụ chính và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3 tháng sử dụng các công cụ chính và mới";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "Định dạng 35mm:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6 tháng sử dụng các công cụ chính và mới";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Tất cả các quy trình bạn đã xác nhận đã hoàn tất.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "All";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Độ cao";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Đã xảy ra lỗi khi nhận quảng cáo.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Hoạt ảnh";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Hủy miễn phí mọi lúc.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Giá trị khẩu độ";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Áp dụng %@ cho mục cuối cùng";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Clipboard trống";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Clipboard";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Gần";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Màu sắc và nhắc nhở cho từng giai đoạn";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "Địa chỉ email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost cho phép bạn xóa tất cả các loại dữ liệu chứa ảnh của bạn bao gồm cả thông tin cá nhân.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Chỉnh sửa ảnh thô của bạn.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Ghi chú kỹ thuật";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Xuất khẩu";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Thời gian phơi sáng";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Phơi bày";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Phai màu";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Tên tệp";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Kích thước tập tin";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Loại tệp";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "Tập tin";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Bộ lọc";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Đèn pin";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Số chuyến bay";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Tiêu cự";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Định dạng";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker cho phép tạo ảnh GIF dễ dàng và nhanh chóng từ Ảnh hoặc Live Photos với nhiều tùy chọn khác nhau! Và sau đó bạn có thể mở ứng dụng chuyển đổi để chuyển đổi thành mọi thứ như Live Photos hoặc Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Đang ẩn các mục đã chọn ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Điểm nổi bật";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "Tốc độ ISO";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Chất lượng hình ảnh";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Chỉ cần chọn ảnh bạn cần và sau đó chạy nó.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Phong cảnh";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Vĩ độ";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Bố trí";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Nhà sản xuất ống kính";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Mô hình ống kính";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Thông báo về hiệu suất giới hạn";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Vị trí";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Kinh độ";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Thông báo cho chúng tôi";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "Siêu dữ liệu sẽ bị mất";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "metadata";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midton";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Chế độ H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Chế độ T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Mô hình";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Sửa đổi và chia sẻ";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Mở Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Mở Google Maps";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Mở trong %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Mở trang web";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Riêng tư";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Chế biến";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Tên hồ sơ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Chương trình giấy phép quảng cáo";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Thay đổi kích thước mục cuối cùng thành %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Thay đổi kích thước";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Nghị quyết";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Khôi phục tất cả giao dịch mua";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "Làm sắc nét";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Độ sắc nét";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Tốc độ màn trập";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Tương tự";
 /* Generated from genl10n: Shop.SApp.swift */

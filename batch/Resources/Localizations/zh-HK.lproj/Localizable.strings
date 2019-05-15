@@ -108,6 +108,8 @@
 "14-Day Use of Main and New Tools" = "主要和新工具的14天使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "主要和新工具的3個月使用";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35mm格式：";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "主要和新工具的6個月使用";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -154,6 +156,8 @@
 "All processes you have confirmed were finished." = "您已確認的所有流程均已完成。";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#182 */
 "All" = "全體";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "高度";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "接收廣告時出錯。";
 /* Generated from genl10n: GIFMaker.BApp.swift#471, GIFMaker.BApp.swift#472 */
@@ -162,6 +166,8 @@
 "Animation" = "動畫";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "隨時免費取消。";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "光圈值";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "將%@應用於最後一項";
 /* Generated from genl10n: Filters.BApp.swift#103 */
@@ -236,6 +242,8 @@
 "Clipboard is empty" = "剪貼板是空的";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "剪貼板";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "關";
 /* Generated from genl10n: Shop.SApp.swift#537 */
 "Color And Reminder for Each Phases" = "每個階段的顏色和提醒";
 /* Generated from genl10n: RawEditor.swift */
@@ -316,6 +324,8 @@
 "E-mail Address" = "電子郵件地址";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost可讓您刪除包含照片的各種數據，包括私人信息。";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "編輯原始照片。";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -328,10 +338,20 @@
 "Engineering Notes" = "工程筆記";
 /* Generated from genl10n: GIFMaker.BApp.swift#470 */
 "Export" = "導出";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "曝光時間";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "曝光";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "褪色";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "文件名";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "文件大小";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "文件類型";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "文件";
 /* Generated from genl10n: Filters.BApp.swift#102 */
 "Filters" = "過濾器";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -348,6 +368,8 @@
 "Flashlight" = "手電筒";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#265, Finder.BApp.swift#1267 */
 "Flight Number" = "航班號";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "焦距";
 /* Generated from genl10n: Converter.AppDockContent.swift#96, Finder.BApp.swift#1359 */
 "Formats" = "格式";
 /* Generated from genl10n: GIFMaker.BApp.swift#208 */
@@ -368,6 +390,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker通過各種選項，讓您可以輕鬆快速地從照片或實時照片製作GIF圖像！然後您可以打開轉換器app以轉換為實時照片或視頻等所有東西。";
 /* Generated from genl10n: GIFMaker.BApp.swift#270, GIFMaker.BApp.swift#601 */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "全球定位系統";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "伽瑪";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -402,6 +426,8 @@
 "Hiding Selected Items..." = "隱藏所選項目...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "強調";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "ISO速度";
 /* Generated from genl10n: GIFMaker.BApp.swift#544, PDFMaker.AppDockContent.swift#133 */
 "Image Quality" = "畫面質量";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -434,14 +460,24 @@
 "Just select photos you need and then run it." = "只需選擇您需要的照片，然後運行它。";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#114 */
 "Landscape" = "景觀";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "緯度";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#112 */
 "Layout" = "佈局";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "鏡頭製造商";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "鏡頭模型";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "有限性能通知";
 /* Generated from genl10n: GIFMaker.BApp.swift#90 */
 "Live Photo" = "現場照片";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "地點";
 /* Generated from genl10n: Cleaner.GarbageDetector.Lockscreen.swift#42 */
 "Lockscreens" = "Lockscreens";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "經度";
 /* Generated from genl10n: GIFMaker.BApp.swift#596 */
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
@@ -466,12 +502,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "給我們留言";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "元數據將丟失";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "元數據";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "中間調";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "模式H.";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "模式T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "模型";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "修改和分享";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -520,6 +562,8 @@
 "Open Apple Maps" = "打開Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#783 */
 "Open Google Maps" = "打開Goog​​le地圖";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "打開%@";
 /* Generated from genl10n: Finder.BApp.swift#468 */
 "Open Web Page" = "打開網頁";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -574,6 +618,8 @@
 "Privacy" = "隱私";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "處理";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "檔案名稱";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "促銷許可計劃";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -610,6 +656,8 @@
 "Resize the last item to %@" = "將最後一項調整為%@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "調整";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "解析度";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "恢復所有購買";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -696,6 +744,8 @@
 "Sharpening" = "銳化";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "銳度";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "快門速度";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#316 */
 "Similarity" = "相似";
 /* Generated from genl10n: Shop.SApp.swift */

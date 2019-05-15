@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "주 도구 및 새 도구의 14 일 사용";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3 개월간의 주요 도구 사용";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35mm 형식 :";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "주요 도구와 새로운 도구의 6 개월 사용";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "확인한 모든 프로세스가 완료되었습니다.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "전체";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "고도";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "광고를받는 동안 오류가 발생했습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "에니메이션";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "언제든지 무료 취소.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "조리개 값";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "마지막 항목에 %@를 적용하십시오.";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "클립 보드가 비어 있습니다.";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "클립 보드";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "닫기";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "각 단계별 색상 및 알림";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "이메일 주소";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost를 사용하면 개인 정보를 비롯한 사진이 포함 된 모든 종류의 데이터를 제거 할 수 있습니다.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "원시 사진을 편집하십시오.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "엔지니어링 노트";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "내보내기";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "노광 시간";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "노출";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "바래다";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "파일 이름";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "파일 크기";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "파일 형식";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "파일";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "필터";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "플래시";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "항공편 번호";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "초점 거리";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "형식";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker를 사용하면 다양한 옵션으로 사진이나 라이브 포토에서 GIF 이미지를 쉽고 빠르게 만들 수 있습니다! 그런 다음 변환기 앱을 열어 라이브 포토이나 비디오와 같은 모든 것을 변환 할 수 있습니다.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF 만들기";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "감마";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "선택한 항목 숨기기 ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "하이라이트";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "ISO 속도";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "이미지 품질";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "필요한 사진을 선택하고 실행하십시오.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "가로";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "위도";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "레이아웃";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "렌즈 메이커";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "렌즈 모델";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "제한된 성능 공지";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "라이브 포토";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "위치";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "잠금 화면";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "경도";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "무한반복";
 /* Generated from genl10n: RawEditor.swift */
@@ -511,7 +547,7 @@
 /* genl10n: Adjustments.BApp.swift */
 "Make the last item Lomography style" = "로모 그래피 스타일의 마지막 항목 만들기";
 /* genl10n: Merger.BApp.swift */
-"Make" = "하다";
+"Make" = "만들기";
 /* Generated from genl10n: Finder.BApp.swift#402 */
 "Making A Call" = "전화 걸기";
 /* Generated from genl10n: Shop.SApp.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "메모 캠";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "우리에게 보내는 메시지";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "메타 데이터가 손실됩니다.";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "메타 데이터";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "모드 H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "모드 T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "모델";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "수정 및 공유";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Apple 지도 열기";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Google 지도 열기";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "%@에서 열기";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "웹 페이지 열기";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "프라이버시";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "프로세싱 중";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "프로필 이름";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "프로모션 라이선스 프로그램";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "마지막 항목의 크기를 %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "크기 조정";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "해결";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "모든 구입 복원하기";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "선명하게하기";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "날카로움";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "셔터 속도";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "유사성";
 /* Generated from genl10n: Shop.SApp.swift */

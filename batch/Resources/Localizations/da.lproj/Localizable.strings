@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "14-dages brug af Main og New Tools";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-måneders brug af hoved og nyt værktøj";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35mm Format:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-måneders brug af hoved og nyt værktøj";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Alle processer du har bekræftet var færdige.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Alle";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Højde";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Der opstod en fejl under modtagelse af annoncer.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Når som helst gratis afbestilling.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Blændeværdi";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Anvend %@ til sidste vare";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Udklipsholderen er tom";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Udklipsholder";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Tæt";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Farve og påmindelse for hver fase";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "Email adresse";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost lader dig fjerne alle slags data, der indeholder dine fotos, herunder privat information.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Rediger dine råbilleder.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Engineering Notes";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Eksponeringstid";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Udsættelse";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Falme";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Filnavn";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Filstørrelse";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Filtype";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "Fil";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filtre";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Lommelygte";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Flynummer";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Brændvidde";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Formater";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker gør det nemt og hurtigt at lave GIF-billeder fra Fotos eller Live Fotos med forskellige muligheder! Og så kan du åbne konverteringsprogrammet til at konvertere til alt som Live Photos eller Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Skjule udvalgte elementer ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Højdepunkter";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "ISO-hastighed";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Billede kvalitet";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Vælg bare de billeder, du har brug for, og kør det derefter.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landskab";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Breddegrad";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Lens Maker";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Objektiv model";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Begrænset præstationsmeddelelse";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Beliggenhed";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Længde";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Besked til os";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "Metadata vil gå tabt";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Metadata";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "mellemtoner";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Mode H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Mode T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Model";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Rediger og del";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Åbn Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Åbn Google Maps";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Åbn i %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Åbne webside";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Privatliv";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Forarbejdning";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Profil navn";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Promotion License Program";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Ændre det sidste element til %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Resize";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Løsning";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Gendan alle indkøb";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "Slibning";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Skarphed";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Lukketid";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Lighed";
 /* Generated from genl10n: Shop.SApp.swift */

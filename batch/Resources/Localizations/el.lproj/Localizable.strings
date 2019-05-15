@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "14-Ημερήσια χρήση κύριων και νέων εργαλείων";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-Μήνες Χρήση Κύριων και Νέων Εργαλείων";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35mm Μορφή:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-Μήνες Χρήση των Κύριων και Νέων Εργαλείων";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Όλες οι διαδικασίες που έχετε επιβεβαιώσει ολοκληρώθηκαν.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Ολα";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Υψόμετρο";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Παρουσιάστηκε σφάλμα κατά την παραλαβή διαφημίσεων.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Animation";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Οποιαδήποτε στιγμή δωρεάν ακύρωση.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Aperture Value";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Εφαρμόστε %@ στο τελευταίο στοιχείο";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Το Πρόχειρο είναι άδειο";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Πρόχειρο";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Κοντά";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Χρώμα και υπενθύμιση για κάθε φάση";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "E-mail Address";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "Το EXIF ​​Ghost σάς επιτρέπει να καταργήσετε όλα τα είδη δεδομένων που περιέχουν τις φωτογραφίες σας, συμπεριλαμβανομένων ιδιωτικών πληροφοριών.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Επεξεργαστείτε τις πρώτες φωτογραφίες σας.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Τεχνικές σημειώσεις";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Εξαγωγή";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Χρόνος έκθεσης";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Εκθεση";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Ξεθωριάζει";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Ονομα αρχείου";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Μέγεθος αρχείου";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Τύπος αρχείου";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "Αρχείο";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Φίλτρα";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Φακός";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Αριθμός πτήσης";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Εστιακό μήκος";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Μορφές";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Το GIF Maker επιτρέπει την εύκολη και γρήγορη δημιουργία εικόνων GIF από φωτογραφίες ή ζωντανές φωτογραφίες με διάφορες επιλογές! Και μετά μπορείτε να ανοίξετε την εφαρμογή μετατροπέα για να μετατρέψετε σε όλα, όπως Live Photos ή Βίντεο.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Απόκρυψη επιλεγμένων στοιχείων ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Καλύτερες στιγμές";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "Ταχύτητα ISO";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Ποιότητα εικόνας";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Απλά επιλέξτε τις φωτογραφίες που χρειάζεστε και στη συνέχεια εκτελέστε την.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Τοπίο";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Γεωγραφικό πλάτος";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Διάταξη";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Φακός Maker";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Μοντέλο φακού";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Περιορισμένη ειδοποίηση απόδοσης";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Τοποθεσία";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Κλειδαριές";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Γεωγραφικό μήκος";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Βρόχος";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Μήνυμα προς εμάς";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "Τα μεταδεδομένα θα χαθούν";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Μεταδεδομένα";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Τρόπος H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Τρόπος Τ";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Μοντέλο";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Τροποποίηση και κοινή χρήση";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Ανοίξτε τους Χάρτες Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Ανοίξτε τους Χάρτες Google";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Άνοιγμα σε %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Ανοίξτε την ιστοσελίδα";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Επεξεργασία";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Ονομα προφίλ";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Πρόγραμμα Άδειας Προώθησης";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Αλλάξτε το μέγεθος του τελευταίου στοιχείου σε %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Αλλαγή μεγέθους";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Ανάλυση";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Επαναφορά όλων των αγορών";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "Ακόνισμα";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Οξύτητα";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Ταχύτητα κλείστρου";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Ομοιότητα";
 /* Generated from genl10n: Shop.SApp.swift */

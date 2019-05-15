@@ -660,7 +660,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                 }
 
                 if !metadatas.isEmpty {
-                    let metadataItem = MetadataItem(title: "TIFF".localized, metadata: metadatas)
+                    let metadataItem = MetadataItem(title: "TIFF", metadata: metadatas)
                     self.metadataItems.append(metadataItem)
                 }
             }
@@ -674,7 +674,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                 }
 
                 if let value = info[ImageMetadata.Property.ExifFocalLenIn35mmFilm] {
-                    focalLength += " (\("35mm equivalent:".localized) \(value)mm)"
+                    focalLength += " (\("35mm Format:".localized) \(value)mm)"
                 }
 
                 if !focalLength.isEmpty {
@@ -686,7 +686,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
                 }
 
                 if let value = info[ImageMetadata.Property.ExifFNumber] {
-                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFNumber, displayName: "Aperture".localized, value: "ƒ/\(value)"))
+                    metadatas.append(Metadata(key: ImageMetadata.Property.ExifFNumber, displayName: "Aperture Value".localized, value: "ƒ/\(value)"))
                 }
 
                 if let value = info[ImageMetadata.Property.ExifShutterSpeedValue] as? Double, let time = doubleFormatter.string(from: NSNumber(value: value / 100)) {

@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "Penggunaan 14-Hari Alat Utama dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "Penggunaan 3 Bulan Alat Utama Dan Baru";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35mm Format:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "Penggunaan 6 Bulan Penggunaan Utama Dan Baru";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Semua proses yang telah anda tentukan sudah selesai.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Semua";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Ketinggian";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Ralat berlaku semasa menerima iklan.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Animasi";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Bila-bila masa pembatalan percuma.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Nilai apertur";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Terapkan %@ pada item terakhir";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Papan klip kosong";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Papan klip";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Tutup";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Warna Dan Peringatan untuk Setiap Fasa";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "Alamat emel";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost membolehkan anda mengeluarkan semua jenis data yang mengandungi foto anda termasuk maklumat peribadi.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Edit foto mentah anda.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Nota Kejuruteraan";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Eksport";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Masa Pendedahan";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Pendedahan";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Pudar";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Nama fail";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Saiz fail";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Jenis fail";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "Fail";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Penapis";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Lampu suluh";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Nombor penerbangan";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Panjang fokus";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Format";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "Pembuat GIF membolehkan dengan mudah dan cepat membuat imej GIF dari Foto atau Foto Live dengan pelbagai pilihan! Dan kemudian anda boleh membuka apl penukar untuk menukar kepada segala-galanya seperti Foto Live atau Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "Pembuat GIF";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Menyembunyikan Item Terpilih ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Sorotan";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "Kelajuan ISO";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Kualiti gambar";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Hanya pilih foto yang anda perlukan dan kemudian jalankannya.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Landskap";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Latitud";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Susun atur";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Pembuat kanta";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Model Lens";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Notis Prestasi Terhad";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Lokasi";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Skrin kunci";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Longitud";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Mesej Kepada Kami";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "Metadata akan hilang";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Metadata";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Mod H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Mod T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Model";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Ubah dan Kongsi";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Buka Peta Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Buka Peta Google";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Buka Dalam %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Buka Halaman Web";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Privasi";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Pemprosesan";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Nama profil";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Program Lesen Promosi";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Ubah saiz item terakhir kepada %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Saiz semula";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Resolusi";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Pulihkan Semua Pembelian";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "Mengasah";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Ketajaman";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Kelajuan pengatup";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Kesamaan";
 /* Generated from genl10n: Shop.SApp.swift */

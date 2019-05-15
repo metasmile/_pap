@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "मुख्य और नए उपकरण के 14-दिन का उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "मुख्य और नए उपकरण के 3 महीने का उपयोग";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "35 मिमी प्रारूप:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "मुख्य और नए उपकरण के 6 महीने का उपयोग";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "आपके द्वारा पुष्टि की गई सभी प्रक्रियाएं समाप्त हो गईं।";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "सब";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "ऊंचाई";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "विज्ञापन प्राप्त करते समय एक त्रुटि हुई।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "एनीमेशन";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "कभी भी मुफ्त रद्दीकरण।";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "एपर्चर मूल्य";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "अंतिम आइटम पर %@ लागू करें";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "क्लिपबोर्ड खाली है";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "क्लिपबोर्ड";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "बंद करे";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "प्रत्येक चरण के लिए रंग और अनुस्मारक";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "ईमेल पता";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost आपको निजी जानकारी सहित अपनी तस्वीरों वाले सभी प्रकार के डेटा को हटाने देता है।";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "अपने कच्चे फ़ोटो संपादित करें।";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "इंजीनियरिंग नोट्स";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "निर्यात";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "अनावृत काल";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "अनावरण";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "मुरझाना";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "फ़ाइल का नाम";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "फाइल का आकार";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "फाइल का प्रकार";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "फ़ाइल";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "फिल्टर";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "टॉर्च";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "विमान संख्या";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "फोकल लम्बाई";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "प्रारूप";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "जीआईएफ निर्माता विभिन्न विकल्पों के साथ फोटो या लाइव फोटो से जीआईएफ छवियों को आसानी से और तेज़ी से बनाने की अनुमति देता है! और फिर आप कनवर्टर ऐप को लाइव फोटो या वीडियो जैसे सब कुछ में बदलने के लिए खोल सकते हैं।";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "जीआईएफ निर्माता";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "गामा";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "चयनित आइटम छिपाना ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "हाइलाइट";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "आईएसओ गति";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "छवि गुणवत्ता";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "बस आपको आवश्यक तस्वीरों का चयन करें और फिर इसे चलाएं।";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "परिदृश्य";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "अक्षांश";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "ख़ाका";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "लेंस निर्माता";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "लेंस मॉडल";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "सीमित प्रदर्शन सूचना";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "लाइव फोटो";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "स्थान";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Lockscreens";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "देशान्तर";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "लूप";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "हमें संदेश";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "मेटाडेटा खो जाएगा";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "मेटाडाटा";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "मि़डटॉन";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "मोड एच";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "मोड टी";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "आदर्श";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "संशोधित करें और साझा करें";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "ऐप्पल मैप्स खोलें";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Google मानचित्र खोलें";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "%@ में खोलें";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "ओपन वेब पेज";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "एकांत";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "प्रसंस्करण";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "प्रोफ़ाइल नाम";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "पदोन्नति लाइसेंस कार्यक्रम";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "%@ अंतिम आइटम का आकार बदलें";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "आकार बदलें";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "संकल्प";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "सभी खरिदारियों को पुनः स्थापित करो";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "तेज़ करने";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "तीखेपन";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "शटर गति";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "समानता";
 /* Generated from genl10n: Shop.SApp.swift */

@@ -127,7 +127,7 @@
 /* genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-Month Use of Main And New Tools";
 /* genl10n: PhotoEditViewController.swift */
-"35mm equivalent:" = "35mm equivalent:";
+"35mm Format:" = "35mm Format:";
 /* genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-Month Use of Main And New Tools";
 /* genl10n: AppCenter.Charge.swift */
@@ -185,7 +185,7 @@
 /* genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "Anytime free cancellation.";
 /* genl10n: PhotoEditViewController.swift */
-"Aperture" = "Aperture";
+"Aperture Value" = "Aperture Value";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Apply %@ to the last item";
 /* genl10n: Filters.BApp.swift */
@@ -808,8 +808,6 @@
 "Stories of Us" = "Stories of Us";
 /* genl10n: ExifGhost.AppDockContent.swift */
 "Switch on any items you want to hide. The quality will perfectly remain the same." = "Switch on any items you want to hide. The quality will perfectly remain the same.";
-/* genl10n: PhotoEditViewController.swift */
-"TIFF" = "TIFF";
 /* genl10n: Finder.BApp.swift */
 "Take A Photo" = "Take A Photo";
 /* genl10n: Shop.SApp.swift */

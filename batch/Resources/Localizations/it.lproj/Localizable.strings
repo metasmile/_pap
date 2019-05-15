@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "14 giorni di utilizzo di strumenti principali e nuovi";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "Uso di 3 mesi di strumenti principali e nuovi";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "Formato 35mm:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "Uso di 6 mesi di strumenti principali e nuovi";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Tutti i processi che hai confermato erano finiti.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Tutti";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Altitudine";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Si è verificato un errore durante la ricezione degli annunci.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Animazione";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "In qualsiasi momento cancellazione gratuita.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Valore dell'apertura";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Applica %@ all'ultimo elemento";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Gli appunti sono vuoti";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "appunti";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Vicino";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Colore e promemoria per ogni fase";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "Indirizzo email";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost ti consente di rimuovere tutti i tipi di dati contenenti le tue foto, incluse le informazioni private.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Modifica le tue foto crude.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Note tecniche";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Esportare";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Tempo di esposizione";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Esposizione";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "dissolvenza";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Nome del file";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Dimensione del file";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Tipo di file";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "File";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "filtri";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Torcia elettrica";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Numero di volo";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Lunghezza focale";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "formati";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker consente di creare facilmente e rapidamente immagini GIF da Foto o Foto in diretta con varie opzioni! E poi puoi aprire l'app del convertitore per convertire in qualsiasi cosa, come Foto in diretta o Video.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Gamma";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Nascondere gli elementi selezionati ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Mette in risalto";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "Velocità ISO";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Qualità dell'immagine";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Basta selezionare le foto che ti servono e poi eseguirle.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Paesaggio";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Latitudine";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Layout";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Lens Maker";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Modello di lente";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Avviso sulle prestazioni limitate";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Posizione";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "lockscreens";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Longitudine";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Loop";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Messaggio per noi";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "I metadati andranno persi";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Metadati";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "mezzitoni";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Modalità H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Modalità T";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Modello";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Modifica e Condividi";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Apri le mappe di Apple";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Apri Google Maps";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Apri in %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Apri pagina Web";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "in lavorazione";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Nome del profilo";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Programma di licenza promozionale";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Ridimensiona l'ultimo elemento in %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Ridimensiona";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Risoluzione";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Ripristina tutti gli acquisti";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "affilatura";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "nitidezza";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Velocità di scatto";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Somiglianza";
 /* Generated from genl10n: Shop.SApp.swift */

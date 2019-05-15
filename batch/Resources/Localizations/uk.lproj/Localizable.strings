@@ -162,6 +162,8 @@
 "14-Day Use of Main and New Tools" = "14-денне користування основними та новими інструментами";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "3-Month Use of Main And New Tools" = "3-місячне використання основних та нових інструментів";
+/* genl10n: PhotoEditViewController.swift */
+"35mm Format:" = "Формат 35 мм:";
 /* Generated from genl10n: AppCenter.Charge.swift */
 "6-Month Use of Main And New Tools" = "6-місячне використання основних та нових інструментів";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -208,6 +210,8 @@
 "All processes you have confirmed were finished." = "Усі підтверджені процеси закінчені.";
 /* Generated from genl10n: ExifGhost.AppDockContent.swift#176 */
 "All" = "Все";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Altitude" = "Висота над рівнем моря";
 /* Generated from genl10n: Shop.Payment.GADInterestialAdsViewing.swift#217 */
 "An Error Occurred While Receiving Ads." = "Під час отримання оголошень з'явилася помилка.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -216,6 +220,8 @@
 "Animation" = "Анімація";
 /* Generated from genl10n: Shop.Payables.Store.LegalInfo.swift */
 "Anytime free cancellation." = "В будь-який час безкоштовно скасування.";
+/* genl10n: PhotoEditViewController.swift */
+"Aperture Value" = "Значення діафрагми";
 /* genl10n: AutoEditor.BApp.swift */
 "Apply %@ to the last item" = "Застосуйте %@ до останнього елемента";
 /* Generated from genl10n: Filters.BApp.swift#76 */
@@ -290,6 +296,8 @@
 "Clipboard is empty" = "Буфер обміну порожній";
 /* Generated from genl10n: Clipboard.BApp.swift */
 "Clipboard" = "Буфер обміну";
+/* genl10n: PhotoEditViewController.swift */
+"Close" = "Закрити";
 /* Generated from genl10n: Shop.SApp.swift#532 */
 "Color And Reminder for Each Phases" = "Колір і нагадування для кожної фази";
 /* Generated from genl10n: RawEditor.swift */
@@ -370,6 +378,8 @@
 "E-mail Address" = "Адреса електронної пошти";
 /* Generated from genl10n: ExifGhost.BApp.swift#29 */
 "EXIF Ghost lets you remove all kinds of data containing your photos including private information." = "EXIF Ghost дозволяє видаляти всі види даних, що містять ваші фотографії, включаючи приватну інформацію.";
+/* genl10n: PhotoEditViewController.swift */
+"EXIF" = "EXIF";
 /* Generated from genl10n: RawEditor.swift */
 "Edit your raw photos." = "Редагуйте сирі фотографії.";
 /* Generated from genl10n: Hashtagen.BApp.swift */
@@ -382,10 +392,20 @@
 "Engineering Notes" = "Інженерні замітки";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Export" = "Експорт";
+/* genl10n: PhotoEditViewController.swift */
+"Exposure Time" = "Час експозиції";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Exposure" = "Експозиція";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Fade" = "Зникати";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Name" = "Ім'я файлу";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Size" = "Розмір файлу";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File Type" = "Тип файлу";
+/* genl10n: PhotoEditViewController.swift(2) */
+"File" = "Файл";
 /* Generated from genl10n: Filters.BApp.swift#72 */
 "Filters" = "Фільтри";
 /* Generated from genl10n: Finder.BApp.swift */
@@ -402,6 +422,8 @@
 "Flashlight" = "Ліхтарик";
 /* Generated from genl10n: FirebaseMLVision.VisionText.Parser.Types.swift#254, Finder.BApp.swift#1153 */
 "Flight Number" = "Номер рейсу";
+/* genl10n: PhotoEditViewController.swift */
+"Focal Length" = "Фокусна відстань";
 /* Generated from genl10n: Finder.BApp.swift#1224 */
 "Formats" = "Формати";
 /* Generated from genl10n: GIFMaker.BApp.swift */
@@ -422,6 +444,8 @@
 "GIF Maker allows for easily and quickly making GIF images from Photos or Live Photos with various options! And then you can open the converter app to convert into everything such as Live Photos or Videos." = "GIF Maker дозволяє легко і швидко створювати зображення GIF з фотографій або Live Photos з різними параметрами! І тоді ви можете відкрити програму конвертеру, щоб перетворити на все, наприклад, на Live Photos або Videos.";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "GIF Maker" = "GIF Maker";
+/* genl10n: PhotoEditViewController.swift(3) */
+"GPS" = "GPS";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Gamma" = "Гамма";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.swift#128 */
@@ -456,6 +480,8 @@
 "Hiding Selected Items..." = "Приховати вибрані елементи ...";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Highlights" = "Основні моменти";
+/* genl10n: PhotoEditViewController.swift */
+"ISO Speed" = "Швидкість ISO";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Image Quality" = "Якість зображення";
 /* Generated from genl10n: Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift, Clipboard.BApp.swift */
@@ -488,14 +514,24 @@
 "Just select photos you need and then run it." = "Просто виберіть потрібні фотографії, а потім запустіть його.";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#106 */
 "Landscape" = "Пейзаж";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Latitude" = "Широта";
 /* Generated from genl10n: PDFMaker.AppDockContent.swift#104 */
 "Layout" = "Макет";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Maker" = "Виробник об'єктива";
+/* genl10n: PhotoEditViewController.swift */
+"Lens Model" = "Модель об'єктива";
 /* Generated from genl10n: MMCMemoCam.BApp.swift */
 "Limited Performance Notice" = "Повідомлення про обмежену продуктивність";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Live Photo" = "Live Photo";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Location" = "Розташування";
 /* Generated from genl10n: Cleaner.BApp.swift#245 */
 "Lockscreens" = "Блокування екранів";
+/* genl10n: PhotoEditViewController.swift(3) */
+"Longitude" = "Довгота";
 /* Generated from genl10n: GIFMaker.BApp.swift */
 "Loop" = "Петля";
 /* Generated from genl10n: RawEditor.swift */
@@ -520,12 +556,18 @@
 "MemoCam" = "MemoCam";
 /* Generated from genl10n: Shop.SApp.swift */
 "Message To Us" = "Повідомлення нам";
+/* genl10n: App.Finalizable.PHAsset.swift */
+"Metadata will be lost" = "Метадані будуть втрачені";
+/* genl10n: PhotoEditViewController.swift */
+"Metadata" = "Метадані";
 /* genl10n: ColorEditor.BApp.swift */
 "Midtones" = "Midtones";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode H" = "Режим H";
 /* genl10n: GIFMaker.BApp.swift */
 "Mode T" = "Режим Т";
+/* genl10n: PhotoEditViewController.swift */
+"Model" = "Модель";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify and Share" = "Змінити та обмінюватися";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -574,6 +616,8 @@
 "Open Apple Maps" = "Відкрийте Apple Maps";
 /* Generated from genl10n: Finder.BApp.swift#668 */
 "Open Google Maps" = "Відкрийте Карти Google";
+/* genl10n: Finder.BApp.swift */
+"Open In %@" = "Відкрити в %@";
 /* Generated from genl10n: Finder.BApp.swift#370 */
 "Open Web Page" = "Відкрита веб-сторінка";
 /* Generated from genl10n: Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.SApp.swift, Shop.Payment.GADInterestialAdsViewing.swift */
@@ -628,6 +672,8 @@
 "Privacy" = "Privacy";
 /* Generated from genl10n: ActionViewController.swift#38 */
 "Processing" = "Обробка";
+/* genl10n: PhotoEditViewController.swift */
+"Profile Name" = "Імя профілю";
 /* Generated from genl10n: Shop.Payment.SecretCodeProgram.Types.swift */
 "Promotion License Program" = "Програма ліцензій на просування";
 /* Generated from genl10n: AppCenter.Charge.swift */
@@ -664,6 +710,8 @@
 "Resize the last item to %@" = "Змінити розмір останнього елемента на %@";
 /* genl10n: Resizer.BApp.swift */
 "Resize" = "Змінити розмір";
+/* genl10n: PhotoEditViewController.swift(2) */
+"Resolution" = "Роздільна здатність";
 /* Generated from genl10n: AppCenter.Charge.swift#74 */
 "Restore All Purchases" = "Відновити всі покупки";
 /* Generated from genl10n: Shop.Payment.System.swift#11 */
@@ -750,6 +798,8 @@
 "Sharpening" = "Заточення";
 /* Generated from genl10n: Adjustments.BApp.swift */
 "Sharpness" = "Різкість";
+/* genl10n: PhotoEditViewController.swift */
+"Shutter Speed" = "Швидкість затвора";
 /* Generated from genl10n: Cleaner.GarbageDetector.swift#88 */
 "Similarity" = "Подібність";
 /* Generated from genl10n: Shop.SApp.swift */
