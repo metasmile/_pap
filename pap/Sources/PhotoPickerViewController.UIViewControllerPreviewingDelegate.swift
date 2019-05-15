@@ -18,13 +18,13 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             guard let item = AppAssets.selected.by(selectedAsset) ?? AppAsset.create(for:selectedAsset) else {
                 return nil
             }
-            
+
             let placeholderImage = item.asset.requestThumbnailImage(targetSize: CGSize(width: 200, height: 200))
 
             let vc = PhotoPickerDetailViewController()
             vc.placeholderImage = placeholderImage?.applyFilter(ciFilter: item.editState.ciFilter) ?? placeholderImage
             vc.assetItem = item
-            
+
             if self.shouldSelectPhoto(at: indexPath) {
                 setActions(with: item, at: indexPath, to: vc)
             }
@@ -39,7 +39,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
                 let cell = batchPreviewView.collectionView.cellForItem(at: indexPath),
                 let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item)
             else { return nil }
-            
+
             let selectedAsset = selectedAssetItem.asset
             guard let selectedIndexPath = PHAssets.fetched.indexPath(of: selectedAsset) else { return nil }
 
@@ -50,7 +50,7 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
 
             let vc = PhotoPickerDetailViewController()
             vc.assetItem = item
-            
+
             if self.shouldSelectPhoto(at: indexPath) {
                 setActions(with: item, at: selectedIndexPath, to: vc)
             }
@@ -67,13 +67,13 @@ extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
             return
         }
 
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self){
             showPhotoEditor(with: item)
         }
     }
 
     private func setActions(with item: AppAsset, at indexPath: IndexPath, to vc: PhotoPickerDetailViewController) {
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self){
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self){
             if !allowSelection, let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue {
                 item.editState.append(value)
             }

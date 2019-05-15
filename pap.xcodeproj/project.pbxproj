@@ -256,7 +256,7 @@
 		4F71D3F771AB0100993415B2 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7F614D3AE7A1E8A7345 /* FirebaseMLVision.VisionTextDetectResult.Handlers.swift */; };
 		4F71D3F87197B5296B94AE5C /* cell_icon_gif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DC2C610992C9284BC43E /* cell_icon_gif.png */; };
 		4F71D3FAB3CC2DAF5E39748A /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7FEC6906907A5D456CF /* Converter.swift */; };
-		4F71D3FC526D7CB525CBAB11 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		4F71D3FC526D7CB525CBAB11 /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		4F71D3FD6FA162141D7482A7 /* ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D371BF0344A431805486 /* ExternalDelegate.swift */; };
 		4F71D4004D70977261C0B895 /* Sourceable.Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF3ACC28BD0E84528C27 /* Sourceable.Vision.swift */; };
 		4F71D4008A4386FCFFEC3A75 /* Sourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3BF4E377FC66D2D7C9F /* Sourceable.swift */; };
@@ -680,7 +680,7 @@
 		4F71DA988AD6324374208300 /* CodeKit.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA28A0353652201DD6E8 /* CodeKit.URL.swift */; };
 		4F71DA9CD6731C6B944C0E0D /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
 		4F71DAA4D2F1B61B4FCE3805 /* App.Recordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA629324DA202C6C53DE /* App.Recordable.swift */; };
-		4F71DAB3A62B5F9A4CAA0D8F /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		4F71DAB3A62B5F9A4CAA0D8F /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		4F71DAB7EB4BACBA54CFA0A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D2E600469544B2CDB9DA /* GoogleService-Info.plist */; };
 		4F71DAB93D87AA55EA43F3AB /* Converter.Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4CDFED44D662FBDCE33 /* Converter.Mp4.swift */; };
 		4F71DABA5B9851EE6568C7ED /* PhotoPickerViewController.UICollectionView.CachingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD1794F6D10DAF0B017A /* PhotoPickerViewController.UICollectionView.CachingImage.swift */; };
@@ -763,7 +763,7 @@
 		4F71DC21E3F5F101063D393F /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF283855CBC48FCF1FA0 /* PreviewView.swift */; };
 		4F71DC24BFF775ACE7EEC944 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC3C23984D76DB9A008 /* PhotoAlbumViewController.swift */; };
 		4F71DC2D854B94318DC3DDE6 /* CodeKit.UIView.Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA1BA6C1703484DE20AC /* CodeKit.UIView.Hierarchy.swift */; };
-		4F71DC3937FC8599BCB854D6 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		4F71DC3937FC8599BCB854D6 /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		4F71DC3A82E317AE15E5CAA1 /* App.AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAC8737B577A3A821E0D /* App.AVCaptureDevice.swift */; };
 		4F71DC3BDBA1D4209198A405 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D56A413B9E585637B114 /* RoundedButton.swift */; };
 		4F71DC3D75FE718C9F5F2D75 /* ImageIO.Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D88B7728B4A403ED5B2B /* ImageIO.Metadata.swift */; };
@@ -785,7 +785,7 @@
 		4F71DC802FC1A787D537CB40 /* CodeKit.Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D882FE27608A8D6FE870 /* CodeKit.Misc.swift */; };
 		4F71DC92B3D3B6EC539C80EA /* PHAsset.Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC6DBEB06AEEA05FC337 /* PHAsset.Items.swift */; };
 		4F71DC94BF30963A7338D79D /* App.Lib.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D5507FF43D11AE08B408 /* App.Lib.Parser.swift */; };
-		4F71DC9EB479021925252AED /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		4F71DC9EB479021925252AED /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		4F71DCA5F26E80101C019E71 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D75DC560C5472FE6CE82 /* Loggable.swift */; };
 		4F71DCA915C07AA7AE4080EB /* cell_icon_burst.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71DB14842189E72F5EE344 /* cell_icon_burst.png */; };
 		4F71DCB0EE07861365F800C7 /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC4CC807F833A7159507 /* PhotoEditViewController.swift */; };
@@ -1279,7 +1279,7 @@
 		A0CB0098219C8C64007A5278 /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */; };
 		A0CB0099219C8C64007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
 		A0CB009A219C8C64007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */; };
-		A0CB009B219C8C64007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		A0CB009B219C8C64007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		A0CB009C219C8C64007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		A0CB009D219C8C64007A5278 /* FirebaseMLVision.VisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B8663659484DE3B777 /* FirebaseMLVision.VisionText.swift */; };
 		A0CB009E219C8C64007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB11FC7217647C549E54 /* FirebaseMLVision.VisionText.Parser.swift */; };
@@ -1640,7 +1640,7 @@
 		A0CB021C219C9093007A5278 /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */; };
 		A0CB021D219C9093007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
 		A0CB021E219C9093007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */; };
-		A0CB021F219C9093007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		A0CB021F219C9093007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		A0CB0220219C9093007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		A0CB0221219C9093007A5278 /* FirebaseMLVision.VisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B8663659484DE3B777 /* FirebaseMLVision.VisionText.swift */; };
 		A0CB0222219C9093007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB11FC7217647C549E54 /* FirebaseMLVision.VisionText.Parser.swift */; };
@@ -1931,7 +1931,7 @@
 		A0CB0354219DE4F2007A5278 /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */; };
 		A0CB0355219DE4F2007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */; };
 		A0CB0356219DE4F2007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */; };
-		A0CB0357219DE4F2007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */; };
+		A0CB0357219DE4F2007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */; };
 		A0CB0358219DE4F2007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		A0CB0359219DE4F2007A5278 /* FirebaseMLVision.VisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B8663659484DE3B777 /* FirebaseMLVision.VisionText.swift */; };
 		A0CB035A219DE4F2007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB11FC7217647C549E54 /* FirebaseMLVision.VisionText.Parser.swift */; };
@@ -2327,7 +2327,7 @@
 		4F71D21407FC99275C1F1080 /* Shop.Payment.SNSEngagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.SNSEngagement.swift; sourceTree = "<group>"; };
 		4F71D21D2B42C633EB01E378 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		4F71D2312F16A572298D07D6 /* PhotoPickerViewController.AppConfigWatchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.AppConfigWatchable.swift; sourceTree = "<group>"; };
-		4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditorViewControllerDelegatable.swift; sourceTree = "<group>"; };
+		4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.PhotoEditViewControllerDelegatable.swift; sourceTree = "<group>"; };
 		4F71D257A5D28AEAD9408F09 /* ImageIO.Metadata.Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Dictionary.swift; sourceTree = "<group>"; };
 		4F71D2641BA9E027864B3419 /* PHAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAssets.swift; sourceTree = "<group>"; };
 		4F71D26E642FD25B85B096B8 /* ImageIO.Metadata.Properties.Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageIO.Metadata.Properties.Collection.swift; sourceTree = "<group>"; };
@@ -3486,7 +3486,7 @@
 				4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */,
 				4F71D8CD5C074258CB3D97B4 /* App.PhotoPickerCollectionViewDelegatable.swift */,
 				4F71D15FC6859C262BE4BDB4 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift */,
-				4F71D2569F36DCF6E211DA62 /* App.PhotoEditorViewControllerDelegatable.swift */,
+				4F71D2569F36DCF6E211DA62 /* App.PhotoEditViewControllerDelegatable.swift */,
 				4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */,
 				4F71D788C24A3E86CD1306D4 /* App.Lib.FirebaseMLVision */,
 				4F71DD072369129507807290 /* App.Lib.Parser */,
@@ -5909,7 +5909,7 @@
 				4F71D2915EC8B8EE8F433EA8 /* App.AppDock.swift in Sources */,
 				4F71DDC5227F1A89B8CA6073 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71D550F8145B0E50D79104 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				4F71DAB3A62B5F9A4CAA0D8F /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				4F71DAB3A62B5F9A4CAA0D8F /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				4F71D33C44BAD9C45F5E9761 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				4F71DAD64DA0A6FA7976EFCB /* FirebaseMLVision.VisionText.swift in Sources */,
 				4F71D42E899D137365D4BB90 /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -6149,7 +6149,7 @@
 				4F71DF74B11E4FF072F60BC9 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71DA8B2FE54CF4BDCB4127 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
 				510C5AAE21C7317300F9F7EE /* CodeKit.CIFilter.swift in Sources */,
-				4F71DC3937FC8599BCB854D6 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				4F71DC3937FC8599BCB854D6 /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				4F71DA28A9F102B4F0A6875E /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				4F71DAF9423ED059D0EDE628 /* FirebaseMLVision.VisionText.swift in Sources */,
 				4F71D5BF62DA9F53E529449B /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -6451,7 +6451,7 @@
 				A0CB021C219C9093007A5278 /* App.AppDock.swift in Sources */,
 				A0CB021D219C9093007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				A0CB021E219C9093007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				A0CB021F219C9093007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				A0CB021F219C9093007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				A0CB0220219C9093007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				A0CB0221219C9093007A5278 /* FirebaseMLVision.VisionText.swift in Sources */,
 				A0CB0222219C9093007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -6689,7 +6689,7 @@
 				A0CB0354219DE4F2007A5278 /* App.AppDock.swift in Sources */,
 				A0CB0355219DE4F2007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				A0CB0356219DE4F2007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				A0CB0357219DE4F2007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				A0CB0357219DE4F2007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				A0CB0358219DE4F2007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				A0CB0359219DE4F2007A5278 /* FirebaseMLVision.VisionText.swift in Sources */,
 				A0CB035A219DE4F2007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -6996,7 +6996,7 @@
 				4F71D3332E5CB7DCCF562C0F /* App.AppDock.swift in Sources */,
 				4F71D864527FC234F9A1600F /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71D8C7F603445399E47FAC /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				4F71D3FC526D7CB525CBAB11 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				4F71D3FC526D7CB525CBAB11 /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				4F71DEA55112327942026EFD /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				4F71DCE5AE86026AFD99986C /* FirebaseMLVision.VisionText.swift in Sources */,
 				4F71D12C7874DD47A253AFDF /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -7307,7 +7307,7 @@
 				A0CB0098219C8C64007A5278 /* App.AppDock.swift in Sources */,
 				A0CB0099219C8C64007A5278 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				A0CB009A219C8C64007A5278 /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				A0CB009B219C8C64007A5278 /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				A0CB009B219C8C64007A5278 /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				A0CB009C219C8C64007A5278 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				A0CB009D219C8C64007A5278 /* FirebaseMLVision.VisionText.swift in Sources */,
 				A0CB009E219C8C64007A5278 /* FirebaseMLVision.VisionText.Parser.swift in Sources */,
@@ -7534,7 +7534,7 @@
 				4F71D6D21E1EFAAB6AD0609D /* App.AppDock.swift in Sources */,
 				4F71D8524825671084DA4434 /* App.PhotoPickerCollectionViewDelegatable.swift in Sources */,
 				4F71D8FE49D25156804F3BBE /* App.PhotoPickerViewControllerAppearanceDelegatable.swift in Sources */,
-				4F71DC9EB479021925252AED /* App.PhotoEditorViewControllerDelegatable.swift in Sources */,
+				4F71DC9EB479021925252AED /* App.PhotoEditViewControllerDelegatable.swift in Sources */,
 				4F71D6ADAD0A346C923D02C2 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */,
 				4F71DFED9136E38FA127369B /* FirebaseMLVision.VisionText.swift in Sources */,
 				4F71D7D48929F5D482C90E4C /* FirebaseMLVision.VisionText.Parser.swift in Sources */,

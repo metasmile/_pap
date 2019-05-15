@@ -41,9 +41,9 @@ public class DepthEditorAppConfigValue: NSObject, PropertyWatchable, AppConfigAd
 }
 
 class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
-        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, PhotoEditorPreviewProcessableApp, AppDockApp,
+        PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, PhotoEditViewControllerProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
-        PhotoEditorViewControllerDelegatableApp {
+        PhotoEditViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = _DepthEditorAppTask.self
     public static let paramType: AppTaskParamable.Type = _DepthEditorAppAsset.self
 
@@ -56,7 +56,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
     public private(set) lazy var config: DepthEditorAppConfigValue? = type(of:self).defaultConfigValue as? DepthEditorAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = DepthEditorAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = DepthEditorAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = DepthEditorAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -101,7 +101,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             }
         }
 
-        if let controllerContent = self.photoEditorDockContent as? DepthEditorAppDockContent {
+        if let controllerContent = self.editViewDockContent as? DepthEditorAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
                     self.config?.filter = filterItem
@@ -125,7 +125,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         return item.asset.mediaType == .image && item.asset.hasDepthEffect
     }
 
-    func photoEditorShouldPreview(item: AppAsset) -> Bool {
+    func shouldShowPreview(item: AppAsset) -> Bool {
         return item.asset.imageType == .stillImage
     }
 
@@ -195,19 +195,19 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
         }
     }
 
-    public func photoEditorWillBeginProcessing() {
-        photoEditorDockContent?.view.isUserInteractionEnabled = false
+    public func willBeginProcessing() {
+        editViewDockContent?.view.isUserInteractionEnabled = false
     }
 
-    public func photoEditorWillEndProcessing() {
-        photoEditorDockContent?.view.isUserInteractionEnabled = true
+    public func willEndProcessing() {
+        editViewDockContent?.view.isUserInteractionEnabled = true
     }
 
     public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {
         (content as? DepthEditorAppDockContent)?.selectItem(with: value)
     }
 
-    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
+    func previewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
         (content as? DepthEditorAppDockContent)?.updateItem(at: normalizedPoint, with: value)
     }
 }

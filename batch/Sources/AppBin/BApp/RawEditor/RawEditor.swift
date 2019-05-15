@@ -13,7 +13,7 @@ class _RawEditorAsset: AppAsset {}
 
 public class RawEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
-PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp, PhotoEditorPreviewProcessableApp {
+PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditViewControllerDelegatableApp, PhotoEditViewControllerProcessableApp {
 
     public static let taskType: AppTaskable.Type = _RawEditorTask.self
     public static let paramType: AppTaskParamable.Type = _RawEditorAsset.self
@@ -27,7 +27,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = RawEditorDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = RawEditorDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = RawEditorDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -61,7 +61,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
 
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? RawEditorDockContent
+        let controllerContentInPhotoEditor = self.editViewDockContent as? RawEditorDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)

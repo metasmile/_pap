@@ -119,7 +119,7 @@ class _AdjustmentsAppAsset: _FiltersAppAsset {}
 
 public class AdjustmentsApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, RecordableApp, PreviewProcessableApp, AppDockApp,
-PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
+PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AdjustmentsAppTask.self
     public static let paramType: AppTaskParamable.Type = _AdjustmentsAppAsset.self
@@ -133,7 +133,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = AdjustmentsAppDockContent(app: self)
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = AdjustmentsAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = AdjustmentsAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -175,7 +175,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
 
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? AdjustmentsAppDockContent
+        let controllerContentInPhotoEditor = self.editViewDockContent as? AdjustmentsAppDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
@@ -236,7 +236,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         if let content = self.content as? AdjustmentsAppDockContent {
             controller = content
         }
-        else if let content = self.photoEditorDockContent as? AdjustmentsAppDockContent {
+        else if let content = self.editViewDockContent as? AdjustmentsAppDockContent {
             controller = content
         }
 

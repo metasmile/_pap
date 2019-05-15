@@ -39,7 +39,7 @@ public class FiltersAppConfigValue: NSObject, PropertyWatchable, AppConfigAdopta
 public class FiltersApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
         PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
-PhotoEditorViewControllerDelegatableApp {
+PhotoEditViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _FiltersAppTask.self
     public static let paramType: AppTaskParamable.Type = _FiltersAppAsset.self
@@ -53,7 +53,7 @@ PhotoEditorViewControllerDelegatableApp {
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = FiltersAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = FiltersAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = FiltersAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -93,7 +93,7 @@ PhotoEditorViewControllerDelegatableApp {
             }
         }
 
-        if let controllerContent = self.photoEditorDockContent as? FiltersAppDockContent {
+        if let controllerContent = self.editViewDockContent as? FiltersAppDockContent {
             controllerContent.watch(\.filterItem, options: [.initial, .new]) {
                 if let filterItem = controllerContent.filterItem {
                     self.config?.filter = filterItem
@@ -133,12 +133,12 @@ PhotoEditorViewControllerDelegatableApp {
         completion(original, filtered)
     }
 
-    public func photoEditorWillBeginProcessing() {
-        photoEditorDockContent?.view.isUserInteractionEnabled = false
+    public func willBeginProcessing() {
+        editViewDockContent?.view.isUserInteractionEnabled = false
     }
 
-    public func photoEditorWillEndProcessing() {
-        photoEditorDockContent?.view.isUserInteractionEnabled = true
+    public func willEndProcessing() {
+        editViewDockContent?.view.isUserInteractionEnabled = true
     }
 
     public func selectEditState(value: ImageEditStateValue?, in content: AppDockContent?) {

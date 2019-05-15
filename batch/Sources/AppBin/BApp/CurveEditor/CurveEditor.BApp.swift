@@ -23,7 +23,7 @@ extension Defaults: CurveEditorDefaults {
 
 class CurveEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, RecordableApp, PreviewProcessableApp, AppDockApp,
-PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
+PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditViewControllerDelegatableApp {
     public static let taskType: AppTaskable.Type = CurveEditorTask.self
 
     public static let paramType: AppTaskParamable.Type = _CurveEditorAppAsset.self
@@ -37,7 +37,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = CurveEditorAppDockContent(app: self)
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = CurveEditorAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = CurveEditorAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -79,7 +79,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             }
         }
 
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? CurveEditorAppDockContent
+        let controllerContentInPhotoEditor = self.editViewDockContent as? CurveEditorAppDockContent
         controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
@@ -140,7 +140,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         if let content = self.content as? CurveEditorAppDockContent {
             controller = content
         }
-        else if let content = self.photoEditorDockContent as? CurveEditorAppDockContent {
+        else if let content = self.editViewDockContent as? CurveEditorAppDockContent {
             controller = content
         }
 

@@ -137,10 +137,10 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }()
 
     @objc private func tapGestureDidRecognize(sender: UITapGestureRecognizer) {
-        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewInteractionable.self) {
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditViewControllerInteractable.self) {
             let pointInAssetView = sender.location(in: assetView)
             let assetSize = assetView.size
-            app.photoEditorPreviewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height), with: editItem.imageEditStateValue)
+            app.previewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height), with: editItem.imageEditStateValue)
         }
         playOrPause()
     }
@@ -184,16 +184,16 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         assetView.imageEditType = asset?.imageType ?? .notImage
 
         if canEdit {
-            if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+            if let app = AppCenter.default.currentInstanceAs(PhotoEditViewControllerProcessableApp.self), let asset = asset {
                 if asset.mediaType == .image {
                     let appAsset = AppAsset(asset)
                     appAsset.editState = preferredEditState
 
-                    assetView.imageEditType = app.photoEditorShouldPreview(item: appAsset) ? .stillImage : asset.imageType
+                    assetView.imageEditType = app.shouldShowPreview(item: appAsset) ? .stillImage : asset.imageType
                 }
             }
             else if let _ = AppCenter.default.currentInstanceAs(EditableApp.self), let asset = asset {
-                if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable, asset.imageType == .livePhoto {
+                if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self)?.editViewDockContent as? AppDockContentPlayerControllable, asset.imageType == .livePhoto {
                     assetView.imageEditType = .notImage
                 }
             }
@@ -224,7 +224,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
                 }
                 self.assetView.playAny()
 
-                if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+                if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self)?.editViewDockContent as? AppDockContentPlayerControllable {
                     playerControl.player = self.assetView.player
                 }
             })
@@ -238,7 +238,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
     override func content(in view: AppDockView) -> AppDockContent? {
         guard canEdit else { return nil }
-        return AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent
+        return AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self)?.editViewDockContent
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -252,7 +252,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
         super.viewDidAppear(animated)
 
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
-            app.selectEditState(value:self.preferredEditState.imageEditStateValue, in: (app as? PhotoEditorViewControllerDelegatableApp)?.photoEditorDockContent)
+            app.selectEditState(value:self.preferredEditState.imageEditStateValue, in: (app as? PhotoEditViewControllerDelegatableApp)?.editViewDockContent)
         }
 
         zoomingContentView.isHidden = false
@@ -303,14 +303,14 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func setEditState(_ editState: StateValueSet<ImageEditStateValue>) {
         guard canEdit else { return }
 
-        if let app = AppCenter.default.currentInstanceAs(PhotoEditorPreviewProcessableApp.self), let asset = asset {
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditViewControllerProcessableApp.self), let asset = asset {
             let targetSize = self.assetView.size
 
             let appAsset = AppAsset(asset)
             appAsset.editState = editState
 
             DispatchQueue(label: #file + #function, qos: .utility).async {
-                app.previewProcessing(appAsset, targetSize: targetSize, in: AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent) { (original, filtered) in
+                app.previewProcessing(appAsset, targetSize: targetSize, in: AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self)?.editViewDockContent) { (original, filtered) in
                     DispatchQueue.main.async {
                         if let image = app.previewOriginalImageCompare(with: appAsset, targetSize: targetSize) ?? original {
                             self.assetView.originalImageForCompare = image
@@ -385,7 +385,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     private func teardown() {
         assetView.teardown()
 
-        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self)?.photoEditorDockContent as? AppDockContentPlayerControllable {
+        if var playerControl = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self)?.editViewDockContent as? AppDockContentPlayerControllable {
             playerControl.player = nil
         }
     }
@@ -737,22 +737,22 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             }
             else if let location = asset.location {
                 var gpsMetadatas = [Metadata]()
-                
+
                 gpsMetadatas.append(Metadata(key: "Location", displayName: "Location".localized, value: location.coordinate))
-                
+
                 gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLatitude, displayName: "Latitude".localized, value: "\(location.coordinate.latitude)"))
                 gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSLongitude, displayName: "Longitude".localized, value: "\(location.coordinate.longitude)"))
-                
+
                 if location.altitude > 0 {
                     gpsMetadatas.append(Metadata(key: ImageMetadata.Property.GPSAltitude, displayName: "Altitude".localized, value: "\(location.altitude)"))
                 }
-                
+
                 if !gpsMetadatas.isEmpty {
                     let metadataItem = MetadataItem(title: "GPS".localized, metadata: gpsMetadatas)
                     self.metadataItems.append(metadataItem)
                 }
             }
-            
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

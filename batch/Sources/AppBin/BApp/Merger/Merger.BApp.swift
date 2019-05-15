@@ -33,7 +33,7 @@ public class MergerAppValue: ImageEditStateValue {
     }
 }
 
-class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditorPreviewInteractionable, PhotoEditorViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
+class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditViewControllerInteractable, PhotoEditViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
 
@@ -49,7 +49,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     public private(set) lazy var config: MergerAppConfigValue? = type(of:self).defaultConfigValue as? MergerAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = nil//MergerAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = MergerPhotoEditorAppDockContent(app: self)
+    public private(set) lazy var editViewDockContent: AppDockContent? = MergerPhotoEditorAppDockContent(app: self)
 
     public static let info = AppInfo(
         identifier: "com.stells.batch.merger"
@@ -68,7 +68,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     required public override init() {
         super.init()
 
-        if let controllerContent = self.photoEditorDockContent as? MergerPhotoEditorAppDockContent {
+        if let controllerContent = self.editViewDockContent as? MergerPhotoEditorAppDockContent {
             controllerContent.watch(\.timeRange, options: [.initial, .new]) {
                 if let timeRange = controllerContent.timeRange {
                     self.config?.timeRange = MergerAppValue(timeRange.timeRangeValue)
@@ -106,11 +106,11 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
     public var dataSource: AppDockAppDataSource?
     func reloadData() {
         let assetItem = dataSource?.appDockApp(self, appAssetAt: 0)
-        (self.photoEditorDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
+        (self.editViewDockContent as? MergerPhotoEditorAppDockContent)?.setAssetItem(assetItem)
     }
 
-    func photoEditorPreviewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
-        if let content = self.photoEditorDockContent as? MergerPhotoEditorAppDockContent, let player = content.player, let timeRange = value?.timeRange {
+    func previewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {
+        if let content = self.editViewDockContent as? MergerPhotoEditorAppDockContent, let player = content.player, let timeRange = value?.timeRange {
             if !timeRange.containsTime(player.currentTime()) {
                 (content.view as? VideoTrimControl)?.seekTime(timeRange.start)
                 player.seek(to: timeRange.start, toleranceBefore: .zero, toleranceAfter: .zero)

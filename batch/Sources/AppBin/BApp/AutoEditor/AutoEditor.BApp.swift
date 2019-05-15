@@ -12,7 +12,7 @@ class _AutoEditorAppAsset: _FiltersAppAsset {}
 
 public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
         PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
-        PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditorViewControllerDelegatableApp {
+        PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoEditViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _AutoEditorAppTask.self
     public static let paramType: AppTaskParamable.Type = _AutoEditorAppAsset.self
@@ -26,7 +26,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
     public private(set) lazy var config: FiltersAppConfigValue? = type(of:self).defaultConfigValue as? FiltersAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = AutoEditorAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = AutoEditorAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = AutoEditorAppDockContent()
 
     public private(set) var defaultEditStateValue: ImageEditStateValue?
     public func setDefaultEditState(value: ImageEditStateValue?) {
@@ -78,7 +78,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
             }
         }
 
-        let controllerContentInPhotoEditor = self.photoEditorDockContent as? AutoEditorAppDockContent
+        let controllerContentInPhotoEditor = self.editViewDockContent as? AutoEditorAppDockContent
         controllerContentInPhotoEditor?.watch(\.options, options: [.initial, .new]) {
             if let options = controllerContentInPhotoEditor?.options {
                 let filter = CIAutoAdjustmentFilter(options: options)

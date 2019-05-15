@@ -870,7 +870,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
 
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState == .maximized {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self), appDockView?.contentLayoutState == .maximized {
             showPhotoEditor(with: selectedAssetItem, animated: true)
         }
         else {
@@ -1016,7 +1016,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self), appDockView?.contentLayoutState != .maximized {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self), appDockView?.contentLayoutState != .maximized {
             return true
         }
         else if let _ = AppCenter.default.currentInstanceAs(AppPreviewActionable.self), let rewards = AppCenter.paidChargeableTypeInCurrentContext?.reward, rewards != .blockOfUses {
@@ -1028,7 +1028,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String? {
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self) {
             return "Edit".localized
         }
         else if let app = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {
@@ -1041,7 +1041,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
     func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath) {
         guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
-        if let _ = AppCenter.default.currentInstanceAs(PhotoEditorViewControllerDelegatableApp.self) {
+        if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self) {
             showPhotoEditor(with: selectedAssetItem, animated: true)
         }
         else if let app = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {

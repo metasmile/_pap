@@ -24,7 +24,7 @@ public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigAdop
 public class TransformApp: NSObject, BApp, PropertyWatchable
         , ConfigurableApp, _ConfigurableApp, EditableApp, AppDockApp, PHAssetFinalizableApp
         , PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp
-        , PhotoEditorViewControllerDelegatableApp {
+        , PhotoEditViewControllerDelegatableApp {
 
     public static let taskType: AppTaskable.Type = _TransfromAppTask.self
 
@@ -39,7 +39,7 @@ public class TransformApp: NSObject, BApp, PropertyWatchable
     public private(set) lazy var config: TransformAppConfigValue? = type(of:self).defaultConfigValue as? TransformAppConfigValue
 
     public private(set) lazy var content: AppDockContent? = TransformAppDockContent()
-    public private(set) lazy var photoEditorDockContent: AppDockContent? = TransformAppDockContent()
+    public private(set) lazy var editViewDockContent: AppDockContent? = TransformAppDockContent()
 
     public static let info = AppInfo(
             identifier: "com.stells.batch.transform"
