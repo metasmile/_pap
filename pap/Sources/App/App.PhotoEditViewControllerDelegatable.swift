@@ -13,7 +13,6 @@ public protocol PhotoEditViewControllerDelegatableApp: App {
 }
 
 extension PhotoEditViewControllerDelegatableApp {
-    public var editViewDockContent: AppDockContent? { return nil }
     public func willBeginProcessing() {}
     public func willEndProcessing() {}
 }

@@ -5,6 +5,6 @@
 import Foundation
 import CoreGraphics
 
-public protocol PhotoEditViewControllerInteractable {
+public protocol PhotoEditViewControllerInteractableApp {
     func previewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?)
 }

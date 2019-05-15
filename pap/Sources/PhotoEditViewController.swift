@@ -137,7 +137,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
     }()
 
     @objc private func tapGestureDidRecognize(sender: UITapGestureRecognizer) {
-        if let app = AppCenter.default.currentInstanceAs(PhotoEditViewControllerInteractable.self) {
+        if let app = AppCenter.default.currentInstanceAs(PhotoEditViewControllerInteractableApp.self) {
             let pointInAssetView = sender.location(in: assetView)
             let assetSize = assetView.size
             app.previewDidTap(at: CGPoint(x: pointInAssetView.x / assetSize.width, y: pointInAssetView.y / assetSize.height), with: editItem.imageEditStateValue)

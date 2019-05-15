@@ -33,7 +33,7 @@ public class MergerAppValue: ImageEditStateValue {
     }
 }
 
-class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditViewControllerInteractable, PhotoEditViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
+class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockApp, PhotoEditViewControllerInteractableApp, PhotoEditViewControllerDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp
 , PhotoPickerCollectionViewDelegatableApp, ConfigurableApp, _ConfigurableApp, EditableApp {
     public static let taskType: AppTaskable.Type = MergerTask.self
 

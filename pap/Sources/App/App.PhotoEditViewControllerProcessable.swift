@@ -5,7 +5,7 @@
 import Foundation
 import CoreGraphics
 
-public protocol PhotoEditViewControllerProcessableApp: PreviewProcessableApp & PhotoEditViewControllerInteractable {
+public protocol PhotoEditViewControllerProcessableApp: PreviewProcessableApp & PhotoEditViewControllerInteractableApp {
     func shouldShowPreview(item: AppAsset) -> Bool
 }
 
