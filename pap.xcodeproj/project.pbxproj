@@ -4621,10 +4621,9 @@
 			};
 			buildConfigurationList = 0ABFCF731F14B65C0078A583 /* Build configuration list for PBXProject "pap" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				ko,
 				el,
 				fr_CA,
@@ -4666,6 +4665,7 @@
 				"zh-HK",
 				nb,
 				"zh-Hant",
+				en,
 			);
 			mainGroup = 0ABFCF6F1F14B65C0078A583;
 			productRefGroup = 0ABFCF791F14B65C0078A583 /* Products */;
