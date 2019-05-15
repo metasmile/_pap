@@ -6,19 +6,6 @@
 import Foundation
 import Photos
 
-public protocol PhotoEditViewControllerInteractable {
-    func previewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?)
-}
-
-public protocol PhotoEditViewControllerProcessableApp: PreviewProcessableApp & PhotoEditViewControllerInteractable {
-    func shouldShowPreview(item: AppAsset) -> Bool
-}
-
-extension PhotoEditViewControllerProcessableApp {
-    public func previewDidTap(at normalizedPoint: CGPoint, with value: ImageEditStateValue?) {}
-    public func shouldShowPreview(item: AppAsset) -> Bool { return true }
-}
-
 public protocol PhotoEditViewControllerDelegatableApp: App {
     var editViewDockContent: AppDockContent? {get}
     func willBeginProcessing()
