@@ -1,2 +1,2 @@
++ Editor de profundidad: le permite ajustar el desenfoque después de capturar fotos.
 + RAW Editor - Un editor de imágenes sin pérdida fácil y poderoso.
-+ HashTag - Encontrar y recopilar hashtags de tus fotos.

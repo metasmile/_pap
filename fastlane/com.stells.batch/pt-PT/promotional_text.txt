@@ -1,2 +1,2 @@
++ Profundidade Editor - Permite ajustar o desfoque após a captura de fotos.
 + Editor RAW - Um editor de imagens sem perdas, fácil e poderoso.
-+ HashTag - Encontrando e coletando hashtags de suas fotos.

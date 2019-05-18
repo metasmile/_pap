@@ -1,2 +1,2 @@
++ Editeur de profondeur - Vous permet de régler le flou après la capture de photos.
 + RAW Editor - Un éditeur d’images simple, puissant et sans perte.
-+ HashTag - Recherche et collecte des hashtags à partir de vos photos.

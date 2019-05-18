@@ -1,2 +1,2 @@
-+ RAW-Editor - Ein einfacher und leistungsstarker, verlustfreier Bildeditor.
-+ HashTag - Finden und Sammeln von Hashtags aus Ihren Fotos.
++ Tiefen-Editor - Ermöglicht das Anpassen der Unschärfe nach dem Aufnehmen von Fotos.
++ RAW-Editor - Ein einfacher und leistungsstarker verlustfreier Bildeditor.

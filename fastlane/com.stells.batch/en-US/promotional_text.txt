@@ -1,2 +1,2 @@
++ Depth Editor - Enables you to adjust blur after capturing photos.
 + RAW Editor - An easy and powerful lossless image editor.
-+ HashTag - Finding and collecting hashtags from your photos.
