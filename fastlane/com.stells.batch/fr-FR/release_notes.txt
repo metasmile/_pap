@@ -1,3 +1,2 @@
 + NOUVEAU - Présentation du tout nouveau système de sélection standard tel que iOS Photos.
-+ NOUVEAU - Ajout d'un visualiseur de métadonnées avec des cartes.
-- Correction d'un bug que la vidéo ne fonctionnait pas dans Framer.
++ NOUVEAU - Ajout d'un visualiseur de métadonnées avec des cartes. 

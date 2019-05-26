@@ -1,3 +1,2 @@
 + NUEVO - Presentamos un nuevo sistema de selección estándar como iOS Photos.
 + NUEVO - Se agregó un visor de metadatos con mapas.
-- Se corrigió un error que el video no funcionaba en Framer.

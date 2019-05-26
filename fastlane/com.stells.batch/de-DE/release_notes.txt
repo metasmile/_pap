@@ -1,3 +1,2 @@
 + NEU - Einführung eines brandneuen Standardauswahlsystems wie iOS Photos.
-+ NEU - Ein Metadaten-Viewer mit Karten wurde hinzugefügt.
-- Es wurde ein Fehler behoben, durch den das Video in Framer nicht funktionierte.
++ NEU - Ein Metadaten-Viewer mit Karten wurde hinzugefügt. 

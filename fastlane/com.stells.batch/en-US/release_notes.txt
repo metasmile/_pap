@@ -1,3 +1,2 @@
 + NEW - Introducing brand new standard selection system like iOS Photos.
 + NEW - Added a metadata viewer with maps.
-- Fixed a bug that the video not worked in Framer.
