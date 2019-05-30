@@ -1,2 +1,3 @@
 + NEU - Einführung eines brandneuen Standardauswahlsystems wie iOS Photos.
-+ NEU - Ein Metadaten-Viewer mit Karten wurde hinzugefügt. 
++ NEU - Es wurde ein Metadaten-Viewer für Karten hinzugefügt.
+- Verbesserte Übersetzungsqualität für Französisch. Besonderer Dank geht an "Yannick Magri"

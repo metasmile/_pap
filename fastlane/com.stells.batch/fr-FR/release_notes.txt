@@ -1,2 +1,3 @@
 + NOUVEAU - Présentation du tout nouveau système de sélection standard tel que iOS Photos.
-+ NOUVEAU - Ajout d'un visualiseur de métadonnées avec des cartes. 
++ NOUVEAU - Ajout d'un visualiseur de métadonnées pour les cartes.
+- Amélioration de la qualité de la traduction en français. Un merci spécial à "Yannick Magri"

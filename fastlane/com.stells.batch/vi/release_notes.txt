@@ -1,2 +1,3 @@
 + MỚI - Giới thiệu hệ thống lựa chọn tiêu chuẩn hoàn toàn mới như Ảnh iOS.
-+ MỚI - Đã thêm trình xem siêu dữ liệu với bản đồ. 
++ MỚI - Đã thêm trình xem siêu dữ liệu cho bản đồ.
+- Cải thiện chất lượng dịch thuật cho tiếng Pháp. Đặc biệt cảm ơn, "Yannick Magri"

@@ -1,2 +1,3 @@
 + NEW - Apresentamos um novo sistema de seleção padrão, como o iOS Photos.
-+ NEW - Adicionou um visualizador de metadados com mapas. 
++ NEW - Adicionou um visualizador de metadados para mapas.
+- Melhor qualidade de tradução para o francês. Um agradecimento especial a "Yannick Magri"

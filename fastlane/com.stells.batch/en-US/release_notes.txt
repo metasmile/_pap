@@ -1,2 +1,3 @@
 + NEW - Introducing brand new standard selection system like iOS Photos.
-+ NEW - Added a metadata viewer with maps.
++ NEW - Added a metadata viewer for maps.
+- Improved translation quality for French. Special thanks to, "Yannick Magri"
