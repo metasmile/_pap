@@ -5,17 +5,21 @@ import sys
 import os, fnmatch, re, codecs, argparse, shutil, errno
 from os.path import expanduser
 from google.cloud import translate
+from six.moves.html_parser import HTMLParser
 
 __QUOTES_RE__ = re.compile(r"\"")
 __QUOTES_REPLACEMENT__ = "'"
 
-__encoded_apostrophe_RE__ = re.compile(r"&#39;") #  regex: "&#[0-9]{1,};"
-__encoded_apostrophe_REPLACEMENT__ = "'"
+__startwith_sp_RE__ = re.compile(r"^([\+\-])[^\s-](.*)")
+__unbalanced_sp_RE__ = re.compile(r"(.*\s)([\+\-])([^\s].*)")
+
+htmlParser = HTMLParser()
 
 def proc_after_translate(_str):
     _str = __QUOTES_RE__.sub(__QUOTES_REPLACEMENT__, _str)
-    # remove Encoded Quotes
-    _str = __encoded_apostrophe_RE__.sub(__encoded_apostrophe_REPLACEMENT__, _str)
+    _str = htmlParser.unescape(_str)    
+    _str = __startwith_sp_RE__.sub(r"\1 \2", _str)
+    _str = __unbalanced_sp_RE__.sub(r"\1\2 \3", _str)
     return _str
 
 def copydir(source, dest, exclude_if_existed=[]):
