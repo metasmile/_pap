@@ -1,3 +1,3 @@
 + NUEVO - Presentamos un nuevo sistema de selección estándar como iOS Photos.
-+ NUEVO - Se agregó un visor de metadatos con mapas.
-- Se corrigió un error que el video no funcionaba en Framer.
++ NUEVO - Se agregó un visor de metadatos para mapas.
+- Mejora de la calidad de la traducción al francés. Un agradecimiento especial a "Yannick Magri"
