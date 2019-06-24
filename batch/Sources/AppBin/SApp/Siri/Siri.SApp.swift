@@ -122,10 +122,11 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
         view.superview?.startIndicating(targetSubview: view)
 
         DispatchQueue.global(qos: .userInteractive).async{ [weak self] in
-            if let _self = self, let superview = view.superview {
-                _self.loadData(){
-                    superview.stopIndicating(targetSubview: view)
+            self?.loadData(){
+                DispatchQueue.main.async{
+                    view.superview?.stopIndicating(targetSubview: view)
                 }
+
             }
         }
     }
