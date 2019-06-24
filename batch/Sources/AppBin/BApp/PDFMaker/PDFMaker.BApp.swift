@@ -82,7 +82,7 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
                 //metadata
                 var caption:PDFText?
                 if item.imageMetadata != nil && defaults.metadataCaption {
-                    document.setFont(font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize/6))
+                    document.set(font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize/6))
                     caption = PDFSimpleText(text: String(describing: item.imageMetadata))
                 }
 
@@ -111,7 +111,7 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
                 //quality
                 pdfImage.quality = CGFloat(defaults.imageQuality)
 
-                document.addImage(container, image: pdfImage)
+                document.add(container, image: pdfImage)
 
                 if i < items.count-1, fillPageMode == false{
                     document.createNewPage()
