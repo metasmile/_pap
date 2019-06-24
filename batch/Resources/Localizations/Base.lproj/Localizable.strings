@@ -202,7 +202,7 @@
 "Auto Editor" = "Auto Editor";
 /* genl10n: AutoEditor.BApp.swift */
 "Auto Enhance" = "Auto Enhance";
-/* genl10n: Cleaner.BApp.swift, Converter.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.swift, Revert.BApp.swift, Finder.BApp.swift */
+/* genl10n: Cleaner.BApp.swift, Converter.BApp.swift, Finder.BApp.swift, Revert.BApp.swift, BApp.Macro.UIApplicationDelegateLaunchableApp.Intents.swift */
 "Auto Select on %@." = "Auto Select on %@.";
 /* genl10n: Cleaner.BApp.swift, Revert.BApp.swift, Finder.BApp.swift, Converter.BApp.swift, ExifGhost.AppDockContent.swift */
 "Auto Selection Bot" = "Auto Selection Bot";

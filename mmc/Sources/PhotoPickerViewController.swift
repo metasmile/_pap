@@ -9,14 +9,28 @@
 import UIKit
 import Photos
 import PhotosUI
-import Armchair
-
-fileprivate struct PhotoEditorTransitionContext {
-    var sourceView: UIView
-    var placeholderView: UIImageView
-}
 
 class PhotoPickerViewController: AppDockViewController {
+    private lazy var undoButton: UIButton = {
+        let button = UIButton(type: .system)
+//        button.setImage(R.image.systemIconUndo(), for: .normal)
+        button.addTarget(self, action: #selector(self.undo), for: .touchUpInside)
+        return button
+    }()
+    private lazy var redoButton: UIButton = {
+        let button = UIButton(type: .system)
+//        button.setImage(R.image.systemIconRedo(), for: .normal)
+        button.addTarget(self, action: #selector(self.redo), for: .touchUpInside)
+        return button
+    }()
+    private lazy var undoRedoControl: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [undoButton, redoButton])
+        view.axis = .horizontal
+        view.spacing = 12
+        return view
+    }()
+    private lazy var undoRedoControlItem: UIBarButtonItem = UIBarButtonItem(customView: undoRedoControl)
+
     @IBOutlet weak var photoCollectionView: UICollectionView!
 
     var batchPreviewView: PreviewView!
@@ -35,8 +49,6 @@ class PhotoPickerViewController: AppDockViewController {
         return self.collection?.localIdentifier == self.defaultCollection?.localIdentifier
     }
     var queuedPhotoLibraryChanges = ItemQueue<PHChange>()
-
-    fileprivate var photoEditorTransitionContext: PhotoEditorTransitionContext?
 
     private var animatesUpdatingPhotoCollectionContentInset = false
 
@@ -59,6 +71,30 @@ class PhotoPickerViewController: AppDockViewController {
         needsScrollToBottom = false
 
         photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
+    }
+
+    var allowSelection = false {
+        didSet {
+            if allowSelection == true {
+                updateNavigationLeftBarButton()
+
+                updateUIDisplays()
+                updateVisibleCellsEnabled()
+            }
+            else {
+                if let indexPaths = photoCollectionView.indexPathsForSelectedItems {
+                    for indexPath in indexPaths {
+                        photoCollectionView.deselectItem(at: indexPath, animated: true)
+                    }
+                }
+
+                batchPreviewView.removeAllCollectionViewItems()
+                updateUIDisplays()
+                updateVisibleCellsEnabled()
+
+                AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didDeselectAll(callee: self)
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -111,8 +147,8 @@ class PhotoPickerViewController: AppDockViewController {
             papLog.allTasksAreFinished()
         }
 
-        navigationItem.setLeftBarButton(nil, animated: false)
-        navigationItem.setRightBarButton(nil, animated: false)
+        navigationItem.setLeftBarButtonItems(nil, animated: false)
+        navigationItem.setRightBarButtonItems(nil, animated: false)
 
         //check photo library permission and load
         loadPhotoLibraryIfNeeded()
@@ -137,7 +173,7 @@ class PhotoPickerViewController: AppDockViewController {
         dragSelectionGesture.maximumNumberOfTouches = 1
         photoCollectionView.addGestureRecognizer(dragSelectionGesture)
 
-        //INFO: maintain last
+         //INFO: maintain last
         updateUIDisplays()
     }
 
@@ -169,6 +205,10 @@ class PhotoPickerViewController: AppDockViewController {
             app.selectEditState(value:app.defaultEditStateValue, in: (app as? AppDockApp)?.content)
         }
 
+        if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
+            self.updateUndoButtonStatus(app)
+        }
+
         updateUIDisplays()
     }
 
@@ -181,6 +221,7 @@ class PhotoPickerViewController: AppDockViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
+        batchPreviewView.collectionView.collectionViewLayout.invalidateLayout()
         photoCollectionView.collectionViewLayout.invalidateLayout()
     }
 
@@ -199,8 +240,8 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         if let numberOfSection = PHAssets.fetched.results?.count, numberOfSection > 0
-        , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
-        , numberOfItemsInSection > 0 {
+                , let numberOfItemsInSection = PHAssets.fetched.results?[numberOfSection - 1].count
+                , numberOfItemsInSection > 0 {
             self.setNeedsScrollToBottom()
         }
         self.photoCollectionView.reloadData()
@@ -248,6 +289,10 @@ class PhotoPickerViewController: AppDockViewController {
             app.selectEditState(value:value, in: (app as? AppDockApp)?.content)
         }
 
+        if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
+            self.updateUndoButtonStatus(app)
+        }
+
         redisplayVisibleCellsEnabled()
         appDockView?.reloadKeepingDrawerOpened()
         batchPreviewView.updatePreviews(forced: true)
@@ -268,7 +313,7 @@ class PhotoPickerViewController: AppDockViewController {
         AppCenter.default.currentInstanceAs(PhotoPickerCollectionViewDelegatableApp.self)?.didAppear(callee: self)
     }
 
-    private func setAppValue(_ value: ImageEditStateValue) {
+    func appendImageEditState(_ value: ImageEditStateValue) {
         AppAssets.selected.appendValue(value)
 
         if let app = AppCenter.default.currentInstanceAs(EditableApp.self) {
@@ -276,6 +321,10 @@ class PhotoPickerViewController: AppDockViewController {
         }
 
         batchPreviewView.updatePreviews()
+
+        if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
+            self.updateUndoButtonStatus(app)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -291,6 +340,19 @@ class PhotoPickerViewController: AppDockViewController {
             self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
             self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
+
+        let interitemSpacing: CGFloat = 1
+        let scaleTransform = CGAffineTransform(scaleX: 1 / UIScreen.main.nativeScale, y: 1 / UIScreen.main.nativeScale)
+        let gridWidth = (UIScreen.main.nativeBounds.applying(scaleTransform).inset(by: photoCollectionView.contentInset).width - interitemSpacing * (numberOfItemsInRow - 1)) / numberOfItemsInRow
+        preferredPhotoPickerCollectionItemSize = CGSize(width: gridWidth, height: gridWidth)
+    }
+
+    var preferredPhotoPickerCollectionItemSize: CGSize = .zero
+
+    override func applyTheme(_ colorTheme: AppColorTheme) {
+        super.applyTheme(colorTheme)
+
+        photoCollectionView.tintColor = colorTheme.textColor
     }
 
     override func cancelButtonDidTap(sender: Any) {
@@ -334,7 +396,7 @@ class PhotoPickerViewController: AppDockViewController {
     }
 
     func redisplayVisibleCellsEnabled(){
-        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !collectionView(self.photoCollectionView, shouldSelectItemAt: $0) }) ?? [])
+        deselectCollectionViewItems(self.photoCollectionView.indexPathsForSelectedItems?.filter({ !shouldSelectPhoto(at: $0) }) ?? [])
         updateVisibleCellsEnabled()
     }
 
@@ -351,7 +413,12 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            if allowSelection {
+                title = "Select items".localized
+            }
+            else {
+                title = self.collection?.localizedTitle ?? Bundle.main.displayName
+            }
         }
         else {
             if numberOfPhotos > 0 && numberOfVideos == 0 {
@@ -373,72 +440,71 @@ class PhotoPickerViewController: AppDockViewController {
 
         //update done button
         if AppCenter.default.current == nil{
-            doneButton?.isEnabled = false
-            doneButton?.title = nil
+            doneButton.isEnabled = false
+            doneButton.title = nil
         }else{
-            doneButton?.isEnabled = true
+            doneButton.isEnabled = true
 
             let definedTitle = AppCenter.default.currentInstanceAs(PhotoPickerViewControllerAppearanceDelegatableApp.self)?.doneButtonTitle
-            doneButton?.title = definedTitle ?? "Start".localized
+            doneButton.title = definedTitle ?? "Start".localized
         }
 
         //update done execution state
-        if updateDoneButtonState() {
-            navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+        updateNavigationLeftBarButton()
 
-            if appDockView?.accessory == nil {
-                appDockView?.accessory = batchPreviewView
-            }
-        } else {
-            updateNavigationLeftBarButton()
-
-            if appDockView?.accessory != nil {
-                appDockView?.accessory = nil
-                batchPreviewView.reloadContent()
-            }
+        if appDockView?.accessory == nil {
+            appDockView?.accessory = batchPreviewView
         }
     }
 
-    private lazy var rateButton:UIBarButtonItem = {
-        return UIBarButtonItem(image: R.image.systemIconFavoriteLine(), style: .plain, target: self, action: #selector(rateButtonDidTap))
-    }()
+    @objc private func undo() {
+        if var app = AppCenter.default.currentInstanceAs(Recordable.self) {
+            app.undo()
 
-
-    @objc
-    private func rateButtonDidTap(sender: Any) {
-        Armchair.showPrompt { info in
-            return true
+            self.updateUndoButtonStatus(app)
         }
     }
 
-    @discardableResult
-    func updateDoneButtonState() -> Bool {
-        let selected = self.estimatedAvailableSelectedItems > 0
+    @objc private func redo() {
+        if var app = AppCenter.default.currentInstanceAs(Recordable.self) {
+            app.redo()
 
-        //INFO: keep activity indicator in right bar button
-        guard !AppCenter.default.task.isRunning else {
-            return selected
+            self.updateUndoButtonStatus(app)
         }
-
-        if estimatedAvailableSelectedItems == 0{
-            navigationItem.setRightBarButton(self.rateButton, animated: true)
-            return false
-        }
-
-        doneButton?.action = #selector(self.doneButtonDidTap)
-        navigationItem.setRightBarButton(self.doneButton, animated: true)
-
-        return true
     }
 
-    private func updateNavigationLeftBarButton() {
+    private func updateUndoButtonStatus(_ app: Recordable) {
+        self.undoButton.isEnabled = app.canUndo
+        self.redoButton.isEnabled = app.canRedo
+    }
+
+    internal func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            navigationItem.setLeftBarButton(nil, animated: true)
+            if self.allowSelection {
+                if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
+                    self.updateUndoButtonStatus(app)
+
+                    let spacing = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                    spacing.width = 14
+
+                    navigationItem.setLeftBarButtonItems([
+                        cancelButton,
+                        spacing,
+                        self.undoRedoControlItem
+                    ], animated: true)
+                }
+                else {
+                    navigationItem.setLeftBarButtonItems([self.cancelButton], animated: true)
+                }
+            }
+            else {
+                navigationItem.setLeftBarButtonItems(nil, animated: true)
+            }
         }
         else {
             navigationItem.hidesBackButton = true
-            navigationItem.setLeftBarButton(UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded)), animated: true)
+            navigationItem.setLeftBarButtonItems([UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded))], animated: true)
         }
     }
 
@@ -458,7 +524,33 @@ class PhotoPickerViewController: AppDockViewController {
             numberOfVideos += fetchResult.countOfAssets(with: PHAssetMediaType.video)
         }
 
-        return PHAsset.formattedNumberString(numberOfImages: numberOfImages, numberOfVideos: numberOfVideos)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+
+        var footerText = ""
+        if numberOfImages > 0 {
+            if numberOfImages == 1 {
+                footerText += "%d Photo".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+            else {
+                footerText += "%d Photos".localizedFormatted(numberOfImages.decimalStyleString)
+            }
+        }
+
+        if numberOfVideos > 0 {
+            if numberOfImages > 0 {
+                footerText += ", "
+            }
+
+            if numberOfVideos == 1 {
+                footerText += "%d Video".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+            else {
+                footerText += "%d Videos".localizedFormatted(numberOfVideos.decimalStyleString)
+            }
+        }
+
+        return footerText
     }
 
     private func updateAllPhotosTitle() {
@@ -470,7 +562,8 @@ class PhotoPickerViewController: AppDockViewController {
     func updateVisibleCellsEnabled() {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
-            cell?.isEnabled = collectionView(photoCollectionView, shouldSelectItemAt: indexPath)
+            cell?.isEnabled = shouldSelectPhoto(at: indexPath)
+            cell?.isSelectable = self.allowSelection
         }
     }
 
@@ -530,7 +623,7 @@ class PhotoPickerViewController: AppDockViewController {
         var insertedIndexes = [IndexPath]()
 
         //perform batch update
-        //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.{*}}/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
+        //confirm and remove: https://console.firebase.google.com/project/batch-photos/crashlytics/app/ios:com.stells.batch/issues/5ac8295036c7b23527c249dd?time=1523145600000:1523231999000&sessionId=18f49e20db084ed8b9c8b26e72871bad_DNE_0_v2
         self.photoCollectionView.performBatchUpdates({
             for (section, changes) in fetchResultChanges {
                 // Update data collection before items updated
@@ -646,6 +739,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let editItem = editItem else { return }
 
         if let photoEditViewController = R.storyboard.appStoryboard.photoEditViewController(){
+            photoEditViewController.assetItem = editItem
             photoEditViewController.preferredEditState = editItem.editState
             photoEditViewController.asset = editItem.asset
             photoEditViewController.delegate = self
@@ -704,12 +798,21 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let asset = photoEditor.asset else { return }
 
         if let indexPath = indexPath {
-            if let editItem = editItem, editItem.hasChanges {
+            if let editItem = editItem, (editItem.hasChanges || !allowSelection) {
+                if !allowSelection {
+                    allowSelection = true
+                }
+
                 if AppAssets.selected.by(asset) == nil{
                     self.selectCollectionViewItem(at: indexPath, animated: false)
                 }
                 assert(AppAssets.selected.by(photoEditor.asset!) != nil, "AppAssets.selected.by(photoEditor.asset!) != nil")
                 AppAssets.selected.by(asset)?.editState.concat(with: editItem)
+
+                //INFO: sync edit states between dock content and photo editor dock content for a single photo
+                if let app = AppCenter.default.currentInstanceAs(EditableApp.self), AppAssets.selected.count == 1 {
+                    app.setDefaultEditState(value:AppAssets.selected.by(asset)?.editState.imageEditStateValue)
+                }
             }
         }
 
@@ -721,26 +824,26 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
         batchPreviewView.reloadCollectionViewItems(animated: false)
 
-        if let transitionContext = photoEditorTransitionContext {
-            if let editItem = editItem {
-                if let filter = editItem.ciFilter {
-                    transitionContext.placeholderView.image = photoEditor.originalImage?.applyFilter(ciFilter: filter)
-                }
+        if let editItem = editItem {
+            if let _ = photoEditor.transitionAnimator.sourceView as? PhotoCollectionViewCell, let index = AppAssets.selected.index(for: asset), let cell = batchPreviewView.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? PreviewCollectionViewCell {
 
-                transitionContext.placeholderView.transform = editItem.transform
+                photoEditor.transitionAnimator.sourceView?.isHidden = false
+                cell.isHidden = true
+
+                photoEditor.transitionAnimator.sourceView = cell
+                photoEditor.transitionAnimator.sourceRect = cell.frame
             }
 
-            transitionContext.placeholderView.frame.origin.x = transitionContext.sourceView.frame.origin.x
-            transitionContext.placeholderView.center.y = transitionContext.sourceView.center.y
+            let transformedSize = photoEditor.transitionAnimator.sourceRect.size.applying(editItem.transform).magnitude
+            photoEditor.transitionAnimator.sourceRect.size = transformedSize
+
+            if let cell = photoEditor.transitionAnimator.sourceView as? PreviewCollectionViewCell {
+                let point = batchPreviewView.collectionView.convert(cell.frame, to: view).origin
+                photoEditor.transitionAnimator.sourceRect.origin = CGPoint(x: point.x + (cell.bounds.width - transformedSize.width) / 2, y: point.y + (cell.bounds.height - transformedSize.height) / 2)
+            }
         }
 
-        photoEditorTransitionContext?.sourceView.isHidden = true
-
-        photoEditor.dismiss(animated: true, completion: {
-            self.photoEditorTransitionContext?.sourceView.isHidden = false
-            self.photoEditorTransitionContext?.placeholderView.removeFromSuperview()
-            self.photoEditorTransitionContext = nil
-        })
+        photoEditor.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -756,7 +859,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
 
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self), appDockView?.contentLayoutState == .maximized {
-            showPhotoEditor(with: selectedAssetItem)
+            showPhotoEditor(with: selectedAssetItem, animated: true)
         }
         else {
             guard let indexPathInPhotoPicker = PHAssets.fetched.indexPath(of: selectedAssetItem.asset) else { return }
@@ -770,7 +873,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
         let loadingIndicator = UIActivityIndicatorView(style: .gray)
         loadingIndicator.startAnimating()
-        navigationItem.setRightBarButton(UIBarButtonItem(customView: loadingIndicator), animated: true)
+        navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: loadingIndicator)], animated: true)
 
         progressBar.isHidden = false
         progressBar.progress = 0
@@ -784,7 +887,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     private func updateProgress(_ progress: Float, title: String, animated: Bool = true) {
         let progress = progress.clamped(to: 0...1)
         let progressText = currentDisplayableApp?.titleDidUpdate(progress: progress)
-            ?? title + " \(Int(progress * 100))%"
+                ?? title + " \(Int(progress * 100))%"
 
         if animated {
             titleFade = progressText
@@ -796,29 +899,32 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.setProgress(progress, animated: animated)
     }
 
-    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Float) {
-        if progressBar.progress < progress {
-            taskProgress = progress
-            updateProgress(progress, title: "Processing...".localized)
+    func batchPreviewView(_ view: PreviewView, didUpdateProgress progress: Progress) {
+        let progressValue = (Float(progress.fractionCompleted) * Float(AppAssets.selected.count)) / Float(AppAssets.selected.count + 1)
+        if progressBar.progress < progressValue {
+            taskProgress = progressValue
+            updateProgress(progressValue, title: "Processing...".localized)
         }
     }
 
-    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateRemoteFetchingProgress progress: Progress) {
         guard AppAssets.selected.count > 0 else { return }
-        let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
+        let fetchingProgressPerTask = Float(progress.fractionCompleted) / Float(AppAssets.selected.count)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
-        if progressBar.progress < currentProgress {
-            updateProgress(currentProgress, title: "Downloading...".localized)
+        let progressValue = (currentProgress * Float(AppAssets.selected.count)) / Float(AppAssets.selected.count + 1)
+        if progressBar.progress < progressValue {
+            updateProgress(progressValue, title: "Downloading...".localized)
         }
     }
 
-    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Float) {
+    func batchPreviewView(_ view: PreviewView, didUpdateInternalProgress progress: Progress) {
         guard AppAssets.selected.count > 0 else { return }
 
-        let fetchingProgressPerTask = progress / Float(AppAssets.selected.count)
+        let fetchingProgressPerTask = Float(progress.fractionCompleted) / Float(AppAssets.selected.count + 1)
         let currentProgress = taskProgress + fetchingProgressPerTask / 2 // for split progress into fetching and processing
-        if progressBar.progress < currentProgress {
-            updateProgress(currentProgress, title: "Processing...".localized)
+        let progressValue = (currentProgress * Float(AppAssets.selected.count)) / Float(AppAssets.selected.count + 1)
+        if progressBar.progress < progressValue {
+            updateProgress(progressValue, title: "Processing...".localized)
         }
     }
 
@@ -831,15 +937,21 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     }
 
     func batchPreviewViewWillFinalize(_ view: PreviewView) {
-        titleFade = currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized
+        updateProgress(taskProgress, title: currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized)
 
         //INFO: update PHPhotoLibraryChangeObserver immediately
         DispatchQueue.main.async {
             PhotosManager.default.cachingImageManager.stopCachingImagesForAllAssets()
         }
+    }
 
-        UIView.animate(withDuration: 0.6) {
-            self.progressBar.alpha = 0
+    func batchPreviewView(_ view: PreviewView, didUpdateFinalizingProgress progress: Progress) {
+        guard AppAssets.selected.count > 0 else { return }
+
+        let fetchingProgressPerTask = Float(progress.fractionCompleted) / Float(AppAssets.selected.count + 1)
+        let progressValue = taskProgress + fetchingProgressPerTask
+        if progressBar.progress < progressValue {
+            updateProgress(progressValue, title: currentDisplayableApp?.titleWillFinalize ?? "Saving Results...".localized)
         }
     }
 
@@ -853,11 +965,17 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         updateAppDockViewProcessingEnd()
     }
 
-    func batchPreviewViewDidEndEdit(_ view: PreviewView) {
+    func batchPreviewViewDidEndEdit(_ view: PreviewView, assetsForFinished assets: [PHAsset]) {
         progressBar.isHidden = true
 
+        if !assets.isEmpty {
+            allowSelection = false
+        }
+
         //POLICY: no keeps selected items
-        deselectAllCollectionViewItems()
+        deselectCollectionViewItems(assets.compactMap({ asset -> IndexPath? in
+            return PHAssets.fetched.indexPath(of: asset)
+        }))
 
         updateAllPhotosTitle()
         updateUIDisplays()
@@ -887,14 +1005,9 @@ extension PhotoPickerViewController: PreviewViewDelegate {
 
     func batchPreviewView(_ view: PreviewView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self), appDockView?.contentLayoutState != .maximized {
-            return true
+
         }
-        else if let _ = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {
-            return true
-        }
-        else {
-            return false
-        }
+        return true
     }
 
     func batchPreviewView(_ view: PreviewView, titleForMenuItemAt indexPath: IndexPath) -> String? {
@@ -912,7 +1025,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
     func batchPreviewView(_ view: PreviewView, didSelectMenuItemAt indexPath: IndexPath) {
         guard let selectedAssetItem = AppAssets.selected.at(unsafeIndex: indexPath.item) else { return }
         if let _ = AppCenter.default.currentInstanceAs(PhotoEditViewControllerDelegatableApp.self) {
-            showPhotoEditor(with: selectedAssetItem)
+            showPhotoEditor(with: selectedAssetItem, animated: true)
         }
         else if let app = AppCenter.default.currentInstanceAs(AppPreviewActionable.self) {
             DispatchQueue(label: #function + "AppPreviewActionable", qos: .utility).async {

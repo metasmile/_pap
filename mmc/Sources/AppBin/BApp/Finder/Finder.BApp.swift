@@ -50,7 +50,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     )
 
     public required override init() {
-        
+
     }
 
     class func didConfigure(with manager: AppManager) {
@@ -120,7 +120,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     public func didCancelPreheating() {
         (content as? PreheatableAppSubscribable)?.didStopPreheating()
     }
-    
+
     public func didFinishCurrentPreheatingCycle() {
         (content as? PreheatableAppSubscribable)?.didStopPreheating()
     }
@@ -172,11 +172,11 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
     public var doneButtonTitle: String? {
         return "Find".localized
     }
-    
+
     public var titleForAction: String? {
         return "Detail".localized
     }
-    
+
     public func didAction(with appAsset: AppAsset) {
         if let image = appAsset.asset.asUIImage {
             var option = AppLaunchOptions(options: [AppLaunchOptionsKey.MemoCamPreviewOption: image])
@@ -569,7 +569,7 @@ extension FinderAppDefaults{
 
     fileprivate func removeHandledProperty(_ dictionary:ParserDictionary.Key, _ property:ParserItem.Key){
 
-        if let index = selectedParserCollection[dictionary]?.index(of: property){
+        if let index = selectedParserCollection[dictionary]?.firstIndex(of: property){
             var immutableSelf = self
             var p = immutableSelf.selectedParserCollection
             p[dictionary]?.remove(at: index)
@@ -672,12 +672,12 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
     }()
-    
+
     var contentScrollable: AppDockContentScrollable? {
         guard let scrollView = view as? UITableView else { return nil }
         return AppDockScrollableContent(scrollView)
     }
-    
+
     lazy var footerView:UITextView = UITableView.createHeaderFooterViewForSmallMessage(text:"Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.".localized)
 
     var preferences: AppDockContentPreferable? {
@@ -764,30 +764,30 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 , FinderAppSettingCells.quickActionOnly.hashValue
             ].forEach { hashValue in
 
-                if let index = self.settingCellDescribers.index(where:{ describable in
+                if let index = self.settingCellDescribers.firstIndex(where:{ describable in
                     return describable.itemIdentifier == hashValue
                 }){
                     self.settingCellDescribers.remove(at: index)
                 }
             }
-            
+
             let tableView = view as? UITableView
 
             //saveContactWithoutEdit
             if preset == SelectionPreset.contact.rawValue{
                 let desc = self.createCellDescriber_SelectionPreset_contact_saveContactWithoutEdit()
                 self.settingCellDescribers.append(desc)
-                
+
                 tableView?.register(describer: desc)
             }
 
             if preset == SelectionPreset.action.rawValue{
                 let desc = self.createCellDescriber_SelectionPreset_action_quickActionsOnly()
                 self.settingCellDescribers.append(desc)
-                
+
                 tableView?.register(describer: desc)
             }
-            
+
             tableView?.reloadData()
 
             /*let d = Defaults.shared.shortVersionDescription*/
@@ -834,7 +834,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
             if let handledItems = defaultsCollection[dictionary.key]{
 
                 return handledItems.compactMap { key -> IndexPath? in
-                    guard let item = dictionary.items.index(where: { item -> Bool in
+                    guard let item = dictionary.items.firstIndex(where: { item -> Bool in
                         return key == item.key
                     }) else{
                         return nil
@@ -921,7 +921,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
 
             cell.values = valueCollection
             cell.delegate = self
-            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.index(of: value){
+            if let value = item.valueGetter() as? String ?? valueCollection.first, let index = valueCollection.firstIndex(of: value){
                 cell.selectedRow = index
             } else{
                 cell.selectedRow = 0
@@ -1000,7 +1000,7 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
                 cell.segmentedControl.insertSegment(withTitle: label, at: cell.segmentedControl.numberOfSegments, animated: false)
             }
 
-            cell.segmentedControl.selectedSegmentIndex = valueCollection.index { t in
+            cell.segmentedControl.selectedSegmentIndex = valueCollection.firstIndex { t in
                 t.1 == (item.valueGetter() as! Int)
             } ?? 0
 
@@ -1018,10 +1018,10 @@ fileprivate class FinderAppDockContent: NSObject, AppDockContent, UITableViewDel
         let dict = self.parserCollection[indexPath.section-1]
 
         var selected = false
-        if let _ = initialSelectedIndexPaths?.index(of: indexPath) {
+        if let _ = initialSelectedIndexPaths?.firstIndex(of: indexPath) {
             selected = true
         }
-        if let _ = FinderApp.privateDefaults.selectedParserCollection[dict.key]?.index(of: dict.items[indexPath.item].key){
+        if let _ = FinderApp.privateDefaults.selectedParserCollection[dict.key]?.firstIndex(of: dict.items[indexPath.item].key){
             selected = true
         }
 
@@ -1066,7 +1066,8 @@ extension FinderApp:UIApplicationDelegateLaunchableApp{
             let openAppIntent = OpenIntent()
             openAppIntent.appId = info.identifier
             openAppIntent.appName = NSString.deferredLocalizedIntentsString(with: FinderApp.info.displayName) as String
-            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(defaultAppName)
+
+            openAppIntent.suggestedInvocationPhrase = "Open %@.".localizedFormatted(self.info.displayName)
 
             let asb = AutoDetectOnAlbumsIntent()
             asb.appId = info.identifier

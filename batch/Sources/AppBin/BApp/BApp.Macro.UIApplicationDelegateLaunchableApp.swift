@@ -33,25 +33,4 @@ extension UIApplicationDelegateLaunchableApp where Self:App{
             return "Undefined"
         }
     }
-
-    /*
-        Full Customized macro
-    */
-    @available(iOS 12.0, *)
-    static func intentTo(do what:String) -> DoAnyIntent{
-        let doAnyTaskIntent = DoAnyIntent()
-        doAnyTaskIntent.appId = info.identifier
-        doAnyTaskIntent.doWhat = what
-        doAnyTaskIntent.suggestedInvocationPhrase = doAnyTaskIntent.doWhat
-        return doAnyTaskIntent
-    }
-
-    @available(iOS 12.0, *)
-    static var intentToDoAutoSelection:AutoSelectIntent{
-        let asb = AutoSelectIntent()
-        asb.appId = info.identifier
-        asb.appName = defaultIntentAppName
-        asb.suggestedInvocationPhrase = "Auto Select on %@.".localizedFormatted(defaultIntentAppName)
-        return asb
-    }
 }
