@@ -103,7 +103,7 @@ class DragSelectionGestureRecognizer: UIPanGestureRecognizer {
     }
 
     func stopAutoPanning() {
-        autoPanningTimer?.add(to: .main, forMode: .common)
+        autoPanningTimer?.remove(from: .main, forMode: .common)
         autoPanningTimer = nil
         panHandler = nil
     }
