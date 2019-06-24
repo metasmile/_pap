@@ -122,9 +122,9 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
   - PropertyKit (1.1)
   - Protobuf (3.8.0)
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
+  - R.swift (5.0.3):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.1)
   - SwiftLint (0.33.0)
   - SwiftyGif (5.1.1)
   - SwiftyStoreKit (0.15.0)
@@ -145,7 +145,7 @@ DEPENDENCIES:
   - Firebase/MLVisionTextModel
   - PhoneNumberKit (from `https://github.com/blwinters/PhoneNumberKit`, branch `coinninja`)
   - PropertyKit
-  - R.swift (= 4.0.0)
+  - R.swift
   - SwiftyGif
   - SwiftyStoreKit
   - TagListView (~> 1.0)
@@ -227,14 +227,14 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   PropertyKit: 1f183d03dd0d88f6b3a9deadd39aabaeec974be7
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
   TPPDF: 58727d44e2275148342164934b0f5b14c8924f8a
 
-PODFILE CHECKSUM: 496bf5b94887b1ede7de529c293f421aaf4092b3
+PODFILE CHECKSUM: caedadfdf79a63f15cd0326a1eff17f57e12d8b5
 
 COCOAPODS: 1.7.2

@@ -14,7 +14,7 @@ def common_pods
   pod 'Crashlytics'
 
   # Core Wrappers
-  pod 'R.swift', '4.0.0' #INFO: R.swift will major update soon : 5.0.0
+  pod 'R.swift'
   pod 'PropertyKit'
 
   # Common Solutions
@@ -65,11 +65,11 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      if ['PropertyKit','Armchair','SwiftyGif','TPPDF','TagListView'].include? target.name
+      if ['R.swift','R.swift.Library','PropertyKit','Armchair','SwiftyGif','TPPDF','TagListView'].include? target.name
         config.build_settings['SWIFT_VERSION'] = '4.2'
-      elsif ['Protobuf','SwiftyStoreKit','R.swift.Library','PhoneNumberKit'].include? target.name
+      elsif ['Protobuf','SwiftyStoreKit'].include? target.name
         config.build_settings['SWIFT_VERSION'] = '4.0'
-      else
+       else
         config.build_settings['SWIFT_VERSION'] = '5.0'
       end
     end

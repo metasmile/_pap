@@ -4409,7 +4409,7 @@
 			buildConfigurationList = 0ABFCF8A1F14B65C0078A583 /* Build configuration list for PBXNativeTarget "batch" */;
 			buildPhases = (
 				9FF1A055D87F28B3A17235D3 /* [CP] Check Pods Manifest.lock */,
-				A0C4010420D160E500F0919C /* ShellScript */,
+				A0C4010420D160E500F0919C /* Run Script */,
 				0ABFCF741F14B65C0078A583 /* Sources */,
 				0ABFCF751F14B65C0078A583 /* Frameworks */,
 				0ABFCF761F14B65C0078A583 /* Resources */,
@@ -5233,18 +5233,22 @@
 			files = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = "Run Script";
 			outputPaths = (
+				$SRCROOT/mmc/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/mmc/pre-build.sh\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/mmc\"\n\n\n";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/mmc/pre-build.sh\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/mmc/R.generated.swift\"\n\n\n";
 		};
 		A00FDE432182367F005EAD1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
@@ -5267,18 +5271,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4de4dac2f8e69777783b1df21877e32171c4d237 d0dda26417dac7e85551b4a5e1c153dd51ca24de84ead30fc9cb38f344295de5\n";
 		};
-		A0C4010420D160E500F0919C /* ShellScript */ = {
+		A0C4010420D160E500F0919C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Run Script";
 			outputPaths = (
+				$SRCROOT/batch/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/batch/pre-build.sh\"\n\"${PODS_ROOT}/R.swift/rswift\" generate \"${SRCROOT}/batch\"\n\n";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/batch/pre-build.sh\"\n\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/batch/R.generated.swift\"\n\n";
 		};
 		A0CB0123219C8C64007A5278 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

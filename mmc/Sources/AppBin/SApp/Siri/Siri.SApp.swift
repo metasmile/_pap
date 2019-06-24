@@ -234,9 +234,9 @@ private struct IntentGroup: Hashable, Equatable, Section {
     var itemsOfSection: [Any] {
         return intents
     }
-    
-    var hashValue: Int{
-        return app?.info.identifier.hashValue ?? title.hashValue
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(app?.info.identifier.hashValue ?? title.hashValue)
     }
     
     static func == (lhs: IntentGroup, rhs: IntentGroup) -> Bool{
