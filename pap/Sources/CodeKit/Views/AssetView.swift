@@ -265,7 +265,7 @@ class AssetView: UIView {
                 guard !cancellation(), let data = data else { return }
                 
                 DispatchQueue.main.async { [weak self] in
-                    self?.gifImage = UIImage(gifData: data)
+                    self?.gifImage = try? UIImage(gifData: data)
                     completion?()
                 }
             }

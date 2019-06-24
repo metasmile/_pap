@@ -703,7 +703,8 @@ private class PHAssetEditingResultCollectionViewCell: UICollectionViewCell {
                     }
                 }
                 else if UTI(withURL: resultItem.url).conforms(to: .gif), let gifData = try? Data(contentsOf: resultItem.url) {
-                    let image = UIImage(gifData: gifData)
+                    
+                    let image = try? UIImage(gifData: gifData)
                     DispatchQueue.main.async { [weak self] in
                         guard self?.indexPath == indexPath else { return }
                         self?.assetView.gifImage = image

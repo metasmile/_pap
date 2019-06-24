@@ -21,7 +21,7 @@ def common_pods
   pod 'SwiftyGif'
 
   pod 'Armchair', :git => "https://github.com/UrbanApps/Armchair"
-  pod 'PhoneNumberKit', '~> 2.1'
+  pod 'PhoneNumberKit', :git => "https://github.com/blwinters/PhoneNumberKit", :branch => "coinninja"
 end
 
 def paps_pods
