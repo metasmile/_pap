@@ -13,13 +13,13 @@ import PhotosUI
 class PhotoPickerViewController: AppDockViewController {
     private lazy var undoButton: UIButton = {
         let button = UIButton(type: .system)
-//        button.setImage(R.image.systemIconUndo(), for: .normal)
+        button.setImage(R.image.systemIconUndo(), for: .normal)
         button.addTarget(self, action: #selector(self.undo), for: .touchUpInside)
         return button
     }()
     private lazy var redoButton: UIButton = {
         let button = UIButton(type: .system)
-//        button.setImage(R.image.systemIconRedo(), for: .normal)
+        button.setImage(R.image.systemIconRedo(), for: .normal)
         button.addTarget(self, action: #selector(self.redo), for: .touchUpInside)
         return button
     }()
