@@ -1105,6 +1105,7 @@
 		A017812A224056E600D91702 /* DepthEditor.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0178129224056E600D91702 /* DepthEditor.BApp.Assets.xcassets */; };
 		A02389D1219043750039F398 /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02389CF219043750039F398 /* Finder.BApp.swift */; };
 		A02389D2219043750039F398 /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A02389D0219043750039F398 /* Finder.BApp.Assets.xcassets */; };
+		A02DC0EF23B2D801008A9972 /* CodeKit.CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0BCC7EB4DF7DC229747 /* CodeKit.CVPixelBuffer.swift */; };
 		A0729AB121B0118300B43575 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0729AB021B0118300B43575 /* CloudKit.framework */; };
 		A07BD39821978958003031D5 /* MemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07BD39521978958003031D5 /* MemoCam.BApp.Assets.xcassets */; };
 		A07BD39A21978958003031D5 /* MemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BD39621978958003031D5 /* MemoCam.BApp.swift */; };
@@ -6116,6 +6117,7 @@
 				511C1C9F21C9CBA2005C9685 /* Passthrough.metal in Sources */,
 				4F71DC4F926B2EDFF2D9332D /* UITableViewCells.swift in Sources */,
 				4F71D8F96AE50013719CCDEA /* UITableViewPickerCell.swift in Sources */,
+				A02DC0EF23B2D801008A9972 /* CodeKit.CVPixelBuffer.swift in Sources */,
 				4F71D6D9A094BE457ADC5CD7 /* UITableViewCellDescribable.swift in Sources */,
 				4F71DC0F1EED95FA82783BFB /* UITableViewMultiplePickerCell.swift in Sources */,
 				4F71D35282E19330A4226937 /* UITableViewExpandableCell.UITableView.swift in Sources */,
