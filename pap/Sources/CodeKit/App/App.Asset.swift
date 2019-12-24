@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import UIKit
 
 //TODO:ImageEditStateValue type is external type
 public typealias AppAsset = AppAssetItem<ImageEditStateValue>

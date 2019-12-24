@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import UIKit
 
 /*
  if converter needs only internally-finishing process, should return `ConverterVoidReturnValue`

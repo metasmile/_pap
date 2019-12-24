@@ -6,6 +6,7 @@
 import Foundation
 import Photos
 import MobileCoreServices
+import UIKit
 
 extension PHAsset {
     public var localIdentifierWithoutSplitter: String {

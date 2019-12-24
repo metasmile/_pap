@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import UIKit
 
 public struct PHAssetFinalizableNotification {
     enum Name {

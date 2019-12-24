@@ -94,13 +94,13 @@
 "%@ Live Photo" = "%@ Live Photo";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "%@ Live Photos" = "%@ Live Photos";
-/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift(2) */
+/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photo" = "%@ Photo";
-/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift(2) */
+/* genl10n: App.Finalizable.PHAsset.swift(2), PHAsset.swift */
 "%@ Photos" = "%@ Photos";
 /* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Video" = "%@ Video";
-/* genl10n: App.Finalizable.PHAsset.swift, PHAsset.swift */
+/* genl10n: PHAsset.swift, App.Finalizable.PHAsset.swift */
 "%@ Videos" = "%@ Videos";
 /* genl10n: Finder.BApp.swift */
 "%@ might be found" = "%@ might be found";
@@ -232,7 +232,7 @@
 "Modify and Share" = "Modify and Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Modify the selected items" = "Modify the selected items";
-/* genl10n: App.Finalizable.PHAsset.swift, App.Finalizable.UIActivity.PHAsset.swift */
+/* genl10n: App.Finalizable.UIActivity.PHAsset.swift, App.Finalizable.PHAsset.swift */
 "Modify" = "Modify";
 /* genl10n: PhotoAlbumViewController.swift */
 "My Albums" = "My Albums";

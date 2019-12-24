@@ -6,6 +6,7 @@
 import Foundation
 import AVFoundation
 import Photos
+import UIKit
 
 //TODO: all string path -> URL
 //TODO: clean convention

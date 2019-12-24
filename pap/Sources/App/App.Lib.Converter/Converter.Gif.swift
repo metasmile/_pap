@@ -5,6 +5,7 @@
 
 import Foundation
 import Photos
+import UIKit
 
 struct GifConverterDefaultOption {
     var aspectRatio: Double

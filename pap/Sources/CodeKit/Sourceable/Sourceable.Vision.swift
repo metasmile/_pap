@@ -5,6 +5,7 @@
 
 import Foundation
 import Vision
+import UIKit
 
 public protocol VisionSourceable:ImageSourceable {
     var asFaceBoundingBoxes:[CGRect]? { get }
