@@ -354,7 +354,7 @@ private struct FinderAppDetector{
         }
 
         let preset = FinderApp.privateDefaults.selectionPreset
-        var defaults = FinderApp.privateDefaults
+        let defaults = FinderApp.privateDefaults
         let selectedParserTypes = Set((defaults.selectedParserCollection.values).reduce([],+))
 
         var result = VisionTextPHAssetDetectResult(asset: asset)

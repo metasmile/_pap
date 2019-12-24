@@ -144,19 +144,19 @@ extension ImageAlignment {
 @available(iOS 11.0, *)
 extension CIImage {
     fileprivate struct WarpMatrix {
-        var translation: float2 = float2(repeating: 0)
+        var translation = SIMD2<Float>(repeating: 0)
         var matrix: float3x3 = float3x3(0)
-        var size: float2
-        var clampRange: float2
+        var size: SIMD2<Float>
+        var clampRange: SIMD2<Float>
         
-        init(matrix: float3x3, size: float2, clampRange: float2) {
+        init(matrix: float3x3, size: SIMD2<Float>, clampRange: SIMD2<Float>) {
             self.matrix = matrix
-            self.translation = float2(repeating: 0)
+            self.translation = SIMD2<Float>(repeating: 0)
             self.size = size
             self.clampRange = clampRange
         }
         
-        init(translation: float2, size: float2, clampRange: float2) {
+        init(translation: SIMD2<Float>, size: SIMD2<Float>, clampRange: SIMD2<Float>) {
             self.matrix = float3x3(0)
             self.translation = translation
             self.size = size
@@ -172,7 +172,7 @@ extension CIImage {
         
         return ({ () -> CIImage? in
             guard let matrix = matrix else { return nil }
-            var value = WarpMatrix(matrix: matrix, size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x), y: Float(clamp.y)))
+            var value = WarpMatrix(matrix: matrix, size: SIMD2<Float>(Float(extent.width), Float(extent.height)), clampRange: SIMD2<Float>(x: Float(clamp.x), y: Float(clamp.y)))
             
             var uniformValues = [MTLBuffer]()
             if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
@@ -191,7 +191,7 @@ extension CIImage {
         
         return ({ () -> CIImage? in
             guard let translation = translation else { return nil }
-            var value = WarpMatrix(translation: float2(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: float2(Float(extent.width), Float(extent.height)), clampRange: float2(x: Float(clamp.x / extent.width), y: Float(clamp.y / extent.height)))
+            var value = WarpMatrix(translation: SIMD2<Float>(x: Float(translation.tx / extent.width), y: Float(translation.ty / extent.height)), size: SIMD2<Float>(Float(extent.width), Float(extent.height)), clampRange: SIMD2<Float>(x: Float(clamp.x / extent.width), y: Float(clamp.y / extent.height)))
             
             var uniformValues = [MTLBuffer]()
             if let buffer = MTLContext.shared.device.makeBuffer(bytes: &value, length: MemoryLayout<WarpMatrix>.size(ofValue: value), options: MTLResourceOptions.cpuCacheModeWriteCombined) {
