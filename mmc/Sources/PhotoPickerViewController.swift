@@ -116,6 +116,8 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
+        
+        currentTraitCollection = traitCollection
 
         //listen PHPhotoLibrary changes
         PhotosManager.default.watch(\.changes) {
@@ -176,6 +178,14 @@ class PhotoPickerViewController: AppDockViewController {
          //INFO: maintain last
         updateUIDisplays()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        currentTraitCollection = traitCollection
+    }
+    
+    internal var currentTraitCollection: UITraitCollection?
 
     @objc private func loadPhotoLibraryIfNeeded() {
         PhotosManager.default.authorizeIfNeeded { authorized in

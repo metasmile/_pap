@@ -19,7 +19,7 @@ private struct PhotoPickerViewControllerPHCachingImageDefault {
 extension PhotoPickerViewController{
 
     var collectionViewDefaultContentMode: PHImageContentMode {
-        return traitCollection.userInterfaceIdiom == .phone ? .aspectFill : .aspectFit
+        return currentTraitCollection?.userInterfaceIdiom == .phone ? .aspectFill : .aspectFit
     }
 
     func collectionViewDefaultImageSize(_ collectionView: UICollectionView, at indexPath: IndexPath) -> CGSize {

@@ -190,7 +190,7 @@
 "File" = "File";
 /* genl10n: Finder.BApp.swift */
 "Find" = "Find";
-/* genl10n: Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
+/* genl10n: FirebaseMLVision.VisionText.Parser.Types.swift, Finder.BApp.swift */
 "Flight Number" = "Flight Number";
 /* genl10n: PhotoEditViewController.swift */
 "Focal Length" = "Focal Length";
@@ -296,7 +296,7 @@
 "Share directly after saving" = "Share directly after saving";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Share directly without saving or modifying" = "Share directly without saving or modifying";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), App.Finalizable.UIActivity.PHAsset.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), Finder.BApp.swift, App.Finalizable.PHAsset.swift */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(9), App.Finalizable.UIActivity.PHAsset.swift, PhotoPickerViewController.UIViewControllerPreviewingDelegate.swift(4), App.Finalizable.PHAsset.swift, Finder.BApp.swift */
 "Share" = "Share";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Sharing a Live Photo directly as a still photo only." = "Sharing a Live Photo directly as a still photo only.";
