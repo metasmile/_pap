@@ -795,6 +795,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.transitioningDelegate = photoEditViewController
+            navigationController.modalPresentationStyle = .overFullScreen
 
             present(navigationController, animated: animated) {
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))

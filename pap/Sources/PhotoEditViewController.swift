@@ -92,7 +92,7 @@ class PhotoEditViewController: AppDockViewController, UIScrollViewDelegate {
 
     lazy var titleView: UIView = {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        titleLabel.textColor = .white
+        titleLabel.textColor = view.colorTheme.textColor
 
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(self.infoButtonDidTap), for: .touchUpInside)
@@ -483,7 +483,6 @@ extension PhotoEditViewController {
         vc.asset = asset
 
         let nc = UINavigationController(rootViewController: vc)
-        nc.modalPresentationStyle = .overCurrentContext
         self.present(nc, animated: true, completion: nil)
     }
 }
@@ -536,7 +535,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
         override func tintColorDidChange() {
             super.tintColorDidChange()
 
-            textLabel?.textColor = .white
+            textLabel?.textColor = colorTheme.textColor
         }
     }
 
@@ -571,11 +570,11 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerThemeable()
 
         view.addSubview(tableView)
         tableView.fitConstraints(to: view)
-
-        registerThemeable()
 
         title = "Metadata".localized
 
@@ -846,7 +845,7 @@ extension PHAssetMetadataViewController: UITableViewDataSource {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewCell") as! MetadataTableViewCell
-            cell.detailTextLabel?.textColor = view.colorTheme.textGrayColor
+            cell.detailTextLabel?.textColor = view.colorTheme.textLightColor
 
             cell.textLabel?.text = metadata.displayName
 

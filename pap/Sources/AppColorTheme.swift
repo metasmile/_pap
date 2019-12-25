@@ -29,16 +29,24 @@ enum AppColorTheme: Int, Decodable {
 
 extension AppColorTheme {
     var textColor: UIColor {
-        switch self {
-        case .dark: return darkDelegate?.textColor ?? UIColor(red:0.66, green:0.66, blue:0.66, alpha:1)
-        default: return defaultDelegate?.textColor ?? .black
+        if #available(iOS 13.0, *) {
+            return .label
+        } else {
+            switch self {
+            case .dark: return darkDelegate?.textColor ?? UIColor(red:0.66, green:0.66, blue:0.66, alpha:1)
+            default: return defaultDelegate?.textColor ?? .black
+            }
         }
     }
 
     var textLightColor: UIColor {
-        switch self {
-        case .dark: return darkDelegate?.textLightColor ?? UIColor(red:0.8, green:0.8, blue:0.8, alpha:1)
-        default: return defaultDelegate?.textLightColor ?? .darkText
+        if #available(iOS 13.0, *) {
+            return .secondaryLabel
+        } else {
+            switch self {
+            case .dark: return darkDelegate?.textLightColor ?? UIColor(red:0.8, green:0.8, blue:0.8, alpha:1)
+            default: return defaultDelegate?.textLightColor ?? .darkText
+            }
         }
     }
 
@@ -64,9 +72,13 @@ extension AppColorTheme {
     }
     
     var backgroundColor: UIColor {
-        switch self {
-        case .dark: return darkDelegate?.backgroundColor ?? UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
-        default: return defaultDelegate?.backgroundColor ?? .white
+        if #available(iOS 13.0, *) {
+            return .systemBackground
+        } else {
+            switch self {
+            case .dark: return darkDelegate?.backgroundColor ?? UIColor(red:0.16, green:0.16, blue:0.16, alpha:1)
+            default: return defaultDelegate?.backgroundColor ?? .white
+            }
         }
     }
     
@@ -167,16 +179,18 @@ extension UIView {
 
 extension AppColorThemeable where Self: UIViewController {
     func _applyTheme(_ colorTheme: AppColorTheme) {
-        navigationController?.view.backgroundColor = colorTheme.backgroundColor
+        if #available(iOS 13.0, *) {
+            navigationController?.view.backgroundColor = colorTheme.backgroundColor
 
-        if view.backgroundColor != UIColor.clear{
-            view.backgroundColor = colorTheme.backgroundColor
+            if view.backgroundColor != UIColor.clear{
+                view.backgroundColor = colorTheme.backgroundColor
+            }
+
+            navigationController?.navigationBar.isTranslucent = colorTheme.isBarTranslucent
+            navigationController?.navigationBar.barStyle = colorTheme.barStyle
+            navigationController?.navigationBar.barTintColor = colorTheme.barTintColor
+            navigationController?.navigationBar.tintColor = colorTheme.tintColor
         }
-
-        navigationController?.navigationBar.isTranslucent = colorTheme.isBarTranslucent
-        navigationController?.navigationBar.barStyle = colorTheme.barStyle
-        navigationController?.navigationBar.barTintColor = colorTheme.barTintColor
-        navigationController?.navigationBar.tintColor = colorTheme.tintColor
 
         applyTheme(colorTheme)
     }
@@ -201,12 +215,16 @@ extension UIButton{
 extension UISearchBar{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-
+        
         tintColor = colorTheme.tintColor
 
-        barStyle = colorTheme.barStyle
-        barTintColor = colorTheme.barTintColor
-        backgroundColor = colorTheme.backgroundColor
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            barStyle = colorTheme.barStyle
+            barTintColor = colorTheme.barTintColor
+            backgroundColor = colorTheme.backgroundColor
+        }
     }
 }
 
@@ -214,24 +232,35 @@ extension UIScrollView {
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         
-        indicatorStyle = colorTheme == .dark ? .white : .default
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            indicatorStyle = colorTheme == .dark ? .white : .default
+        }
     }
 }
 
 extension UITableView {
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-
-        if colorTheme == .dark && "UIPickerTableView" == String(describing: type(of: self)){
-            backgroundColor = UIColor.clear
-        }
-
-        if backgroundColor != UIColor.clear{
-            backgroundColor = colorTheme.backgroundColor
-        }
-
+        
         tintColor = colorTheme.tintColor
-        separatorColor = colorTheme.lineSeparatorColor
+
+        if #available(iOS 13.0, *) {
+            if backgroundColor != UIColor.clear{
+                backgroundColor = style == .plain ? .systemBackground : .systemGroupedBackground
+            }
+        } else {
+            if colorTheme == .dark && "UIPickerTableView" == String(describing: type(of: self)){
+                backgroundColor = UIColor.clear
+            }
+
+            if backgroundColor != UIColor.clear{
+                backgroundColor = colorTheme.backgroundColor
+            }
+
+            separatorColor = colorTheme.lineSeparatorColor
+        }
     }
 }
 
@@ -240,15 +269,18 @@ extension UIPickerView{
         super.tintColorDidChange()
 
         tintColor = colorTheme.tintColor
-
-        if colorTheme == .dark{
-            for v in getAllSubviews(){
-                v.backgroundColor = UIColor.clear
+        
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            if colorTheme == .dark{
+                for v in getAllSubviews(){
+                    v.backgroundColor = UIColor.clear
+                }
+                self.subviews[safe: 1]?.backgroundColor = colorTheme.lineSeparatorColor
+                self.subviews[safe: 2]?.backgroundColor = colorTheme.lineSeparatorColor
             }
-            self.subviews[safe: 1]?.backgroundColor = colorTheme.lineSeparatorColor
-            self.subviews[safe: 2]?.backgroundColor = colorTheme.lineSeparatorColor
         }
-
     }
 }
 
@@ -258,9 +290,13 @@ extension UITableViewCell {
 
         textLabel?.textColor = colorTheme.textColor
         accessoryView?.tintColor = colorTheme.tintColor
-
-        if backgroundColor != UIColor.clear{
-            backgroundColor = colorTheme.objectBackgroundColor
+        
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            if backgroundColor != UIColor.clear{
+                backgroundColor = colorTheme.objectBackgroundColor
+            }
         }
     }
 }
@@ -268,20 +304,30 @@ extension UITableViewCell {
 extension UITableViewPickerCell{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-
+        
         titleLabel.textColor = colorTheme.textColor
-        defaultValueLabelTextColor = colorTheme.textColor
-        lineSeparatorColor = colorTheme.lineSeparatorColor
+
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            defaultValueLabelTextColor = colorTheme.textColor
+            lineSeparatorColor = colorTheme.lineSeparatorColor
+        }
     }
 }
 
 extension UITableViewMultiplePickerCell{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-
+        
         titleLabel.textColor = colorTheme.textColor
         defaultValueLabelTextColor = colorTheme.textColor
-        lineSeparatorColor = colorTheme.lineSeparatorColor
+
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            lineSeparatorColor = colorTheme.lineSeparatorColor
+        }
     }
 }
 
@@ -289,7 +335,11 @@ extension UIActivityIndicatorView{
     open override func tintColorDidChange() {
         super.tintColorDidChange()
 
-        self.style = colorTheme == .dark ? .white : .gray
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            self.style = colorTheme == .dark ? .white : .gray
+        }
     }
 }
 
@@ -297,8 +347,12 @@ extension UIToolbar {
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         
-        barStyle = colorTheme.barStyle
-        barTintColor = colorTheme.barTintColor
-        isTranslucent = colorTheme.isBarTranslucent
+        if #available(iOS 13.0, *) {
+            
+        } else {
+            barStyle = colorTheme.barStyle
+            barTintColor = colorTheme.barTintColor
+            isTranslucent = colorTheme.isBarTranslucent
+        }
     }
 }
