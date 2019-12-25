@@ -158,7 +158,7 @@
 "Currency Exchange" = "Currency Exchange";
 /* genl10n: Finder.BApp.swift */
 "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language." = "Currently, our AI text recognition model is only available for Alphanumeric and some special characters, and it could be affected by the current system language.";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), PhotoEditViewController.swift(2), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "Date" = "Date";
 /* genl10n: Finder.BApp.swift */
 "Detecting ... %@ " = "Detecting ... %@ ";

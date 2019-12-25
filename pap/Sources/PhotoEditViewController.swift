@@ -507,7 +507,8 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
         override func tintColorDidChange() {
             super.tintColorDidChange()
 
-            textLabel?.textColor = .white
+            textLabel?.textColor = colorTheme.textColor
+            detailTextLabel?.textColor = colorTheme.textLightColor
         }
     }
 
