@@ -8,6 +8,7 @@
 
 import UIKit
 import PropertyKit
+import IntentsUI
 
 //WARNING: Do not use this CodeKit/* directly
 //TODO: change to StaticVar-Generic styled common theme handler
@@ -90,9 +91,13 @@ extension AppColorTheme {
     }
     
     var lineSeparatorColor: UIColor {
-        switch self {
-        case .dark: return darkDelegate?.lineSeparatorColor ?? UIColor(red: 80 / 255.0, green: 80 / 255.0, blue: 80 / 255.0, alpha: 1)
-        default: return defaultDelegate?.lineSeparatorColor ?? UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1)
+        if #available(iOS 13.0, *) {
+            return .separator
+        } else {
+            switch self {
+            case .dark: return darkDelegate?.lineSeparatorColor ?? UIColor(red: 80 / 255.0, green: 80 / 255.0, blue: 80 / 255.0, alpha: 1)
+            default: return defaultDelegate?.lineSeparatorColor ?? UIColor(red: 204 / 255.0, green: 203 / 255.0, blue: 203 / 255.0, alpha: 1)
+            }
         }
     }
     
@@ -112,6 +117,15 @@ extension AppColorTheme {
         switch self {
         case .dark: return darkDelegate?.isBarTranslucent ?? true
         default: return defaultDelegate?.isBarTranslucent ?? true
+        }
+    }
+    
+    @available(iOS 12.0, *)
+    var siriButtonStyle: INUIAddVoiceShortcutButtonStyle {
+        if #available(iOS 13.0, *) {
+            return .automaticOutline
+        } else {
+            return self == .dark ? .black : .white
         }
     }
 }

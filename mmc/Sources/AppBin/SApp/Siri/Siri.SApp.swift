@@ -166,7 +166,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                         cell.label = "\"\(intent.suggestedInvocationPhrase ?? "")\""
                         cell.itemIdentifier = (intent.identifier ?? cell.label).hashValue
                         cell.accessoryGenerator = {
-                            let button = intent.addToSiriButton(style: .white)
+                            let button = intent.addToSiriButton(style: self.view.colorTheme.siriButtonStyle)
                             button?.delegate = self
                             return button
                         }

@@ -536,6 +536,7 @@ class PHAssetMetadataViewController: UIViewController, AppColorThemeable {
             super.tintColorDidChange()
 
             textLabel?.textColor = colorTheme.textColor
+            detailTextLabel?.textColor = colorTheme.textLightColor
         }
     }
 
@@ -845,8 +846,6 @@ extension PHAssetMetadataViewController: UITableViewDataSource {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MetadataTableViewCell") as! MetadataTableViewCell
-            cell.detailTextLabel?.textColor = view.colorTheme.textLightColor
-
             cell.textLabel?.text = metadata.displayName
 
             if let value = (metadata.value as? [Any])?.first {
