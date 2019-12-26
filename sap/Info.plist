@@ -54,6 +54,10 @@
 	<string>443161082811578</string>
 	<key>FacebookDisplayName</key>
 	<string>Photos+</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3029312734389414~7736928915</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -173,9 +177,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>GADIsAdManagerApp</key>
-	<true/>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3029312734389414~7736928915</string>
 </dict>
 </plist>

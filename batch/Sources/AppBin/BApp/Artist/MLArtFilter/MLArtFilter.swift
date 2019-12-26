@@ -68,17 +68,17 @@ class MLArtProcessor {
         return autoreleasepool {
             switch(style){
             case .Muse:
-                return FNS_La_Muse_1().model
+                return FNS_La_Muse().model
             case .Candy:
-                return FNS_Candy_1().model
+                return FNS_Candy().model
             case  .Feathers:
-                return FNS_Feathers_1().model
+                return FNS_Feathers().model
             case  .Udanie:
-                return FNS_Udnie_1().model
+                return FNS_Udnie().model
             case  .Mosaic:
-                return FNS_Mosaic_1().model
+                return FNS_Mosaic().model
             case  .Scream:
-                return FNS_The_Scream_1().model
+                return FNS_The_Scream().model
             }
         }
     }

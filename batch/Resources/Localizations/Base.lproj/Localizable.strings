@@ -314,7 +314,7 @@
 "Custom" = "Custom";
 /* genl10n: RawEditor.swift */
 "Cyan / Blue" = "Cyan / Blue";
-/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift, PhotoEditViewController.swift(2) */
+/* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(4), PhotoEditViewController.swift(2), Finder.BApp.swift, FirebaseMLVision.VisionText.Parser.Types.swift */
 "Date" = "Date";
 /* genl10n: Cleaner.BApp.swift */
 "Deleting Targets" = "Deleting Targets";

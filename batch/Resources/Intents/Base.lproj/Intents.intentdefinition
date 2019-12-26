@@ -5,6 +5,10 @@
 	<key>INEnums</key>
 	<array>
 		<dict>
+			<key>INEnumDisplayName</key>
+			<string>Capture Mode</string>
+			<key>INEnumDisplayNameID</key>
+			<string>KyGYEj</string>
 			<key>INEnumName</key>
 			<string>CameraMode</string>
 			<key>INEnumType</key>
@@ -13,11 +17,9 @@
 			<array>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string></string>
+					<string>Unknown</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>9jIl4Z</string>
-					<key>INEnumValueIndex</key>
-					<integer>0</integer>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
@@ -84,6 +86,8 @@
 			</array>
 		</dict>
 		<dict>
+			<key>INEnumDisplayNameID</key>
+			<string>pKqcgf</string>
 			<key>INEnumName</key>
 			<string>CleanerTarget</string>
 			<key>INEnumType</key>
@@ -95,8 +99,6 @@
 					<string>unknown</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>OdqORs</string>
-					<key>INEnumValueIndex</key>
-					<integer>0</integer>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
@@ -123,6 +125,10 @@
 			</array>
 		</dict>
 		<dict>
+			<key>INEnumDisplayName</key>
+			<string>Live Photo Converts To</string>
+			<key>INEnumDisplayNameID</key>
+			<string>ULddEs</string>
 			<key>INEnumName</key>
 			<string>LivePhotoConvertingType</string>
 			<key>INEnumType</key>
@@ -131,11 +137,9 @@
 			<array>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>unknown</string>
+					<string>Unknown</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>yDq0Zj</string>
-					<key>INEnumValueIndex</key>
-					<integer>0</integer>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
@@ -162,6 +166,10 @@
 			</array>
 		</dict>
 		<dict>
+			<key>INEnumDisplayName</key>
+			<string>Video Converts To</string>
+			<key>INEnumDisplayNameID</key>
+			<string>vK8aje</string>
 			<key>INEnumName</key>
 			<string>VideoConvertingType</string>
 			<key>INEnumType</key>
@@ -170,11 +178,9 @@
 			<array>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>unknown</string>
+					<string>Unknown</string>
 					<key>INEnumValueDisplayNameID</key>
 					<string>wlS6k3</string>
-					<key>INEnumValueIndex</key>
-					<integer>0</integer>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
@@ -212,13 +218,15 @@
 		</dict>
 	</array>
 	<key>INIntentDefinitionModelVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
+	<key>INIntentDefinitionNamespace</key>
+	<string>8a0mct</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>17G65</string>
+	<string>18E226</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>10B61</string>
+	<string>11M337n</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>10.1</string>
+	<string>11.0</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -238,12 +246,6 @@
 			<dict>
 				<key>appName,appId</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>ullQWT</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -255,10 +257,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>wuvNRD</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -274,10 +272,10 @@
 					<integer>1</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>CameraMode</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>8a0mct</string>
 					<key>INIntentParameterName</key>
 					<string>mode</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>3</integer>
 					<key>INIntentParameterType</key>
@@ -286,10 +284,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>5</integer>
 					<key>INIntentParameterType</key>
@@ -298,10 +299,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appName</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>6</integer>
 					<key>INIntentParameterType</key>
@@ -310,30 +314,58 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>4</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataMaximumValue</key>
+						<integer>1</integer>
+						<key>INIntentParameterMetadataType</key>
+						<string>Field</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>launchOption</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>8</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be negative.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>7wZvJ2</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be higher than ${maximumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>zgStFt</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be lower than ${minimumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>UVtait</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
 				<array>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>aaUAJM</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
 						<string>OK. You can take a ${mode} now</string>
@@ -343,6 +375,10 @@
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
@@ -354,10 +390,10 @@
 						<integer>1</integer>
 						<key>INIntentResponseParameterEnumType</key>
 						<string>CameraMode</string>
+						<key>INIntentResponseParameterEnumTypeNamespace</key>
+						<string>8a0mct</string>
 						<key>INIntentResponseParameterName</key>
 						<string>mode</string>
-						<key>INIntentResponseParameterSupportsMultipleValues</key>
-						<false/>
 						<key>INIntentResponseParameterTag</key>
 						<integer>3</integer>
 						<key>INIntentResponseParameterType</key>
@@ -365,16 +401,12 @@
 					</dict>
 				</array>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Open Camera.</string>
 			<key>INIntentTitleID</key>
 			<string>4I4kgH</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -397,10 +429,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>SxTJnu</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -410,12 +438,6 @@
 				</dict>
 				<key>captureOption,appName,appId,cameraMode</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>xCbbJU</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -429,10 +451,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -441,10 +466,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appName</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>7</integer>
 					<key>INIntentParameterType</key>
@@ -453,24 +481,62 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataMaximumValue</key>
+						<integer>1</integer>
+						<key>INIntentParameterMetadataType</key>
+						<string>Field</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>captureOption</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>14</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be negative.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>m81o2t</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be higher than ${maximumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>0awkk3</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be lower than ${minimumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>w4RkMC</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>4</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>CameraMode</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>8a0mct</string>
 					<key>INIntentParameterName</key>
 					<string>cameraMode</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>16</integer>
 					<key>INIntentParameterType</key>
@@ -482,41 +548,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>VJe1Ye</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>gToKXK</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Take A Photo.</string>
 			<key>INIntentTitleID</key>
 			<string>Jvx2bY</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Do</string>
 		</dict>
@@ -537,10 +585,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>2FuVya</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -554,10 +598,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -566,10 +613,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appName</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>2</integer>
 					<key>INIntentParameterType</key>
@@ -578,14 +628,52 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>3</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataMaximumValue</key>
+						<integer>1</integer>
+						<key>INIntentParameterMetadataType</key>
+						<string>Field</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>launchOption</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>4</integer>
 					<key>INIntentParameterType</key>
 					<string>Integer</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be negative.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>T1ZlmH</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be higher than ${maximumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>i5NmPO</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can't be lower than ${minimumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>CHJquo</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
@@ -593,41 +681,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>sTSQab</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>gcfCxe</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Open App</string>
 			<key>INIntentTitleID</key>
 			<string>DckJin</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -648,12 +718,6 @@
 			<dict>
 				<key>target,appId</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>33ZQVZ</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -667,10 +731,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -681,10 +748,10 @@
 					<integer>2</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>CleanerTarget</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>8a0mct</string>
 					<key>INIntentParameterName</key>
 					<string>target</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>5</integer>
 					<key>INIntentParameterType</key>
@@ -696,41 +763,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>nYO7Q1</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>wGJ2Li</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Choose To Delete.</string>
 			<key>INIntentTitleID</key>
 			<string>TIJEu1</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -753,10 +802,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>9mhImM</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -770,10 +815,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -785,41 +833,25 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>g8Qgz2</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>BHQYU5</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
 				<integer>1</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Give Me That Phone Number.</string>
 			<key>INIntentTitleID</key>
 			<string>yM8RqU</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -840,12 +872,6 @@
 			<dict>
 				<key>appId</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>MwFaOV</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -859,10 +885,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -874,41 +903,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>1Oay1R</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>KKKpbl</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Take A GIF With Live Photo</string>
 			<key>INIntentTitleID</key>
 			<string>ZUWAEC</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -931,10 +942,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>2a1OGA</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<false/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -948,10 +955,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -962,10 +972,10 @@
 					<integer>2</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>LivePhotoConvertingType</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>8a0mct</string>
 					<key>INIntentParameterName</key>
 					<string>into</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>5</integer>
 					<key>INIntentParameterType</key>
@@ -977,41 +987,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>M4274O</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>WIRt1L</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Convert the last Live Photo into another.</string>
 			<key>INIntentTitleID</key>
 			<string>p7qwJF</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1032,12 +1024,6 @@
 			<dict>
 				<key>into,appId</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>SBpnz8</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1051,10 +1037,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1065,10 +1054,10 @@
 					<integer>2</integer>
 					<key>INIntentParameterEnumType</key>
 					<string>VideoConvertingType</string>
+					<key>INIntentParameterEnumTypeNamespace</key>
+					<string>8a0mct</string>
 					<key>INIntentParameterName</key>
 					<string>into</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>3</integer>
 					<key>INIntentParameterType</key>
@@ -1080,41 +1069,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>s3JkEu</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>4fIWBG</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Convert the last Video into another.</string>
 			<key>INIntentTitleID</key>
 			<string>SMLHhI</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1135,12 +1106,6 @@
 			<dict>
 				<key>appId,appName</key>
 				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<false/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>WjO6TF</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1154,10 +1119,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1166,10 +1134,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appName</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>2</integer>
 					<key>INIntentParameterType</key>
@@ -1181,41 +1152,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>UddSOw</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>ZDBE4f</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Auto Select.</string>
 			<key>INIntentTitleID</key>
 			<string>UQnvTr</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1238,10 +1191,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>camo03</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1255,10 +1204,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1270,41 +1222,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>lvvd4g</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>I2nESf</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Recognize Text.</string>
 			<key>INIntentTitleID</key>
 			<string>tRAr4x</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1327,10 +1261,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>tQHBkY</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1344,10 +1274,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1359,41 +1292,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>qX2FEQ</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>RAo46T</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Save the copied image.</string>
 			<key>INIntentTitleID</key>
 			<string>LOB8q8</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Get</string>
 		</dict>
@@ -1416,10 +1331,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>Bi9gEi</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1433,10 +1344,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1448,41 +1362,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>9l19pD</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>tnOysA</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Capture All Text.</string>
 			<key>INIntentTitleID</key>
 			<string>9ymxym</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1505,10 +1401,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>FlIpmf</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1522,10 +1414,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1537,41 +1432,23 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>JXApic</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>OwXE3N</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Capture Actions To Do.</string>
 			<key>INIntentTitleID</key>
 			<string>6wHM2F</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
@@ -1592,10 +1469,6 @@
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
-					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
-					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>QstDy1</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
@@ -1609,10 +1482,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>appId</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -1621,10 +1497,13 @@
 				<dict>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataCapitalization</key>
+						<string>None</string>
+					</dict>
 					<key>INIntentParameterName</key>
 					<string>doWhat</string>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<false/>
 					<key>INIntentParameterTag</key>
 					<integer>2</integer>
 					<key>INIntentParameterType</key>
@@ -1636,44 +1515,28 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>Loqj0E</string>
-						<key>INIntentResponseCodeName</key>
-						<string>failure</string>
-						<key>INIntentResponseCodeSuccess</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>INIntentResponseCodeFormatString</key>
-						<string></string>
-						<key>INIntentResponseCodeFormatStringID</key>
-						<string>yyKxJ2</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
 				</array>
-				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
-				<key>INIntentResponseParameters</key>
-				<array/>
 			</dict>
-			<key>INIntentRestrictions</key>
-			<integer>0</integer>
 			<key>INIntentTitle</key>
 			<string>Do Any Task</string>
 			<key>INIntentTitleID</key>
 			<string>JTq2KS</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
-			<key>INIntentUserConfirmationRequired</key>
-			<false/>
 			<key>INIntentVerb</key>
 			<string>Run</string>
 		</dict>
 	</array>
+	<key>INTypes</key>
+	<array/>
 </dict>
 </plist>

@@ -116,6 +116,8 @@ class PhotoPickerViewController: AppDockViewController {
             registerForPreviewing(with: self, sourceView: photoCollectionView)  // self here is UIViewController type, and view is property of UIViewController
             registerForPreviewing(with: self, sourceView: batchPreviewView)
         }
+        
+        currentTraitCollection = traitCollection
 
         //listen PHPhotoLibrary changes
         PhotosManager.default.watch(\.changes) {
@@ -179,6 +181,8 @@ class PhotoPickerViewController: AppDockViewController {
         //INFO: maintain last
         updateUIDisplays()
     }
+    
+    internal var currentTraitCollection: UITraitCollection?
 
     @objc private func loadPhotoLibraryIfNeeded() {
         PhotosManager.default.authorizeIfNeeded { authorized in
@@ -189,6 +193,12 @@ class PhotoPickerViewController: AppDockViewController {
                 self.updateNavigationLeftBarButton()
             }
         }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        currentTraitCollection = traitCollection
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -797,6 +807,7 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
 
             let navigationController = AppDockNavigationController(rootViewController: photoEditViewController)
             navigationController.transitioningDelegate = photoEditViewController
+            navigationController.modalPresentationStyle = .fullScreen
 
             present(navigationController, animated: animated) {
                 AppCenter.default.currentInstanceAs(ConfigurableApp.self)?.setConfigValues(AppConfigUIAttribute(tintColor: self.view.colorTheme.textColor))
