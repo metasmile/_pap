@@ -303,7 +303,9 @@ class PhotoPickerViewController: AppDockViewController {
             self.updateUndoButtonStatus(app)
         }
         
-        allowSelection = !((AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false)
+        if (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout == true || AppAssets.selected.count == 0 {
+            allowSelection = false
+        }
 
         redisplayVisibleCellsEnabled()
         appDockView?.reloadKeepingDrawerOpened()
