@@ -302,6 +302,8 @@ class PhotoPickerViewController: AppDockViewController {
         if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
             self.updateUndoButtonStatus(app)
         }
+        
+        allowSelection = !((AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout ?? false)
 
         redisplayVisibleCellsEnabled()
         appDockView?.reloadKeepingDrawerOpened()
@@ -462,8 +464,15 @@ class PhotoPickerViewController: AppDockViewController {
         //update done execution state
         updateNavigationLeftBarButton()
 
-        if appDockView?.accessory == nil {
-            appDockView?.accessory = batchPreviewView
+        if allowSelection {
+            if appDockView?.accessory == nil {
+                appDockView?.accessory = batchPreviewView
+            }
+        } else {
+            if appDockView?.accessory != nil {
+                appDockView?.accessory = nil
+                batchPreviewView.reloadContent()
+            }
         }
     }
 
