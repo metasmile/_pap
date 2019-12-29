@@ -288,7 +288,7 @@
 "Select Photos To Find Something." = "Select Photos To Find Something.";
 /* genl10n: PhotoPickerViewController.swift */
 "Select items" = "Select items";
-/* genl10n: PhotoPickerViewController.Operations.Universal.swift */
+/* genl10n: PhotoPickerViewController.swift */
 "Select" = "Select";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(3) */
 "Send an Email" = "Send an Email";

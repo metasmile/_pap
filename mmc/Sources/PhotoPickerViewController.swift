@@ -75,7 +75,7 @@ class PhotoPickerViewController: AppDockViewController {
 
     var allowSelection = false {
         didSet {
-            if allowSelection == true {
+            if allowSelection {
                 
                 updateUIDisplays()
                 updateVisibleCellsEnabled()
@@ -466,7 +466,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateNavigationLeftBarButton()
         updateNavigationRightBarButton()
 
-        if allowSelection {
+        if allowSelection && estimatedAvailableSelectedItems > 0 {
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
@@ -502,7 +502,7 @@ class PhotoPickerViewController: AppDockViewController {
     internal func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            if self.allowSelection {
+            if allowSelection {
                 if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
                     self.updateUndoButtonStatus(app)
 
@@ -531,32 +531,26 @@ class PhotoPickerViewController: AppDockViewController {
     
     // Modified & Copied from func updateDoneButtonChargeableState - batch/Sources/PhotoPickerViewController.Operations.ChargeableApp.swift
     func updateNavigationRightBarButton() {
-        let selected = self.estimatedAvailableSelectedItems > 0
-        
         //INFO: keep activity indicator in right bar button
         guard !batchPreviewView.isTaskRunning else { return }
+    
+        if estimatedAvailableSelectedItems > 0 { // Configure Done button
+            if let color = AppCenter.default.current?.info.themeColor {
+                self.doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .normal)
         
-        if let color = AppCenter.default.current?.info.themeColor {
-            self.doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .normal)
-            
-        }else {
-            self.doneButton.setTitleTextAttributes([:], for: .normal)
-        }
-        
-        if selected {
+            }else {
+                self.doneButton.setTitleTextAttributes([:], for: .normal)
+            }
             self.doneButton.action = #selector(self.doneButtonDidTap)
-            
             navigationItem.setRightBarButtonItems([self.doneButton], animated: true)
             
-        } else {
+        } else {  // Configure Non-Done button
             
-            var barButtonItems = [UIBarButtonItem]()
-            
-            if !self.allowSelection {
-                barButtonItems.append(UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap)))
+            if allowSelection {
+                navigationItem.setRightBarButtonItems(nil, animated: true)
+            } else {
+                navigationItem.setRightBarButtonItems([UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap))], animated: true)
             }
-            
-            navigationItem.setRightBarButtonItems(barButtonItems, animated: false)
         }
     }
     
