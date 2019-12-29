@@ -39,3 +39,7 @@ extension InfoStrings:InfoStringsExternalDelegate{
         return "Get Text And Then Do Something.".localized
     }
 }
+
+extension AppColorTheme:AppColorDefaultThemeExternalDelegate{
+    private(set) static var theme: AppColorTheme = .dark
+}
