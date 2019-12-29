@@ -867,11 +867,11 @@ extension UICamera {
     }
     
     var videoMinZoomFactor: CGFloat {
-        return self.currentCaptureDevice?.activeFormat.videoMinZoomFactorForDepthDataDelivery ?? 1
+        return self.currentCaptureDevice?.minAvailableVideoZoomFactor ?? 1
     }
     
     var videoMaxZoomFactor: CGFloat {
-        return self.currentCaptureDevice?.activeFormat.videoMaxZoomFactorForDepthDataDelivery ?? 1
+        return self.currentCaptureDevice?.maxAvailableVideoZoomFactor ?? 1
     }
     
     private(set) var videoZoomFactor: CGFloat {
