@@ -76,8 +76,7 @@ class PhotoPickerViewController: AppDockViewController {
     var allowSelection = false {
         didSet {
             if allowSelection == true {
-                updateNavigationLeftBarButton()
-
+                
                 updateUIDisplays()
                 updateVisibleCellsEnabled()
             }
@@ -193,7 +192,7 @@ class PhotoPickerViewController: AppDockViewController {
                 if authorized {
                     self.loadPhotoLibraryInCurrentCollection()
                 }
-                self.updateNavigationLeftBarButton()
+                
             }
         }
     }
@@ -465,6 +464,7 @@ class PhotoPickerViewController: AppDockViewController {
 
         //update done execution state
         updateNavigationLeftBarButton()
+        updateNavigationRightBarButton()
 
         if allowSelection {
             if appDockView?.accessory == nil {
@@ -527,6 +527,42 @@ class PhotoPickerViewController: AppDockViewController {
             navigationItem.hidesBackButton = true
             navigationItem.setLeftBarButtonItems([UIBarButtonItem(image: R.image.systemIconWarning(), style: .plain, target: self, action: #selector(self.loadPhotoLibraryIfNeeded))], animated: true)
         }
+    }
+    
+    // Modified & Copied from func updateDoneButtonChargeableState - batch/Sources/PhotoPickerViewController.Operations.ChargeableApp.swift
+    func updateNavigationRightBarButton() {
+        let selected = self.estimatedAvailableSelectedItems > 0
+        
+        //INFO: keep activity indicator in right bar button
+        guard !batchPreviewView.isTaskRunning else { return }
+        
+        if let color = AppCenter.default.current?.info.themeColor {
+            self.doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: .normal)
+            
+        }else {
+            self.doneButton.setTitleTextAttributes([:], for: .normal)
+        }
+        
+        if selected {
+            self.doneButton.action = #selector(self.doneButtonDidTap)
+            
+            navigationItem.setRightBarButtonItems([self.doneButton], animated: true)
+            
+        } else {
+            
+            var barButtonItems = [UIBarButtonItem]()
+            
+            if !self.allowSelection {
+                barButtonItems.append(UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap)))
+            }
+            
+            navigationItem.setRightBarButtonItems(barButtonItems, animated: false)
+        }
+    }
+    
+    // Copied from func updateDoneButtonChargeableState - batch/Sources/PhotoPickerViewController.Operations.ChargeableApp.swift
+    @objc fileprivate func selectButtonDidTap() {
+        self.allowSelection = true
     }
 
     var estimatedAvailableSelectedItems:Int{
